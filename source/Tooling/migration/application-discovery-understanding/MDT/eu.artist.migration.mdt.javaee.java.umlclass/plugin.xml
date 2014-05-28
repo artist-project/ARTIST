@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.core.discoverer">
+      <discoverer
+            class="eu.artist.migration.mdt.javaee.java.umlclass.Java2UMLDiscoverer"
+            id="eu.artist.migration.mdt.javaee.java.umlclass">
+      </discoverer>
+   </extension>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+      <discoverer
+            discovererID="eu.artist.migration.mdt.javaee.java.umlclass"
+            icon="icons/artist.png"
+            label="Java2UMLDiscoverer - Class Diagram">
+      </discoverer>
+   </extension>
+
+</plugin>

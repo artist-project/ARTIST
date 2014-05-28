@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.core.discoverer">
+      <discoverer
+            class="eu.artist.migration.mdt.javaee.java.umlactivity.Java2UMLActivityDiscoverer"
+            id="eu.artist.migration.mdt.javaee.java.umlactivity.cfg">
+      </discoverer>
+      <discoverer
+            class="eu.artist.migration.mdt.javaee.java.umlactivity.Java2UMLActivityDiscovererFull"
+            id="eu.artist.migration.mdt.javaee.java.umlactivity">
+      </discoverer>
+   </extension>
+   <extension
+         point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+      <discoverer
+            discovererID="eu.artist.migration.mdt.javaee.java.umlactivity.cfg"
+            icon="icons/artist.png"
+            label="Java2UMLDiscoverer - Activity Diagram - Control Flow Graph">
+      </discoverer>
+      <discoverer
+            discovererID="eu.artist.migration.mdt.javaee.java.umlactivity"
+            icon="icons/artist.png"
+            label="Java2UMLDiscoverer - Activity Diagram">
+      </discoverer>
+   </extension>
+
+</plugin>
