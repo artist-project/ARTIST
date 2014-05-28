@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<!-- Ecore URI mapping -->
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://UML_PROFILE_STORE/PROFILES/"
+            target="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/">
+      </mapping>
+   </extension>
+   
+   <!-- UML extension points -->
+  	  <extension
+           id="eu.artist.migration.umlprofilestore"
+           name="UML-Profile-Store-Registry"
+           point="org.eclipse.uml2.uml.dynamic_package">
+        <profile
+              location="pathmap://UML_PROFILE_STORE/PROFILES/"
+              uri="http:///schemas/EclipseLink/_GORcILa9EeO18drHSS_Uww/0">
+        </profile> 
+  	  </extension> 
+   
+   <!-- Papyrus extension points -->
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for EBJ3.0"
+            iconpath="icon/icon.png"
+            name="EJB3.0"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/ejb3.0_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for EBJ3.2"
+            iconpath="icon/icon.png"
+            name="EJB3.2"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/ejb3.2_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for FindBugs"
+            iconpath="icon/icon.png"
+            name="FindBugs"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/findBugs_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>   
+   
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Hibernate"
+            iconpath="icon/icon.png"
+            name="Hibernate"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/hibernate-core_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+  
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Javax Annotation"
+            iconpath="icon/icon.png"
+            name="Javax Annotation"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/javax.annotation_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension> 
+   
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Javax CDI"
+            iconpath="icon/icon.png"
+            name="Java CDI"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/javax.cdi_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension> 
+  
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Javax Inject"
+            iconpath="icon/icon.png"
+            name="Javax Inject"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/javax.inject_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>  
+  
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Javax Interceptor"
+            iconpath="icon/icon.png"
+            name="Javax Interceptor"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/javax.interceptor_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Javax Validation"
+            iconpath="icon/icon.png"
+            name="Javax Validation"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/javax.validation_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>   
+
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Java WS"
+            iconpath="icon/icon.png"
+            name="Java WS"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/javax.ws_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for JAXB"
+            iconpath="icon/icon.png"
+            name="JAXB"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jaxb_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for JBoss Arquillian"
+            iconpath="icon/icon.png"
+            name="JBoss Arquillian"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jboss-arquillian_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+ 
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for JDK"
+            iconpath="icon/icon.png"
+            name="JDK"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jdk7_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>  
+   
+   
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for JPA2"
+            iconpath="icon/icon.png"
+            name="JPA2"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jpa2_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+    <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Junit"
+            iconpath="icon/icon.png"
+            name="Junit"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/junit_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>   
+   
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Objectify"
+            iconpath="icon/icon.png"
+            name="Objectify"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Spring"
+            iconpath="icon/icon.png"
+            name="Spring"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/spring-bundle_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>    
+   
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile for Struts"
+            iconpath="icon/icon.png"
+            name="Struts"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/struts-bundle_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="UML Profile Google Morphia"
+            iconpath="icon/icon.png"
+            name="Google Morphia"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/morphia_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+         <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="EclipseLink"
+            iconpath="icon/icon.png"
+            name="EclipseLink"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/eclipselink_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+            <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="Platform-independent persistence profile"
+            iconpath="icon/icon.png"
+            name="PIP-Persistence"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/persistence_pip_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>
+   
+      <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="Profile for expressing platform requirements at component level"
+            iconpath="icon/icon.png"
+            name="PlatformCollection"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension> 
+   
+         <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="Profile for expressing deployment requirements"
+            iconpath="icon/icon.png"
+            name="Deployment"
+            path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/deployment_profile.profile.uml"
+            provider="TUWien">
+      </profile>
+   </extension>       
+   
+
+</plugin>
