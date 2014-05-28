@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">    
+    <!-- Icon Overlay Field: Display name is not localized for a hidden field -->    
+    <Field ID="{B77CDBCF-5DCE-4937-85A7-9FC202705C91}" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v4" Name="IconOverlay" StaticName="IconOverlay" DisplayName="IconOverlay" Type="Text" Required="FALSE" Hidden="TRUE"></Field>
+    <Field Type="MultiChoice" Group="_Hidden" DisplayName="$Resources:mplib_schema_uiversion;" SourceID="http://schemas.microsoft.com/sharepoint/v4" Required="FALSE" Indexed="FALSE" FillInChoice="FALSE" ID="{8e334549-c2bd-4110-9f61-672971be6504}" StaticName="UIVersion" Name="UIVersion">
+            <CHOICES>
+                <CHOICE>3</CHOICE>
+                <CHOICE>4</CHOICE>
+            </CHOICES>
+            <Default>4</Default>
+    </Field>
+    <Field ID="{423874f8-c300-4bfb-b7a1-42e2159e3b19}" Name="SortBehavior" SourceID="http://schemas.microsoft.com/sharepoint/v4" StaticName="SortBehavior" Group="_Hidden" ReadOnly="TRUE" Hidden="TRUE" ShowInFileDlg="FALSE" Type="Lookup" DisplayName="$Resources:core,Sort_Behavior_Type;" List="Docs" FieldRef="ID" ShowField="SortBehavior" JoinColName="DoclibRowId" JoinRowOrdinal="0" JoinType="INNER">
+    </Field>
+    <Field ID="{960ff01f-2b6d-4f1b-9c3f-e19ad8927341}" Name="FolderChildCount" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="FolderChildCount" Group="_Hidden" ReadOnly="TRUE" Filterable="FALSE" Sortable="FALSE" Hidden="FALSE" Type="Lookup" DisplayName="$Resources:core,Folder_Child_Count;" List="Docs" FieldRef="ID" ShowField="FolderChildCount" JoinColName="DoclibRowId" JoinRowOrdinal="0" JoinType="INNER">
+    </Field>
+    <Field ID="{b824e17e-a1b3-426e-aecf-f0184d900485}" Name="ItemChildCount" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ItemChildCount" Group="_Hidden" ReadOnly="TRUE" Filterable="FALSE" Sortable="FALSE" Hidden="FALSE" Type="Lookup" DisplayName="$Resources:core,Item_Child_Count;" List="Docs" FieldRef="ID" ShowField="ItemChildCount" JoinColName="DoclibRowId" JoinRowOrdinal="0" JoinType="INNER">
+    </Field>    
+    <Field ID="{e6985df4-cf66-4313-bcda-d89744d3b02f}" Name="EmailHeaders" SourceID="http://schemas.microsoft.com/sharepoint/v4" StaticName="EmailHeaders" Group="_Hidden" Type="Note" DisplayName="$Resources:core,E-Mail_Headers;" Sealed="TRUE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE" ShowInListSettings="FALSE" ShowInNewForm="FALSE" Required="FALSE"></Field>
+    <Field ID="{1344423c-c7f9-4134-88e4-ad842e2d723c}" Hidden="TRUE" ReadOnly="TRUE" Type="Computed" Name="_EditMenuTableStart2" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="_EditMenuTableStart2" Group="_Hidden" DisplayName="$Resources:core,Edit_Menu_Table_Start;" ClassInfo="Menu" FromBaseType="TRUE">
+        <FieldRefs>
+            <FieldRef ID="{687c7f94-686a-42d3-9b67-2782eac4b4f8}" Name="FileLeafRef"></FieldRef>
+            <FieldRef ID="{56605df6-8fa1-47e4-a04c-5b384d59609f}" Name="FileDirRef"></FieldRef>
+            <FieldRef ID="{30bb605f-5bae-48fe-b4e3-1f81d9772af9}" Name="FSObjType"></FieldRef>
+            <FieldRef ID="{1d22ea11-1e32-424e-89ab-9fedbadb6ce1}" Name="ID"></FieldRef>
+            <FieldRef ID="{105f76ce-724a-4bba-aece-f81f2fce58f5}" Name="ServerUrl"></FieldRef>
+            <FieldRef ID="{0c5e0085-eb30-494b-9cdd-ece1d3c649a2}" Name="HTML_x0020_File_x0020_Type"></FieldRef>
+            <FieldRef ID="{39360f11-34cf-4356-9945-25c44e68dade}" Name="File_x0020_Type"></FieldRef>
+            <FieldRef ID="{9d30f126-ba48-446b-b8f9-83745f322ebe}" Name="LinkFileNameNoMenu"></FieldRef>
+            <FieldRef ID="{BA3C27EE-4791-4867-8821-FF99000BAC98}" Name="PermMask"></FieldRef>
+            <FieldRef ID="{1df5e554-ec7e-46a6-901d-d85a3881cb18}" Name="Author"></FieldRef>
+            <FieldRef ID="{3881510a-4e4a-4ee8-b102-8ee8e2d0dd4b}" Name="CheckedOutUserId"></FieldRef>
+            <FieldRef ID="{c63a459d-54ba-4ab7-933a-dcf1c6fadec2}" Name="_SourceUrl"></FieldRef>
+            <FieldRef ID="{26d0756c-986a-48a7-af35-bf18ab85ff4a}" Name="_HasCopyDestinations"></FieldRef>
+            <FieldRef ID="{6b4e226d-3d88-4a36-808d-a129bf52bccf}" Name="_CopySource"></FieldRef>
+            <FieldRef ID="{fdc3b2ed-5bf2-4835-a4bc-b885f3396a61}" Name="_ModerationStatus"></FieldRef>
+            <FieldRef ID="{7841bf41-43d0-4434-9f50-a673baef7631}" Name="_UIVersion"></FieldRef>
+            <FieldRef ID="{03e45e84-1992-4d42-9116-26f756012634}" Name="ContentTypeId"></FieldRef>
+        </FieldRefs>
+        <DisplayPattern>
+                    <HTML><![CDATA[<table height="100%" cellspacing="0" class="ms-unselectedtitle" onmouseover="OnItem(this)" CTXName="ctx]]></HTML>
+                    <Counter Type="View"></Counter><HTML>&quot; Id=&quot;</HTML>
+                    <Column Name="ID" HTMLEncode="TRUE"></Column>
+                    <HTML>&quot; Url=&quot;</HTML>
+                    <Field Name="ServerUrl" URLEncodeAsURL="TRUE"></Field>
+                    <HTML>&quot; DRef=&quot;</HTML>
+                    <Field Name="FileDirRef" HTMLEncode="TRUE"></Field>
+                    <HTML>&quot; Perm=&quot;</HTML>
+                    <Field Name="PermMask"></Field>
+                    <HTML>&quot; Type=&quot;</HTML>
+                    <Column Name="HTML_x0020_File_x0020_Type"></Column>
+                    <HTML>&quot; Ext=&quot;</HTML>
+                    <Column Name="File_x0020_Type"></Column>
+                    <HTML>&quot; Icon=&quot;</HTML>
+                    <MapToAll><Column Name="HTML_x0020_File_x0020_Type"></Column><HTML>|</HTML><Column Name="File_x0020_Type"></Column></MapToAll>
+                    <HTML>&quot; OType=&quot;</HTML>
+                    <LookupColumn Name="FSObjType" HTMLEncode="TRUE"></LookupColumn>
+                    <HTML>&quot; COUId=&quot;</HTML>
+                    <Field Name="CheckedOutUserId"></Field>
+                    <HTML>&quot; Author=&quot;</HTML>
+                    <Column Name="Author" HTMLEncode="TRUE"></Column>
+                    <HTML>&quot; HCD=&quot;</HTML>
+                    <Column Name="_HasCopyDestinations"></Column>
+                    <HTML>&quot; CSrc=&quot;</HTML>
+                    <Column Name="_CopySource" URLEncodeAsURL="TRUE"></Column>
+                    <HTML>&quot; MS=&quot;</HTML>
+                    <Column Name="_ModerationStatus"></Column>
+                    <HTML>&quot; UIS=&quot;</HTML>
+                    <Column Name="_UIVersion"></Column>
+                    <HTML>&quot; SUrl=&quot;</HTML>
+                    <Column Name="_SourceUrl" URLEncode="TRUE"></Column>
+                    <HTML><![CDATA[" CType="]]></HTML>
+                    <Column Name="ContentType" HTMLEncode="TRUE"></Column>
+                    <HTML><![CDATA[" CId="]]></HTML>
+                    <Column Name="ContentTypeId" HTMLEncode="TRUE"></Column>
+                    <GetVar Name="_EditMenuTableExtra" HTMLEncode="TRUE"></GetVar>
+                    <HTML><![CDATA["><tr><td width="100%" Class="ms-vb">]]></HTML>
+        </DisplayPattern>
+    </Field>
+    <!--   Tasks -->
+    <Field ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}" Name="Predecessors" Group="$Resources:Issue_Task_Columns" Type="LookupMulti" Mult="TRUE" Required="FALSE" DisplayName="$Resources:core,Tasks_Predecessors;" SourceID="http://schemas.microsoft.com/sharepoint/v4" StaticName="Predecessors" PrependId="TRUE" List="Self" ShowField="Title">
+    </Field>
+    <!-- User Info List -->
+    <Field ID="{BF03D3CA-AA6E-4845-809A-B4378B37CE08}" Name="MobilePhone" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="MobilePhone" Group="_Hidden" DisplayName="$Resources:core,Mobile_Number;" ReadOnly="FALSE" Type="Text" FromBaseType="TRUE">
+    </Field>
+    <!-- Discussion Board -->
+    <Field ID="{078B9DBA-EB8C-4ec5-BFDD-8D220A3FCC5D}" FieldRef="Editor" RowOrdinal="0" ReadOnly="TRUE" Type="User" List="UserInfo" Name="MyEditor" SourceID="http://schemas.microsoft.com/sharepoint/v3" DisplayName="$Resources:core,Modified_By;" StaticName="MyEditor" FromBaseType="TRUE" Required="FALSE" Group="" ShowField="NameWithPicture" AuthoringInfo="$Resources:core,picture_and_name;"></Field>
+    <!-- Core Image Fields -->
+    <Field ID="{F08AB41D-9A03-49ae-9413-6CD284A15625}" Type="Text" Group="$Resources:Document_Columns" Name="wic_System_Copyright" DisplayName="$Resources:core,Copyright" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="wic_System_Copyright">
+    </Field>
+    <Field ID="{1F43CD21-53C5-44c5-8675-B8BB86083244}" Name="ThumbnailExists" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="ThumbnailExists" Group="_Hidden" ReadOnly="TRUE" Type="Boolean" DisplayName="$Resources:core,ThumbnailExists;" Hidden="TRUE" Required="FALSE">
+        <Default>FALSE</Default>
+    </Field>
+    <Field ID="{8C0D0AAC-9B76-4951-927A-2490ABE13C0B}" Type="Computed" Name="PreviewOnForm" Group="_Hidden" ShowInEditForm="FALSE" ShowInNewForm="FALSE" ShowInFileDlg="FALSE" DisplayName="$Resources:core,Preview;" Sealed="TRUE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="PreviewOnForm">
+        <FieldRefs>
+            <FieldRef ID="{30BB605F-5BAE-48fe-B4E3-1F81D9772AF9}" Name="FSObjType"></FieldRef>
+            <FieldRef ID="{A1CA0063-779F-49f9-999C-A4A2E3645B07}" Name="EncodedAbsWebImgUrl"></FieldRef>
+            <FieldRef ID="{1F43CD21-53C5-44c5-8675-B8BB86083244}" Name="PreviewExists"></FieldRef>
+            <FieldRef ID="{F39D44AF-D3F3-4ae6-B43F-AC7330B5E9BD}" Name="AlternateThumbnailUrl"></FieldRef>
+        </FieldRefs>
+        <DisplayPattern>
+            <HTML><![CDATA[<a href=']]></HTML>
+            <Field Name="EncodedAbsUrl"></Field>
+            <HTML><![CDATA['><img id=webImgShrinked alt="]]></HTML>
+            <IfEqual>
+                <Expr1><Column Name="Description"></Column></Expr1>
+                <Expr2></Expr2>
+                <Then><HTML><![CDATA[$Resources:core,Picture;]]></HTML></Then>
+                <Else>
+                    <Column Name="Description" HTMLEncode="TRUE"></Column>
+                </Else>
+            </IfEqual>
+            <HTML><![CDATA[" galleryimg=false border="0" src=']]></HTML>
+            <Field Name="EncodedAbsWebImgUrl"></Field><HTML>
+            <![CDATA['></a>]]></HTML>
+        </DisplayPattern>
+    </Field>
+    <Field ID="{3CA8EFCD-96E8-414f-BA90-4C8C4A8BFEF8}" Name="PreviewExists" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="PreviewExists" Group="_Hidden" ReadOnly="TRUE" Type="Boolean" DisplayName="$Resources:core,PreviewExists;" Hidden="TRUE" Required="FALSE">
+        <Default>FALSE</Default>
+    </Field>
+    <Field ID="{9941082A-4160-46a1-A5B2-03394BFDF7EE}" Type="Computed" Name="ThumbnailOnForm" Group="_Hidden" ShowInEditForm="FALSE" ShowInNewForm="FALSE" ShowInFileDlg="FALSE" DisplayName="$Resources:core,ThumbnailOnForm;" Sealed="TRUE" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="ThumbnailOnForm">
+        <FieldRefs>
+            <FieldRef ID="{A1CA0063-779F-49f9-999C-A4A2E3645B07}" Name="EncodedAbsThumbnailUrl"></FieldRef>
+            <FieldRef ID="{30BB605F-5BAE-48fe-B4E3-1F81D9772AF9}" Name="FSObjType"></FieldRef>
+            <FieldRef ID="{1F43CD21-53C5-44c5-8675-B8BB86083244}" Name="ThumbnailExists"></FieldRef>
+            <FieldRef ID="{F39D44AF-D3F3-4ae6-B43F-AC7330B5E9BD}" Name="AlternateThumbnailUrl"></FieldRef>
+            <FieldRef ID="{081c6e4c-5c14-4f20-b23e-1a71ceb6a67c}" Name="DocIcon"></FieldRef>
+        </FieldRefs>
+        <DisplayPattern>
+            <HTML><![CDATA[<a href=']]></HTML>
+            <Field Name="EncodedAbsUrl"></Field>
+            <HTML><![CDATA['>]]></HTML>
+            <IfEqual>
+                <Expr1>
+                    <LookupColumn Name="FSObjType"></LookupColumn>
+                </Expr1>
+                <Expr2>1</Expr2>
+                <Then>
+                    <Field Name="DocIcon"></Field>
+                </Then>
+                <Else>
+                    <HTML><![CDATA[<img id=webImgShrinked alt="]]></HTML>
+                    <IfEqual>
+                      <Expr1>
+                        <Column Name="Description"></Column>
+                      </Expr1>
+                      <Expr2></Expr2>
+                      <Then>
+                        <HTML><![CDATA[$Resources:core,Picture;]]></HTML>
+                      </Then>
+                      <Else>
+                        <Column Name="Description" HTMLEncode="TRUE"></Column>
+                      </Else>
+                    </IfEqual>
+                    <HTML><![CDATA[" border="0" src=']]></HTML>
+                    <Field Name="EncodedAbsThumbnailUrl"></Field>
+                    <HTML>
+                        <![CDATA['>]]>
+                    </HTML>
+                </Else>
+            </IfEqual>
+            <HTML>
+                <![CDATA[</a>]]>
+            </HTML>
+        </DisplayPattern>
+    </Field>
+    <!-- End Core Image Fields -->
+    <!-- Begin No Code Workflow Library Fields -->
+    <Field ID="{A05A8639-088A-4aea-B8A9-AFC888971C81}" Name="NoCodeVisibility" DisplayName="$Resources:NoCodeVisibility" Type="Text" Hidden="TRUE" ReadOnly="TRUE" Sealed="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v4/fields" Node="WorkflowConfig/Template/@Visibility" Group="_Hidden"></Field>
+    <Field ID="{B75067A2-E23B-499f-AA07-4CEB6C79E0B3}" Name="AssociatedListId" DisplayName="$Resources:AssociatedListId" Type="Text" Hidden="TRUE" ReadOnly="TRUE" Sealed="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v4/fields" Node="WorkflowConfig/Association/@ListID" Group="_Hidden"></Field>
+    <Field ID="{8B02A33C-ACCD-4b73-BCAE-6932C7AAB812}" Name="RestrictContentTypeId" DisplayName="$Resources:RestrictContentTypeId" Type="Text" Hidden="TRUE" ReadOnly="TRUE" Sealed="TRUE" Node="WorkflowConfig/Template/@ContentTypeID" Group="_Hidden"></Field>
+    <Field ID="{5263CD09-A770-4549-B012-D9F3DF3D8DF6}" Name="WorkflowDisplayName" DisplayName="$Resources:WorkflowDisplayName" Type="Text" Hidden="TRUE" ReadOnly="TRUE" Sealed="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v4/fields" Node="WorkflowConfig/Template/@Name" Group="_Hidden"></Field>
+    <!-- End No Code Workflow Library Fields -->
+    <!-- Begin GroupBoard Fields -->
+    <Field ID="{8137f7ad-9170-4c1d-a17b-4ca7f557bc88}" Name="ParticipantsPicker" StaticName="ParticipantsPicker" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="UserMulti" DisplayName="$Resources:core,GBW_SR_Participants_Field;" Group="_Hidden" List="UserInfo" Mult="TRUE" ShowField="ImnName" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{453c2d71-c41e-46bc-97c1-a5a9535053a3}" Name="Participants" StaticName="Participants" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Note" DisplayName="HiddenParticipants" Group="_Hidden" Sealed="TRUE" Hidden="TRUE">
+    </Field>
+    <Field ID="{a4e7b3e1-1b0a-4ffa-8426-c94d4cb8cc57}" Name="Facilities" StaticName="Facilities" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Facilities" DisplayName="$Resources:core,GBW_SR_Facilities_Field;" Group="_Hidden" Mult="TRUE" ShowField="Title" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{393003f9-6ccb-4ea9-9623-704aa4748dec}" Name="FreeBusy" StaticName="FreeBusy" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="FreeBusy" DisplayName="$Resources:core,GBW_SR_FreeBusyCalendar_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{d8cd5bcf-3768-4d6c-a8aa-fefa3c793d8d}" Name="Overbook" StaticName="Overbook" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Overbook" DisplayName="$Resources:core,GBW_SR_Overbook_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{afaa4198-9797-4e45-9825-8f7e7b0f5dd5}" Name="GbwLocation" StaticName="GbwLocation" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_SR_Location_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{7fc04acf-6b4f-418c-8dc5-ecfb0085bb51}" Name="GbwCategory" StaticName="GbwCategory" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Choice" Format="Dropdown" FillInChoice="TRUE" DisplayName="$Resources:core,GBW_SR_Category_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{cf68a174-123b-413e-9ec1-b43e3a3175d7}" Name="WhatsNew" StaticName="WhatsNew" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_SR_WhatsNew_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{c1e86ea6-7603-493c-ab5d-db4bbfe8f96a}" Name="DueDate" StaticName="DueDate" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_CL_DueDate_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{9b0e6471-c5c5-42ef-9ade-63170bf28819}" Name="Confidential" StaticName="Confidential" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_CL_Confidential_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{7266b59c-030b-4ca3-bc09-bb8e76ad969b}" Name="AllowEditing" StaticName="AllowEditing" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_CL_AllowEditing_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{e0f298a5-7e3e-4895-9ff8-90d88ec4526d}" Name="V4SendTo" StaticName="V4SendTo" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="UserMulti" DisplayName="$Resources:core,GBW_CL_SendTo_Field;" Group="_Hidden" List="UserInfo" ShowField="ImnName" Mult="TRUE" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{ef7465d3-5d54-487b-b081-ade80acae88e}" Name="Confirmations" StaticName="Confirmations" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_CL_Confirmations_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{7111aa1b-e7ae-4b69-acaf-db669b76e03a}" Name="V4CallTo" StaticName="V4CallTo" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="CallTo" DisplayName="$Resources:core,GBW_CT_CallTo_Field;" Group="_Hidden" List="UserInfo" ShowField="ImnName" Mult="TRUE" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{1b89212c-1c67-487a-8c14-4d30bf4ef223}" Name="ConfirmedTo" StaticName="ConfirmedTo" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Note" DisplayName="$Resources:core,GBW_CT_ConfirmedTo_Field;" Group="_Hidden" Sealed="TRUE" Hidden="TRUE">
+    </Field>
+    <Field ID="{274b7e21-284a-4c49-bec6-f1f2cb6fc344}" Name="CallBack" StaticName="CallBack" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_CT_CallBack_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{6529a881-d745-4117-a552-3dcc7110e9b8}" Name="Detail" StaticName="Detail" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Note" DisplayName="$Resources:core,GBW_CT_Detail_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{63fc6806-db53-4d0d-b18b-eaf90e96ddf5}" Name="CallTime" StaticName="CallTime" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_CT_CallTime_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+        <Default>[Today]</Default>
+    </Field>
+    <Field ID="{a6fd2bb9-c701-4168-99cc-242e42f7671a}" Name="Resolved" StaticName="Resolved" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_CT_Resolved_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+        <Default>0</Default>
+    </Field>
+    <Field ID="{b4fa187b-eb65-478e-8bc6-93b0da320f03}" Name="ResolvedBy" StaticName="ResolvedBy" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="User" DisplayName="$Resources:core,GBW_CT_ResolvedBy_Field;" Group="_Hidden" List="UserInfo" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{c4995c71-4c5c-4e9f-afc1-a9033f2bfde5}" Name="ResolvedDate" StaticName="ResolvedDate" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_CT_ResolvedDate_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{3f155110-a6a2-4d70-926c-94648101f0e8}" Name="Description" StaticName="Description" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Note" DisplayName="$Resources:core,GBW_FC_Description_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{335e22c3-b8a4-4234-9790-7a03eeb7b0d4}" Name="HolidayDate" StaticName="HolidayDate" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_HL_Date_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{492b1ac0-c594-4013-a2b6-ea70f5a8a506}" Name="V4HolidayDate" StaticName="V4HolidayDate" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_HL_Date_Field;" Format="DateOnly" Group="_Hidden">
+    </Field>
+    <Field ID="{baf7091c-01fb-4831-a975-08254f87f234}" Name="IsNonWorkingDay" StaticName="IsNonWorkingDay" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_HL_IsNonWorkingDay_Field;" Group="_Hidden">
+      <Default>1</Default>
+    </Field>
+    <Field ID="{211a8cfc-93b7-4173-9254-0bfe2d1643da}" Name="UserName" StaticName="UserName" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="User" DisplayName="$Resources:core,GBW_TC_UserName_Field;" Group="_Hidden" List="UserInfo">
+    </Field>
+    <Field ID="{2139e5cc-6c75-4a65-b84c-00fe93027db3}" Name="Date" StaticName="Date" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_TC_Date_Field;" Group="_Hidden" Format="DateOnly">
+    </Field>
+    <Field ID="{61fc45dd-b33d-4679-8646-be9e6584fadd}" Name="DayOfWeek" StaticName="DayOfWeek" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_DayOfWeek_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{05e6336c-d22e-478e-9414-366762883b3f}" Name="Start" StaticName="Start" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Start_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{04b29608-b1e8-4ff9-90d5-5328096dd5ac}" Name="End" StaticName="End" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_End_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{ee394fd4-4c11-4d8e-baff-83270c1921aa}" Name="In" StaticName="In" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_In_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{fde05b9b-52bf-43dc-9b96-bb35fa7aa05d}" Name="Out" StaticName="Out" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Out_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{9b12fb06-254e-43b3-bfc8-8eea422ebc9f}" Name="Break" StaticName="Break" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Break_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{3bdf7bd3-f229-419e-8e12-3dfecb49ed38}" Name="ScheduledWork" StaticName="ScheduledWork" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_ScheduledWork_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{35d79e8b-3701-4659-9c27-c070ed3c2bfa}" Name="Overtime" StaticName="Overtime" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Overtime_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{aaa68c08-6276-4337-9bce-b9cd852c7328}" Name="NightWork" StaticName="NightWork" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_NightWork_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{b5a7350f-2716-46ca-9c42-66bb39d042ec}" Name="HolidayWork" StaticName="HolidayWork" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_HolidayWork_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{dc9100ec-251d-4e81-a6cb-d967a065ba24}" Name="HolidayNightWork" StaticName="HolidayNightWork" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_HolidayNightWork_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{df7f27a4-d87b-4a97-947b-13d1d4f7e6de}" Name="Late" StaticName="Late" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Late_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{a2a86efe-c28e-4dde-ab56-0afa31664bbc}" Name="LeaveEarly" StaticName="LeaveEarly" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_LeaveEarly_Field;" Group="_Hidden" ResultType="Number">
+    </Field>
+    <Field ID="{63c1c608-df6f-4cfa-bcab-fdbf9c223e31}" Name="Oof" StaticName="Oof" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Oof_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{dfd58778-bf8e-4769-8265-09ac03159eed}" Name="Vacation" StaticName="Vacation" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Choice" DisplayName="$Resources:core,GBW_TC_Vacation_Field;" Group="_Hidden">
+        <CHOICES>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_None;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_PaidVacation;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_CompensatoryDayOff;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_Vacation;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_VacationForCelebrationOrSorrow;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_MaternityLeave;</CHOICE>
+        </CHOICES>
+        <Default>$Resources:core,GBW_TC_Vacation_Field_Choice_Default;</Default>
+    </Field>
+    <Field ID="{44e16d52-da1b-4e72-8bdb-89a3b77ec8b0}" Name="NumberOfVacation" StaticName="NumberOfVacation" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Choice" DisplayName="$Resources:core,GBW_TC_NumberOfVacation_Field;" Group="_Hidden">
+        <CHOICES>
+            <CHOICE>$Resources:core,GBW_TC_NumberOfVacation_Field_Choice_None;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_NumberOfVacation_Field_Choice_AllDay;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_NumberOfVacation_Field_Choice_AMOFF;</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_NumberOfVacation_Field_Choice_PMOFF;</CHOICE>
+        </CHOICES>
+        <Default>$Resources:core,GBW_TC_NumberOfVacation_Field_Choice_Default;</Default>
+    </Field>
+    <Field ID="{691b9a4b-512e-4341-b3f1-68914130d5b2}" Name="ShortComment" StaticName="ShortComment" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,GBW_TC_Comments_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{81dde544-1e25-4765-b5fd-ba613198d850}" Name="ListType" StaticName="ListType" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Choice" DisplayName="$Resources:core,GBW_WN_ListType_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+        <CHOICES>
+            <CHOICE>$Resources:core,GBW_WN_ListType_GroupSchedule;</CHOICE>
+            <CHOICE>$Resources:core,GBW_WN_ListType_PhoneCallMemo;</CHOICE>
+            <CHOICE>$Resources:core,GBW_WN_ListType_Circulation;</CHOICE>
+            <CHOICE>$Resources:core,GBW_WN_ListType_Others;</CHOICE>
+        </CHOICES>
+    </Field>
+    <Field ID="{7650d41a-fa26-4c72-a641-af4e93dc7053}" Name="Content" StaticName="Content" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="URL" DisplayName="$Resources:core,GBW_WN_Content_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{53a2a512-d395-4852-8714-d4c27e7585f3}" Name="MobileContent" StaticName="MobileContent" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="URL" DisplayName="$Resources:core,GBW_WN_MobileContent_Field;" Group="_Hidden" Sealed="TRUE" ReadOnly="TRUE">
+    </Field>
+    <Field ID="{e2a07293-596a-4c59-9089-5c4f9339077f}" Name="Whereabout" StaticName="Whereabout" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Whereabout" DisplayName="$Resources:core,GBW_WA_Whereabouts_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{4cd541b9-c8ee-468f-bee6-33f3b9baa722}" Name="From" StaticName="From" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_WA_From_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{6570d35e-7f0a-4123-93c9-f53ffa5810d3}" Name="GoFromHome" StaticName="GoFromHome" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_WA_GoFromHome_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{fe3344ab-b468-471f-8fa5-9b506c7d1557}" Name="Until" StaticName="Until" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="DateTime" DisplayName="$Resources:core,GBW_WA_Until_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{2ead592e-f05c-41a2-9817-e06dac25bc19}" Name="GoingHome" StaticName="GoingHome" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Boolean" DisplayName="$Resources:core,GBW_WA_GoingHome_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{e1a85174-b8d0-4962-9ce6-758f8b612725}" Name="ContactInfo" StaticName="ContactInfo" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="ContactInfo" DisplayName="$Resources:core,GBW_WA_ContactInfo_Field;" Group="_Hidden">
+    </Field>
+    <Field ID="{90244050-709C-4837-9316-93863FBD3DA6}" Name="IMEDisplay" StaticName="IMEDisplay" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,ImeFieldDisplay;" MaxLength="60" Indexed="TRUE" Group="_Hidden">
+    </Field>
+    <Field ID="{D2433B20-3F02-4432-817D-369F104A2DCD}" Name="IMEComment1" StaticName="IMEComment1" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,ImeFieldComment1;" Group="_Hidden">
+    </Field>
+    <Field ID="{E2C93917-CF32-4b29-BE5C-D71F1BAC7714}" Name="IMEComment2" StaticName="IMEComment2" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,ImeFieldComment2;" Group="_Hidden">
+    </Field>
+    <Field ID="{7C52F61A-E1E0-4341-9E2F-9B36CDDFDD7C}" Name="IMEComment3" StaticName="IMEComment3" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Text" DisplayName="$Resources:core,ImeFieldComment3;" Group="_Hidden">
+    </Field>
+    <Field ID="{84B0FE85-6B16-40c3-8507-E56C5BBC482E}" Name="IMEUrl" StaticName="IMEUrl" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="URL" DisplayName="$Resources:core,ImeFieldUrl;" Group="_Hidden">
+    </Field>
+    <Field ID="{F3CDBCFD-F456-45f4-9000-B6F34BB95D84}" Name="IMEPos" StaticName="IMEPos" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" Type="Choice" DisplayName="$Resources:core,ImeFieldPos;" Group="_Hidden">
+       <CHOICES>
+          <CHOICE>$Resources:core,ImePos_Noun;</CHOICE>
+          <CHOICE>$Resources:core,ImePos_FamilyName;</CHOICE>
+          <CHOICE>$Resources:core,ImePos_FirstName;</CHOICE>
+          <CHOICE>$Resources:core,ImePos_FullName;</CHOICE>
+          <CHOICE>$Resources:core,ImePos_PlaceName;</CHOICE>
+          <CHOICE>$Resources:core,ImePos_ShortcutWord;</CHOICE>
+          <CHOICE>$Resources:core,ImePos_Emoticon;</CHOICE>
+       </CHOICES>
+       <Default>$Resources:core,ImePos_Noun;</Default>
+    </Field>
+    <!-- End GroupBoard Fields -->
+    <!-- Health Fields -->
+    <Field ID="{2D6E61D0-BE31-460c-AB8B-77D8B369F517}" Name="HealthRuleService" DisplayName="$Resources:core,HealthRules_Service;" Type="Text" Description="$Resources:core,HealthRules_ServiceDescription" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleService" AllowDeletion="FALSE" Hidden="TRUE" Required="FALSE">
+    </Field>
+    <Field ID="{7DD0A092-8704-4ed2-8253-AC309150AC59}" Name="HealthRuleType" DisplayName="$Resources:core,HealthRules_Type;" Type="Text" Description="$Resources:core,HealthRules_TypeDescription" Group="_Hidden" Hidden="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleType" AllowDeletion="FALSE" Required="TRUE">
+    </Field>
+    <Field ID="{E59F08C9-FA34-4f94-A00A-F6458B1D3C56}" Name="HealthRuleScope" DisplayName="$Resources:core,HealthRules_Scope;" Type="Choice" Description="$Resources:core,HealthRules_ScopeDescription" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleScope" AllowDeletion="FALSE" Required="TRUE">
+       <CHOICES>
+          <CHOICE>$Resources:core,HealthRules_AllScope;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_AnyScope;</CHOICE>
+          </CHOICES>
+          <MAPPINGS>
+             <MAPPING Value="1">$Resources:core,HealthRules_AllScope;</MAPPING>
+             <MAPPING Value="2">$Resources:core,HealthRules_AnyScope</MAPPING>
+          </MAPPINGS>
+          <Default>$Resources:core,HealthRules_AnyScope;</Default>
+    </Field>
+    <Field ID="{26761BA3-729D-4bfc-9658-77B55E01F8D5}" Name="HealthRuleSchedule" DisplayName="$Resources:core,HealthRules_Schedule;" Type="Choice" Description="$Resources:core,HealthRules_ScheduleDescription" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleSchedule" AllowDeletion="FALSE" Required="TRUE">
+       <CHOICES>
+          <CHOICE>$Resources:core,HealthRules_Hourly;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_Daily;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_Weekly;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_Monthly;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_OnDemandOnly;</CHOICE>
+       </CHOICES>
+       <Default>$Resources:core,HealthRules_Weekly;</Default>
+    </Field>
+    <Field ID="{84A318AA-9035-4529-98B9-E08BB20A5DA0}" Type="Note" Group="_Hidden" Name="HealthReportServers" DisplayName="$Resources:core,HealthReports_Servers" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportServers" AllowDeletion="FALSE" NumLines="5" Description="$Resources:core,HealthReports_ServerDesc">
+    </Field>
+    <Field ID="{E2B0B450-6795-4b86-86B7-3C21AB1797FB}" Type="Note" Group="_Hidden" Name="HealthReportServices" DisplayName="$Resources:core,HealthReports_Services" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportServices" AllowDeletion="FALSE" NumLines="5" Description="$Resources:core,HealthReports_ServiceDesc">
+    </Field>
+    <Field ID="{A63505F2-F42C-4d94-B03B-78BA2C73D40E}" Name="HealthReportCategory" Group="_Hidden" Type="Choice" DisplayName="$Resources:core,HealthReports_Category" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportCategory" Description="$Resources:core,HealthReports_CategoryDesc" FillInChoice="TRUE">
+       <CHOICES>
+          <CHOICE>$Resources:core,HealthRules_CatConfiguration;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_CatSecurity;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_CatPerformance;</CHOICE>
+          <CHOICE>$Resources:core,HealthRules_CatAvailability;</CHOICE>
+       </CHOICES>
+       <Default>$Resources:core,HealthRules_CatConfiguration;</Default>
+    </Field>
+    <Field ID="{B4C8FAEC-5D60-49ee-A5FB-6165F5C3E6A9}" Name="HealthReportExplanation" DisplayName="$Resources:core,HealthReports_Explanation;" Type="Note" NumLines="5" Description="$Resources:core,HealthReports_ExplanationDesc" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportExplanation" AllowDeletion="FALSE" Required="TRUE">
+    </Field>
+    <Field ID="{8AA22CAA-8000-44c9-B343-A7705BBED863}" Name="HealthReportRemedy" DisplayName="$Resources:core,HealthReports_Remedy;" Type="Note" NumLines="5" Description="$Resources:core,HealthReports_RemedyDesc" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportRemedy" AllowDeletion="FALSE" Required="TRUE">
+    </Field>
+    <Field ID="{CF4FF575-F1F5-4c5b-B595-54BBCCCD0C62}" Name="HealthRuleReportLink" DisplayName="$Resources:core,HealthRules_ReportLink;" Type="URL" Description="$Resources:core,HealthRules_ReportLinkDesc" Group="_Hidden" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleReportLink" AllowDeletion="FALSE" Required="TRUE">
+    </Field>
+    <Field ID="{89EFCBD9-9796-41f0-B569-65325F1882DC}" Name="HealthReportSeverityIcon" Type="Computed" ClassInfo="Icon" ReadOnly="TRUE" Group="_Hidden" DisplayName="$Resources:core,HealthReports_Severity" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportSeverityIcon" AllowDeletion="FALSE" Description="$Resources:core,HealthReports_SeverityDesc">
+        <FieldRefs>
+           <FieldRef ID="{505423C5-F085-48b9-9432-12073D643BA5}" Name="HealthReportSeverity"></FieldRef>
+        </FieldRefs>
+        <DisplayPattern>
+          <Switch>
+             <Expr><LookupColumn Name="HealthReportSeverity"></LookupColumn></Expr>
+             <Case Value="1 - $Resources:core,HealthReports_Error;">
+                <HTML><![CDATA[<img src="/_layouts/images/hltherr.png" alt="]]><![CDATA[$Resources:core,HealthReports_Error;]]><![CDATA[" />]]></HTML>
+             </Case>
+             <Case Value="2 - $Resources:core,HealthReports_Warning;">
+                <HTML><![CDATA[<img src="/_layouts/images/hlthwrn.png" alt="]]><![CDATA[$Resources:core,HealthReports_Warning;]]><![CDATA[" />]]></HTML>
+             </Case>
+             <Case Value="3 - $Resources:core,HealthReports_Information;">
+                <HTML><![CDATA[<img src="/_layouts/images/hlthinfo.png" alt="]]><![CDATA[$Resources:core,HealthReports_Information;]]><![CDATA[" />]]></HTML>
+             </Case>
+             <Case Value="4 - $Resources:core,HealthReports_Success;">
+                <HTML><![CDATA[<img src="/_layouts/images/hlthsucc.png" alt="]]><![CDATA[$Resources:core,HealthReports_Success;]]><![CDATA[" />]]></HTML>
+             </Case>
+             <Default>
+                <HTML><![CDATA[<img src="/_layouts/images/hlthfail.png" alt="]]><![CDATA[$Resources:core,HealthReports_RuleExecutionFailure;]]><![CDATA[" />]]></HTML>
+             </Default>
+          </Switch>
+       </DisplayPattern>      
+    </Field>
+    <Field ID="{505423C5-F085-48b9-9432-12073D643BA5}" Name="HealthReportSeverity" Type="Choice" Group="_Hidden" DisplayName="$Resources:core,HealthReports_Severity" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthReportSeverity" AllowDeletion="FALSE" Description="$Resources:core,HealthReports_SeverityDesc" Required="TRUE">
+       <CHOICES>
+          <CHOICE>1 - $Resources:core,HealthReports_Error;</CHOICE>
+          <CHOICE>2 - $Resources:core,HealthReports_Warning;</CHOICE>
+          <CHOICE>3 - $Resources:core,HealthReports_Information;</CHOICE>
+          <CHOICE>4 - $Resources:core,HealthReports_Success;</CHOICE>
+          <CHOICE>0 - $Resources:core,HealthReports_RuleExecutionFailure;</CHOICE>
+       </CHOICES>
+       <Default>1 - $Resources:core,HealthReports_Error;</Default>
+    </Field>
+    <Field ID="{1E41A55E-EF71-4740-B65A-D11E24C1D00D}" Name="HealthRuleAutoRepairEnabled" Type="Boolean" Group="_Hidden" AllowDeletion="FALSE" DisplayName="$Resources:core,HealthRules_AutoRepairEnabled;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRulesAutoRepairEnabled" Description="$Resources:core,HealthRules_AutoRepairEnabledDescription">
+    </Field>
+    <Field ID="{7B2B1712-A73D-4ad7-A9D0-662F0291713D}" Name="HealthRuleCheckEnabled" Type="Boolean" Group="_Hidden" AllowDeletion="FALSE" DisplayName="$Resources:core,HealthRules_CheckEnabled;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleCheckEnabled" Description="$Resources:core,HealthRules_CheckEnabledDescription">
+    </Field>
+    <Field ID="{6B6B1455-09EE-43b7-BEEA-4DC97456DE2F}" Name="HealthRuleVersion" Type="Text" Group="_Hidden" AllowDeletion="FALSE" DisplayName="$Resources:core,HealthRules_Version;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="HealthRuleVersion" Description="$Resources:core,HealthRules_Version">
+    </Field>
+    <!-- End Health Fields -->
+    <Field ID="{DFFFBBFB-0CC3-4ce7-8CB3-A2958FB726A1}" Name="XSLStyleCategory" Type="Text" Group="_Hidden" AllowDeletion="FALSE" DisplayName="$Resources:core,XSLStyleCategory;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="XSLStyleCategory" Description="$Resources:core,XSLStyleCategoryDesc">
+    </Field>
+    <Field ID="{4499086F-9AC1-41df-86C3-D8C1F8FC769A}" Name="XSLStyleWPType" Type="Choice" Group="_Hidden" AllowDeletion="FALSE" DisplayName="$Resources:core,XSLStyleWPType;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="XSLStyleWPType" Description="$Resources:core,XSLStyleWPTypeDesc">
+        <CHOICES>
+            <CHOICE>XsltListViewWebPart</CHOICE>
+            <CHOICE>DataFormWebPart</CHOICE>
+            <CHOICE>$Resources:core,GBW_TC_Vacation_Field_Choice_Vacation;</CHOICE>
+        </CHOICES>
+    </Field>
+    <Field ID="{3DFB3E11-9CCD-4404-B44A-A71F6399EA56}" Name="XSLStyleIconUrl" Type="URL" Format="Image" Group="_Hidden" AllowDeletion="FALSE" Required="FALSE" DisplayName="$Resources:core,XSLStyleIconUrl;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="XSLStyleIconUrl" Description="$Resources:core,XSLStyleIconUrlDesc">
+    </Field>
+    <Field ID="{4630E6AC-E543-4667-935A-2CC665E9B755}" Name="XSLStyleBaseView" Type="Text" Group="_Hidden" AllowDeletion="FALSE" Required="FALSE" DisplayName="$Resources:core,XSLStyleBaseView;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="XSLStyleBaseView" Description="$Resources:core,XSLStyleBaseViewDesc">
+    </Field>
+    <Field ID="{ACB9088A-A171-4b99-AA7A-10388586BC74}" Name="XSLStyleRequiredFields" Type="Text" Group="_Hidden" AllowDeletion="FALSE" Required="FALSE" DisplayName="$Resources:core,XSLStyleRequiredFields;" SourceID="http://schemas.microsoft.com/sharepoint/v3/fields" StaticName="XSLStyleRequiredFields" Description="$Resources:core,XSLStyleRequiredFieldsDesc">
+    </Field>
+</Elements>

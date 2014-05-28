@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ContentType ID="0x01003A8AA7A4F53046158C5ABD98036A01D5" Name="$Resources:HealthRuleDefinition" Group="_Hidden" Description="$Resources:HealthRuleDefinitions_Description" Version="0" BaseType="0x01">
+        <FieldRefs>
+            <FieldRef ID="{e59f08c9-fa34-4f94-a00a-f6458b1d3c56}" Name="HealthRuleScope"></FieldRef>
+            <FieldRef ID="{2d6e61d0-be31-460c-ab8b-77d8b369f517}" Name="HealthRuleService"></FieldRef>
+            <FieldRef ID="{7dd0a092-8704-4ed2-8253-ac309150ac59}" Name="HealthRuleType"></FieldRef>
+            <FieldRef ID="{a63505f2-f42c-4d94-b03b-78ba2c73d40e}" Name="HealthReportCategory"></FieldRef>
+            <FieldRef ID="{26761ba3-729d-4bfc-9658-77b55e01f8d5}" Name="HealthRuleSchedule"></FieldRef>
+            <FieldRef ID="{7b2b1712-a73d-4ad7-a9d0-662f0291713d}" Name="HealthRuleCheckEnabled"></FieldRef>
+            <FieldRef ID="{1e41a55e-ef71-4740-b65a-d11e24c1d00d}" Name="HealthRuleAutoRepairEnabled"></FieldRef>
+            <FieldRef ID="{6b6b1455-09ee-43b7-beea-4dc97456de2f}" Name="HealthRuleVersion"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+          <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+            <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+              <Display>ListForm</Display>
+            </FormTemplates>
+          </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0100F95DB3A97E8046b58C6A54FB31F2BD46" Name="$Resources:HealthReport" Group="_Hidden" Description="$Resources:HealthReport_Description" Version="0" BaseType="0x01">
+        <FieldRefs>
+          <FieldRef ID="{89efcbd9-9796-41f0-b569-65325f1882dc}" Name="HealthReportSeverityIcon"></FieldRef>
+          <FieldRef ID="{505423c5-f085-48b9-9432-12073d643ba5}" Name="HealthReportSeverity"></FieldRef>
+            <FieldRef ID="{a63505f2-f42c-4d94-b03b-78ba2c73d40e}" Name="HealthReportCategory"></FieldRef>
+            <FieldRef ID="{b4c8faec-5d60-49ee-a5fb-6165f5c3e6a9}" Name="HealthReportExplanation"></FieldRef>
+            <FieldRef ID="{8aa22caa-8000-44c9-b343-a7705bbed863}" Name="HealthReportRemedy"></FieldRef>
+            <FieldRef ID="{84a318aa-9035-4529-98b9-e08bb20a5da0}" Name="HealthReportServers"></FieldRef>
+            <FieldRef ID="{e2b0b450-6795-4b86-86b7-3c21ab1797fb}" Name="HealthReportServices"></FieldRef>
+            <FieldRef ID="{cf4ff575-f1f5-4c5b-b595-54bbcccd0c62}" Name="HealthRuleReportLink"></FieldRef>
+            <FieldRef ID="{7dd0a092-8704-4ed2-8253-ac309150ac59}" Name="HealthRuleType"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+          <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+            <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+              <Display>ListForm</Display>
+            </FormTemplates>
+          </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x012004" Name="$Resources:SummaryTask" Group="$Resources:Folder_Content_Types" Description="$Resources:SummaryTaskCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{8553196d-ec8d-4564-9861-3dbe931050c8}" Name="FileLeafRef" Hidden="FALSE" Required="TRUE"></FieldRef> <!-- FileLeafRef -->
+            <FieldRef ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}" Name="Predecessors"></FieldRef>
+            <FieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority"></FieldRef>
+            <FieldRef ID="{c15b34c3-ce7d-490a-b133-3f4de8801b76}" Name="Status"></FieldRef>
+            <FieldRef ID="{d2311440-1ed6-46ea-b46d-daa643dc3886}" Name="PercentComplete"></FieldRef>
+            <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo"></FieldRef>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="StartDate"></FieldRef>
+            <FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="DueDate"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0120d5" Name="$Resources:DocumentSet" Group="_Hidden" Description="$Resources:DocumentSetCTDesc" Sealed="TRUE" ProgId="SharePoint.DocumentSet" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{8553196d-ec8d-4564-9861-3dbe931050c8}" Name="FileLeafRef" Hidden="FALSE" Required="TRUE"></FieldRef> <!-- FileLeafRef -->
+        </FieldRefs>
+    </ContentType>
+    <!-- Begin GroupBoard Content Types -->
+    <ContentType ID="0x0102007dbdc1392eaf4ebbbf99e41d8922b264" Name="$Resources:Schedule" Description="$Resources:ScheduleDescription" Group="$Resources:List_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{288f5f32-8462-4175-8f09-dd7ba29359a9}" Name="Location"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="EventDate" DisplayName="$Resources:core,Start_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" FromBaseType="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <FieldRef ID="{2684f9f2-54be-429f-ba06-76754fc056bf}" Name="EndDate" DisplayName="$Resources:core,End_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <!-- free busy -->
+            <FieldRef ID="{8137f7ad-9170-4c1d-a17b-4ca7f557bc88}" Name="ParticipantsPicker" Required="TRUE"></FieldRef>
+            <FieldRef ID="{393003f9-6ccb-4ea9-9623-704aa4748dec}" Name="FreeBusy"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Description" DisplayName="$Resources:core,Description" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87d}" Name="Category"></FieldRef>
+            <FieldRef ID="{7d95d1f4-f5fd-4a70-90cd-b35abc9b5bc8}" Name="fAllDayEvent"></FieldRef>
+            <FieldRef ID="{f2e63656-135e-4f1c-8fc2-ccbe74071901}" Name="fRecurrence"></FieldRef>
+            <FieldRef ID="{08fc65f9-48eb-4e99-bd61-5946c439e691}" Name="WorkspaceLink"></FieldRef>
+            <FieldRef ID="{5d1d4e76-091a-4e03-ae83-6a59847731c0}" Name="EventType"></FieldRef>
+            <FieldRef ID="{63055d04-01b5-48f3-9e1e-e564e7c6b23b}" Name="UID"></FieldRef>
+            <FieldRef ID="{dfcc8fff-7c4c-45d6-94ed-14ce0719efef}" Name="RecurrenceID"></FieldRef>
+            <FieldRef ID="{b8bbe503-bb22-4237-8d9e-0587756a2176}" Name="EventCanceled"></FieldRef>
+            <FieldRef ID="{4d54445d-1c84-4a6d-b8db-a51ded4e1acc}" Name="Duration"></FieldRef>
+            <FieldRef ID="{d12572d0-0a1e-4438-89b5-4d0430be7603}" Name="RecurrenceData"></FieldRef>
+            <FieldRef ID="{6cc1c612-748a-48d8-88f2-944f477f301b}" Name="TimeZone"></FieldRef>
+            <FieldRef ID="{c4b72ed6-45aa-4422-bff1-2b6750d30819}" Name="XMLTZone"></FieldRef>
+            <FieldRef ID="{9b2bed84-7769-40e3-9b1d-7954a4053834}" Name="MasterSeriesItemID"></FieldRef>
+            <FieldRef ID="{881eac4a-55a5-48b6-a28e-8329d7486120}" Name="Workspace"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0102004f51efdea49c49668ef9c6744c8cf87d" Name="$Resources:ResourceReservation" Description="$Resources:ResourceReservationDescription" Group="$Resources:List_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE" ShowInNewForm="TRUE" ShowInEditForm="TRUE"></FieldRef>
+            <FieldRef ID="{288f5f32-8462-4175-8f09-dd7ba29359a9}" Name="Location"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="EventDate" DisplayName="$Resources:core,Start_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" FromBaseType="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <FieldRef ID="{2684f9f2-54be-429f-ba06-76754fc056bf}" Name="EndDate" DisplayName="$Resources:core,End_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <!-- Because of caml bug, this field match to query in this contenttype. So we add this field to clear in this content type manually. -->
+            <FieldRef ID="{a4e7b3e1-1b0a-4ffa-8426-c94d4cb8cc57}" Name="Facilities" Required="TRUE"></FieldRef>
+            <FieldRef ID="{393003f9-6ccb-4ea9-9623-704aa4748dec}" Name="FreeBusy"></FieldRef>
+            <FieldRef ID="{d8cd5bcf-3768-4d6c-a8aa-fefa3c793d8d}" Name="Overbook"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Description" DisplayName="$Resources:core,Description" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87d}" Name="Category"></FieldRef>
+            <FieldRef ID="{7d95d1f4-f5fd-4a70-90cd-b35abc9b5bc8}" Name="fAllDayEvent"></FieldRef>
+            <FieldRef ID="{f2e63656-135e-4f1c-8fc2-ccbe74071901}" Name="fRecurrence"></FieldRef>
+            <FieldRef ID="{08fc65f9-48eb-4e99-bd61-5946c439e691}" Name="WorkspaceLink"></FieldRef>
+            <FieldRef ID="{5d1d4e76-091a-4e03-ae83-6a59847731c0}" Name="EventType"></FieldRef>
+            <FieldRef ID="{63055d04-01b5-48f3-9e1e-e564e7c6b23b}" Name="UID"></FieldRef>
+            <FieldRef ID="{dfcc8fff-7c4c-45d6-94ed-14ce0719efef}" Name="RecurrenceID"></FieldRef>
+            <FieldRef ID="{b8bbe503-bb22-4237-8d9e-0587756a2176}" Name="EventCanceled"></FieldRef>
+            <FieldRef ID="{4d54445d-1c84-4a6d-b8db-a51ded4e1acc}" Name="Duration"></FieldRef>
+            <FieldRef ID="{d12572d0-0a1e-4438-89b5-4d0430be7603}" Name="RecurrenceData"></FieldRef>
+            <FieldRef ID="{6cc1c612-748a-48d8-88f2-944f477f301b}" Name="TimeZone"></FieldRef>
+            <FieldRef ID="{c4b72ed6-45aa-4422-bff1-2b6750d30819}" Name="XMLTZone"></FieldRef>
+            <FieldRef ID="{9b2bed84-7769-40e3-9b1d-7954a4053834}" Name="MasterSeriesItemID"></FieldRef>
+            <FieldRef ID="{881eac4a-55a5-48b6-a28e-8329d7486120}" Name="Workspace"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x01020072bb2a38f0db49c3a96cf4fa85529956" Name="$Resources:ScheduleAndResourceReservation" Description="$Resources:ScheduleAndResourceReservationDescription" Group="$Resources:List_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE" ShowInNewForm="TRUE" ShowInEditForm="TRUE"></FieldRef>
+            <FieldRef ID="{288f5f32-8462-4175-8f09-dd7ba29359a9}" Name="Location"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="EventDate" DisplayName="$Resources:core,Start_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" FromBaseType="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <FieldRef ID="{2684f9f2-54be-429f-ba06-76754fc056bf}" Name="EndDate" DisplayName="$Resources:core,End_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <FieldRef ID="{8137f7ad-9170-4c1d-a17b-4ca7f557bc88}" Name="ParticipantsPicker" Required="TRUE"></FieldRef>
+            <FieldRef ID="{a4e7b3e1-1b0a-4ffa-8426-c94d4cb8cc57}" Name="Facilities"></FieldRef>
+            <FieldRef ID="{393003f9-6ccb-4ea9-9623-704aa4748dec}" Name="FreeBusy"></FieldRef>
+            <FieldRef ID="{d8cd5bcf-3768-4d6c-a8aa-fefa3c793d8d}" Name="Overbook"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Description" DisplayName="$Resources:core,Description" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87d}" Name="Category"></FieldRef>
+            <FieldRef ID="{7d95d1f4-f5fd-4a70-90cd-b35abc9b5bc8}" Name="fAllDayEvent"></FieldRef>
+            <FieldRef ID="{f2e63656-135e-4f1c-8fc2-ccbe74071901}" Name="fRecurrence"></FieldRef>
+            <FieldRef ID="{08fc65f9-48eb-4e99-bd61-5946c439e691}" Name="WorkspaceLink"></FieldRef>
+            <FieldRef ID="{5d1d4e76-091a-4e03-ae83-6a59847731c0}" Name="EventType"></FieldRef>
+            <FieldRef ID="{63055d04-01b5-48f3-9e1e-e564e7c6b23b}" Name="UID"></FieldRef>
+            <FieldRef ID="{dfcc8fff-7c4c-45d6-94ed-14ce0719efef}" Name="RecurrenceID"></FieldRef>
+            <FieldRef ID="{b8bbe503-bb22-4237-8d9e-0587756a2176}" Name="EventCanceled"></FieldRef>
+            <FieldRef ID="{4d54445d-1c84-4a6d-b8db-a51ded4e1acc}" Name="Duration"></FieldRef>
+            <FieldRef ID="{d12572d0-0a1e-4438-89b5-4d0430be7603}" Name="RecurrenceData"></FieldRef>
+            <FieldRef ID="{6cc1c612-748a-48d8-88f2-944f477f301b}" Name="TimeZone"></FieldRef>
+            <FieldRef ID="{c4b72ed6-45aa-4422-bff1-2b6750d30819}" Name="XMLTZone"></FieldRef>
+            <FieldRef ID="{9b2bed84-7769-40e3-9b1d-7954a4053834}" Name="MasterSeriesItemID"></FieldRef>
+            <FieldRef ID="{881eac4a-55a5-48b6-a28e-8329d7486120}" Name="Workspace"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x01000f389e14c9ce4ce486270b9d4713a5d6" Name="$Resources:GbwCirculationCTName" Description="$Resources:GbwCirculationCTDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Required="TRUE" Name="Title"></FieldRef>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef>
+            <FieldRef ID="{c1e86ea6-7603-493c-ab5d-db4bbfe8f96a}" Name="DueDate"></FieldRef>
+            <FieldRef ID="{9b0e6471-c5c5-42ef-9ade-63170bf28819}" Name="Confidential"></FieldRef>
+            <FieldRef ID="{7266b59c-030b-4ca3-bc09-bb8e76ad969b}" Name="AllowEditing"></FieldRef>
+            <FieldRef ID="{e0f298a5-7e3e-4895-9ff8-90d88ec4526d}" Required="TRUE" Name="V4SendTo"></FieldRef>
+            <FieldRef ID="{ef7465d3-5d54-487b-b081-ade80acae88e}" Name="Confirmations"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87e}" Name="Comments"></FieldRef>
+            <FieldRef ID="{cf68a174-123b-413e-9ec1-b43e3a3175d7}" Name="WhatsNew"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Edit>GroupBoardCirculationEditForm</Edit>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x01007ce30dd1206047728bafd1c39a850120" Name="$Resources:GbwOfficialNoticeCTName" Description="$Resources:GbwOfficialNoticeCTDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Required="TRUE" Name="Title"></FieldRef>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef>
+            <FieldRef ID="{c1e86ea6-7603-493c-ab5d-db4bbfe8f96a}" Name="DueDate"></FieldRef>
+            <FieldRef ID="{9b0e6471-c5c5-42ef-9ade-63170bf28819}" Name="Confidential"></FieldRef>
+            <FieldRef ID="{e0f298a5-7e3e-4895-9ff8-90d88ec4526d}" Required="TRUE" Name="V4SendTo"></FieldRef>
+            <FieldRef ID="{ef7465d3-5d54-487b-b081-ade80acae88e}" Name="Confirmations"></FieldRef>
+            <FieldRef ID="{cf68a174-123b-413e-9ec1-b43e3a3175d7}" Name="WhatsNew"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Edit>GroupBoardCirculationEditForm</Edit>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0100807fbac5eb8a4653b8d24775195b5463" Name="$Resources:CallTracking" Description="$Resources:CallTrackingDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE"></FieldRef>
+            <FieldRef ID="{7111aa1b-e7ae-4b69-acaf-db669b76e03a}" Name="V4CallTo" Required="TRUE"></FieldRef>
+            <FieldRef ID="{1b89212c-1c67-487a-8c14-4d30bf4ef223}" Name="ConfirmedTo"></FieldRef>
+            <FieldRef ID="{9b0e6471-c5c5-42ef-9ade-63170bf28819}" Name="Confidential"></FieldRef>
+            <FieldRef ID="{274b7e21-284a-4c49-bec6-f1f2cb6fc344}" Name="CallBack"></FieldRef>
+            <FieldRef ID="{344e9657-b17f-4344-a834-ff7c056bcc5e}" Name="CallbackNumber"></FieldRef>
+            <FieldRef ID="{6529a881-d745-4117-a552-3dcc7110e9b8}" Name="Detail"></FieldRef>
+            <FieldRef ID="{63fc6806-db53-4d0d-b18b-eaf90e96ddf5}" Name="CallTime" Required="TRUE"></FieldRef>
+            <FieldRef ID="{a6fd2bb9-c701-4168-99cc-242e42f7671a}" Name="Resolved"></FieldRef>
+            <FieldRef ID="{b4fa187b-eb65-478e-8bc6-93b0da320f03}" Name="ResolvedBy"></FieldRef>
+            <FieldRef ID="{c4995c71-4c5c-4e9f-afc1-a9033f2bfde5}" Name="ResolvedDate"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87e}" Name="Comments"></FieldRef>
+            <FieldRef ID="{cf68a174-123b-413e-9ec1-b43e3a3175d7}" Name="WhatsNew"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x01004c9f4486fbf54864a7b0a33d02ad19b1" Name="$Resources:Resource" Description="$Resources:ResourceDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE"></FieldRef>
+            <FieldRef ID="{3f155110-a6a2-4d70-926c-94648101f0e8}" Name="Description"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>FacilitiesForm</Display>
+                    <Edit>FacilitiesForm</Edit>
+                    <New>FacilitiesForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0100ca13f2f8d61541b180952dfb25e3e8e4" Name="$Resources:ResourceGroup" Description="$Resources:ResourceGroupDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE"></FieldRef>
+            <FieldRef ID="{a4e7b3e1-1b0a-4ffa-8426-c94d4cb8cc57}" Name="Facilities" Required="TRUE"></FieldRef>
+            <FieldRef ID="{3f155110-a6a2-4d70-926c-94648101f0e8}" Name="Description"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>FacilitiesForm</Display>
+                    <Edit>FacilitiesForm</Edit>
+                    <New>FacilitiesForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x01009be2ab5291bf4c1a986910bd278e4f18" Name="$Resources:Holiday" Description="$Resources:HolidayDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE"></FieldRef>
+            <FieldRef ID="{492b1ac0-c594-4013-a2b6-ea70f5a8a506}" Name="V4HolidayDate"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87d}" Name="Category"></FieldRef>
+            <FieldRef ID="{baf7091c-01fb-4831-a975-08254f87f234}" Name="IsNonWorkingDay"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0100c30dda8edb2e434ea22d793d9ee42058" Name="$Resources:Timecard" Description="$Resources:TimecardDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></FieldRef>
+            <FieldRef ID="{211a8cfc-93b7-4173-9254-0bfe2d1643da}" Name="UserName" Required="TRUE"></FieldRef>
+            <FieldRef ID="{2139e5cc-6c75-4a65-b84c-00fe93027db3}" Name="Date" Required="TRUE"></FieldRef>
+            <FieldRef ID="{61fc45dd-b33d-4679-8646-be9e6584fadd}" Name="DayOfWeek"></FieldRef>
+            <FieldRef ID="{05e6336c-d22e-478e-9414-366762883b3f}" Name="Start"></FieldRef>
+            <FieldRef ID="{04b29608-b1e8-4ff9-90d5-5328096dd5ac}" Name="End"></FieldRef>
+            <FieldRef ID="{ee394fd4-4c11-4d8e-baff-83270c1921aa}" Name="In"></FieldRef>
+            <FieldRef ID="{fde05b9b-52bf-43dc-9b96-bb35fa7aa05d}" Name="Out"></FieldRef>
+            <FieldRef ID="{9b12fb06-254e-43b3-bfc8-8eea422ebc9f}" Name="Break"></FieldRef>
+            <FieldRef ID="{3bdf7bd3-f229-419e-8e12-3dfecb49ed38}" Name="ScheduledWork"></FieldRef>
+            <FieldRef ID="{35d79e8b-3701-4659-9c27-c070ed3c2bfa}" Name="Overtime"></FieldRef>
+            <FieldRef ID="{aaa68c08-6276-4337-9bce-b9cd852c7328}" Name="NightWork"></FieldRef>
+            <FieldRef ID="{dc9100ec-251d-4e81-a6cb-d967a065ba24}" Name="HolidayNightWork"></FieldRef>
+            <FieldRef ID="{df7f27a4-d87b-4a97-947b-13d1d4f7e6de}" Name="Late"></FieldRef>
+            <FieldRef ID="{a2a86efe-c28e-4dde-ab56-0afa31664bbc}" Name="LeaveEarly"></FieldRef>
+            <FieldRef ID="{63c1c608-df6f-4cfa-bcab-fdbf9c223e31}" Name="Oof"></FieldRef>
+            <FieldRef ID="{dfd58778-bf8e-4769-8265-09ac03159eed}" Name="Vacation"></FieldRef>
+            <FieldRef ID="{44e16d52-da1b-4e72-8bdb-89a3b77ec8b0}" Name="NumberOfVacation"></FieldRef>
+            <FieldRef ID="{691b9a4b-512e-4341-b3f1-68914130d5b2}" Name="ShortComment"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0100a2ca87ff01b442ad93f37cd7dd0943eb" Name="$Resources:WhatsNew" Description="$Resources:WhatsNewDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE"></FieldRef>
+            <FieldRef ID="{81dde544-1e25-4765-b5fd-ba613198d850}" Name="ListType"></FieldRef>
+            <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Required="TRUE" Name="AssignedTo"></FieldRef>
+            <FieldRef ID="{7650d41a-fa26-4c72-a641-af4e93dc7053}" Name="Content"></FieldRef>
+            <FieldRef ID="{53a2a512-d395-4852-8714-d4c27e7585f3}" Name="MobileContent"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0100fbeee6f0c500489b99cda6bb16c398f7" Name="$Resources:Whereabouts" Description="$Resources:WhereaboutsDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"></FieldRef>
+            <FieldRef ID="{bfc6f32c-668c-43c4-a903-847cca2f9b3c}" Name="Name" Required="TRUE"></FieldRef>
+            <FieldRef ID="{e2a07293-596a-4c59-9089-5c4f9339077f}" Name="Whereabout" Required="TRUE"></FieldRef>
+            <FieldRef ID="{4cd541b9-c8ee-468f-bee6-33f3b9baa722}" Name="From"></FieldRef>
+            <FieldRef ID="{6570d35e-7f0a-4123-93c9-f53ffa5810d3}" Name="GoFromHome"></FieldRef>
+            <FieldRef ID="{fe3344ab-b468-471f-8fa5-9b506c7d1557}" Name="Until"></FieldRef>
+            <FieldRef ID="{2ead592e-f05c-41a2-9817-e06dac25bc19}" Name="GoingHome"></FieldRef>
+            <FieldRef ID="{e1a85174-b8d0-4962-9ce6-758f8b612725}" Name="ContactInfo"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87f}" Name="Comment"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Edit>GroupBoardWhereaboutsEditForm</Edit>
+                    <New>GroupBoardWhereaboutsNewForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x010018f21907ed4e401cb4f14422abc65304" Name="$Resources:IMEDictionaryItem" Description="$Resources:IMEDictionaryItemDescription" Group="$Resources:GroupWork_Content_Types" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE"></FieldRef>
+            <FieldRef ID="{90244050-709c-4837-9316-93863fbd3da6}" Name="IMEDisplay" Required="TRUE"></FieldRef>
+            <FieldRef ID="{d2433b20-3f02-4432-817d-369f104a2dcd}" Name="IMEComment1"></FieldRef>
+            <FieldRef ID="{e2c93917-cf32-4b29-be5c-d71f1bac7714}" Name="IMEComment2"></FieldRef>
+            <FieldRef ID="{7c52f61a-e1e0-4341-9e2f-9b36cddfdd7c}" Name="IMEComment3"></FieldRef>
+            <FieldRef ID="{84b0fe85-6b16-40c3-8507-e56c5bbc482e}" Name="IMEUrl"></FieldRef>
+            <FieldRef ID="{f3cdbcfd-f456-45f4-9000-b6f34bb95d84}" Name="IMEPos"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <!-- End GroupBoard Content Types -->
+  <ContentType ID="0x010100734778F2B7DF462491FC91844AE431CF" Name="$Resources:XSLStyle" Group="$Resources:Document_Content_Types" Description="$Resources:XSLStyleCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{dfffbbfb-0cc3-4ce7-8cb3-a2958fb726a1}" Name="XSLStyleCategory"></FieldRef>
+            <FieldRef ID="{4499086f-9ac1-41df-86c3-d8c1f8fc769a}" Name="XSLStyleWPType"></FieldRef>
+            <FieldRef ID="{3dfb3e11-9ccd-4404-b44a-a71f6399ea56}" Name="XSLStyleIconUrl"></FieldRef>
+            <FieldRef ID="{4630e6ac-e543-4667-935a-2cc665e9b755}" Name="XSLStyleBaseView"></FieldRef>
+            <FieldRef ID="{acb9088a-a171-4b99-aa7a-10388586bc74}" Name="XSLStyleRequiredFields"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+</Elements>

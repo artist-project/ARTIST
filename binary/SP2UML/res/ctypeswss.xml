@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <ContentType ID="0x" Name="$Resources:System" Group="_Hidden" Sealed="TRUE" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" Name="ContentType"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x01" Name="$Resources:Item" Group="$Resources:List_Content_Types" Description="$Resources:ItemCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE" ShowInNewForm="TRUE" ShowInEditForm="TRUE"></FieldRef> <!-- Title -->
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>ListForm</Display>
+                    <Edit>ListForm</Edit>
+                    <New>ListForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0101" Name="$Resources:Document" Group="$Resources:Document_Content_Types" Description="$Resources:DocumentCTDesc" V2ListTemplateName="doclib" Version="0">
+        <FieldRefs>
+            <RemoveFieldRef ID="{67df98f4-9dec-48ff-a553-29bece9c5bf4}" Name="Attachments"></RemoveFieldRef> <!-- Attachments -->
+            <RemoveFieldRef ID="{f1e020bc-ba26-443f-bf2f-b68715017bbc}" Name="WorkflowVersion"></RemoveFieldRef> <!-- WorkflowVersion -->
+            <RemoveFieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" Name="LinkTitleNoMenu"></RemoveFieldRef> <!-- LinkTitleNoMenu -->
+            <RemoveFieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" Name="LinkTitle"></RemoveFieldRef> <!-- LinkTitle -->
+            <RemoveFieldRef ID="{ae069f25-3ac2-4256-b9c3-15dbc15da0e0}" Name="GUID"></RemoveFieldRef> <!-- GUID -->
+            <RemoveFieldRef ID="{de8beacf-5505-47cd-80a6-aa44e7ffe2f4}" Name="WorkflowInstanceID"></RemoveFieldRef> <!-- WorkflowInstanceID -->
+            <FieldRef ID="{5f47e085-2150-41dc-b661-442f3027f552}" Name="SelectFilename"></FieldRef> <!-- SelectFilename -->
+            <FieldRef ID="{8553196d-ec8d-4564-9861-3dbe931050c8}" Name="FileLeafRef" Required="TRUE"></FieldRef> <!-- FileLeafRef -->
+            <FieldRef ID="{8c06beca-0777-48f7-91c7-6da68bc07b69}" Name="Created" Hidden="TRUE"></FieldRef> <!-- Created -->
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" ShowInNewForm="FALSE" ShowInEditForm="TRUE"></FieldRef> <!-- Title -->            
+            <FieldRef ID="{28cf69c5-fa48-462a-b5cd-27b6f9d2bd5f}" Name="Modified" Hidden="TRUE"></FieldRef> <!-- Modified -->
+            <FieldRef ID="{822c78e3-1ea9-4943-b449-57863ad33ca9}" Name="Modified_x0020_By" Hidden="FALSE"></FieldRef> <!-- Modified_x0020_By -->
+            <FieldRef ID="{4dd7e525-8d6b-4cb4-9d3e-44ee25f973eb}" Name="Created_x0020_By" Hidden="FALSE"></FieldRef> <!-- Created_x0020_By -->
+         </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>DocumentLibraryForm</Display>
+                    <Edit>DocumentLibraryForm</Edit>
+                    <New>DocumentLibraryForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x010101" Name="$Resources:XMLDocument" Group="$Resources:Document_Content_Types" Description="$Resources:XMLDocumentCTDesc" V2ListTemplateName="xmlform" Version="0">
+        <FieldRefs>
+            <RemoveFieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></RemoveFieldRef>
+            <FieldRef ID="{e52012a0-51eb-4c0c-8dfb-9b8a0ebedcb6}" Name="Combine"></FieldRef>
+            <FieldRef ID="{086f2b30-460c-4251-b75a-da88a5b205c1}" Name="ShowCombineView"></FieldRef>
+            <FieldRef ID="{5d36727b-bcb2-47d2-a231-1f0bc63b7439}" Name="RepairDocument"></FieldRef>
+            <FieldRef ID="{11851948-b05e-41be-9d9f-bc3bf55d1de3}" Name="ShowRepairView"></FieldRef>
+            <FieldRef ID="{4b1bf6c6-4f39-45ac-acd5-16fe7a214e5e}" Name="TemplateUrl"></FieldRef>
+            <FieldRef ID="{cd1ecb9f-dd4e-4f29-ab9e-e9ff40048d64}" Name="xd_ProgID"></FieldRef>
+        </FieldRefs>   
+    </ContentType>
+    <ContentType ID="0x010100629D00608F814dd6AC8A86903AEE72AA" Name="$Resources:ODCDocument" Group="_Hidden" V2ListTemplateName="dcl" Description="" Sealed="FALSE" Version="0" ReadOnly="TRUE" BaseType="0x0101">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" DisplayName="$Resources:core,Title;" Required="FALSE"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments" DisplayName="$Resources:core,Description;" Required="FALSE"></FieldRef>
+            <FieldRef ID="{b66e9b50-a28e-469b-b1a0-af0e45486874}" Name="Keywords" DisplayName="$Resources:core,Keywords;" Required="FALSE"></FieldRef>
+        </FieldRefs>
+        <DocumentTemplate TargetName="/_layouts/upload.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x010100B4CBD48E029A4ad8B62CB0E41868F2B0" Name="$Resources:UDCDocument" Group="_Hidden" Description="$Resources:UDCV2_CT_DESCRIPTION" Version="0" ReadOnly="TRUE" BaseType="0x0101">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" Node="/udc:DataSource/udc:Name"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments" DisplayName="$Resources:core,Description;" Required="TRUE" Node="/udc:DataSource/udc:Description"></FieldRef>
+            <FieldRef ID="{8ee23f39-e2d1-4b46-8945-42386b24829d}" Name="Purpose" DisplayName="$Resources:core,Purpose" Required="TRUE" Node="/udc:DataSource/udc:ConnectionInfo/@Purpose"></FieldRef>
+            <FieldRef ID="{939dfb93-3107-44c6-a98f-dd88dca3f8cf}" Name="ConnectionType" DisplayName="$Resources:core,ConnectionType;" Required="TRUE" Node="/udc:DataSource/udc:Type/@Type"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/office/infopath/2006/udc">
+                <Namespaces xmlns="http://schemas.microsoft.com/office/infopath/2006/udc">
+                    <Namespace prefix="udc" value="http://schemas.microsoft.com/office/infopath/2006/udc"></Namespace>
+                </Namespaces>
+            </XmlDocument>
+        </XmlDocuments>
+        <DocumentTemplate TargetName="/_layouts/upload.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x010102" Name="$Resources:Picture" Group="$Resources:Document_Content_Types" Description="$Resources:imgCtDesc" V2ListTemplateName="imglib" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{8c0d0aac-9b76-4951-927a-2490abe13c0b}" Name="PreviewOnForm"></FieldRef>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" ShowInNewForm="FALSE" ShowInFileDlg="FALSE"></FieldRef>
+            <FieldRef ID="{c53a03f3-f930-4ef2-b166-e0f2210c13c0}" Name="FileType"></FieldRef>
+            <FieldRef ID="{922551b8-c7e0-46a6-b7e3-3cf02917f68a}" Name="ImageSize"></FieldRef>
+            <FieldRef ID="{7e68a0f9-af76-404c-9613-6f82bc6dc28c}" Name="ImageWidth"></FieldRef>
+            <FieldRef ID="{1944c034-d61b-42af-aa84-647f2e74ca70}" Name="ImageHeight"></FieldRef>
+            <FieldRef ID="{a5d2f824-bc53-422e-87fd-765939d863a5}" Name="ImageCreateDate"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments" ShowInNewForm="FALSE" ShowInFileDlg="FALSE" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{b9e6f3ae-5632-4b13-b636-9d1a2bd67120}" Name="EncodedAbsThumbnailUrl"></FieldRef>
+            <FieldRef ID="{a1ca0063-779f-49f9-999c-a4a2e3645b07}" Name="EncodedAbsWebImgUrl"></FieldRef>
+            <FieldRef ID="{7ebf72ca-a307-4c18-9e5b-9d89e1dae74f}" Name="SelectedFlag"></FieldRef>
+            <FieldRef ID="{76d1cc87-56de-432c-8a2a-16e5ba5331b3}" Name="NameOrTitle"></FieldRef>
+            <FieldRef ID="{de1baa4b-2117-473b-aa0c-4d824034142d}" Name="RequiredField"></FieldRef>
+            <FieldRef ID="{b66e9b50-a28e-469b-b1a0-af0e45486874}" Name="Keywords" Description="For example: scenery, mountains, trees, nature" ShowInNewForm="FALSE" ShowInFileDlg="FALSE" Sealed="TRUE" Sortable="FALSE"></FieldRef>
+            <FieldRef ID="{ac7bb138-02dc-40eb-b07a-84c15575b6e9}" Name="Thumbnail"></FieldRef>
+            <FieldRef ID="{bd716b26-546d-43f2-b229-62699581fa9f}" Name="Preview"></FieldRef>
+            <FieldRef ID="{1f43cd21-53c5-44c5-8675-b8bb86083244}" Name="ThumbnailExists"></FieldRef>
+            <FieldRef ID="{3ca8efcd-96e8-414f-ba90-4c8c4a8bfef8}" Name="PreviewExists"></FieldRef>
+            <FieldRef ID="{f39d44af-d3f3-4ae6-b43f-ac7330b5e9bd}" Name="AlternateThumbnailUrl"></FieldRef>
+        </FieldRefs>
+        <DocumentTemplate TargetName="/_layouts/upload.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x010104" Name="$Resources:UntypedDocument" Group="$Resources:AdvancedCTGroup" BaseType="1" Description="$Resources:UntypedDocDesc" Version="0" ReadOnly="TRUE">
+        <FieldRefs>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010105" Name="$Resources:MasterPage" Group="$Resources:Document_Content_Types" Description="$Resources:MasterPageCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments" DisplayName="$Resources:core,Description;"></FieldRef>
+            <FieldRef ID="{8e334549-c2bd-4110-9f61-672971be6504}" Name="UIVersion" DisplayName="$Resources:core,UIVersion;"></FieldRef>
+        </FieldRefs>
+        <DocumentTemplate TargetName="/_layouts/upload.aspx"></DocumentTemplate>
+    </ContentType>    
+    <ContentType ID="0x010108" Name="$Resources:WikiDocument" Group="$Resources:Document_Content_Types" Description="$Resources:WikiDesc" Version="0">
+        <FieldRefs>
+            <RemoveFieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></RemoveFieldRef>
+            <FieldRef ID="{c33527b4-d920-4587-b791-45024d00068a}" Name="WikiField"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>WikiEditForm</Display>
+                    <Edit>WikiEditForm</Edit>
+                    <New>WikiEditForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+        <DocumentTemplate TargetName="/_layouts/CreateWebPage.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x010107" Name="$Resources:DocumentWorkflowItem" Group="_Hidden" Description="$Resources:DocumentWICTDesc">
+        <FieldRefs>
+            <FieldRef ID="{e9359d15-261b-48f6-a302-01419a68d4de}" Name="BaseAssociationGuid"></FieldRef>
+            <FieldRef ID="{566da236-762b-4a76-ad1f-b08b3c703fce}" Name="XomlUrl"></FieldRef>
+            <FieldRef ID="{ad97fbac-70af-4860-a078-5ee704946f93}" Name="RulesUrl"></FieldRef>
+            <FieldRef ID="{a05a8639-088a-4aea-b8a9-afc888971c81}" Name="Visibility"></FieldRef>
+            <FieldRef ID="{b75067a2-e23b-499f-aa07-4ceb6c79e0b3}" Name="AssociatedListId"></FieldRef> 
+            <FieldRef ID="{8b02a33c-accd-4b73-bcae-6932c7aab812}" Name="RestrictContentTypeId"></FieldRef>
+            <FieldRef ID="{5263cd09-a770-4549-b012-d9f3df3d8df6}" Name="WorkflowDisplayName"></FieldRef> 
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0102" Name="$Resources:Event" Group="$Resources:List_Content_Types" V2ListTemplateName="events" Description="$Resources:Event_Desc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{288f5f32-8462-4175-8f09-dd7ba29359a9}" Name="Location"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="EventDate" DisplayName="$Resources:core,Start_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" FromBaseType="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <FieldRef ID="{2684f9f2-54be-429f-ba06-76754fc056bf}" Name="EndDate" DisplayName="$Resources:core,End_Time;" Format="DateTime" Sealed="TRUE" Required="TRUE" Filterable="FALSE" FilterableNoRecurrence="TRUE"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Description" DisplayName="$Resources:core,Description;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87d}" Name="Category"></FieldRef>
+            <FieldRef ID="{7d95d1f4-f5fd-4a70-90cd-b35abc9b5bc8}" Name="fAllDayEvent"></FieldRef>
+            <FieldRef ID="{f2e63656-135e-4f1c-8fc2-ccbe74071901}" Name="fRecurrence"></FieldRef>
+            <FieldRef ID="{08fc65f9-48eb-4e99-bd61-5946c439e691}" Name="WorkspaceLink"></FieldRef>
+            <FieldRef ID="{5d1d4e76-091a-4e03-ae83-6a59847731c0}" Name="EventType"></FieldRef>
+            <FieldRef ID="{63055d04-01b5-48f3-9e1e-e564e7c6b23b}" Name="UID"></FieldRef>
+            <FieldRef ID="{dfcc8fff-7c4c-45d6-94ed-14ce0719efef}" Name="RecurrenceID"></FieldRef>
+            <FieldRef ID="{b8bbe503-bb22-4237-8d9e-0587756a2176}" Name="EventCanceled"></FieldRef>
+            <FieldRef ID="{4d54445d-1c84-4a6d-b8db-a51ded4e1acc}" Name="Duration"></FieldRef>
+            <FieldRef ID="{d12572d0-0a1e-4438-89b5-4d0430be7603}" Name="RecurrenceData"></FieldRef>
+            <FieldRef ID="{6cc1c612-748a-48d8-88f2-944f477f301b}" Name="TimeZone"></FieldRef>
+            <FieldRef ID="{c4b72ed6-45aa-4422-bff1-2b6750d30819}" Name="XMLTZone"></FieldRef>
+            <FieldRef ID="{9b2bed84-7769-40e3-9b1d-7954a4053834}" Name="MasterSeriesItemID"></FieldRef>
+            <FieldRef ID="{881eac4a-55a5-48b6-a28e-8329d7486120}" Name="Workspace"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0103" Name="$Resources:Issue" Group="$Resources:List_Content_Types" Description="$Resources:IssueCTDesc" V2ListTemplateName="issue" Version="0">
+         <FieldRefs>
+             <RemoveFieldRef ID="{f1e020bc-ba26-443f-bf2f-b68715017bbc}" Name="WorkflowVersion"></RemoveFieldRef>
+             <RemoveFieldRef ID="{de8beacf-5505-47cd-80a6-aa44e7ffe2f4}" Name="WorkflowInstanceID"></RemoveFieldRef>
+             <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo"></FieldRef>
+             <FieldRef ID="{3f277a5c-c7ae-4bbe-9d44-0456fb548f94}" Name="IssueStatus"></FieldRef>
+             <FieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority"></FieldRef>
+             <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87f}" Name="Comment"></FieldRef>
+             <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87d}" Name="Category"></FieldRef>
+             <FieldRef ID="{875fab27-6e95-463b-a4a6-82544f1027fb}" Name="RelatedIssues"></FieldRef>
+             <FieldRef ID="{6df9bd52-550e-4a30-bc31-a4366832a87e}" Name="V3Comments"></FieldRef>
+             <FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="DueDate"></FieldRef>
+             <FieldRef ID="{03f89857-27c9-4b58-aaab-620647deda9b}" Name="LinkIssueIDNoMenu"></FieldRef>
+         </FieldRefs>        
+    </ContentType>
+    <ContentType ID="0x0104" Name="$Resources:Announcement" Group="$Resources:List_Content_Types" Description="$Resources:AnnouncementCTDesc" V2ListTemplateName="announce" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef> <!-- Body -->
+            <FieldRef ID="{6a09e75b-8d17-4698-94a8-371eda1af1ac}" Name="Expires"></FieldRef> <!-- Expires -->
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0105" Name="$Resources:Link" Group="$Resources:List_Content_Types" Description="$Resources:LinkCTDesc" V2ListTemplateName="favorite" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" Name="LinkTitle" Hidden="TRUE"></FieldRef> <!-- LinkTitle -->
+            <FieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" Name="LinkTitleNoMenu" Hidden="TRUE"></FieldRef> <!-- LinkTitleNoMenu -->
+            <FieldRef ID="{c29e077d-f466-4d8e-8bbe-72b66c5f205c}" Name="URL" Required="TRUE"></FieldRef> <!-- URL -->
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments"></FieldRef> <!-- Description -->
+            <FieldRef ID="{2a9ab6d3-268a-4c1c-9897-e5f018f87e64}" Name="URLwMenu"></FieldRef> <!-- URLwMenu -->
+            <FieldRef ID="{aeaf07ee-d2fb-448b-a7a3-cf7e062d6c2a}" Name="URLNoMenu"></FieldRef> <!-- URLNoMenu -->
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0106" Name="$Resources:Contact" Group="$Resources:List_Content_Types" Description="$Resources:ContactCTDesc" Version="0" V2ListTemplateName="contacts">
+        <FieldRefs>
+            <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" Name="LinkTitle" DisplayName="$Resources:core,Last_Name;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" Name="LinkTitleNoMenu" DisplayName="$Resources:core,Last_Name;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" DisplayName="$Resources:core,Last_Name;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{fdc8216d-dabf-441d-8ac0-f6c626fbdc24}" Name="LastNamePhonetic" Hidden="$Resources:core,True_Unless_Jpn" Required="FALSE"></FieldRef>
+            <FieldRef ID="{4a722dd4-d406-4356-93f9-2550b8f50dd0}" Name="FirstName"></FieldRef>
+            <FieldRef ID="{ea8f7ca9-2a0e-4a89-b8bf-c51a6af62c73}" Name="FirstNamePhonetic" Hidden="$Resources:core,True_Unless_Jpn"></FieldRef>
+            <FieldRef ID="{475c2610-c157-4b91-9e2d-6855031b3538}" Name="FullName"></FieldRef>
+            <FieldRef ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="Email"></FieldRef>
+            <FieldRef ID="{038d1503-4629-40f6-adaf-b47d1ab2d4fe}" Name="Company"></FieldRef>
+            <FieldRef ID="{034aae88-6e9a-4e41-bc8a-09b6c15fcdf4}" Name="CompanyPhonetic" Hidden="$Resources:core,True_Unless_Jpn"></FieldRef>
+            <FieldRef ID="{c4e0f350-52cc-4ede-904c-dd71a3d11f7d}" Name="JobTitle"></FieldRef>
+            <FieldRef ID="{fd630629-c165-4513-b43c-fdb16b86a14d}" Name="WorkPhone"></FieldRef>
+            <FieldRef ID="{2ab923eb-9880-4b47-9965-ebf93ae15487}" Name="HomePhone"></FieldRef>
+            <FieldRef ID="{2a464df1-44c1-4851-949d-fcd270f0ccf2}" Name="CellPhone"></FieldRef>
+            <FieldRef ID="{9d1cacc8-f452-4bc1-a751-050595ad96e1}" Name="WorkFax"></FieldRef>
+            <FieldRef ID="{fc2e188e-ba91-48c9-9dd3-16431afddd50}" Name="WorkAddress"></FieldRef>
+            <FieldRef ID="{6ca7bd7f-b490-402e-af1b-2813cf087b1e}" Name="WorkCity"></FieldRef>
+            <FieldRef ID="{ceac61d3-dda9-468b-b276-f4a6bb93f14f}" Name="WorkState"></FieldRef>
+            <FieldRef ID="{9a631556-3dac-49db-8d2f-fb033b0fdc24}" Name="WorkZip"></FieldRef>
+            <FieldRef ID="{3f3a5c85-9d5a-4663-b925-8b68a678ea3a}" Name="WorkCountry"></FieldRef>
+            <FieldRef ID="{a71affd2-dcc7-4529-81bc-2fe593154a5f}" Name="WebPage"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0107" Name="$Resources:Message" Group="$Resources:List_Content_Types" Description="$Resources:MessageCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{a9ec25bf-5a22-4658-bd19-484e52efbe1a}" Name="ParentFolderId"></FieldRef> <!-- ParentFolderId -->
+            <FieldRef ID="{f0218b98-d0d6-4fc1-b15b-aabeb89f32a9}" Name="DiscussionSubjectLookup"></FieldRef> <!-- DiscussionTitleLookup -->
+            <FieldRef ID="{c5abfdc7-3435-4183-9207-3d1146895cf8}" Name="DiscussionTitle"></FieldRef> <!-- DiscussionTitle -->
+            <FieldRef ID="{dce8262a-3ae9-45aa-aab4-83bd75fb738a}" Name="_UIVersionString"></FieldRef> <!-- _UIVersionString -->
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef> <!-- Body -->
+            <FieldRef ID="{6d0f8993-5050-41f3-be6c-18902d282357}" Name="TrimmedBody"></FieldRef> <!-- TrimmedBody -->
+            <FieldRef ID="{b0204f69-2253-43d2-99ad-c0df00031b66}" Name="CorrectBodyToShow"></FieldRef> <!-- CorrectBodyToShow -->
+            <FieldRef ID="{af82aa75-3039-4573-84a8-73ffdfd22733}" Name="BodyWasExpanded"></FieldRef> <!-- BodyWasExpanded -->
+            <FieldRef ID="{e393d344-2e8c-425b-a8c3-89ac3144c9a2}" Name="QuotedTextWasExpanded"></FieldRef> <!-- QuotedTextWasExpanded -->
+            <FieldRef ID="{e451420d-4e62-43e3-af83-010d36e353a2}" Name="ToggleQuotedText"></FieldRef> <!-- ToggleQuotedText -->
+            <FieldRef ID="{87cda0e2-fc57-4eec-a696-b0de2f61f361}" Name="ReplyNoGif"></FieldRef> <!-- ReplyNoGif -->
+            <FieldRef ID="{2ef29342-2f5f-4052-90d3-8192e0705e51}" Name="MessageId"></FieldRef> <!-- MessageId -->
+            <FieldRef ID="{769b99d9-d361-4948-b687-f01332391629}" Name="ThreadTopic"></FieldRef> <!-- ThreadTopic -->
+            <FieldRef ID="{cef73bf1-edf6-4dd9-9098-a07d83984700}" Name="ThreadIndex"></FieldRef> <!-- ThreadIndex -->
+            <FieldRef ID="{124527a9-fc10-48ff-8d44-960a7db405f8}" Name="EmailReferences"></FieldRef> <!-- EmailReferences -->
+            <FieldRef ID="{c55a4674-640b-4bae-8738-ce0439e6f6d4}" Name="ThreadingControls"></FieldRef> <!-- ThreadingControls -->
+            <FieldRef ID="{68227570-72dd-4816-b6b6-4b81ff99a393}" Name="IndentLevel"></FieldRef> <!-- IndentLevel -->
+            <FieldRef ID="{26c4f53e-733a-4202-814b-377492b6c841}" Name="Indentation"></FieldRef> <!-- Indentation -->
+            <FieldRef ID="{f90bce56-87dc-4d73-bfcb-03fcaf670500}" Name="StatusBar"></FieldRef> <!-- StatusBar -->
+            <FieldRef ID="{c7e9537e-bde4-4923-a100-adbd9e0a0a0d}" Name="BodyAndMore"></FieldRef> <!-- BodyAndMore -->
+            <FieldRef ID="{9c4be348-663a-4172-a38a-9714b2634c17}" Name="FullBody"></FieldRef> <!-- FullBody -->
+            <FieldRef ID="{61b97279-cbc0-4aa9-a362-f1ff249c1706}" Name="LimitedBody"></FieldRef> <!-- LimitedBody -->
+            <FieldRef ID="{fb6c2494-1b14-49b0-a7ca-0506d6e85a62}" Name="MoreLink"></FieldRef> <!-- MoreLink -->
+            <FieldRef ID="{076193bd-865b-4de7-9633-1f12069a6fff}" Name="LessLink"></FieldRef> <!-- LessLink -->
+            <FieldRef ID="{58ca6516-51cd-41fb-a908-dd2a4aeea8bc}" Name="Threading"></FieldRef> <!-- Threading -->
+            <FieldRef ID="{078b9dba-eb8c-4ec5-bfdd-8d220a3fcc5d}" Name="MyEditor"></FieldRef> <!-- MyEditor -->
+            <FieldRef ID="{adfe65ee-74bb-4771-bec5-d691d9a6a14e}" Name="PersonImage"></FieldRef> <!-- PersonImage -->
+            <FieldRef ID="{b4ab471e-0262-462a-8b3f-c1dfc9e2d5fd}" Name="PersonViewMinimal"></FieldRef> <!-- PersonViewMinimal -->
+            <FieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" Name="LinkTitleNoMenu" Hidden="TRUE"></FieldRef> <!-- LinkTitleNoMenu -->
+            <FieldRef ID="{4ce600fb-a927-4911-bfc1-11076b76b522}" Name="EmailSender" ShowInListSettings="FALSE"></FieldRef> <!-- EmailSender -->
+            <FieldRef ID="{4753e73b-5b5d-4bbc-8e09-c9683b0d40a7}" Name="ShortestThreadIndex"></FieldRef> <!-- ShortestThreadIndex -->
+            <FieldRef ID="{2bec4782-695f-406d-9e50-f1d39a2b8eb6}" Name="ShortestThreadIndexId"></FieldRef> <!-- ShortestThreadIndexId -->
+            <FieldRef ID="{8ffccefe-998b-4896-a6df-32d566f69141}" Name="ShortestThreadIndexLookup"></FieldRef> <!-- ShortestThreadIndexIdLookup -->
+            <FieldRef ID="{bd2216c1-a2f3-48c0-b21c-dc297d0cc658}" Name="IsRootPost"></FieldRef> <!-- IsRootPost -->
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x012002" Name="$Resources:Discussion" Group="$Resources:Folder_Content_Types" Description="$Resources:DiscussionCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="TRUE" Hidden="FALSE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{a9ec25bf-5a22-4658-bd19-484e52efbe1a}" Name="ParentFolderId"></FieldRef> <!-- ParentFolderId -->
+            <FieldRef ID="{f0218b98-d0d6-4fc1-b15b-aabeb89f32a9}" Name="DiscussionTitleLookup"></FieldRef> <!-- DiscussionTitleLookup -->
+            <FieldRef ID="{c5abfdc7-3435-4183-9207-3d1146895cf8}" Name="DiscussionTitle"></FieldRef> <!-- DiscussionTitle -->
+            <FieldRef ID="{dce8262a-3ae9-45aa-aab4-83bd75fb738a}" Name="_UIVersionString"></FieldRef> <!-- _UIVersionString -->
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef> <!-- Body -->
+            <FieldRef ID="{6d0f8993-5050-41f3-be6c-18902d282357}" Name="TrimmedBody"></FieldRef> <!-- TrimmedBody -->
+            <FieldRef ID="{b0204f69-2253-43d2-99ad-c0df00031b66}" Name="CorrectBodyToShow"></FieldRef> <!-- CorrectBodyToShow -->
+            <FieldRef ID="{af82aa75-3039-4573-84a8-73ffdfd22733}" Name="BodyWasExpanded"></FieldRef> <!-- BodyWasExpanded -->
+            <FieldRef ID="{e393d344-2e8c-425b-a8c3-89ac3144c9a2}" Name="QuotedTextWasExpanded"></FieldRef> <!-- QuotedTextWasExpanded -->
+            <FieldRef ID="{e451420d-4e62-43e3-af83-010d36e353a2}" Name="ToggleQuotedText"></FieldRef> <!-- ToggleQuotedText -->
+            <FieldRef ID="{87cda0e2-fc57-4eec-a696-b0de2f61f361}" Name="ReplyNoGif"></FieldRef> <!-- ReplyNoGif -->
+            <FieldRef ID="{2ef29342-2f5f-4052-90d3-8192e0705e51}" Name="MessageId"></FieldRef> <!-- MessageId -->
+            <FieldRef ID="{769b99d9-d361-4948-b687-f01332391629}" Name="ThreadTopic"></FieldRef> <!-- ThreadTopic -->
+            <FieldRef ID="{cef73bf1-edf6-4dd9-9098-a07d83984700}" Name="ThreadIndex"></FieldRef> <!-- ThreadIndex -->
+            <FieldRef ID="{124527a9-fc10-48ff-8d44-960a7db405f8}" Name="EmailReferences"></FieldRef> <!-- EmailReferences -->
+            <FieldRef ID="{c55a4674-640b-4bae-8738-ce0439e6f6d4}" Name="ThreadingControls"></FieldRef> <!-- ThreadingControls -->
+            <FieldRef ID="{68227570-72dd-4816-b6b6-4b81ff99a393}" Name="IndentLevel"></FieldRef> <!-- IndentLevel -->
+            <FieldRef ID="{26c4f53e-733a-4202-814b-377492b6c841}" Name="Indentation"></FieldRef> <!-- Indentation -->
+            <FieldRef ID="{f90bce56-87dc-4d73-bfcb-03fcaf670500}" Name="StatusBar"></FieldRef> <!-- StatusBar -->
+            <FieldRef ID="{c7e9537e-bde4-4923-a100-adbd9e0a0a0d}" Name="BodyAndMore"></FieldRef> <!-- BodyAndMore -->
+            <FieldRef ID="{9c4be348-663a-4172-a38a-9714b2634c17}" Name="FullBody"></FieldRef> <!-- FullBody -->
+            <FieldRef ID="{61b97279-cbc0-4aa9-a362-f1ff249c1706}" Name="LimitedBody"></FieldRef> <!-- LimitedBody -->
+            <FieldRef ID="{fb6c2494-1b14-49b0-a7ca-0506d6e85a62}" Name="MoreLink"></FieldRef> <!-- MoreLink -->
+            <FieldRef ID="{076193bd-865b-4de7-9633-1f12069a6fff}" Name="LessLink"></FieldRef> <!-- LessLink -->
+            <FieldRef ID="{58ca6516-51cd-41fb-a908-dd2a4aeea8bc}" Name="Threading"></FieldRef> <!-- Threading -->
+            <FieldRef ID="{078b9dba-eb8c-4ec5-bfdd-8d220a3fcc5d}" Name="MyEditor"></FieldRef> <!-- MyEditor -->
+            <FieldRef ID="{adfe65ee-74bb-4771-bec5-d691d9a6a14e}" Name="PersonImage"></FieldRef> <!-- PersonImage -->
+            <FieldRef ID="{b4ab471e-0262-462a-8b3f-c1dfc9e2d5fd}" Name="PersonViewMinimal"></FieldRef> <!-- PersonViewMinimal -->
+            <FieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" Name="LinkTitleNoMenu" Hidden="TRUE"></FieldRef> <!-- LinkTitleNoMenu -->
+            <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" Name="LinkTitle" Hidden="TRUE"></FieldRef> <!-- LinkTitle -->
+            <FieldRef ID="{3ac9353f-613f-42bd-98e1-530e9fd1cbf6}" Name="LinkDiscussionTitleNoMenu" Hidden="TRUE"></FieldRef> <!-- LinkDiscussionTitleNoMenu -->
+            <FieldRef ID="{46045bc4-283a-4826-b3dd-7a78d790b266}" Name="LinkDiscussionTitle" Hidden="TRUE"></FieldRef> <!-- LinkDiscussionTitle -->
+            <FieldRef ID="{8553196d-ec8d-4564-9861-3dbe931050c8}" Name="FileLeafRef" Hidden="TRUE"></FieldRef> <!-- FileLeafRef -->
+            <FieldRef ID="{9161f6cb-a8e6-47b8-9d24-89415de691f7}" Name="RelevantMessages" Hidden="TRUE"></FieldRef> <!-- RelevantMessages -->
+            <FieldRef ID="{b824e17e-a1b3-426e-aecf-f0184d900485}" Name="ItemChildCount" DisplayName="$Resources:core,Reply_Count"></FieldRef> <!-- ItemChildCount -->
+            <FieldRef ID="{59956c56-30dd-4cb1-bf12-ef693b42679c}" Name="DiscussionLastUpdated" DisplayName="$Resources:core,Last_Updated" Hidden="FALSE"></FieldRef> <!-- DiscussionLastUpdated -->
+            <FieldRef ID="{4ce600fb-a927-4911-bfc1-11076b76b522}" Name="EmailSender" ShowInListSettings="FALSE"></FieldRef> <!-- EmailSender -->
+            <FieldRef ID="{4753e73b-5b5d-4bbc-8e09-c9683b0d40a7}" Name="ShortestThreadIndex"></FieldRef> <!-- ShortestThreadIndex -->
+            <FieldRef ID="{2bec4782-695f-406d-9e50-f1d39a2b8eb6}" Name="ShortestThreadIndexId"></FieldRef> <!-- ShortestThreadIndexId -->
+            <FieldRef ID="{8ffccefe-998b-4896-a6df-32d566f69141}" Name="ShortestThreadIndexLookup"></FieldRef> <!-- ShortestThreadIndexIdLookup -->
+            <FieldRef ID="{bd2216c1-a2f3-48c0-b21c-dc297d0cc658}" Name="IsRootPost"></FieldRef> <!-- IsRootPost -->
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>ListForm</Display>
+                    <Edit>ListForm</Edit>
+                    <New>ListForm</New>
+                </FormTemplates>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0108" Name="$Resources:Task" Group="$Resources:List_Content_Types" Description="$Resources:TaskCTDesc" Version="0" V2ListTemplateName="tasks">
+        <FieldRefs>
+            <FieldRef ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}" Name="Predecessors"></FieldRef>
+            <FieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority"></FieldRef>
+            <FieldRef ID="{c15b34c3-ce7d-490a-b133-3f4de8801b76}" Name="Status"></FieldRef>
+            <FieldRef ID="{d2311440-1ed6-46ea-b46d-daa643dc3886}" Name="PercentComplete"></FieldRef>
+            <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo"></FieldRef>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="StartDate"></FieldRef>
+            <FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="DueDate"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010801" Name="$Resources:WorkflowTask" Group="_Hidden" Hidden="TRUE" Description="$Resources:WorkflowTaskCTDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{58ddda52-c2a3-4650-9178-3bbc1f6e36da}" Name="Link"></FieldRef>
+            <FieldRef ID="{16b6952f-3ce6-45e0-8f4e-42dac6e12441}" Name="OffsiteParticipant"></FieldRef>
+            <FieldRef ID="{4a799ba5-f449-4796-b43e-aa5186c3c414}" Name="OffsiteParticipantReason"></FieldRef>
+            <FieldRef ID="{18e1c6fa-ae37-4102-890a-cfb0974ef494}" Name="WorkflowOutcome"></FieldRef>
+            <FieldRef ID="{e506d6ca-c2da-4164-b858-306f1c41c9ec}" Name="WorkflowName"></FieldRef>
+            <FieldRef ID="{ae069f25-3ac2-4256-b9c3-15dbc15da0e0}" Name="GUID"></FieldRef>
+            <FieldRef ID="{8d96aa48-9dff-46cf-8538-84c747ffa877}" Name="TaskType"></FieldRef>
+            <FieldRef ID="{17ca3a22-fdfe-46eb-99b5-9646baed3f16}" Name="FormURN"></FieldRef>
+            <FieldRef ID="{78eae64a-f5f2-49af-b416-3247b76f46a1}" Name="FormData"></FieldRef>
+            <FieldRef ID="{8cbb9252-1035-4156-9c35-f54e9056c65a}" Name="EmailBody"></FieldRef>
+            <FieldRef ID="{47f68c3b-8930-406f-bde2-4a8c669ee87c}" Name="HasCustomEmailBody"></FieldRef>
+            <FieldRef ID="{cb2413f2-7de9-4afc-8587-1ca3f563f624}" Name="SendEmailNotification"></FieldRef>
+            <FieldRef ID="{4d2444c2-0e97-476c-a2a3-e9e4a9c73009}" Name="PendingModTime"></FieldRef>
+            <FieldRef ID="{35363960-d998-4aad-b7e8-058dfe2c669e}" Name="Completed"></FieldRef>
+            <FieldRef ID="{1bfee788-69b7-4765-b109-d4d9c31d1ac1}" Name="WorkflowListId"></FieldRef>
+            <FieldRef ID="{8e234c69-02b0-42d9-8046-d5f49bf0174f}" Name="WorkflowItemId"></FieldRef>
+            <FieldRef ID="{1c5518e2-1e99-49fe-bfc6-1a8de3ba16e2}" Name="ExtendedProperties"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010802" Name="$Resources:AdminTask" Group="_Hidden" Hidden="TRUE" Description="$Resources:AdminTaskCTDesc" Version="0">
+        <FieldRefs>
+            <RemoveFieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority"></RemoveFieldRef>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></FieldRef>
+            <FieldRef ID="{7b016ee5-70aa-4abb-8aa3-01795b4efe6f}" Name="Action"></FieldRef>
+            <FieldRef ID="{93490584-b6a8-4996-aa00-ead5f59aae0d}" Name="Description"></FieldRef>
+            <FieldRef ID="{cf935cc2-a00c-4ad3-bca1-0865ab15afc1}" Name="Priority"></FieldRef>
+            <FieldRef ID="{c15b34c3-ce7d-490a-b133-3f4de8801b76}" Name="Status"></FieldRef>
+            <FieldRef ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Name="AssignedTo"></FieldRef>
+            <FieldRef ID="{48b4a73e-8853-44ac-83a8-3a4bd59ce9ec}" Name="Service"></FieldRef>
+            <FieldRef ID="{af0a3d4b-3ceb-449e-9bf4-51103f2032e3}" Name="SystemTask"></FieldRef>
+            <FieldRef ID="{d2311440-1ed6-46ea-b46d-daa643dc3886}" Name="PercentComplete"></FieldRef>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"></FieldRef>
+            <FieldRef ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Name="StartDate"></FieldRef>
+            <FieldRef ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="DueDate"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0109" Name="$Resources:WorkflowHistory" Group="_Hidden" Description="$Resources:WorkflowHistoryCTDesc" ReadOnly="FALSE" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{20a1a5b1-fddf-4420-ac68-9701490e09af}" Name="Event"></FieldRef>
+            <FieldRef ID="{de21c770-a12b-4f88-af4b-aeebd897c8c2}" Name="WorkflowInstance"></FieldRef>
+            <FieldRef ID="{8d426880-8d96-459b-ae48-e8b3836d8b9d}" Name="WorkflowAssociation"></FieldRef>
+            <FieldRef ID="{bfb1589e-2016-4b98-ae62-e91979c3224f}" Name="WorkflowTemplate"></FieldRef>
+            <FieldRef ID="{f44e428b-61c8-4100-a911-a3a635f43bb5}" Name="List"></FieldRef>
+            <FieldRef ID="{92b8e9d0-a11b-418f-bf1c-c44aaa73075d}" Name="Item"></FieldRef>
+            <FieldRef ID="{5928ff1f-daa1-406c-b4a9-190485a448cb}" Name="User"></FieldRef>
+            <FieldRef ID="{5602dc33-a60a-4dec-bd23-d18dfcef861d}" Name="Occurred"></FieldRef>
+            <FieldRef ID="{c86a2f7f-7680-4a0b-8907-39c4f4855a35}" Name="Group"></FieldRef>
+            <FieldRef ID="{dcde7b1f-918b-4ed5-819f-9798f8abac37}" Name="Outcome"></FieldRef>
+            <FieldRef ID="{4d54445d-1c84-4a6d-b8db-a51ded4e1acc}" Name="Duration"></FieldRef>
+            <FieldRef ID="{2fd53156-ff9d-4cc3-b0ac-fe8a7bc82283}" Name="Description"></FieldRef>
+            <FieldRef ID="{38269294-165e-448a-a6b9-f0e09688f3f9}" Name="Data"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x0110" Name="$Resources:BlogPost" Group="$Resources:List_Content_Types" Description="$Resources:BlogPostDesc" ReadOnly="FALSE" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body" NumLines="15"></FieldRef>
+            <FieldRef ID="{38bea83b-350a-1a6e-f34a-93a6af31338b}" Name="PostCategory"></FieldRef>
+            <FieldRef ID="{b1b53d80-23d6-e31b-b235-3a286b9f10ea}" Name="PublishedDate"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                    <Display>BlogForm</Display>
+                    <Edit>BlogForm</Edit>
+                    <New>BlogForm</New>
+                </FormTemplates>
+            </XmlDocument>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url">
+                <FormUrls xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url">
+                    <Display>$Resources:core,lists_Folder;/$Resources:core,blogpost_Folder;/Post.aspx</Display>
+                    <MobileDisplay>_layouts/mobile/disppost.aspx</MobileDisplay>
+                    <MobileNew>_layouts/mobile/newpost.aspx</MobileNew>
+                </FormUrls>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0111" Name="$Resources:BlogComment" Group="$Resources:List_Content_Types" Description="$Resources:BlogCommentDesc" ReadOnly="FALSE" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body" NumLines="15"></FieldRef>
+        </FieldRefs>
+        <XmlDocuments>
+            <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url">
+                <FormUrls xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url">
+                    <MobileNew>_layouts/mobile/newcomment.aspx</MobileNew>
+                </FormUrls>
+            </XmlDocument>
+        </XmlDocuments>
+    </ContentType>
+    <ContentType ID="0x0120" Name="$Resources:Folder" Group="$Resources:Folder_Content_Types" Description="$Resources:FolderCTDesc" Sealed="TRUE" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"></FieldRef> <!-- Title -->
+            <FieldRef ID="{8553196d-ec8d-4564-9861-3dbe931050c8}" Name="FileLeafRef" Hidden="FALSE" Required="TRUE"></FieldRef> <!-- FileLeafRef -->
+            <FieldRef ID="{b824e17e-a1b3-426e-aecf-f0184d900485}" Name="ItemChildCount"></FieldRef> <!-- ItemChildCount -->
+            <FieldRef ID="{960ff01f-2b6d-4f1b-9c3f-e19ad8927341}" Name="FolderChildCount"></FieldRef> <!-- FolderChildCount -->          
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x012001" Name="RootOfList" Group="_Hidden" Sealed="TRUE" Version="0">
+        <FieldRefs>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010A" Name="Person" Group="_Hidden" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{bfc6f32c-668c-43c4-a903-847cca2f9b3c}" Name="Name"></FieldRef>
+            <FieldRef ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="EMail"></FieldRef>
+            <FieldRef ID="{bf03d3ca-aa6e-4845-809a-b4378b37ce08}" Name="MobilePhone"></FieldRef>
+            <FieldRef ID="{e241f186-9b94-415c-9f66-255ce7f86235}" Name="Notes"></FieldRef>
+            <FieldRef ID="{9ba260b2-85a1-4a32-ad7a-63eaceffe6b4}" Name="IsSiteAdmin"></FieldRef>
+            <FieldRef ID="{4ed6dfdf-86a8-4894-bd1b-4fa28042be53}" Name="Deleted"></FieldRef>
+            <FieldRef ID="{d9339777-b964-489a-bf09-2ac3c3fe5f0d}" Name="Picture"></FieldRef>
+            <FieldRef ID="{05fdf852-4b64-4096-9b2b-d2a62a86bc59}" Name="Department"></FieldRef>
+            <FieldRef ID="{c4e0f350-52cc-4ede-904c-dd71a3d11f7d}" Name="JobTitle"></FieldRef>
+            <FieldRef ID="{829c275d-8744-4d9b-a42f-53f53eb60559}" Name="SipAddress"></FieldRef>
+            <FieldRef ID="{af5036db-36f4-46c8-bde7-a677bd0ef280}" Name="IsActive"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010B" Name="SharePointGroup" Group="_Hidden" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{bfc6f32c-668c-43c4-a903-847cca2f9b3c}" Name="Name"></FieldRef>
+            <FieldRef ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="EMail"></FieldRef>
+            <FieldRef ID="{e241f186-9b94-415c-9f66-255ce7f86235}" Name="Notes"></FieldRef>
+            <FieldRef ID="{d9339777-b964-489a-bf09-2ac3c3fe5f0d}" Name="Picture"></FieldRef>
+            <FieldRef ID="{829c275d-8744-4d9b-a42f-53f53eb60559}" Name="SipAddress"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010C" Name="DomainGroup" Group="_Hidden" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{bfc6f32c-668c-43c4-a903-847cca2f9b3c}" Name="Name"></FieldRef>
+            <FieldRef ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="EMail"></FieldRef>
+            <FieldRef ID="{e241f186-9b94-415c-9f66-255ce7f86235}" Name="Notes"></FieldRef>
+            <FieldRef ID="{9ba260b2-85a1-4a32-ad7a-63eaceffe6b4}" Name="IsSiteAdmin"></FieldRef>
+            <FieldRef ID="{4ed6dfdf-86a8-4894-bd1b-4fa28042be53}" Name="Deleted"></FieldRef>
+            <FieldRef ID="{d9339777-b964-489a-bf09-2ac3c3fe5f0d}" Name="Picture"></FieldRef>
+            <FieldRef ID="{829c275d-8744-4d9b-a42f-53f53eb60559}" Name="SipAddress"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x010109" Name="$Resources:BasicPage" Group="$Resources:Document_Content_Types" Description="$Resources:BasicPageDesc" Version="0">
+        <FieldRefs>
+        </FieldRefs>
+        <DocumentTemplate TargetName="/_layouts/bpcf.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x01010901" Name="$Resources:WebPartPage" Group="$Resources:Document_Content_Types" Description="$Resources:WebPartPageDesc" Version="0">
+        <FieldRefs>
+        </FieldRefs>
+        <DocumentTemplate TargetName="/_layouts/spcf.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x01010A" Name="$Resources:LinkToDocument" Group="$Resources:Document_Content_Types" Description="$Resources:LinkToDocumentDesc" Version="0">
+        <FieldRefs>
+            <RemoveFieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></RemoveFieldRef>
+            <FieldRef ID="{c29e077d-f466-4d8e-8bbe-72b66c5f205c}" Name="URL" Required="TRUE"></FieldRef> <!-- URL -->
+        </FieldRefs>
+        <DocumentTemplate TargetName="/_layouts/NewLink.aspx"></DocumentTemplate>
+    </ContentType>
+    <ContentType ID="0x0116" Name="$Resources:FarEastContact" Group="$Resources:List_Content_Types" Description="$Resources:ContactCTDesc" Version="0" V2ListTemplateName="contacts">
+        <FieldRefs>
+            <FieldRef ID="{82642ec8-ef9b-478f-acf9-31f7d45fbc31}" Name="LinkTitle" DisplayName="$Resources:core,Last_Name;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{bc91a437-52e7-49e1-8c4e-4698904b2b6d}" Name="LinkTitleNoMenu" DisplayName="$Resources:core,Last_Name;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" DisplayName="$Resources:core,Last_Name;" Sealed="TRUE"></FieldRef>
+            <FieldRef ID="{fdc8216d-dabf-441d-8ac0-f6c626fbdc24}" Name="LastNamePhonetic" Hidden="$Resources:core,True_Unless_Jpn" Required="FALSE"></FieldRef>
+            <FieldRef ID="{4a722dd4-d406-4356-93f9-2550b8f50dd0}" Name="FirstName"></FieldRef>
+            <FieldRef ID="{ea8f7ca9-2a0e-4a89-b8bf-c51a6af62c73}" Name="FirstNamePhonetic" Hidden="$Resources:core,True_Unless_Jpn"></FieldRef>
+            <FieldRef ID="{475c2610-c157-4b91-9e2d-6855031b3538}" Name="FullName"></FieldRef>
+            <FieldRef ID="{fce16b4c-fe53-4793-aaab-b4892e736d15}" Name="Email"></FieldRef>
+            <FieldRef ID="{038d1503-4629-40f6-adaf-b47d1ab2d4fe}" Name="Company"></FieldRef>
+            <FieldRef ID="{034aae88-6e9a-4e41-bc8a-09b6c15fcdf4}" Name="CompanyPhonetic" Hidden="$Resources:core,True_Unless_Jpn"></FieldRef>
+            <FieldRef ID="{c4e0f350-52cc-4ede-904c-dd71a3d11f7d}" Name="JobTitle"></FieldRef>
+            <FieldRef ID="{fd630629-c165-4513-b43c-fdb16b86a14d}" Name="WorkPhone"></FieldRef>
+            <FieldRef ID="{2ab923eb-9880-4b47-9965-ebf93ae15487}" Name="HomePhone"></FieldRef>
+            <FieldRef ID="{2a464df1-44c1-4851-949d-fcd270f0ccf2}" Name="CellPhone"></FieldRef>
+            <FieldRef ID="{9d1cacc8-f452-4bc1-a751-050595ad96e1}" Name="WorkFax"></FieldRef>
+            <FieldRef ID="{ceac61d3-dda9-468b-b276-f4a6bb93f14f}" Name="WorkState"></FieldRef>
+            <FieldRef ID="{6ca7bd7f-b490-402e-af1b-2813cf087b1e}" Name="WorkCity"></FieldRef>
+            <FieldRef ID="{fc2e188e-ba91-48c9-9dd3-16431afddd50}" Name="WorkAddress"></FieldRef>
+            <FieldRef ID="{9a631556-3dac-49db-8d2f-fb033b0fdc24}" Name="WorkZip"></FieldRef>
+            <FieldRef ID="{3f3a5c85-9d5a-4663-b925-8b68a678ea3a}" Name="WorkCountry"></FieldRef>
+            <FieldRef ID="{a71affd2-dcc7-4529-81bc-2fe593154a5f}" Name="WebPage"></FieldRef>
+            <FieldRef ID="{9da97a8a-1da5-4a77-98d3-4bc10456e700}" Name="Comments"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+    <ContentType ID="0x01010B" Name="$Resources:DublinCoreName" Group="$Resources:Document_Content_Types" Description="$Resources:DublinCoreDesc" Version="0">
+        <FieldRefs>
+            <FieldRef ID="{370b7779-0344-4b9f-8f2d-dc1c62eae801}" Name="_Contributor"></FieldRef>
+            <FieldRef ID="{3b1d59c0-26b1-4de6-abbd-3edb4e2c6eca}" Name="_Coverage"></FieldRef>
+            <FieldRef ID="{246d0907-637c-46b7-9aa0-0bb914daa832}" Name="_Author" DisplayName="$Resources:core,_DCCreator"></FieldRef>
+            <FieldRef ID="{9f8b4ee0-84b7-42c6-a094-5cbde2115eb9}" Name="_DCDateCreated"></FieldRef>
+            <FieldRef ID="{810dbd02-bbf5-4c67-b1ce-5ad7c5a512b2}" Name="_DCDateModified"></FieldRef>
+            <FieldRef ID="{52578fc3-1f01-4f4d-b016-94ccbcf428cf}" Name="_Comments" DisplayName="$Resources:core,_DCDescription"></FieldRef>
+            <FieldRef ID="{36111fdd-2c65-41ac-b7ef-48b9b8da4526}" Name="_Format"></FieldRef>
+            <FieldRef ID="{3c76805f-ad45-483a-9c85-7ac24506ce1a}" Name="_Identifier"></FieldRef>
+            <FieldRef ID="{d81529e8-384c-4ca6-9c43-c86a256e6a44}" Name="Language"></FieldRef>
+            <FieldRef ID="{2eedd0ae-4281-4b77-99be-68f8b3ad8a7a}" Name="_Publisher"></FieldRef>
+            <FieldRef ID="{5e75c854-6e9d-405d-b6c1-f8725bae5822}" Name="_Relation"></FieldRef>
+            <FieldRef ID="{ada3f0cb-6f95-4588-bb08-d97cc0623522}" Name="_RightsManagement"></FieldRef>
+            <FieldRef ID="{b0a3c1db-faf1-48f0-9be1-47d2fc8cb5d6}" Name="_Source"></FieldRef>
+            <FieldRef ID="{b66e9b50-a28e-469b-b1a0-af0e45486874}" Name="Keywords"></FieldRef>
+            <FieldRef ID="{76a81629-44d4-4ce1-8d4d-6d7ebcd885fc}" Name="Subject"></FieldRef>            
+            <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></FieldRef>
+            <FieldRef ID="{edecec70-f6e2-4c3c-a4c7-f61a515dfaa9}" Name="_ResourceType"></FieldRef>
+        </FieldRefs>
+    </ContentType>
+</Elements>
