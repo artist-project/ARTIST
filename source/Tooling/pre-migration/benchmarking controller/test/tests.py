@@ -18,7 +18,6 @@
 # Initially developed in the ARTIST EU project, www.artist-project.eu
 
 """Provides examples for using the benchmark controller
-
 """
 
 import logging
