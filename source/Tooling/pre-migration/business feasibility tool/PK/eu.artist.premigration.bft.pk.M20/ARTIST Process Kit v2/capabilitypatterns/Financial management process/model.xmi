@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_8ZjYsfQ7EeKzY_EmAQPgmw" guid="_8ZjYsfQ7EeKzY_EmAQPgmw">
+    <resourceDescriptors xmi:id="_8ZjYsvQ7EeKzY_EmAQPgmw" id="-XkKVnRqTNNVe5_ydF6dDjA" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_8ZGswPQ7EeKzY_EmAQPgmw" name="Financial management process" guid="_8ZGswPQ7EeKzY_EmAQPgmw">
+    <methodElementProperty xmi:id="_8ZGswvQ7EeKzY_EmAQPgmw" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_ZILq4PQ9EeKzY_EmAQPgmw" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_BW8fwPQ8EeKzY_EmAQPgmw" name="Assure the billing process" guid="_BW8fwPQ8EeKzY_EmAQPgmw" presentationName="Assure the billing process" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" linkToPredecessor="_TUjU0fQ8EeKzY_EmAQPgmw" mandatoryInput="_BW8fwvQ8EeKzY_EmAQPgmw _BW8fw_Q8EeKzY_EmAQPgmw _BW8fxPQ8EeKzY_EmAQPgmw" performedPrimarilyBy="_BW8fwfQ8EeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_nUlKEPQ7EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_BW8fwfQ8EeKzY_EmAQPgmw" name="Business Manager" guid="_BW8fwfQ8EeKzY_EmAQPgmw" presentationName="Business Manager" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" modifies="_BW8fw_Q8EeKzY_EmAQPgmw _BW8fxPQ8EeKzY_EmAQPgmw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIvN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_BW8fwvQ8EeKzY_EmAQPgmw" name="SLA" guid="_BW8fwvQ8EeKzY_EmAQPgmw" presentationName="SLA" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_i8aq8OlOEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_BW8fw_Q8EeKzY_EmAQPgmw" name="Business Model" guid="_BW8fw_Q8EeKzY_EmAQPgmw" presentationName="Business Model" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_LXis4PQ6EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_BW8fxPQ8EeKzY_EmAQPgmw" name="Pricing Policy" guid="_BW8fxPQ8EeKzY_EmAQPgmw" presentationName="Pricing Policy" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_g9fJUPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_Bv050PQ8EeKzY_EmAQPgmw" name="Choose one or more licence model" guid="_Bv050PQ8EeKzY_EmAQPgmw" presentationName="Choose one or more licence model" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" linkToPredecessor="_QA9dIfQ8EeKzY_EmAQPgmw" additionallyPerformedBy="_Bv050vQ8EeKzY_EmAQPgmw _Bv050_Q8EeKzY_EmAQPgmw" mandatoryInput="_BW8fw_Q8EeKzY_EmAQPgmw" output="_BW8fw_Q8EeKzY_EmAQPgmw" performedPrimarilyBy="_Bv050fQ8EeKzY_EmAQPgmw _BW8fwfQ8EeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_w6Ln0PQ6EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_Bv050fQ8EeKzY_EmAQPgmw" name="CEO" guid="_Bv050fQ8EeKzY_EmAQPgmw" presentationName="CEO" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" modifies="_BW8fw_Q8EeKzY_EmAQPgmw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGI_N2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_Bv050vQ8EeKzY_EmAQPgmw" name="Marketing Manager" guid="_Bv050vQ8EeKzY_EmAQPgmw" presentationName="Marketing Manager" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_vXQrQPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_Bv050_Q8EeKzY_EmAQPgmw" name="Application owner" guid="_Bv050_Q8EeKzY_EmAQPgmw" presentationName="Application owner" isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" modifies="_BW8fw_Q8EeKzY_EmAQPgmw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_IpR6cPN3EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_CZQRUPQ8EeKzY_EmAQPgmw" name="Define the most appropriate business model" guid="_CZQRUPQ8EeKzY_EmAQPgmw" presentationName="Define the most appropriate business model " superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" mandatoryInput="_CZQRUfQ8EeKzY_EmAQPgmw" output="_BW8fw_Q8EeKzY_EmAQPgmw" performedPrimarilyBy="_BW8fwfQ8EeKzY_EmAQPgmw _Bv050fQ8EeKzY_EmAQPgmw _Bv050_Q8EeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_b5NvcPQ6EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-_XiMURRJwMPWBKWHGz_AoA#_g6ClAPQ6EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-_XiMURRJwMPWBKWHGz_AoA#_jMqu8PQ6EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-_XiMURRJwMPWBKWHGz_AoA#_meed8PQ6EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_CZQRUfQ8EeKzY_EmAQPgmw" name="Market analysis" guid="_CZQRUfQ8EeKzY_EmAQPgmw" presentationName="Market analysis " isPlanned="false" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_TNb50PQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_D3RugPQ8EeKzY_EmAQPgmw" name="Determine which are the parameters to be measured" guid="_D3RugPQ8EeKzY_EmAQPgmw" presentationName="Determine which are the parameters to be measured" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" linkToPredecessor="_Q5bWMPQ8EeKzY_EmAQPgmw" mandatoryInput="_BW8fw_Q8EeKzY_EmAQPgmw" output="_BW8fw_Q8EeKzY_EmAQPgmw" performedPrimarilyBy="_BW8fwfQ8EeKzY_EmAQPgmw _Bv050_Q8EeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_79gLUPQ6EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_FYSOQPQ8EeKzY_EmAQPgmw" name="Define the pricing policy" guid="_FYSOQPQ8EeKzY_EmAQPgmw" presentationName="Define the pricing policy" superActivities="_8ZGswfQ7EeKzY_EmAQPgmw" linkToPredecessor="_SHg58fQ8EeKzY_EmAQPgmw" additionallyPerformedBy="_Bv050fQ8EeKzY_EmAQPgmw _Bv050vQ8EeKzY_EmAQPgmw" mandatoryInput="_BW8fw_Q8EeKzY_EmAQPgmw" output="_BW8fw_Q8EeKzY_EmAQPgmw _BW8fxPQ8EeKzY_EmAQPgmw" performedPrimarilyBy="_BW8fwfQ8EeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_KGQOsPQ7EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_QA9dIfQ8EeKzY_EmAQPgmw" guid="_QA9dIfQ8EeKzY_EmAQPgmw" pred="_CZQRUPQ8EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_Q5bWMPQ8EeKzY_EmAQPgmw" guid="_Q5bWMPQ8EeKzY_EmAQPgmw" pred="_Bv050PQ8EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_SHg58fQ8EeKzY_EmAQPgmw" guid="_SHg58fQ8EeKzY_EmAQPgmw" pred="_D3RugPQ8EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_TUjU0fQ8EeKzY_EmAQPgmw" guid="_TUjU0fQ8EeKzY_EmAQPgmw" pred="_FYSOQPQ8EeKzY_EmAQPgmw"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_8ZGswfQ7EeKzY_EmAQPgmw" name="Financial management process" guid="_8ZGswfQ7EeKzY_EmAQPgmw" presentationName="Financial management process" breakdownElements="_CZQRUPQ8EeKzY_EmAQPgmw _Bv050PQ8EeKzY_EmAQPgmw _D3RugPQ8EeKzY_EmAQPgmw _FYSOQPQ8EeKzY_EmAQPgmw _BW8fwPQ8EeKzY_EmAQPgmw _BW8fwfQ8EeKzY_EmAQPgmw _BW8fwvQ8EeKzY_EmAQPgmw _BW8fw_Q8EeKzY_EmAQPgmw _BW8fxPQ8EeKzY_EmAQPgmw _Bv050fQ8EeKzY_EmAQPgmw _Bv050vQ8EeKzY_EmAQPgmw _Bv050_Q8EeKzY_EmAQPgmw _CZQRUfQ8EeKzY_EmAQPgmw">
+      <presentation xmi:id="-XkKVnRqTNNVe5_ydF6dDjA" href="uma://-XkKVnRqTNNVe5_ydF6dDjA#-XkKVnRqTNNVe5_ydF6dDjA"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>

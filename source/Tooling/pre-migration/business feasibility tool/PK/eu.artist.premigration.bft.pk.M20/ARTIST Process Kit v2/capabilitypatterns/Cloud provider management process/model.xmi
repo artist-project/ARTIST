@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_RhPAQfRAEeKzY_EmAQPgmw" guid="_RhPAQfRAEeKzY_EmAQPgmw">
+    <resourceDescriptors xmi:id="_RhPAQvRAEeKzY_EmAQPgmw" id="-26wT7axqn57rwKSF11XnRA" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_RgojUPRAEeKzY_EmAQPgmw" name="Cloud provider management process" guid="_RgojUPRAEeKzY_EmAQPgmw">
+    <methodElementProperty xmi:id="_RgojUvRAEeKzY_EmAQPgmw" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_G7_DYPRBEeKzY_EmAQPgmw" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_WEGugPRAEeKzY_EmAQPgmw" name="Define the main features to be fulfilled by the cloud provider" guid="_WEGugPRAEeKzY_EmAQPgmw" presentationName="Define the main features to be fulfilled by the cloud provider" superActivities="_RgojUfRAEeKzY_EmAQPgmw" mandatoryInput="_WEP4cPRAEeKzY_EmAQPgmw _WEP4cfRAEeKzY_EmAQPgmw" performedPrimarilyBy="_WEGugfRAEeKzY_EmAQPgmw _WEGugvRAEeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_pcUyUPQ-EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_WEGugfRAEeKzY_EmAQPgmw" name="Application owner" guid="_WEGugfRAEeKzY_EmAQPgmw" presentationName="Application owner" isPlanned="false" superActivities="_RgojUfRAEeKzY_EmAQPgmw" modifies="_XkgxUfRAEeKzY_EmAQPgmw _Y5ve4fRAEeKzY_EmAQPgmw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_IpR6cPN3EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_WEGugvRAEeKzY_EmAQPgmw" name="Business Manager" guid="_WEGugvRAEeKzY_EmAQPgmw" presentationName="Business Manager" isPlanned="false" superActivities="_RgojUfRAEeKzY_EmAQPgmw" modifies="_XkgxUfRAEeKzY_EmAQPgmw _Y5ve4fRAEeKzY_EmAQPgmw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIvN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_WEP4cPRAEeKzY_EmAQPgmw" name="List of cloud providers and information of their features" guid="_WEP4cPRAEeKzY_EmAQPgmw" presentationName="List of cloud providers and information of their features" isPlanned="false" superActivities="_RgojUfRAEeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_O_IFUPQ_EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_WEP4cfRAEeKzY_EmAQPgmw" name="SLA" guid="_WEP4cfRAEeKzY_EmAQPgmw" presentationName="SLA" isPlanned="false" superActivities="_RgojUfRAEeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_i8aq8OlOEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_XkgxUPRAEeKzY_EmAQPgmw" name="Establish the cloud provider agreement" guid="_XkgxUPRAEeKzY_EmAQPgmw" presentationName="Establish the cloud provider agreement" superActivities="_RgojUfRAEeKzY_EmAQPgmw" linkToPredecessor="_kzfUEfRAEeKzY_EmAQPgmw" mandatoryInput="_WEP4cPRAEeKzY_EmAQPgmw" output="_XkgxUfRAEeKzY_EmAQPgmw" performedPrimarilyBy="_WEGugfRAEeKzY_EmAQPgmw _WEGugvRAEeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_t89PcPQ_EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_XkgxUfRAEeKzY_EmAQPgmw" name="Cloud provider SLA" guid="_XkgxUfRAEeKzY_EmAQPgmw" presentationName="Cloud provider SLA" isPlanned="false" superActivities="_RgojUfRAEeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_eO_XMPQ-EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_YfhBAPRAEeKzY_EmAQPgmw" name="Select cloud provider" guid="_YfhBAPRAEeKzY_EmAQPgmw" presentationName="Select cloud provider" superActivities="_RgojUfRAEeKzY_EmAQPgmw" linkToPredecessor="_j76L0fRAEeKzY_EmAQPgmw" mandatoryInput="_WEP4cPRAEeKzY_EmAQPgmw" performedPrimarilyBy="_WEGugfRAEeKzY_EmAQPgmw _WEGugvRAEeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_i1SXcPQ_EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_Y5ve4PRAEeKzY_EmAQPgmw" name="Report and control the non-fulfilment" guid="_Y5ve4PRAEeKzY_EmAQPgmw" presentationName="Report and control the non-fulfilment" superActivities="_RgojUfRAEeKzY_EmAQPgmw" linkToPredecessor="_nbIEsfRAEeKzY_EmAQPgmw" mandatoryInput="_XkgxUfRAEeKzY_EmAQPgmw" output="_Y5ve4fRAEeKzY_EmAQPgmw" performedPrimarilyBy="_WEGugvRAEeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_HuDO8PRAEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_Y5ve4fRAEeKzY_EmAQPgmw" name="Report on the monitoring of the cloud provider" guid="_Y5ve4fRAEeKzY_EmAQPgmw" presentationName="Report on the monitoring of the cloud provider" isPlanned="false" superActivities="_RgojUfRAEeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_gO_gEPQ-EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_aa5voPRAEeKzY_EmAQPgmw" name="Monitor the fulfilment of the conditions" guid="_aa5voPRAEeKzY_EmAQPgmw" presentationName="Monitor the fulfilment of the conditions" superActivities="_RgojUfRAEeKzY_EmAQPgmw" linkToPredecessor="_mYhYMfRAEeKzY_EmAQPgmw" mandatoryInput="_XkgxUfRAEeKzY_EmAQPgmw" output="_Y5ve4fRAEeKzY_EmAQPgmw" performedPrimarilyBy="_WEGugfRAEeKzY_EmAQPgmw _WEGugvRAEeKzY_EmAQPgmw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_3PzT0PQ_EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_j76L0fRAEeKzY_EmAQPgmw" guid="_j76L0fRAEeKzY_EmAQPgmw" pred="_WEGugPRAEeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_kzfUEfRAEeKzY_EmAQPgmw" guid="_kzfUEfRAEeKzY_EmAQPgmw" pred="_YfhBAPRAEeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_mYhYMfRAEeKzY_EmAQPgmw" guid="_mYhYMfRAEeKzY_EmAQPgmw" pred="_XkgxUPRAEeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_nbIEsfRAEeKzY_EmAQPgmw" guid="_nbIEsfRAEeKzY_EmAQPgmw" pred="_aa5voPRAEeKzY_EmAQPgmw"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_RgojUfRAEeKzY_EmAQPgmw" name="Cloud provider management process" guid="_RgojUfRAEeKzY_EmAQPgmw" presentationName="Cloud provider management process" breakdownElements="_WEGugPRAEeKzY_EmAQPgmw _WEGugfRAEeKzY_EmAQPgmw _WEGugvRAEeKzY_EmAQPgmw _WEP4cPRAEeKzY_EmAQPgmw _WEP4cfRAEeKzY_EmAQPgmw _YfhBAPRAEeKzY_EmAQPgmw _XkgxUPRAEeKzY_EmAQPgmw _XkgxUfRAEeKzY_EmAQPgmw _aa5voPRAEeKzY_EmAQPgmw _Y5ve4PRAEeKzY_EmAQPgmw _Y5ve4fRAEeKzY_EmAQPgmw">
+      <presentation xmi:id="-26wT7axqn57rwKSF11XnRA" href="uma://-26wT7axqn57rwKSF11XnRA#-26wT7axqn57rwKSF11XnRA"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>
