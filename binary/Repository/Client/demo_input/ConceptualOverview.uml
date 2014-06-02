@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_-3UCpgtHEeO-f7KEdUwVpg" name="Conceptual Overview">
+  <packagedElement xmi:type="uml:Package" xmi:id="_RqEsIAtKEeO-f7KEdUwVpg" name="UML "/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_vvw6EAtaEeO-f7KEdUwVpg" clientDependency="_JCZRYAtaEeO-f7KEdUwVpg" name="Cloud Relevant Domain Knowledge">
+    <packagedElement xmi:type="uml:Package" xmi:id="_WbSDQAtIEeO-f7KEdUwVpg" name="PricingProfile"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_YsCk8AtIEeO-f7KEdUwVpg" name="PerformanceProfile"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_XiGhYAtIEeO-f7KEdUwVpg" name="ServiceLevelProfile">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_JCZRYAtaEeO-f7KEdUwVpg" name="&lt;&lt;Linguistic Instantiation>> &lt;&lt;Package Import>>" client="_vvw6EAtaEeO-f7KEdUwVpg" supplier="_RqEsIAtKEeO-f7KEdUwVpg"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_3kYs8AtaEeO-f7KEdUwVpg" clientDependency="_nY2AgAtcEeO-f7KEdUwVpg" name="Cloud Specific Domain Knowledge">
+    <packagedElement xmi:type="uml:Package" xmi:id="_B2o6gAtIEeO-f7KEdUwVpg" name="Cloud Modeling Library"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_nY2AgAtcEeO-f7KEdUwVpg" name="&lt;&lt;Linguistic Instantiation>>" client="_3kYs8AtaEeO-f7KEdUwVpg" supplier="_RqEsIAtKEeO-f7KEdUwVpg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_d3vTIAtbEeO-f7KEdUwVpg" clientDependency="_i9SbMAtcEeO-f7KEdUwVpg __fEJsAtIEeO-f7KEdUwVpg" name="Cloud Provider Knowledge">
+    <packagedElement xmi:type="uml:Package" xmi:id="_1PuA0AtIEeO-f7KEdUwVpg" name="MicrosoftAzureProfile"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_eGFLwAtIEeO-f7KEdUwVpg" name="AmazonAWSProfile">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="__fEJsAtIEeO-f7KEdUwVpg" name="&lt;&lt;Profile Application>>" client="_d3vTIAtbEeO-f7KEdUwVpg" supplier="_vvw6EAtaEeO-f7KEdUwVpg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_zhoHUAtIEeO-f7KEdUwVpg" name="GoogleAppEngineProfile"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_i9SbMAtcEeO-f7KEdUwVpg" name="&lt;&lt;Linguistic Instantiation>> &lt;&lt;Package Import>>" client="_d3vTIAtbEeO-f7KEdUwVpg" supplier="_RqEsIAtKEeO-f7KEdUwVpg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_xBgj4AtcEeO-f7KEdUwVpg" clientDependency="_3pXosAtcEeO-f7KEdUwVpg _7gx_IAtcEeO-f7KEdUwVpg _Oz5OkAtdEeO-f7KEdUwVpg" name="Cloud Based Software">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_3pXosAtcEeO-f7KEdUwVpg" name="&lt;&lt;Profile Application>>" client="_xBgj4AtcEeO-f7KEdUwVpg" supplier="_d3vTIAtbEeO-f7KEdUwVpg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_7gx_IAtcEeO-f7KEdUwVpg" name="&lt;&lt;Ontological Instantiation>>" client="_xBgj4AtcEeO-f7KEdUwVpg" supplier="_3kYs8AtaEeO-f7KEdUwVpg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Oz5OkAtdEeO-f7KEdUwVpg" name="&lt;&lt;Linguistic Instantiation>>" client="_xBgj4AtcEeO-f7KEdUwVpg" supplier="_RqEsIAtKEeO-f7KEdUwVpg"/>
+  </packagedElement>
+</uml:Model>
