@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.artist.reusevol</groupId>
+		<artifactId>Repository</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>repo.server</artifactId>
+	<packaging>war</packaging>
+	<name>ARTIST Repository webapp</name>
+	
+	<repositories>
+		<repository>
+			<id>local-maven-repo</id>
+			<url>file://${basedir}/local-maven-repo</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<!-- Version of the TomEE runtime container and plugin -->
+		<tomee.version>1.6.0</tomee.version>
+		<tomee-maven-plugin.version>1.6.0</tomee-maven-plugin.version>
+
+		<!-- Version of libraries provided by TomEE -->
+		<!-- NOTE: These versions must correspond to the versions of the jars -->
+		<!-- under TOMEE_HOME>/lib -->
+		<!-- !!! Updated this whenever a new version of TomEE is used !!! -->
+		<javaee-api.version>6.0-5</javaee-api.version>
+		<openejb.version>4.6.0</openejb.version>
+		<owb.version>1.2.1</owb.version>
+		<cxf.version>2.6.9</cxf.version>
+
+		<!-- Versions of external dependencies -->
+		<rest-assured.version>2.1.0</rest-assured.version>
+		<groovy.version>2.2.0</groovy.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<emf.version>2.9.1-v20130827-0309</emf.version>
+
+		<infinispan.version>5.2.7.Final</infinispan.version>
+		<h2.version>1.3.174</h2.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+
+		<!-- Test -->
+		<deltaspike.version>0.5</deltaspike.version>
+		<junit.version>4.11</junit.version>
+		<testng.version>6.1.1</testng.version>
+
+		<!-- Maven plugin versions -->
+	</properties>
+
+	<dependencies>
+		<!-- Import shared classes -->
+		<dependency>
+			<groupId>eu.artist.reusevol</groupId>
+			<artifactId>repo.common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.artist.reusevol</groupId>
+			<artifactId>repo.client</artifactId>
+			<version>1.0.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.artist.repository.security</groupId>
+			<artifactId>authorizationservice</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!-- EMF -->
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>${emf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>${emf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>${emf.version}</version>
+		</dependency>
+
+		<!-- Imports the JavaEE API -->
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javaee-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Imports the CXF API -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jaxb-impl</artifactId>
+					<groupId>com.sun.xml.bind</groupId>
+				</exclusion>
+			</exclusions>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- This is needed to use CDI together with CXF REST web services -->
+		<!-- The <scope>test</scope> guarantees that non of your runtime code is 
+			dependent on any OpenEJB classes. -->
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>openejb-cxf-rs</artifactId>
+			<version>${openejb.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<!-- JAXB is included in the Java distribution since 1.6. This jar caused 
+					strange problems and is not needed -->
+				<exclusion>
+					<artifactId>jaxb-impl</artifactId>
+					<groupId>com.sun.xml.bind</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- JCR and ModeShape API -->
+		<dependency>
+			<groupId>org.modeshape</groupId>
+			<artifactId>modeshape-jcr-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<!-- <version>${log4j.version}</version> -->
+		</dependency>
+
+		<!-- Libraries for JCR to object mapping -->
+		<dependency>
+			<groupId>org.jcrom</groupId>
+			<artifactId>jcrom</artifactId>
+			<version>${jcrom.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+			<classifier>cdi1.0</classifier>
+		</dependency>
+
+		<!-- Libraries for modeshape testing -->
+		<dependency>
+			<groupId>org.modeshape</groupId>
+			<artifactId>modeshape-jcr</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jetty-util</artifactId>
+					<groupId>org.mortbay.jetty</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>org.mortbay.jetty</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-mapper-asl</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jetty</artifactId>
+					<groupId>org.mortbay.jetty</groupId>
+				</exclusion>
+			</exclusions>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<artifactId>slf4j-api</artifactId>
+			<groupId>org.slf4j</groupId>
+			<scope>test</scope>
+			<!-- <version>${slf4j.version}</version> -->
+		</dependency>
+		<dependency>
+			<artifactId>slf4j-jdk14</artifactId>
+			<groupId>org.slf4j</groupId>
+			<scope>test</scope>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-cachestore-jdbc</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Libraries for REST testing -->
+		<dependency>
+			<groupId>com.jayway.restassured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+			<exclusions>
+				<!-- Exclude Groovy because of classpath issue -->
+				<exclusion>
+					<groupId>org.codehaus.groovy</groupId>
+					<artifactId>groovy</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jackson-mapper-asl</artifactId>
+					<groupId>org.codehaus.jackson</groupId>
+				</exclusion>
+			</exclusions>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<!-- Needs to be the same version that REST Assured depends on -->
+			<version>${groovy.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.apache.openejb</groupId> <artifactId>tomee-embedded</artifactId> 
+			<version>${tomee.version}</version> <scope>test</scope> </dependency> -->
+
+		<!-- Libraries for CDI testing -->
+		<dependency>
+			<groupId>org.apache.deltaspike.core</groupId>
+			<artifactId>deltaspike-core-api</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.deltaspike.cdictrl</groupId>
+			<artifactId>deltaspike-cdictrl-api</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.deltaspike.cdictrl</groupId>
+			<artifactId>deltaspike-cdictrl-owb</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Libraries for unit testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+			<!-- <version>${junit.version}</version> -->
+		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+			<scope>test</scope>
+		</dependency>
+		 -->
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.openejb.maven</groupId>
+				<artifactId>tomee-maven-plugin</artifactId>
+				<version>${tomee-maven-plugin.version}</version>
+				<configuration>
+					<tomeeVersion>${tomee.version}</tomeeVersion>
+					<tomeeClassifier>plus</tomeeClassifier>
+					<synchronization>
+						<extensions>
+							<extension>.class</extension>
+							<extension>.xml</extension>
+						</extensions>
+						<binariesDir>${project.basedir}/target/classes/</binariesDir>
+						<targetBinariesDir>${project.basedir}/target/apache-tomee/webapps/${project.artifactId}/WEB-INF/classes/</targetBinariesDir>
+					</synchronization>
+					<reloadOnUpdate>true</reloadOnUpdate>
+					<!-- The following libs are copied to the TomEE lib directory -->
+					<libs>
+						<!-- Libs for Modeshape -->
+						<lib>org.modeshape:modeshape-common:${modeshape.version}</lib>
+						<lib>org.modeshape:modeshape-jcr:${modeshape.version}</lib>
+						<lib>org.modeshape:modeshape-jcr-api:${modeshape.version}</lib>
+						<lib>org.modeshape:modeshape-schematic:${modeshape.version}</lib>
+
+						<!-- Dependencies for Modeshape -->
+						<!-- Please update the versions and check for new dependencies everytime 
+							you move to a new modeshape version -->
+						<!-- This is already provided by TomEE: <lib>commons-codec:commons-codec:1.5</lib> -->
+						<lib>org.apache.commons:commons-compress:1.4.1</lib>
+						<lib>dom4j:dom4j:1.6.1</lib>
+						<lib>org.hibernate.common:hibernate-commons-annotations:4.0.2.Final</lib>
+						<lib>org.hibernate:hibernate-search-engine:4.3.0.Final</lib>
+						<lib>org.infinispan:infinispan-core:5.2.7.Final</lib>
+						<lib>jakarta-regexp:jakarta-regexp:1.4</lib>
+						<lib>org.jboss.logging:jboss-logging:3.1.2.GA</lib>
+						<lib>org.jboss.marshalling:jboss-marshalling:1.3.15.GA</lib>
+						<lib>org.jboss.marshalling:jboss-marshalling-river:1.3.15.GA</lib>
+						<lib>org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.0.Final</lib>
+						<lib>javax.jcr:jcr:2.0</lib>
+						<lib>org.jgroups:jgroups:3.2.10.Final</lib>
+						<lib>joda-time:joda-time:1.6.2</lib>
+						<lib>org.apache.lucene:lucene-core:3.6.2</lib>
+						<lib>org.apache.lucene:lucene-facet:3.6.2</lib>
+						<lib>org.apache.lucene:lucene-regex:3.0.3</lib>
+						<lib>org.apache.poi:poi:3.10-beta1</lib>
+						<lib>org.apache.poi:poi-ooxml:3.10-beta1</lib>
+						<lib>org.apache.poi:poi-ooxml-schemas:3.10-beta1</lib>
+						<lib>org.apache.poi:poi-scratchpad:3.10-beta1</lib>
+						<lib>org.jboss:staxmapper:1.1.0.Final</lib>
+						<lib>org.apache.tika:tika-core:1.3</lib>
+						<lib>org.apache.tika:tika-parsers:1.3</lib>
+						<!-- <lib>org.gagravarr:vorbis-java-core:0.1:tests</lib> -->
+						<lib>org.gagravarr:vorbis-java-core:0.1</lib>
+						<lib>org.gagravarr:vorbis-java-tika:0.1</lib>
+						<lib>org.apache.xmlbeans:xmlbeans:2.3.0</lib>
+						<lib>org.tukaani:xz:1.0</lib>
+
+						<!-- Libs needed for the database backend -->
+						<lib>org.modeshape:modeshape-jcr:${modeshape.version}</lib>
+						<lib>org.infinispan:infinispan-cachestore-jdbc:${infinispan.version}</lib>
+						<lib>c3p0:c3p0:${c3p0.version}</lib>
+						<lib>com.h2database:h2:${h2.version}</lib>
+					</libs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<includes>
+						<include>**/AllTests.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

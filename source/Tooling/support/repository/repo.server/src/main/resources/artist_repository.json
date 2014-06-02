@@ -1,0 +1,38 @@
+{
+    "name" : "ARTIST Repository",
+    "workspaces" : {
+        "default" : "default",
+        "allowCreation" : false
+    },
+    "security" : {
+        "anonymous" : {
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : false
+        }
+    },
+    "storage" : {
+        "cacheConfiguration" : "infinispan-configuration.xml",
+        "cacheName" : "persisted_repository",
+        "binaryStorage" : {
+            "type" : "file",
+            "directory": "C:/temp/jcr-data/binaries",
+            "minimumBinarySizeInBytes" : 4096
+        }
+    },
+    "query":{
+        "enabled":true,
+        "indexStorage": {
+            "type":"filesystem",
+            "location":"C:/temp/jcr-data/index",
+            "lockingStrategy":"simple",
+            "fileSystemAccessType":"auto"
+        },
+         "indexing" : {
+            "rebuildOnStartup": {
+                "when" : "if_missing",
+                "includeSystemContent": false,
+                "mode": async
+            },
+        },
+    },
+}

@@ -1,0 +1,36 @@
+{
+    "name" : "artist",
+    "jndiName" : "",
+    "workspaces" : {
+        "default" : "default",
+        "allowCreation" : false
+    },
+    "security" : {
+        "anonymous" : {
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : false
+        }
+    },
+    "storage" : {
+        "cacheConfiguration" : "${catalina.base}/conf/modeshape-infinispan-configuration.xml",
+        "cacheName" : "persisted_repository",
+        "binaryStorage" : {
+            "type" : "file",
+            "directory": "${catalina.base}/jcr/data/binaries",
+            "minimumBinarySizeInBytes" : 4096
+        }
+    },
+    "query":{
+        "enabled":true,
+        "indexStorage": {
+            "type":"ram"
+        },
+         "indexing" : {
+            "rebuildOnStartup": {
+                "when" : "if_missing",
+                "includeSystemContent": false,
+                "mode": async
+            },
+        },
+    },
+}
