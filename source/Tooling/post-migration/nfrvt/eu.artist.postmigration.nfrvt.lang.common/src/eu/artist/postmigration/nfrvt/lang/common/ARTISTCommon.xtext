@@ -1,0 +1,346 @@
+grammar eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.eclipse.org/uml2/4.0.0/UML" as uml
+
+generate artistCommon "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon"
+
+Expression:
+	Implication
+;
+
+Implication :
+	Disjunction (
+		{Implication.left = current} 
+		operator = ImplicationOperator
+		right = Disjunction
+	)*
+;
+
+Disjunction:
+	Conjunction (
+		{Disjunction.left = current}
+		operator = (OrOperator | XOrOperator)
+		right = Conjunction
+	)*
+;
+
+Conjunction :
+	Comparison (
+		{Conjunction.left = current} 
+		operator = AndOperator
+		right = Comparison
+	)*
+;
+
+Comparison :
+	BooleanUnit(
+		{Comparison.left = current} 
+		operator = (EqualsOperator | NotEqualsOperator)
+		right = BooleanUnit
+	)*
+;
+
+BooleanUnit:
+	Negation | RelationalExpression | BooleanLiteral
+;
+
+Negation:
+	operator = NotOperator value = BooleanUnit
+;
+
+RelationalExpression:
+	ComparableExpression (
+		(	{RelationalExpression.left = current} operator = GreaterThanOperator | 
+			{RelationalExpression.left = current} operator = GreaterOrEqualThanOperator |
+			{RelationalExpression.left = current} operator = LessOrEqualThanOperator |
+			{RelationalExpression.left = current} operator = LessThanOperator 
+		)
+		right = ComparableExpression
+	)*
+;
+
+ComparableExpression:
+	ArithmeticExpression | InstanceSpecificationExpression | ObjectSpecificationExpression | NullLiteral | StringLiteral | UnlimitedLiteral | ParenthesizedExpression
+;
+
+ArithmeticExpression:
+	AdditiveExpression
+;
+
+AdditiveExpression:
+	MultiplicativeExpression (
+		{AdditiveExpression.left = current} 
+		operator = (SubstractionOperator | AdditionOperator)
+		right = MultiplicativeExpression
+	)*
+;
+
+MultiplicativeExpression:
+	NumberExpression (
+		{MultiplicativeExpression.left = current} 
+		operator = (MultiplicationOperator | DivisionOperator | ModulusOperator)
+		right = NumberExpression
+	)*
+;
+
+NumberExpression:
+	NumberLiteral | NumberFunction
+;
+
+NumberFunction:
+	MaximumFunction | MinimumFunction | AverageFunction | SumFunction | ExponentialFunction | AbsoluteFunction | NaturalLogarithmFunction | CommonLogarithmFunction
+;
+
+MaximumFunction:
+	operator = MaxOperator "(" values+= NumberExpression ("," values += NumberExpression)* ")"
+;
+
+MinimumFunction:
+	operator = MinOperator "(" values+= NumberExpression ("," values += NumberExpression)* ")"
+;
+
+AverageFunction:
+	operator = AvgOperator "(" values+= NumberExpression ("," values += NumberExpression)* ")"
+;
+
+SumFunction:
+	operator = SumOperator "(" values+= NumberExpression ("," values += NumberExpression)* ")"
+;
+
+ExponentialFunction:
+	operator = ExponentialOperator "(" base = NumberExpression "," exponent = NumberExpression ")"
+;
+
+AbsoluteFunction:
+	operator = AbsoluteOperator "(" value = NumberExpression ")"
+;
+
+NaturalLogarithmFunction:
+	operator = NaturalLogarithmOperator "(" value = NumberExpression ")"
+;
+
+CommonLogarithmFunction:
+	operator = CommonLogarithmOperator "(" value = NumberExpression ")"
+;
+
+ParenthesizedExpression:
+	LeftParenthesis value = Expression RightParenthesis
+;
+
+ValueSpecification:
+	LiteralValueExpression |
+	InstanceSpecificationExpression	|
+	ObjectSpecificationExpression
+;
+
+ObjectSpecificationExpression:
+	type = [uml::DataType | QualifiedName] (
+		value = Collection | value = Tuple
+	)
+;
+
+Collection:
+	'[' values += ValueSpecification (',' values += ValueSpecification)* ']'
+;
+
+Tuple:
+	'{' tuples += PropertyValuePair (',' tuples += PropertyValuePair)* '}'
+;
+
+PropertyValuePair:
+	property = [uml::Property | QualifiedName] '=' value = ValueSpecification;
+
+InstanceSpecificationExpression:
+	value=[uml::InstanceSpecification | QualifiedName ]
+;
+
+LiteralValueExpression:
+	NumberLiteral |
+	BooleanLiteral |
+	NullLiteral |
+	StringLiteral |
+	UnlimitedLiteral
+;
+
+BooleanLiteral:
+	value = EBOOLEAN
+;
+
+NumberLiteral:
+	value = Number 
+;
+
+NullLiteral:
+	value = NULL
+;
+
+StringLiteral:
+	value = STRING
+;
+
+UnlimitedLiteral:
+	value = '*'
+;
+
+OrOperator returns Operator:
+	{OrOperator} ('or' | '||')
+;
+
+XOrOperator returns Operator:
+	{XOrOperator} ('xor' | '^')
+;
+
+AndOperator returns Operator:
+	{AndOperator} ('and' | '&&')
+;
+
+ImplicationOperator returns Operator:
+	{ImplicationOperator} ('=>' | '->')
+;
+
+EqualsOperator returns Operator:
+	{EqualsOperator} '=='
+;
+
+NotEqualsOperator returns Operator:
+	{NotEqualsOperator} ('!=' | '<>')
+;
+
+NotOperator returns Operator:
+	{NotOperator} ('!' | 'not')
+;
+
+GreaterThanOperator returns Operator:
+	{GreaterThanOperator} ">"
+;
+
+GreaterOrEqualThanOperator returns Operator:
+	{GreaterOrEqualThanOperator} ">="
+;
+
+LessThanOperator returns Operator:
+	{LessThanOperator} "<"
+;
+
+LessOrEqualThanOperator returns Operator:
+	{LessOrEqualThanOperator} "<="
+;
+
+AdditionOperator returns Operator:
+	{AdditionOperator} '+'
+;
+
+SubstractionOperator returns Operator:
+	{SubstractionOperator} '-'
+;
+
+MultiplicationOperator returns Operator:
+	{MultiplicationOperator} '*'
+;
+
+DivisionOperator returns Operator:
+	{DivisionOperator} '/'
+;
+
+ModulusOperator returns Operator:
+	{ModulusOperator} '%'
+;
+
+MaxOperator returns Operator:
+	{MaxOperator} 'max'
+;
+
+MinOperator returns Operator:
+	{MinOperator} 'min'
+;
+
+AvgOperator returns Operator:
+	{AvgOperator} 'avg'
+;
+
+SumOperator returns Operator:
+	{SumOperator} 'sum'
+;
+
+ExponentialOperator returns Operator:
+	{ExponentialOperator} 'exp'
+;
+
+AbsoluteOperator returns Operator:
+	{AbsoluteOperator} 'abs'
+;
+
+NaturalLogarithmOperator returns Operator:
+	{NaturalLogarithmOperator} 'ln'
+;
+
+CommonLogarithmOperator returns Operator:
+	{CommonLogarithmOperator} 'log'
+;
+
+LeftParenthesis:
+	'('
+;
+
+RightParenthesis:
+	')'
+;
+
+QualifiedName:
+  ID (=>'.' ID)*;
+  
+QualifiedNameWithWildcard:
+  QualifiedName '.*'?
+;
+
+ImportURIorNamespace:
+	'import' (importURI = STRING | importedNamespace = QualifiedNameWithWildcard)
+;
+
+ImportURI:
+	'import' importURI = STRING
+;
+
+ImportNamespace:
+	'import' importedNamespace = QualifiedNameWithWildcard
+;
+
+Number returns ecore::EBigDecimal:
+	INT | POSITIVE_SMALL_DECIMAL | SMALL_DECIMAL | EBIGDECIMAL
+;
+
+Impact returns ecore::EBigDecimal:
+	POSITIVE_SMALL_DECIMAL | SMALL_DECIMAL
+;
+
+EBooleanObject returns ecore::EBooleanObject:
+	NULL | EBOOLEAN
+;
+
+terminal EBOOLEAN returns ecore::EBooleanObject:
+	'true' | 'false'
+;
+
+terminal NULL:
+	'null'
+;
+
+terminal INT returns ecore::EInt: 
+	('0'..'9')+
+;
+
+terminal POSITIVE_SMALL_DECIMAL returns ecore::EBigDecimal:
+	(('1' ('.' ('0')+)?) | '0' ('.' ('0'..'9')+)? | '.' ('0'..'9')+)
+;
+
+terminal SMALL_DECIMAL returns ecore::EBigDecimal:
+	('+'|'-')? POSITIVE_SMALL_DECIMAL
+;
+
+terminal EBIGDECIMAL returns ecore::EBigDecimal:
+	('+' | '-')? (INT | '.' INT | INT '.' INT);
+
+terminal ID:
+	'^'?('a'..'z'|'A'..'Z'|'_'|'+'|'-'|'%'|'*'|'/'|'#'|'>'|'<'|'='|'§') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'+'|'-'|'%'|'*'|'/'|'#'|'>'|'<'|'='|'§')*
+;

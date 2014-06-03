@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.artist.eu/postmigration/gm/lang/esl/ESL" 
+       class = "eu.artist.postmigration.nfrvt.lang.esl.esl.EslPackage"
+       genModel = "model/generated/ESL.genmodel" /> 
+	
+  </extension>
+
+
+	
+
+
+</plugin>

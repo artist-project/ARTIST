@@ -1,0 +1,155 @@
+grammar eu.artist.postmigration.nfrvt.lang.gml.GML with eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon
+
+import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as artistCommon
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.eclipse.org/uml2/4.0.0/UML" as uml
+import "http://www.artist.eu/postmigration/nfrvt/lang/nsl/NSL" as nsl
+// import "http://www.eclipse.org/papyrus/MARTE/1" as marte
+
+generate gml "http://www.artist.eu/postmigration/nfrvt/lang/gml/GML"
+
+GoalModel:
+	imports += ImportNamespace*
+	"goalmodel" name = QualifiedName "{"
+		"workloads" "["
+			(workloads += Workload ("," workloads+= Workload)*)?
+		"]"
+		"applied-properties" "["
+			(appliedProperties += AppliedProperty ("," appliedProperties += AppliedProperty)*)?
+		"]"
+		"goals" "[" 
+			(goals += Goal ("," goals += Goal)*)?
+		"]"
+	"}"
+;
+
+Workload:
+	name = ID "{"
+		"activity" activity = [uml::Activity | QualifiedName] ","
+		"pattern" pattern = STRING
+	"}"
+;
+
+AppliedProperty:
+	AppliedQualitativeProperty | AppliedQuantitativeProperty
+;
+
+AppliedQualitativeProperty:
+	"qualitative" name = ID "{"
+		"property" property = [nsl::QualitativeProperty | QualifiedName] ","
+		"context" "[" (context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])*)? "]"
+	"}"
+;
+
+AppliedQuantitativeProperty:
+	"quantitative" name = ID "{"
+		"property" property = [nsl::QuantitativeProperty | QualifiedName] ","
+		("function" function = (MinOperator | MaxOperator | AvgOperator | SumOperator) ",")?
+		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]"
+		("," "workload" workload = [Workload | QualifiedName])?
+	"}"
+;
+
+Goal:
+	SoftGoal | HardGoal | CompositeGoal
+;
+
+enum GoalKind:
+	REQUIRED = "required" | OFFERED = "offered" | CONTRACT = "contract"
+;
+
+SoftGoal:
+	"softgoal" name=ID "{"
+		"kind" kind = GoalKind ","
+		"priority" priority = INT ","
+		"property" property = [AppliedQualitativeProperty | QualifiedName] ","
+		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
+		"threshold" threshold = Impact
+		("," "impacts" "[" impacts += SoftGoalImpact ("," impacts += SoftGoalImpact)* "]")?
+	"}"
+;
+
+SoftGoalImpact:
+	target = [SoftGoal | QualifiedName] 
+	impact = Impact
+;
+
+HardGoal:
+	"hardgoal" name=ID "{"
+	    "kind" kind = GoalKind ","
+		"priority" priority = INT ","
+		"condition" condition = Expression 
+		("," "successRate" successRate = POSITIVE_SMALL_DECIMAL)?
+	"}"
+;
+
+CompositeGoal:
+	"composite" name=ID "{"
+	    "kind" kind = GoalKind ","
+		"priority" priority = INT ","
+		"condition" condition = GoalExpression
+	"}"
+;
+
+GoalExpression:
+	GoalImplication
+;
+
+GoalImplication:
+	GoalDisjunction (
+		{GoalImplication.left = current} 
+		operator = ImplicationOperator
+		right = GoalDisjunction
+	)*
+;
+
+GoalDisjunction:
+	GoalConjunction (
+		{GoalDisjunction.left = current}
+		operator = (OrOperator | XOrOperator)
+		right = GoalConjunction
+	)*
+;
+
+GoalConjunction:
+	GoalComparison (
+		{GoalConjunction.left = current} 
+		operator = AndOperator
+		right = GoalComparison
+	)*
+;
+
+GoalComparison:
+	GoalBooleanUnit(
+		{GoalComparison.left = current} 
+		operator = (EqualsOperator | NotEqualsOperator)
+		right = GoalBooleanUnit
+	)*
+;
+
+GoalBooleanUnit:
+	GoalNegation | GoalBooleanLiteral | GoalReference | ParenthesizedGoalExpression
+;
+
+GoalNegation:
+	operator = NotOperator value = GoalBooleanUnit
+;
+
+GoalBooleanLiteral:
+	value = EBOOLEAN
+;
+
+GoalReference:
+	{GoalReference} "$" value = [Goal | QualifiedName];
+
+ParenthesizedGoalExpression:
+	{ParenthesizedGoalExpression} LeftParenthesis value = GoalExpression RightParenthesis
+;
+
+NumberExpression returns artistCommon::NumberExpression:
+	NumberLiteral | NumberFunction | AppliedQuantitativePropertyExpression
+;
+
+AppliedQuantitativePropertyExpression returns artistCommon::NumberExpression:
+	{AppliedQuantitativePropertyExpression} "$" value = [AppliedQuantitativeProperty | QualifiedName]
+;
