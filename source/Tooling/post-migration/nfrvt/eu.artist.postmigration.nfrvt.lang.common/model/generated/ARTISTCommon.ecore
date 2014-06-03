@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="artistCommon" nsURI="http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon"
+    nsPrefix="artistCommon">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Implication" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Disjunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="#//Operator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Disjunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="#//Implication"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="#//Disjunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//Conjunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanUnit" eSuperTypes="#//Comparison"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//BooleanUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//BooleanUnit"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationalExpression" eSuperTypes="#//BooleanUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComparableExpression" eSuperTypes="#//RelationalExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ArithmeticExpression" eSuperTypes="#//ComparableExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditiveExpression" eSuperTypes="#//ArithmeticExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiplicativeExpression" eSuperTypes="#//AdditiveExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberExpression" eSuperTypes="#//MultiplicativeExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberFunction" eSuperTypes="#//NumberExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MaximumFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//NumberExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MinimumFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//NumberExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AverageFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//NumberExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SumFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//NumberExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExponentialFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base" eType="#//NumberExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exponent" eType="#//NumberExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbsoluteFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//NumberExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NaturalLogarithmFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//NumberExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommonLogarithmFunction" eSuperTypes="#//NumberFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//NumberExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParenthesizedExpression" eSuperTypes="#//ComparableExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectSpecificationExpression" eSuperTypes="#//ComparableExpression #//ValueSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Collection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//ValueSpecification" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tuple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tuples" upperBound="-1"
+        eType="#//PropertyValuePair" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyValuePair">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueSpecification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InstanceSpecificationExpression" eSuperTypes="#//ComparableExpression #//ValueSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//InstanceSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LiteralValueExpression" eSuperTypes="#//ValueSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanLiteral" eSuperTypes="#//BooleanUnit #//LiteralValueExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBooleanObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberLiteral" eSuperTypes="#//NumberExpression #//LiteralValueExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBigDecimal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NullLiteral" eSuperTypes="#//ComparableExpression #//LiteralValueExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//ComparableExpression #//LiteralValueExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnlimitedLiteral" eSuperTypes="#//ComparableExpression #//LiteralValueExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportURIorNamespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportURI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImportNamespace">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XOrOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AndOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ImplicationOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EqualsOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NotEqualsOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NotOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterThanOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterOrEqualThanOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessThanOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LessOrEqualThanOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AdditionOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubstractionOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiplicationOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DivisionOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModulusOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MaxOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MinOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AvgOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SumOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExponentialOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbsoluteOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NaturalLogarithmOperator" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommonLogarithmOperator" eSuperTypes="#//Operator"/>
+</ecore:EPackage>

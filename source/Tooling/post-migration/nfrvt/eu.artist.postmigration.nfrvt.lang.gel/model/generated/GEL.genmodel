@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.postmigration.nfrvt.lang.gel/src-gen"
+    editDirectory="/eu.artist.postmigration.nfrvt.lang.gel.edit/src" editorDirectory="/eu.artist.postmigration.nfrvt.lang.gel.editor/src"
+    modelPluginID="eu.artist.postmigration.nfrvt.lang.gel" forceOverwrite="true" modelName="GEL"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="eu.artist.postmigration.nfrvt.lang.gel.edit"
+    editorPluginID="eu.artist.postmigration.nfrvt.lang.gel.editor" runtimeVersion="2.9"
+    usedGenPackages="platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.esl/model/generated/ESL.genmodel#//esl platform:/resource/eu.artist.postmigration.nfrvt.lang.gml/model/generated/GML.genmodel#//gml platform:/resource/eu.artist.postmigration.nfrvt.lang.tsl/model/generated/TSL.genmodel#//tsl platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
+  <genPackages prefix="Gel" basePackage="eu.artist.postmigration.nfrvt.lang.gel" resource="XML"
+      disposableProviderFactory="true" fileExtensions="gel" ecorePackage="GEL.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GEL.ecore#//RealizationLevelKind">
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationLevelKind/MODEL"/>
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationLevelKind/CODE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GEL.ecore#//RealizationTypeKind">
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationTypeKind/CALCULATED"/>
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationTypeKind/MEASURED"/>
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationTypeKind/ESTIMATED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GEL.ecore#//Verdict">
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//Verdict/PASS"/>
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//Verdict/FAIL"/>
+      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//Verdict/INCONCLUSIVE"/>
+    </genEnums>
+    <genClasses ecoreClass="GEL.ecore#//MigrationEvaluation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//MigrationEvaluation/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//MigrationEvaluation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//MigrationEvaluation/date"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//MigrationEvaluation/transformations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//MigrationEvaluation/propertyEvaluations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//MigrationEvaluation/evaluation"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//Transformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//Transformation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/pattern"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/target"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//AppliedPropertyEvaluation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//AppliedPropertyEvaluation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedPropertyEvaluation/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedPropertyEvaluation/evaluation"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//AppliedQualitativePropertyEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedQualitativePropertyEvaluation/property"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//AppliedQuantitativePropertyEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedQuantitativePropertyEvaluation/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedQuantitativePropertyEvaluation/realizations"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//QuantitativePropertyRealization">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//QuantitativePropertyRealization/strategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//QuantitativePropertyRealization/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/precision"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//GoalModelEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//GoalModelEvaluation/goalModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//GoalModelEvaluation/verdict"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//GoalModelEvaluation/reason"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//GoalModelEvaluation/evaluations"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//GoalEvaluation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//GoalEvaluation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//GoalEvaluation/verdict"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//GoalEvaluation/reason"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//SoftGoalEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//SoftGoalEvaluation/goal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//SoftGoalEvaluation/difference"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//HardGoalEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//HardGoalEvaluation/goal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//HardGoalEvaluation/conditionEvaluation"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//CompositeGoalEvaluation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//CompositeGoalEvaluation/goal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//CompositeGoalEvaluation/conditionEvaluation"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//ValueExpressionEvaluation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//ValueExpressionEvaluation/reason"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//ValueSpecificationExpressionEvaluation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//ValueSpecificationExpressionEvaluation/result"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//ValueSpecificationExpressionEvaluation/evaluations"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//BooleanExpressionEvaluation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//BooleanExpressionEvaluation/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//BooleanExpressionEvaluation/difference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//BooleanExpressionEvaluation/evaluations"/>
+    </genClasses>
+    <genClasses ecoreClass="GEL.ecore#//NumberExpressionEvaluation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//NumberExpressionEvaluation/result"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//NumberExpressionEvaluation/evaluations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

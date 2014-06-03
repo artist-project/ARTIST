@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.postmigration.nfrvt.lang.gml/src-gen"
+    editDirectory="/eu.artist.postmigration.nfrvt.lang.gml.edit/src" editorDirectory="/eu.artist.postmigration.nfrvt.lang.gml.editor/src"
+    modelPluginID="eu.artist.postmigration.nfrvt.lang.gml" forceOverwrite="true" modelName="GML"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="eu.artist.postmigration.nfrvt.lang.gml.edit"
+    editorPluginID="eu.artist.postmigration.nfrvt.lang.gml.editor" runtimeVersion="2.9"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.genmodel#//nsl platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
+  <genPackages prefix="Gml" basePackage="eu.artist.postmigration.nfrvt.lang.gml" resource="XML"
+      disposableProviderFactory="true" fileExtensions="gml" ecorePackage="GML.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GML.ecore#//GoalKind">
+      <genEnumLiterals ecoreEnumLiteral="GML.ecore#//GoalKind/REQUIRED"/>
+      <genEnumLiterals ecoreEnumLiteral="GML.ecore#//GoalKind/OFFERED"/>
+      <genEnumLiterals ecoreEnumLiteral="GML.ecore#//GoalKind/CONTRACT"/>
+    </genEnums>
+    <genClasses ecoreClass="GML.ecore#//GoalModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//GoalModel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/workloads"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/appliedProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/goals"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//Workload">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Workload/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//Workload/activity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Workload/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//AppliedProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//AppliedProperty/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//AppliedProperty/context"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//AppliedQualitativeProperty">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//AppliedQualitativeProperty/property"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//AppliedQuantitativeProperty">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//AppliedQuantitativeProperty/property"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//AppliedQuantitativeProperty/function"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//AppliedQuantitativeProperty/workload"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//Goal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Goal/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Goal/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Goal/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//SoftGoal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//SoftGoal/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//SoftGoal/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//SoftGoal/threshold"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//SoftGoal/impacts"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//SoftGoalImpact">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//SoftGoalImpact/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//SoftGoalImpact/impact"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//HardGoal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//HardGoal/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//HardGoal/successRate"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//CompositeGoal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//CompositeGoal/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//GoalExpression"/>
+    <genClasses ecoreClass="GML.ecore#//GoalImplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalImplication/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalImplication/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalImplication/right"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//GoalDisjunction"/>
+    <genClasses ecoreClass="GML.ecore#//GoalConjunction"/>
+    <genClasses ecoreClass="GML.ecore#//GoalComparison"/>
+    <genClasses ecoreClass="GML.ecore#//GoalBooleanUnit"/>
+    <genClasses ecoreClass="GML.ecore#//GoalNegation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalNegation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//GoalBooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//GoalBooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//GoalReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//GoalReference/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//ParenthesizedGoalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//ParenthesizedGoalExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="GML.ecore#//AppliedQuantitativePropertyExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//AppliedQuantitativePropertyExpression/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
