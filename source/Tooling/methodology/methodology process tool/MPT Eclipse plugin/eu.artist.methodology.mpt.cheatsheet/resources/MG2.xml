@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MigrationGoals>
+  <TechnicalGoals>
+    <a_p>
+      <migratedpl>java</migratedpl>
+      <multitenancy>virtual_tenant</multitenancy>
+      <tdatabasereq>RDBMSmultitenant</tdatabasereq>
+    </a_p>
+    <SLA>
+      <reliability>13</reliability>
+      <datalocation>UK</datalocation>
+      <responset>3.0</responset>
+    </SLA>
+    <u_c>
+      <configreq>interface_language</configreq>
+      <authorreq>ID_password</authorreq>
+    </u_c>
+    <iaas>
+      <targetplat>GAE</targetplat>
+    </iaas>
+    <interop>
+      <interopreq>yesERP(SAP)</interopreq>
+    </interop>
+  </TechnicalGoals>
+  <BusinessGoals>
+    <mon>
+      <measur_elem>time</measur_elem>
+    </mon>
+    <use>
+      <wai>yes</wai>
+    </use>
+    <bil>
+      <rule>use</rule>
+    </bil>
+    <pro>
+      <license_mod>use</license_mod>
+    </pro>
+  </BusinessGoals>
+</MigrationGoals>

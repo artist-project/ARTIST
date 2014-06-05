@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="ARTIST Methodology Process Tool">
+   <taskGroup kind="set" name="Pre-Migration Group" skip="false">
+      <intro>
+         <b>This cheat sheet demonstrates how to use the ARTIST tools through the Methodology Process Tool (MPT) to migrate your project to the Cloud.</b>
+      </intro>
+      <onCompletion>
+         <b>Conclusion</b>
+      </onCompletion>
+      <task kind="cheatsheet" name="Perform maturity assessment" skip="false">
+         <intro>
+            <b>Introduction</b>
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="maturity_assessment_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Perform business feasibility analysis" skip="false">
+         <intro>
+            <b>Introduction</b>
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="business_feasibility_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Perform technical feasibility analysis" skip="false">
+         <intro>
+            <b>Evaluate the technical situation of the application to be migrated.</b>
+         </intro>
+         <onCompletion>
+            <b>The results from the technical feasibility analysis are included in the report from the TFT. </b>
+         </onCompletion>
+         <param name="path" value="technical_feasibility_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Evaluate changes on the initial parameters" skip="false">
+         <intro>
+            <b>Introduction</b>
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="evaluate_changes_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Configure methodology" skip="false">
+         <intro>
+            <b>Use MPT to customize the ARTIST Methodology.</b>
+         </intro>
+         <onCompletion>
+            <b>At the end of this task, the ARTIST Methodology has been customized according to the maturity, technical and business analysis results of the ARTIST Tools.</b>
+         </onCompletion>
+         <param name="path" value="conf_mpt_simple.xml">
+         </param>
+      </task>
+      <taskGroup kind="set" name="Migration Group" skip="false">
+         <intro>
+            <b>Introduction</b>
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <task kind="cheatsheet" name="Perform model discovery" skip="false">
+            <intro>
+               <b>Introduction</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <param name="path" value="model_discovery_simple.xml">
+            </param>
+         </task>
+         <task kind="cheatsheet" name="Perform model understanding" skip="false">
+            <intro>
+               <b>Introduction</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <param name="path" value="model_understanding_simple.xml">
+            </param>
+         </task>
+         <task kind="cheatsheet" name="View Cloud providers benchmarks" skip="true">
+            <intro>
+               <b>Introduction</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <param name="path" value="view_benchmarks_simple.xml">
+            </param>
+         </task>
+         <task kind="cheatsheet" name="Benchmark and profile application" skip="false">
+            <intro>
+               <b>Use the ARTIST Profiling Tool to benchmark and profile your application.</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <param name="path" value="profile_benchmarks_app_simple.xml">
+            </param>
+         </task>
+         <task kind="cheatsheet" name="Perform modernization" skip="false">
+            <intro>
+               <b>Introduction</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <param name="path" value="modernization_simple.xml">
+            </param>
+         </task>
+         <taskGroup kind="set" name="Post-migration Group" skip="false">
+            <intro>
+               <b>Introduction</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <task kind="cheatsheet" name="Monitor SLA adherence" skip="false">
+               <intro>
+                  <b>Introduction</b>
+               </intro>
+               <onCompletion>
+                  <b>Conclusion</b>
+               </onCompletion>
+               <param name="path" value="monitor_sla_adherence_simple.xml">
+               </param>
+            </task>
+         </taskGroup>
+      </taskGroup>
+   </taskGroup>
+</compositeCheatsheet>
