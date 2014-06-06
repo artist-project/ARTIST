@@ -56,7 +56,6 @@ abstract rule abstractExpressStatement{
 			incoming <- controlFlow
 		),		
 		controlFlow: UML!ControlFlow(
-			name<- '1',
 			inStructuredNode <- s.refImmediateComposite(),
 			source <- s.getPreceding()
 		),
@@ -66,13 +65,11 @@ abstract rule abstractExpressStatement{
 			incoming <- initialControlFlow
 		),
 		initialControlFlow: UML!ControlFlow(
-			name<- '2',
 			inStructuredNode <- t,
 			source <- initialNode
 		),
 		
 		finalControlFlow: UML!ControlFlow(
-			name<- '3',
 			inStructuredNode <- t,
 			source <- s.getPreceding(),
 			target <- finalNode
@@ -127,7 +124,6 @@ rule instanceVariableUseNotSettNullExpressState extends abstractExpressStatement
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- '1',
 			inStructuredNode <- s.getStatement,
 			activity <- if (s.getStatement.oclIsUndefined())then
 							s.getOwningMethod
@@ -171,7 +167,6 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			result <- op
 		),		
 		outControlFlow	:	UML!ControlFlow(
-			name<- '7',
 			inStructuredNode <- t,
 			source <- readStruct,
 			target <- s.getOwningMethod.body.statements
@@ -179,7 +174,6 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- '2',
 			inStructuredNode <- t,
 			target <- inputPin,
 			source <- s.expression
@@ -217,13 +211,11 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			result <- outputCFA			
 		),
 		finalControlFlow : UML!ControlFlow(
-			name<- '8',
 			inStructuredNode <- t,
 			source <- clearStructuralFeature,
 			target <- finalNode
 		),
 		initialControlFlow : UML!ControlFlow(
-			name<- '9',
 			inStructuredNode <- t,
 			source <- initialNode,
 			target <- clearStructuralFeature
@@ -305,7 +297,6 @@ rule implicitThis2IntanceVarUsereadSelf extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name<- '3',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
 			source <- s.expression
@@ -387,7 +378,6 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- 'A',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
 			source <- s.expression
@@ -480,7 +470,6 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- 'B',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
 			source <- s.expression
@@ -557,7 +546,6 @@ rule expressionStatementClearListImpThisInstanVar extends abstractExpressStateme
 		),
 		
 		objectflow : UML!ObjectFlow(
-			name <- 'C',
 			inStructuredNode <- s.getStatement,
 			target <- inputCFA,
 			source <- s.expression
@@ -617,7 +605,6 @@ rule expressionStatementClearList extends abstractExpressStatement{
 		finalNode : UML!ActivityFinalNode(),
 		
 		objectflow : UML!ObjectFlow(
-			name <- 'D',
 			inStructuredNode <- t,
 			target <- inputCFA,
 			source <- s.expression
@@ -695,7 +682,6 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- 'E',
 			inStructuredNode <- t,
 			target <- inputPin,
 			source <- s.expression
@@ -741,7 +727,6 @@ unique lazy rule createObjectFlowToVSA{
 		s	:	JAVA!ExpressionStatement
 	to
 		valueSpecActionOF : UML!ObjectFlow(
-			name <- 'F',
 			source <- valueSpecAction,
 			inStructuredNode <- s.refImmediateComposite()--s.getStatement
 		),
@@ -759,7 +744,6 @@ unique lazy rule createObjectFlowToNode{
 		s	:	JAVA!ExpressionStatement
 	to
 		insertAtOF : UML!ObjectFlow(
-			name <- 'G',
 			source <- 	s.expression.arguments 
 							-> reject(arg | arg.isALiteral)
 							-> select(arg | arg.variable.name = 'insertAt')
@@ -819,7 +803,6 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- 'H',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
 			source <- s.expression
@@ -892,7 +875,6 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 		),
 		
 		objectflow : UML!ObjectFlow(
-			name <- 'I',
 			inStructuredNode <- s.getStatement,
 			source <- s.expression
 		),
@@ -947,7 +929,6 @@ rule expressionStatementAddList extends abstractExpressStatement{
 		finalNode : UML!ActivityFinalNode(),
 		
 		objectflow : UML!ObjectFlow(
-			name <- 'J',
 			inStructuredNode <- s.getStatement,
 			source <- s.expression
 		),
@@ -1021,7 +1002,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- 'K',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
 			source <- s.expression
@@ -1037,7 +1017,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
-			name <- 'L',
 			source <- s.expression,
 			target <- forkNodeObject,
 			inStructuredNode <- t
@@ -1050,7 +1029,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		),
 		
 		outObjRemSFVA : UML!ObjectFlow(
-			name <- 'M',
 			source <- forkNodeObject,
 			target <- inPinRemSFVAObject,
 			inStructuredNode <- t
@@ -1067,7 +1045,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		),
 		
 		inObjReadSF : UML!ObjectFlow(
-			name <- 'N',
 			source <- forkNodeObject,
 			target <- inPinReadSF,
 			inStructuredNode <- t
@@ -1085,7 +1062,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			outgoing <- outObjReadSF
 		),
 		outObjReadSF : UML!ObjectFlow(
-			name <- 'O',
 			source <- readSF,
 			target <- callBCollGet,
 			inStructuredNode <- t
@@ -1111,7 +1087,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			outgoing <- outObjCallBCollGet
 		),
 		outObjCallBCollGet : UML!ObjectFlow(
-			name <- 'P',
 			source <- 	if (s.expression.isIndexLessOne) then
 							OclUndefined
 						else callBCollGet endif,
@@ -1123,7 +1098,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		),
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
-			name <- 'Q',
 			source <- s.expression.getRemoveCollectionArgument,							
 			target <- forkNodeIndex,
 			inStructuredNode <- t
@@ -1134,7 +1108,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			inStructuredNode <- t
 		),
 		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'R',
 			source <- forkNodeIndex,
 			target <- callBCollGet,
 			inStructuredNode <- t	
@@ -1144,7 +1117,6 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			lower <- 1
 		),
 		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'S',
 			source <- forkNodeIndex,
 			target <- remSFVA,
 			inStructuredNode <- t	
@@ -1411,7 +1383,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name <- 'T',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
 			source <- s.expression
@@ -1427,7 +1398,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
-			name <- 'U',
 			source <- s.expression,
 			target <- forkNodeObject,
 			inStructuredNode <- t
@@ -1440,7 +1410,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		),
 		
 		outObjRemSFVA : UML!ObjectFlow(
-			name <- 'V',
 			source <- forkNodeObject,
 			target <- inPinRemSFVAObject,
 			inStructuredNode <- t
@@ -1457,7 +1426,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		),
 		
 		inObjReadSF : UML!ObjectFlow(
-			name <- 'W',
 			source <- forkNodeObject,
 			target <- inPinReadSF,
 			inStructuredNode <- t
@@ -1475,7 +1443,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			outgoing <- outObjReadSF
 		),
 		outObjReadSF : UML!ObjectFlow(
-			name <- 'X',
 			source <- readSF,
 			target <- callBCollGet,
 			inStructuredNode <- t
@@ -1501,7 +1468,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			outgoing <- outObjCallBCollGet
 		),
 		outObjCallBCollGet : UML!ObjectFlow(
-			name <- 'Y',
 			source <- 	if (s.expression.isIndexLessOne) then
 							OclUndefined
 						else callBCollGet endif,
@@ -1513,7 +1479,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		),
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
-			name <- 'Z',
 			source <- s.expression.getRemoveCollectionArgument,							
 			target <- forkNodeIndex,
 			inStructuredNode <- t
@@ -1524,7 +1489,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			inStructuredNode <- t
 		),
 		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'AA',
 			source <- forkNodeIndex,
 			target <- callBCollGet,
 			inStructuredNode <- t	
@@ -1534,7 +1498,6 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			lower <- 1
 		),
 		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'AB',
 			source <- forkNodeIndex,
 			target <- remSFVA,
 			inStructuredNode <- t	
@@ -1577,14 +1540,12 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		),
 		
 		objectflow : UML!ObjectFlow(
-			name <- 'AC',
 			inStructuredNode <- s.getStatement,
 			source <- s.expression
 		),
 		
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
-			name <- 'AD',
 			source <- s.expression,
 			target <- forkNodeObject,
 			inStructuredNode <- t
@@ -1597,7 +1558,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		),
 		
 		outObjRemSFVA : UML!ObjectFlow(
-			name <- 'AE',
 			source <- forkNodeObject,
 			target <- inPinRemSFVAObject,
 			inStructuredNode <- t
@@ -1614,7 +1574,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		),
 		
 		inObjReadSF : UML!ObjectFlow(
-			name <- 'AF',
 			source <- forkNodeObject,
 			target <- inPinReadSF,
 			inStructuredNode <- t
@@ -1632,7 +1591,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			outgoing <- outObjReadSF
 		),
 		outObjReadSF : UML!ObjectFlow(
-			name <- 'AG',
 			source <- readSF,
 			target <- callBCollGet,
 			inStructuredNode <- t
@@ -1658,7 +1616,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			outgoing <- outObjCallBCollGet
 		),
 		outObjCallBCollGet : UML!ObjectFlow(
-			name <- 'AH',
 			source <- 	if (s.expression.isIndexLessOne) then
 							OclUndefined
 						else callBCollGet endif,
@@ -1670,7 +1627,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		),
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
-			name <- 'AI',
 			source <- s.expression.getRemoveCollectionArgument,							
 			target <- forkNodeIndex,
 			inStructuredNode <- t
@@ -1681,7 +1637,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			inStructuredNode <- t
 		),
 		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'AJ',
 			source <- forkNodeIndex,
 			target <- callBCollGet,
 			inStructuredNode <- t	
@@ -1691,7 +1646,6 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			lower <- 1
 		),
 		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'AK',
 			source <- forkNodeIndex,
 			target <- remSFVA,
 			inStructuredNode <- t	
@@ -1725,14 +1679,12 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		finalNode : UML!ActivityFinalNode(),
 		
 		objectflow : UML!ObjectFlow(
-			name <- 'AL',
 			inStructuredNode <- s.getStatement,
 			source <- s.expression
 		),
 		
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
-			name <- 'AM',
 			source <- s.expression,
 			target <- forkNodeObject,
 			inStructuredNode <- t
@@ -1745,7 +1697,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		),
 		
 		outObjRemSFVA : UML!ObjectFlow(
-			name <- 'AN',
 			source <- forkNodeObject,
 			target <- inPinRemSFVAObject,
 			inStructuredNode <- t
@@ -1762,7 +1713,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		),
 		
 		inObjReadSF : UML!ObjectFlow(
-			name <- 'AO',
 			source <- forkNodeObject,
 			target <- inPinReadSF,
 			inStructuredNode <- t
@@ -1780,7 +1730,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			outgoing <- outObjReadSF
 		),
 		outObjReadSF : UML!ObjectFlow(
-			name <- 'AP',
 			source <- readSF,
 			target <- callBCollGet,
 			inStructuredNode <- t
@@ -1806,7 +1755,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			outgoing <- outObjCallBCollGet
 		),
 		outObjCallBCollGet : UML!ObjectFlow(
-			name <- 'AQ',
 			source <- 	if (s.expression.isIndexLessOne) then
 							OclUndefined
 						else callBCollGet endif,
@@ -1818,7 +1766,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		),
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
-			name <- 'AR',
 			source <- s.expression.getRemoveCollectionArgument,							
 			target <- forkNodeIndex,
 			inStructuredNode <- t
@@ -1829,7 +1776,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			inStructuredNode <- t
 		),
 		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'AS',
 			source <- forkNodeIndex,
 			target <- callBCollGet,
 			inStructuredNode <- t	
@@ -1839,7 +1785,6 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			lower <- 1
 		),
 		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'AT',
 			source <- forkNodeIndex,
 			target <- remSFVA,
 			inStructuredNode <- t	
@@ -1856,15 +1801,39 @@ abstract rule abstractReturnStatement{
 	to
 		t	:	UML!StructuredActivityNode(
 			activity <- s.getOwningMethod,
-			name <- s.getOwningMethod.name +' return',
-			incoming <- ob
+			name <- s.getOwningMethod.name +' return'--,			
 		),
-		ob : UML!ObjectFlow(
-			name<- '4',
-			activity <-  s.getOwningMethod,
-			source <- if (s.expression.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
-							thisModule.resolveTemp(s.expression.variable, 'apn')
-						else thisModule.resolveTemp(s.expression, 'op') endif
+--		,
+--		ob : UML!ObjectFlow(
+--			activity <-  s.getOwningMethod,
+--			source <- if (s.expression.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
+--							thisModule.resolveTemp(s.expression.variable, 'apn')
+--						else thisModule.resolveTemp(s.expression, 'op') endif
+--		)
+		apn	:	UML!ActivityParameterNode(
+			name <- 'return',
+			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
+						s.getOwningMethod.returnType.type.typeArguments ->first().type
+					else 
+						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
+							s.getOwningMethod.returnType.type.elementType.type
+						else
+							s.getOwningMethod.returnType.type
+						endif
+					endif,
+			parameter <- paramAct
+		),
+		paramAct	:	UML!Parameter(
+			name <- 'return',
+			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
+						s.getOwningMethod.returnType.type.typeArguments ->first().type
+					else 
+						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
+							s.getOwningMethod.returnType.type.elementType.type
+						else
+							s.getOwningMethod.returnType.type
+						endif
+					endif
 		)
 }
 
@@ -1875,10 +1844,12 @@ rule instanceVariableUseReturnState extends abstractReturnStatement{
 		)
 	to
 		t	:	UML!StructuredActivityNode(
-			name<- 'Instance variable use - return'	
+			name<- 'Instance variable use - return',
+			incoming <- ob
 		),
 		ob : UML!ObjectFlow(
-			name<- '5',
+			activity <-  s.getOwningMethod,
+			source <- thisModule.resolveTemp(s.expression, 'op'),
 			target <- readStruct
 		),	
 		readStruct : UML!ReadStructuralFeatureAction(
@@ -1899,7 +1870,6 @@ rule instanceVariableUseReturnState extends abstractReturnStatement{
 						-> first()
 		),
 		objectflow : UML!ObjectFlow(
-			name<- '6',
 			inStructuredNode <- t,
 			target <- inputPin,
 			source <- s.expression
@@ -1912,6 +1882,16 @@ rule instanceVariableUseReturnState extends abstractReturnStatement{
 			name <- 'output',
 			outgoing <- outControlFlow
 		)
+	do{
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
+			<- 	if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
+					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode -> append(apn)
+				else OclUndefined endif;
+		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter 
+			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
+					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
+				else OclUndefined endif;
+	}		
 }		
 
 rule returnStatement extends abstractReturnStatement {--maybe collision with end of block management here
@@ -1922,39 +1902,39 @@ rule returnStatement extends abstractReturnStatement {--maybe collision with end
 		)
 	to
 		t	:	UML!StructuredActivityNode(
-			name<- 'Not instance variable use - return'		
-		),
-
-		ob : UML!ObjectFlow(
-			name<- '7',
-			target <- apn
-		),	
-		apn	:	UML!ActivityParameterNode(
-			name <- 'return',
-			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						s.getOwningMethod.returnType.type.typeArguments ->first().type
-					else 
-						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
-							s.getOwningMethod.returnType.type.elementType.type
-						else
-							s.getOwningMethod.returnType.type
-						endif
-					endif,
-			parameter <- paramAct,
-			incoming <- ob
-		),
-		paramAct	:	UML!Parameter(
-			name <- 'return',
-			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						s.getOwningMethod.returnType.type.typeArguments ->first().type
-					else 
-						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
-							s.getOwningMethod.returnType.type.elementType.type
-						else
-							s.getOwningMethod.returnType.type
-						endif
-					endif
-		)
+			name<- 'No instance variable use - return'			
+		)--,
+--		ob : UML!ObjectFlow(
+--			name <- 'to_ActivityParameterNode',
+--			source <- apn,
+--			target <- t
+--		),	
+--		apn	:	UML!ActivityParameterNode(
+--			name <- 'return',
+--			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
+--						s.getOwningMethod.returnType.type.typeArguments ->first().type
+--					else 
+--						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
+--							s.getOwningMethod.returnType.type.elementType.type
+--						else
+--							s.getOwningMethod.returnType.type
+--						endif
+--					endif,
+--			parameter <- paramAct,
+--			inStructuredNode <- t
+--		),
+--		paramAct	:	UML!Parameter(
+--			name <- 'return',
+--			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
+--						s.getOwningMethod.returnType.type.typeArguments ->first().type
+--					else 
+--						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
+--							s.getOwningMethod.returnType.type.elementType.type
+--						else
+--							s.getOwningMethod.returnType.type
+--						endif
+--					endif
+--		)
 	do{
 		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
 			<- 	if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
@@ -2041,7 +2021,6 @@ rule forStatement {
 			target <- dec
 		),
 		td	:	UML!ObjectFlow(
-			name<- '8',
 			inStructuredNode <- t,
 			source <- s.expression,
 			target <- dec,
@@ -2105,7 +2084,6 @@ rule enhancedForStatement {
 			target <- s.expression.getActivityNode()
 		),
 		of	:	UML!ObjectFlow(
-			name<- '9',
 			inStructuredNode <- t,
 			source <- s.expression.getActivityNode(),
 			target <- er
@@ -2175,7 +2153,6 @@ rule whileStatement {
 			target <- dec
 		),
 		td	:	UML!ObjectFlow(
-			name<- '10',
 			inStructuredNode <- t,
 			source <- s.expression,
 			target <- dec,
@@ -2245,7 +2222,6 @@ rule doWhileStatement {
 			target <- s.body
 		),
 		td	:	UML!ObjectFlow(
-			name<- '11',
 			inStructuredNode <- t,
 			source <- s.expression,
 			target <- dec,
@@ -2712,7 +2688,6 @@ rule classInstanceCreation2CreateObject {
 			outgoing <- outObjCreateOA
 		),
 		outObjCreateOA : UML!ObjectFlow(
-			name<- '14',
 			activity <- ci.getOwningMethod,
 			source <- op,
 			target <- forkCreateObj
@@ -2722,7 +2697,6 @@ rule classInstanceCreation2CreateObject {
 			outgoing <- Sequence{inObjCallOA}
 		),
 		inObjCallOA : UML!ObjectFlow(
-			name<- '15',
 			source <- forkCreateObj,
 			target <- inputPin
 		),
@@ -3151,7 +3125,6 @@ rule methodCallExpression {
 			incoming <- of1
 		),
 		of1	:	UML!ObjectFlow (
-			name <- 'AU',
 			source <- thisModule.resolveTemp(mi.expression, 'op'),
 			activity <- mi.method,
 			target <- inputPin
@@ -3171,12 +3144,10 @@ unique lazy rule createArgumentNotPrimitiv {
 			incoming <- of2
 		),
 		of2	:	UML!ObjectFlow (
-			name<- '25',
 			source <- thisModule.resolveTemp(a, 'op'),
 			activity <- a.refImmediateComposite().method
 		),
 		cf	:	UML!ControlFlow (
-			name <- 'test_1',
 			source <- thisModule.resolveTemp(a, 'op'),
 			activity <- a.refImmediateComposite().method,
 			target <- a.refImmediateComposite() --the method call
@@ -3191,7 +3162,6 @@ unique lazy rule createArgument {
 			incoming <- of2
 		),
 		of2	:	UML!ObjectFlow (
-			name <- 'AV',
 			source <- thisModule.resolveTemp(a, 'op'),
 			inStructuredNode <- a.getStatement
 		)
@@ -3320,13 +3290,11 @@ rule VariableAssignmentNoList {
 			name <- 'declare_'+as.leftHandSide.field.variable.name
 		),
 		objectFlowForExpression : UML!ObjectFlow(
-			name<- '17',
 			inStructuredNode <- t,
 			source <-  thisModule.resolveTemp(as.rightHandSide, 'op'),
 			target <- va
 		),			
 		objectFlowForObject : UML!ObjectFlow(
-			name<- '18',
 			inStructuredNode <- t,
 			source <- as.leftHandSide.expression.getStatement,
 			target <- ip
@@ -3433,7 +3401,6 @@ rule localVariableAssignmentNoList {
 			name <- 'declare_' + as.leftHandSide.variable.name
 		),		
 		objectFlow : UML!ObjectFlow(
-			name<- '19',
 			inStructuredNode <- as.getStatement.refImmediateComposite(),
 			name <- 'declare_' + as.leftHandSide.variable.name,
 			source <- as.rightHandSide.getStatement,
@@ -3471,7 +3438,6 @@ rule variableAssignementListOrArray {
 		
 		--Object to fork
 		objFlowForObjInFork : UML!ObjectFlow(
-			name<- '21',
 			source <- 	if (not iva.leftHandSide.oclIsTypeOf(JAVA!ArrayAccess) 
 							and not iva.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess)
 						)then
@@ -3485,7 +3451,6 @@ rule variableAssignementListOrArray {
 		
 		--Fork to ClearStruc.Feature
 		objFlowForObjCFS : UML!ObjectFlow(
-			name<- '22',
 			source <- fork,
 			target <- inputClearStrucFeat,
 			inStructuredNode <- iva.refImmediateComposite()
@@ -3496,7 +3461,6 @@ rule variableAssignementListOrArray {
 		
 		--Fork to Exp.Region
 		objFlowForObjExpReg	: UML!ObjectFlow(
-			name<- '23',
 			source <- fork,
 			target <- inputExpReg,
 			inStructuredNode <- iva.refImmediateComposite()
@@ -3552,7 +3516,6 @@ rule variableAssignementListOrArray {
 		
 		--Output of ValueSpecAction to input of Exp.Region 'insertAt'
 		objFlowForObjInsertAt : UML!ObjectFlow(
-			name<- '24',
 			source <- op,
 			target <- inputExpRegInsertAt,
 			inStructuredNode <- iva.refImmediateComposite()
@@ -3614,16 +3577,27 @@ rule Block2StructuredActivityForM {
 								block.notInAnnotation
 		)
 	to
-		struc	:	UML!StructuredActivityNode(
+		struc : UML!StructuredActivityNode(
 			name <- 'structured_'+block.refImmediateComposite(),
-			activity <- block.getOwningMethod,
-			
+			activity <- block.getOwningMethod,			
 			node <- Sequence{init, 
 				block.statements, final}->flatten()
 		),
-		init	:	UML!InitialNode(),
+		
+		init : UML!InitialNode(),
+		icf : UML!ControlFlow(
+			name <- 'from_InitialNode',
+			inStructuredNode <- struc,
+			target <- if (block.statements.isEmpty())
+							then init
+							else block.statements.last()
+						endif,
+			source <- init
+		),
+		
 		final	:	UML!ActivityFinalNode(),
 		fcf : UML!ControlFlow(
+			name <- 'to_InitialNode',
 			inStructuredNode <- struc,
 			target <- final,
 			source <- if (block.statements.isEmpty())
@@ -3679,7 +3653,6 @@ rule conditionalExpression { --simplifed mapping in case of empty else branch
 			target <- dec
 		),
 		td	:	UML!ObjectFlow(
-			name<- '27',
 			inStructuredNode <- t,
 			source <- ifs.expression.getActivityNode(),
 			target <- dec,
@@ -3859,7 +3832,6 @@ rule postfixOperatorExpression extends operatorexpression{
 		),
 		inputPinOperand : UML!InputPin (),
 		of2	:	UML!ObjectFlow (
-			name<- '28',
 			source <- thisModule.resolveTemp(ioe.operand, 'op'),
 			inStructuredNode <- ioe.getStatement,
 			target <- inputPinOperand
@@ -3882,7 +3854,6 @@ rule prefixOperatorExpression extends operatorexpression{
 		
 		inputPinOperand : UML!InputPin (),
 		of2	:	UML!ObjectFlow (
-			name<- '29',
 			source <- thisModule.resolveTemp(ioe.operand, 'op'),
 			inStructuredNode <- ioe.getStatement,
 			target <- inputPinOperand
@@ -3908,7 +3879,6 @@ rule infixOperatorExpression extends operatorexpression{
 			name <- 'first'
 		),
 		of1	:	UML!ObjectFlow (
-			name<- '30',
 			source <- thisModule.resolveTemp(ioe.leftOperand, 'op'),
 			inStructuredNode <- ioe.getStatement,
 			target <- inputPinFirstLeft
@@ -3918,7 +3888,6 @@ rule infixOperatorExpression extends operatorexpression{
 			name <- 'second'
 		),
 		of2	:	UML!ObjectFlow (
-			name<- '31',
 			source <- thisModule.resolveTemp(ioe.rightOperand, 'op'),
 			inStructuredNode <- ioe.getStatement,
 			target <- inputPinSecondRight
@@ -3946,7 +3915,6 @@ rule equalOperatorExpression extends operatorexpression{
 			name <- 'first'
 		),
 		of1	:	UML!ObjectFlow (
-			name<- '32',
 			source <- 	if (ioe.leftOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
 							thisModule.resolveTemp(ioe.leftOperand.variable, 'apn')
 						else 
@@ -3964,7 +3932,6 @@ rule equalOperatorExpression extends operatorexpression{
 			name <- 'second'
 		),
 		of2	:	UML!ObjectFlow (
-			name<- '33',
 			source <- 	if (ioe.rightOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
 							thisModule.resolveTemp(ioe.rightOperand.variable, 'apn')
 						else 
@@ -4006,7 +3973,6 @@ rule notEqualOperatorExpression {
 			name <- 'first'
 		),
 		of1	:	UML!ObjectFlow (
-			name<- '34',
 			source <- if (ioe.leftOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
 							thisModule.resolveTemp(ioe.leftOperand.variable, 'apn')
 						else 
@@ -4025,7 +3991,6 @@ rule notEqualOperatorExpression {
 			name <- 'second'
 		),
 		of2	:	UML!ObjectFlow (
-			name<- '35',
 			source <- if (ioe.rightOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
 							thisModule.resolveTemp(ioe.rightOperand.variable, 'apn')
 						else 
@@ -4066,7 +4031,6 @@ rule typeCastExpression {
 			incoming <- of
 		),
 		of	:	UML!ObjectFlow (
-			name<- '36',
 			source <- 	tce.expression.getActivityNode(),
 			inStructuredNode <-  if (tce.refImmediateComposite().oclIsKindOf(JAVA!ParenthesizedExpression)) then 
 									tce.refImmediateComposite()
@@ -4084,7 +4048,6 @@ rule typeCastExpression {
 								endif
 		),
 		of2	:	UML!ObjectFlow (
-			name<- '37',
 			source <- inputPin,
 			target <- op
 		),
@@ -4117,7 +4080,6 @@ rule numericCastExpression {
 			incoming <- of
 		),
 		of	:	UML!ObjectFlow (
-			name<- '38',
 			source <- thisModule.resolveTemp(tce.expression, 'op'),
 			inStructuredNode <-  if (tce.refImmediateComposite().oclIsKindOf(JAVA!ParenthesizedExpression)) then 
 									tce.refImmediateComposite()
@@ -4152,7 +4114,6 @@ rule instanceOf {
 			incoming <- incomObject
 		),
 		incomObject : UML!ObjectFlow(
-			name<- '39',
 			activity <- tce.getOwningMethod,
 			source <- tce.getOwningMethod.parameters
 						-> collect(param | thisModule.resolveTemp(param, 'apn'))
@@ -4165,7 +4126,6 @@ rule instanceOf {
 			outgoing <- outComObject
 		),
 		outComObject : UML!ObjectFlow(
-			name<- '40',
 			activity <- tce.getOwningMethod,
 			source <- op,
 			target <- 	if (not tce.getOwningMethod.body.oclIsUndefined())then
