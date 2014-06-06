@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="a1" name="root model">
+  <packagedElement xmi:type="uml:Model" xmi:id="a2" name="PetStore">
+    <packagedElement xmi:type="uml:Class" xmi:id="a3" name="com.sun.javaee.blueprints.petstore.model.CatalogFacade" clientDependency="a915 a917 a918 a919 a920 a921 a922 a923 a924 a925 a926 a927 a928 a931 a932 a933 a934 a935">
+      <generalization xmi:id="a4" general="a1157"/>
+      <ownedAttribute xmi:id="a5" name="emf" visibility="private" type="a1157" association="a864">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a6" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a7"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a8" name="utx" visibility="private" type="a1157" association="a866">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a9" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a10"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a11" name="bDebug" visibility="private" type="a1157" association="a868">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a12" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a13"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="a14" name="CatalogFacade" visibility="public"/>
+      <ownedOperation xmi:id="a15" name="contextDestroyed" visibility="public">
+        <ownedParameter xmi:id="a16" name="sce" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a17" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a18"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a19" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a20" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a21"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a22" name="contextInitialized" visibility="public">
+        <ownedParameter xmi:id="a23" name="sce" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a24" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a25"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a26" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a27" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a28"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a29" name="getCategories" visibility="public">
+        <ownedParameter xmi:id="a30" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a31" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a32"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a33" name="getProducts" visibility="public">
+        <ownedParameter xmi:id="a34" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a35" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a36"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a37" name="getAllItemsFromCategory" visibility="public">
+        <ownedParameter xmi:id="a38" name="catID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a39" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a40"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a41" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a42" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a43"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a44" name="getItemInChunkVLH" visibility="public">
+        <ownedParameter xmi:id="a45" name="pID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a46" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a47"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a48" name="iID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a49" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a50"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a51" name="chunkSize" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a52" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a53"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a54" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a55" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a56"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a57" name="getItemsVLH" visibility="public">
+        <ownedParameter xmi:id="a58" name="pID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a59" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a60"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a61" name="start" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a62" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a63"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a64" name="chunkSize" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a65" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a66"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a67" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a68" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a69"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a70" name="getItemsByItemID" visibility="public">
+        <ownedParameter xmi:id="a71" name="itemIDs" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a72" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a73"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a74" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a75" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a76"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a77" name="getItemsByItemIDByRadius" visibility="public">
+        <ownedParameter xmi:id="a78" name="itemIDs" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a79" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a80"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a81" name="fromLat" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a82" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a83"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a84" name="toLat" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a85" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a86"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a87" name="fromLong" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a88" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a89"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a90" name="toLong" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a91" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a92"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a93" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a94" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a95"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a96" name="getItemsByCategoryVLH" visibility="public">
+        <ownedParameter xmi:id="a97" name="catID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a98" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a99"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a100" name="start" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a101" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a102"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a103" name="chunkSize" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a104" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a105"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a106" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a107" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a108"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a109" name="getItemsByCategoryByRadiusVLH" visibility="public">
+        <ownedParameter xmi:id="a110" name="catID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a111" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a112"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a113" name="start" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a114" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a115"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a116" name="chunkSize" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a117" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a118"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a119" name="fromLat" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a120" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a121"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a122" name="toLat" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a123" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a124"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a125" name="fromLong" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a126" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a127"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a128" name="toLong" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a129" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a130"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a131" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a132" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a133"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a134" name="getZipCodeLocations" visibility="public">
+        <ownedParameter xmi:id="a135" name="city" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a136" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a137"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a138" name="start" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a139" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a140"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a141" name="chunkSize" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a142" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a143"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a144" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a145" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a146"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a147" name="getProducts" visibility="public">
+        <ownedParameter xmi:id="a148" name="catID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a149" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a150"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a151" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a152" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a153"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a154" name="getItems" visibility="public">
+        <ownedParameter xmi:id="a155" name="prodID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a156" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a157"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a158" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a159" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a160"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a161" name="getCategory" visibility="public">
+        <ownedParameter xmi:id="a162" name="categoryID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a163" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a164"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a165" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a166" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a167"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a168" name="getItem" visibility="public">
+        <ownedParameter xmi:id="a169" name="itemID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a170" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a171"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a172" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a173" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a174"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a175" name="addItem" visibility="public">
+        <ownedParameter xmi:id="a176" name="item" visibility="public" type="a288" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a177" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a178"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a179" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a180" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a181"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a182" name="updateItem" visibility="public">
+        <ownedParameter xmi:id="a183" name="item" visibility="public" type="a288" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a184" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a185"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a186" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a187" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a188"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a189" name="doSearch" visibility="public">
+        <ownedParameter xmi:id="a190" name="querryString" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a191" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a192"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a193" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a194" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a195"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a196" name="addTagsToItemId" visibility="public">
+        <ownedParameter xmi:id="a197" name="sxTags" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a198" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a199"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a200" name="itemId" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a201" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a202"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a203" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a204" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a205"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a206" name="addTag" visibility="public">
+        <ownedParameter xmi:id="a207" name="sxTag" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a208" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a209"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a210" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a211" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a212"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a213" name="getTagsInChunk" visibility="public">
+        <ownedParameter xmi:id="a214" name="start" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a215" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a216"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a217" name="chunkSize" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a218" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a219"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a220" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a221" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a222"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a223" name="getTag" visibility="public">
+        <ownedParameter xmi:id="a224" name="sxTag" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a225" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a226"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a227" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a228" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a229"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a230" name="indexItem" visibility="private">
+        <ownedParameter xmi:id="a231" name="indexDoc" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a232" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a233"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a234" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a235" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a236"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a237" name="com.sun.javaee.blueprints.petstore.util.PetstoreUtil" clientDependency="a936 a937 a938 a939 a940 a941">
+      <ownedAttribute xmi:id="a238" name="_logger" visibility="private" type="a1157" association="a870">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a239" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a240"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a241" name="_resBundle" visibility="private" type="a1157" association="a872">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a242" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a243"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="a244" name="PetstoreUtil" visibility="public"/>
+      <ownedOperation xmi:id="a245" name="getLogger" visibility="public">
+        <ownedParameter xmi:id="a246" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a247" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a248"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a249" name="getBaseLogger" visibility="private">
+        <ownedParameter xmi:id="a250" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a251" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a252"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a253" name="getBaseBundle" visibility="private">
+        <ownedParameter xmi:id="a254" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a255" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a256"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a257" name="getMessage" visibility="public">
+        <ownedParameter xmi:id="a258" name="key" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a259" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a260"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a261" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a262" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a263"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a264" name="getMessage" visibility="public">
+        <ownedParameter xmi:id="a265" name="key" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a266" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a267"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a268" name="arguments" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a269" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a270"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a271" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a272" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a273"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a274" name="closeIgnoringException" visibility="public">
+        <ownedParameter xmi:id="a275" name="c" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a276" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a277"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a278" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a279" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a280"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a281" name="encodeJSONString" visibility="public">
+        <ownedParameter xmi:id="a282" name="json" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a283" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a284"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a285" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a286" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a287"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a288" name="com.sun.javaee.blueprints.petstore.model.Item" clientDependency="a942 a943 a944 a945 a946 a947 a948 a949 a950 a951 a952 a953 a954 a955 a956 a957 a958 a959 a960">
+      <generalization xmi:id="a289" general="a1157"/>
+      <ownedAttribute xmi:id="a290" name="price" visibility="private" type="a1157" association="a874">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a291" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a292"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a293" name="address" visibility="private" type="a1157" association="a876">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a294" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a295"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a296" name="contactInfo" visibility="private" type="a1157" association="a878">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a297" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a298"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a299" name="totalScore" visibility="private" type="a1157" association="a880">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a300" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a301"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a302" name="numberOfVotes" visibility="private" type="a1157" association="a882">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a303" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a304"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a305" name="disabled" visibility="private" type="a1157" association="a884">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a306" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a307"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a308" name="tags" visibility="private" type="a1157" association="a886">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a309" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a310"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="a311" name="Item" visibility="public"/>
+      <ownedOperation xmi:id="a312" name="Item" visibility="public">
+        <ownedParameter xmi:id="a313" name="productID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a314" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a315"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a316" name="name" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a317" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a318"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a319" name="description" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a320" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a321"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a322" name="imageURL" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a323" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a324"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a325" name="imageThumbURL" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a326" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a327"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a328" name="price" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a329" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a330"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a331" name="address" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a332" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a333"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a334" name="contactInfo" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a335" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a336"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a337" name="totalScore" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a338" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a339"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a340" name="numberOfVotes" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a341" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a342"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a343" name="getItemID" visibility="public">
+        <ownedParameter xmi:id="a344" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a345" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a346"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a347" name="getProductID" visibility="public">
+        <ownedParameter xmi:id="a348" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a349" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a350"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a351" name="getName" visibility="public">
+        <ownedParameter xmi:id="a352" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a353" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a354"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a355" name="getDescription" visibility="public">
+        <ownedParameter xmi:id="a356" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a357" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a358"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a359" name="getPrice" visibility="public">
+        <ownedParameter xmi:id="a360" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a361" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a362"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a363" name="getImageURL" visibility="public">
+        <ownedParameter xmi:id="a364" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a365" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a366"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a367" name="getImageThumbURL" visibility="public">
+        <ownedParameter xmi:id="a368" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a369" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a370"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a371" name="getAddress" visibility="public">
+        <ownedParameter xmi:id="a372" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a373" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a374"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a375" name="getContactInfo" visibility="public">
+        <ownedParameter xmi:id="a376" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a377" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a378"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a379" name="getTotalScore" visibility="public">
+        <ownedParameter xmi:id="a380" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a381" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a382"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a383" name="getNumberOfVotes" visibility="public">
+        <ownedParameter xmi:id="a384" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a385" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a386"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a387" name="getDisabled" visibility="public">
+        <ownedParameter xmi:id="a388" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a389" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a390"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a391" name="setItemID" visibility="public">
+        <ownedParameter xmi:id="a392" name="itemID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a393" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a394"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a395" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a396" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a397"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a398" name="setProductID" visibility="public">
+        <ownedParameter xmi:id="a399" name="productID" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a400" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a401"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a402" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a403" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a404"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a405" name="setName" visibility="public">
+        <ownedParameter xmi:id="a406" name="name" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a407" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a408"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a409" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a410" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a411"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a412" name="setDescription" visibility="public">
+        <ownedParameter xmi:id="a413" name="description" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a414" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a415"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a416" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a417" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a418"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a419" name="setImageURL" visibility="public">
+        <ownedParameter xmi:id="a420" name="imageURL" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a421" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a422"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a423" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a424" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a425"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a426" name="setImageThumbURL" visibility="public">
+        <ownedParameter xmi:id="a427" name="imageThumbURL" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a428" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a429"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a430" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a431" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a432"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a433" name="setPrice" visibility="public">
+        <ownedParameter xmi:id="a434" name="price" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a435" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a436"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a437" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a438" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a439"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a440" name="setAddress" visibility="public">
+        <ownedParameter xmi:id="a441" name="address" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a442" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a443"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a444" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a445" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a446"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a447" name="setContactInfo" visibility="public">
+        <ownedParameter xmi:id="a448" name="contactInfo" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a449" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a450"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a451" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a452" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a453"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a454" name="setTotalScore" visibility="public">
+        <ownedParameter xmi:id="a455" name="totalScore" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a456" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a457"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a458" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a459" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a460"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a461" name="setNumberOfVotes" visibility="public">
+        <ownedParameter xmi:id="a462" name="numberOfVotes" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a463" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a464"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a465" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a466" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a467"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a468" name="setDisabled" visibility="public">
+        <ownedParameter xmi:id="a469" name="disabled" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a470" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a471"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a472" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a473" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a474"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a475" name="getTags" visibility="public">
+        <ownedParameter xmi:id="a476" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a477" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a478"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a479" name="setTags" visibility="public">
+        <ownedParameter xmi:id="a480" name="tags" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a481" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a482"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a483" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a484" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a485"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a486" name="addRating" visibility="public">
+        <ownedParameter xmi:id="a487" name="score" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a488" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a489"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a490" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a491" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a492"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a493" name="checkAverageRating" visibility="public">
+        <ownedParameter xmi:id="a494" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a495" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a496"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a497" name="tagsAsString" visibility="public">
+        <ownedParameter xmi:id="a498" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a499" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a500"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a501" name="containsTag" visibility="public">
+        <ownedParameter xmi:id="a502" name="sxTag" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a503" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a504"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a505" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a506" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a507"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a508" name="validateWithMessage" visibility="public">
+        <ownedParameter xmi:id="a509" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a510" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a511"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a512" name="com.sun.javaee.blueprints.petstore.mapviewer.MapBean" clientDependency="a961 a962 a963 a964 a965 a966 a967 a968 a969 a970 a971 a972 a973 a974 a975 a976 a977 a978 a979 a980 a981 a982 a983 a984 a985 a986 a987">
+      <ownedAttribute xmi:id="a513" name="alMapMarkers" visibility="private" type="a1157" association="a888">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a514" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a515"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a516" name="mapMarker" visibility="private" type="a1081" association="a890">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a517" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a518"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a519" name="mapPoint" visibility="private" type="a1056" association="a892">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a520" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a521"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a522" name="items" visibility="public" type="a288" association="a894">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a523" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a524"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a525" name="zoomLevel" visibility="private" type="a1157" association="a896">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a526" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a527"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a528" name="radius" visibility="private" type="a1157" association="a898">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a529" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a530"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a531" name="itemIds" visibility="private" type="a1094" association="a900">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a532" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a533"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a534" name="bDebug" visibility="private" type="a1157" association="a902">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a535" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a536"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="a537" name="MapBean" visibility="public"/>
+      <ownedOperation xmi:id="a538" name="init" visibility="public">
+        <ownedParameter xmi:id="a539" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a540" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a541"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a542" name="setItemIds" visibility="public">
+        <ownedParameter xmi:id="a543" name="items" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a544" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a545"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a546" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a547" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a548"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a549" name="getItemIds" visibility="public">
+        <ownedParameter xmi:id="a550" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a551" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a552"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a553" name="getCategories" visibility="public">
+        <ownedParameter xmi:id="a554" visibility="public" type="a1033" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a555" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a556"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a557" name="setCategory" visibility="public">
+        <ownedParameter xmi:id="a558" name="category" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a559" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a560"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a561" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a562" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a563"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a564" name="getCategory" visibility="public">
+        <ownedParameter xmi:id="a565" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a566" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a567"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a568" name="setCenterAddress" visibility="public">
+        <ownedParameter xmi:id="a569" name="centerAddress" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a570" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a571"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a572" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a573" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a574"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a575" name="getCenterAddress" visibility="public">
+        <ownedParameter xmi:id="a576" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a577" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a578"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a579" name="setMapMarker" visibility="public">
+        <ownedParameter xmi:id="a580" name="mapMarker" visibility="public" type="a1081" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a581" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a582"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a583" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a584" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a585"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a586" name="getMapMarker" visibility="public">
+        <ownedParameter xmi:id="a587" visibility="public" type="a1081" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a588" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a589"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a590" name="setMapPoint" visibility="public">
+        <ownedParameter xmi:id="a591" name="mapPoint" visibility="public" type="a1056" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a592" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a593"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a594" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a595" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a596"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a597" name="getMapPoint" visibility="public">
+        <ownedParameter xmi:id="a598" visibility="public" type="a1056" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a599" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a600"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a601" name="getLocations" visibility="public">
+        <ownedParameter xmi:id="a602" visibility="public" type="a1081" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a603" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a604"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a605" name="getLocationCount" visibility="public">
+        <ownedParameter xmi:id="a606" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a607" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a608"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a609" name="getItems" visibility="public">
+        <ownedParameter xmi:id="a610" visibility="public" type="a288" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a611" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a612"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a613" name="addMapMarker" visibility="public">
+        <ownedParameter xmi:id="a614" name="mm" visibility="public" type="a1081" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a615" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a616"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a617" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a618" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a619"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a620" name="setZoomLevel" visibility="public">
+        <ownedParameter xmi:id="a621" name="zoom" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a622" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a623"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a624" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a625" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a626"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a627" name="getZoomLevel" visibility="public">
+        <ownedParameter xmi:id="a628" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a629" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a630"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a631" name="setRadius" visibility="public">
+        <ownedParameter xmi:id="a632" name="radius" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a633" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a634"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a635" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a636" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a637"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a638" name="getRadius" visibility="public">
+        <ownedParameter xmi:id="a639" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a640" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a641"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a642" name="clearValues" visibility="public">
+        <ownedParameter xmi:id="a643" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a644" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a645"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a646" name="findAllByCategory" visibility="public">
+        <ownedParameter xmi:id="a647" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a648" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a649"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a650" name="findAllByIDs" visibility="public">
+        <ownedParameter xmi:id="a651" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a652" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a653"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a654" name="mapItems" visibility="public">
+        <ownedParameter xmi:id="a655" name="context" visibility="public" type="a1088" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a656" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a657"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a658" name="items" visibility="public" type="a288" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a659" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a660"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a661" name="geoCenterPoint" visibility="public" type="a1068" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a662" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a663"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a664" name="centerx" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a665" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a666"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a667" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a668" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a669"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a670" name="lookUpAddress" visibility="public">
+        <ownedParameter xmi:id="a671" name="context" visibility="public" type="a1088" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a672" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a673"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a674" visibility="public" type="a1068" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a675" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a676"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a677" name="calculateLatitudeRadius" visibility="public">
+        <ownedParameter xmi:id="a678" name="radius" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a679" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a680"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a681" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a682" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a683"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a684" name="calculateLongitudeRadius" visibility="public">
+        <ownedParameter xmi:id="a685" name="radius" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a686" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a687"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a688" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a689" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a690"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a691" name="changeSpaces" visibility="public">
+        <ownedParameter xmi:id="a692" name="text" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a693" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a694"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a695" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a696" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a697"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a698" name="com.sun.javaee.blueprints.petstore.proxy.GeoPoint" clientDependency="a988 a989 a990 a991 a992 a993 a994 a995 a996 a997 a998 a999">
+      <ownedAttribute xmi:id="a699" name="latitude" visibility="private" type="a1157" association="a904">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a700" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a701"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a702" name="longitude" visibility="private" type="a1157" association="a906">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a703" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a704"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="a705" name="getLatitude" visibility="public">
+        <ownedParameter xmi:id="a706" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a707" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a708"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a709" name="setLatitude" visibility="public">
+        <ownedParameter xmi:id="a710" name="latitude" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a711" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a712"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a713" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a714" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a715"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a716" name="getLongitude" visibility="public">
+        <ownedParameter xmi:id="a717" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a718" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a719"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a720" name="setLongitude" visibility="public">
+        <ownedParameter xmi:id="a721" name="longitude" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a722" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a723"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a724" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a725" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a726"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a727" name="getAddress" visibility="public">
+        <ownedParameter xmi:id="a728" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a729" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a730"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a731" name="setAddress" visibility="public">
+        <ownedParameter xmi:id="a732" name="address" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a733" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a734"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a735" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a736" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a737"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a738" name="getCity" visibility="public">
+        <ownedParameter xmi:id="a739" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a740" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a741"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a742" name="setCity" visibility="public">
+        <ownedParameter xmi:id="a743" name="city" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a744" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a745"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a746" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a747" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a748"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a749" name="getState" visibility="public">
+        <ownedParameter xmi:id="a750" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a751" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a752"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a753" name="setState" visibility="public">
+        <ownedParameter xmi:id="a754" name="state" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a755" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a756"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a757" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a758" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a759"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a760" name="getZip" visibility="public">
+        <ownedParameter xmi:id="a761" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a762" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a763"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a764" name="setZip" visibility="public">
+        <ownedParameter xmi:id="a765" name="zip" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a766" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a767"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a768" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a769" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a770"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a771" name="getCountry" visibility="public">
+        <ownedParameter xmi:id="a772" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a773" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a774"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a775" name="setCountry" visibility="public">
+        <ownedParameter xmi:id="a776" name="country" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a777" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a778"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a779" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a780" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a781"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a782" name="toString" visibility="public">
+        <ownedParameter xmi:id="a783" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a784" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a785"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a786" name="GeoPoint" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a787" name="com.sun.javaee.blueprints.petstore.proxy.GeoCoder" clientDependency="a1002 a1003 a1004 a1005 a1006 a1007 a1008 a1009 a1010">
+      <ownedAttribute xmi:id="a788" name="logger" visibility="private" type="a1157" association="a908">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a789" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a790"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a791" name="proxyPort" visibility="private" type="a1157" association="a910">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a792" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a793"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="a794" name="proxySet" visibility="private" type="a1157" association="a912">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a795" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a796"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="a797" name="getApplicationId" visibility="public">
+        <ownedParameter xmi:id="a798" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a799" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a800"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a801" name="setApplicationId" visibility="public">
+        <ownedParameter xmi:id="a802" name="applicationId" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a803" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a804"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a805" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a806" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a807"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a808" name="getProxyHost" visibility="public">
+        <ownedParameter xmi:id="a809" visibility="public" type="a1094" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a810" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a811"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a812" name="setProxyHost" visibility="public">
+        <ownedParameter xmi:id="a813" name="proxyHost" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a814" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a815"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a816" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a817" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a818"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a819" name="getProxyPort" visibility="public">
+        <ownedParameter xmi:id="a820" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a821" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a822"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a823" name="setProxyPort" visibility="public">
+        <ownedParameter xmi:id="a824" name="proxyPort" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a825" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a826"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a827" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a828" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a829"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a830" name="geoCode" visibility="public">
+        <ownedParameter xmi:id="a831" name="location" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a832" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a833"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a834" visibility="public" type="a1068" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a835" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a836"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a837" name="convertResults" visibility="private">
+        <ownedParameter xmi:id="a838" name="document" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a839" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a840"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a841" visibility="public" type="a1068" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a842" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a843"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a844" name="parseResponse" visibility="private">
+        <ownedParameter xmi:id="a845" name="url" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a846" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a847"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a848" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a849" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a850"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a851" name="setProxyConfiguration" visibility="private">
+        <ownedParameter xmi:id="a852" visibility="public" type="a1157" direction="return" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a853" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a854"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a855" name="GeoCoder" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="a856" name="primitive types">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a857" name="int"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a858" name="void"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a859" name="char"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a860" name="boolean"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a861" name="double"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a862" name="long"/>
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="a863" name="float"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a864" memberEnd="a865 a5">
+      <ownedEnd xmi:id="a865" visibility="public" type="a3" association="a864"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a866" memberEnd="a867 a8">
+      <ownedEnd xmi:id="a867" visibility="public" type="a3" association="a866"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a868" memberEnd="a869 a11">
+      <ownedEnd xmi:id="a869" visibility="public" type="a3" association="a868"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a870" memberEnd="a871 a238">
+      <ownedEnd xmi:id="a871" visibility="public" type="a237" association="a870"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a872" memberEnd="a873 a241">
+      <ownedEnd xmi:id="a873" visibility="public" type="a237" association="a872"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a874" memberEnd="a875 a290">
+      <ownedEnd xmi:id="a875" visibility="public" type="a288" association="a874"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a876" memberEnd="a877 a293">
+      <ownedEnd xmi:id="a877" visibility="public" type="a288" association="a876"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a878" memberEnd="a879 a296">
+      <ownedEnd xmi:id="a879" visibility="public" type="a288" association="a878"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a880" memberEnd="a881 a299">
+      <ownedEnd xmi:id="a881" visibility="public" type="a288" association="a880"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a882" memberEnd="a883 a302">
+      <ownedEnd xmi:id="a883" visibility="public" type="a288" association="a882"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a884" memberEnd="a885 a305">
+      <ownedEnd xmi:id="a885" visibility="public" type="a288" association="a884"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a886" memberEnd="a887 a308">
+      <ownedEnd xmi:id="a887" visibility="public" type="a288" association="a886"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a888" memberEnd="a889 a513">
+      <ownedEnd xmi:id="a889" visibility="public" type="a512" association="a888"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a890" memberEnd="a891 a516">
+      <ownedEnd xmi:id="a891" visibility="public" type="a512" association="a890"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a892" memberEnd="a893 a519">
+      <ownedEnd xmi:id="a893" visibility="public" type="a512" association="a892"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a894" memberEnd="a895 a522">
+      <ownedEnd xmi:id="a895" visibility="public" type="a512" association="a894"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a896" memberEnd="a897 a525">
+      <ownedEnd xmi:id="a897" visibility="public" type="a512" association="a896"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a898" memberEnd="a899 a528">
+      <ownedEnd xmi:id="a899" visibility="public" type="a512" association="a898"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a900" memberEnd="a901 a531">
+      <ownedEnd xmi:id="a901" visibility="public" type="a512" association="a900"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a902" memberEnd="a903 a534">
+      <ownedEnd xmi:id="a903" visibility="public" type="a512" association="a902"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a904" memberEnd="a905 a699">
+      <ownedEnd xmi:id="a905" visibility="public" type="a698" association="a904"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a906" memberEnd="a907 a702">
+      <ownedEnd xmi:id="a907" visibility="public" type="a698" association="a906"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a908" memberEnd="a909 a788">
+      <ownedEnd xmi:id="a909" visibility="public" type="a787" association="a908"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a910" memberEnd="a911 a791">
+      <ownedEnd xmi:id="a911" visibility="public" type="a787" association="a910"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="a912" memberEnd="a913 a794">
+      <ownedEnd xmi:id="a913" visibility="public" type="a787" association="a912"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a915" name="local" supplier="a1043" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a917" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a918" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a919" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a920" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a921" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a922" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a923" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a924" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a925" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a926" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a927" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a928" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a931" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a932" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a933" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a934" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a935" name="method parameter" supplier="a1094" client="a3"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a936" name="method parameter" supplier="a1094" client="a237"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a937" name="method parameter" supplier="a1094" client="a237"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a938" name="method parameter" supplier="a1094" client="a237"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a939" name="method parameter" supplier="a1094" client="a237"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a940" name="method parameter" supplier="a1094" client="a237"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a941" name="method parameter" supplier="a1094" client="a237"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a942" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a943" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a944" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a945" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a946" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a947" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a948" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a949" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a950" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a951" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a952" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a953" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a954" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a955" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a956" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a957" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a958" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a959" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a960" name="method parameter" supplier="a1094" client="a288"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a961" name="local " supplier="a288" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a962" name="local " supplier="a3" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a963" name="local " supplier="a698" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a964" name="local " supplier="a787" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a965" name="local " supplier="a237" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a966" name="local" supplier="a1018" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a967" name="local" supplier="a1068" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a968" name="local" supplier="a1043" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a969" name="local" supplier="a1033" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a970" name="local" supplier="a1012" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a971" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a972" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a973" name="method parameter" supplier="a1081" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a974" name="method parameter" supplier="a1056" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a975" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a976" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a977" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a978" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a979" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a980" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a981" name="method parameter" supplier="a1081" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a982" name="method parameter" supplier="a1056" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a983" name="method parameter" supplier="a1081" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a984" name="method parameter" supplier="a1088" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a985" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a986" name="method parameter" supplier="a1088" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a987" name="method parameter" supplier="a1094" client="a512"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a988" name="local" supplier="a1068" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a989" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a990" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a991" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a992" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a993" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a994" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a995" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a996" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a997" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a998" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a999" name="method parameter" supplier="a1094" client="a698"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1002" name="local" supplier="a1018" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1003" name="local" supplier="a1068" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1004" name="local" supplier="a1043" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1005" name="method parameter" supplier="a1094" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1006" name="method parameter" supplier="a1094" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1007" name="method parameter" supplier="a1094" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1008" name="method parameter" supplier="a1094" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1009" name="method parameter" supplier="a1094" client="a787"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="a1010" name="method parameter" supplier="a1094" client="a787"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="a1011" name="external classes">
+    <packagedElement xmi:type="uml:Class" xmi:id="a1012" name="ValueExpression">
+      <generalization xmi:id="a1013" general="a1157"/>
+      <ownedOperation xmi:id="a1014" name="getValue" visibility="public">
+        <ownedParameter xmi:id="a1015" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1016" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1017"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1018" name="GeoCoder">
+      <generalization xmi:id="a1019" general="a1157"/>
+      <ownedOperation xmi:id="a1020" name="GeoCoder" visibility="public"/>
+      <ownedOperation xmi:id="a1021" name="setProxyHost" visibility="public">
+        <ownedParameter xmi:id="a1022" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1023" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1024"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1025" name="setProxyPort" visibility="public">
+        <ownedParameter xmi:id="a1026" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1027" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1028"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1029" name="geoCode" visibility="public">
+        <ownedParameter xmi:id="a1030" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1031" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1032"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1033" name="SelectItem">
+      <generalization xmi:id="a1034" general="a1157"/>
+      <generalization xmi:id="a1035" general="a1157"/>
+      <ownedOperation xmi:id="a1036" name="SelectItem" visibility="public">
+        <ownedParameter xmi:id="a1037" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1038" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1039"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a1040" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1041" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1042"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1043" name="System">
+      <generalization xmi:id="a1044" general="a1157"/>
+      <ownedOperation xmi:id="a1045" name="getProperty" visibility="public">
+        <ownedParameter xmi:id="a1046" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1047" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1048"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1049" name="setProperty" visibility="public">
+        <ownedParameter xmi:id="a1050" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1051" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1052"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a1053" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1054" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1055"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1056" name="MapPoint">
+      <generalization xmi:id="a1057" general="a1157"/>
+      <generalization xmi:id="a1058" general="a1157"/>
+      <ownedOperation xmi:id="a1059" name="MapPoint" visibility="public"/>
+      <ownedOperation xmi:id="a1060" name="setLatitude" visibility="public">
+        <ownedParameter xmi:id="a1061" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1062" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1063"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1064" name="setLongitude" visibility="public">
+        <ownedParameter xmi:id="a1065" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1066" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1067"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1068" name="GeoPoint">
+      <generalization xmi:id="a1069" general="a1157"/>
+      <ownedOperation xmi:id="a1070" name="getLatitude" visibility="public"/>
+      <ownedOperation xmi:id="a1071" name="getLongitude" visibility="public"/>
+      <ownedOperation xmi:id="a1072" name="GeoPoint" visibility="public"/>
+      <ownedOperation xmi:id="a1073" name="setLatitude" visibility="public">
+        <ownedParameter xmi:id="a1074" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1075" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1076"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1077" name="setLongitude" visibility="public">
+        <ownedParameter xmi:id="a1078" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1079" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1080"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1081" name="MapMarker">
+      <generalization xmi:id="a1082" general="a1056"/>
+      <ownedOperation xmi:id="a1083" name="MapMarker" visibility="public"/>
+      <ownedOperation xmi:id="a1084" name="setMarkup" visibility="public">
+        <ownedParameter xmi:id="a1085" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1086" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1087"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1088" name="FacesContext">
+      <generalization xmi:id="a1089" general="a1157"/>
+      <ownedOperation xmi:id="a1090" name="getCurrentInstance" visibility="public"/>
+      <ownedOperation xmi:id="a1091" name="getExternalContext" visibility="public"/>
+      <ownedOperation xmi:id="a1092" name="getApplication" visibility="public"/>
+      <ownedOperation xmi:id="a1093" name="getELContext" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="a1094" name="String">
+      <generalization xmi:id="a1095" general="a1157"/>
+      <generalization xmi:id="a1096" general="a1157"/>
+      <generalization xmi:id="a1097" general="a1157"/>
+      <generalization xmi:id="a1098" general="a1157"/>
+      <ownedOperation xmi:id="a1099" name="length" visibility="public"/>
+      <ownedOperation xmi:id="a1100" name="substring" visibility="public">
+        <ownedParameter xmi:id="a1101" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1102" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1103"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a1104" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1105" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1106"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1107" name="indexOf" visibility="public">
+        <ownedParameter xmi:id="a1108" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1109" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1110"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1111" name="equals" visibility="public">
+        <ownedParameter xmi:id="a1112" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1113" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1114"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1115" name="toLowerCase" visibility="public"/>
+      <ownedOperation xmi:id="a1116" name="startsWith" visibility="public">
+        <ownedParameter xmi:id="a1117" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1118" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1119"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1120" name="lastIndexOf" visibility="public">
+        <ownedParameter xmi:id="a1121" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1122" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1123"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1124" name="endsWith" visibility="public">
+        <ownedParameter xmi:id="a1125" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1126" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1127"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1128" name="trim" visibility="public"/>
+      <ownedOperation xmi:id="a1129" name="valueOf" visibility="public">
+        <ownedParameter xmi:id="a1130" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1131" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1132"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1133" name="replaceAll" visibility="public">
+        <ownedParameter xmi:id="a1134" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1135" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1136"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="a1137" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1138" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1139"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1140" name="indexOf" visibility="public">
+        <ownedParameter xmi:id="a1141" visibility="public" type="a1094" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1142" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1143"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1144" name="toUpperCase" visibility="public"/>
+      <ownedOperation xmi:id="a1145" name="substring" visibility="public">
+        <ownedParameter xmi:id="a1146" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1147" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1148"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1149" name="String" visibility="public">
+        <ownedParameter xmi:id="a1150" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1151" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1152"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="a1153" name="valueOf" visibility="public">
+        <ownedParameter xmi:id="a1154" visibility="public" type="a1157" effect="create">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a1155" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1156"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="a1157" name="MockObject"/>
+  </packagedElement>
+</uml:Model>
