@@ -476,6 +476,7 @@ rule JEnumerationToUmlEnumeration extends jAbstractTypDecToUmlClassifier{
 	to 
 		umlClassifier : UML!Enumeration(
 				name <- jAbstrTypdec.name,
+				ownedLiteral <- jAbstrTypdec.enumConstants,
 				package <- if (not jAbstrTypdec.package.oclIsUndefined()) then
 								jAbstrTypdec.package.getFirstDupBugModisco
 							else OclUndefined endif	
@@ -589,30 +590,10 @@ unique lazy rule createClassContainerForEnumImplemInterface{
 	to
 		enumClassContainer : UML!Class (
 			name <- 'ENUM_' + jInterfDec.refImmediateComposite().name,
-			nestedClassifier <- jInterfDec.refImmediateComposite()	
+			nestedClassifier <- jInterfDec.refImmediateComposite(),
+			package <- jInterfDec.refImmediateComposite().package
 		)
 }
-
------A class parameter extending a class
---rule JTypeAccessParamTemplToSuperClassUml{
---	from 
---		jAbstrTypdec : JAVA!TypeAccess(
---			jAbstrTypdec.refImmediateComposite().oclIsTypeOf(JAVA!TypeParameter)
---			and
---			jAbstrTypdec.type.oclIsTypeOf(JAVA!ClassDeclaration)
---		)
---	to 
---		umlClassifier : UML!Class (				
---			name <- jAbstrTypdec.type.name, 
---			superClass <- jAbstrTypdec.type.getSuperClass,
---			package <- jAbstrTypdec.type.package.getFirstDupBugModisco,
---			nestedClassifier <- jAbstrTypdec.type.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)),
---			templateParameter <- classifierTemplateParameter												
---		),
---		classifierTemplateParameter : UML!ClassifierTemplateParameter(	
---			constrainingClassifier <- jAbstrTypdec.type.typeParameters
---		)
---}
 
 --***************EnumerationConstant***************
 ---Convert a java attribut to an Uml field
