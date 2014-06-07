@@ -13,11 +13,6 @@
             id="eu.artist.premigration.tft.tft.commands.openMigrationGoalsView"
             name="Open Migration Goals View">
       </command>
-      <command
-            defaultHandler="eu.artist.premigration.tft.tft.test.commands.OpenTFTtestViewHandler"
-            id="eu.artist.premigration.tft.tft.test.commands.openTFTtestView"
-            name="Open TFT Test View">
-      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -67,13 +62,6 @@
             class="eu.artist.premigration.tft.tft.views.MigrationGoalsView"
             id="eu.artist.premigration.tft.tft.views.MigrationGoalsView"
             name="MigrationGoalsView"
-            restorable="true">
-      </view>
-      <view
-            category="eu.artist.premigration.tft.tft.categoryTFT"
-            class="eu.artist.premigration.tft.tft.test.views.TFTtestView"
-            id="eu.artist.premigration.tft.tft.test.views.TFTtestView"
-            name="TFTtestView"
             restorable="true">
       </view>
    </extension>

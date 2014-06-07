@@ -74,7 +74,7 @@ rule "DoesComponentHaveDataStereotype_GAE" extends "IsTargetPlatformGAE"
 	when
 		$component : Component ( this.hasStereotype(Category.DATA.getPossibleStereotypes()))
 	then
-		String[] allDataStrategyIDsForGAE = new String[]{"CLOUD_SQL", "HRD", "GCS", "MONGO"};
+		String[] allDataStrategyIDsForGAE = new String[]{"CLOUD_SQL", "HRD", "GCS", "MONGO", "HADOOP", "DSSHARECOUNTERS", "CQRS", "EVENTSOURCE"};
 		List strategiesForCategory = new ArrayList();
 		for (int i = 0; i < allDataStrategyIDsForGAE.length; i++){
 			if (!suggestedStrategyIDs.contains(allDataStrategyIDsForGAE[i])){
@@ -141,7 +141,7 @@ rule "DoesComponentHaveDataStereotype_Azure" extends "IsTargetPlatformAzure"
 	when
 		$component : Component ( this.hasStereotype(Category.DATA.getPossibleStereotypes()))
 	then
-		String[] allDataStrategyIDsForAzure = new String[]{"AZURE_SQL", "BSS", "MONGO"};
+		String[] allDataStrategyIDsForAzure = new String[]{"AZURE_SQL", "BSS", "MONGO", "HDINSIGHT", "AZUSQLDBSHARDING", "CQRS", "EVENTSOURCE"};
 		List strategiesForCategory = new ArrayList();
 		for (int i = 0; i < allDataStrategyIDsForAzure.length; i++){
 			if (!suggestedStrategyIDs.contains(allDataStrategyIDsForAzure[i])){
@@ -238,7 +238,7 @@ rule "DoesComponentHaveDataStereotype_EC2" extends "IsTargetPlatformEC2"
 	when
 		$component : Component ( this.hasStereotype(Category.DATA.getPossibleStereotypes()))
 	then
-		String[] allDataStrategyIDsForEC2 = new String[]{"DYNAMO", "RDS", "MONGO", "S3", "GLACIER", "BLOCK"};
+		String[] allDataStrategyIDsForEC2 = new String[]{"DYNAMO", "RDS", "MONGO", "S3", "GLACIER", "BLOCK", "MAPREDUCE", "AWSRDSSHARDING", "CQRS", "EVENTSOURCE"};
 		List strategiesForCategory = new ArrayList();
 		for (int i = 0; i < allDataStrategyIDsForEC2.length; i++){
 			if (!suggestedStrategyIDs.contains(allDataStrategyIDsForEC2[i])){
@@ -294,3 +294,24 @@ rule "DoesComponentHaveViewStereotype_EC2" extends "IsTargetPlatformEC2"
 		}
 		strategiesByCategory.put(Category.VIEW, strategiesForCategory);
 end
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////// PROVIDER INDEPENDENT //////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+rule "DoesComponentHaveDataStereotype" 
+
+	when
+		$component : Component ( this.hasStereotype(Category.DATA.getPossibleStereotypes()))
+	then
+		String[] allDataStrategyIDs = new String[]{"CQRS"};
+		List strategiesForCategory = new ArrayList();
+		for (int i = 0; i < allDataStrategyIDs.length; i++){
+			if (!suggestedStrategyIDs.contains(allDataStrategyIDs[i])){
+				strategiesForCategory.add(MigrationStrategyContainer.INSTANCE.getMigrationStrategy(allDataStrategyIDs[i]));
+			}
+		}
+		strategiesByCategory.put(Category.DATA, strategiesForCategory);
+end
+*/

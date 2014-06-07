@@ -112,15 +112,33 @@ public class MigrationStrategySelectionDialog extends Dialog{
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
-
 		GridLayout layout = new GridLayout(3, false);
 		container.setLayout(layout);
 
+
+		Label infoLabel = new Label(container, SWT.NONE);
+		infoLabel.setText("Add migration strategies to this component from the leftmost panel or remove already suggested/selected strategies from the");
+		infoLabel.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 3, 1));
+		
+		Label infoLabel2 = new Label(container, SWT.NONE);
+		infoLabel2.setText("rightmost panel.");
+		infoLabel2.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 3, 1));
+		
+		Label emptyLabel = new Label(container, SWT.NONE);
+		emptyLabel.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 3, 1));
+		
+		
 		//Collect suggested strategy ids
 		List<String> suggestedStrategIDs = new ArrayList<String>();
 		for (MigrationStrategy strategy : selectedComponent.getMigrationStrategies()) {
 			suggestedStrategIDs.add(strategy.getId());
 		}
+		
+		
+		
+//		infoLabel.setLocation(20, 20);
+//		infoLabel.pack();
+//		infoLabel.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 3, 1));
 
 		//Create labels
 		Label leftLabel = new Label(container, SWT.NONE);

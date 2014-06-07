@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
  *******************************************************************************
  * Copyright (c) 2014 Atos.
@@ -11,9 +13,6 @@
  * 	Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************
  -->
-
-
-<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
 	All the migration strategies available in TFT are defined in this xml file. Each strategy has an ID, a text value for name, a category and complexity of
@@ -31,7 +30,7 @@
 	<!-- ///////////////////////// GAE //////////////////////////// -->
 	<MigrationStrategy> 
 		<id>NAMESPACES</id>
-		<text>Adopt Namespaces API</text>
+		<text>Adopt GAE Namespaces API</text>
 		<description>This API enables the hosting and administration of multitenant applications on GAE.</description>
 		<category>APPLICATION</category>
 		<complexity>UNKNOWN</complexity>
@@ -89,7 +88,7 @@
 	
 	<MigrationStrategy>
 		<id>AUTOS</id>
-		<text>Adopt Auto Scaling</text>
+		<text>Adopt Amazon Auto Scaling</text>
 		<description>This web service scales up or down the selected EC2 instances when the conditions have been met.</description>
 		<category>APPLICATION</category>
 		<complexity>UNKNOWN</complexity>
@@ -151,14 +150,37 @@
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
 	
+	<MigrationStrategy>
+		<id>HYPERVISOR</id>
+		<text>Adopt AWS Hypervisor</text>
+		<description>Rely on AWS hypervisor to provide isolation between tenants.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
 	<!--  Elastic Transcoder -->
 	
 	<!-- ///////////////////////// AZURE //////////////////////////// -->
+	<MigrationStrategy>
+		<id>AZUREAUTOSCALING</id>
+		<text>Adopt Azure auto scaling</text>
+		<description>User Azure Management Portal/Azure Diagnostics for: i) Setting monitoring parameter values as thresholds for triggering automatic scaling. ii) Monitor performance parameters, configure autoscaling policy details, set autoscaling thresholds and/or desired performance rates.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
 	
 	<MigrationStrategy>
 		<id>ACTIVEDIRECTORY</id>
-		<text>Adopt Active Directory</text>
-		<description>Provides identity service for on-premises and cloud applications, offering access control and administration.</description>
+		<text>Adopt Azure Active Directory</text>
+		<description>Provides identity service for on-premises and cloud applications, offering access control and administration. Rely on Active Directory to provide isolation between tenants.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZURESB</id>
+		<text>Adopt Azure Service Bus</text>
+		<description>Enable throttling pattern to automate the management of consumed application resources</description>
 		<category>APPLICATION</category>
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
@@ -318,6 +340,69 @@
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
 	
+	<MigrationStrategy>
+		<id>HADOOP</id>
+		<text>Migrate to Apache Hadoop</text>
+		<description>Use MadReduce pattern in order to improve the processing of big data, using multiple available parallel-running nodes</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>HDINSIGHT</id>
+		<text>Migrate to Azure HDInsight</text>
+		<description>Use MadReduce pattern in order to improve the processing of big data, using multiple available parallel-running nodes</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUSQLDBSHARDING</id>
+		<text>Sharding using Azure SQL Database</text>
+		<description>Improve database query capability sharding your data through horizontal scaling</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>DSSHARECOUNTERS</id>
+		<text>Sharding using GAE Datastore Share Counters</text>
+		<description>Improve database query capability sharding your data through horizontal scaling</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUSQLDBSHARDING</id>
+		<text>Sharding using Azure SQL Database</text>
+		<description>Improve database query capability sharding your data through horizontal scaling</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AWSRDSSHARDING</id>
+		<text>Sharding using Amazon RDS</text>
+		<description>Improve database query capability sharding your data through horizontal scaling</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>CQRS</id>
+		<text>Apply CQRS pattern to data access</text>
+		<description>Segregate read from write data operations using CQRS pattern</description>
+		<category>DATA</category>
+		<complexity>HIGH</complexity>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>EVENTSOURCE</id>
+		<text>Apply Event Sourcing pattern to data access</text>
+		<description>The Event Sourcing pattern defines an approach to handling operations on data that is driven by a sequence of events, each of which is recorded in an append-only store</description>
+		<category>DATA</category>
+		<complexity>HIGH</complexity>
+	</MigrationStrategy>
 	
 	<!-- Storage Gateway? Application level or data? -->
 	
@@ -332,7 +417,7 @@
 	<MigrationStrategy>
 		<id>MAPREDUCE</id>
 		<text>Migrate to Amazon Elastic MapReduce</text>
-		<description> </description>
+		<description>Use MadReduce pattern in order to improve the processing of big data, using multiple available parallel-running nodes</description>
 		<category>DATA</category>
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
@@ -384,15 +469,15 @@
 	<MigrationStrategy>
 		<id>TQA</id>
 		<text>Migrate to Task Queue API</text>
-		<description> </description>
+		<description>Enable auto-scaling or throttling patterns to automate the management of consumed application resources</description>
 		<category>QUEUE</category>
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
 	
 	<MigrationStrategy>
 		<id>SQS</id>
-		<text>Migrate to Amazon SQS</text>
-		<description> </description>
+		<text>Migrate to Amazon Simple Query Service</text>
+		<description>Enable throttling pattern to automate the management of consumed application resources</description>
 		<category>QUEUE</category>
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
@@ -439,6 +524,8 @@
 		<category>PERFORMANCE</category>
 		<complexity>UNKNOWN</complexity>
 	</MigrationStrategy>
+	
+	
 	
 	<!-- ###########################################  REALTIME MESSAGING ####################################### -->	
 	<MigrationStrategy>
