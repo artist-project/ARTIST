@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Profile="http:///schemas/Profile/_iI_qEEIbEeOHktYnalaHvg/8" xmlns:Profile_1="http:///schemas/Profile/__iNOMGDEEeORf8gsnrJfYQ/2" xmlns:Profile_2="http:///schemas/Profile/_AFp5gGDFEeORf8gsnrJfYQ/2" xmlns:RCP="http:///schemas/RCP/_WTfpMF2aEeOCEvidQrMhaQ/18" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/Profile/_iI_qEEIbEeOHktYnalaHvg/8 DataManagement.profile.uml#_iJARIEIbEeOHktYnalaHvg http:///schemas/Profile/__iNOMGDEEeORf8gsnrJfYQ/2 ComponentDataManagement.profile.uml#__iN1QGDEEeORf8gsnrJfYQ http:///schemas/Profile/_AFp5gGDFEeORf8gsnrJfYQ/2 ComponentGUI.profile.uml#_AFp5gWDFEeORf8gsnrJfYQ http:///schemas/RCP/_WTfpMF2aEeOCEvidQrMhaQ/18 rcp-indigo.profile.uml#_WTheYF2aEeOCEvidQrMhaQ">
+  <uml:Model xmi:id="_Kkn-0G4jEeOez8PvXo806A" name="org.dews_online.ccui.core">
+    <packagedElement xmi:type="uml:Component" xmi:id="_Klh9wG4jEeOez8PvXo806A" name="org.dews_online.ccui.coreComponent">
+      <packagedElement xmi:type="uml:Component" xmi:id="_KwuhIG4jEeOez8PvXo806A" name="MonitoringPerspectiveComponent">
+        <packagedElement xmi:type="uml:Class" xmi:id="_KwvIMG4jEeOez8PvXo806A" name="MapElementsView">
+          <ownedAttribute xmi:id="_KwvIMW4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KwvIMm4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::view::viewparts::MapElementsView"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KwvvQG4jEeOez8PvXo806A" name="IncidentTreeView">
+          <ownedAttribute xmi:id="_KwvvQW4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KwvvQm4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::view::viewparts::IncidentTreeView"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KwvvQ24jEeOez8PvXo806A" name="DetailView">
+          <ownedAttribute xmi:id="_KwvvRG4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KwvvRW4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::view::viewparts::DetailView"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KwwWUG4jEeOez8PvXo806A" name="SnapshotView">
+          <ownedAttribute xmi:id="_KwwWUW4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KwwWUm4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::view::viewparts::SnapshotView"/>
+          </ownedAttribute>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_Kww9YG4jEeOez8PvXo806A" clientDependency="_KxA1AG4jEeOez8PvXo806A" name="SnapshotManagerComponent">
+        <packagedElement xmi:type="uml:Class" xmi:id="_Kww9YW4jEeOez8PvXo806A" name="SnapshotManager">
+          <ownedAttribute xmi:id="_Kww9Ym4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Kww9Y24jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::control::snapshot::SnapshotManager"/>
+          </ownedAttribute>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_Kww9ZG4jEeOez8PvXo806A" name="SweObjectManagerComponent">
+        <packagedElement xmi:type="uml:Class" xmi:id="_Kww9ZW4jEeOez8PvXo806A" name="SweObjectManager">
+          <ownedAttribute xmi:id="_Kww9Zm4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Kww9Z24jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::swe::control::event::SweObjectManager"/>
+          </ownedAttribute>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_KqAOEG4jEeOez8PvXo806A" clientDependency="_KxCqMG4jEeOez8PvXo806A _KxEfYG4jEeOez8PvXo806A" name="DataModelComponent">
+        <packagedElement xmi:type="uml:Class" xmi:id="_KqRT0G4jEeOez8PvXo806A" name="UrnSelectedEvent">
+          <ownedAttribute xmi:id="_KqRT0W4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqRT0m4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::control::event::urn::UrnSelectedEvent"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KqR64G4jEeOez8PvXo806A" name="DewsBusinessObjectEvent">
+          <ownedAttribute xmi:id="_KqR64W4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqR64m4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::model::DewsBusinessObjectEvent"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KqR6424jEeOez8PvXo806A" name="org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;T>">
+          <ownedAttribute xmi:id="_KqR65G4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqR65W4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::model::org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;T>"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KqR65m4jEeOez8PvXo806A" name="org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;org.dews_online.ccui.core.model.incident.Incident>">
+          <ownedAttribute xmi:id="_KqSh8G4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqSh8W4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::model::org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;org.dews_online.ccui.core.model.incident.Incident>"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KqSh8m4jEeOez8PvXo806A" name="org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;org.dews_online.ccui.core.model.snapshot.SnapShot>">
+          <ownedAttribute xmi:id="_KqSh824jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqSh9G4jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::model::org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;org.dews_online.ccui.core.model.snapshot.SnapShot>"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_KqSh9W4jEeOez8PvXo806A" name="org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;org.dews_online.ccui.swe.model.ASweObject>">
+          <ownedAttribute xmi:id="_KqSh9m4jEeOez8PvXo806A" name="qualifiedName">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_KqSh924jEeOez8PvXo806A" value="root model::org.dews_online.ccui.core::org::dews_online::ccui::core::model::org.dews_online.ccui.core.model.DewsBusinessObjectEvent&lt;org.dews_online.ccui.swe.model.ASweObject>"/>
+          </ownedAttribute>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_KxA1AG4jEeOez8PvXo806A" client="_Kww9YG4jEeOez8PvXo806A" supplier="_KwuhIG4jEeOez8PvXo806A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_KxCqMG4jEeOez8PvXo806A" client="_KqAOEG4jEeOez8PvXo806A" supplier="_Kww9ZG4jEeOez8PvXo806A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_KxEfYG4jEeOez8PvXo806A" client="_KqAOEG4jEeOez8PvXo806A" supplier="_Kww9YG4jEeOez8PvXo806A"/>
+    </packagedElement>
+    <profileApplication xmi:id="_KwyykG4jEeOez8PvXo806A">
+      <eAnnotations xmi:id="_KwyykW4jEeOez8PvXo806A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="DataManagement.profile.uml#_iJARIEIbEeOHktYnalaHvg"/>
+      </eAnnotations>
+      <appliedProfile href="DataManagement.profile.uml#_Ot8YkDJiEeOYt-q2t0o0kA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_KwzZoG4jEeOez8PvXo806A">
+      <eAnnotations xmi:id="_KwzZoW4jEeOez8PvXo806A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="rcp-indigo.profile.uml#_WTheYF2aEeOCEvidQrMhaQ"/>
+      </eAnnotations>
+      <appliedProfile href="rcp-indigo.profile.uml#__jbcQPRSEeKRapCelWbVpA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Kw0nwG4jEeOez8PvXo806A">
+      <eAnnotations xmi:id="_Kw0nwW4jEeOez8PvXo806A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="ComponentGUI.profile.uml#_AFp5gWDFEeORf8gsnrJfYQ"/>
+      </eAnnotations>
+      <appliedProfile href="ComponentGUI.profile.uml#_hV5ooGC5EeORf8gsnrJfYQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Kw0nwm4jEeOez8PvXo806A">
+      <eAnnotations xmi:id="_Kw1O0G4jEeOez8PvXo806A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="ComponentDataManagement.profile.uml#__iN1QGDEEeORf8gsnrJfYQ"/>
+      </eAnnotations>
+      <appliedProfile href="ComponentDataManagement.profile.uml#_cHg4MGC5EeORf8gsnrJfYQ"/>
+    </profileApplication>
+    <viewpoint xsi:nil="true"/>
+  </uml:Model>
+  <RCP:View xmi:id="_K378YG4jEeOez8PvXo806A" base_Element="_KwwWUG4jEeOez8PvXo806A"/>
+  <RCP:View xmi:id="_K378YW4jEeOez8PvXo806A" base_Element="_KwvvQ24jEeOez8PvXo806A"/>
+  <RCP:View xmi:id="_K378Ym4jEeOez8PvXo806A" base_Element="_KwvvQG4jEeOez8PvXo806A"/>
+  <RCP:View xmi:id="_K38jcG4jEeOez8PvXo806A" base_Element="_KwvIMG4jEeOez8PvXo806A"/>
+  <Profile:Subject xmi:id="_K38jcW4jEeOez8PvXo806A" base_Element="_Kww9ZG4jEeOez8PvXo806A"/>
+  <Profile_1:JMS xmi:id="_K38jcm4jEeOez8PvXo806A" base_Element="_Kww9ZG4jEeOez8PvXo806A"/>
+  <Profile:Subject xmi:id="_K38jc24jEeOez8PvXo806A" base_Element="_Kww9ZW4jEeOez8PvXo806A"/>
+  <Profile:Subject xmi:id="_K38jdG4jEeOez8PvXo806A" base_Element="_Kww9YG4jEeOez8PvXo806A"/>
+  <Profile_1:JMS xmi:id="_K39KgG4jEeOez8PvXo806A" base_Element="_Kww9YG4jEeOez8PvXo806A"/>
+  <Profile:Subject xmi:id="_K39KgW4jEeOez8PvXo806A" base_Element="_Kww9YW4jEeOez8PvXo806A"/>
+  <RCP:Workbench xmi:id="_K39Kgm4jEeOez8PvXo806A" base_Element="_Klh9wG4jEeOez8PvXo806A"/>
+  <Profile_2:SWT xmi:id="_K39Kg24jEeOez8PvXo806A" base_Element="_Klh9wG4jEeOez8PvXo806A"/>
+  <Profile_1:JMS xmi:id="_K39KhG4jEeOez8PvXo806A" base_Element="_Klh9wG4jEeOez8PvXo806A"/>
+  <RCP:Perspective xmi:id="_K39KhW4jEeOez8PvXo806A" base_Element="_KwuhIG4jEeOez8PvXo806A"/>
+  <Profile_2:SWT xmi:id="_K39Khm4jEeOez8PvXo806A" base_Element="_KwuhIG4jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K39xkG4jEeOez8PvXo806A" base_Element="_KqAOEG4jEeOez8PvXo806A"/>
+  <Profile_1:JMS xmi:id="_K39xkW4jEeOez8PvXo806A" base_Element="_KqAOEG4jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K39xkm4jEeOez8PvXo806A" base_Element="_KqSh9W4jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K39xk24jEeOez8PvXo806A" base_Element="_KqSh8m4jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K39xlG4jEeOez8PvXo806A" base_Element="_KqR65m4jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K39xlW4jEeOez8PvXo806A" base_Element="_KqR6424jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K3-YoG4jEeOez8PvXo806A" base_Element="_KqR64G4jEeOez8PvXo806A"/>
+  <Profile:DataModel xmi:id="_K3-YoW4jEeOez8PvXo806A" base_Element="_KqRT0G4jEeOez8PvXo806A"/>
+</xmi:XMI>

@@ -54,7 +54,7 @@ public class Java2UMLDiscoverer extends AbstractModelDiscoverer<IFile>{
 	protected void basicDiscoverElement(IFile source, IProgressMonitor monitor)
 			throws DiscoveryException {
 		String uri = source.getLocationURI().toString();
-		String outputUri = uri.replaceFirst(".xmi", ".uml");
+		String outputUri = uri.replaceFirst(".xmi", ".class.uml");
 		if (this.getTargetURI()==null){
 			this.setTargetURI(URI.createURI(outputUri));
 		}
