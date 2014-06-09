@@ -35,3 +35,6 @@ Reference to the user/installation manual (link to the deliverable published in 
 
 
 http://www.artist-project.eu/sites/default/files/D5.3.1%20Technical%20feasibility%20tools_M12_30092013.pdf
+
+For installation instructions, see section 3.2.2.
+For user manual, see section 3.2.3.
