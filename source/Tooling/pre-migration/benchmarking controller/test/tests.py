@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # ARTIST Benchmarking Controller
 # Copyright 2014 Engineering Ingegneria Informatica S.p.A.
 #
@@ -45,7 +44,7 @@ if __name__ == '__main__':
     
     # In this section insert the information related to the provider and flavour to use; 
     # For example 'Amazon' and 'redhat-large'
-    cp = factory.get_cloud_provider('example','small-debian')
+    cp = factory.get_cloud_provider('example','debian-small')
    
     # In this section insert the information related to the benchmark tool and workload to use 
     # For example 'filebench' and 'Workload1'
