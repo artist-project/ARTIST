@@ -12,6 +12,8 @@ import java.util.HashSet
 import java.util.Set
 import org.eclipse.xtext.validation.Check
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil
+import eu.artist.postmigration.nfrvt.lang.common.eval.ExpressionValidator
+import eu.artist.postmigration.nfrvt.lang.nsl.renderer.NSLTextRenderer
 
 //import org.eclipse.xtext.validation.Check
 
@@ -100,7 +102,7 @@ class NSLValidator extends AbstractNSLValidator {
 	
 	@Check
 	def checkPropertiesUsed(DerivedQuantitativeProperty property) {
-		val result = new ExpressionValidator().evaluate(property.expression);
+		val result = new ExpressionValidator(new NSLTextRenderer()).doEvaluate(property.expression);
 		val variableExpressions = property.expression.eAllContents.filter(typeof(QuantitativePropertyExpression)).toList
 		if(variableExpressions.empty)
 			warning("No references to any quantitative property found, always returns " + ValueUtil.getNumberOrNull(result) + ".", NslPackage.Literals.DERIVED_QUANTITATIVE_PROPERTY__EXPRESSION)

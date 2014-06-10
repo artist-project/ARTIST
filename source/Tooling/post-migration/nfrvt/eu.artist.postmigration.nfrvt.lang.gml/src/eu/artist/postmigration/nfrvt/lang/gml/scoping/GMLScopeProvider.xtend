@@ -66,15 +66,4 @@ class GMLScopeProvider extends ARTISTCommonScopeProvider {
 			return Scopes::scopeFor(gm.appliedProperties.filter(typeof(AppliedQuantitativeProperty)));
 		}
 	}
-	
-	def IScope scope_PropertyValuePair_property(PropertyValuePair p, EReference ref) {
-		if(ref.getName().equals("property")) {
-			val container = p.eContainer().eContainer();
-			if(!(container instanceof ObjectSpecificationExpression))
-				return IScope.NULLSCOPE;
-			val spec = container as ObjectSpecificationExpression;
-			return Scopes::scopeFor(spec.type.attributes);
-		}
-		return null;
-	}
 }

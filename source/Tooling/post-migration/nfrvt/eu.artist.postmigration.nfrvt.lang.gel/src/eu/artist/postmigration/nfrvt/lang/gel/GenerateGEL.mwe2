@@ -9,7 +9,7 @@ var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/gel/GEL.xtext"
 var fileExtensions = "gel"
 var projectName = "eu.artist.postmigration.nfrvt.lang.gel"
 var runtimeProject = "../${projectName}"
-var generateXtendStub = false
+var generateXtendStub = true
 var encoding = "UTF-8"
 
 Workflow {

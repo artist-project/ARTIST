@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import eu.artist.postmigration.nfrvt.lang.gel.validation.GELLabelRenderer;
+import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditionOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditiveExpression;
@@ -57,6 +57,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NullLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NumberExpression;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NumberFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NumberLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ObjectSpecificationExpression;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.OrOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ParenthesizedExpression;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.RelationalExpression;
@@ -110,7 +111,7 @@ public class ExpressionEvaluator {
 		try {
 			return ValueUtil.assertBooleanOrNull(e.getResult());
 		} catch(Exception ex) {
-			throw new IllegalArgumentException("Value '" + renderer.render(e.getResult()) + "' is not boolean value.");
+			throw new IllegalArgumentException("Value '" + renderer.doRender(e.getResult()) + "' is not boolean value.");
 		}
 	}
 	
@@ -126,7 +127,7 @@ public class ExpressionEvaluator {
 			((NumberExpressionEvaluation)parent).getEvaluations().add((NumberExpressionEvaluation)child);
 	}
 	
-	protected static GELLabelRenderer renderer = new GELLabelRenderer();
+	protected static GELTextRenderer renderer = new GELTextRenderer();
 	
 	private EvaluationSettings settings = new EvaluationSettings();
 	
@@ -212,7 +213,7 @@ public class ExpressionEvaluator {
 			result = BooleanLogic.implies(left, right);
 		
 		evaluation.setResult(ValueUtil.createBooleanLiteralOrNull(result));
-		evaluation.setReason("[" + renderer.render(leftEval) + " " + renderer.render(parent.getOperator()) + " " + renderer.render(rightEval) + "] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(leftEval) + " " + renderer.doRender(parent.getOperator()) + " " + renderer.doRender(rightEval) + "] = " + renderer.doRender(result));
 		return evaluation;
 	}
 	
@@ -235,14 +236,14 @@ public class ExpressionEvaluator {
 		Boolean value = assertBooleanOrNull(valueEvaluation);
 		Boolean result = BooleanLogic.not(value);
 		evaluation.setResult(ValueUtil.createBooleanLiteralOrNull(result));
-		evaluation.setReason("[" + renderer.render(n.getOperator()) + " " + renderer.render(valueEvaluation) + "] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(n.getOperator()) + " " + renderer.doRender(valueEvaluation) + "] = " + renderer.doRender(result));
 		return evaluation;
 	}
 	
 	public BooleanExpressionEvaluation evaluate(BooleanLiteral b) {
 		BooleanExpressionEvaluation evaluation = newBooleanExpressionEvaluation();
 		evaluation.setResult(ValueUtil.createBooleanLiteralOrNull(b.getValue()));
-		evaluation.setReason("[" + renderer.render(b) + "] is user-specified.");
+		evaluation.setReason("[" + renderer.doRender(b) + "] is user-specified.");
 		return evaluation;
 	}
 	
@@ -260,7 +261,7 @@ public class ExpressionEvaluator {
 			comparison = RelationalLogic.compare(left.getResult(), right.getResult());
 		} catch(Exception ex) {
 			throw new IllegalArgumentException(
-				"LHS and RHS of condition are not comparable: " + renderer.render(e));
+				"LHS and RHS of condition are not comparable: " + renderer.doRender(e));
 		}
 		Boolean result = null;
 		if(e.getOperator() instanceof GreaterThanOperator)
@@ -278,13 +279,13 @@ public class ExpressionEvaluator {
 		
 		if(result == null) {
 			evaluation.setResult(null);
-			evaluation.setReason("[" + renderer.render(e) + "] can not be evaluated.");
+			evaluation.setReason("[" + renderer.doRender(e) + "] can not be evaluated.");
 			return evaluation;
 		}
 		
 		evaluation.setResult(ValueUtil.createBooleanLiteralOrNull(result));
 		evaluation.setDifference(new BigDecimal(comparison, settings.getMathContext()));
-		evaluation.setReason("[" + renderer.render(left) + " " + renderer.render(e.getOperator()) + " " + renderer.render(right) + "] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(left) + " " + renderer.doRender(e.getOperator()) + " " + renderer.doRender(right) + "] = " + renderer.doRender(result));
 		
 		return evaluation;
 	}
@@ -316,6 +317,8 @@ public class ExpressionEvaluator {
 	public ValueExpressionEvaluation evaluate(ValueSpecification e) {
 		if(e instanceof LiteralValueExpression)
 			return evaluate((LiteralValueExpression)e);
+		if(e instanceof ObjectSpecificationExpression)
+			return evaluate((ObjectSpecificationExpression)e);
 		if(e instanceof InstanceSpecificationExpression)
 			return evaluate((InstanceSpecificationExpression)e);
 		
@@ -325,7 +328,14 @@ public class ExpressionEvaluator {
 	public ValueSpecificationExpressionEvaluation evaluate(InstanceSpecificationExpression e) {
 		ValueSpecificationExpressionEvaluation evaluation = newValueSpecificationExpressionEvaluation();
 		evaluation.setResult(ValueUtil.createInstanceSpecificationExpression(e.getValue()));
-		evaluation.setReason("[" + renderer.render(e) + "] is user-specified.");
+		evaluation.setReason("[" + renderer.doRender(e) + "] is user-specified.");
+		return evaluation;
+	}
+	
+	public ValueSpecificationExpressionEvaluation evaluate(ObjectSpecificationExpression e) {
+		ValueSpecificationExpressionEvaluation evaluation = newValueSpecificationExpressionEvaluation();
+		evaluation.setResult(ValueUtil.copy(e));
+		evaluation.setReason("[" + renderer.doRender(e) + "] is user-specified.");
 		return evaluation;
 	}
 	
@@ -347,21 +357,21 @@ public class ExpressionEvaluator {
 	public ValueSpecificationExpressionEvaluation evaluate(NullLiteral literal) {
 		ValueSpecificationExpressionEvaluation evaluation = newValueSpecificationExpressionEvaluation();
 		evaluation.setResult(ValueUtil.createNullLiteral());
-		evaluation.setReason("[" + renderer.render(literal) + "] is user-specified.");
+		evaluation.setReason("[" + renderer.doRender(literal) + "] is user-specified.");
 		return evaluation;
 	}
 	
 	public ValueSpecificationExpressionEvaluation evaluate(UnlimitedLiteral literal) {
 		ValueSpecificationExpressionEvaluation evaluation = newValueSpecificationExpressionEvaluation();
 		evaluation.setResult(ValueUtil.createUnlimitedLiteral());
-		evaluation.setReason("[" + renderer.render(literal) + "] is user-specified.");
+		evaluation.setReason("[" + renderer.doRender(literal) + "] is user-specified.");
 		return evaluation;
 	}
 	
 	public ValueSpecificationExpressionEvaluation evaluate(StringLiteral literal) {
 		ValueSpecificationExpressionEvaluation evaluation = newValueSpecificationExpressionEvaluation();
 		evaluation.setResult(ValueUtil.createStringLiteral(literal.getValue()));
-		evaluation.setReason("[" + renderer.render(literal) + "] is user-specified.");
+		evaluation.setReason("[" + renderer.doRender(literal) + "] is user-specified.");
 		return evaluation;
 	}
 	
@@ -410,7 +420,7 @@ public class ExpressionEvaluator {
 			return getUnsuccessfulNumberEvaluation(evaluation, parent);
 		
 		evaluation.setResult(ValueUtil.createNumberLiteral(result));
-		evaluation.setReason("[" + renderer.render(leftEval) + " " + renderer.render(parent.getOperator()) + " " + renderer.render(rightEval) + "] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(leftEval) + " " + renderer.doRender(parent.getOperator()) + " " + renderer.doRender(rightEval) + "] = " + renderer.doRender(result));
 		
 		return evaluation;
 		
@@ -497,7 +507,7 @@ public class ExpressionEvaluator {
 			return getUnsuccessfulNumberEvaluation(evaluation, e);
 		
 		evaluation.setResult(ValueUtil.createNumberLiteral(result));
-		evaluation.setReason("[" + renderer.render(e.getOperator()) + renderer.renderList(evaluation.getEvaluations(), NumberExpressionEvaluation.class) + "] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(e.getOperator()) + renderer.doRender(evaluation.getEvaluations()) + "] = " + renderer.doRender(result));
 		
 		return evaluation;
 	}
@@ -531,7 +541,7 @@ public class ExpressionEvaluator {
 			return getUnsuccessfulNumberEvaluation(evaluation, e);
 		
 		evaluation.setResult(ValueUtil.createNumberLiteral(result));
-		evaluation.setReason("[" + renderer.render(e.getOperator()) + "(" + renderer.render(baseEval) + ", " + renderer.render(expEval) + "] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(baseEval) + ", " + renderer.doRender(expEval) + "] = " + renderer.doRender(result));
 		return evaluation;
 	}
 	
@@ -546,7 +556,7 @@ public class ExpressionEvaluator {
 			return getUnsuccessfulNumberEvaluation(evaluation, e);
 		
 		evaluation.setResult(ValueUtil.createNumberLiteral(result));
-		evaluation.setReason("[" + renderer.render(e.getOperator()) + "(" + renderer.render(valueEval) + ")] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(valueEval) + ")] = " + renderer.doRender(result));
 		return evaluation;
 	}
 	
@@ -561,7 +571,7 @@ public class ExpressionEvaluator {
 			return getUnsuccessfulNumberEvaluation(evaluation, e);
 		
 		evaluation.setResult(ValueUtil.createNumberLiteral(result));
-		evaluation.setReason("[" + renderer.render(e.getOperator()) + "(" + renderer.render(valueEval) + ")] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(valueEval) + ")] = " + renderer.doRender(result));
 		return evaluation;
 	}
 	
@@ -576,14 +586,14 @@ public class ExpressionEvaluator {
 			return getUnsuccessfulNumberEvaluation(evaluation, e);
 
 		evaluation.setResult(ValueUtil.createNumberLiteral(result));
-		evaluation.setReason("[" + renderer.render(e.getOperator()) + "(" + renderer.render(valueEval) + ")] = " + renderer.render(result));
+		evaluation.setReason("[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(valueEval) + ")] = " + renderer.doRender(result));
 		return evaluation;
 	}
 	
 	public NumberExpressionEvaluation evaluate(NumberLiteral e) {
 		NumberExpressionEvaluation evaluation = newNumberExpressionEvaluation();
 		evaluation.setResult(ValueUtil.createNumberLiteral(e.getValue()));
-		evaluation.setReason("[" + renderer.render(e) + "] is user-specified.");
+		evaluation.setReason("[" + renderer.doRender(e) + "] is user-specified.");
 		return evaluation;
 	}
 	
@@ -593,7 +603,7 @@ public class ExpressionEvaluator {
 	
 	protected NumberExpressionEvaluation getUnsuccessfulNumberEvaluation(NumberExpressionEvaluation evaluation, Expression e, String message) {
 		evaluation.setResult(null);
-		evaluation.setReason("[" + renderer.render(e) + "] can not be evaluated. " + message);
+		evaluation.setReason("[" + renderer.doRender(e) + "] can not be evaluated. " + message);
 		return evaluation;
 	}
 }

@@ -3,6 +3,7 @@
  */
 package eu.artist.postmigration.nfrvt.lang.gml.validation
 
+import eu.artist.postmigration.nfrvt.lang.common.eval.ExpressionValidator
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression
 import eu.artist.postmigration.nfrvt.lang.gml.gml.CompositeGoal
@@ -23,8 +24,6 @@ import org.eclipse.xtext.validation.Check
 class GMLValidator extends AbstractGMLValidator {
 
 	CompositeGoalValidator compositeGoalValidator = new CompositeGoalValidator();
-//	TrueCompositeGoalValidator trueCompositeGoalValidator = new TrueCompositeGoalValidator();
-//	FalseCompositeGoalValidator falseCompositeGoalValidator = new FalseCompositeGoalValidator();
 	HardGoalValidator hardGoalConditionValidator = new HardGoalValidator();
 
 	def showAll(ExpressionValidator validator) {
@@ -36,7 +35,7 @@ class GMLValidator extends AbstractGMLValidator {
 
 	@Check
 	def validCompositeGoalExpression(CompositeGoal goal) {
-		val result = compositeGoalValidator.evaluate(goal.condition);
+		val result = compositeGoalValidator.doEvaluate(goal.condition);
 		compositeGoalValidator.showAll
 		if(!ValueUtil.isBooleanOrNull(result))
 			error("Condition does not return a boolean value.", GmlPackage.Literals.COMPOSITE_GOAL__CONDITION)
@@ -44,29 +43,10 @@ class GMLValidator extends AbstractGMLValidator {
 		if(ValueUtil.isBooleanOrNull(result) && variableExpressions.empty)
 			warning("No references to any goals found, always returns " + ValueUtil.getBooleanOrNull(result) + ".", GmlPackage.Literals.COMPOSITE_GOAL__CONDITION)
 	}
-
-	
-//	@Check
-//	def possibleTrueCompositeGoalExpression(CompositeGoal goal) {
-//		val eval = trueCompositeGoalValidator.evaluate(goal.condition);
-//		// compositeGoalValidator.showAll
-//		val result = ValueUtil.getBooleanOrNull(eval)
-//		if(result != null && !result)
-//			warning("Condition can never be true.", GmlPackage$Literals.COMPOSITE_GOAL__CONDITION)
-//	}
-//	
-//	@Check
-//	def possibleFalseCompositeGoalExpression(CompositeGoal goal) {
-//		val eval = falseCompositeGoalValidator.evaluate(goal.condition);
-//		// compositeGoalValidator.showAll
-//		val result = ValueUtil.getBooleanOrNull(eval)
-//		if(result != null && result)
-//			warning("Condition can never be false.", GmlPackage$Literals.COMPOSITE_GOAL__CONDITION)
-//	}
 	
 	@Check
 	def validHardGoalCondition(HardGoal goal) {
-		val result = hardGoalConditionValidator.evaluate(goal.condition);
+		val result = hardGoalConditionValidator.doEvaluate(goal.condition);
 		hardGoalConditionValidator.showAll
 		if(!ValueUtil.isBooleanOrNull(result))
 			error("Condition does not return a boolean value.", GmlPackage.Literals.HARD_GOAL__CONDITION)

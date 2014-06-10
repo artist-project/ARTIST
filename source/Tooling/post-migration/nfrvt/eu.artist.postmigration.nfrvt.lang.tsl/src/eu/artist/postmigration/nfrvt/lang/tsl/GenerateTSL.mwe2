@@ -9,7 +9,7 @@ var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/tsl/TSL.xtext"
 var fileExtensions = "tsl"
 var projectName = "eu.artist.postmigration.nfrvt.lang.tsl"
 var runtimeProject = "../${projectName}"
-var generateXtendStub = false
+var generateXtendStub = true
 var encoding = "UTF-8"
 
 Workflow {

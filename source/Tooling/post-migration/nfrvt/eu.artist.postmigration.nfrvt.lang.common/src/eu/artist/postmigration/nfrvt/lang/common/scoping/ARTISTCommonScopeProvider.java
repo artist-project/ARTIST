@@ -22,10 +22,8 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
-import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ObjectSpecificationExpression;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.PropertyValuePair;
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 
 /**
  * This class contains custom scoping description.
@@ -35,16 +33,16 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
  *
  */
 public class ARTISTCommonScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
-//	public IScope scope_PropertyValuePair_property(final PropertyValuePair p, final EReference ref) {
-//		if(ref.getName().equals("property")) {
-//			final EObject container = p.eContainer().eContainer();
-//			if(!(container instanceof ObjectSpecificationExpression))
-//				return IScope.NULLSCOPE;
-//			final ObjectSpecificationExpression spec = (ObjectSpecificationExpression) container;
-//			EList<Property> list = spec.getType().getAllAttributes();
-//			IScope result = Scopes.scopeFor(list);
-//			return result;
-//		}
-//		return null;
-//	}
+	public IScope scope_PropertyValuePair_property(final PropertyValuePair p, final EReference ref) {
+		if(ref.getName().equals("property")) {
+			final EObject container = p.eContainer().eContainer();
+			if(!(container instanceof ObjectSpecificationExpression))
+				return IScope.NULLSCOPE;
+			final ObjectSpecificationExpression spec = (ObjectSpecificationExpression) container;
+			final EList<Property> list = spec.getType().getAllAttributes();			
+			IScope result = Scopes.scopeFor(list);
+			return result;
+		}
+		return null;
+	}
 }

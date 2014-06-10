@@ -19,7 +19,8 @@ Require-Bundle: eu.artist.postmigration.nfrvt.lang.common;visibility:=reexport,
  org.eclipse.uml2.uml,
  org.eclipse.emf.ecore,
  eu.artist.postmigration.nfrvt.lang.uml.ui;bundle-version="1.0.0",
- eu.artist.postmigration.nfrvt.lang.uml.uml;bundle-version="1.0.0"
+ eu.artist.postmigration.nfrvt.lang.uml.uml;bundle-version="1.0.0",
+ org.eclipse.xtext
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
