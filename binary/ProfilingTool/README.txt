@@ -18,7 +18,18 @@ Profiling tool
  * limitations under the License.
  */
  
- 
+
+PART A (General information)
+
+Profiling tool is used:
+1. In order to acquire the footprints of an unknown application or one of its components, on a specific physical host. The footprints consist of average execution metrics concerning CPU, RAM, disk and network utilization.
+2. In order to acquire the same type of footprints of a set of test-applications called benchmarks on the same physical host.
+The results of both execution modes of the tool, will be served as an input to a classification tool, which will decide upon the type of the application. Application types are defined according to the categorization of the benchmarks. 
+
+
+
+PART B (Installation instructions and User Manual)
+
 Table of Contents
 
 1.Installation
