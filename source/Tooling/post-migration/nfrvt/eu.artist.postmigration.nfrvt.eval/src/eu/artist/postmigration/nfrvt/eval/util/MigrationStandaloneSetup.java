@@ -17,12 +17,14 @@ import eu.artist.postmigration.nfrvt.lang.gel.GELStandaloneSetup;
 import eu.artist.postmigration.nfrvt.lang.gml.GMLStandaloneSetup;
 import eu.artist.postmigration.nfrvt.lang.nsl.NSLStandaloneSetup;
 import eu.artist.postmigration.nfrvt.lang.tsl.TSLStandaloneSetup;
+import eu.artist.postmigration.nfrvt.lang.uml.uml.UmlSupport;
 
 public class MigrationStandaloneSetup {
 	private static boolean initialized = false;
 	
 	public static void doSetup() {
 		if(!initialized) {
+			UmlSupport.doSetup();
 			NSLStandaloneSetup.doSetup();
 			TSLStandaloneSetup.doSetup();
 			ESLStandaloneSetup.doSetup();

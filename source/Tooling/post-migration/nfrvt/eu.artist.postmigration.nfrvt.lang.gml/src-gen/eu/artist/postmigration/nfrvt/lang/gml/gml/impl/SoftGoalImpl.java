@@ -34,10 +34,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.uml2.uml.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +44,6 @@ import org.eclipse.uml2.uml.NamedElement;
  * The following features are implemented:
  * <ul>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.SoftGoalImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.SoftGoalImpl#getContext <em>Context</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.SoftGoalImpl#getThreshold <em>Threshold</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.SoftGoalImpl#getImpacts <em>Impacts</em>}</li>
  * </ul>
@@ -66,16 +62,6 @@ public class SoftGoalImpl extends GoalImpl implements SoftGoal
    * @ordered
    */
   protected AppliedQualitativeProperty property;
-
-  /**
-   * The cached value of the '{@link #getContext() <em>Context</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContext()
-   * @generated
-   * @ordered
-   */
-  protected EList<NamedElement> context;
 
   /**
    * The default value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
@@ -176,20 +162,6 @@ public class SoftGoalImpl extends GoalImpl implements SoftGoal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NamedElement> getContext()
-  {
-    if (context == null)
-    {
-      context = new EObjectResolvingEList<NamedElement>(NamedElement.class, this, GmlPackage.SOFT_GOAL__CONTEXT);
-    }
-    return context;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public BigDecimal getThreshold()
   {
     return threshold;
@@ -251,8 +223,6 @@ public class SoftGoalImpl extends GoalImpl implements SoftGoal
       case GmlPackage.SOFT_GOAL__PROPERTY:
         if (resolve) return getProperty();
         return basicGetProperty();
-      case GmlPackage.SOFT_GOAL__CONTEXT:
-        return getContext();
       case GmlPackage.SOFT_GOAL__THRESHOLD:
         return getThreshold();
       case GmlPackage.SOFT_GOAL__IMPACTS:
@@ -274,10 +244,6 @@ public class SoftGoalImpl extends GoalImpl implements SoftGoal
     {
       case GmlPackage.SOFT_GOAL__PROPERTY:
         setProperty((AppliedQualitativeProperty)newValue);
-        return;
-      case GmlPackage.SOFT_GOAL__CONTEXT:
-        getContext().clear();
-        getContext().addAll((Collection<? extends NamedElement>)newValue);
         return;
       case GmlPackage.SOFT_GOAL__THRESHOLD:
         setThreshold((BigDecimal)newValue);
@@ -303,9 +269,6 @@ public class SoftGoalImpl extends GoalImpl implements SoftGoal
       case GmlPackage.SOFT_GOAL__PROPERTY:
         setProperty((AppliedQualitativeProperty)null);
         return;
-      case GmlPackage.SOFT_GOAL__CONTEXT:
-        getContext().clear();
-        return;
       case GmlPackage.SOFT_GOAL__THRESHOLD:
         setThreshold(THRESHOLD_EDEFAULT);
         return;
@@ -328,8 +291,6 @@ public class SoftGoalImpl extends GoalImpl implements SoftGoal
     {
       case GmlPackage.SOFT_GOAL__PROPERTY:
         return property != null;
-      case GmlPackage.SOFT_GOAL__CONTEXT:
-        return context != null && !context.isEmpty();
       case GmlPackage.SOFT_GOAL__THRESHOLD:
         return THRESHOLD_EDEFAULT == null ? threshold != null : !THRESHOLD_EDEFAULT.equals(threshold);
       case GmlPackage.SOFT_GOAL__IMPACTS:

@@ -143,6 +143,7 @@ public class MigrationResourceSet {
 			return null;
 		
 		resource.getContents().add(root);
+		EcoreUtil.resolveAll(resource);
 		EcoreUtil.resolveAll(getResourceSet());
 	
         SaveOptions saveOptions = SaveOptions.newBuilder().format().getOptions();
@@ -157,9 +158,5 @@ public class MigrationResourceSet {
 			System.err.println(e.getLocalizedMessage());
 		}
         return null;
-	}
-
-	public Resource saveMigrationEvaluation(MigrationEvaluation evaluation, URI uri) {
-		return saveModel((EObject)evaluation, uri);
 	}
 }

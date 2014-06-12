@@ -1240,8 +1240,6 @@ public class GMLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	 *         kind=GoalKind 
 	 *         priority=INT 
 	 *         property=[AppliedQualitativeProperty|QualifiedName] 
-	 *         context+=[NamedElement|QualifiedName] 
-	 *         context+=[NamedElement|QualifiedName]* 
 	 *         threshold=Impact 
 	 *         (impacts+=SoftGoalImpact impacts+=SoftGoalImpact*)?
 	 *     )

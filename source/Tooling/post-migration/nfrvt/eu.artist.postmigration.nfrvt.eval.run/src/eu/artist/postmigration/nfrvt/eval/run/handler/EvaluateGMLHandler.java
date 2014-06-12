@@ -67,7 +67,6 @@ public class EvaluateGMLHandler extends AbstractHandler {
 	}
 	
 	private void createOutput(Shell shell, IFile file) {
-		boolean inputExists = file.exists();
 	    String filePath = file.getFullPath().toString();
 
 	    String fileString = file.toString();

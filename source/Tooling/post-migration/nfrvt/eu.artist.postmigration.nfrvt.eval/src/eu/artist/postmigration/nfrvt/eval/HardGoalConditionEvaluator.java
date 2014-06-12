@@ -12,16 +12,13 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.eval;
 
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression;
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NumberExpression;
+import eu.artist.postmigration.nfrvt.eval.util.MigrationFactory;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.BooleanExpressionEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.NumberExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEvaluation;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression;
 
 public class HardGoalConditionEvaluator extends ExpressionEvaluator {
 
@@ -40,44 +37,25 @@ public class HardGoalConditionEvaluator extends ExpressionEvaluator {
 		this.goalModelEvaluator = goalModelEvaluator;
 	}
 	
-	@Override
-	public ValueExpressionEvaluation evaluate(NumberExpression e) {
-		ValueExpressionEvaluation evaluation = null;
-		if(e instanceof AppliedQuantitativePropertyExpression)
-			evaluation = evaluate((AppliedQuantitativePropertyExpression)e);
-		
-		if(evaluation != null)
-			return evaluation;
-		return super.evaluate(e);
-	}
-	
 	public ValueExpressionEvaluation evaluate(AppliedQuantitativePropertyExpression reference) {		
 		AppliedPropertyEvaluation propertyEvaluation = getGoalModelEvaluator().getAppliedPropertyEvaluation(reference.getValue());
-		if(propertyEvaluation == null) {
-			NumberExpressionEvaluation evaluation = newNumberExpressionEvaluation();
-			evaluation.setResult(null);
-			evaluation.setReason("[" + renderer.doRender(reference.getValue()) + "] has no value assigned.");
-			return evaluation;
-		}
+		if(propertyEvaluation == null) 
+			return MigrationFactory.createNumberExpressionEvaluation(
+					"[" + renderer.doRender(reference.getValue()) + "] has no value assigned.");
 		
 		ValueSpecification value = propertyEvaluation.getValue();
-		if(ValueUtil.isBoolean(value)) {
-			BooleanExpressionEvaluation evaluation = newBooleanExpressionEvaluation();
-			evaluation.setResult(ValueUtil.createBooleanLiteral(ValueUtil.assertBoolean(value)));
-			evaluation.setReason("$" + reference.getValue().getName() + " as evaluated.");
-			return evaluation;
-		}
-		else if(ValueUtil.isNumber(value)) {
-			NumberExpressionEvaluation evaluation = newNumberExpressionEvaluation();
-			evaluation.setResult(ValueUtil.createNumberLiteral(ValueUtil.assertNumber(value)));
-			evaluation.setReason("$" + reference.getValue().getName() + " as evaluated.");
-			return evaluation;
-		}
+		if(ValueUtil.isBoolean(value))
+			return MigrationFactory.createBooleanExpressionEvaluation(
+					ValueUtil.assertBoolean(value), 
+					"$" + reference.getValue().getName() + " as evaluated.");
 		
-		ValueSpecificationExpressionEvaluation evaluation = newValueSpecificationExpressionEvaluation();
-		evaluation.setResult(ValueUtil.copy(value));
-		evaluation.setReason("$" + reference.getValue().getName() + " as evaluated.");
+		if(ValueUtil.isNumber(value))
+			return MigrationFactory.createNumberExpressionEvaluation(
+					ValueUtil.assertNumber(value), 
+					"$" + reference.getValue().getName() + " as evaluated.");
 		
-		return evaluation;
+		return MigrationFactory.createValueSpecificationExpressionEvaluation(
+				ValueUtil.copy(value),
+				"$" + reference.getValue().getName() + " as evaluated.");
 	}
 }

@@ -12,14 +12,12 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.eval;
 
-import eu.artist.postmigration.nfrvt.lang.gel.eval.VerdictConverter;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference;
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.BooleanUnit;
+import eu.artist.postmigration.nfrvt.eval.util.MigrationFactory;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
-import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil;
+import eu.artist.postmigration.nfrvt.lang.gel.eval.VerdictConverter;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.BooleanExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference;
 
 public class GoalExpressionEvaluator extends ExpressionEvaluator {
 
@@ -37,29 +35,15 @@ public class GoalExpressionEvaluator extends ExpressionEvaluator {
 	public void setGoalModelEvaluator(GoalModelEvaluator goalModelEvaluator) {
 		this.goalModelEvaluator = goalModelEvaluator;
 	}
-	
-	@Override
-	public ValueExpressionEvaluation evaluate(BooleanUnit e) {
-		ValueExpressionEvaluation evaluation = null;
-		if(e instanceof GoalReference)
-			evaluation = evaluate((GoalReference)e);
-		
-		if(evaluation != null)
-			return evaluation;
-		return super.evaluate(e);
-	}
 
 	public BooleanExpressionEvaluation evaluate(GoalReference reference) {
-		BooleanExpressionEvaluation evaluation = newBooleanExpressionEvaluation();
 		GoalEvaluation goalEvaluation = getGoalModelEvaluator().getGoalEvaluation(reference.getValue());
-		
 		Boolean result = VerdictConverter.toBoolean(goalEvaluation.getVerdict());
-		evaluation.setResult(ValueUtil.createBooleanLiteralOrNull(result));
-		evaluation.setReason("$" + reference.getValue().getName() + " is " + goalEvaluation.getVerdict());
-		
 		getGoalModelEvaluator().removeTopLevelGoal(reference.getValue());
 		
-		return evaluation;
+		return MigrationFactory.createBooleanExpressionEvaluation(
+				result,
+				"$" + reference.getValue().getName() + " is " + goalEvaluation.getVerdict());
 	}
 	
 }

@@ -14,6 +14,7 @@ package eu.artist.postmigration.nfrvt.lang.common.eval.util;
 
 import java.math.BigDecimal;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.InstanceSpecification;
 import org.eclipse.xtext.EcoreUtil2;
 
@@ -89,10 +90,9 @@ public class ValueUtil {
 		return literal;
 	}
 	
-	public static <T extends ValueSpecification> T copy(T v) {
+	public static <T extends EObject> T copy(T v) {
 		return EcoreUtil2.copy(v);
 	}
-	
 	
 	public static Boolean valueOf(BooleanLiteral l) {
 		if(l == null)
@@ -170,12 +170,5 @@ public class ValueUtil {
 		if(e == null || !ValueUtil.isNumber(e))
 			return null;
 		return ValueUtil.valueOf((NumberLiteral)e);
-	}
-	
-	@SuppressWarnings("unchecked")
-	public static <T extends Object> T getValueOrNull(Object obj, Class<T> clazz) {
-		if(clazz.isInstance(obj))
-			return (T)obj;
-		return null;
 	}
 }

@@ -60,19 +60,19 @@ public class GELTextRenderer extends GMLTextRenderer {
 	protected String render(NumberExpressionEvaluation evaluation) {
 		if(evaluation == null)
 			return null;
-		return doRender(evaluation.getResult());
+		return doRender(evaluation.getReason());
 	}
 	
 	protected String render(BooleanExpressionEvaluation evaluation) {
 		if(evaluation == null)
 			return null;
-		return doRender(evaluation.getResult());
+		return doRender(evaluation.getReason());
 	}
 	
 	protected String render(ValueSpecificationExpressionEvaluation evaluation) {
 		if(evaluation == null)
 			return null;
-		return doRender(evaluation.getResult());
+		return doRender(evaluation.getReason());
 	}
 		
 	protected String render(AppliedQualitativePropertyEvaluation evaluation) {

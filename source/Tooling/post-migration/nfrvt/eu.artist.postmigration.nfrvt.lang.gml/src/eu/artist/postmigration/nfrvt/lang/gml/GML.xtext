@@ -63,7 +63,7 @@ SoftGoal:
 		"kind" kind = GoalKind ","
 		"priority" priority = INT ","
 		"property" property = [AppliedQualitativeProperty | QualifiedName] ","
-		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
+//		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
 		"threshold" threshold = Impact
 		("," "impacts" "[" impacts += SoftGoalImpact ("," impacts += SoftGoalImpact)* "]")?
 	"}"

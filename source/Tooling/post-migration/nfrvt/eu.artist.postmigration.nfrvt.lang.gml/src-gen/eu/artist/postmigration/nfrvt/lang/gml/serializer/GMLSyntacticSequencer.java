@@ -103,7 +103,7 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     '&&' | 'and'
+	 *     'and' | '&&'
 	 */
 	protected void emit_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -111,7 +111,7 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '->' | '=>'
+	 *     '=>' | '->'
 	 */
 	protected void emit_ImplicationOperator_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -135,7 +135,7 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'or' | '||'
+	 *     '||' | 'or'
 	 */
 	protected void emit_OrOperator_OrKeyword_1_0_or_VerticalLineVerticalLineKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

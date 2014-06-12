@@ -18,8 +18,6 @@ import java.math.BigDecimal;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.uml2.uml.NamedElement;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Soft Goal</b></em>'.
@@ -29,7 +27,6 @@ import org.eclipse.uml2.uml.NamedElement;
  * The following features are supported:
  * <ul>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getProperty <em>Property</em>}</li>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getContext <em>Context</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getThreshold <em>Threshold</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getImpacts <em>Impacts</em>}</li>
  * </ul>
@@ -66,22 +63,6 @@ public interface SoftGoal extends Goal
    * @generated
    */
   void setProperty(AppliedQualitativeProperty value);
-
-  /**
-   * Returns the value of the '<em><b>Context</b></em>' reference list.
-   * The list contents are of type {@link org.eclipse.uml2.uml.NamedElement}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Context</em>' reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Context</em>' reference list.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.GmlPackage#getSoftGoal_Context()
-   * @model
-   * @generated
-   */
-  EList<NamedElement> getContext();
 
   /**
    * Returns the value of the '<em><b>Threshold</b></em>' attribute.

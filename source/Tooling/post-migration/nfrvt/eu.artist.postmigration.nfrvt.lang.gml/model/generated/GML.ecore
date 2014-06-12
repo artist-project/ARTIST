@@ -45,8 +45,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SoftGoal" eSuperTypes="#//Goal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//AppliedQualitativeProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="context" unique="false"
-        upperBound="-1" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//NamedElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBigDecimal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="impacts" upperBound="-1"
         eType="#//SoftGoalImpact" containment="true"/>

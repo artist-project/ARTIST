@@ -923,137 +923,87 @@ ruleSoftGoal returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getSoftGoalAccess().getCommaKeyword_11());
     }
-	otherlv_12='context' 
+	otherlv_12='threshold' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getSoftGoalAccess().getContextKeyword_12());
-    }
-	otherlv_13='[' 
-    {
-    	newLeafNode(otherlv_13, grammarAccess.getSoftGoalAccess().getLeftSquareBracketKeyword_13());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSoftGoalRule());
-	        }
-        }
-		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getContextNamedElementCrossReference_14_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_15=',' 
-    {
-    	newLeafNode(otherlv_15, grammarAccess.getSoftGoalAccess().getCommaKeyword_15_0());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSoftGoalRule());
-	        }
-        }
-		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getContextNamedElementCrossReference_15_1_0()); 
-	    }
-		ruleQualifiedName		{ 
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*	otherlv_17=']' 
-    {
-    	newLeafNode(otherlv_17, grammarAccess.getSoftGoalAccess().getRightSquareBracketKeyword_16());
-    }
-	otherlv_18=',' 
-    {
-    	newLeafNode(otherlv_18, grammarAccess.getSoftGoalAccess().getCommaKeyword_17());
-    }
-	otherlv_19='threshold' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getSoftGoalAccess().getThresholdKeyword_18());
+    	newLeafNode(otherlv_12, grammarAccess.getSoftGoalAccess().getThresholdKeyword_12());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getThresholdImpactParserRuleCall_19_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getThresholdImpactParserRuleCall_13_0()); 
 	    }
-		lv_threshold_20_0=ruleImpact		{
+		lv_threshold_13_0=ruleImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSoftGoalRule());
 	        }
        		set(
        			$current, 
        			"threshold",
-        		lv_threshold_20_0, 
+        		lv_threshold_13_0, 
         		"Impact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_21=',' 
+)(	otherlv_14=',' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getSoftGoalAccess().getCommaKeyword_20_0());
+    	newLeafNode(otherlv_14, grammarAccess.getSoftGoalAccess().getCommaKeyword_14_0());
     }
-	otherlv_22='impacts' 
+	otherlv_15='impacts' 
     {
-    	newLeafNode(otherlv_22, grammarAccess.getSoftGoalAccess().getImpactsKeyword_20_1());
+    	newLeafNode(otherlv_15, grammarAccess.getSoftGoalAccess().getImpactsKeyword_14_1());
     }
-	otherlv_23='[' 
+	otherlv_16='[' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getSoftGoalAccess().getLeftSquareBracketKeyword_20_2());
+    	newLeafNode(otherlv_16, grammarAccess.getSoftGoalAccess().getLeftSquareBracketKeyword_14_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_20_3_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_14_3_0()); 
 	    }
-		lv_impacts_24_0=ruleSoftGoalImpact		{
+		lv_impacts_17_0=ruleSoftGoalImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSoftGoalRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_24_0, 
+        		lv_impacts_17_0, 
         		"SoftGoalImpact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_25=',' 
+)(	otherlv_18=',' 
     {
-    	newLeafNode(otherlv_25, grammarAccess.getSoftGoalAccess().getCommaKeyword_20_4_0());
+    	newLeafNode(otherlv_18, grammarAccess.getSoftGoalAccess().getCommaKeyword_14_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_20_4_1_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_14_4_1_0()); 
 	    }
-		lv_impacts_26_0=ruleSoftGoalImpact		{
+		lv_impacts_19_0=ruleSoftGoalImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSoftGoalRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_26_0, 
+        		lv_impacts_19_0, 
         		"SoftGoalImpact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_27=']' 
+))*	otherlv_20=']' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getSoftGoalAccess().getRightSquareBracketKeyword_20_5());
+    	newLeafNode(otherlv_20, grammarAccess.getSoftGoalAccess().getRightSquareBracketKeyword_14_5());
     }
-)?	otherlv_28='}' 
+)?	otherlv_21='}' 
     {
-    	newLeafNode(otherlv_28, grammarAccess.getSoftGoalAccess().getRightCurlyBracketKeyword_21());
+    	newLeafNode(otherlv_21, grammarAccess.getSoftGoalAccess().getRightCurlyBracketKeyword_15());
     }
 )
 ;

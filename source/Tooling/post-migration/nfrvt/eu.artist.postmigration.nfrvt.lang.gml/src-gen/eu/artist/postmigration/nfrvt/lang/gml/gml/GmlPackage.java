@@ -421,22 +421,13 @@ public interface GmlPackage extends EPackage
   int SOFT_GOAL__PROPERTY = GOAL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Context</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOFT_GOAL__CONTEXT = GOAL_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Threshold</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOFT_GOAL__THRESHOLD = GOAL_FEATURE_COUNT + 2;
+  int SOFT_GOAL__THRESHOLD = GOAL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
@@ -445,7 +436,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SOFT_GOAL__IMPACTS = GOAL_FEATURE_COUNT + 3;
+  int SOFT_GOAL__IMPACTS = GOAL_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Soft Goal</em>' class.
@@ -454,7 +445,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SOFT_GOAL_FEATURE_COUNT = GOAL_FEATURE_COUNT + 4;
+  int SOFT_GOAL_FEATURE_COUNT = GOAL_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.SoftGoalImpactImpl <em>Soft Goal Impact</em>}' class.
@@ -1416,17 +1407,6 @@ public interface GmlPackage extends EPackage
   EReference getSoftGoal_Property();
 
   /**
-   * Returns the meta object for the reference list '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getContext <em>Context</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Context</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getContext()
-   * @see #getSoftGoal()
-   * @generated
-   */
-  EReference getSoftGoal_Context();
-
-  /**
    * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal#getThreshold <em>Threshold</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1977,14 +1957,6 @@ public interface GmlPackage extends EPackage
      * @generated
      */
     EReference SOFT_GOAL__PROPERTY = eINSTANCE.getSoftGoal_Property();
-
-    /**
-     * The meta object literal for the '<em><b>Context</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SOFT_GOAL__CONTEXT = eINSTANCE.getSoftGoal_Context();
 
     /**
      * The meta object literal for the '<em><b>Threshold</b></em>' attribute feature.
