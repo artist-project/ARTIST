@@ -1,6 +1,6 @@
 Methodology Process Tool (MPT) CheatSheet Eclipse Plug-in
-Release date: 5/6/2014
-version: 1.0.0.201406051234
+Release date: 12/6/2014
+version: 1.0.0.201406121249
 =========================================================
 
 Copyright
@@ -16,7 +16,7 @@ Installation instructions
 -------------------------
 1. MPT CheatSheet is an Eclipse plug-in with composite cheat sheets and extensions to the Welcome page for helping and guiding the user through out the ARTIST phases and corresponding tools. 
 It has been implemented and tested against Eclipse Java EE IDE for Web Developers, Version: Kepler Service Release 2. It requires Java v7. 
-All required Java libraries are included within the distributed JAR of the plug-in, eu.artist.methodology.mpt.cheatsheet_1.0.0.201406051234.jar. 
+All required Java libraries are included within the distributed JAR of the plug-in, eu.artist.methodology.mpt.cheatsheet_1.0.0.201406121249.jar. 
   
 2. The current version of the MPT CheatSheet plug-in has been integrated with the ARTIST TFT-TFT Eclipse plug-in and therefore the TFT-TFT should be installed prior to the MPT installation. 
 TFT-TFT can be downloaded from the ARTIST GitHub repository. For installing it please follow the related instructions included in its distribution and make sure that all required dependencies are installed. 
