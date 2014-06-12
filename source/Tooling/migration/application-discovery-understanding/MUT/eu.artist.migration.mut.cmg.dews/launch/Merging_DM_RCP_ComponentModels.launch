@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+<stringAttribute key="ATL File Name" value="//eu.artist.wp8.ModelMixing/Transformations/EMFTVMModelMixing.atl"/>
+<booleanAttribute key="Disable JIT compiler" value="false"/>
+<booleanAttribute key="Display Timing Data" value="true"/>
+<mapAttribute key="Inout Model Options"/>
+<mapAttribute key="Inout Models"/>
+<mapAttribute key="Inout Models Output Locations"/>
+<mapAttribute key="Input Model Options"/>
+<mapAttribute key="Input Models">
+<mapEntry key="FIRST" value="platform:/resource/eu.artist.migration.mut.cmg.dews/models/dmcomponentmodel.out.uml"/>
+<mapEntry key="SECOND" value="platform:/resource/eu.artist.migration.mut.cmg.dews/models/rcpcomponentmodel.out.uml"/>
+</mapAttribute>
+<mapAttribute key="Metamodel Options"/>
+<mapAttribute key="Metamodels">
+<mapEntry key="UML2" value="http://www.eclipse.org/uml2/4.0.0/UML"/>
+<mapEntry key="profile" value="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L3"/>
+</mapAttribute>
+<stringAttribute key="Module Name" value="Transformations::EMFTVMModelMixing"/>
+<stringAttribute key="Module Path" value="/eu.artist.wp8.ModelMixing/"/>
+<mapAttribute key="Output Model Options">
+<mapEntry key="OUT" value="allowIntermodelReferences derivedFile"/>
+</mapAttribute>
+<mapAttribute key="Output Models">
+<mapEntry key="OUT" value="platform:/resource/eu.artist.migration.mut.cmg.dews/models/MixedComponentModel.uml"/>
+</mapAttribute>
+</launchConfiguration>

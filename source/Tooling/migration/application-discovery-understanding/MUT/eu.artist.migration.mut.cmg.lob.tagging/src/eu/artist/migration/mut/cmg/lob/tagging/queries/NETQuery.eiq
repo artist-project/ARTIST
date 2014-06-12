@@ -1,0 +1,68 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * 	Burak Karaboga (Atos) - main development
+ * 	Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+  
+package eu.artist.migration.mut.cmg.lob.tagging.queries
+
+import "http://www.eclipse.org/uml2/4.0.0/UML"
+
+//Pattern for matching all classes extending one of the classes with the names listed below.
+//SPIisWebService, SPIisWebService, SPIisWebServiceApplication, ServiceHost,
+//ServiceHostFactory, SPIisWebServiceInstance, SPIisWebServiceApplicationProxy, SPIisWebServiceProxy
+pattern ServiceApplication(sub : Class, sup : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "SPIisWebService" || supname == "SPDatabase" || 
+		supname == "SPIisWebServiceApplication" || supname == "ServiceHost" ||
+		supname == "ServiceHostFactory" || supname == "SPIisWebServiceInstance" ||
+		supname == "SPIisWebServiceApplicationProxy" || supname == "SPIisWebServiceProxy"
+	); 
+}
+
+//Pattern for matching all classes extending one of the classes with the names listed below.
+//LayoutsPageBase, UserControl, BasePage
+pattern UI(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "LayoutsPageBase" || supname == "UserControl" || 
+		supname == "BasePage"
+	);
+}
+
+//Pattern for matching all classes extending one of the classes with the names listed below.
+//BaseUserControl
+pattern ASPNETControl(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "BaseUserControl"
+	);
+}
+
+//Pattern for matching all classes extending one of the classes with the names listed below.
+//WebPart
+pattern WebPart(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "WebPart"
+	);
+}
