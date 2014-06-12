@@ -1,6 +1,6 @@
 Methodology Process Tool (MPT) CheatSheet Eclipse Plug-in
-Release date: 5/6/2014
-version: 1.0.0.201406051234
+Release date: 12/6/2014
+version: 1.0.0.201406121249
 =========================================================
 
 Copyright
