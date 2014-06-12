@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_10iLcGfJEeObUotWJ2p0Dg" name="MicrosoftSharePoint" metaclassReference="_NWLJcGfNEeObUotWJ2p0Dg _HdsywGiUEeOLF_BCknqoiQ" metamodelReference="_10iLcWfJEeObUotWJ2p0Dg">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6ATsWfNEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_0mgZ8OV8EeOJ26gz4ETBiQ" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_0mekwOV8EeOJ26gz4ETBiQ/9" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mlSdOV8EeOJ26gz4ETBiQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0mlSdeV8EeOJ26gz4ETBiQ" key="Version" value="0.0.10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0mlSduV8EeOJ26gz4ETBiQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0mlSd-V8EeOJ26gz4ETBiQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0mlSeOV8EeOJ26gz4ETBiQ" key="Date" value="2014-05-27"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0mlSeeV8EeOJ26gz4ETBiQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgZ8eV8EeOJ26gz4ETBiQ" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgZ8uV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgZ8-V8EeOJ26gz4ETBiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgZ9eV8EeOJ26gz4ETBiQ" name="ListStore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgZ9uV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iGWpcGfxEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgZ9-V8EeOJ26gz4ETBiQ" name="Type" ordered="false" lowerBound="1" eType="_0mgZ--V8EeOJ26gz4ETBiQ" containment="true"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgZ-eV8EeOJ26gz4ETBiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgZ--V8EeOJ26gz4ETBiQ" name="ContentType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgZ_OV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rhxbAGfxEeObUotWJ2p0Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgZ_eV8EeOJ26gz4ETBiQ" name="Workflow">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgZ_uV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IUyrsGf4EeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgZ_-V8EeOJ26gz4ETBiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgaAeV8EeOJ26gz4ETBiQ" name="List">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgaAuV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_H6HB8GiUEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgaA-V8EeOJ26gz4ETBiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgaBeV8EeOJ26gz4ETBiQ" name="SharePointApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgaBuV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_mCJIUGibEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgaB-V8EeOJ26gz4ETBiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0mgaCeV8EeOJ26gz4ETBiQ" name="SPObjectModel">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0mgaCuV8EeOJ26gz4ETBiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zaLqwLTqEeOIebkWygVCuQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0mgaC-V8EeOJ26gz4ETBiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_1zj88LTqEeOIebkWygVCuQ" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_1zhgsLTqEeOIebkWygVCuQ/8" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1znAQbTqEeOIebkWygVCuQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1znAQrTqEeOIebkWygVCuQ" key="Version" value="0.0.9"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1znAQ7TqEeOIebkWygVCuQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1znARLTqEeOIebkWygVCuQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1znARbTqEeOIebkWygVCuQ" key="Date" value="2014-03-26"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1znARrTqEeOIebkWygVCuQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj88bTqEeOIebkWygVCuQ" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj88rTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj887TqEeOIebkWygVCuQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj89bTqEeOIebkWygVCuQ" name="ListStore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj89rTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iGWpcGfxEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj897TqEeOIebkWygVCuQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj8-bTqEeOIebkWygVCuQ" name="Type" ordered="false" lowerBound="1" eType="_1zj8-7TqEeOIebkWygVCuQ" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj8-7TqEeOIebkWygVCuQ" name="ContentType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj8_LTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rhxbAGfxEeObUotWJ2p0Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj8_bTqEeOIebkWygVCuQ" name="Workflow">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj8_rTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IUyrsGf4EeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj8_7TqEeOIebkWygVCuQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj9AbTqEeOIebkWygVCuQ" name="List">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj9ArTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_H6HB8GiUEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj9A7TqEeOIebkWygVCuQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj9BbTqEeOIebkWygVCuQ" name="SharePointApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj9BrTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_mCJIUGibEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj9B7TqEeOIebkWygVCuQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_1zj9CbTqEeOIebkWygVCuQ" name="SPObjectModel">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1zj9CrTqEeOIebkWygVCuQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zaLqwLTqEeOIebkWygVCuQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1zj9C7TqEeOIebkWygVCuQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_oZcW4WibEeOLF_BCknqoiQ" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_oZcW4GibEeOLF_BCknqoiQ/7" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcXAGibEeOLF_BCknqoiQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oZcXAWibEeOLF_BCknqoiQ" key="Version" value="0.0.8"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oZcXAmibEeOLF_BCknqoiQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oZcXA2ibEeOLF_BCknqoiQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oZcXBGibEeOLF_BCknqoiQ" key="Date" value="2013-12-19"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oZcXBWibEeOLF_BCknqoiQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oZcW4mibEeOLF_BCknqoiQ" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcW42ibEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oZcW5GibEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oZcW5mibEeOLF_BCknqoiQ" name="ListStore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcW52ibEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iGWpcGfxEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oZcW6GibEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oZcW6mibEeOLF_BCknqoiQ" name="Type" ordered="false" lowerBound="1" eType="_oZcW7GibEeOLF_BCknqoiQ" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oZcW7GibEeOLF_BCknqoiQ" name="ContentType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcW7WibEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rhxbAGfxEeObUotWJ2p0Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oZcW7mibEeOLF_BCknqoiQ" name="Workflow">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcW72ibEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IUyrsGf4EeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oZcW8GibEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oZcW8mibEeOLF_BCknqoiQ" name="List">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcW82ibEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_H6HB8GiUEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oZcW9GibEeOLF_BCknqoiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oZcW9mibEeOLF_BCknqoiQ" name="SharePointApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oZcW92ibEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_mCJIUGibEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oZcW-GibEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_qtHt4WiUEeOLF_BCknqoiQ" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_qtHt4GiUEeOLF_BCknqoiQ/6" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtHt-2iUEeOLF_BCknqoiQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qtHt_GiUEeOLF_BCknqoiQ" key="Version" value="0.0.7"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qtHt_WiUEeOLF_BCknqoiQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qtHt_miUEeOLF_BCknqoiQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qtHt_2iUEeOLF_BCknqoiQ" key="Date" value="2013-12-19"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qtHuAGiUEeOLF_BCknqoiQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qtHt4miUEeOLF_BCknqoiQ" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtHt42iUEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qtHt5GiUEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qtHt5miUEeOLF_BCknqoiQ" name="ListStore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtHt52iUEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iGWpcGfxEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qtHt6GiUEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qtHt6miUEeOLF_BCknqoiQ" name="Type" ordered="false" lowerBound="1" eType="_qtHt7GiUEeOLF_BCknqoiQ" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qtHt7GiUEeOLF_BCknqoiQ" name="ContentType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtHt7WiUEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rhxbAGfxEeObUotWJ2p0Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qtHt7miUEeOLF_BCknqoiQ" name="Workflow">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtHt72iUEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IUyrsGf4EeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qtHt8GiUEeOLF_BCknqoiQ" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qtHt8miUEeOLF_BCknqoiQ" name="List">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qtHt82iUEeOLF_BCknqoiQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_H6HB8GiUEeOLF_BCknqoiQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qtHt9GiUEeOLF_BCknqoiQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_LcJeMWf4EeObUotWJ2p0Dg" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_LcJeMGf4EeObUotWJ2p0Dg/5" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LcJeRmf4EeObUotWJ2p0Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LcJeR2f4EeObUotWJ2p0Dg" key="Version" value="0.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LcJeSGf4EeObUotWJ2p0Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LcJeSWf4EeObUotWJ2p0Dg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LcJeSmf4EeObUotWJ2p0Dg" key="Date" value="2013-12-18"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LcJeS2f4EeObUotWJ2p0Dg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_LcJeMmf4EeObUotWJ2p0Dg" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LcJeM2f4EeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_LcJeNGf4EeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_LcJeNmf4EeObUotWJ2p0Dg" name="ListStore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LcJeN2f4EeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iGWpcGfxEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_LcJeOGf4EeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_LcJeOmf4EeObUotWJ2p0Dg" name="Type" ordered="false" lowerBound="1" eType="_LcJePGf4EeObUotWJ2p0Dg" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_LcJePGf4EeObUotWJ2p0Dg" name="ContentType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LcJePWf4EeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rhxbAGfxEeObUotWJ2p0Dg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_LcJePmf4EeObUotWJ2p0Dg" name="Workflow">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LcJeP2f4EeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_IUyrsGf4EeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_LcJeQGf4EeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_wY3FwWfxEeObUotWJ2p0Dg" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_wY3FwGfxEeObUotWJ2p0Dg/4" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wY3F1mfxEeObUotWJ2p0Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wY3F12fxEeObUotWJ2p0Dg" key="Version" value="0.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wY3F2GfxEeObUotWJ2p0Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wY3F2WfxEeObUotWJ2p0Dg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wY3F2mfxEeObUotWJ2p0Dg" key="Date" value="2013-12-18"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wY3F22fxEeObUotWJ2p0Dg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_wY3FwmfxEeObUotWJ2p0Dg" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wY3Fw2fxEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wY3FxGfxEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_wY3FxmfxEeObUotWJ2p0Dg" name="Site">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wY3Fx2fxEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wY3FyGfxEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_wY3FymfxEeObUotWJ2p0Dg" name="ListStore">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wY3Fy2fxEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_iGWpcGfxEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wY3FzGfxEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wY3FzmfxEeObUotWJ2p0Dg" name="Type" ordered="false" lowerBound="1" eType="_wY3F0GfxEeObUotWJ2p0Dg" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_wY3F0GfxEeObUotWJ2p0Dg" name="ContentType">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wY3F0WfxEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rhxbAGfxEeObUotWJ2p0Dg"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_NnZEMWfsEeObUotWJ2p0Dg" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_NnZEMGfsEeObUotWJ2p0Dg/3" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NnZEPGfsEeObUotWJ2p0Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NnZEPWfsEeObUotWJ2p0Dg" key="Version" value="0.0.4"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NnZEPmfsEeObUotWJ2p0Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NnZEP2fsEeObUotWJ2p0Dg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NnZEQGfsEeObUotWJ2p0Dg" key="Date" value="2013-12-18"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NnZEQWfsEeObUotWJ2p0Dg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_NnZEMmfsEeObUotWJ2p0Dg" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NnZEM2fsEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_NnZENGfsEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_NnZENmfsEeObUotWJ2p0Dg" name="Site">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NnZEN2fsEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_NnZEOGfsEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_2TMk8WfrEeObUotWJ2p0Dg" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_2TMk8GfrEeObUotWJ2p0Dg/2" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2TMlBmfrEeObUotWJ2p0Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2TMlB2frEeObUotWJ2p0Dg" key="Version" value="0.0.3"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2TMlCGfrEeObUotWJ2p0Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2TMlCWfrEeObUotWJ2p0Dg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2TMlCmfrEeObUotWJ2p0Dg" key="Date" value="2013-12-18"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2TMlC2frEeObUotWJ2p0Dg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2TMk8mfrEeObUotWJ2p0Dg" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2TMk82frEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2TMk9GfrEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2TMk9mfrEeObUotWJ2p0Dg" name="Site">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2TMk92frEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2TMk-GfrEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2TMk-mfrEeObUotWJ2p0Dg" name="Pages">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2TMk-2frEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2TMk_GfrEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2TMk_mfrEeObUotWJ2p0Dg" name="WebParts">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2TMk_2frEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2TMlAGfrEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_dm_skWfNEeObUotWJ2p0Dg" name="MicrosoftSharePoint" nsURI="http:///schemas/MicrosoftSharePoint/_dm_skGfNEeObUotWJ2p0Dg/1" nsPrefix="MicrosoftSharePoint">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dm_sl2fNEeObUotWJ2p0Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dm_smGfNEeObUotWJ2p0Dg" key="Version" value="0.0.2"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dm_smWfNEeObUotWJ2p0Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dm_smmfNEeObUotWJ2p0Dg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dm_sm2fNEeObUotWJ2p0Dg" key="Date" value="2013-12-18"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dm_snGfNEeObUotWJ2p0Dg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_dm_skmfNEeObUotWJ2p0Dg" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dm_sk2fNEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_dm_slGfNEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_O6ATsmfNEeObUotWJ2p0Dg" name="Profile" nsURI="http:///schemas/Profile/_O6ATsGfNEeObUotWJ2p0Dg/0" nsPrefix="Profile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6ATuGfNEeObUotWJ2p0Dg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O6ATuWfNEeObUotWJ2p0Dg" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O6ATumfNEeObUotWJ2p0Dg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O6ATu2fNEeObUotWJ2p0Dg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O6ATvGfNEeObUotWJ2p0Dg" key="Date" value="2013-12-18"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O6ATvWfNEeObUotWJ2p0Dg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_O6ATs2fNEeObUotWJ2p0Dg" name="ServiceApplication">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O6ATtGfNEeObUotWJ2p0Dg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LOC_UGfNEeObUotWJ2p0Dg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_O6ATtWfNEeObUotWJ2p0Dg" name="base_Component" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_NWLJcGfNEeObUotWJ2p0Dg" alias="Component">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Component"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_HdsywGiUEeOLF_BCknqoiQ" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_10iLcWfJEeObUotWJ2p0Dg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_10iLcmfJEeObUotWJ2p0Dg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LOC_UGfNEeObUotWJ2p0Dg" name="ServiceApplication">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_wir_MOV8EeOJ26gz4ETBiQ" name="base_Class" association="_wir_MeV8EeOJ26gz4ETBiQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_iGWpcGfxEeObUotWJ2p0Dg" name="ListStore">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_nbC2MGfxEeObUotWJ2p0Dg" name="Type" visibility="public" type="_rhxbAGfxEeObUotWJ2p0Dg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n7B90GfxEeObUotWJ2p0Dg" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_n7LHwGfxEeObUotWJ2p0Dg" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_n7LHwWfxEeObUotWJ2p0Dg">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_wLYScOV8EeOJ26gz4ETBiQ" name="base_Class" association="_wLY5gOV8EeOJ26gz4ETBiQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_rhxbAGfxEeObUotWJ2p0Dg" name="ContentType"/>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_IUyrsGf4EeObUotWJ2p0Dg" name="Workflow">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_v1sWUOV8EeOJ26gz4ETBiQ" name="base_Class" association="_v1sWUeV8EeOJ26gz4ETBiQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_H6HB8GiUEeOLF_BCknqoiQ" name="List">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_p5M9oGiUEeOLF_BCknqoiQ" name="base_Class" association="_p5M9oWiUEeOLF_BCknqoiQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_p5M9oWiUEeOLF_BCknqoiQ" name="E_List_Class1" memberEnd="_p5M9omiUEeOLF_BCknqoiQ _p5M9oGiUEeOLF_BCknqoiQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_p5M9omiUEeOLF_BCknqoiQ" name="extension_List" type="_H6HB8GiUEeOLF_BCknqoiQ" aggregation="composite" association="_p5M9oWiUEeOLF_BCknqoiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_mCJIUGibEeOLF_BCknqoiQ" name="SharePointApplication">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vhDjEOV8EeOJ26gz4ETBiQ" name="base_Class" association="_vhEKIOV8EeOJ26gz4ETBiQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_zaLqwLTqEeOIebkWygVCuQ" name="SPObjectModel">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vMlH4OV8EeOJ26gz4ETBiQ" name="base_Class" association="_vMlu8OV8EeOJ26gz4ETBiQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_vMlu8OV8EeOJ26gz4ETBiQ" name="E_SPObjectModel_Class1" memberEnd="_vMlu8eV8EeOJ26gz4ETBiQ _vMlH4OV8EeOJ26gz4ETBiQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_vMlu8eV8EeOJ26gz4ETBiQ" name="extension_SPObjectModel" type="_zaLqwLTqEeOIebkWygVCuQ" aggregation="composite" association="_vMlu8OV8EeOJ26gz4ETBiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_vhEKIOV8EeOJ26gz4ETBiQ" name="E_SharePointApplication_Class1" memberEnd="_vhEKIeV8EeOJ26gz4ETBiQ _vhDjEOV8EeOJ26gz4ETBiQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_vhEKIeV8EeOJ26gz4ETBiQ" name="extension_SharePointApplication" type="_mCJIUGibEeOLF_BCknqoiQ" aggregation="composite" association="_vhEKIOV8EeOJ26gz4ETBiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_v1sWUeV8EeOJ26gz4ETBiQ" name="E_Workflow_Class1" memberEnd="_v1sWUuV8EeOJ26gz4ETBiQ _v1sWUOV8EeOJ26gz4ETBiQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_v1sWUuV8EeOJ26gz4ETBiQ" name="extension_Workflow" type="_IUyrsGf4EeObUotWJ2p0Dg" aggregation="composite" association="_v1sWUeV8EeOJ26gz4ETBiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_wLY5gOV8EeOJ26gz4ETBiQ" name="E_ListStore_Class1" memberEnd="_wLY5geV8EeOJ26gz4ETBiQ _wLYScOV8EeOJ26gz4ETBiQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_wLY5geV8EeOJ26gz4ETBiQ" name="extension_ListStore" type="_iGWpcGfxEeObUotWJ2p0Dg" aggregation="composite" association="_wLY5gOV8EeOJ26gz4ETBiQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_wir_MeV8EeOJ26gz4ETBiQ" name="E_ServiceApplication_Class1" memberEnd="_wir_MuV8EeOJ26gz4ETBiQ _wir_MOV8EeOJ26gz4ETBiQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_wir_MuV8EeOJ26gz4ETBiQ" name="extension_ServiceApplication" type="_LOC_UGfNEeObUotWJ2p0Dg" aggregation="composite" association="_wir_MeV8EeOJ26gz4ETBiQ"/>
+  </packagedElement>
+</uml:Profile>

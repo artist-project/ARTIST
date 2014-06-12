@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2m.atl.emftvm.launcher.EMFTVMTransformation">
+<booleanAttribute key="Disable JIT compiler" value="false"/>
+<booleanAttribute key="Display Timing Data" value="true"/>
+<mapAttribute key="Inout Model Options"/>
+<mapAttribute key="Inout Models"/>
+<mapAttribute key="Inout Models Output Locations"/>
+<mapAttribute key="Input Model Options"/>
+<mapAttribute key="Input Models">
+<mapEntry key="IN" value="platform:/resource/eu.artist.migration.mut.componentmodelgenerator.dews/models/rcpprofiling.out.uml"/>
+<mapEntry key="Profile" value="platform:/resource/eu.artist.migration.mut.componentmodelgenerator.profiles/profiles/rcp-indigo.profile.uml"/>
+</mapAttribute>
+<mapAttribute key="Metamodel Options"/>
+<mapAttribute key="Metamodels">
+<mapEntry key="UML2" value="http://www.eclipse.org/uml2/4.0.0/UML"/>
+<mapEntry key="XML" value="http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML"/>
+<mapEntry key="profile" value="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L3"/>
+</mapAttribute>
+<stringAttribute key="Module Name" value="RCPComponentModelGenerator"/>
+<stringAttribute key="Module Path" value="/eu.artist.migration.mut.componentmodelgenerator.dews/transformations/,/eu.artist.migration.mut.componentmodelgenerator.lib/"/>
+<mapAttribute key="Output Model Options">
+<mapEntry key="OUT" value="derivedFile allowIntermodelReferences"/>
+</mapAttribute>
+<mapAttribute key="Output Models">
+<mapEntry key="OUT" value="platform:/resource/eu.artist.migration.mut.componentmodelgenerator.dews/models/rcpcomponentmodel.out.uml"/>
+</mapAttribute>
+</launchConfiguration>

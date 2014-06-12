@@ -1,0 +1,162 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+module RCPProfiling;
+create OUT: UML2 from IN: UML2, Plugin: XML, Profile: profile;
+uses "lib::UMLCopy";
+uses "lib::UMLLib";
+uses "lib::PluginLib";
+
+---***********************************HELPERS *************************************---
+---***************************RCP profile Stereotypes******************************---
+
+helper def: perspectiveStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Perspective').first();
+helper def: viewStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='View').first();
+helper def: actionStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Action').first();
+helper def: workbenchStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Workbench').first();
+helper def: workbenchActionStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='WorkbenchAction').first();
+helper def: businessObjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='BusinessObject').first();
+helper def: objectPopupMenuStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ObjectPopupMenu').first();
+helper def: toolbarStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ToolBar').first();
+helper def: viewActionStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ViewAction').first();
+---*****************************End of Stereotypes*********************************---
+
+---********************************RCP  Queries************************************---
+--- detected view stereotyped classes
+helper def: viewStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('view', 'class'))-> debug ('views');
+--- detected perspective stereotyped classes
+helper def: perspectiveStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('perspective', 'class'))-> debug ('perspectives');
+--- detected action stereotyped classes
+helper def: actionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('action', 'class'))-> debug ('actions');
+--- detected object contribution stereotyped classes
+helper def: objectContributionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('objectContribution', 'objectClass'))-> debug ('objectContributions');
+
+helper def : queries() : Sequence (TupleType (results: Sequence(UML2!Element), stereotype:UML2!Stereotype)) = 
+	Sequence {Tuple{results=thisModule.viewStereotypedClasses, stereotype=thisModule.viewStereotype}, 
+			  Tuple{results=thisModule.perspectiveStereotypedClasses, stereotype=thisModule.perspectiveStereotype},
+			  Tuple{results=thisModule.actionStereotypedClasses, stereotype=thisModule.actionStereotype},
+			  Tuple{results=thisModule.objectContributionStereotypedClasses, stereotype=thisModule.businessObjectStereotype}
+	};
+
+---******************************END of RCP Queries********************************---
+
+---****************************** END OF HELPERS **********************************---
+--- We overlap this Model rule from UMLCopy since we need the do block to apply profiles
+rule Model {
+	from
+		s: UML2!Model in IN (
+			not s.oclIsUndefined() and s.oclIsTypeOf(UML2!Model)
+		)
+	to
+		t: UML2!Model (
+			name <- s.name ,
+			visibility <- s.visibility,
+			viewpoint <- s.viewpoint,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			packageMerge <- s.packageMerge,
+			packagedElement<-s.packagedElement
+		)
+	do {
+--		--- We apply the profiles
+		for (prof in s.getAllAppliedProfiles()){
+			t.applyProfile(prof);
+		} 		
+		--- We apply the RCP profile 
+		t.applyProfile(profile!Profile.allInstances().asSequence().first()); 
+	}
+}
+
+--- Applies all the stereotypes to each element from IN
+lazy rule ApplyStereotypes {
+	from s : UML2!"uml::Element" in IN
+	using {
+		t : UML2!"uml::Element" = s.resolve();
+	}
+	do {
+		for (st in s.getAppliedStereotypes()) {
+			t.applyStereotype(st);
+			for (a in st.getAllAttributes()) {
+				if (not a.name.startsWith('base_') and s.hasValue(st, a.name)) {
+					t.setValue(st, a.name, s.getValue(st, a.name));
+				}
+			}
+		}
+	}
+}
+
+--- In this endpoint rule we apply the stereotypes values
+endpoint rule ApplyAllStereotypesValues() {
+	do {
+		--- Here we apply all the stereotypes in a series of "for" loops
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.perspectiveStereotypedClasses, thisModule.perspectiveStereotype)){
+--			element.applyStereotype(thisModule.perspectiveStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.viewStereotypedClasses, thisModule.viewStereotype)){
+--			element.applyStereotype(thisModule.viewStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.actionStereotypedClasses, thisModule.actionStereotype)){
+--			element.applyStereotype(thisModule.actionStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.objectContributionStereotypedClasses, thisModule.businessObjectStereotype)){
+--			element.applyStereotype(thisModule.businessObjectStereotype);
+--		}
+
+		for (tuple in thisModule.queries()){
+			for (element in thisModule->getUnStereotypedMappedCollection(tuple.get('results'), tuple.get('stereotype'))){
+				if (not element.hasStereotype(tuple.get('stereotype'))){
+					element.applyStereotype(tuple.get('stereotype'));
+				}
+			}
+		}
+		
+		--- Apply Stereotypes from IN:		
+		for (element in thisModule.traces.defaultSourceElements
+				->collect(e|e.object)
+				->select(o|o.oclIsKindOf(UML2!"uml::Element"))) {
+			thisModule.ApplyStereotypes(element);
+		}
+	}
+}

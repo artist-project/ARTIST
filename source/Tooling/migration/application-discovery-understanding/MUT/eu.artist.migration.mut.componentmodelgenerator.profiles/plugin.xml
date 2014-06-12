@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://profiles/DataManagement.profile.uml"
+            target="platform:/plugin/eu.artist.migration.mut.componentmodelgenerator/profiles/DataManagement.profile.uml">
+      </mapping>
+   </extension>
+
+   <extension
+         point="org.eclipse.uml2.uml.dynamic_package">
+      <profile
+            location="pathmap://profiles/DataManagement.profile.uml"
+            uri="http:///schemas/Profile/_iI_qEEIbEeOHktYnalaHvg/8">
+      </profile>
+   </extension>
+   
+   <extension
+         point="org.eclipse.uml2.uml.dynamic_package">
+      <profile
+            location="platform:/plugin/eu.artist.migration.mut.componentmodelgenerator/profiles/rcp-indigo.profile.uml"
+            uri="http:///schemas/RCP/_WTfpMF2aEeOCEvidQrMhaQ/18">
+      </profile>
+   </extension>
+   
+</plugin>
