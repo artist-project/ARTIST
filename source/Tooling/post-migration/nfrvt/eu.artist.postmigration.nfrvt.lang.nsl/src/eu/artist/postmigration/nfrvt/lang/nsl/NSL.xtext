@@ -1,0 +1,76 @@
+grammar eu.artist.postmigration.nfrvt.lang.nsl.NSL with eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon
+
+import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as artistCommon
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.eclipse.org/uml2/4.0.0/UML" as uml
+
+generate nsl "http://www.artist.eu/postmigration/nfrvt/lang/nsl/NSL"
+
+
+PropertyCatalogue:
+	imports += ImportNamespace*
+	"property-catalogue" name = QualifiedName "{"
+		(properties += Property)*
+	"}"
+;
+
+Property:
+	QualitativeProperty | QuantitativeProperty
+;
+
+QualitativeProperty:
+	"qualitative" name=ID "{"
+		"description" description=STRING ("," 
+		"direction" direction = DirectionKind)? ("," 
+		"properties" "[" (properties+=[Property | QualifiedName])+ "]")? 
+		("," "impacts" "[" impacts += PropertyImpact ("," impacts += PropertyImpact)*"]")?
+	"}"
+;
+
+QuantitativeProperty:
+	BaseQuantitativeProperty | DerivedQuantitativeProperty
+;
+
+BaseQuantitativeProperty:
+	"quantitative" name=ID "{"
+		"description" description=STRING ","
+		"type" type=[uml::DataType | QualifiedName] ","
+		"direction" direction = DirectionKind 
+		("," "impacts" "[" impacts += PropertyImpact ("," impacts += PropertyImpact)* "]" )?
+	"}"
+;
+
+DerivedQuantitativeProperty:
+	"derived" name=ID "{"
+		"description" description=STRING ","
+		"type" type=[uml::DataType | QualifiedName] ","
+		"direction" direction = DirectionKind ","
+		"expression" expression = ArithmeticExpression
+		("," "impacts" "[" impacts += PropertyImpact ("," impacts += PropertyImpact)* "]" )?
+	"}"
+;
+
+ComparableExpression returns artistCommon::ComparableExpression:
+	NumberExpression	
+;
+
+NumberExpression returns artistCommon::NumberExpression:
+	NumberLiteral | NumberFunction | ParenthesizedArithmeticExpression | QuantitativePropertyExpression
+;
+
+ParenthesizedArithmeticExpression returns artistCommon::NumberExpression:
+	{ParenthesizedArithmeticExpression} LeftParenthesis value = ArithmeticExpression RightParenthesis
+;
+
+QuantitativePropertyExpression returns artistCommon::NumberExpression:
+	{QuantitativePropertyExpression} value = [QuantitativeProperty | QualifiedName]
+;
+
+enum DirectionKind:
+	INCREASING = "increasing" | DECREASING = "decreasing"
+;
+
+PropertyImpact:
+	target = [Property | QualifiedName] 
+	impact = Impact
+;

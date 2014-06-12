@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esl" nsURI="http://www.artist.eu/postmigration/nfrvt/lang/esl/ESL"
+    nsPrefix="esl">
+  <eClassifiers xsi:type="ecore:EClass" name="EvaluationStrategyCatalogue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ImportNamespace"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategies" upperBound="-1"
+        eType="#//EvaluationStrategy" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EvaluationStrategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaClass" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmDeclaredType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="#//EvaluationStrategyLevelKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" unique="false"
+        upperBound="-1" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//QuantitativeProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EvaluationStrategyLevelKind">
+    <eLiterals name="MODEL" literal="model"/>
+    <eLiterals name="CODE" value="1" literal="code"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,5 @@
+import xtext;
+ 
+// delegate to an Xtend2 implementation:
+process(GeneratedMetamodel this) : 
+JAVA eu.artist.postmigration.nfrvt.lang.gml.GMLPostProcessor.augment(org.eclipse.xtext.GeneratedMetamodel);
