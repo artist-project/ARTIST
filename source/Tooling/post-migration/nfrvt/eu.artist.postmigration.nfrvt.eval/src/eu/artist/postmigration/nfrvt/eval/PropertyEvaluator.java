@@ -22,7 +22,7 @@ import java.util.Set;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
-import eu.artist.postmigration.nfrvt.lang.gel.validation.GELLabelRenderer;
+import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
@@ -50,7 +50,7 @@ import eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyImpact;
 
 public class PropertyEvaluator {
 	
-	private static GELLabelRenderer renderer = new GELLabelRenderer();
+	private static GELTextRenderer renderer = new GELTextRenderer();
 	
 	private Set<Transformation> relevantTransformations;
 	private EvaluationSettings settings;
@@ -173,7 +173,7 @@ public class PropertyEvaluator {
 		
 		if(!UMLUtil.isInteger(type) && !UMLUtil.isReal(type)) {
 			ValueSpecificationExpressionEvaluation valueEvaluation = GelFactory.eINSTANCE.createValueSpecificationExpressionEvaluation();
-			valueEvaluation.setReason("First value of " + renderer.renderList(values, ValueSpecification.class, "(", ")", ", ") + " = " + renderer.render(values.get(0)));
+			valueEvaluation.setReason("First value of " + renderer.doRender("(", ")", ", ", values) + " = " + renderer.doRender(values.get(0)));
 			valueEvaluation.setResult(ValueUtil.copy(values.get(0)));
 			evaluation.setEvaluation(valueEvaluation);
 			return ValueUtil.copy(values.get(0));
@@ -208,7 +208,7 @@ public class PropertyEvaluator {
 		NumberLiteral resultLiteral = ValueUtil.createNumberLiteral(result);
 		NumberExpressionEvaluation functionEvaluation = GelFactory.eINSTANCE.createNumberExpressionEvaluation();
 		functionEvaluation.setResult(resultLiteral);
-		functionEvaluation.setReason(renderer.render(function) + renderer.renderList(numbers, BigDecimal.class, "(", ")", ", ") + " = " + renderer.render(result));
+		functionEvaluation.setReason(renderer.doRender(function) + renderer.doRender("(", ")", ", ", numbers) + " = " + renderer.doRender(result));
 		evaluation.setEvaluation(functionEvaluation);
 		return resultLiteral;
 	}
@@ -262,7 +262,7 @@ public class PropertyEvaluator {
 		
 		NumberExpressionEvaluation evaluation = GelFactory.eINSTANCE.createNumberExpressionEvaluation();
 		evaluation.setResult(impactValue);
-		evaluation.setReason(sourceRender + ": " + renderer.render(impactValue));
+		evaluation.setReason(sourceRender + ": " + renderer.doRender(impactValue));
 		return evaluation;
 	}
 }

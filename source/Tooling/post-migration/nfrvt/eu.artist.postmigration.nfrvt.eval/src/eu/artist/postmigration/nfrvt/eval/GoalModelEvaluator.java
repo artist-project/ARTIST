@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import eu.artist.postmigration.nfrvt.lang.gel.eval.VerdictConverter;
-import eu.artist.postmigration.nfrvt.lang.gel.validation.GELLabelRenderer;
+import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.CompositeGoal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
@@ -44,7 +44,7 @@ import eu.artist.postmigration.nfrvt.lang.nsl.nsl.DirectionKind;
 
 public class GoalModelEvaluator {
 	
-	private static GELLabelRenderer renderer = new GELLabelRenderer();
+	private static GELTextRenderer renderer = new GELTextRenderer();
 	
 	private Map<AppliedProperty, AppliedPropertyEvaluation> appliedPropertyEvaluations;
 	private EvaluationSettings settings = new EvaluationSettings();
@@ -152,7 +152,7 @@ public class GoalModelEvaluator {
 		AppliedPropertyEvaluation propertyEvaluation = getAppliedPropertyEvaluation(goal.getProperty());
 		if(propertyEvaluation == null) {
 			evaluation.setVerdict(Verdict.INCONCLUSIVE);
-			evaluation.setReason("No value for " + renderer.render(goal.getProperty()) + " found.");
+			evaluation.setReason("No value for " + renderer.doRender(goal.getProperty()) + " found.");
 			return evaluation;
 		}
 		
@@ -164,8 +164,8 @@ public class GoalModelEvaluator {
 		DirectionKind direction = goal.getProperty().getProperty().getDirection();
 		
 		evaluation.setReason(
-				renderer.render(goal.getProperty()) + " = " + renderer.render(impact) + 
-					", Threshold is " + renderer.render(goal.getThreshold()) + 
+				renderer.doRender(goal.getProperty()) + " = " + renderer.doRender(impact) + 
+					", Threshold is " + renderer.doRender(goal.getThreshold()) + 
 					", Direction is " + direction.getLiteral());
 		Boolean success = (direction == DirectionKind.DECREASING && impact.compareTo(goal.getThreshold()) <= 0) ||
 		                  (direction == DirectionKind.INCREASING && impact.compareTo(goal.getThreshold()) >= 0);

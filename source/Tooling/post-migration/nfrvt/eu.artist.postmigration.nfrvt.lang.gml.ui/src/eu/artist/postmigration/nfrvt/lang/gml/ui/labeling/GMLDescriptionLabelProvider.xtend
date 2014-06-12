@@ -3,6 +3,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.gml.ui.labeling
 
+import org.eclipse.xtext.resource.IEObjectDescription
+
 //import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
@@ -14,9 +16,9 @@ class GMLDescriptionLabelProvider extends org.eclipse.xtext.ui.label.DefaultDesc
 
 	// Labels and icons can be computed like this:
 	
-//	override text(IEObjectDescription ele) {
-//		ele.name.toString
-//	}
+	override text(IEObjectDescription ele) {
+		ele.name + " - " + ele.qualifiedName
+	}
 //	 
 //	override image(IEObjectDescription ele) {
 //		ele.EClass.name + '.gif'

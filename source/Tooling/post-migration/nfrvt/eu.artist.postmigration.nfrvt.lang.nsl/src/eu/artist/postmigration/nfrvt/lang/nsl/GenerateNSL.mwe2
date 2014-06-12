@@ -9,7 +9,7 @@ var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/nsl/NSL.xtext"
 var fileExtensions = "nsl"
 var projectName = "eu.artist.postmigration.nfrvt.lang.nsl"
 var runtimeProject = "../${projectName}"
-var generateXtendStub = false
+var generateXtendStub = true
 var encoding = "UTF-8"
 
 Workflow {

@@ -56,7 +56,7 @@ public class HardGoalConditionEvaluator extends ExpressionEvaluator {
 		if(propertyEvaluation == null) {
 			NumberExpressionEvaluation evaluation = newNumberExpressionEvaluation();
 			evaluation.setResult(null);
-			evaluation.setReason("[" + renderer.render(reference.getValue()) + "] has no value assigned.");
+			evaluation.setReason("[" + renderer.doRender(reference.getValue()) + "] has no value assigned.");
 			return evaluation;
 		}
 		

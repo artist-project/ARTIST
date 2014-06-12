@@ -46,35 +46,41 @@ class CloudProviderInterface:
 
     def initialize(self):
         '''
-        called when class is istantiated
+        called when class is istantiated; Initialize the driver useful to the connection
         '''
         pass
 
 
     def create_target_environment(self):
-        '''output is the ip addresses of vm machines created'''
+        '''output is the ip addresses of vm machines created; Create the instance on the provider infrastructure 
+        This step can be skipped if already in possession of an IP address'''
 
         logger.error("Method create_target_environment must be implemented")
         pass
 
     def set_target_environment(self, ip_addr):
+        ''' Skip this line if the creation of a new instance is needed '''
         logger.error("Method set_target_environment must be implemented")
         pass
 
     def install_benchmark(self, benchmark):
+        '''Install the benchmark tool on the created instance'''
         logger.error("Method install_benchmarks must be implemented")
         pass
 
     def execute_benchmark(self, benchmark):
+        '''Execute the benchmark tool on the created instance'''
         logger.error("Method execute_benchmarks must be implemented")
         pass
 
     def run_benchmark(self, benchmark):
+        '''Both Installation and Execution phases'''
         logger.error("Method run_benchmarks must be implemented")
         pass
 
 
     def destroy_target_environment(self):
+        '''Terminate the created instance'''
         logger.error("Method destroy_target_environment must be implemented")
         pass
 
@@ -137,7 +143,9 @@ class CloudProviderFactory:
 
 
     def get_cloud_provider(self, name, flavour):
-        '''a configuration file called <name>.conf is required in config folder
+        '''a configuration file called <name>.conf is required in config folder.
+        Insert the information related to the provider and flavour to use;
+        For example "Amazon" and "redhat-large"
         '''
 
         try:

@@ -4,94 +4,20 @@
 package eu.artist.postmigration.nfrvt.lang.gml.ui.labeling
 
 import com.google.inject.Inject
-import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalKind
-import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalExpression
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Expression
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Workload
-import org.eclipse.uml2.uml.NamedElement
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportNamespace
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportURI
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportURIorNamespace
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.PropertyValuePair
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Collection
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ObjectSpecificationExpression
-import eu.artist.postmigration.nfrvt.lang.gml.validation.GMLLabelRenderer
+import eu.artist.postmigration.nfrvt.lang.common.ui.labeling.ARTISTCommonLabelProvider
+import eu.artist.postmigration.nfrvt.lang.gml.renderer.GMLTextRenderer
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import eu.artist.postmigration.nfrvt.lang.gml.ui.internal.GMLActivator
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class GMLLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
-
-	GMLLabelRenderer renderer = new GMLLabelRenderer();
+class GMLLabelProvider extends ARTISTCommonLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
-		super(delegate);
+	new(AdapterFactoryLabelProvider delegate) {
+		super(delegate, new GMLTextRenderer(), GMLActivator.getInstance);
 	}
-	
-	def text(GoalKind kind) {
-		return renderer.render(kind);
-	}
-	
-	def text(Expression e) {
-		return renderer.render(e);
-	}
-	
-	def text(GoalExpression e) {
-		return renderer.render(e);
-	}
-	
-	def text(AppliedProperty p) {
-		return renderer.render(p);
-	}
-	
-	def text(Workload wl) {
-		return renderer.render(wl);
-	}
-	
-	def text(NamedElement element) {
-		return renderer.render(element);
-	}
-	
-	def text(ImportNamespace importNamespace) {
-		return renderer.render(importNamespace);
-	}
-	
-	def text(ImportURI importURI) {
-		return renderer.render(importURI);
-	}
-	
-	def text(ImportURIorNamespace i) {
-		return renderer.render(i);
-	}
-	
-	def text(ObjectSpecificationExpression e) {
-		return renderer.render(e);
-	}
-	
-	def text(PropertyValuePair p) {
-		return renderer.render(p);
-	}
-	
-	def text(Collection p) {
-		return renderer.render(p);
-	}
-	
-	def text(Tuple p) {
-		return renderer.render(p);
-	}
-
-	// Labels and icons can be computed like this:
-	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
 }

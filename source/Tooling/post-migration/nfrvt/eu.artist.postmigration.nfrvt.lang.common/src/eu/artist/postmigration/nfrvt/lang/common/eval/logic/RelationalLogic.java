@@ -18,16 +18,16 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification
 
 public class RelationalLogic {
 	
-	private static Comparator<ValueSpecification> valueSpecificationComparator;
+	private static Comparator<Object> artistComparator;
 	
-	public static Comparator<ValueSpecification> getComparator() {
-		if(valueSpecificationComparator == null)
-			valueSpecificationComparator = new ValueSpecificationComparator();
-		return valueSpecificationComparator;
+	public static Comparator<Object> getComparator() {
+		if(artistComparator == null)
+			artistComparator = new ValueSpecificationComparator();
+		return artistComparator;
 	}
 	
-	public static void setComparator(Comparator<ValueSpecification> comparator) {
-		RelationalLogic.valueSpecificationComparator = comparator;
+	public static void setComparator(Comparator<Object> comparator) {
+		RelationalLogic.artistComparator = comparator;
 	}
 	
 	public static Integer compare(ValueSpecification left, ValueSpecification right) {
