@@ -16,6 +16,9 @@
 package eu.artist.postmigration.nfrvt.lang.gml.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.contentassist.XtextContentAssistProcessor;
+
+import com.google.inject.Binder;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -24,10 +27,13 @@ public class GMLUiModule extends eu.artist.postmigration.nfrvt.lang.gml.ui.Abstr
 	public GMLUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
-	
-//	@Override
-//	public Provider<IAllContainersState> provideIAllContainersState() {
-//		// TODO Auto-generated method stub
-//		return org.eclipse.xtext.ui.shared.Access.getWorkspaceProjectsState();
-//	}
+
+	@Override
+	public void configure(Binder binder) {
+		super.configure(binder);
+		String eol = System.getProperty("line.separator");
+		binder.bind(String.class)
+				.annotatedWith(com.google.inject.name.Names.named((XtextContentAssistProcessor.COMPLETION_AUTO_ACTIVATION_CHARS)))
+				.toInstance(".:" + eol);
+	}
 }

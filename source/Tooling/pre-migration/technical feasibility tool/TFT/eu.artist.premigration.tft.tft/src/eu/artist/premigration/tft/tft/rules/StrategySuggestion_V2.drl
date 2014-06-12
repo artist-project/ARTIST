@@ -148,6 +148,7 @@ rule "Data_RDBMS" extends "IsDataTypeComponent" agenda-group  "GAE"
         $component.addMigrationStrategy(strategy);
 end
 
+/*
 rule "JMS" agenda-group "GAE"
 
 	when 
@@ -158,6 +159,7 @@ rule "JMS" agenda-group "GAE"
         strategy.setSuggested(true);
         $component.addMigrationStrategy(strategy);
 end
+*/
 
 rule "ManagedBean" agenda-group  "GAE"
 	
@@ -563,3 +565,19 @@ rule "Visualization_AZURE" agenda-group "Azure"
         strategy.setSuggested(true);
         $component.addMigrationStrategy(strategy);
 end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// AGENDA-GROUP NONE ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+rule "CQRS" extends "IsDataTypeComponent" 
+	
+    when
+         eval (true)
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CQRS");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(false);
+        $component.addMigrationStrategy(strategy);
+end
+*/

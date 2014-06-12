@@ -20,7 +20,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 /**
  * Use this class to register components to be used within the IDE.
  */
-public class ARTISTCommonUiModule extends eu.artist.postmigration.nfrvt.lang.common.ui.AbstractARTISTCommonUiModule {
+public class ARTISTCommonUiModule extends AbstractARTISTCommonUiModule {
 	public ARTISTCommonUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}

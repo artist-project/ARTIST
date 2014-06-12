@@ -12,26 +12,17 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.gml.validation;
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.BooleanUnit;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification;
+import eu.artist.postmigration.nfrvt.lang.common.eval.ExpressionValidator;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GmlPackage;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference;
+import eu.artist.postmigration.nfrvt.lang.gml.renderer.GMLTextRenderer;
 
 public class CompositeGoalValidator extends ExpressionValidator {
 
 	public CompositeGoalValidator() {
+		super(new GMLTextRenderer());
 		setFeature(GmlPackage.Literals.COMPOSITE_GOAL__CONDITION);
-	}
-	
-	@Override
-	public ValueSpecification evaluate(BooleanUnit e) {
-		ValueSpecification evaluation = null;
-		if(e instanceof GoalReference)
-			evaluation = evaluate((GoalReference)e);
-		
-		if(evaluation != null)
-			return evaluation;
-		return super.evaluate(e);
 	}
 
 	public ValueSpecification evaluate(GoalReference reference) {

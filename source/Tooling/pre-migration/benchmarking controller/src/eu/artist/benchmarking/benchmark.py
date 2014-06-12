@@ -121,7 +121,7 @@ class BenchmarkFactory:
         pass
 
     def get_benchmark_test(self, benchmark_name, workload_name=None):
-
+        ''' Insert the information related to the benchmark tool and workload to use; For example "filebench" and "Workload1"'''
         try:
             config_file = os.path.join(self.config_folder,
                                        benchmark_name + ".conf")

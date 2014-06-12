@@ -72,8 +72,8 @@ public class InventoryView extends ViewPart {
 
 	public static boolean automaticSuggestionUpdates = true;
 
-	private static final int[] COLUMN_WIDTH = { 180, 150, 180, 180, 180, 180 };
-	private static final String[] COLUMN_TITLES = { "Component Name", "Component Type", "Owned Classes", "Migration Strategy Suggestion", "Migration Complexity", "Estimated Migration Effort"};
+	private static final int[] COLUMN_WIDTH = { 180, 180, 180, 180, 180, 180 };
+	private static final String[] COLUMN_TITLES = { "Component Name", "Component Stereotypes", "Owned Classes", "Migration Strategy Suggestion", "Migration Complexity", "Estimated Migration Effort"};
 
 	private TreeViewer viewer;
 	private IResourceChangeListener resourceChangeListener;
@@ -325,7 +325,12 @@ public class InventoryView extends ViewPart {
 				if (component.getChildren().size() > 0){
 					return "";
 				}
-				return component.getType();
+				StringBuffer text = new StringBuffer("");
+				List<String> stereotypes= component.getStereotypes();
+				for (int i = 0; i < stereotypes.size(); i++) {
+					text.append(i != 0 ? " ," : "").append(stereotypes.get(i));
+				}
+				return text.length() > 0 ? text.toString() : "No Stereotypes";
 			}
 		});
 
@@ -471,7 +476,7 @@ public class InventoryView extends ViewPart {
 	 * Reanalyzes the components on the viewer and refreshes it
 	 */
 	public void reAnalyzeComponentsAndRefreshViewer(){
-		viewer.setInput(ComponentModelQuery.INSTANCE.analyzeAllComponents());
+		populateViewer();
 		viewer.getTree().update();
 		viewer.refresh();
 	}

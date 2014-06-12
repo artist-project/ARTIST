@@ -124,6 +124,12 @@ public class ValueUtil {
 		return l.getValue();
 	}
 	
+	public static InstanceSpecification valueOf(InstanceSpecificationExpression e) {
+		if(e == null)
+			return null;
+		return e.getValue();
+	}
+	
 	public static boolean isBoolean(ValueSpecification value) {
 		return value instanceof BooleanLiteral;
 	}

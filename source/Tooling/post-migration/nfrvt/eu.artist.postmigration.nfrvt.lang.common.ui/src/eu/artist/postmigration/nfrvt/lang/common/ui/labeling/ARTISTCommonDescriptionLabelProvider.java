@@ -15,6 +15,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.common.ui.labeling;
 
+import org.eclipse.xtext.resource.IEObjectDescription;
+
 /**
  * Provides labels for a IEObjectDescriptions and IResourceDescriptions.
  * 
@@ -24,11 +26,11 @@ public class ARTISTCommonDescriptionLabelProvider extends org.eclipse.xtext.ui.l
 
 	// Labels and icons can be computed like this:
 	
-//	String text(IEObjectDescription ele) {
-//	   return ele.getName().toString();
-//	}
-//	 
-//  String image(IEObjectDescription ele) {
-//     return ele.getEClass().getName() + ".gif";
-//  }	 
+	public String text(IEObjectDescription ele) {
+	   return ele.getName().toString();
+	}
+	 
+  public String image(IEObjectDescription ele) {
+     return ele.getEClass().getName() + ".gif";
+  }	 
 }

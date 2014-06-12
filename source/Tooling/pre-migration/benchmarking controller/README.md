@@ -50,6 +50,11 @@ Reference to the user/installation manual
 ----
 Chapter 4 of the following document: http://www.artist-project.eu/sites/default/files/D7.2.1%20Cloud%20services%20modeling%20and%20performance%20analysis%20framework_M12_30092013.pdf
 
+Reference for the donwload
+----
+The binary of the tool and the API documentation can be found at the following link:
+https://github.com/artist-project/ARTIST/tree/master/binary/BenchmarkTool
+
 Version
 ----
 
