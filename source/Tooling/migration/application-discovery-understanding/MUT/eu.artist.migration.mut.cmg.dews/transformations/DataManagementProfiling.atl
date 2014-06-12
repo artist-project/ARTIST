@@ -1,0 +1,303 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+module DataManagementProfiling;
+create OUT: UML2 from IN: UML2, Profile: profile;
+uses "lib::UMLCopy";
+uses "lib::UMLLib";
+
+---***********************************HELPERS *************************************---
+---********************************************************************************---
+---**********************************ATTRIBUTES************************************---
+---********************************************************************************---
+
+---**********DataManagement (Observable pattern) profile Stereotypes***************---
+helper def: allStereotypes: Sequence(UML2!Stereotype) = profile!Stereotype.
+	allInstancesFrom('Profile')->debug('allStereotypes');
+helper def: concreteSubjectStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='ConcreteSubject').first();
+helper def: concreteObserverStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='ConcreteObserver').first();
+helper def: subjectStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='Subject').first();
+helper def: observerStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='Observer').first();
+helper def: updateStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='update').first();
+helper def: messageListenerStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='MessageListener').first();
+helper def: dataModelStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='DataModel').first();
+helper def: notifyObserversStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='notifyObservers').first();
+helper def: registerObserverStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='registerObserver').first();
+helper def: removeObserverStereotype: UML2!Stereotype = thisModule.allStereotypes
+	->select(e|e.name='removeObserver').first();
+---*****************************End of Stereotypes*********************************---
+
+---*******************DataManagement (Observable pattern) Queries********************---
+--- A sequence containing all the subjects 
+helper def: mainSubjects: Sequence (UML2!Element) = 
+	thisModule.allINInterfaces.union(thisModule.allINClasses)->select(e|
+		e.ownedOperation->select(a|a.name='addListener').notEmpty() and 
+		e.ownedOperation->select(a|a.name='removeListener').notEmpty() and 
+		e.ownedOperation->select(a|a.name='notifyListeners').notEmpty()).addChildren()->reject(e|
+			e.getModel().name='externals' or 
+		e.getModel().name='sourcesReferences')->debug ('mainSubjects');
+--- A Sequence containing all the observers taken from the MainSubjects
+helper def: mainObservers: Sequence(UML2!Element) = 
+	thisModule.allINInterfaces.union(thisModule.allINClasses)->select(
+		e|thisModule.mainSubjects->select(a|a.ownedOperation->select(
+			o|o.name='addListener' and 
+			o.ownedParameter->select(
+				p|p.getProperType().qualifiedName=e.qualifiedName).notEmpty()).notEmpty()).notEmpty())
+					.addChildren()->reject(e|
+						e.getModel().name='externals' or 
+						e.getModel().name='sourcesReferences')->debug ('mainObservers');
+--- A sequence containing the main DataModels
+helper def: mainDataModels: Sequence(UML2!Element) = 
+	thisModule.allINInterfaces.union(thisModule.allINClasses)->select(e|
+		thisModule.mainSubjects->select(a|a.ownedOperation->select(o|
+			o.name='notifyListeners' and 
+			o.ownedParameter->select(p|
+				p.getProperType()=e).notEmpty()).notEmpty()).notEmpty())
+				.addChildren()->reject(e|
+					e.getModel().name='externals' or 
+					e.getModel().name='sourcesReferences')->debug ('mainDataModels');
+--- Contains all the "update" operations
+helper def: allUpdateOperations: Sequence(UML2!Operation) = 
+	thisModule.mainObservers->collect(e|
+		e.ownedOperation.flatten()).flatten()->select(e|
+			e.oclIsTypeOf(UML2!Operation)) ->select(e|
+				e.ownedParameter->select(a|
+					thisModule.mainDataModels->select(dm|
+						a.getProperType().qualifiedName=dm.qualifiedName).notEmpty()).notEmpty())->reject(e|
+							thisModule.allNotifyObservesOperations.includes(e) or 
+							thisModule.allRegisterObserverOperations.includes(e) or 
+							thisModule.allRemoveObserverOperations.includes(e))->debug ('allUpdateOperations');
+--- Contains all the Notify Observers operations
+helper def: allNotifyObservesOperations: Sequence(UML2!Operation) = 
+	thisModule.mainSubjects-> collect(e|
+		e.ownedOperation.flatten()).flatten()->select(e|
+			e.oclIsTypeOf(UML2!Operation))->select(e|
+				e.name='notifyListeners')->debug ('allNotifyObservesOperations');
+--- Contains all the register observer operations
+helper def: allRegisterObserverOperations: Sequence(UML2!Operation) = 
+	thisModule.mainSubjects-> collect(e|
+		e.ownedOperation.flatten()).flatten()->select(e|
+			e.oclIsTypeOf(UML2!Operation))->select(e|
+				e.name='addListener')->debug ('allRegisterObserverOperations');
+--- Contains all the Remove Observer operations
+helper def: allRemoveObserverOperations: Sequence(UML2!Operation) = 
+	thisModule.mainSubjects-> collect(e|
+		e.ownedOperation.flatten()).flatten()->select(e|
+			e.oclIsTypeOf(UML2!Operation))->select(e|
+				e.name='removeListener')->debug ('allRemoveObserverOperations');
+
+helper def : queries() : Sequence (TupleType (results: Sequence(UML2!Element), stereotype:UML2!Stereotype)) = 
+	Sequence {Tuple{results=thisModule.mainSubjects, stereotype=thisModule.subjectStereotype}, 
+			  Tuple{results=thisModule.mainObservers, stereotype=thisModule.observerStereotype},
+			  Tuple{results=thisModule.mainDataModels, stereotype=thisModule.dataModelStereotype},
+			  Tuple{results=thisModule.allUpdateOperations, stereotype=thisModule.updateStereotype},
+			  Tuple{results=thisModule.allNotifyObservesOperations, stereotype=thisModule.notifyObserversStereotype},
+			  Tuple{results=thisModule.allRegisterObserverOperations, stereotype=thisModule.registerObserverStereotype},
+			  Tuple{results=thisModule.allRemoveObserverOperations, stereotype=thisModule.removeObserverStereotype}
+	};
+---****************END of DataManagement (Observable pattern) Queries****************---
+
+---****************DataManagement (Observable pattern) Relationships ****************---
+helper def : getObserversForSubject(subject:UML2!Element) : Sequence(UML2!Element) = 
+	thisModule.mainObservers->select(e|
+		thisModule.allRegisterObserverOperations->select(a|a.owner=subject)->select(a|
+			a.ownedParameter->select(o|o.getProperType().qualifiedName=e.qualifiedName).notEmpty()).notEmpty())->collect(e|
+				e.resolve().getStereotypeApplication(thisModule.observerStereotype))->reject(e|e.oclIsUndefined());
+
+helper def : getSubjectsForObserver(observer:UML2!Element) : Sequence(UML2!Element) = 
+	thisModule.allRegisterObserverOperations->select(e|e.ownedParameter->select(a|
+		a.getProperType().qualifiedName=observer.qualifiedName).notEmpty())->collect(e|e.owner)->collect(e|
+			e.resolve().getStereotypeApplication(thisModule.subjectStereotype))->reject(e|e.oclIsUndefined());
+
+
+---****************************** END OF HELPERS *********************************************---
+
+rule Model {
+	from
+		s: UML2!Model in IN (
+			not s.oclIsUndefined() and s.oclIsTypeOf(UML2!Model)
+		)
+	to
+		t: UML2!Model (
+			name <- s.name ,
+			visibility <- s.visibility,
+			viewpoint <- s.viewpoint,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			packageMerge <- s.packageMerge,
+			packagedElement<-s.packagedElement
+		)
+	do {
+--		--- We apply the profiles
+		for (prof in s.getAllAppliedProfiles()){
+				t.applyProfile(prof);
+			} 		
+		--- We apply the dataManagement profile 
+		t.applyProfile(profile!Profile.allInstances().asSequence().first()); 
+	}
+}
+
+--- Applies all the stereotypes to each element from IN
+lazy rule ApplyStereotypes {
+	from s : UML2!"uml::Element" in IN
+	using {
+		t : UML2!"uml::Element" = s.resolve();
+	}
+	do {
+		for (st in s.getAppliedStereotypes()) {
+			t.applyStereotype(st);
+			for (a in st.getAllAttributes()) {
+				if (not a.name.startsWith('base_') and s.hasValue(st, a.name)) {
+					t.setValue(st, a.name, s.getValue(st, a.name));
+				}
+			}
+		}
+	}
+}
+
+--- In this endpoint rule we apply the stereotypes values
+endpoint rule ApplyAllStereotypesValues() {
+	do {
+--		for (element in thisModule.traces.defaultSourceElements
+--			->collect(e|e.object)
+--			->select(o|o.oclIsKindOf(UML2!"uml::Element"))
+--			->select(a|a.resolve().getModel().oclIsUndefined())) {
+--			element.destroy(); -- destroy elements assigned outside the model
+--		}
+		--- Here we apply all the stereotypes in a series of "for" loops
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.mainSubjects, thisModule.subjectStereotype)){
+--			element.applyStereotype(thisModule.subjectStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.mainObservers, thisModule.observerStereotype)){
+--			element.applyStereotype(thisModule.observerStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.mainDataModels, thisModule.dataModelStereotype)){
+--			element.applyStereotype(thisModule.dataModelStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.allUpdateOperations, thisModule.updateStereotype)){
+--			element.applyStereotype(thisModule.updateStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.allNotifyObservesOperations, thisModule.notifyObserversStereotype)){
+--			element.applyStereotype(thisModule.notifyObserversStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.allRegisterObserverOperations, thisModule.registerObserverStereotype)){
+--			element.applyStereotype(thisModule.registerObserverStereotype);
+--		}
+--		
+--		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.allRemoveObserverOperations, thisModule.removeObserverStereotype)){
+--			element.applyStereotype(thisModule.removeObserverStereotype);
+--		}
+--		
+		for (tuple in thisModule.queries()){
+			for (element in thisModule->getUnStereotypedMappedCollection(tuple.get('results'), tuple.get('stereotype'))){
+				element.applyStereotype(tuple.get('stereotype'));
+			}
+		}
+
+		--- Apply Stereotypes from IN:		
+		for (element in thisModule.traces.defaultSourceElements
+				->collect(e|e.object)
+				->select(o|o.oclIsKindOf(UML2!"uml::Element"))) {
+			thisModule.ApplyStereotypes(element);
+		}
+		
+		---Now we proceed to set the stereotypes' values on the previously stereotyped elements:
+		--- Subject Stereotype
+		for (subject in thisModule.mainSubjects){
+			--- observer
+--			if (thisModule.allRegisterObserverOperations->select(e|e.owner=subject).notEmpty()){
+--				subject.resolve().setValue(
+--					thisModule.subjectStereotype, 'observer',
+--					thisModule.mainObservers->select(e|
+--						thisModule.allRegisterObserverOperations->select(a|a.owner=subject)->select(a|
+--							a.ownedParameter->select(o|o.getProperType().qualifiedName=e.qualifiedName).notEmpty()).notEmpty())->collect(e|
+--								e.resolve().getStereotypeApplication(thisModule.observerStereotype))->reject(e|e.oclIsUndefined()));	
+--			}
+			if (thisModule.allRegisterObserverOperations->select(e|e.owner=subject).notEmpty()){
+				subject.resolve().setValue(thisModule.subjectStereotype, 'observer', thisModule.getObserversForSubject(subject));	
+			}
+--			--- notifyObservers operations
+--			if (thisModule.allNotifyObservesOperations->select(e|e.owner=subject).notEmpty()){
+--				subject.resolve().setValue(
+--					thisModule.subjectStereotype, 'notifyObservers',
+--					thisModule.allNotifyObservesOperations->select(e|e.owner=subject)->collect(e|
+--						e.resolve().getStereotypeApplications().first()));	
+--			}
+--			--- registerObserver operations
+--			if (thisModule.allRegisterObserverOperations->select(e|e.owner=subject).notEmpty()){
+--				subject.resolve().setValue(
+--					thisModule.subjectStereotype, 'registerObserver',
+--					thisModule.allRegisterObserverOperations->select(e|e.owner=subject)->collect(e|
+--						e.resolve().getStereotypeApplications().first()));	
+--			}
+--			--- removeObserver operations
+--			if (thisModule.allRemoveObserverOperations->select(e|e.owner=subject).notEmpty()){
+--				subject.resolve().setValue(
+--					thisModule.subjectStereotype, 'removeObserver',
+--					thisModule.allRemoveObserverOperations->select(e|e.owner=subject)->collect(e|
+--						e.resolve().getStereotypeApplications().first()));	
+--			}
+		}
+		
+		for (observer in thisModule.mainObservers){
+			--- subject
+			if (thisModule.allRegisterObserverOperations.union(thisModule.allRemoveObserverOperations)->select(e|
+					e.ownedParameter->select(a|
+						a.getProperType().qualifiedName=observer.qualifiedName).notEmpty())->collect(e|e.owner)->collect(e|
+							e.resolve().getStereotypeApplication(thisModule.subjectStereotype))->reject(e|e.oclIsUndefined()).notEmpty()){
+				--- we set the value
+--				observer.resolve().setValue(
+--					thisModule.observerStereotype, 'subject', 
+--					thisModule.allRegisterObserverOperations->select(e|e.ownedParameter->select(a|
+--						a.getProperType().qualifiedName=observer.qualifiedName).notEmpty())->collect(e|e.owner)->collect(e|
+--							e.resolve().getStereotypeApplication(thisModule.subjectStereotype))->reject(e|e.oclIsUndefined()));
+				observer.resolve().setValue(thisModule.observerStereotype, 'subject', thisModule.getSubjectsForObserver(observer));
+			}
+			--- update operations
+--			if (thisModule.allUpdateOperations->select(e|e.owner=observer).notEmpty()){
+--				observer.resolve().setValue(
+--					thisModule.observerStereotype, 'update',
+--					thisModule.allUpdateOperations->select(e|e.owner=observer)->collect(e|e.resolve().getStereotypeApplications().first()));	
+--			}
+		}
+	}
+}

@@ -1,0 +1,527 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+
+module DataManagementComponentModelGenerator;
+create OUT: UML2 from IN: UML2, Profile: profile;
+uses "lib::UMLLib";
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- TODO: Add stereotypes to classes
+--- FIXME: Since classes are transformed into components, references to those classes (as Types in operations, for instance)
+--- are not pointing to the components (wrong behavior). Fix it by changing the other the component and inner classes are created,
+--- firstly the class, then the  component (if possible). If not, remove operations and attributes from classes in component model
+	
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+
+---################################## GLOBAL VARIABLES ##################################### ---
+
+---################################## END OF GLOBAL VARIABLES ##################################### ---
+
+---**********DataManagement (Observable pattern) profile Stereotypes***************---
+
+helper def : profile() : UML2!Profile = profile!Profile.allInstancesFrom('Profile').asSequence().first();
+
+helper def: concreteSubjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ConcreteSubject').first();
+helper def: concreteObserverStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ConcreteObserver').first();
+helper def: subjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Subject').first();
+helper def: observerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Observer').first();
+helper def: updateStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='update').first();
+helper def: messageListenerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='MessageListener').first();
+helper def: dataModelStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='DataModel').first();
+helper def: notifyObserversStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='notifyObservers').first();
+helper def: registerObserverStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='registerObserver').first();
+helper def: removeObserverStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='removeObserver').first();
+
+--- contains all profiles that describe components
+helper def : AllComponentStereotypes() : Set(UML2!Stereotype) = Set{
+	thisModule.concreteSubjectStereotype,
+	thisModule.concreteObserverStereotype,
+	thisModule.subjectStereotype,
+	thisModule.observerStereotype,
+	thisModule.dataModelStereotype
+};
+
+
+---******************DataManagement (Observable pattern)  Queries*******************---
+--- detected concrete subjects stereotyped classes
+helper def: concreteSubjectStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.concreteSubjectStereotype))-> debug ('concrete subjects');
+--- detected concrete observers stereotyped classes
+helper def: concreteObserverStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.concreteObserverStereotype))-> debug ('concrete observers');
+--- detected subjects stereotyped classes
+helper def: subjectStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.subjectStereotype))-> debug ('subjects');
+--- detected observers stereotyped classes
+helper def: observerStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.observerStereotype))-> debug ('observers');
+--- detected data model stereotyped classes
+helper def: dataModelStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.dataModelStereotype))-> debug ('data models');
+
+---*************************** DM Components ******************************---
+--- Collects components to be obtained by the transformation, described by:
+--- stereotype: that characterises the classes to be included within the component
+--- classes: classes to be added to the component, organized by package
+--- merge: whether or not to create a single component for all classes (true) or individual components for each class (false)
+--- subGroupStereotype: which characterises the components (within nested packages) to be included as aggregations of this component.
+helper def : components() : 
+	Map (UML2!Stereotype, TupleType (classes:Map (UML2!Package, Sequence (UML2!Class)), merge:Boolean, subGroupStereotype:UML2!Stereotype)) = 
+	Map {(thisModule.concreteSubjectStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.concreteSubjectStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.concreteObserverStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.concreteObserverStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.subjectStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.subjectStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.observerStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.observerStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.dataModelStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.dataModelStereotypedClasses), merge=false, subGroupStereotype=OclUndefined})
+	};
+	
+---####################################### HELPER METHODS ######################################### ---
+
+--- Checks if the element has al least one stereotype that qualifies a component
+helper context UML2!Element def : isComponentStereotyped() : Boolean  = 
+	not self.getStereotypes()->intersection (thisModule.AllComponentStereotypes())->isEmpty();
+
+--- Get the stereotype that qualifies a component
+helper context UML2!Element def : getComponentStereotype() : UML2!Stereotype  = 
+	self.getStereotypes()->intersection (thisModule.AllComponentStereotypes()).asSequence()->first();
+
+--- Creates the component name from class name
+helper context UML2!Class def : createComponentName() : String = 
+	if (not self.getComponentStereotype().oclIsUndefined()) then
+		self.name + 'Component'
+	else
+		self.name
+	endif;
+
+--- Creates the component name from stereotype name
+helper context UML2!Class def : createComponentNameFromStereotype() : String = 
+	if (not self.getComponentStereotype().oclIsUndefined()) then
+		self.getComponentStereotype().name + 'Component'
+	else
+		self.name
+	endif;
+
+
+---Check if class if first one in the list of classes for stereotype (false result) or not (true result)
+---Component only created for first class (if merge = true)
+helper context UML2!Class def : isComponentCreated() : Boolean = 
+	not (thisModule.components().get(self.getComponentStereotype()).get('classes').get(self.refImmediateComposite()).first() = self);
+
+--- returns whether or not the given parameter belongs to a class that has been stereotyped with a component stereotype
+helper context UML2!Parameter def : belongsToStereotypedClass() : Boolean = 
+	if (not self.refImmediateComposite().oclIsUndefined() and 
+		not self.refImmediateComposite().refImmediateComposite().oclIsUndefined()) then
+		self.refImmediateComposite().refImmediateComposite().isComponentStereotyped()
+	else
+		false
+	endif;
+
+--- returns whether or not the given property belongs to a class that has been stereotyped with a component stereotype
+helper context UML2!Property def : belongsToStereotypedClass() : Boolean = 
+	if (not self.refImmediateComposite().oclIsUndefined()) then
+		self.refImmediateComposite().isComponentStereotyped()
+	else
+		false
+	endif;
+
+--- returns whether or not the given operation belongs to a class that has been stereotyped with a component stereotype
+helper context UML2!Operation def : belongsToStereotypedClass() : Boolean = 
+	if (not self.refImmediateComposite().oclIsUndefined()) then
+		self.refImmediateComposite().isComponentStereotyped()
+	else
+		false
+	endif;
+
+--- returns whether or not the given package (or nested classes) contains a class that has been stereotyped with a component stereotype
+helper context UML2!Package def : containsComponentStereotypedClass() : Boolean = 
+	if (self.packagedElement->isEmpty()) then
+		 false
+	else
+		if (self.packagedElement-> exists(c | c.oclIsTypeOf(UML2!Class) and c.isComponentStereotyped())) then
+			true
+		else 
+			self.packagedElement-> exists(p | p.oclIsTypeOf(UML2!Package) and p.containsComponentStereotypedClass())
+		endif
+	endif;
+
+--- returns the given sequence of classes in a map that groups the classes by the package they belong to
+helper def : organizedByPackage(classes:Sequence(UML2!Class)) : Map (UML2!Package, Sequence (UML2!Class)) = 
+	let result:Map (UML2!Package, Sequence (UML2!Class)) = classes.getPackagesForClasses()
+		-> iterate(p; m: Map (UML2!Package, Sequence (UML2!Class)) = Map{} |
+			m.including(p, classes.getClassesInPackage(p))
+)
+		in result;
+	
+---####################################### END OF HELPER METHODS ################################## ---
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- ############################################# RULES ########################################### ---
+
+rule Model {
+    from s : UML2!"uml::Model" in IN (s.belongsToMainModel())
+    to t : UML2!"uml::Model" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        viewpoint <- s.viewpoint,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+	do {
+		t.applyProfile(thisModule.profile());
+	}
+}
+
+rule Package {
+    from s : UML2!"uml::Package" in IN (s.oclIsTypeOf(UML2!"uml::Package") and 
+										s.belongsToMainModel() and 
+										s.containsComponentStereotypedClass())
+    to t : UML2!"uml::Package" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+}
+
+--- Transforms the class to a component if the class has been stereotyped with a component stereotype
+--- It creates a component for each stereotyped class without grouping other components whose stereotype is specified in subGroupStereotype
+rule classesToMultipleComponentWithoutGrouping {
+	from
+		src : UML2!Class (
+			(src.isComponentStereotyped()) and 
+			 src.belongsToMainModel() and
+			 not thisModule.components().get(src.getComponentStereotype()).get('merge') and
+			 thisModule.components().get(src.getComponentStereotype()).get('subGroupStereotype').oclIsUndefined())
+	to
+		tgt : UML2!Component (
+			name <- src.createComponentName(),
+			packagedElement <- thisModule.createComponentClassSequence(src)
+		)
+	do {
+		tgt.applyStereotype(src.getComponentStereotype());
+	}
+		
+}
+
+--- Transforms the class to a component if the class has been stereotyped with a component stereotype
+--- It creates a component for each stereotyped class grouping other components whose stereotype is specified in subGroupStereotype
+rule classesToMultipleComponentWithGrouping {
+	from
+		src : UML2!Class (
+			(src.isComponentStereotyped()) and 
+			 src.belongsToMainModel() and
+			 not thisModule.components().get(src.getComponentStereotype()).get('merge') and
+			 not thisModule.components().get(src.getComponentStereotype()).get('subGroupStereotype').oclIsUndefined())
+	to
+		tgt : UML2!Component (
+			name <- src.createComponentName(),
+			packagedElement <- thisModule.createComponentClassSequence(src)
+				->union(
+					src.locatePackageWithComponentsOfType (
+					 thisModule.components().get(src.getComponentStereotype()).get('subGroupStereotype'))->
+					 	collect(p | thisModule.lazyPackage(p)))
+		)
+	do {
+		tgt.applyStereotype(src.getComponentStereotype());
+	}		
+}
+
+lazy rule lazyPackage{
+	from s : UML2!"uml::Package" 
+    to t : UML2!"uml::Package" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+	do {
+		t;
+	}
+}
+
+--- Transforms the class into a single component if the class has been stereotyped with a component stereotype
+--- Adds the class to the single component without grouping other components whose stereotype is specified in subGroupStereotype
+rule classesToSingleComponent {
+	from
+		src : UML2!Class (
+			(src.isComponentStereotyped()) and 
+			 src.belongsToMainModel() and 
+			 thisModule.components().get(src.getComponentStereotype()).get('merge') and
+			 not src.isComponentCreated() and
+			 thisModule.components().get(src.getComponentStereotype()).get('subGroupStereotype').oclIsUndefined())
+	to
+		tgt : UML2!Component (
+			name <- src.createComponentNameFromStereotype(),
+			packagedElement <- thisModule.components().get(src.getComponentStereotype()).get('classes').get(src.refImmediateComposite())
+				->collect(c | thisModule.createComponentClass(c))
+		)
+	do {
+		tgt.applyStereotype(src.getComponentStereotype());
+	}
+}
+
+--- Transforms the classes which belong to a component 
+lazy rule createComponentClass {
+	from
+		s : UML2!Class (not s.oclIsTypeOf(UML2!Component))
+	to 
+		tgt : UML2!Class (
+			__xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception
+	)
+	do {
+		tgt;
+	}
+}
+
+--- Transforms the classes which belong to a component 
+lazy rule createComponentClassSequence {
+	from
+		s : UML2!Class (not s.oclIsTypeOf(UML2!Component))
+	to 
+		tgt : UML2!Class (
+			__xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception
+	)
+	do {
+		Sequence{tgt};
+	}
+}
+
+rule Operation {
+    from s : UML2!"uml::Operation" in IN (s.belongsToStereotypedClass())
+    to t : UML2!"uml::Operation" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        concurrency <- s.concurrency,
+        isAbstract <- s.isAbstract,
+        isQuery <- s.isQuery,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        method <- s.method,
+        ownedParameter <- s.ownedParameter,
+        ownedParameterSet <- s.ownedParameterSet,
+        raisedException <- s.raisedException,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        bodyCondition <- s.bodyCondition,
+        postcondition <- s.postcondition,
+        precondition <- s.precondition,
+        redefinedOperation <- s.redefinedOperation)
+}
+
+rule Parameter {
+    from s : UML2!"uml::Parameter" in IN (s.belongsToStereotypedClass())
+    to t : UML2!"uml::Parameter" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        direction <- s.direction,
+        effect <- s.effect,
+        isException <- s.isException,
+        isStream <- s.isStream,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        type <- s.type,
+        templateParameter <- s.templateParameter,
+        lowerValue <- s.lowerValue,
+        upperValue <- s.upperValue,
+        defaultValue <- s.defaultValue,
+        parameterSet <- s.parameterSet)
+}
+
+rule Property {
+    from s : UML2!"uml::Property" in IN (s.oclIsTypeOf(UML2!"uml::Property") and s.belongsToStereotypedClass())
+    to t : UML2!"uml::Property" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        isReadOnly <- s.isReadOnly,
+        aggregation <- s.aggregation,
+        isDerived <- s.isDerived,
+        isDerivedUnion <- s.isDerivedUnion,
+        isID <- s.isID,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        type <- s.type,
+        lowerValue <- s.lowerValue,
+        upperValue <- s.upperValue,
+        templateParameter <- s.templateParameter,
+        deployment <- s.deployment,
+        qualifier <- s.qualifier,
+        defaultValue <- s.defaultValue,
+        redefinedProperty <- s.redefinedProperty,
+        subsettedProperty <- s.subsettedProperty,
+        association <- s.association)
+}
+
+--- remove orphan elements
+endpoint rule cleanUp() {
+	do {
+		for (element in thisModule.traces.defaultSourceElements
+			->collect(e|e.object)
+			->select(o|o.oclIsKindOf(UML2!"uml::Element"))
+			->select(a|a.resolve().getModel().oclIsUndefined())) {
+			element->debug('Destroying element:').resolve().destroy();
+		}
+	}
+}
