@@ -121,7 +121,7 @@ public class EvaluationProcess {
 		}	
 		
 		logLine("Write evaluation to '" + outputModelPath + "'...\n");
-		set.saveMigrationEvaluation(evaluation, MigrationResourceUtil.getPlatformResourceURI(outputModelPath));
+		set.saveModel(evaluation, MigrationResourceUtil.getPlatformResourceURI(outputModelPath));
 		logLine("...done.\n");
 	}
 }

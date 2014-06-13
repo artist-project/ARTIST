@@ -537,19 +537,9 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSoftGoal_Context()
-  {
-    return (EReference)softGoalEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getSoftGoal_Threshold()
   {
-    return (EAttribute)softGoalEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)softGoalEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -559,7 +549,7 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    */
   public EReference getSoftGoal_Impacts()
   {
-    return (EReference)softGoalEClass.getEStructuralFeatures().get(3);
+    return (EReference)softGoalEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -903,7 +893,6 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
 
     softGoalEClass = createEClass(SOFT_GOAL);
     createEReference(softGoalEClass, SOFT_GOAL__PROPERTY);
-    createEReference(softGoalEClass, SOFT_GOAL__CONTEXT);
     createEAttribute(softGoalEClass, SOFT_GOAL__THRESHOLD);
     createEReference(softGoalEClass, SOFT_GOAL__IMPACTS);
 
@@ -1035,7 +1024,6 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
 
     initEClass(softGoalEClass, SoftGoal.class, "SoftGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSoftGoal_Property(), this.getAppliedQualitativeProperty(), null, "property", null, 0, 1, SoftGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSoftGoal_Context(), theUMLPackage.getNamedElement(), null, "context", null, 0, -1, SoftGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSoftGoal_Threshold(), theEcorePackage.getEBigDecimal(), "threshold", null, 0, 1, SoftGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSoftGoal_Impacts(), this.getSoftGoalImpact(), null, "impacts", null, 0, -1, SoftGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

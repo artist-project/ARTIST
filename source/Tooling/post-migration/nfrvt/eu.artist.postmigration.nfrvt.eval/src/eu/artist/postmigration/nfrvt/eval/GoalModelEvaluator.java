@@ -117,11 +117,16 @@ public class GoalModelEvaluator {
 		}
 		goalModelEvaluation.setVerdict(VerdictConverter.toVerdict(booleanVerdict));
 		
+		
+		
 		if(booleanVerdict == null)
 			goalModelEvaluation.setReason("Not enough information to determine whether all Top-Level Goals (" + listOfTopLevelGoals + ") can be fulfilled.");
-		else if(booleanVerdict)
-			goalModelEvaluation.setReason("All Top-Level Goals (" + listOfTopLevelGoals + ") fulfilled.");
-		else
+		else if(booleanVerdict) {
+			if(listOfTopLevelGoals.isEmpty())
+				goalModelEvaluation.setReason("No goals specified, so everything passed.");
+			else
+				goalModelEvaluation.setReason("All Top-Level Goals (" + listOfTopLevelGoals + ") fulfilled.");
+		} else
 			goalModelEvaluation.setReason("Not All Top-Level Goals (" + listOfTopLevelGoals + ") fulfilled.");
 		
 		return goalModelEvaluation;
@@ -184,7 +189,7 @@ public class GoalModelEvaluator {
 		evaluation.setGoal(goal);
 		evaluation.setName(goal.getName() + getSettings().getSuffix());
 		
-		ValueExpressionEvaluation conditionEvaluation = getGoalExpressionEvaluator().evaluate(goal.getCondition());
+		ValueExpressionEvaluation conditionEvaluation = getGoalExpressionEvaluator().doEvaluate(goal.getCondition());
 		Boolean success = GoalExpressionEvaluator.getBooleanOrNull(conditionEvaluation);
 		
 		if(conditionEvaluation instanceof BooleanExpressionEvaluation)
@@ -206,7 +211,7 @@ public class GoalModelEvaluator {
 		evaluation.setGoal(goal);
 		evaluation.setName(goal.getName() + getSettings().getSuffix());
 		
-		ValueExpressionEvaluation conditionEvaluation = getHardGoalConditionEvaluator().evaluate(goal.getCondition());
+		ValueExpressionEvaluation conditionEvaluation = getHardGoalConditionEvaluator().doEvaluate(goal.getCondition());
 		Boolean success = GoalExpressionEvaluator.getBooleanOrNull(conditionEvaluation);
 		
 		if(conditionEvaluation instanceof BooleanExpressionEvaluation)

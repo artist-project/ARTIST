@@ -414,4 +414,8 @@ public class ARTISTCommonRenderer implements ITextRenderer {
 	protected String render(ImportNamespace i) {
 		return i.getImportedNamespace();
 	}
+	
+	protected String render(String s) {
+		return s;
+	}
 }

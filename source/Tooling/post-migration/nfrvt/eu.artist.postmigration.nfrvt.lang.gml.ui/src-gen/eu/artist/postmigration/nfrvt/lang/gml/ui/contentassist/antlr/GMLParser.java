@@ -94,9 +94,8 @@ public class GMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAppliedQuantitativePropertyAccess().getGroup_10(), "rule__AppliedQuantitativeProperty__Group_10__0");
 					put(grammarAccess.getAppliedQuantitativePropertyAccess().getGroup_12(), "rule__AppliedQuantitativeProperty__Group_12__0");
 					put(grammarAccess.getSoftGoalAccess().getGroup(), "rule__SoftGoal__Group__0");
-					put(grammarAccess.getSoftGoalAccess().getGroup_15(), "rule__SoftGoal__Group_15__0");
-					put(grammarAccess.getSoftGoalAccess().getGroup_20(), "rule__SoftGoal__Group_20__0");
-					put(grammarAccess.getSoftGoalAccess().getGroup_20_4(), "rule__SoftGoal__Group_20_4__0");
+					put(grammarAccess.getSoftGoalAccess().getGroup_14(), "rule__SoftGoal__Group_14__0");
+					put(grammarAccess.getSoftGoalAccess().getGroup_14_4(), "rule__SoftGoal__Group_14_4__0");
 					put(grammarAccess.getSoftGoalImpactAccess().getGroup(), "rule__SoftGoalImpact__Group__0");
 					put(grammarAccess.getHardGoalAccess().getGroup(), "rule__HardGoal__Group__0");
 					put(grammarAccess.getHardGoalAccess().getGroup_11(), "rule__HardGoal__Group_11__0");
@@ -206,11 +205,9 @@ public class GMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSoftGoalAccess().getKindAssignment_4(), "rule__SoftGoal__KindAssignment_4");
 					put(grammarAccess.getSoftGoalAccess().getPriorityAssignment_7(), "rule__SoftGoal__PriorityAssignment_7");
 					put(grammarAccess.getSoftGoalAccess().getPropertyAssignment_10(), "rule__SoftGoal__PropertyAssignment_10");
-					put(grammarAccess.getSoftGoalAccess().getContextAssignment_14(), "rule__SoftGoal__ContextAssignment_14");
-					put(grammarAccess.getSoftGoalAccess().getContextAssignment_15_1(), "rule__SoftGoal__ContextAssignment_15_1");
-					put(grammarAccess.getSoftGoalAccess().getThresholdAssignment_19(), "rule__SoftGoal__ThresholdAssignment_19");
-					put(grammarAccess.getSoftGoalAccess().getImpactsAssignment_20_3(), "rule__SoftGoal__ImpactsAssignment_20_3");
-					put(grammarAccess.getSoftGoalAccess().getImpactsAssignment_20_4_1(), "rule__SoftGoal__ImpactsAssignment_20_4_1");
+					put(grammarAccess.getSoftGoalAccess().getThresholdAssignment_13(), "rule__SoftGoal__ThresholdAssignment_13");
+					put(grammarAccess.getSoftGoalAccess().getImpactsAssignment_14_3(), "rule__SoftGoal__ImpactsAssignment_14_3");
+					put(grammarAccess.getSoftGoalAccess().getImpactsAssignment_14_4_1(), "rule__SoftGoal__ImpactsAssignment_14_4_1");
 					put(grammarAccess.getSoftGoalImpactAccess().getTargetAssignment_0(), "rule__SoftGoalImpact__TargetAssignment_0");
 					put(grammarAccess.getSoftGoalImpactAccess().getImpactAssignment_1(), "rule__SoftGoalImpact__ImpactAssignment_1");
 					put(grammarAccess.getHardGoalAccess().getNameAssignment_1(), "rule__HardGoal__NameAssignment_1");

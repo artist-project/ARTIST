@@ -45,6 +45,14 @@ Functionality expected in next versions
 - Feedback (comments, ratings)
 
 
+Documentation
+-------------
+
+Installation instructions (Section 3.2.1 and 3.2.2), user manual (section 3.3.1) and API documentation 
+(appendix A-C) can be found in the ARTIST deliverable D10.3.1 "Repository Prototype" soon to be available 
+at http://www.artist-project.eu/documents.
+
+
 Known issues of this version
 ----------------------------
 

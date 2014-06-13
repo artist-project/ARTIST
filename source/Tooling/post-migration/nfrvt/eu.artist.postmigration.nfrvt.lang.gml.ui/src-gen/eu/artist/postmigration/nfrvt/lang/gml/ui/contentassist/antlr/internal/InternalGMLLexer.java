@@ -1489,10 +1489,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_EBOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15686:15: ( ( 'true' | 'false' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15686:17: ( 'true' | 'false' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15391:15: ( ( 'true' | 'false' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15391:17: ( 'true' | 'false' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15686:17: ( 'true' | 'false' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15391:17: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1510,7 +1510,7 @@ public class InternalGMLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15686:18: 'true'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15391:18: 'true'
                     {
                     match("true"); 
 
@@ -1518,7 +1518,7 @@ public class InternalGMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15686:25: 'false'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15391:25: 'false'
                     {
                     match("false"); 
 
@@ -1544,8 +1544,8 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_NULL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15688:11: ( 'null' )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15688:13: 'null'
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15393:11: ( 'null' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15393:13: 'null'
             {
             match("null"); 
 
@@ -1565,10 +1565,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15690:10: ( ( '0' .. '9' )+ )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15690:12: ( '0' .. '9' )+
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15395:10: ( ( '0' .. '9' )+ )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15395:12: ( '0' .. '9' )+
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15690:12: ( '0' .. '9' )+
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15395:12: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -1582,7 +1582,7 @@ public class InternalGMLLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15690:13: '0' .. '9'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15395:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1614,10 +1614,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_POSITIVE_SMALL_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:29: ( ( '1' ( '.' ( '0' )+ )? | '0' ( '.' ( '0' .. '9' )+ )? | '.' ( '0' .. '9' )+ ) )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:31: ( '1' ( '.' ( '0' )+ )? | '0' ( '.' ( '0' .. '9' )+ )? | '.' ( '0' .. '9' )+ )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:29: ( ( '1' ( '.' ( '0' )+ )? | '0' ( '.' ( '0' .. '9' )+ )? | '.' ( '0' .. '9' )+ ) )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:31: ( '1' ( '.' ( '0' )+ )? | '0' ( '.' ( '0' .. '9' )+ )? | '.' ( '0' .. '9' )+ )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:31: ( '1' ( '.' ( '0' )+ )? | '0' ( '.' ( '0' .. '9' )+ )? | '.' ( '0' .. '9' )+ )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:31: ( '1' ( '.' ( '0' )+ )? | '0' ( '.' ( '0' .. '9' )+ )? | '.' ( '0' .. '9' )+ )
             int alt8=3;
             switch ( input.LA(1) ) {
             case '1':
@@ -1644,10 +1644,10 @@ public class InternalGMLLexer extends Lexer {
 
             switch (alt8) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:32: '1' ( '.' ( '0' )+ )?
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:32: '1' ( '.' ( '0' )+ )?
                     {
                     match('1'); 
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:36: ( '.' ( '0' )+ )?
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:36: ( '.' ( '0' )+ )?
                     int alt4=2;
                     int LA4_0 = input.LA(1);
 
@@ -1656,10 +1656,10 @@ public class InternalGMLLexer extends Lexer {
                     }
                     switch (alt4) {
                         case 1 :
-                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:37: '.' ( '0' )+
+                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:37: '.' ( '0' )+
                             {
                             match('.'); 
-                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:41: ( '0' )+
+                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:41: ( '0' )+
                             int cnt3=0;
                             loop3:
                             do {
@@ -1673,7 +1673,7 @@ public class InternalGMLLexer extends Lexer {
 
                                 switch (alt3) {
                             	case 1 :
-                            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:41: '0'
+                            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:41: '0'
                             	    {
                             	    match('0'); 
 
@@ -1699,10 +1699,10 @@ public class InternalGMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:48: '0' ( '.' ( '0' .. '9' )+ )?
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:48: '0' ( '.' ( '0' .. '9' )+ )?
                     {
                     match('0'); 
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:52: ( '.' ( '0' .. '9' )+ )?
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:52: ( '.' ( '0' .. '9' )+ )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -1711,10 +1711,10 @@ public class InternalGMLLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:53: '.' ( '0' .. '9' )+
+                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:53: '.' ( '0' .. '9' )+
                             {
                             match('.'); 
-                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:57: ( '0' .. '9' )+
+                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:57: ( '0' .. '9' )+
                             int cnt5=0;
                             loop5:
                             do {
@@ -1728,7 +1728,7 @@ public class InternalGMLLexer extends Lexer {
 
                                 switch (alt5) {
                             	case 1 :
-                            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:58: '0' .. '9'
+                            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:58: '0' .. '9'
                             	    {
                             	    matchRange('0','9'); 
 
@@ -1754,10 +1754,10 @@ public class InternalGMLLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:71: '.' ( '0' .. '9' )+
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:71: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:75: ( '0' .. '9' )+
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:75: ( '0' .. '9' )+
                     int cnt7=0;
                     loop7:
                     do {
@@ -1771,7 +1771,7 @@ public class InternalGMLLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15692:76: '0' .. '9'
+                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15397:76: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1809,10 +1809,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_SMALL_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15694:20: ( ( '+' | '-' )? RULE_POSITIVE_SMALL_DECIMAL )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15694:22: ( '+' | '-' )? RULE_POSITIVE_SMALL_DECIMAL
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15399:20: ( ( '+' | '-' )? RULE_POSITIVE_SMALL_DECIMAL )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15399:22: ( '+' | '-' )? RULE_POSITIVE_SMALL_DECIMAL
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15694:22: ( '+' | '-' )?
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15399:22: ( '+' | '-' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1855,10 +1855,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_EBIGDECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:18: ( ( '+' | '-' )? ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT ) )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:20: ( '+' | '-' )? ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:18: ( ( '+' | '-' )? ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT ) )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:20: ( '+' | '-' )? ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:20: ( '+' | '-' )?
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:20: ( '+' | '-' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1884,19 +1884,19 @@ public class InternalGMLLexer extends Lexer {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:31: ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:31: ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT )
             int alt11=3;
             alt11 = dfa11.predict(input);
             switch (alt11) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:32: RULE_INT
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:32: RULE_INT
                     {
                     mRULE_INT(); 
 
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:41: '.' RULE_INT
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:41: '.' RULE_INT
                     {
                     match('.'); 
                     mRULE_INT(); 
@@ -1904,7 +1904,7 @@ public class InternalGMLLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15696:54: RULE_INT '.' RULE_INT
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15401:54: RULE_INT '.' RULE_INT
                     {
                     mRULE_INT(); 
                     match('.'); 
@@ -1931,10 +1931,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )* )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )*
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )* )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )*
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:11: ( '^' )?
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:11: ( '^' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1943,7 +1943,7 @@ public class InternalGMLLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:11: '^'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:11: '^'
                     {
                     match('^'); 
 
@@ -1952,7 +1952,7 @@ public class InternalGMLLexer extends Lexer {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )
             int alt13=13;
             switch ( input.LA(1) ) {
             case 'a':
@@ -2079,91 +2079,91 @@ public class InternalGMLLexer extends Lexer {
 
             switch (alt13) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:17: 'a' .. 'z'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:17: 'a' .. 'z'
                     {
                     matchRange('a','z'); 
 
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:26: 'A' .. 'Z'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:26: 'A' .. 'Z'
                     {
                     matchRange('A','Z'); 
 
                     }
                     break;
                 case 3 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:35: '_'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:35: '_'
                     {
                     match('_'); 
 
                     }
                     break;
                 case 4 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:39: '+'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:39: '+'
                     {
                     match('+'); 
 
                     }
                     break;
                 case 5 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:43: '-'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:43: '-'
                     {
                     match('-'); 
 
                     }
                     break;
                 case 6 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:47: '%'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:47: '%'
                     {
                     match('%'); 
 
                     }
                     break;
                 case 7 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:51: '*'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:51: '*'
                     {
                     match('*'); 
 
                     }
                     break;
                 case 8 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:55: '/'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:55: '/'
                     {
                     match('/'); 
 
                     }
                     break;
                 case 9 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:59: '#'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:59: '#'
                     {
                     match('#'); 
 
                     }
                     break;
                 case 10 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:63: '>'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:63: '>'
                     {
                     match('>'); 
 
                     }
                     break;
                 case 11 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:67: '<'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:67: '<'
                     {
                     match('<'); 
 
                     }
                     break;
                 case 12 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:71: '='
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:71: '='
                     {
                     match('='); 
 
                     }
                     break;
                 case 13 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:75: '\\u00C2\\u00A7'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:75: '\\u00C2\\u00A7'
                     {
                     match("\u00C2\u00A7"); 
 
@@ -2173,105 +2173,105 @@ public class InternalGMLLexer extends Lexer {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:91: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )*
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:91: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )*
             loop14:
             do {
                 int alt14=15;
                 alt14 = dfa14.predict(input);
                 switch (alt14) {
             	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:92: 'a' .. 'z'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:92: 'a' .. 'z'
             	    {
             	    matchRange('a','z'); 
 
             	    }
             	    break;
             	case 2 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:101: 'A' .. 'Z'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:101: 'A' .. 'Z'
             	    {
             	    matchRange('A','Z'); 
 
             	    }
             	    break;
             	case 3 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:110: '_'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:110: '_'
             	    {
             	    match('_'); 
 
             	    }
             	    break;
             	case 4 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:114: '0' .. '9'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:114: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
             	    }
             	    break;
             	case 5 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:123: '+'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:123: '+'
             	    {
             	    match('+'); 
 
             	    }
             	    break;
             	case 6 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:127: '-'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:127: '-'
             	    {
             	    match('-'); 
 
             	    }
             	    break;
             	case 7 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:131: '%'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:131: '%'
             	    {
             	    match('%'); 
 
             	    }
             	    break;
             	case 8 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:135: '*'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:135: '*'
             	    {
             	    match('*'); 
 
             	    }
             	    break;
             	case 9 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:139: '/'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:139: '/'
             	    {
             	    match('/'); 
 
             	    }
             	    break;
             	case 10 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:143: '#'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:143: '#'
             	    {
             	    match('#'); 
 
             	    }
             	    break;
             	case 11 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:147: '>'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:147: '>'
             	    {
             	    match('>'); 
 
             	    }
             	    break;
             	case 12 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:151: '<'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:151: '<'
             	    {
             	    match('<'); 
 
             	    }
             	    break;
             	case 13 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:155: '='
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:155: '='
             	    {
             	    match('='); 
 
             	    }
             	    break;
             	case 14 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15698:159: '\\u00C2\\u00A7'
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15403:159: '\\u00C2\\u00A7'
             	    {
             	    match("\u00C2\u00A7"); 
 
@@ -2300,10 +2300,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2321,10 +2321,10 @@ public class InternalGMLLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop15:
                     do {
                         int alt15=3;
@@ -2340,7 +2340,7 @@ public class InternalGMLLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2356,7 +2356,7 @@ public class InternalGMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2381,10 +2381,10 @@ public class InternalGMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop16:
                     do {
                         int alt16=3;
@@ -2400,7 +2400,7 @@ public class InternalGMLLexer extends Lexer {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2416,7 +2416,7 @@ public class InternalGMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15700:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15405:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2459,12 +2459,12 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15702:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15702:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15407:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15407:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15702:24: ( options {greedy=false; } : . )*
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15407:24: ( options {greedy=false; } : . )*
             loop18:
             do {
                 int alt18=2;
@@ -2489,7 +2489,7 @@ public class InternalGMLLexer extends Lexer {
 
                 switch (alt18) {
             	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15702:52: .
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15407:52: .
             	    {
             	    matchAny(); 
 
@@ -2519,12 +2519,12 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop19:
             do {
                 int alt19=2;
@@ -2537,7 +2537,7 @@ public class InternalGMLLexer extends Lexer {
 
                 switch (alt19) {
             	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2557,7 +2557,7 @@ public class InternalGMLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:40: ( ( '\\r' )? '\\n' )?
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:40: ( ( '\\r' )? '\\n' )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -2566,9 +2566,9 @@ public class InternalGMLLexer extends Lexer {
             }
             switch (alt21) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:41: ( '\\r' )? '\\n'
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:41: ( '\\r' )? '\\n'
                     {
-                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:41: ( '\\r' )?
+                    // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:41: ( '\\r' )?
                     int alt20=2;
                     int LA20_0 = input.LA(1);
 
@@ -2577,7 +2577,7 @@ public class InternalGMLLexer extends Lexer {
                     }
                     switch (alt20) {
                         case 1 :
-                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15704:41: '\\r'
+                            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15409:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2609,10 +2609,10 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15706:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15706:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15411:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15411:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15706:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15411:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt22=0;
             loop22:
             do {
@@ -2666,8 +2666,8 @@ public class InternalGMLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15708:16: ( . )
-            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15708:18: .
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15413:16: ( . )
+            // ../eu.artist.postmigration.nfrvt.lang.gml.ui/src-gen/eu/artist/postmigration/nfrvt/lang/gml/ui/contentassist/antlr/internal/InternalGML.g:15413:18: .
             {
             matchAny(); 
 
@@ -3291,7 +3291,7 @@ public class InternalGMLLexer extends Lexer {
             this.transition = DFA11_transition;
         }
         public String getDescription() {
-            return "15696:31: ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT )";
+            return "15401:31: ( RULE_INT | '.' RULE_INT | RULE_INT '.' RULE_INT )";
         }
     }
     static final String DFA14_eotS =
@@ -3358,7 +3358,7 @@ public class InternalGMLLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "()* loopback of 15698:91: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )*";
+            return "()* loopback of 15403:91: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '+' | '-' | '%' | '*' | '/' | '#' | '>' | '<' | '=' | '\\u00C2\\u00A7' )*";
         }
     }
     static final String DFA23_eotS =
