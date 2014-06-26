@@ -98,7 +98,7 @@ class CloudProviderBase(CloudProviderInterface):
         self.install_benchmark(benchmark)
         self.execute_benchmark(benchmark)
         
-    def _execute_script(self, script, ip_addr, user, key_path, deploy_loc):
+    def _execute_script(self, script, ip_addr, user, key_path, deploy_loc,password=None):
         
         logger.debug("Executing script: {0}".format(script))
         
@@ -110,7 +110,12 @@ class CloudProviderBase(CloudProviderInterface):
         ssh=paramiko.SSHClient()
         ssh.load_system_host_keys()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())        
-        ssh.connect(ip_addr, port=22, username=user, 
+        
+        if password:
+             ssh.connect(ip_addr, port=22, username=user, 
+                    password=password,timeout=300)
+        else:
+            ssh.connect(ip_addr, port=22, username=user, 
                     key_filename=key_path,timeout=300)
         
         #put script on the vm
