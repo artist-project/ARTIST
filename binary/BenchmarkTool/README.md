@@ -1,5 +1,5 @@
 What the distribution package contains:
-==================
+===================
 
 -- Benchmark Tool Source code
 
