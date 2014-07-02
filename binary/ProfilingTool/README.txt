@@ -102,7 +102,7 @@ Download the executable file: https://github.com/artist-project/ARTIST/blob/mast
 	 (download link: https://github.com/artist-project/ARTIST/blob/master/binary/ProfilingTool/Filebench_Arch64_CentOS.tar.gz)
 	b)Navigate to the download directory and type: tar -zxvf Filebench_Arch64_CentOS.tar.gz -C /home/[user_name]	
 	  (Later on, during the benchmark profiling make sure that this user_name will be used as the VM user when requested)
-	c)Navigate to the extracted /home/user_name/Filebench_Arch64_CentOS directory and run: ./Filebench_Installation_1
+	c)Navigate to the extracted /home/user_name/Filebench_Arch64_CentOS directory and run: sudo ./Filebench_Installation_1
 	d)Copy the file: filebench_commands.txt to the physical machine
 	 (Later on, during the benchmark profiling make sure that this file will be used as the input file when requested)
 	Filebench includes 6 workloads the execution of which will last 30 minutes each.
