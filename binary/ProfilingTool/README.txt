@@ -87,8 +87,23 @@ For running the profiling tool three machines will be needed.
 2.3 Configuring the Benchmark VM (3)
 	-CentOS 64-bit V6.5 Server
 	-Install SSH
+	-Install Oracle Java(not OpenJDK)-Installation instructions in http://d.stavrovski.net/blog/post/how-to-install-and-setup-oracle-java-jdk-in-centos-6
 	-Check in the /etc/sudoers file that the line: "Default requiretty" does not exist, or comment it if exists
-	-Follow the installation instructions of each benchmark. 
+	-Follow the installation instructions of each benchmark . 
+
+2.4 Installation Instructions for Benchmakrs
+	
+	2.4.1 Filebench
+
+	a)Download Filebench_Arch64_CentOS.tar.gz and store in a directory inside the Benchmark VM.
+	b)Navigate to the download directory and type: tar -zxvf Filebench_Arch64_CentOS.tar.gz -C /home/[user_name]	
+	  (Later on, during the benchmark profiling make sure that this user_name will be used as the VM user when requested)
+	c)Navigate to the extracted /home/user_name/Filebench_Arch64_CentOS directory and run: ./Filebench_Installation_1
+	d)Copy the file: filebench_commands.txt to the physical machine
+	 (Later on, during the benchmark profiling make sure that this file will be used as the input file when requested)
+	Filebench includes 6 workloads the execution of which will last 30 minutes each.
+	
+	
 	
 *********************************************************************************
 *********************************************************************************
@@ -169,7 +184,7 @@ executed command has been terminated with exit value 0. For other errors see the
 
 	Pidstat results: Pidstat results are stored in a tab separated values file named pidstat.txt which contains the average values calculated for the whole 
 execution period. The 15 values displayed are for the corresponding pidstat output metrics which are (in the same order as provided in the results):
-%user, %system, %guest, %CPU, CPU, kB_rd/s, kB_wr/s, kB_ccwr/s, minflt/s, majflt/s, VSZ Virtual Size, RSS, %MEM, cswch/s, nvcswch/s
+%user, %system, %guest, %CPU, CPU,  minflt/s, majflt/s, VSZ Virtual Size, RSS, %MEM,kB_rd/s, kB_wr/s, kB_ccwr/s, cswch/s, nvcswch/s
 
 	TShark results: TShark results are stored in a tab separated values file named TShark.txt which contains values for: number of packets, data byte rate 
 (bytes/s), average packet size (bytes), average packet rate (packets/s). Should be noted that TShark.txt contains two rows of results for each workload. 
@@ -187,9 +202,10 @@ executions before the current execution, or change the path of the workspace. Ot
 	a.Make sure that the benchmark VM is up and running.
 	b.Find the PID of the benchmark VM (Open a terminal on the physical machine and type: ps aux|grep "name of the vm" )
 	c.Find the IP of the benchmark VM
-	d.Create a directory which will be used to store the commands, from now on referred to as workspace.
+	d.On the physical host create a directory which will be used to store the commands, from now on referred to as workspace.
 	e.Inside workspace create a folder named "tmp"
-	f.Download the ProfilingTool.jar file and store it in a directory from now on referred to as installation_dir.
+	f.On the physical host download the ProfilingTool.jar file and store it in a directory from now on referred to as installation_dir.
+	g.Make sure that the input file (see installation instructions of benchmarks) for the benchmark to be used exists in the physical host.
 	
 	3.2.2 Execution (with graphical user interface):
 	
@@ -216,7 +232,7 @@ executions before the current execution, or change the path of the workspace. Ot
 
 	Benchmark Info Group:
 		-VM IP: The IP of the Benchmark VM (used for the ssh command)
-		-VM user: The user for the SSH command
+		-VM user: The user for the SSH command 
 		-Input File: The input file containing the commands for the workload execution.
 		-password: Password for the user used for the SSH command
 		-root password: Password for running commands under root  privileges (in the Benchmark VM)
@@ -258,7 +274,7 @@ executed command has been terminated with exit value 0.
 Pidstat results: Pidstat results are stored in a tab separated values file named pidstat.txt which 
 contains the average values calculated for the whole execution period. The 15 values displayed are 
 for the corresponding pidstat output metrics which are (in the same order as provided in the results):
-%user, %system, %guest, %CPU, CPU, kB_rd/s, kB_wr/s, kB_ccwr/s, minflt/s, majflt/s, VSZ Virtual Size, RSS, %MEM, cswch/s, nvcswch/s
+%user, %system, %guest, %CPU, CPU, minflt/s, majflt/s, VSZ Virtual Size, RSS, %MEM,kB_rd/s, kB_wr/s, kB_ccwr/s, cswch/s, nvcswch/s
 
 TShark results: TShark results are stored in a tab separated values file named TShark.txt which 
 contains values for: 
