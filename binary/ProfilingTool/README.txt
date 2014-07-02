@@ -37,6 +37,8 @@ Table of Contents
 	2.1 Configuring the physical machine
 	2.2 Configuring the Application VM
 	2.3 Configuring the Benchmark VM (**Pending: installation instructions for the benchmarks)
+	2.4 Installation Instructions for Benchmakrs
+		2.4.1 Filebench
 3 User Manual
 	3.1 Profiling the Application VM
 		3.1.1 Preparation
