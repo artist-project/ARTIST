@@ -66,6 +66,7 @@ For running the profiling tool three machines will be needed.
 2) A virtual machine running on (1) configured to host one or more components of your application
 3) A virtual machine running on (1) configured to host benchmark tests 
 
+Download the executable file: https://github.com/artist-project/ARTIST/blob/master/binary/ProfilingTool/ProfilingTool.jar
 
 *********************************************************************************
 *********************************************************************************
@@ -98,6 +99,7 @@ For running the profiling tool three machines will be needed.
 	2.4.1 Filebench
 
 	a)Download Filebench_Arch64_CentOS.tar.gz and store in a directory inside the Benchmark VM.
+	 (download link: https://github.com/artist-project/ARTIST/blob/master/binary/ProfilingTool/Filebench_Arch64_CentOS.tar.gz)
 	b)Navigate to the download directory and type: tar -zxvf Filebench_Arch64_CentOS.tar.gz -C /home/[user_name]	
 	  (Later on, during the benchmark profiling make sure that this user_name will be used as the VM user when requested)
 	c)Navigate to the extracted /home/user_name/Filebench_Arch64_CentOS directory and run: ./Filebench_Installation_1
