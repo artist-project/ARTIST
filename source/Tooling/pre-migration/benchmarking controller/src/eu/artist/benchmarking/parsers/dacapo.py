@@ -46,14 +46,17 @@ class DaCapoParser(object):
 
     def parse_results(self, results, cp, benchmark):
             data = self.__workload_parser(results)
-            print data[0]
+            print data
             a = benchmark.workload_name
             b = benchmark.tipology
             wn = a + b
-            database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,data[0],
+            database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,data,
                               None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None)
                           
     def __workload_parser(self, results):
         h = results
-        z= re.findall('\s[0-9]+\s',h)
-        return z                     
+        z= re.findall('PASSED in\s[0-9]+\s',h)
+        lines=[x.split() for x in z]
+        f= lines[0][2]
+        #z= re.findall('\s[0-9]+\s',h)
+        return f                     
