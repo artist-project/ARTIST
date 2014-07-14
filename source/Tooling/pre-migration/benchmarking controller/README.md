@@ -20,7 +20,7 @@ What the Benchmark tool is about
 Functionalities included in this version
 ----
 
--- 	Creation/Distruction of instances on four different cloud providers (Amazon EC2, Trystack, oVirt, Flexiant)
+-- 	Creation/Distruction of instances on five different cloud providers (Amazon EC2, Trystack, oVirt, Flexiant, Azure)
 
 -- Execution of existing performance workload
 - DaCapo tool for java-based applications
@@ -44,7 +44,7 @@ Functionality expected in next versions
 ----
 -- Integration with GUI interface
 
--- Implementation of more Cloud Providers connectors (GAE and Azure)
+-- Implementation of more Cloud Providers connectors (e.g.,GAE)
 
 Reference to the user/installation manual
 ----
