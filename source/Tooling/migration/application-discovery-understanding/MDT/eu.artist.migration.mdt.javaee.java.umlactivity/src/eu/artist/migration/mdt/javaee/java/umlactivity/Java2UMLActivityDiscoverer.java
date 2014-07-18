@@ -19,8 +19,8 @@ import java.util.HashMap;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.gmt.modisco.infra.common.core.logging.MoDiscoLogger;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.m2m.atl.core.IInjector;
 import org.eclipse.m2m.atl.core.IModel;
@@ -79,15 +79,15 @@ public class Java2UMLActivityDiscoverer extends AbstractModelDiscoverer<IFile>{
 				Java2UMLActivityDiscoverer.class.getResource("resources/JavaMethods2UMLActivityDiagram-onlyCFG.asm").openStream());
 			
 			Resource umlOutput = UMLResourceFactoryImpl.INSTANCE.createResource(getTargetURI());
-//			umlOutput.getContents().add((EObject) umlModel.getElementsByType(umlMetamodel.getMetaElementByName("Model")).iterator().next());
 			EMFModel umlEMFModel = (EMFModel) umlModel;
 			umlOutput.getContents().addAll(umlEMFModel.getResource().getContents());
 			this.setTargetModel(umlOutput);
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			MoDiscoLogger.logError(e, e.getMessage(), Activator.getDefault());
 			e.printStackTrace();
 		} catch (ATLCoreException e) {
-			// TODO Auto-generated catch block
+			MoDiscoLogger.logError(e, e.getMessage(), Activator.getDefault());
 			e.printStackTrace();
 		}
 
