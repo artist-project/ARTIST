@@ -10,12 +10,49 @@
 -- 
 -- Contributors: 
 -- 	INRIA - Initial implementation
---  authors: Guillaume Doux (guillaume.doux at inria.fr) 
---			 Matthieu Allon (matthieu.allon at gmail.com)
--- Initially developed in the context of ARTIST EU project www.artist-project.eu
+--  authors: - Matthieu Allon (matthieu.allon at inria.fr)
+--           - Guillaume Doux (guillaume.doux at inria.fr) 
+--
 -- ******************************************************************************
 
 library java2UMLHelpers;
+
+--***************JAVA!AllInstances***************
+helper def: getParamType : Sequence(JAVA!ParameterizedType) =
+	JAVA!ParameterizedType.allInstancesFrom('IN')
+;
+
+helper context OclAny def: getExternalElements : Sequence(JAVA!NamedElement) =
+	JAVA!Package.allInstancesFrom('IN')
+		-> select(pack | pack.getPackage.oclIsUndefined())
+	-> union(
+		JAVA!TypeParameter.allInstancesFrom('IN')
+			-> reject(param | param.originalCompilationUnit.oclIsUndefined())
+			-> reject(param | param.originalCompilationUnit.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!ArrayType.allInstancesFrom('IN')
+			-> select(array | array.elementType.type.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!UnresolvedTypeDeclaration.allInstancesFrom('IN')
+			-> select(uTD | uTD.usagesInTypeAccess -> notEmpty()
+							and not
+							(uTD.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uTD.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+	-> union(
+		JAVA!UnresolvedItem.allInstancesFrom('IN')
+			-> select(uI | uI.usagesInImports -> notEmpty()
+							and not
+							(uI.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uI.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+;
 
 --***************JAVA!X sequences***************
 
@@ -49,7 +86,15 @@ helper context JAVA!ASTNode def: getQualifier : String =
 	if (not self.qualifier.oclIsUndefined())then
 		self.qualifier.getQualifier+'.'
 	else '' endif
-	+ self.package.name
+	+ 	if (not self.oclIsKindOf(JAVA!UnresolvedItem) and not self.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+			self.package.name
+		else 
+			if(self.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+				self.element.name
+			else 	
+				''
+			endif
+		endif
 ;
 
 ---Return empty string when there are no values for an annotation
@@ -252,7 +297,20 @@ helper context JAVA!UnresolvedItem def: getCorrespondingImportDec : Sequence(JAV
 	JAVA!ImportDeclaration.allInstancesFrom('IN')
 		-> select(import | 	import.importedElement.name = self.name)
 ;
-		
+
+---Return the containing anonymous class
+helper context JAVA!ASTNode def : getAnnonymousClass : JAVA!AnonymousClassDeclaration =
+	if(self.refImmediateComposite().oclIsKindOf(JAVA!AnonymousClassDeclaration))then
+		self.refImmediateComposite()
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!Model))then
+			OclUndefined
+		else
+			self.refImmediateComposite().getAnnonymousClass
+		endif	
+	endif
+	;
+
 --ImportDeclaration
 ---Get the super class (Extends)
 helper context JAVA!ClassDeclaration def: getSuperClass : JAVA!ClassDeclaration =
@@ -471,7 +529,11 @@ helper context JAVA!FieldDeclaration def: isAParameter : Boolean =
 			if (self.getFieldName = 'classFiveTest') then self else false endif
 		endif	
 	endif;							
-							
+
+helper context JAVA!AbstractTypeDeclaration def: isTypeDec : Boolean =
+	self.oclIsKindOf(JAVA!TypeDeclaration)
+;	
+
 --***************Methods***************
 ---Get the java method return type
 helper context JAVA!MethodDeclaration def: getReturnType : JAVA!NamedElement =
@@ -502,14 +564,22 @@ helper context JAVA!MethodDeclaration def: getMethodVisibility : JAVA!Visibility
 	endif;
 
 ---Get the java package of the element
-helper context JAVA!NamedElement def: getPackage : JAVA!Package =
-	if self.oclIsKindOf(JAVA!Package)
-		then self
-		else if self.refImmediateComposite().oclIsKindOf(JAVA!Model)
-				then OclUndefined
-				else self.refImmediateComposite().getPackage
-			endif
-	endif;
+helper context JAVA!ASTNode def: getPackage : JAVA!Package =
+	if (self.oclIsTypeOf(JAVA!Model) or self.refImmediateComposite().oclIsTypeOf(JAVA!Model)
+			or self.refImmediateComposite().oclIsUndefined()) then
+		OclUndefined
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!Package))then
+			self.refImmediateComposite()
+		else
+			self.refImmediateComposite().getPackage
+		endif
+	endif	
+;	
+
+helper def: getPackageOfPackage(pack : JAVA!Package) : JAVA!Package =
+	pack.getPackage
+;
 
 --***************Types***************
 ---Test if an attribute is a kind of java primitive wrapper
@@ -522,3 +592,71 @@ helper context JAVA!FieldDeclaration def: isJavaPrimitiveWrapper : Boolean =
 	or self.getFieldType.name = 'Float'
 	or self.getFieldType.name = 'Boolean'
 	or self.getFieldType.name = 'Byte';
+
+--***************Packages***************
+
+helper context JAVA!Package def: getPackSameName : Sequence(JAVA!Package) =
+	JAVA!Package.allInstancesFrom('IN')
+				-> select(pack | pack.getPackName = self.getPackName
+				)
+;
+
+helper context JAVA!Package def: getPackName : String =
+	self.name + 
+	if (not self.package.oclIsUndefined())then
+		self.package.getPackName
+	else '' endif
+;
+
+helper context JAVA!Package def: isDupBugModisco : Boolean =
+	self.getPackSameName
+		-> select(pack | pack.ownedElements = self.ownedElements)
+		-> size() > 1
+;
+
+helper context JAVA!Package def: getFirstDupBugModisco : JAVA!Package =
+--	self.getPackSameName
+	self.getPackSameName
+		-> select(pack | pack.ownedElements = self.ownedElements)
+		-> first()
+;
+
+helper context JAVA!Package def: isFirstDupBugModisco : Boolean =
+	self.isDupBugModisco
+	and 
+	self.getPackSameName
+		-> select(pack | pack.ownedElements = self.ownedElements)
+		-> indexOf(self) = 1
+;	
+
+helper context JAVA!Package def: getSamePackfeature : Sequence(JAVA!AbstractTypeDeclaration) =
+	self.getPackSameName
+		-- -> reject(pack | self.getPackSameName.indexOf(pack) = 1)
+		-> reject(pack | self = pack)
+		-> collect(pack | pack.ownedElements
+							-> union(
+									pack.ownedElements
+										-> select(aTDec | not aTDec.originalCompilationUnit.oclIsUndefined())
+										-> collect(aTDec | aTDec.originalCompilationUnit.imports)
+										-> flatten()
+							)
+		)
+		-> flatten()
+;
+
+helper context JAVA!Package def: getOwnNestedPackWithoutDup : Sequence(JAVA!Package) =
+	self.ownedPackages 
+		-> reject(pack | pack.isDupBugModisco
+						 and not pack.isFirstDupBugModisco
+		) 
+;
+
+helper context JAVA!Package def: getSamePackNestedPack : Sequence(JAVA!Package) =
+	self.getPackSameName
+		-> reject(pack | self = pack)
+		-> collect(pack | pack.ownedPackages)
+		-> flatten()
+		-> reject(pack | pack.isDupBugModisco
+				 		 and not pack.isFirstDupBugModisco
+		)
+;

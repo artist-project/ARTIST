@@ -1,4 +1,3 @@
---- @atlcompiler atl2010
 
 -- @nsURI UML=http://www.eclipse.org/uml2/4.0.0/UML
 -- @nsURI JAVA=http://www.eclipse.org/MoDisco/Java/0.2.incubation/java
@@ -12,9 +11,9 @@
 -- 
 -- Contributors: 
 -- 	INRIA - Initial implementation
---  authors: Guillaume Doux (guillaume.doux at inria.fr) 
---			 Matthieu Allon (matthieu.allon at gmail.com)
--- Initially developed in the context of ARTIST EU project www.artist-project.eu
+--  authors: - Matthieu Allon (matthieu.allon at inria.fr)
+--           - Guillaume Doux (guillaume.doux at inria.fr) 
+--
 -- ******************************************************************************
 
 module java2UML;
@@ -79,10 +78,11 @@ rule JModelRootToUmlModelRoot {
 	to 
 		umlModelRoot : UML!Model (
 				name <- 'root model', 
-				packagedElement <- Sequence{if ((jModelRoot.ownedElements -> select(elem | elem.proxy)) -> notEmpty()) then
-												thisModule.createMainModel(jModelRoot) 
+				packagedElement <- Sequence{if ((jModelRoot.ownedElements -> select(elem | elem.proxy)) -> notEmpty()
+												or jModelRoot.orphanTypes -> notEmpty()) then
+												thisModule.createMainModel(jModelRoot)
 											else OclUndefined endif,
-											if ((jModelRoot.ownedElements -> select(elem | elem.proxy)) -> notEmpty()) then
+											if (thisModule.getExternalElements -> notEmpty()) then
 												thisModule.createExternalsModel(jModelRoot) 
 											else OclUndefined endif,
 											if (jModelRoot.compilationUnits -> notEmpty()) then
@@ -117,11 +117,7 @@ unique lazy rule createMainModel {
 											else Sequence{} endif	
 									)
 									.append(
-											if (jModel.orphanTypes -> notEmpty()
-												and 
-												jModel.orphanTypes -> select(elem | elem.oclIsKindOf(JAVA!PrimitiveType)) 
-												-> notEmpty()
-												) then
+											if (thisModule.getParamType -> notEmpty()) then
 												thisModule.jDataTypePackToUmlDataTypePack(jModel)
 											else OclUndefined endif	
 									)->flatten()
@@ -135,7 +131,14 @@ unique lazy rule createSourceReferences {
 	to 
 		umlModel : UML!Model (
 				name <- 'sourcesReferences',
-				packagedElement <- jModel.compilationUnits
+				packagedElement <- jModel.compilationUnits 
+									-> union(jModel.compilationUnits
+												-> collect(compUnit | compUnit.imports
+																	  -> select(import | import.refImmediateComposite()
+																						 .oclIsKindOf(JAVA!CompilationUnit)
+																	  )
+												)	
+									)
 		)
 }
 
@@ -163,10 +166,13 @@ rule JPackageToUmlPackageNotDup {
 														then OclUndefined
 														else c.originalCompilationUnit.imports
 													endif )->flatten(),
-				nestingPackage <- if jPackage.package.oclIsUndefined()
+				nestingPackage <- if jPackage.getPackage.oclIsUndefined()
 									then thisModule.createMainModel(jPackage.refImmediateComposite())
-									else jPackage.package
-								endif
+									else jPackage.getPackage
+								endif,
+				ownedComment <- jPackage.ownedElements
+									-> select(elem | elem.oclIsKindOf(JAVA!AnnotationTypeDeclaration))
+									-> collect(annot | annot.annotations)
 		)		
 }
 
@@ -186,10 +192,13 @@ rule JPackageProxyToUmlPackageNotDup {
 		umlPackage : UML!Package (
 				name <- jPackage.name,
 				nestedPackage <- jPackage.ownedPackages,
-				nestingPackage <- if jPackage.package.oclIsUndefined()
+				nestingPackage <- if jPackage.getPackage.oclIsUndefined()
 									then thisModule.createExternalsModel(thisModule.jModelRoot)
-									else jPackage.package
-								endif
+									else jPackage.getPackage
+								endif,
+				ownedComment <- jPackage.ownedElements
+									-> select(elem | elem.oclIsKindOf(JAVA!AnnotationTypeDeclaration))
+									-> collect(annot | annot.annotations)
 		)		
 }
 
@@ -222,17 +231,20 @@ rule JPackageToUmlPackage {
 										-> union(
 											jPackage.getSamePackfeature
 										),
-				nestingPackage <- 	if jPackage.package.oclIsUndefined()
+				nestingPackage <- 	if jPackage.getPackage.oclIsUndefined()
 									then thisModule.createMainModel(jPackage.refImmediateComposite())
 									else 
-										if (not jPackage.package.isFirstDupBugModisco
-											and jPackage.package.isDupBugModisco		
+										if (not jPackage.getPackage.isFirstDupBugModisco
+											and jPackage.getPackage.isDupBugModisco		
 										) then
-											jPackage.package.getFirstDupBugModisco
+											jPackage.getPackage.getFirstDupBugModisco
 										else
-											jPackage.package
+											jPackage.getPackage
 										endif
-									endif
+									endif,
+				ownedComment <- jPackage.ownedElements
+									-> select(elem | elem.oclIsKindOf(JAVA!AnnotationTypeDeclaration))
+									-> collect(annot | annot.annotations)
 		)		
 }
 
@@ -253,17 +265,20 @@ rule JPackageProxyToUmlPackage {
 		umlPackage : UML!Package (
 				name <- jPackage.name,
 				nestedPackage <- jPackage.getOwnNestedPackWithoutDup -> union(jPackage.getSamePackNestedPack),
-				nestingPackage <-	if jPackage.package.oclIsUndefined() then
+				nestingPackage <-	if jPackage.getPackage.oclIsUndefined() then
 										thisModule.createMainModel(thisModule.jModelRoot)
 									else 
-										if (not jPackage.package.isFirstDupBugModisco
-											and jPackage.package.isDupBugModisco		
+										if (not jPackage.getPackage.isFirstDupBugModisco
+											and jPackage.getPackage.isDupBugModisco		
 										) then
-											jPackage.package.getFirstDupBugModisco
+											jPackage.getPackage.getFirstDupBugModisco
 										else
-											jPackage.package
+											jPackage.getPackage
 										endif
-									endif
+									endif,
+				ownedComment <- jPackage.ownedElements
+									-> select(elem | elem.oclIsKindOf(JAVA!AnnotationTypeDeclaration))
+									-> collect(annot | annot.annotations)
 		)		
 }
 
@@ -273,8 +288,7 @@ unique lazy rule jTypePackToUmlTypePack{
 		jModel : JAVA!Model
 	to 
 		umlPackage : UML!Package (
-				name <- 'Common java data types'
-				,
+				name <- 'Common java data types',
 				packagedElement <- 	jModel.orphanTypes -> select(elem | elem.oclIsKindOf(JAVA!PrimitiveType))
 		)		
 }
@@ -297,7 +311,8 @@ rule JCompilationUnitToUmlArtifact {
 	to 
 		umlArtifact : UML!Artifact (
 			name <- jCompUnit.name,
-			fileName <- jCompUnit.originalFilePath
+			fileName <- jCompUnit.originalFilePath,
+			clientDependency <- jCompUnit.imports
 		)	
 }
 
@@ -310,7 +325,8 @@ rule createDependency{
 		)
 	to 
 		umlDependency : UML!Dependency (		
-			name <- jImportDec.importedElement.name + '_OF_' + jImportDec.refImmediateComposite().name,
+			name <- jImportDec.importedElement.name + '_OF_' + jImportDec.refImmediateComposite().name
+			,
 			supplier <- if jImportDec.importedElement.oclIsKindOf(JAVA!VariableDeclarationFragment) then 
 							jImportDec.importedElement.originalCompilationUnit.types
 						else 
@@ -322,13 +338,6 @@ rule createDependency{
 							endif
 						endif
 		)
---	do{
---		umlDependency.client
---					 -> select(cli | cli.name = jImportDec.importedElement.name)
---					 -> first()
---					.package.getFirstDupBugModisco.packagedElement <- 
---						umlDependency.client.package.getFirstDupBugModisco.packagedElement -> append(umlDependency);
---	}	
 }
 
 --***************Classes***************
@@ -343,7 +352,7 @@ abstract rule JClassToUmlClass extends jAbstractTypDecToUmlClassifier{
 		umlClassifier : UML!Class (				
 			name <- jAbstrTypdec.name, 
 			superClass <- jAbstrTypdec.getSuperClass,
-			package <- jAbstrTypdec.package,
+			package <- jAbstrTypdec.getPackage,
 			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()) then
 									jAbstrTypdec.originalCompilationUnit.imports
 								else OclUndefined endif,	
@@ -370,7 +379,10 @@ unique lazy rule createTemplateSignature{
 rule createCommentsForAnnotations {
 	from 
 		jAnnot : JAVA!Annotation(
-			not jAnnot.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JAVA!AnonymousClassDeclaration)
+			(jAnnot.refImmediateComposite().oclIsKindOf(JAVA!AbstractTypeDeclaration)
+			or jAnnot.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)
+			or jAnnot.refImmediateComposite().oclIsTypeOf(JAVA!FieldDeclaration))
+			and jAnnot.getAnnonymousClass.oclIsUndefined()
 		)
 	to 			
 		umlClass : UML!Comment (				
@@ -386,8 +398,16 @@ rule createUmlClass {
 		umlClass : UML!Class (				
 			name <- typeParam.name, 
 			superClass <- typeParam.bounds -> select(bound | bound.type.oclIsTypeOf(JAVA!ClassDeclaration)),
-			interfaceRealization <-  typeParam.bounds -> select(bound | bound.type.oclIsTypeOf(JAVA!InterfaceDeclaration))--,
-			--package <- typeParam.getPackage.getFirstDupBugModisco
+			interfaceRealization <-  typeParam.bounds -> select(bound | bound.type.oclIsTypeOf(JAVA!InterfaceDeclaration)),
+			package <- if (not typeParam.originalCompilationUnit.oclIsUndefined()) then
+							if (not typeParam.originalCompilationUnit.getPackage.oclIsUndefined()) then
+								typeParam.originalCompilationUnit.getPackage.getFirstDupBugModisco
+							else	
+								thisModule.createExternalsModel(thisModule.jModelRoot)
+							endif
+						else	
+							thisModule.createExternalsModel(thisModule.jModelRoot)
+						endif	
 		)
 }
 
@@ -475,26 +495,13 @@ rule JEnumerationToUmlEnumeration extends jAbstractTypDecToUmlClassifier{
 		jAbstrTypdec : JAVA!EnumDeclaration 
 	to 
 		umlClassifier : UML!Enumeration(
-				name <- jAbstrTypdec.name,
-				ownedLiteral <- jAbstrTypdec.enumConstants,
-				package <- if (not jAbstrTypdec.package.oclIsUndefined()) then
-								jAbstrTypdec.package.getFirstDupBugModisco
-							else OclUndefined endif	
-		)
-}
-
----Convert a java enum with dependency to an Uml enum
-rule JEnumWithDependencyToUmlDependency extends JEnumerationToUmlEnumeration{
-	from 
-		jAbstrTypdec : JAVA!EnumDeclaration(
-			not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()
-		)
-	to 
-		umlClassifier : UML!Enumeration(				
-			clientDependency <- jAbstrTypdec.originalCompilationUnit.imports,
+			name <- jAbstrTypdec.name,
+			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()) then
+									jAbstrTypdec.originalCompilationUnit.imports
+								else OclUndefined endif,
 			ownedLiteral <- jAbstrTypdec.enumConstants,
-			package <- 	if (not jAbstrTypdec.package.oclIsUndefined()) then
-							jAbstrTypdec.package.getFirstDupBugModisco
+			package <- if (not jAbstrTypdec.getPackage.oclIsUndefined()) then
+							jAbstrTypdec.getPackage.getFirstDupBugModisco
 						else OclUndefined endif	
 		)
 }
@@ -509,8 +516,8 @@ rule JInterfaceToUmlInterface extends jAbstractTypDecToUmlClassifier{
 			name <- jAbstrTypdec.name,
 			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)),
 			generalization <- jAbstrTypdec.superInterfaces,
-			package <- if (not jAbstrTypdec.package.oclIsUndefined())then
-							jAbstrTypdec.package.getFirstDupBugModisco
+			package <- if (not jAbstrTypdec.getPackage.oclIsUndefined())then
+							jAbstrTypdec.getPackage.getFirstDupBugModisco
 						else OclUndefined endif,
 			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()) then
 									jAbstrTypdec.originalCompilationUnit.imports
@@ -591,7 +598,9 @@ unique lazy rule createClassContainerForEnumImplemInterface{
 		enumClassContainer : UML!Class (
 			name <- 'ENUM_' + jInterfDec.refImmediateComposite().name,
 			nestedClassifier <- jInterfDec.refImmediateComposite(),
-			package <- jInterfDec.refImmediateComposite().package
+			package <- if (not jInterfDec.refImmediateComposite().getPackage.oclIsUndefined()) then
+								jInterfDec.refImmediateComposite().getPackage.getFirstDupBugModisco
+							else OclUndefined endif	
 		)
 }
 
@@ -625,10 +634,12 @@ rule JAttributeToUmlField extends jBodyDecToUmlElement{
 				name <- jBodyDec.getFieldName, 		
 				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
 									thisModule.createArrayRepresentation(jBodyDec.getFieldType)
-							else if (jBodyDec.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
-										thisModule.createClassForTypeParameter(jBodyDec.getFieldType)
-								 else jBodyDec.getFieldType
-								 endif
+							else 
+--								if (jBodyDec.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
+--										thisModule.createClassForTypeParameter(jBodyDec.getFieldType)
+--								else 
+								 	jBodyDec.getFieldType
+--								endif
 							endif
 						,
 				visibility <- jBodyDec.getFieldVisibility
@@ -662,11 +673,7 @@ unique lazy rule createArrayRepresentation {
 						endif
 		), 
 		umlProperty	:	UML!Property(
-			type <- if (arrayType.elementType.type.oclIsKindOf(JAVA!TypeParameter)) then
-							thisModule.createClassForTypeParameter(arrayType.elementType.type)
-					else 
-						arrayType.elementType.type
-					endif,
+			type <- arrayType.elementType.type,
 			name <- 'type'		
 		)
 }
@@ -677,7 +684,7 @@ rule createAttributeWithAssociationOrDependency extends JAttributeToUmlField{
 		jBodyDec : JAVA!FieldDeclaration(
 			not jBodyDec.abstractTypeDeclaration.oclIsUndefined()	
 			and
-			not jBodyDec.abstractTypeDeclaration.package.oclIsUndefined()
+			not jBodyDec.abstractTypeDeclaration.getPackage.oclIsUndefined()
 			and
 			--Association to wrappers of primitive types are unconsidered
 			not jBodyDec.getFieldType.oclIsKindOf(JAVA!PrimitiveType)
@@ -701,7 +708,7 @@ unique lazy rule createAssociation{
 	to 
 		umlAssociation : UML!Association(
 			name <- jField.getFieldType.name + '_' + jField.abstractTypeDeclaration.name + '_[WITH_'+ jField.getFieldName +']',
-			package <- jField.abstractTypeDeclaration.package.getFirstDupBugModisco,
+			package <- jField.abstractTypeDeclaration.getPackage.getFirstDupBugModisco,
 			memberEnd <- Sequence{jField, thisModule.createPropertyFromAClass(jField.abstractTypeDeclaration)},
 			ownedEnd <- Sequence{thisModule.createPropertyFromAClass(jField.abstractTypeDeclaration)}
 		)
@@ -729,34 +736,17 @@ rule JMethodToUmlOperation extends jBodyDecToUmlElement {
 				type <- if (jBodyDec.getReturnType.oclIsKindOf(JAVA!ArrayType)) then
 									thisModule.createArrayRepresentation(jBodyDec.getReturnType)
 						else 
-							if (jBodyDec.getReturnType.oclIsKindOf(JAVA!TypeParameter)) then
-									thisModule.createClassForTypeParameter(jBodyDec.getReturnType)
-							else jBodyDec.getReturnType endif
+							jBodyDec.getReturnType
 						endif,
 				ownedParameter <- 	if (not jBodyDec.parameters -> isEmpty()) then 
 										jBodyDec.parameters -> collect(param | 	thisModule.createParameter(param))
 										-> append(jBodyDec.thrownExceptions -> collect(iter |thisModule.createParameterFromThrownException(iter)))								  
 									else 
 										OclUndefined
-									endif,				
+									endif,	
+				ownedComment <- jBodyDec.annotations,
 				isAbstract <- jBodyDec.isMethodAbstract,
 				visibility <- jBodyDec.getMethodVisibility
-		)
-}
-
-
-
-unique lazy rule createClassForTypeParameter {
-	from 
-		jBodyDec : JAVA!TypeParameter
-	to 
-		umlElement : UML!Class( 
-				name <- jBodyDec.name, 
-				package <- if (not jBodyDec.originalCompilationUnit.package.oclIsUndefined()) then
-								jBodyDec.originalCompilationUnit.package.getFirstDupBugModisco
-							else	
-								thisModule.createExternalsModel(thisModule.jModelRoot)
-							endif	
 		)
 }
 
@@ -769,11 +759,7 @@ unique lazy rule createParameter {
 			type <- if jParameter.type.type.oclIsKindOf(JAVA!ArrayType) then
 							thisModule.createArrayRepresentation(jParameter.type.type)
 					else 
-						if (jParameter.type.type.oclIsKindOf(JAVA!TypeParameter)) then
-								thisModule.createClassForTypeParameter(jParameter.type.type)
-						else 
-							jParameter.type.type
-						endif
+						jParameter.type.type
 					endif
 		)
 }
