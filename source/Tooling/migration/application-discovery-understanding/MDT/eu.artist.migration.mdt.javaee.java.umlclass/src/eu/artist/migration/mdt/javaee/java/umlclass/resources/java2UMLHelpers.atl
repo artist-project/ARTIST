@@ -54,6 +54,53 @@ helper context OclAny def: getExternalElements : Sequence(JAVA!NamedElement) =
 	)
 ;
 
+--***************"Access" Expression***************
+
+helper context JAVA!ArrayLengthAccess def : getVarAccessExpression : JAVA!Expression = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif	
+;
+
+helper context JAVA!SingleVariableAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	self.variable
+;
+	
+helper context JAVA!FieldAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	self.field.variable
+;
+
+helper context JAVA!UnresolvedItemAccess def : getVarAccessExpression : JAVA!UnresolvedItem =
+	self.element
+;
+
+helper context JAVA!ArrayAccess def : getVarAccessExpression : JAVA!Expression = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif
+;	
+
+helper context JAVA!TypeAccess def : getVarAccessExpression : JAVA!Type = 
+	self.type
+;	
+
+helper context JAVA!PackageAccess def : getVarAccessExpression : JAVA!Package = 
+	self.package
+;	
+
+helper context JAVA!ASTNode def: isAccessExpression : Boolean =
+	self.oclIsTypeOf(JAVA!FieldAccess)
+	or self.oclIsTypeOf(JAVA!SingleVariableAccess)
+	or self.oclIsTypeOf(JAVA!UnresolvedItemAccess)
+	or self.oclIsTypeOf(JAVA!ArrayAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!TypeAccess)
+	or self.oclIsTypeOf(JAVA!NamespaceAccess)
+	or self.oclIsTypeOf(JAVA!ArrayLengthAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!SuperFieldAccess)
+;
+
 --***************JAVA!X sequences***************
 
 helper def: unresolvedItem : Sequence(UML!Class) =
@@ -86,11 +133,11 @@ helper context JAVA!ASTNode def: getQualifier : String =
 	if (not self.qualifier.oclIsUndefined())then
 		self.qualifier.getQualifier+'.'
 	else '' endif
-	+ 	if (not self.oclIsKindOf(JAVA!UnresolvedItem) and not self.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+	+ 	if (not self.oclIsKindOf(JAVA!UnresolvedItem) and not self.isAccessExpression) then
 			self.package.name
 		else 
-			if(self.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
-				self.element.name
+			if(self.isAccessExpression) then
+				self.getVarAccessExpression.name
 			else 	
 				''
 			endif
@@ -552,7 +599,7 @@ helper context JAVA!MethodDeclaration def: isMethodAbstract : Boolean =
 	endif;
 
 ---Get the java method visibility
-helper context JAVA!MethodDeclaration def: getMethodVisibility : JAVA!VisibilityKind =
+helper context JAVA!AbstractMethodDeclaration def: getMethodVisibility : JAVA!VisibilityKind =
 	if (self.modifier.oclIsUndefined()) then 
 		#package
 	else
@@ -634,8 +681,10 @@ helper context JAVA!Package def: getSamePackfeature : Sequence(JAVA!AbstractType
 		-- -> reject(pack | self.getPackSameName.indexOf(pack) = 1)
 		-> reject(pack | self = pack)
 		-> collect(pack | pack.ownedElements
+							-> reject(elem | elem.oclIsTypeOf(JAVA!AnnotationTypeDeclaration))
 							-> union(
 									pack.ownedElements
+										-> reject(elem | elem.oclIsTypeOf(JAVA!AnnotationTypeDeclaration))
 										-> select(aTDec | not aTDec.originalCompilationUnit.oclIsUndefined())
 										-> collect(aTDec | aTDec.originalCompilationUnit.imports)
 										-> flatten()

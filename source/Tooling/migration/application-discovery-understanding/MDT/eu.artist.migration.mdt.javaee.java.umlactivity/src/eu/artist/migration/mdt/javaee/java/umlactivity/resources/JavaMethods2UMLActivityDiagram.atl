@@ -35,10 +35,6 @@ rule JModelRootToUmlModelRoot {
 		cd	:	UML!Package(
 			name <- 'Associated Classifiers',
 			packagedElement <- thisModule.allTypes 
-								-> reject(type | if (type.oclIsKindOf(JAVA!ParameterizedType)) then
-													type.isAList
-												else OclUndefined endif
-								)
 		)
 }
 
@@ -1119,7 +1115,7 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,							
+			source <- s.expression.getRemoveCollectionArgument,						
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -1440,7 +1436,7 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,							
+			source <- s.expression.getRemoveCollectionArgument,
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -1580,7 +1576,7 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,							
+			source <- s.expression.getRemoveCollectionArgument,
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -2345,7 +2341,7 @@ rule ifStatement { --simplifed mapping in case of empty else branch
 			inStructuredNode <- t,
 			source <- if s.elseStatement.oclIsUndefined() 
 						then thisModule.createEmptyElse(s)
-						else s.elseStatement 
+						else s.elseStatement
 					endif,
 			target <- merNode
 		),
@@ -2904,7 +2900,6 @@ rule methodCallExpression {
 		of1	:	UML!ObjectFlow (
 			name <- 'fromExpressionOutputToCallOperationAction',
 			source <- thisModule.resolveTemp(mi.expression, 'op'),
---			.debug('MI - 1 :'+thisModule.resolveTemp(mi.expression, 'op').oclType().toString()),
 			activity <- mi.method,
 			target <- inputPin
 		),
@@ -2984,9 +2979,10 @@ rule Parameters2ActivityParameterAndParamNode {
 
 rule parameterizedType {
 	from
-		s	:	JAVA!ParameterizedType(
-			not s.isAList
-		)
+		s	:	JAVA!ParameterizedType
+--		(
+--			not s.isAList
+--		)
 	to
 		t	:	UML!Class(
 			name <- s.typeArguments -> first().type.name
@@ -3004,7 +3000,7 @@ rule VariableAssignmentNoList {
 		)
 	to
 		t :	UML!StructuredActivityNode(
-			inStructuredNode <- as.refImmediateComposite(),
+			inStructuredNode <- as.getStatement,
 			name <- 'declare_'+if (as.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess))then
 									as.leftHandSide.element.name
 								else as.leftHandSide.field.variable.name endif
@@ -3025,7 +3021,6 @@ rule VariableAssignmentNoList {
 			inStructuredNode <- t,
 			source <- if (not as.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess))then
 						as.leftHandSide.expression.getStatement
---						.debug('AGNT - 1 : '+as.leftHandSide.expression.getStatement.oclType().toString())
 					  else OclUndefined endif,
 			target <- ip
 		),	
@@ -3052,9 +3047,8 @@ rule VariableAssignmentNoList {
 		
 		cf	: UML!ControlFlow(
 			name <- 'fromPrecedingNodeToCurrent',
-			inStructuredNode <- as.refImmediateComposite(),
+			inStructuredNode <- as.getStatement,
 			source <- as.getPreceding(),
---			.debug('AGNT - 2 : '+as.getPreceding().oclType().toString()),
 			target <- t
 		),
 		
@@ -3092,7 +3086,6 @@ rule localVariableAssignmentNoList {
 			inStructuredNode <- as.getStatement.refImmediateComposite(),
 			name <- 'declare_' + as.leftHandSide.variable.name,
 			source <- as.rightHandSide.getStatement,
---			.debug('2AGNT - 1 : '+as.rightHandSide.getStatement.oclType().toString()),
 			target <- forkNode
 		),	
 		forkNode : UML!ForkNode(
@@ -3103,7 +3096,6 @@ rule localVariableAssignmentNoList {
 			name <- 'fromPrecedingNodeToCurrent',
 			inStructuredNode <- as.getStatement.refImmediateComposite(),
 			source <- as.getStatement.getPreceding(),
---			.debug('2AGNT - 2 : '+as.getStatement.getPreceding().oclType().toString()),
 			target <- t
 		)			
 }
@@ -3136,10 +3128,8 @@ rule variableAssignementListOrArray {
 							and not iva.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess)
 						)then
 							iva.leftHandSide.expression
---							.debug('3AGNT - 1 : ' + iva.leftHandSide.expression.oclType().toString())
 						else
 							iva.leftHandSide.getStatement
---							.debug('3AGNT - 2 : ' + iva.leftHandSide.getStatement.oclType().toString())
 						endif,
 			target <- fork,
 			inStructuredNode <- iva.refImmediateComposite()
@@ -3509,7 +3499,6 @@ rule infixOperatorExpression {
 		of1	:	UML!ObjectFlow (
 			name <- 'fromLeftOperandToCallBehaviorAction',
 			source <- thisModule.resolveTemp(ioe.leftOperand, 'op'),
---			.debug('IOE - 1 :'+thisModule.resolveTemp(ioe.leftOperand, 'op').oclType().toString()),
 			inStructuredNode <- ioe.getStatement,
 			target <- inputPinFirstLeft
 		),
@@ -3549,17 +3538,9 @@ rule equalOperatorExpression{
 		),
 		of1	:	UML!ObjectFlow (
 			name <- 'fromLeftOperandToTestIdentityAction',
-			source <- 	if (ioe.leftOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
-							thisModule.resolveTemp(ioe.leftOperand.variable, 'apn')
---							.debug('2IOE - 1 : ' + thisModule.resolveTemp(ioe.leftOperand.variable, 'apn').oclType().toString())
-						else 
-							if (ioe.leftOperand.oclIsTypeOf(JAVA!ArrayLengthAccess)) then
-								if (ioe.leftOperand.array.oclIsTypeOf(JAVA!SingleVariableAccess)) then
-									thisModule.resolveTemp(ioe.leftOperand.array.variable, 'apn')
---									.debug('2IOE - 2 : ' + thisModule.resolveTemp(ioe.leftOperand.array.variable, 'apn').oclType().toString())
-								else ioe.leftOperand endif
-							else OclUndefined endif	
-						endif,
+			source <- if (ioe.leftOperand.isAccessExpression) then
+							thisModule.resolveTemp(ioe.leftOperand.getVarAccessExpression, 'apn')
+					  else	ioe.leftOperand.getStatement endif,
 			target <- ipl,
 			activity <- ioe.getOwningMethod
 		),
@@ -3569,17 +3550,9 @@ rule equalOperatorExpression{
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromRightOperandToTestIdentityAction',
-			source <- 	if (ioe.rightOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
-							thisModule.resolveTemp(ioe.rightOperand.variable, 'apn')
---							.debug('2IOE - 3 : ' + thisModule.resolveTemp(ioe.rightOperand.variable, 'apn').oclType().toString())
-						else 
-							if (ioe.rightOperand.oclIsTypeOf(JAVA!ArrayLengthAccess)) then
-								if (ioe.rightOperand.array.oclIsTypeOf(JAVA!SingleVariableAccess)) then
-									thisModule.resolveTemp(ioe.rightOperand.array.variable, 'apn')
---									.debug('2IOE - 3 : ' + thisModule.resolveTemp(ioe.rightOperand.array.variable, 'apn').oclType().toString())
-								else ioe.rightOperand endif
-							else OclUndefined endif	
-						endif,
+			source <- 	if (ioe.rightOperand.isAccessExpression) then
+							thisModule.resolveTemp(ioe.rightOperand.getVarAccessExpression, 'apn')
+						else ioe.rightOperand.getStatement endif,
 			target <- ipr,
 			activity <- ioe.getOwningMethod
 		),
@@ -3613,17 +3586,9 @@ rule notEqualOperatorExpression {
 		),
 		of1	:	UML!ObjectFlow (
 			name <- 'fromLeftOperandToTestIdentityAction',
-			source <- if (ioe.leftOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
-							thisModule.resolveTemp(ioe.leftOperand.variable, 'apn')
---							.debug('3IOE - 1 : ' + thisModule.resolveTemp(ioe.leftOperand.variable, 'apn').oclType().toString())
-						else 
-							if (ioe.leftOperand.oclIsTypeOf(JAVA!ArrayLengthAccess)) then
-								if (ioe.leftOperand.array.oclIsTypeOf(JAVA!SingleVariableAccess)) then
-									thisModule.resolveTemp(ioe.leftOperand.array.variable, 'apn')
---									.debug('3IOE - 2 : ' + thisModule.resolveTemp(ioe.leftOperand.array.variable, 'apn').oclType().toString())
-								else ioe.leftOperand endif
-							else OclUndefined endif	
-						endif,
+			source <- if (ioe.leftOperand.isAccessExpression) then
+							thisModule.resolveTemp(ioe.leftOperand.getVarAccessExpression, 'apn')
+					  else ioe.leftOperand.getStatement endif,	
 			target <- ipl,
 			activity <- ioe.getOwningMethod
 		),
@@ -3634,17 +3599,9 @@ rule notEqualOperatorExpression {
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromRightOperandToTestIdentityAction',
-			source <- if (ioe.rightOperand.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
-							thisModule.resolveTemp(ioe.rightOperand.variable, 'apn')
---							.debug('3IOE - 3 : ' + thisModule.resolveTemp(ioe.rightOperand.variable, 'apn').oclType().toString())
-						else 
-							if (ioe.rightOperand.oclIsTypeOf(JAVA!ArrayLengthAccess)) then
-								if (ioe.rightOperand.array.oclIsTypeOf(JAVA!SingleVariableAccess)) then
-									thisModule.resolveTemp(ioe.rightOperand.array.variable, 'apn')
---									.debug('3IOE - 4 : ' + thisModule.resolveTemp(ioe.rightOperand.array.variable, 'apn').oclType().toString())
-								else ioe.rightOperand endif
-							else OclUndefined endif	
-						endif,
+			source <- if (ioe.rightOperand.isAccessExpression) then
+							thisModule.resolveTemp(ioe.rightOperand.getVarAccessExpression, 'apn')
+					  else ioe.rightOperand.getStatement endif,
 			target <- ipr,
 			activity <- ioe.getOwningMethod
 		),
@@ -3743,7 +3700,6 @@ rule numericCastExpression {
 		of	:	UML!ObjectFlow (
 			name <- 'fromExpressionOutputToCallBehaviorAction',
 			source <- thisModule.resolveTemp(tce.expression, 'op'),
---			.debug('CE - 1 :'+thisModule.resolveTemp(tce.expression, 'op').oclType().toString()),
 			inStructuredNode <-  if (tce.refImmediateComposite().oclIsKindOf(JAVA!ParenthesizedExpression)) then 
 									tce.refImmediateComposite()
 								else
@@ -4315,8 +4271,8 @@ unique lazy rule createObjectFlowToNode{
 			name <- 'objectFlowFromNode',
 			source <- 	s.expression.arguments 
 							-> reject(arg | arg.isALiteral)
-							-> select(arg | arg.getVarFieldOrSingleVarAccess.name = 'insertAt')
-							-> collect(arg | arg.getVarFieldOrSingleVarAccess)
+							-> select(arg | arg.getVarAccessExpression.name = 'insertAt')
+							-> collect(arg | arg.getVarAccessExpression)
 							-> flatten()
 							-> first(),
 			inStructuredNode <- s.getStatement				

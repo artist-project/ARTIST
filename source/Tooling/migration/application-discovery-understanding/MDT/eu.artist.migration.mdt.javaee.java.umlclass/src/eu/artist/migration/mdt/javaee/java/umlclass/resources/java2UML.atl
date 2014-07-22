@@ -35,7 +35,7 @@ abstract rule jAbstractTypDecToUmlClassifier {
 			isAbstract <- jAbstrTypdec.isAbstractTypeAbstract, 
 			visibility <- jAbstrTypdec.getAbstractTypeVisibility, 
 			ownedAttribute <- jAbstrTypdec.bodyDeclarations->select(d | d.oclIsTypeOf(JAVA!FieldDeclaration)),
-			ownedOperation <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsTypeOf(JAVA!MethodDeclaration)),
+			ownedOperation <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractMethodDeclaration)),
 			isLeaf <- jAbstrTypdec.isAbstractTypeFinal,
 			ownedComment <- jAbstrTypdec.annotations -> union(jAbstrTypdec.bodyDeclarations
 																-> collect(bd | bd.annotations)
@@ -59,7 +59,8 @@ abstract rule jBodyDecToUmlElement {
 	to
 		umlElement : UML!Element (
 			isStatic <- jBodyDec.isBodyDecStatic,
-			isLeaf <- jBodyDec.isBodyDecFinal
+			isLeaf <- jBodyDec.isBodyDecFinal,
+			ownedComment <- jBodyDec.annotations
 		)
 }
 
@@ -209,10 +210,8 @@ rule JPackageToUmlPackage {
 		jPackage : JAVA!Package (
 				--MoDisco bug : creation of a package for each class which has dependency(ies)
 			if (not jPackage.oclIsKindOf(JAVA!UnresolvedItem) 
-				and not jPackage.proxy
 			)then
 				 jPackage.isDupBugModisco
-				 and jPackage.isFirstDupBugModisco
 			else false endif	
 		)
 	to 
@@ -233,40 +232,6 @@ rule JPackageToUmlPackage {
 										),
 				nestingPackage <- 	if jPackage.getPackage.oclIsUndefined()
 									then thisModule.createMainModel(jPackage.refImmediateComposite())
-									else 
-										if (not jPackage.getPackage.isFirstDupBugModisco
-											and jPackage.getPackage.isDupBugModisco		
-										) then
-											jPackage.getPackage.getFirstDupBugModisco
-										else
-											jPackage.getPackage
-										endif
-									endif,
-				ownedComment <- jPackage.ownedElements
-									-> select(elem | elem.oclIsKindOf(JAVA!AnnotationTypeDeclaration))
-									-> collect(annot | annot.annotations)
-		)		
-}
-
----Convert a java package (proxy) to an Uml package
----Dupplicate ==> Modisco bug
-rule JPackageProxyToUmlPackage {
-	from 
-		jPackage : JAVA!Package (			
-			--MoDisco bug : creation of a package for each class which has dependency(ies)
-			if (not jPackage.oclIsKindOf(JAVA!UnresolvedItem) 
-				and jPackage.proxy
-			)then
-				 jPackage.isDupBugModisco
-				 and jPackage.isFirstDupBugModisco
-			else false endif
-		)
-	to 
-		umlPackage : UML!Package (
-				name <- jPackage.name,
-				nestedPackage <- jPackage.getOwnNestedPackWithoutDup -> union(jPackage.getSamePackNestedPack),
-				nestingPackage <-	if jPackage.getPackage.oclIsUndefined() then
-										thisModule.createMainModel(thisModule.jModelRoot)
 									else 
 										if (not jPackage.getPackage.isFirstDupBugModisco
 											and jPackage.getPackage.isDupBugModisco		
@@ -350,13 +315,15 @@ abstract rule JClassToUmlClass extends jAbstractTypDecToUmlClassifier{
 		)
 	to 
 		umlClassifier : UML!Class (				
-			name <- jAbstrTypdec.name, 
+			name <- jAbstrTypdec.name,
 			superClass <- jAbstrTypdec.getSuperClass,
 			package <- jAbstrTypdec.getPackage,
 			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()) then
 									jAbstrTypdec.originalCompilationUnit.imports
 								else OclUndefined endif,	
-			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration))
+			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)
+																			and not d.oclIsTypeOf(JAVA!AnnotationTypeDeclaration)
+															  )
 									-> union(
 										 	let params : UML!Class = Sequence{}
 											in
@@ -382,11 +349,14 @@ rule createCommentsForAnnotations {
 			(jAnnot.refImmediateComposite().oclIsKindOf(JAVA!AbstractTypeDeclaration)
 			or jAnnot.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)
 			or jAnnot.refImmediateComposite().oclIsTypeOf(JAVA!FieldDeclaration))
+			or jAnnot.refImmediateComposite().oclIsKindOf(JAVA!Package)
 			and jAnnot.getAnnonymousClass.oclIsUndefined()
 		)
 	to 			
 		umlClass : UML!Comment (				
-			body <- jAnnot.getAnnotation
+			body <- jAnnot.getAnnotation.concat('jAnnot.refImmediateComposite().name : ' + jAnnot.refImmediateComposite().name
+			 + 	'__jAnnot.refImmediateComposite() : ' + jAnnot.refImmediateComposite().oclType().toString()
+			)
 		)
 }
 
@@ -398,7 +368,8 @@ rule createUmlClass {
 		umlClass : UML!Class (				
 			name <- typeParam.name, 
 			superClass <- typeParam.bounds -> select(bound | bound.type.oclIsTypeOf(JAVA!ClassDeclaration)),
-			interfaceRealization <-  typeParam.bounds -> select(bound | bound.type.oclIsTypeOf(JAVA!InterfaceDeclaration)),
+			interfaceRealization <-  typeParam.bounds 
+										-> select(bound | bound.type.oclIsKindOf(JAVA!InterfaceDeclaration)),
 			package <- if (not typeParam.originalCompilationUnit.oclIsUndefined()) then
 							if (not typeParam.originalCompilationUnit.getPackage.oclIsUndefined()) then
 								typeParam.originalCompilationUnit.getPackage.getFirstDupBugModisco
@@ -430,7 +401,9 @@ rule JInnerClassToUmlClass extends jAbstractTypDecToUmlClassifier{
 		umlClassifier : UML!Class (				
 			name <- jAbstrTypdec.name, 
 			superClass <- jAbstrTypdec.getSuperClass,
-			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration))
+			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)
+																			and not d.oclIsTypeOf(JAVA!AnnotationTypeDeclaration)
+															  )
 		)
 }
 
@@ -479,11 +452,11 @@ rule JClassExtendParameterizedTypeToUmlClassExtend extends JClassToUmlClass{
 	to 
 		umlClassifier : UML!Class (	
 			interfaceRealization <-  jAbstrTypdec.superInterfaces 
+										-> collect(sI | let ty : JAVA!TypeAccess = sI.type in ty.type)
 										-> reject(t |	t.refImmediateComposite().oclIsKindOf(JAVA!Annotation)
 														or
 														t.type.oclIsKindOf(JAVA!UnresolvedItem)
 										)
-										-> collect(sI | let ty : JAVA!TypeAccess = sI.type in ty.type)
 		)
 }
 
@@ -514,7 +487,15 @@ rule JInterfaceToUmlInterface extends jAbstractTypDecToUmlClassifier{
 	to 
 		umlClassifier : UML!Interface (
 			name <- jAbstrTypdec.name,
-			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)),
+			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)
+																			and not d.oclIsTypeOf(JAVA!AnnotationTypeDeclaration)
+															  )
+								-> union(
+										let params : UML!Class = Sequence{}
+										in
+											jAbstrTypdec.typeParameters
+												-> collect(param | params -> append(thisModule.resolveTemp(param, 'umlClass')))
+								),
 			generalization <- jAbstrTypdec.superInterfaces,
 			package <- if (not jAbstrTypdec.getPackage.oclIsUndefined())then
 							jAbstrTypdec.getPackage.getFirstDupBugModisco
@@ -522,10 +503,7 @@ rule JInterfaceToUmlInterface extends jAbstractTypDecToUmlClassifier{
 			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()) then
 									jAbstrTypdec.originalCompilationUnit.imports
 								else OclUndefined endif,
-			nestedClassifier <- let params : UML!Class = Sequence{}
-								in
-									jAbstrTypdec.typeParameters
-										-> collect(param | params -> append(thisModule.resolveTemp(param, 'umlClass')))
+			ownedComment <- jAbstrTypdec.annotations
 		)
 }
 
@@ -533,7 +511,7 @@ rule JInterfaceToUmlInterface extends jAbstractTypDecToUmlClassifier{
 rule JInterfaceGeneralizationToInterfDeclarUml{
 	from 
 		jInterfDec : JAVA!TypeAccess(
-			jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration)	
+			jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration)
 		)
 	to 
 		umlInterfaceGeneralization : UML!Generalization (
@@ -554,7 +532,9 @@ rule JTypeAccessToInterDeclarUml{
 					jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration)
 				)	
 				or
-			 jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!TypeParameter)	
+			jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!TypeParameter)	
+			 	or
+			jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!ParameterizedType)	
 			) 
 			and
 			not jInterfDec.type.oclIsKindOf(JAVA!UnresolvedItem)
@@ -562,14 +542,49 @@ rule JTypeAccessToInterDeclarUml{
 	to 
 		umlInterfaceRealization : UML!InterfaceRealization (
 			contract <- jInterfDec.type,
-			name <- jInterfDec.type.name,
-			implementingClassifier <- if (not jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!EnumDeclaration))then
-											jInterfDec.refImmediateComposite()
+			name <- jInterfDec.type.name.concat('__'+jInterfDec.refImmediateComposite()),
+			implementingClassifier <- if (jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!ParameterizedType))then
+									  		if (jInterfDec.refImmediateComposite().type.type.oclIsKindOf(JAVA!InterfaceDeclaration)
+									  			or jInterfDec.refImmediateComposite().type.type.oclIsKindOf(JAVA!ClassDeclaration)
+									  		)then
+												jInterfDec.refImmediateComposite()
+											else jInterfDec.refImmediateComposite().type.type endif	
 										else
-											thisModule.createClassContainerForEnumImplemInterface(jInterfDec)
+											if (jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!EnumDeclaration)) then
+												thisModule.createClassContainerForEnumImplemInterface(jInterfDec)
+											else 	
+												jInterfDec.refImmediateComposite()
+											endif	
 										endif
 		)	
 }
+
+rule createClassContainerForParamTypeImplemInterface{
+	from
+		jParameterizedType : JAVA!ParameterizedType(
+			jParameterizedType.type.type.oclIsKindOf(JAVA!InterfaceDeclaration)
+			or jParameterizedType.type.type.oclIsKindOf(JAVA!ClassDeclaration)
+		)
+	to
+		paramTypeClassContainer : UML!Class (
+			name <- jParameterizedType.name,	
+			package <- thisModule.jDataTypePackToUmlDataTypePack(thisModule.jModelRoot)	
+		)
+}
+
+---Create datat type for parameterized type
+rule createParameterizedType {
+	from 
+		jParameterizedType : JAVA!ParameterizedType(
+			not jParameterizedType.type.type.oclIsKindOf(JAVA!InterfaceDeclaration)
+			and not jParameterizedType.type.type.oclIsKindOf(JAVA!ClassDeclaration)
+		)
+	to 
+		umlType : UML!DataType(
+			name <- jParameterizedType.name,			
+			package <- thisModule.jDataTypePackToUmlDataTypePack(thisModule.jModelRoot)			
+		)
+}	
 
 ---An abstractTypeDeclaration implementing a parameterized interface
 rule JTypeAccessToInterDeclarParamUml{
@@ -582,7 +597,7 @@ rule JTypeAccessToInterDeclarParamUml{
 	to 
 		umlInterfaceRealization : UML!InterfaceRealization (
 			contract <-	jInterfDec.type.type.type,
-			name <- jInterfDec.type.type.type.name,
+			name <- jInterfDec.type.type.type.name.concat('__'+jInterfDec.refImmediateComposite()),
 			implementingClassifier <- 	if (not jInterfDec.refImmediateComposite().oclIsTypeOf(JAVA!EnumDeclaration))then
 											jInterfDec.refImmediateComposite()
 										else
@@ -600,7 +615,7 @@ unique lazy rule createClassContainerForEnumImplemInterface{
 			nestedClassifier <- jInterfDec.refImmediateComposite(),
 			package <- if (not jInterfDec.refImmediateComposite().getPackage.oclIsUndefined()) then
 								jInterfDec.refImmediateComposite().getPackage.getFirstDupBugModisco
-							else OclUndefined endif	
+							else OclUndefined endif
 		)
 }
 
@@ -635,11 +650,7 @@ rule JAttributeToUmlField extends jBodyDecToUmlElement{
 				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
 									thisModule.createArrayRepresentation(jBodyDec.getFieldType)
 							else 
---								if (jBodyDec.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
---										thisModule.createClassForTypeParameter(jBodyDec.getFieldType)
---								else 
-								 	jBodyDec.getFieldType
---								endif
+								jBodyDec.getFieldType
 							endif
 						,
 				visibility <- jBodyDec.getFieldVisibility
@@ -725,7 +736,8 @@ unique lazy rule createPropertyFromAClass{
 		)
 }
 
---***************Methods***************
+--***************Methods and constructor***************
+
 ---Convert a java method to an Uml operation
 rule JMethodToUmlOperation extends jBodyDecToUmlElement {
 	from 
@@ -746,6 +758,24 @@ rule JMethodToUmlOperation extends jBodyDecToUmlElement {
 									endif,	
 				ownedComment <- jBodyDec.annotations,
 				isAbstract <- jBodyDec.isMethodAbstract,
+				visibility <- jBodyDec.getMethodVisibility
+		)
+}
+
+rule JConstructorToUmlOperation extends jBodyDecToUmlElement {
+	from 
+		jBodyDec: JAVA!ConstructorDeclaration
+	to 
+		umlElement : UML!Operation(
+				name <- jBodyDec.name,
+				type <-jBodyDec.abstractTypeDeclaration,
+				ownedParameter <- 	if (not jBodyDec.parameters -> isEmpty()) then 
+										jBodyDec.parameters -> collect(param | 	thisModule.createParameter(param))
+										-> append(jBodyDec.thrownExceptions -> collect(iter |thisModule.createParameterFromThrownException(iter)))								  
+									else 
+										OclUndefined
+									endif,	
+				ownedComment <- jBodyDec.annotations,
 				visibility <- jBodyDec.getMethodVisibility
 		)
 }
@@ -784,17 +814,6 @@ rule createPrimitiveType {
 	to 
 		umlPrimitiveType : UML!PrimitiveType(
 			name <- jPrimitiveType.name
-		)
-}	
-
----Create datat type for parameterized type
-rule createParameterizedType {
-	from 
-		jParameterizedType : JAVA!ParameterizedType
-	to 
-		umlType : UML!DataType(
-			name <- jParameterizedType.name,
-			package <- thisModule.jDataTypePackToUmlDataTypePack(thisModule.jModelRoot)
 		)
 }	
 

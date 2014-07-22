@@ -406,7 +406,7 @@ helper def: allTypes : Sequence(JAVA!Element) =
 helper context JAVA!Statement def: getLastAssignment(varDecState : JAVA!VariableDeclarationFragment) : JAVA!ASTNode =
 	if (self.getPrecedingStatement.oclIsKindOf(JAVA!ExpressionStatement)) then
 		if (self.getPrecedingStatement.expression.oclIsKindOf(JAVA!Assignment)) then
-			if (self.getPrecedingStatement.expression.leftHandSide.getVarFieldOrSingleVarAccess = varDecState) then
+			if (self.getPrecedingStatement.expression.leftHandSide.getVarAccessExpression = varDecState) then
 				varDecState.getExpressionMap.get(self.getPrecedingStatement)
 			else
 				self.getPrecedingStatement.getLastAssignment(varDecState)
@@ -434,7 +434,7 @@ helper context JAVA!Statement def: getLastAssignment(varDecState : JAVA!Variable
 
 helper context JAVA!VariableDeclarationFragment def: getExpressionMap : Map(JAVA!Statement, JAVA!Expression) =
 	JAVA!Assignment.allInstancesFrom('IN') 
-			-> select(assigns | assigns.leftHandSide.getVarFieldOrSingleVarAccess = self)
+			-> select(assigns | assigns.leftHandSide.getVarAccessExpression = self)
 			-> iterate(assign; map : Map(JAVA!Statement, JAVA!Expression) = Map{} |
 					map -> including(assign.refImmediateComposite(), assign.rightHandSide)
 			)
@@ -599,20 +599,28 @@ helper context JAVA!Expression def : getVarOrElemName : String =
 	endif
 ;	
 
-helper context JAVA!SingleVariableAccess def : getVarFieldOrSingleVarAccess : JAVA!VariableDeclarationFragment = 
+helper context JAVA!ArrayLengthAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif	
+;
+
+helper context JAVA!SingleVariableAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
 	self.variable
 ;
 	
-helper context JAVA!FieldAccess def : getVarFieldOrSingleVarAccess : JAVA!VariableDeclarationFragment = 
+helper context JAVA!FieldAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
 	self.field.variable
 ;
 
-helper context JAVA!UnresolvedItemAccess def : getVarFieldOrSingleVarAccess : JAVA!VariableDeclarationFragment =
+helper context JAVA!UnresolvedItemAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment =
 	self.element
 ;
 
-helper context JAVA!ArrayAccess def : getVarFieldOrSingleVarAccess : JAVA!VariableDeclarationFragment = 
-	self.array.getVarFieldOrSingleVarAccess
+helper context JAVA!ArrayAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+	if (self.array.isAccessExpression)then
+		self.array.getVarAccessExpression
+	else self.array endif
 ;	
 
 --------------------------
@@ -771,6 +779,18 @@ helper context JAVA!ExpressionStatement def: isActingOnCollection(actionMethodNa
 			self.expression.method.name = actionMethodName and self.expression.method.isOwningInCollectionInterface
 		else false endif
 	else false endif	
+;
+
+helper context JAVA!Expression def: isAccessExpression : Boolean =
+	self.oclIsTypeOf(JAVA!FieldAccess)
+	or self.oclIsTypeOf(JAVA!SingleVariableAccess)
+	or self.oclIsTypeOf(JAVA!UnresolvedItemAccess)
+	or self.oclIsTypeOf(JAVA!ArrayAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
+	or self.oclIsTypeOf(JAVA!TypeAccess)
+	or self.oclIsTypeOf(JAVA!NamespaceAccess)
+	or self.oclIsTypeOf(JAVA!ArrayLengthAccess)
+	or self.oclIsTypeOf(JAVA!SuperFieldAccess)
 ;
 
 helper context JAVA!ExpressionStatement def: isClearingList : Boolean =
@@ -1124,8 +1144,10 @@ helper context JAVA!MethodInvocation def: getLastListMethodArgument : UML!Elemen
 								self.arguments -> last()
 							else self.arguments -> first() endif
 	in
-		if argument.oclIsKindOf(JAVA!SingleVariableAccess)then
-			argument.variable.getStatement
+		if argument.oclIsKindOf(JAVA!Expression)then
+			if argument.isAccessExpression then
+				argument.getVarAccessExpression.getStatement
+			else argument endif	
 		else argument endif
 ;
 
@@ -1302,16 +1324,16 @@ helper context JAVA!VariableDeclarationStatement def : getOtherVDSInputPin(vds :
 helper context JAVA!Expression def : getActivityNode() : UML!ActivityNode =
 	if (self.oclIsKindOf(JAVA!SingleVariableAccess))then
 			--'SingleVariableAccess' assignment is a parameter ('SingleVariableDeclaration')
-			if (self.getStatement.getLastAssignment(self.getVarFieldOrSingleVarAccess)
+			if (self.getStatement.getLastAssignment(self.getVarAccessExpression)
 					.oclIsKindOf(JAVA!SingleVariableDeclaration)
 			)then
-				thisModule.resolveTemp(self.getStatement.getLastAssignment(self.getVarFieldOrSingleVarAccess)
+				thisModule.resolveTemp(self.getStatement.getLastAssignment(self.getVarAccessExpression)
 										, 'apn')
 			else
-				if (not self.getStatement.getLastAssignment(self.getVarFieldOrSingleVarAccess)
+				if (not self.getStatement.getLastAssignment(self.getVarAccessExpression)
 						.oclIsUndefined()
 				)then
-					thisModule.resolveTemp(self.getStatement.getLastAssignment(self.getVarFieldOrSingleVarAccess)
+					thisModule.resolveTemp(self.getStatement.getLastAssignment(self.getVarAccessExpression)
 											, 'op')
 				else
 					OclUndefined						
