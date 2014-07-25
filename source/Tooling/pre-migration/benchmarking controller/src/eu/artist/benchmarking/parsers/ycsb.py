@@ -55,7 +55,7 @@ class YCSBParser(object):
             wn = a + b
             database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,
                               data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],
-                              None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None)
+                              '---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---')
         if benchmark.workload_name == 'workloadb':
             data = self.__workloadb_parser(results)
             a = benchmark.workload_name
@@ -63,46 +63,46 @@ class YCSBParser(object):
             wn = a + b
             database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,
                               data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],
-                              None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None)
+                              '---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---')
         if benchmark.workload_name == 'workloadc':
             data = self.__workloadc_parser(results)
             a = benchmark.workload_name
             b = benchmark.tipology
             wn = a + b
             database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,
-                              data[0],data[1],None,None,None,None,None,None,data[2],data[3],data[4],data[5],data[6],data[7],
-                              None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None,None)
+                              data[0],data[1],'---','---','---','---','---','---',data[2],data[3],data[4],data[5],data[6],data[7],
+                              '---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---','---')
         if benchmark.workload_name == 'workloadd':
             data = self.__workloadd_parser(results)
             a = benchmark.workload_name
             b = benchmark.tipology
             wn = a + b
             database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,
-                              data[0],data[1],None,None,None,None,None,None,data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],
-                              None,None,None,None,None,None,None,None,None,None,None,None)
+                              data[0],data[1],'---','---','---','---','---','---',data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],
+                              '---','---','---','---','---','---','---','---','---','---','---','---')
         if benchmark.workload_name == 'workloade':
             data = self.__workloade_parser(results)
             a = benchmark.workload_name
             b = benchmark.tipology
             wn = a + b
             database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,
-                              data[0],data[1],None,None,None,None,None,None,None,None,None,None,None,None,data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],
-                              None,None,None,None,None,None)
+                              data[0],data[1],'---','---','---','---','---','---','---','---','---','---','---','---',data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],
+                              '---','---','---','---','---','---')
         if benchmark.workload_name == 'workloadf':
             data = self.__workloadf_parser(results)
             a = benchmark.workload_name
             b = benchmark.tipology
             wn = a + b
             database.database(st,cp.name,cp.vm_user,cp.size_id,benchmark.tool_name,wn,cp.platform,
-                              data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],None,None,None,None,None,None,None,None,None,None,None,None,
+                              data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9],data[10],data[11],data[12],data[13],'---','---','---','---','---','---','---','---','---','---','---','---',
                               data[14],data[15],data[16],data[17],data[18],data[19])
     def __workloada_parser(self, results):
         h = results
-        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+',h)
+        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in z]
         a = lines[0][2]
         print a
-        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+',h)
+        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
@@ -110,7 +110,7 @@ class YCSBParser(object):
         lines=[x.split() for x in n]
         c= lines[0][2]
         print c               
-        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+',h)
+        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in m]
         d= lines[0][2]
         print d                
@@ -134,7 +134,7 @@ class YCSBParser(object):
         lines=[x.split() for x in a1]
         i= lines[0][2]
         print i                
-        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+',h)
+        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in a2]
         l= lines[0][2]
         print l               
@@ -157,11 +157,11 @@ class YCSBParser(object):
         return a,b,c,d,e,f,g,h1,i,l,m,n,o,p                               
     def __workloadb_parser(self, results):
         h = results
-        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+',h)
+        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in z]
         a = lines[0][2]
         print a
-        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+',h)
+        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
@@ -169,7 +169,7 @@ class YCSBParser(object):
         lines=[x.split() for x in n]
         c= lines[0][2]
         print c               
-        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+',h)
+        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in m]
         d= lines[0][2]
         print d                
@@ -193,7 +193,7 @@ class YCSBParser(object):
         lines=[x.split() for x in a1]
         i= lines[0][2]
         print i                
-        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+',h)
+        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in a2]
         l= lines[0][2]
         print l               
@@ -216,11 +216,11 @@ class YCSBParser(object):
         return a,b,c,d,e,f,g,h1,i,l,m,n,o,p                               
     def __workloadc_parser(self, results):
         h = results
-        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+',h)
+        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in z]
         a = lines[0][2]
         print a
-        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+',h)
+        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
@@ -228,7 +228,7 @@ class YCSBParser(object):
         lines=[x.split() for x in a10]
         i= lines[0][2]
         print i                
-        a20= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+',h)
+        a20= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in a20]
         l= lines[0][2]
         print l               
@@ -251,11 +251,11 @@ class YCSBParser(object):
         return a,b,i,l,m,n,o,p                                   
     def __workloadd_parser(self, results):
         h = results
-        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+',h)
+        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in z]
         a = lines[0][2]
         print a
-        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+',h)
+        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
@@ -263,7 +263,7 @@ class YCSBParser(object):
         lines=[x.split() for x in n]
         q= lines[0][2]
         print q               
-        m= re.findall('\[INSERT\], AverageLatency\(us\),\s[0-9]+',h)
+        m= re.findall('\[INSERT\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in m]
         r= lines[0][2]
         print r                
@@ -287,7 +287,7 @@ class YCSBParser(object):
         lines=[x.split() for x in a1]
         i= lines[0][2]
         print i                
-        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+',h)
+        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in a2]
         l= lines[0][2]
         print l               
@@ -310,11 +310,11 @@ class YCSBParser(object):
         return a,b,q,r,s,t,u,v,i,l,m,n,o,p                                                
     def __workloade_parser(self, results):
         h = results
-        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+',h)
+        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in z]
         a = lines[0][2]
         print a
-        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+',h)
+        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
@@ -322,7 +322,7 @@ class YCSBParser(object):
         lines=[x.split() for x in n]
         q= lines[0][2]
         print q               
-        m= re.findall('\[INSERT\], AverageLatency\(us\),\s[0-9]+',h)
+        m= re.findall('\[INSERT\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in m]
         r= lines[0][2]
         print r                
@@ -346,7 +346,7 @@ class YCSBParser(object):
         lines=[x.split() for x in a10]
         a1= lines[0][2]
         print a1                
-        a20= re.findall('\[SCAN\], AverageLatency\(us\),\s[0-9]+',h)
+        a20= re.findall('\[SCAN\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in a20]
         a2= lines[0][2]
         print a2              
@@ -369,11 +369,11 @@ class YCSBParser(object):
         return a,b,q,r,s,t,u,v,a1,a2,a3,a4,a5,a6                                            
     def __workloadf_parser(self, results):
         h = results
-        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+',h)
+        z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in z]
         a = lines[0][2]
         print a
-        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+',h)
+        y= re.findall('\[OVERALL\], Throughput\(ops/sec\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
@@ -381,7 +381,7 @@ class YCSBParser(object):
         lines=[x.split() for x in a1]
         i= lines[0][2]
         print i                
-        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+',h)
+        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in a2]
         l= lines[0][2]
         print l               
@@ -405,7 +405,7 @@ class YCSBParser(object):
         lines=[x.split() for x in n]
         c= lines[0][2]
         print c               
-        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+',h)
+        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in m]
         d= lines[0][2]
         print d                
@@ -429,7 +429,7 @@ class YCSBParser(object):
         lines=[x.split() for x in b1]
         a7= lines[0][2]
         print a7                
-        b2= re.findall('\[READ-MODIFY-WRITE\], AverageLatency\(us\),\s[0-9]+',h)
+        b2= re.findall('\[READ-MODIFY-WRITE\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
         lines=[x.split() for x in b2]
         a8= lines[0][2]
         print a8               
