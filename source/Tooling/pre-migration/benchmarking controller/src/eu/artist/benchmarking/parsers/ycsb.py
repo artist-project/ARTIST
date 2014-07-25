@@ -259,55 +259,55 @@ class YCSBParser(object):
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
-        n= re.findall('\[INSERT\], Operations,\s[0-9]+',h)
+        n= re.findall('\[READ\], Operations,\s[0-9]+',h)
         lines=[x.split() for x in n]
-        q= lines[0][2]
-        print q               
-        m= re.findall('\[INSERT\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
-        lines=[x.split() for x in m]
-        r= lines[0][2]
-        print r                
-        l= re.findall('\[INSERT\], MinLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in l]
-        s= lines[0][2]
-        print s                
-        t= re.findall('\[INSERT\], MaxLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in t]
-        t= lines[0][2]
-        print t                
-        q= re.findall('\[INSERT\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in q]
-        u= lines[0][2]
-        print u                
-        v= re.findall('\[INSERT\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in v]
-        v= lines[0][2]
-        print v
-        a1= re.findall('\[READ\], Operations,\s[0-9]+',h)
-        lines=[x.split() for x in a1]
         i= lines[0][2]
-        print i                
-        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
-        lines=[x.split() for x in a2]
+        print i               
+        m= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
+        lines=[x.split() for x in m]
         l= lines[0][2]
-        print l               
-        a3= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in a3]
+        print l                
+        l= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in l]
         m= lines[0][2]
         print m                
-        a4= re.findall('\[READ\], MaxLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in a4]
+        t= re.findall('\[READ\], MaxLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in t]
         n= lines[0][2]
         print n                
-        a5= re.findall('\[READ\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in a5]
+        q= re.findall('\[READ\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in q]
         o= lines[0][2]
         print o                
-        a6= re.findall('\[READ\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in a6]
+        v= re.findall('\[READ\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in v]
         p= lines[0][2]
-        print p                               
-        return a,b,q,r,s,t,u,v,i,l,m,n,o,p                                                
+        print p
+        a1= re.findall('\[INSERT\], Operations,\s[0-9]+',h)
+        lines=[x.split() for x in a1]
+        q= lines[0][2]
+        print q                
+        a2= re.findall('\[INSERT\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
+        lines=[x.split() for x in a2]
+        r= lines[0][2]
+        print r               
+        a3= re.findall('\[INSERT\], MinLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in a3]
+        s= lines[0][2]
+        print s                
+        a4= re.findall('\[INSERT\], MaxLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in a4]
+        t= lines[0][2]
+        print t                
+        a5= re.findall('\[INSERT\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in a5]
+        u= lines[0][2]
+        print u                
+        a6= re.findall('\[INSERT\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in a6]
+        v= lines[0][2]
+        print v                               
+        return a,b,i,l,m,n,o,p,q,r,s,t,u,v                                                
     def __workloade_parser(self, results):
         h = results
         z= re.findall('\[OVERALL\], RunTime\(ms\),\s[0-9]+\.[0-9]+?',h)
@@ -377,54 +377,54 @@ class YCSBParser(object):
         lines=[x.split() for x in y]
         b= lines[0][2]
         print b
-        a1= re.findall('\[READ\], Operations,\s[0-9]+',h)
+        a1= re.findall('\[UPDATE\], Operations,\s[0-9]+',h)
         lines=[x.split() for x in a1]
-        i= lines[0][2]
-        print i                
-        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
-        lines=[x.split() for x in a2]
-        l= lines[0][2]
-        print l               
-        a3= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in a3]
-        m= lines[0][2]
-        print m                
-        a4= re.findall('\[READ\], MaxLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in a4]
-        n= lines[0][2]
-        print n                
-        a5= re.findall('\[READ\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in a5]
-        o= lines[0][2]
-        print o                
-        a6= re.findall('\[READ\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in a6]
-        p= lines[0][2]
-        print p
-        n= re.findall('\[UPDATE\], Operations,\s[0-9]+',h)
-        lines=[x.split() for x in n]
         c= lines[0][2]
-        print c               
-        m= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
-        lines=[x.split() for x in m]
+        print c                
+        a2= re.findall('\[UPDATE\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
+        lines=[x.split() for x in a2]
         d= lines[0][2]
-        print d                
-        l= re.findall('\[UPDATE\], MinLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in l]
+        print d               
+        a3= re.findall('\[UPDATE\], MinLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in a3]
         e= lines[0][2]
         print e                
-        t= re.findall('\[UPDATE\], MaxLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in t]
+        a4= re.findall('\[UPDATE\], MaxLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in a4]
         f= lines[0][2]
         print f                
-        q= re.findall('\[UPDATE\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in q]
+        a5= re.findall('\[UPDATE\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in a5]
         g= lines[0][2]
         print g                
-        v= re.findall('\[UPDATE\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in v]
+        a6= re.findall('\[UPDATE\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in a6]
         h1= lines[0][2]
-        print h1  
+        print h1
+        n= re.findall('\[READ\], Operations,\s[0-9]+',h)
+        lines=[x.split() for x in n]
+        i= lines[0][2]
+        print i               
+        xx= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
+        lines=[x.split() for x in xx]
+        l= lines[0][2]
+        print l                
+        l= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in l]
+        m= lines[0][2]
+        print m                
+        t= re.findall('\[READ\], MaxLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in t]
+        n= lines[0][2]
+        print n                
+        q= re.findall('\[READ\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in q]
+        o= lines[0][2]
+        print o               
+        v= re.findall('\[READ\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in v]
+        p= lines[0][2]
+        print p  
         b1= re.findall('\[READ-MODIFY-WRITE\], Operations,\s[0-9]+',h)
         lines=[x.split() for x in b1]
         a7= lines[0][2]
@@ -448,5 +448,5 @@ class YCSBParser(object):
         b6= re.findall('\[READ-MODIFY-WRITE\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
         lines=[x.split() for x in b6]
         a12= lines[0][2]
-        print a12                               
-        return a,b,i,l,m,n,o,p,c,d,e,f,g,h1,a7,a8,a9,a10,a11,a12                         
+        print a12  
+        return a,b,c,d,e,f,g,h1,i,l,m,n,o,p,a7,a8,a9,a10,a11,a12                         
