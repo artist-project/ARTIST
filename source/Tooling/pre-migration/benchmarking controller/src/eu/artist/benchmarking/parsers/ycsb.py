@@ -267,8 +267,8 @@ class YCSBParser(object):
         lines=[x.split() for x in m]
         l= lines[0][2]
         print l                
-        l= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in l]
+        klo= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in klo]
         m= lines[0][2]
         print m                
         t= re.findall('\[READ\], MaxLatency\(us\),\s[0-9]+',h)
@@ -334,8 +334,8 @@ class YCSBParser(object):
         lines=[x.split() for x in t]
         t= lines[0][2]
         print t                
-        q= re.findall('\[INSERT\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
-        lines=[x.split() for x in q]
+        oko= re.findall('\[INSERT\], 95thPercentileLatency\(ms\),\s[0-9]+',h)
+        lines=[x.split() for x in oko]
         u= lines[0][2]
         print u                
         v= re.findall('\[INSERT\], 99thPercentileLatency\(ms\),\s[0-9]+',h)
@@ -404,13 +404,13 @@ class YCSBParser(object):
         n= re.findall('\[READ\], Operations,\s[0-9]+',h)
         lines=[x.split() for x in n]
         i= lines[0][2]
-        print i               
-        xx= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
-        lines=[x.split() for x in xx]
+        print i    
+        a2= re.findall('\[READ\], AverageLatency\(us\),\s[0-9]+\.[0-9]+?',h)
+        lines=[x.split() for x in a2]
         l= lines[0][2]
-        print l                
-        l= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
-        lines=[x.split() for x in l]
+        print l              
+        yui= re.findall('\[READ\], MinLatency\(us\),\s[0-9]+',h)
+        lines=[x.split() for x in yui]
         m= lines[0][2]
         print m                
         t= re.findall('\[READ\], MaxLatency\(us\),\s[0-9]+',h)
