@@ -17,6 +17,9 @@
 
 library java2UMLActivityHelpers;
 
+---Return the root Java model
+helper def : jModelRoot : JAVA!Model = JAVA!Model.allInstancesFrom('IN')->first();
+
 -------------------------------------------------------
 ---Expressions (UML)
 -------------------------------------------------------
@@ -78,6 +81,79 @@ helper context UML!Element def: getClassifierPackage : UML!Package =
 	endif
 ;
 
+helper context JAVA!Package def: isAnExternalPackage : Boolean =
+--	self.getExternalElements
+--		-> includes(self)
+	not self.isRelatedToCompilationUnit
+;	
+
+helper def: getCompilationUnitNames(compUnitModel : Sequence(JAVA!CompilationUnit)) : Sequence(String) =
+	compUnitModel -> collect(compUnit | compUnit.name.split('[.][java]').at(1))
+;
+
+helper context OclAny def: getExternalElements : Sequence(JAVA!NamedElement) =
+	JAVA!Package.allInstancesFrom('IN')
+		-> select(pack | not pack.isRelatedToCompilationUnit)
+	-> union(
+		JAVA!TypeParameter.allInstancesFrom('IN')
+			-> reject(param | param.originalCompilationUnit.oclIsUndefined())
+			-> reject(param | param.originalCompilationUnit.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!ArrayType.allInstancesFrom('IN')
+			-> select(array | array.elementType.type.getPackage.oclIsUndefined())
+	)
+	-> union(
+		JAVA!UnresolvedTypeDeclaration.allInstancesFrom('IN')
+			-> select(uTD | uTD.usagesInTypeAccess -> notEmpty()
+							and not
+							(uTD.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uTD.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+	-> union(
+		JAVA!UnresolvedItem.allInstancesFrom('IN')
+			-> select(uI | uI.usagesInImports -> notEmpty()
+							and not
+							(uI.getCorrespondingClassDec.oclIsTypeOf(Sequence(JAVA!ClassDeclaration))
+							 	or
+							 uI.getCorrespondingImportDec.oclIsTypeOf(Sequence(JAVA!ImportDeclaration)))
+			)
+	)
+;
+
+helper context JAVA!Package def : isRelatedToCompilationUnit : Boolean = 
+	if not self.ownedElements -> isEmpty() then
+		self.ownedElements
+			-> collect(elem | elem.name)
+			-> asSet()
+			-> intersection(thisModule.getCompilationUnitNames(JAVA!Model.allInstancesFrom('IN')->first().compilationUnits))
+			-> notEmpty()
+	else
+		if not self.ownedPackages -> isEmpty() then
+			self.ownedPackages
+				-> collect(pack | pack.isRelatedToCompilationUnit)
+				-> flatten()
+				-> includes(true)			
+		else false endif	
+	endif	
+;
+
+---Get the java package of the element
+helper context JAVA!ASTNode def: getPackage : JAVA!Package =
+	if (self.oclIsTypeOf(JAVA!Model) or self.refImmediateComposite().oclIsTypeOf(JAVA!Model)
+			or self.refImmediateComposite().oclIsUndefined()) then
+		OclUndefined
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!Package))then
+			self.refImmediateComposite()
+		else
+			self.refImmediateComposite().getPackage
+		endif
+	endif	
+;	
+
 -------------------------------------------------------
 ---Class/Interface (UML) and [Class/Interface]Declaration
 -------------------------------------------------------
@@ -111,6 +187,69 @@ helper context JAVA!ASTNode def: isLocalInnerClass : Boolean =
 		false
 	endif;
 
+helper context JAVA!UnresolvedItem def: getCorrespondingDec : JAVA!ASTNode =
+	if self.getCorrespondingClassDec -> first().oclIsUndefined() then
+		if self.getCorrespondingImportDec -> first().oclIsUndefined() then
+			if self.getCorrespondingInterfDec -> first().oclIsUndefined() then
+				if self.getCorrespondingEnumDec -> first().oclIsUndefined() then
+					if self.getCorrespondingMethodDec -> first().oclIsUndefined() then
+						if self.getCorrespondingLabelState -> first().oclIsUndefined() then
+							OclUndefined
+						else self.getCorrespondingLabelState -> first() endif	
+					else self.getCorrespondingMethodDec -> first() endif	
+				else self.getCorrespondingEnumDec -> first() endif
+			else self.getCorrespondingInterfDec -> first() endif	
+		else self.getCorrespondingImportDec -> first() endif	
+	else self.getCorrespondingClassDec -> first() endif			
+;
+
+---Return the corresponding classDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingClassDec : Sequence(JAVA!ClassDeclaration) =
+	JAVA!ClassDeclaration.allInstancesFrom('IN')
+		-> select(class | not class.oclIsKindOf(JAVA!UnresolvedClassDeclaration) 
+							and class.name = self.name
+		)
+;
+
+---Return the corresponding importDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingImportDec : Sequence(JAVA!ImportDeclaration) =
+	JAVA!ImportDeclaration.allInstancesFrom('IN')
+		-> select(import | import.importedElement.name = self.name)
+;
+
+---Return the corresponding InterfDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingInterfDec : Sequence(JAVA!InterfaceDeclaration) =
+	JAVA!InterfaceDeclaration.allInstancesFrom('IN')
+		-> select(interf | not interf.oclIsKindOf(JAVA!UnresolvedInterfaceDeclaration) 
+							and interf.name = self.name
+		)
+;
+
+---Return the corresponding enumDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingEnumDec : Sequence(JAVA!EnumDeclaration) =
+	JAVA!EnumDeclaration.allInstancesFrom('IN')
+		-> select(enum | not enum.oclIsKindOf(JAVA!UnresolvedEnumDeclaration) 
+							and enum.name = self.name
+		)
+;
+
+---Return the corresponding methodDec for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingMethodDec : Sequence(JAVA!MethodDeclaration) =
+	JAVA!MethodDeclaration.allInstancesFrom('IN')
+		-> select(method | not method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration) 
+							and method.name = self.name
+		)
+;
+
+---Return the corresponding labelStatement for an unresolved type
+helper context JAVA!UnresolvedItem def: getCorrespondingLabelState : Sequence(JAVA!LabeledStatement) =
+	JAVA!LabeledStatement.allInstancesFrom('IN')
+		-> select(lState | not lState.oclIsKindOf(JAVA!UnresolvedLabeledStatement) 
+							and lState.name = self.name
+		)
+;
+
+
 -------------------------------------------------------
 ---Attributes
 -------------------------------------------------------
@@ -134,7 +273,7 @@ helper context JAVA!FieldDeclaration def: getFieldType : JAVA!NamedElement =
 		if (self.type.type.oclIsUndefined()) then
 				OclUndefined
 		else
-			self.type.type
+			self.type.type.excludeUnresolvedTypeDec
 		endif
 	endif
 ;	
@@ -376,7 +515,13 @@ helper context JAVA!AbstractMethodDeclaration def: getAbsMethDecVisibility : JAV
 ---Get all constructors and methods
 helper context JAVA!Model def: allAbstractMethodDeclaration : Sequence(JAVA!AbstractMethodDeclaration) = 
 	JAVA!AbstractMethodDeclaration.allInstancesFrom('IN')	
-		-> select(amd | amd.notInAnnotation)
+		-> select(amd | amd.notInAnnotation 
+						and (
+							 	if amd.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+								 	not amd.getCorrespondingDec.oclIsKindOf(JAVA!MethodDeclaration)
+								else true endif	
+							)	
+		)
 ;
 
 helper def: allMethods : Sequence(JAVA!MethodDeclaration) = 
@@ -396,6 +541,7 @@ helper def: allPrimitiveTypes : Sequence(JAVA!PrimitiveType) =
 
 helper def: allTypes : Sequence(JAVA!Element) = 
 	JAVA!Type.allInstancesFrom('IN')
+		-> reject(type | type.oclIsKindOf(JAVA!UnresolvedTypeDeclaration))
 		-> union(JAVA!AnonymousClassDeclaration.allInstancesFrom('IN'))
 		-> union(thisModule.allClasses)
 	;
@@ -599,7 +745,7 @@ helper context JAVA!Expression def : getVarOrElemName : String =
 	endif
 ;	
 
-helper context JAVA!ArrayLengthAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+helper context JAVA!ArrayLengthAccess def : getVarAccessExpression : JAVA!Expression = 
 	if (self.array.isAccessExpression)then
 		self.array.getVarAccessExpression
 	else self.array endif	
@@ -613,15 +759,23 @@ helper context JAVA!FieldAccess def : getVarAccessExpression : JAVA!VariableDecl
 	self.field.variable
 ;
 
-helper context JAVA!UnresolvedItemAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment =
+helper context JAVA!UnresolvedItemAccess def : getVarAccessExpression : JAVA!UnresolvedItem =
 	self.element
 ;
 
-helper context JAVA!ArrayAccess def : getVarAccessExpression : JAVA!VariableDeclarationFragment = 
+helper context JAVA!ArrayAccess def : getVarAccessExpression : JAVA!Expression = 
 	if (self.array.isAccessExpression)then
 		self.array.getVarAccessExpression
 	else self.array endif
 ;	
+
+helper context JAVA!TypeAccess def : getVarAccessExpression : JAVA!Type = 
+	self.type
+;	
+
+helper context JAVA!PackageAccess def : getVarAccessExpression : JAVA!Package = 
+	self.package
+;
 
 --------------------------
 ---Elements categorization
@@ -781,7 +935,7 @@ helper context JAVA!ExpressionStatement def: isActingOnCollection(actionMethodNa
 	else false endif	
 ;
 
-helper context JAVA!Expression def: isAccessExpression : Boolean =
+helper context JAVA!ASTNode def: isAccessExpression : Boolean =
 	self.oclIsTypeOf(JAVA!FieldAccess)
 	or self.oclIsTypeOf(JAVA!SingleVariableAccess)
 	or self.oclIsTypeOf(JAVA!UnresolvedItemAccess)
@@ -790,6 +944,7 @@ helper context JAVA!Expression def: isAccessExpression : Boolean =
 	or self.oclIsTypeOf(JAVA!TypeAccess)
 	or self.oclIsTypeOf(JAVA!NamespaceAccess)
 	or self.oclIsTypeOf(JAVA!ArrayLengthAccess)
+	or self.oclIsTypeOf(JAVA!PackageAccess)
 	or self.oclIsTypeOf(JAVA!SuperFieldAccess)
 ;
 
@@ -1082,11 +1237,23 @@ helper context JAVA!AbstractMethodInvocation def: getMethodDeclaration : JAVA!Me
 	else self.method endif
 ;
 
+helper context OclAny def: excludeUnresolvedMethodDec : OclAny = 
+	if not self.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+		self
+	else OclUndefined endif	
+;
+
+helper context JAVA!Initializer def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
+
+helper context JAVA!Model def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
+
+helper context JAVA!FieldDeclaration def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
+
 helper context JAVA!Statement def: getOwningMethod : JAVA!MethodDeclaration =
 	if self.refImmediateComposite().oclIsUndefined() then
 		OclUndefined
 	else 
-		if (self.refImmediateComposite().oclIsKindOf(JAVA!MethodDeclaration) 
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
 			or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
 			self.refImmediateComposite()
 		else 
@@ -1099,15 +1266,11 @@ helper context JAVA!Statement def: getOwningMethod : JAVA!MethodDeclaration =
 	endif
 ;
 
-helper context JAVA!Initializer def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
-
-helper context JAVA!Model def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
-
 helper context JAVA!Expression def: getOwningMethod : JAVA!MethodDeclaration =
 	if self.refImmediateComposite().oclIsUndefined() then
 		OclUndefined
 	else
-		if (self.refImmediateComposite().oclIsKindOf(JAVA!MethodDeclaration)
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
 				or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
 			self.refImmediateComposite()
 		else 
@@ -1124,20 +1287,22 @@ helper context JAVA!ASTNode def: getOwningMethod : JAVA!MethodDeclaration =
 	if self.refImmediateComposite().oclIsUndefined() then
 		OclUndefined
 	else 
-		if (self.refImmediateComposite().oclIsKindOf(JAVA!MethodDeclaration)
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
 			or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
 			self.refImmediateComposite()
 		else
 			if self.oclIsKindOf(JAVA!ClassDeclaration) then
 				OclUndefined
 			else 
-				self.refImmediateComposite().getOwningMethod
+				if self.refImmediateComposite().oclIsKindOf(JAVA!UnresolvedMethodDeclaration) then
+					self.refImmediateComposite().getCorrespondingDec
+				else	
+					self.refImmediateComposite().getOwningMethod
+				endif	
 			endif
 		endif
 	endif
 ;
-
-helper context JAVA!FieldDeclaration def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
 
 helper context JAVA!MethodInvocation def: getLastListMethodArgument : UML!Element =
 	let argument : OclAny = if (self.arguments -> size() > 2)then
@@ -1315,6 +1480,15 @@ helper context JAVA!VariableDeclarationStatement def : getOtherVDSInputPin(vds :
 			thisModule.resolveTemp(self.fragments->first().initializer, 'inputPinOperand')
 		endif
 	endif	
+;
+
+--------
+---Type
+--------
+helper context OclAny def: excludeUnresolvedTypeDec : OclAny = 
+	if not self.oclIsKindOf(JAVA!UnresolvedTypeDeclaration)then
+		self
+	else OclUndefined endif	
 ;
 
 ----------------

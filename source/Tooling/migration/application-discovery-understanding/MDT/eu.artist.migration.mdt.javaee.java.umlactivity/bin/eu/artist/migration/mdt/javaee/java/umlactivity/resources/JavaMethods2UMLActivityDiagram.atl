@@ -14,6 +14,7 @@
 -- 	INRIA - Initial implementation
 --  authors: Guillaume Doux (guillaume.doux at inria.fr) 
 --			 Matthieu Allon (matthieu.allon at gmail.com)
+-- Initially developed in the context of ARTIST EU project www.artist-project.eu
 -- ******************************************************************************
 
 module JavaMethods2UMLActivityDiagram;
@@ -27,14 +28,80 @@ rule JModelRootToUmlModelRoot {
 		jModelRoot : JAVA!Model
 	to 
 		umlModelRoot : UML!Model (
-			name <- 'root model', 
+			name <- 'root model', 			
 			packagedElement <- jModelRoot.allAbstractMethodDeclaration
 								->including(cd)
-								
+								-> append(thisModule.createExternalsModel(jModelRoot))	
 		),
 		cd	:	UML!Package(
 			name <- 'Associated Classifiers',
 			packagedElement <- thisModule.allTypes 
+									-> union(UML!Dependency.allInstancesFrom('OUT'))
+		)
+}
+
+---Create 'external' model
+unique lazy rule createExternalsModel{
+	from 
+		jModel : JAVA!Model
+	to 
+		umlModel : UML!Package(
+			name <- 'externals',
+			packagedElement <- jModel.getExternalElements
+								-> select(elem | elem.oclIsTypeOf(JAVA!Package))
+								-> select(elem | elem.isAnExternalPackage)
+		)
+}
+
+---Package only for the external lib.
+rule JPackageToUmlPackage {
+	from 
+		jPackage : JAVA!Package(
+			jPackage.isAnExternalPackage
+		)
+	to 
+		umlPackage : UML!Package (
+				name <- jPackage.name, 
+				nestedPackage <- jPackage.ownedPackages 
+									-> select(elem | elem.isAnExternalPackage),
+				packagedElement <- jPackage.ownedElements 
+										-> select(c | c.oclIsKindOf(JAVA!ClassDeclaration) 
+														or c.oclIsKindOf(JAVA!InterfaceDeclaration) 
+														or c.oclIsKindOf(JAVA!EnumDeclaration)
+										)
+										->collect(c | if c.originalCompilationUnit.oclIsUndefined() 
+														then OclUndefined
+														else c.originalCompilationUnit.imports
+													endif )->flatten()
+										->union(
+											jPackage.ownedElements	
+										),
+				nestingPackage <- if (not jPackage.getPackage.oclIsUndefined())then
+								 	if (jPackage.getPackage.isAnExternalPackage)then
+										jPackage.getPackage
+								  	else OclUndefined endif	
+								  else OclUndefined endif		
+		)		
+}
+
+rule createDependency{
+	from 
+		jImportDec : JAVA!ImportDeclaration
+	to 
+		umlDependency : UML!Dependency (		
+			name <- jImportDec.importedElement.name + '_OF_' + jImportDec.refImmediateComposite().name,
+			supplier <- if jImportDec.importedElement.oclIsKindOf(JAVA!VariableDeclarationFragment) then 
+							jImportDec.importedElement.originalCompilationUnit.types
+						else 
+							if jImportDec.importedElement.oclIsKindOf(JAVA!AnnotationTypeDeclaration) then
+								jImportDec.importedElement.usagesInImports
+									-> collect(usImport | usImport.originalCompilationUnit.types)	
+							else 
+								if (jImportDec.importedElement.oclIsKindOf(JAVA!EnumConstantDeclaration))then
+									jImportDec.importedElement.refImmediateComposite()
+								else jImportDec.importedElement endif
+							endif
+						endif
 		)
 }
 
@@ -107,7 +174,10 @@ rule AnonymousClass extends abstratASTNodeToClass {
 		t	:	UML!Class(
 			name <- if (not s.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration)) then
 						s.classInstanceCreation.type.type.name
-					else 'EnumConstant_' + s.refImmediateComposite().name endif
+					else 'EnumConstant_' + s.refImmediateComposite().name endif,
+			clientDependency <- if (not s.originalCompilationUnit.oclIsUndefined()) then
+									s.originalCompilationUnit.imports
+								else OclUndefined endif
 		)		
 	do{
 		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);	
@@ -119,7 +189,10 @@ rule Class extends abstratASTNodeToClass {
 		s	:	JAVA!ClassDeclaration
 	to
 		t	:	UML!Class(
-			name <- s.name
+			name <- s.name,
+			clientDependency <- if (not s.originalCompilationUnit.oclIsUndefined()) then
+									s.originalCompilationUnit.imports
+								else OclUndefined endif
 		)		
 	do{
 		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);	
@@ -131,10 +204,13 @@ rule enumDeclaration extends abstratASTNodeToClass {
 		s	:	JAVA!EnumDeclaration
 	to
 		t	:	UML!Class(
-			name <- s.name + '-unsupported'
+			name <- s.name + '-unsupported',
+			clientDependency <- if (not s.originalCompilationUnit.oclIsUndefined()) then
+									s.originalCompilationUnit.imports
+								else OclUndefined endif
 		)
 	do{
-		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);	
+		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);
 	}	
 }
 
@@ -143,10 +219,13 @@ rule JInterfaceToUmlInterface extends abstratASTNodeToClass {
 		s : JAVA!InterfaceDeclaration
 	to 
 		t : UML!Interface (
-			name <- s.name
+			name <- s.name,
+			clientDependency <- if (not s.originalCompilationUnit.oclIsUndefined()) then
+									s.originalCompilationUnit.imports
+								else OclUndefined endif
 		)
 	do{
-		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);	
+		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);
 	}		
 }
 
@@ -207,7 +286,9 @@ rule instanceVariableUseNotSettNullExpressState extends abstractExpressStatement
 			name <- 'objectToInputPin',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
@@ -255,7 +336,9 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			name <- 'objectToInputPin',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
@@ -344,7 +427,9 @@ rule implicitThis2IntanceVarUsereadSelf extends abstractExpressStatement{
 			name <- 'fromObjectToInputPin_1',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
@@ -409,7 +494,9 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 			name <- 'objectToInputPin',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
@@ -491,7 +578,9 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 			name <- 'fromObjectToInputPin_2',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
@@ -573,7 +662,9 @@ rule expressionStatementClearListImpThisInstanVar extends abstractExpressStateme
 			name <- 'fromObjectToInputPin_3',
 			inStructuredNode <- s.getStatement,
 			target <- inputCFA,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputCFA : UML!InputPin (
 			name <- 'objectInput',
@@ -628,7 +719,9 @@ rule expressionStatementClearList extends abstractExpressStatement{
 			name <- 'fromObjectToInputPin',
 			inStructuredNode <- s.getStatement,
 			target <- inputCFA,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputCFA : UML!InputPin (
 			name <- 'objectInput',
@@ -685,7 +778,9 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 			name <- 'fromObjectToInputPin_5',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
@@ -741,7 +836,9 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 			name <- 'fromValueToValueIP',
 			inStructuredNode <- s.getStatement,
 			target <- valueIP,
-			source <- s.expression.getLastListMethodArgument
+			source <- if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getLastListMethodArgument
+					  else OclUndefined endif
 		),
 		
 		insertAtIP : UML!InputPin(
@@ -781,7 +878,9 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 			name <- 'fromObjectToInputPin_6',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
@@ -837,7 +936,9 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 			name <- 'fromValueToValueIP',
 			inStructuredNode <- s.getStatement,
 			target <- valueIP,
-			source <- 	s.expression.getLastListMethodArgument
+			source <- 	if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getLastListMethodArgument
+					  else OclUndefined endif
 		),
 		
 		insertAtIP : UML!InputPin(
@@ -891,7 +992,9 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 			name <- 'fromObjectToObjectIP',
 			inStructuredNode <- s.getStatement,
 			target <- objectIP,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		
 		valueIP : UML!InputPin(
@@ -902,7 +1005,9 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 			name <- 'fromValueToValueIP',
 			inStructuredNode <- s.getStatement,
 			target <- valueIP,
-			source <- 	s.expression.getLastListMethodArgument
+			source <- if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getLastListMethodArgument
+					  else OclUndefined endif
 		),
 		
 		insertAtIP : UML!InputPin(
@@ -950,7 +1055,9 @@ rule expressionStatementAddList extends abstractExpressStatement{
 			name <- 'fromObjectToObjectIP',
 			inStructuredNode <- s.getStatement,
 			target <- objectIP,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		
 		valueIP : UML!InputPin(
@@ -961,7 +1068,9 @@ rule expressionStatementAddList extends abstractExpressStatement{
 			name <- 'fromValueToValueIP',
 			inStructuredNode <- s.getStatement,
 			target <- valueIP,
-			source <- s.expression.getLastListMethodArgument
+			source <- if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getLastListMethodArgument
+					  else OclUndefined endif
 		),
 		
 		insertAtIP : UML!InputPin(
@@ -998,7 +1107,9 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			name <- 'fromExpressionToReadStructuralFeatureAction',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
@@ -1115,7 +1226,9 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,						
+			source <- if (not s.expression.getRemoveCollectionArgument.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getRemoveCollectionArgument
+					  else OclUndefined endif,						
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -1176,7 +1289,9 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			name <- 'fromExpressionToReadStructuralFeatureAction',
 			inStructuredNode <- s.getStatement,
 			target <- inputPin,
-			source <- s.expression
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif	
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
@@ -1293,7 +1408,9 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,							
+			source <- if (not s.getRemoveCollectionArgument.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getRemoveCollectionArgument
+					  else OclUndefined endif,					
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -1352,7 +1469,9 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
 			name <- 'fromReadStructuralFeatureActionOutputToForkNode',
-			source <- s.expression,
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif,
 			target <- forkNodeObject,
 			inStructuredNode <- t
 		),
@@ -1436,7 +1555,9 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getRemoveCollectionArgument
+					  else OclUndefined endif,
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -1489,7 +1610,9 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
 			name <- 'fromReadStructuralFeatureActionOutputToForkNode',
-			source <- s.expression,
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif,
 			target <- forkNodeObject,
 			inStructuredNode <- t
 		),
@@ -1576,7 +1699,9 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
-			source <- s.expression.getRemoveCollectionArgument,
+			source <- if (not s.expression.getRemoveCollectionArgument.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression.getRemoveCollectionArgument
+					  else OclUndefined endif,
 			target <- forkNodeIndex,
 			inStructuredNode <- t
 		),
@@ -1639,12 +1764,12 @@ abstract rule returnStatementGlobal{
 		apn	:	UML!ActivityParameterNode(
 			name <- 'return',
 			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						s.getOwningMethod.returnType.type.typeArguments ->first().type
+						s.getOwningMethod.returnType.type.typeArguments ->first().type.excludeUnresolvedTypeDec
 					else 
 						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
-							s.getOwningMethod.returnType.type.elementType.type
+							s.getOwningMethod.returnType.type.elementType.type.excludeUnresolvedTypeDec
 						else
-							s.getOwningMethod.returnType.type
+							s.getOwningMethod.returnType.type.excludeUnresolvedTypeDec
 						endif
 					endif,
 			parameter <- paramAct,
@@ -1654,12 +1779,12 @@ abstract rule returnStatementGlobal{
 			name <- 'return',
 			direction <- #return,
 			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						s.getOwningMethod.returnType.type.typeArguments ->first().type
+						s.getOwningMethod.returnType.type.typeArguments ->first().type.excludeUnresolvedTypeDec
 					else 
 						if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ArrayType)) then
-							s.getOwningMethod.returnType.type.elementType.type
+							s.getOwningMethod.returnType.type.elementType.type.excludeUnresolvedTypeDec
 						else
-							s.getOwningMethod.returnType.type
+							s.getOwningMethod.returnType.type.excludeUnresolvedTypeDec
 						endif
 					endif
 					
@@ -1930,7 +2055,9 @@ rule forStatement extends abstractLoopAndTryStatement{
 		td	:	UML!ObjectFlow(
 			name <- 'fromExpressionToDecisionNode',
 			inStructuredNode <- t,
-			source <- s.expression,
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif,
 			target <- dec,
 			name <- '<<decisionInputFlow>>'
 		),
@@ -1955,7 +2082,9 @@ rule forStatement extends abstractLoopAndTryStatement{
 		id2	:	UML!ControlFlow(
 			name <- 'fromInitializerToJoinNode',
 			inStructuredNode <- t,
-			source <- s.initializers->first(),
+			source <- if (not s.initializers->first().oclIsKindOf(JAVA!TypeLiteral)) then
+						s.initializers->first()
+					  else OclUndefined endif,
 			target <- jn
 		),		
 		id3	:	UML!ControlFlow(
@@ -1999,7 +2128,9 @@ rule forStatement extends abstractLoopAndTryStatement{
 		id5	:	UML!ControlFlow(
 			name <- 'fromUpdaterToJoinNode',
 			inStructuredNode <- t,
-			source <- s.updaters->first(),
+			source <- if (not s.updaters->first().oclIsKindOf(JAVA!TypeLiteral)) then
+						s.updaters->first()
+					  else OclUndefined endif,
 			target <- jn
 		)
 }
@@ -2094,7 +2225,9 @@ rule whileStatement extends abstractLoopAndTryStatement{
 		td	:	UML!ObjectFlow(
 			name <- 'fromExpressionToDecisionNode',
 			inStructuredNode <- t,
-			source <- s.expression,
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif,
 			target <- dec,
 			name <- '<<decisionInputFlow>>'
 		),
@@ -2165,7 +2298,9 @@ rule doWhileStatement extends abstractLoopAndTryStatement{
 		td	:	UML!ObjectFlow(
 			name <- 'fromExpressionToDecisionNode',
 			inStructuredNode <- t,
-			source <- s.expression,
+			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
+						s.expression
+					  else OclUndefined endif,
 			target <- dec,
 			name <- '<<decisionInputFlow>>'
 		),
@@ -2362,13 +2497,17 @@ rule ifStatement { --simplifed mapping in case of empty else branch
 
 rule labelStatement2StructuredActivity {
 	from
-		s : JAVA!LabeledStatement ((not s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)) 
-											and s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+		s : JAVA!LabeledStatement (
+			(not s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)) 
+			and s.notInInitializerOrFieldOrEnum 
+			and s.notInAnnotation
 		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- s.refImmediateComposite().oclType().toString(),
-			inStructuredNode <- s.getStatement,
+			inStructuredNode <- if s.oclIsKindOf(JAVA!UnresolvedLabeledStatement)then
+									s.getCorrespondingDec.getStatement
+								else s.getStatement endif,
 			node <- Sequence{init, s.body, final}
 						->flatten()						
 		),
@@ -2380,7 +2519,10 @@ rule labelStatement2StructuredActivity {
 			target <- final,
 			source <- if (s.body.oclIsUndefined())
 							then init
-							else s.body
+							else 
+								if s.oclIsKindOf(JAVA!UnresolvedLabeledStatement)then
+									s.getCorrespondingDec.body
+								else s.body endif
 						endif
 		)
 }
@@ -2432,7 +2574,7 @@ rule catchClause {
 									then 'Unknown Exception'
 									else s.exception.type.type.name
 								endif,
-			type <- s.exception.type.type
+			type <- s.exception.type.type.excludeUnresolvedTypeDec
 		)
 		
 }
@@ -2447,15 +2589,15 @@ rule classInstanceCreation2CreateObject {
 		createObjectAction : UML!CreateObjectAction(
 			name <- 'Constructor Invocation of '+ ci.originalCompilationUnit.name,
 			classifier <- 	if(ci.type.type.oclIsKindOf(JAVA!ParameterizedType))then
-								ci.method.abstractTypeDeclaration
-							else ci.type.type endif,
+								ci.method.abstractTypeDeclaration.excludeUnresolvedMethodDec
+							else ci.type.type.excludeUnresolvedTypeDec endif,
 			result <- op
 		),		
 		op : UML!OutputPin(
 			name <- 'Result of constructor invocation of ' + ci.originalCompilationUnit.name,
 			type <- if(ci.type.type.oclIsKindOf(JAVA!ParameterizedType))then
-						ci.method.abstractTypeDeclaration
-					else ci.type.type endif,
+						ci.method.abstractTypeDeclaration.excludeUnresolvedMethodDec
+					else ci.type.type.excludeUnresolvedTypeDec endif,
 			outgoing <- outObjCreateOA
 		),
 		
@@ -2512,7 +2654,7 @@ rule JAttributeToUmlField{
 										jBodyDec.getFieldType
 								 else 
 								 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
-										jBodyDec.getFieldType.typeArguments ->first().type
+										jBodyDec.getFieldType.typeArguments ->first().type.excludeUnresolvedTypeDec
 									else jBodyDec.getFieldType endif	
 								 endif
 							endif,						
@@ -2522,7 +2664,9 @@ rule JAttributeToUmlField{
 
 abstract rule constructorAndMethod2Activity{
 	from
-		construcOrMethodDec : JAVA!AbstractMethodDeclaration
+		construcOrMethodDec : JAVA!AbstractMethodDeclaration(
+			not construcOrMethodDec.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)	
+		)
 	to
 		act	:	UML!Activity(),
 		operation : UML!Operation(
@@ -2898,9 +3042,14 @@ rule methodCallExpression {
 		),
 		
 		of1	:	UML!ObjectFlow (
-			name <- 'fromExpressionOutputToCallOperationAction',
+			name <- 'fromExpressionOutputToCallOperationAction'.concat('_'+mi.method.name),
 			source <- thisModule.resolveTemp(mi.expression, 'op'),
-			activity <- mi.method,
+			activity <- if mi.method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+							if  mi.method.getCorrespondingDec.oclIsUndefined()
+									or not mi.method.getCorrespondingDec.oclIsKindOf(JAVA!MethodDeclaration)then
+								mi.method
+							else mi.method.getCorrespondingDec endif
+						else mi.method endif,
 			target <- inputPin
 		),
 		inputPin	:	UML!InputPin (
@@ -2942,12 +3091,12 @@ rule Parameters2ActivityParameterAndParamNode {
 		apn	:	UML!ActivityParameterNode(
 			name <- param.name,
 			type <- if (param.type.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						param.type.type.typeArguments ->first().type
+						param.type.type.typeArguments ->first().type.excludeUnresolvedTypeDec
 					else 
 						if (param.type.type.oclIsKindOf(JAVA!ArrayType)) then
-							param.type.type.elementType.type
+							param.type.type.elementType.type.excludeUnresolvedTypeDec
 						else
-							param.type.type 
+							param.type.type.excludeUnresolvedTypeDec 
 						endif
 					endif,
 			parameter <- paramAct		
@@ -2956,12 +3105,12 @@ rule Parameters2ActivityParameterAndParamNode {
 		paramAct	:	UML!Parameter(
 			name <- param.name,
 			type <- if (param.type.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						param.type.type.typeArguments ->first().type
+						param.type.type.typeArguments ->first().type.excludeUnresolvedTypeDec
 					else 
 						if (param.type.type.oclIsKindOf(JAVA!ArrayType)) then
-							param.type.type.elementType.type
+							param.type.type.elementType.type.excludeUnresolvedTypeDec
 						else
-							param.type.type 
+							param.type.type.excludeUnresolvedTypeDec 
 						endif
 					endif
 		)
@@ -2980,9 +3129,6 @@ rule Parameters2ActivityParameterAndParamNode {
 rule parameterizedType {
 	from
 		s	:	JAVA!ParameterizedType
---		(
---			not s.isAList
---		)
 	to
 		t	:	UML!Class(
 			name <- s.typeArguments -> first().type.name
@@ -3666,9 +3812,9 @@ rule typeCastExpression {
 		op	:	UML!OutputPin (
 			name <- 'internalStructuredActivityNodeOutput',
 			type <- if (not tce.type.type.oclIsKindOf(JAVA!ArrayType))then
-						tce.type.type
+						tce.type.type.excludeUnresolvedTypeDec
 					else 
-						tce.type.type.elementType.type 
+						tce.type.type.elementType.type.excludeUnresolvedTypeDec 
 					endif
 		)
 }
@@ -3710,7 +3856,7 @@ rule numericCastExpression {
 		
 		op	:	UML!OutputPin (
 			name <- 'resultCallBehaviorActionOutput',
-			type <- tce.type.type
+			type <- tce.type.type.excludeUnresolvedTypeDec
 		)
 }
 
@@ -3737,9 +3883,14 @@ rule instanceOf {
 		incomObject : UML!ObjectFlow(
 			name <- 'fromParametersToReadIsClassifiedObjectAction',
 			activity <- tce.getOwningMethod,
-			source <- tce.getOwningMethod.parameters
-						-> collect(param | thisModule.resolveTemp(param, 'apn'))
-						-> flatten() -> first(),
+			source <- let firstParam : OclAny = 
+						tce.getOwningMethod.parameters
+							-> collect(param | thisModule.resolveTemp(param, 'apn'))
+							-> flatten() -> first()
+					   in 
+					   if (not firstParam.oclIsKindOf(JAVA!TypeLiteral)) then
+						firstParam
+					  else OclUndefined endif,
 			target <- ip
 		),
 		
@@ -3761,19 +3912,7 @@ rule instanceOf {
 		)
 }
 
-rule unresolvedType {
-	from
-		s	:	JAVA!UnresolvedTypeDeclaration
-	to
-		t	:	UML!Class(
-			name <- s.name	
-		)
-	do{
-		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);	
-	}
-}
-
-rule unresolvedItem {
+rule unresolvedItemAccess {
 	from
 		s	:	JAVA!UnresolvedItemAccess(
 			not s.getStatement.oclIsUndefined()	
@@ -3872,7 +4011,10 @@ rule charLiteral2ValueSpecification {
 
 rule Booleanliteral2ValueSpecification {
 	from
-		bl	:	JAVA!BooleanLiteral (bl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
+		bl	:	JAVA!BooleanLiteral (
+			bl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
+			and bl.notInAnnotation
+		)
 	to
 		vsa	:	UML!ValueSpecificationAction (
 			result <- op,
@@ -3889,12 +4031,14 @@ rule Booleanliteral2ValueSpecification {
 
 rule numberLiteral2ValueSpecification {
 	from
-		nl	:	JAVA!NumberLiteral ((nl.tokenValue.indexOf('.')=-1) and
-									nl.notInInitializerOrFieldOrEnum									
+		nl	:	JAVA!NumberLiteral (
+			(nl.tokenValue.indexOf('.')=-1) 
+			and nl.notInInitializerOrFieldOrEnum				
+			and nl.notInAnnotation
 		)
 	to 
 		vsa	:	UML!ValueSpecificationAction (
-			name <- nl.toString(),
+			name <- nl.toString().concat('_RIC : ' + nl.refImmediateComposite()+'_Type : '+nl.oclType().toString()),
 			result <- op,
 			value <-vs,
 			inStructuredNode <- nl.getStatement
@@ -3909,9 +4053,11 @@ rule numberLiteral2ValueSpecification {
 
 rule realNumberLiteral2ValueSpecification {
 	from
-		nl	:	JAVA!NumberLiteral ((not (nl.tokenValue.indexOf('.')=-1)  and
-									nl.notInInitializerOrFieldOrEnum	
-		))
+		nl	:	JAVA!NumberLiteral (
+			(not (nl.tokenValue.indexOf('.')=-1)  
+			and	nl.notInInitializerOrFieldOrEnum)
+			and nl.notInAnnotation
+		)
 	to 
 		vsa	:	UML!ValueSpecificationAction (
 			name <- nl.toString(),
@@ -3929,7 +4075,10 @@ rule realNumberLiteral2ValueSpecification {
 
 rule nullLiteral2ValueSpecification {
 	from
-		nl	:	JAVA!NullLiteral (nl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
+		nl	:	JAVA!NullLiteral (
+			nl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
+			and nl.notInAnnotation
+		)
 	to 
 		vsa	:	UML!ValueSpecificationAction (
 			name <- nl.toString(),
@@ -3954,12 +4103,22 @@ unique lazy rule createArgumentNotPrimitiv {
 		of2	:	UML!ObjectFlow (
 			name <- 'fromExpressionOutput',
 			source <- thisModule.resolveTemp(a, 'op'),
-			activity <- a.refImmediateComposite().method
+			activity <- if a.refImmediateComposite().method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+							if  a.refImmediateComposite().method.getCorrespondingDec.oclIsTypeOf(JAVA!MethodDeclaration)then
+								a.refImmediateComposite().method.getCorrespondingDec
+							else a.refImmediateComposite().method									
+							endif
+						else a.refImmediateComposite().method 								
+						endif 
 		),
 		cf	:	UML!ControlFlow (
 			name <- 'fromExpressionOutputToStatement',
 			source <- thisModule.resolveTemp(a, 'op'),
-			activity <- a.refImmediateComposite().method,
+			activity <- if a.refImmediateComposite().method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+							if  not a.refImmediateComposite().method.getCorrespondingDec.oclIsTypeOf(JAVA!MethodDeclaration)then
+								a.refImmediateComposite().method
+							else a.refImmediateComposite().method.getCorrespondingDec endif
+						else a.refImmediateComposite().method endif,
 			target <- 	if (a.refImmediateComposite().getStatement.oclIsKindOf(JAVA!ReturnStatement))then
 							thisModule.resolveTemp(a.refImmediateComposite().getStatement, 'co')
 						else a.refImmediateComposite() endif
@@ -3988,12 +4147,12 @@ unique lazy rule Parameters2ActivityParameter{
 		paramAct	:	UML!Parameter(
 			name <- param.name,
 			type <-	if (param.type.type.oclIsKindOf(JAVA!ParameterizedType)) then
-						param.type.type.typeArguments ->first().type
+						param.type.type.typeArguments ->first().type.excludeUnresolvedTypeDec
 					else 
 						if (param.type.type.oclIsKindOf(JAVA!ArrayType)) then
-							param.type.type.elementType.type
+							param.type.type.elementType.type.excludeUnresolvedTypeDec
 						else
-							param.type.type
+							param.type.type.excludeUnresolvedTypeDec
 						endif
 					endif
 		)
@@ -4010,9 +4169,9 @@ rule arrayToClass {
 		), 
 		umlProperty	:	UML!Property(
 			type <- if (arrayType.elementType.type.oclIsKindOf(JAVA!TypeParameter)) then
-							arrayType.elementType.type
+							arrayType.elementType.type.excludeUnresolvedTypeDec
 					else 
-						arrayType.elementType.type
+						arrayType.elementType.type.excludeUnresolvedTypeDec
 					endif,
 			name <- 'type'		
 		)
@@ -4301,12 +4460,12 @@ unique lazy rule createStructFeature{
 					endif	
 					,
 			type <- if (singleAccess.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then 
-						singleAccess.getVariableType.typeArguments -> first().type
+						singleAccess.getVariableType.typeArguments -> first().type.excludeUnresolvedTypeDec
 					else 
 						if (singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
-							singleAccess.getVariableType.elementType.type
+							singleAccess.getVariableType.elementType.type.excludeUnresolvedTypeDec
 						else
-							singleAccess.getVariableType
+							singleAccess.getVariableType.excludeUnresolvedTypeDec
 						endif	
 					endif,
 			lower <- if (singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
@@ -4397,3 +4556,115 @@ rule createObjectFlow(forkNode : UML!ForkNode, otherVDState : JAVA!VariableDecla
 		oFFromForkNode;	
 	}	
 }
+
+--***************Unresolved items***************
+rule JUnresolvedItemToUmlClass {
+	from 
+		jUnresItem : JAVA!UnresolvedItem(
+			not jUnresItem.oclIsTypeOf(JAVA!UnresolvedMethodDeclaration)
+			and not jUnresItem.oclIsTypeOf(JAVA!UnresolvedLabeledStatement)
+			and
+			(
+				jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!ClassDeclaration)
+				or
+				jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!ImportDeclaration)
+			)
+		)
+	to 
+		umlNamedElement : UML!Class(
+			name <- jUnresItem.name,
+			package <- thisModule.createExternalsModel(thisModule.jModelRoot)
+		)
+}
+
+rule JUnresolvedItemToUmlInterface {
+	from 
+		jUnresItem : JAVA!UnresolvedItem(
+			not jUnresItem.oclIsTypeOf(JAVA!UnresolvedMethodDeclaration)
+			and not jUnresItem.oclIsTypeOf(JAVA!UnresolvedLabeledStatement)
+			and (jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!InterfaceDeclaration))
+		)
+	to 
+		umlNamedElement : UML!Interface(
+			name <- jUnresItem.name,
+			package <- thisModule.createExternalsModel(thisModule.jModelRoot) 
+		)
+}
+
+rule JUnresolvedItemToUmlEnum {
+	from 
+		jUnresItem : JAVA!UnresolvedItem(
+			not jUnresItem.oclIsTypeOf(JAVA!UnresolvedMethodDeclaration)
+			and not jUnresItem.oclIsTypeOf(JAVA!UnresolvedLabeledStatement)
+			and (jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!EnumDeclaration))
+		)
+	to 
+		umlNamedElement : UML!Enumeration(
+			name <- jUnresItem.name,
+			package <- thisModule.createExternalsModel(thisModule.jModelRoot)
+		)
+}
+
+rule JUnresolvedMethodDecToActivity{
+	from 
+		construcOrMethodDec : JAVA!UnresolvedMethodDeclaration(
+			not construcOrMethodDec.getCorrespondingDec.oclIsKindOf(JAVA!MethodDeclaration)
+		)
+	to 
+		act	:	UML!Activity(
+			name <- construcOrMethodDec.name,
+			visibility <- construcOrMethodDec.getAbsMethDecVisibility
+		),
+		
+		init	:	UML!InitialNode(
+			activity <- act
+		),
+		icf : UML!ControlFlow(
+			name <- 'fromIntialNodeToOpaqueAction',
+			activity <- act,
+			target <- opaqueAction,
+			source <- init 
+		),
+		
+		opaqueAction : UML!OpaqueAction(
+			name <- 'OpaqueAction_UnresolvedMethodDelaration',
+			activity <- act
+		),
+		
+		final	:	UML!ActivityFinalNode(
+			activity <- act
+		),
+		fcf : UML!ControlFlow(
+			name <- 'fromOpaqueActionToFinalNode',
+			activity <- act,
+			target <- final,
+			source <- opaqueAction
+		)	
+}
+
+--rule UnresolvedlabelStatement2StructuredActivity {
+--	from
+--		s : JAVA!UnresolvedLabeledStatement(
+--			not s.getCorrespondingDec.oclIsKindOf(JAVA!LabeledStatement)
+--		)
+--	to
+--		t	:	UML!StructuredActivityNode(
+--			name <- 'UnresolvedLabeledStatement_' + s.refImmediateComposite().oclType().toString(),
+--			inStructuredNode <- s.getCorrespondingDec.getStatement,
+--			node <- Sequence{init, opaqueAction, final} ->flatten()						
+--		),
+--		
+--		opaqueAction : UML!OpaqueAction(
+--			name <- 'OpaqueAction_UnresolvedLabeledStatement',
+--			inStructuredNode <- t
+--		),
+--		
+--		init	:	UML!InitialNode(),
+--		final	:	UML!ActivityFinalNode(),		
+--		fcf : UML!ControlFlow(
+--			name <- 'fromInitNodeToFinalNode', 
+--			inStructuredNode <- t,
+--			target <- final,
+--			source <- opaqueAction
+--		)
+--}
