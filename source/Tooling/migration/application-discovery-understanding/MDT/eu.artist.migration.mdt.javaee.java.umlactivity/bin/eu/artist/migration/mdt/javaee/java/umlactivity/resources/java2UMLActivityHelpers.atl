@@ -82,8 +82,6 @@ helper context UML!Element def: getClassifierPackage : UML!Package =
 ;
 
 helper context JAVA!Package def: isAnExternalPackage : Boolean =
---	self.getExternalElements
---		-> includes(self)
 	not self.isRelatedToCompilationUnit
 ;	
 
@@ -153,6 +151,26 @@ helper context JAVA!ASTNode def: getPackage : JAVA!Package =
 		endif
 	endif	
 ;	
+
+------------------
+---Property (UML)
+------------------
+--helper def: allASTNode : Sequence(TupleType(node : JAVA!ASTNode, property : UML!Property)) = Sequence{};
+helper def: allASTNode : Map( JAVA!ASTNode, UML!Property) = Map{};
+
+helper context OclAny def: isEverTransformed : Boolean = 
+	not self.getProperty.oclIsUndefined()
+;
+
+helper context JAVA!ASTNode def: getProperty : UML!Property = 
+	thisModule.allASTNode
+		-> get(
+				thisModule.allASTNode
+					-> getKeys()
+					-> select(keyNode | keyNode.variable = self.variable)
+					-> first()
+		)
+;
 
 -------------------------------------------------------
 ---Class/Interface (UML) and [Class/Interface]Declaration
@@ -426,6 +444,22 @@ helper context JAVA!Expression def : isAList : Boolean =
 	endif
 ;
 
+helper context JAVA!FieldDeclaration def : isAList : Boolean =
+	if (not self.getFieldType.oclIsKindOf(JAVA!UnresolvedItem) 
+--			and not self.getFieldType.oclIsKindOf(JAVA!PrimitiveType) 
+			and not self.getFieldType.oclIsKindOf(JAVA!EnumDeclaration)
+--			and not self.getFieldType.oclIsKindOf(JAVA!ArrayType)
+			and not self.getFieldType.oclIsKindOf(JAVA!Type)
+			and not self.getFieldType.oclIsUndefined()
+		)then
+		self.getFieldType.isAList
+	else 
+		if (self.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+			self.getFieldType.isAList
+		else false endif
+	endif
+;
+
 helper context JAVA!ParameterizedType def : isAList : Boolean =
 	if (self.type.oclIsKindOf(JAVA!TypeAccess)) then
 		self.type.isAList
@@ -434,10 +468,20 @@ helper context JAVA!ParameterizedType def : isAList : Boolean =
 
 helper context JAVA!TypeAccess def : isAList : Boolean =
 	if (self.type.oclIsKindOf(JAVA!TypeDeclaration))then
-		self.type.name = 'List'
-			or
-		(self.type.superInterfaces -> select(interf | interf.isAList) -> notEmpty())
+--		self.type.name = 'List'
+--			or
+--		(self.type.superInterfaces -> select(interf | interf.isAList) -> notEmpty())
+		self.type.isAList
 	else false endif	
+;
+
+helper context JAVA!TypeDeclaration def : isAList : Boolean =
+--	if (self.type.oclIsKindOf(JAVA!TypeDeclaration))then
+--		self.type.name = 'List'
+		self.name = 'List'
+			or
+		(self.superInterfaces -> select(interf | interf.isAList) -> notEmpty())
+--	else false endif	
 ;
 
 --- Test if a java element is a set
@@ -449,6 +493,22 @@ helper context JAVA!Expression def : isASet : Boolean =
 	else
 		if (self.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then
 			self.getVariableType.isASet
+		else false endif
+	endif
+;
+
+helper context JAVA!FieldDeclaration def : isASet : Boolean =
+	if (not self.getFieldType.oclIsKindOf(JAVA!UnresolvedItem)
+--			and not self.getFieldType.oclIsKindOf(JAVA!PrimitiveType) 
+			and not self.getFieldType.oclIsKindOf(JAVA!EnumDeclaration)
+			and not self.getFieldType.oclIsKindOf(JAVA!Type)
+--			and not self.getFieldType.oclIsKindOf(JAVA!ArrayType)
+			and not self.getFieldType.oclIsUndefined()
+		)then
+		self.getFieldType.isAList
+	else 
+		if (self.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+			self.getFieldType.isASet
 		else false endif
 	endif
 ;
@@ -1140,6 +1200,14 @@ helper context JAVA!Expression def: getObject : JAVA!Expression =
 			endif	
 	else OclUndefined endif
 ;	
+
+helper context JAVA!Expression def: getFieldDec : JAVA!FieldDeclaration =
+	if (self.variable.oclIsTypeOf(JAVA!VariableDeclarationFragment)) then
+		if self.variable.variablesContainer.oclIsTypeOf(JAVA!FieldDeclaration)then
+			self.variable.variablesContainer
+		else OclUndefined endif
+	else OclUndefined endif		
+;
 
 helper context JAVA!VariableDeclarationStatement def: isOtherVarDeclarUsingSelf : Boolean =
 	self.getOtherVarDeclarUsingSelf -> notEmpty()

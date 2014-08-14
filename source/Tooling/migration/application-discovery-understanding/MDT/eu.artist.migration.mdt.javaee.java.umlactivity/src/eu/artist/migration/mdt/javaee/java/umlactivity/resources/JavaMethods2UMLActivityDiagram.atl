@@ -162,8 +162,7 @@ abstract rule abstratASTNodeToClass{
 		t : UML!Classifier(
 			ownedOperation <- s.bodyDeclarations 
 								-> select(d | d.oclIsTypeOf(JAVA!MethodDeclaration))
-								-> collect(d | thisModule.resolveTemp(d, 'operation')),
-			ownedAttribute <- s.bodyDeclarations->select(d | d.oclIsTypeOf(JAVA!FieldDeclaration))
+								-> collect(d | thisModule.resolveTemp(d, 'operation'))
 		)
 }
 
@@ -296,11 +295,19 @@ rule instanceVariableUseNotSettNullExpressState extends abstractExpressStatement
 		),
 		
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec --TODO
+--										if not s.expression.getObject.isEverTransformed then
+--											if s.expression.getObject.containFieldDec then
+--												thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
+										
+									else OclUndefined endif	
 								  else OclUndefined endif,	
 			result <- op
 		),	
@@ -346,11 +353,17 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 		),
 		
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
+									else OclUndefined endif
 								  else OclUndefined endif,		
 			result <- op
 		),		
@@ -394,8 +407,11 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 																		-> first()
 									in									
 									if (not express.oclIsUndefined()) then
-										thisModule.createStructFeature(express)
-									else OclUndefined endif	
+--										if not express.isEverTransformed then
+											s.express.getFieldDec
+--											thisModule.createProperty(express)
+--										else express.getProperty endif
+									else OclUndefined endif										
 								else OclUndefined endif,
 			result <- thisModule.createOutputPin(s, 'clearStructuralFeatureActionOutput')		
 		),
@@ -436,11 +452,17 @@ rule implicitThis2IntanceVarUsereadSelf extends abstractExpressStatement{
 			incoming <- objectflow
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif		
+									else OclUndefined endif	
 								  else OclUndefined endif,		
 			result <- op
 		),		
@@ -504,11 +526,17 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 		),
 		--Getter used
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
+									else OclUndefined endif	
 								  else OclUndefined endif,		
 			result <- op
 		),	
@@ -548,7 +576,10 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 																		-> first()
 									in									
 									if (not express.oclIsUndefined()) then
-										thisModule.createStructFeature(express)
+--										if not express.isEverTransformed then
+--											thisModule.createProperty(express)
+											s.express.getFieldDec
+--										else express.getProperty endif										
 									else OclUndefined endif	
 								else OclUndefined endif,
 			result <- thisModule.createOutputPin(s, 'clearStructuralFeatureActionOutputPin')		
@@ -587,11 +618,17 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 			incoming <- objectflow
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif	
+									else OclUndefined endif	
 								  else OclUndefined endif,		
 			result <- op
 		),		
@@ -630,7 +667,10 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 																		-> first()
 									in									
 									if (not express.oclIsUndefined()) then
-										thisModule.createStructFeature(express)
+--										if not express.isEverTransformed then
+--											thisModule.createProperty(express)
+											s.express.getFieldDec
+--										else express.getProperty endif	
 									else OclUndefined endif	
 								else OclUndefined endif,
 			result <- thisModule.createOutputPin(s, 'clearStructuralFeatureActionOutput')		
@@ -690,7 +730,10 @@ rule expressionStatementClearListImpThisInstanVar extends abstractExpressStateme
 																		-> first()
 									in									
 									if (not express.oclIsUndefined()) then
-										thisModule.createStructFeature(express)
+--										if not express.isEverTransformed then
+--											thisModule.createProperty(express)
+											s.express.getFieldDec
+--										else express.getProperty endif	
 									else OclUndefined endif	
 								else OclUndefined endif,
 			result <- op			
@@ -747,7 +790,10 @@ rule expressionStatementClearList extends abstractExpressStatement{
 																		-> first()
 									in									
 									if (not express.oclIsUndefined()) then
-										thisModule.createStructFeature(express)
+--										if not express.isEverTransformed then
+--											thisModule.createProperty(express)
+											s.express.getFieldDec
+--										else express.getProperty endif	
 									else OclUndefined endif	
 								else OclUndefined endif,
 			result <- op			
@@ -787,11 +833,17 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 			incoming <- objectflow
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif	
+									else OclUndefined endif
 								  else OclUndefined endif,		
 			result <- op
 		),		
@@ -810,6 +862,7 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 		
 		--Add in coll.
 		strucFeatAction : UML!AddStructuralFeatureValueAction(
+			name <- 'add',	
 			inStructuredNode <- t,
 			object <- objectIP,
 			value <- valueIP,
@@ -887,11 +940,17 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 			incoming <- objectflow
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
+									else OclUndefined endif
 								  else OclUndefined endif,		
 			result <- op
 		),		
@@ -910,6 +969,7 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 		
 		--Add in coll.
 		strucFeatAction : UML!AddStructuralFeatureValueAction(
+			name <- 'add',	
 			inStructuredNode <- t,
 			object <- objectIP,
 			value <- valueIP,
@@ -977,6 +1037,7 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 		
 		--Add in coll.
 		strucFeatAction : UML!AddStructuralFeatureValueAction(
+			name <- 'add',
 			inStructuredNode <- t,
 			object <- objectIP,
 			value <- valueIP,
@@ -1040,6 +1101,7 @@ rule expressionStatementAddList extends abstractExpressStatement{
 		
 		--Add in coll.
 		strucFeatAction : UML!AddStructuralFeatureValueAction(
+			name <- 'add',
 			inStructuredNode <- t,
 			object <- objectIP,
 			value <- valueIP,
@@ -1117,11 +1179,17 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		),		
 		
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
+									else OclUndefined endif	
 								  else OclUndefined endif,	
 			result <- op
 		),		
@@ -1184,6 +1252,7 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 		),
 		
 		readSF : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			object <- inPinReadSF,			
 			result <- thisModule.createOutputPin(s, 'readStructuralFeatureActionOutput'),
 			inStructuredNode <- t
@@ -1299,11 +1368,17 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		),		
 		
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			inStructuredNode <- s.getStatement,
 			outgoing <- outControlFlow,
 			object <- inputPin,
-			structuralFeature <- if (not s.expression.getObject.oclIsUndefined())then
-									thisModule.createStructFeature(s.expression.getObject)
+			structuralFeature <- if (not s.expression.oclIsUndefined())then
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
+									else OclUndefined endif	
 								  else OclUndefined endif,	
 			result <- op
 		),		
@@ -1366,6 +1441,7 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 		),
 		
 		readSF : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			object <- inPinReadSF,			
 			result <- thisModule.createOutputPin(s, 'readStructuralFeatureActionOutput'),
 			inStructuredNode <- t
@@ -1513,6 +1589,7 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 		),
 		
 		readSF : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			object <- inPinReadSF,			
 			result <- thisModule.createOutputPin(s, 'readStructuralFeatureActionOutput'),
 			inStructuredNode <- t
@@ -1654,6 +1731,7 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 		),
 		
 		readSF : UML!ReadStructuralFeatureAction(
+			name <- 'read',
 			object <- inPinReadSF,			
 			result <- op,
 			inStructuredNode <- t
@@ -1814,12 +1892,16 @@ rule returnStatementNoMethodCall extends returnStatementGlobal{
 			name <- 'readInput'
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
+			name <-'read',
 			inStructuredNode <- s.refImmediateComposite(),
 			outgoing <- outControlFlow,
 			object <- inputPin,
 			structuralFeature <- if (not s.expression.oclIsUndefined())then --When return 'null', empty 'expression' reference
-									if(not s.expression.getObject.oclIsUndefined())then
-										thisModule.createStructFeature(s.expression.getObject)
+									if (not s.expression.getObject.oclIsUndefined())then
+										s.expression.getObject.getFieldDec
+--										if not s.expression.getObject.isEverTransformed then
+--											thisModule.createProperty(s.expression.getObject)
+--										else s.expression.getObject.getProperty endif
 									else OclUndefined endif	
 								  else OclUndefined endif,
 			result <- op,
@@ -2642,25 +2724,25 @@ rule classInstanceCreation2CreateObject {
 }
 
 ---Convert a java attribut to an Uml field
-rule JAttributeToUmlField{
-	from 
-		jBodyDec : JAVA!FieldDeclaration
-	to 
-		umlElement : UML!Property (
-				name <- jBodyDec.getFieldName, 		
-				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
-									jBodyDec.getFieldType
-							else if (jBodyDec.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
-										jBodyDec.getFieldType
-								 else 
-								 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
-										jBodyDec.getFieldType.typeArguments ->first().type.excludeUnresolvedTypeDec
-									else jBodyDec.getFieldType endif	
-								 endif
-							endif,						
-				visibility <- jBodyDec.getFieldVisibility
-		)
-}
+--rule JAttributeToUmlField{
+--	from 
+--		jBodyDec : JAVA!FieldDeclaration
+--	to 
+--		umlElement : UML!Property (
+--				name <- jBodyDec.getFieldName, 		
+--				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
+--									jBodyDec.getFieldType
+--							else if (jBodyDec.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
+--										jBodyDec.getFieldType
+--								 else 
+--								 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+--										jBodyDec.getFieldType.typeArguments ->first().type.excludeUnresolvedTypeDec
+--									else jBodyDec.getFieldType endif	
+--								 endif
+--							endif,						
+--				visibility <- jBodyDec.getFieldVisibility
+--		)
+--}
 
 abstract rule constructorAndMethod2Activity{
 	from
@@ -3175,11 +3257,14 @@ rule VariableAssignmentNoList {
 		),
 		
 		strucFeatAction : UML!AddStructuralFeatureValueAction(
+			name <- 'add',
 			isReplaceAll <- true,
 			object <- ip,
 			value <- va,
 			structuralFeature <- if (not as.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess))then
-									thisModule.createStructFeature(as.leftHandSide.field)
+									if (not as.leftHandSide.field.oclIsUndefined())then
+										as.leftHandSide.field.getFieldDec
+									else OclUndefined endif	
 								 else OclUndefined endif,
 			inStructuredNode <- t
 		),
@@ -3308,20 +3393,32 @@ rule variableAssignementListOrArray {
 		
 		--ClearStruc.Feature 
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
+			name <- 'clear',
 			object <- inputClearStrucFeat,
 			outgoing <- contFlowCSFExpReg,
 			structuralFeature <- 	if (not iva.leftHandSide.oclIsTypeOf(JAVA!ArrayAccess)
 										and not iva.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess)
 									)then
-										thisModule.createStructFeature(iva.leftHandSide.field)
+										if (not iva.leftHandSide.field.oclIsUndefined())then
+--											if not iva.leftHandSide.field.isEverTransformed then
+--												thisModule.createProperty(iva.leftHandSide.field)
+--											else iva.leftHandSide.field.getProperty endif
+											iva.leftHandSide.field.getFieldDec
+										else OclUndefined endif	
 									else
 										if (iva.leftHandSide.oclIsTypeOf(JAVA!ArrayAccess))then
 											if (iva.leftHandSide.array.oclIsTypeOf(JAVA!SingleVariableAccess))then
-												thisModule.createStructFeature(iva.leftHandSide.array)
+--												if not iva.leftHandSide.array.isEverTransformed then
+--													thisModule.createProperty(iva.leftHandSide.array)
+--												else iva.leftHandSide.array.getProperty endif
+												iva.leftHandSide.array.getFieldDec
 											else OclUndefined endif	
 										else 
 											if (iva.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess))then
-												thisModule.createStructFeature(iva.leftHandSide)
+--												if not iva.leftHandSide.isEverTransformed then
+--													thisModule.createProperty(iva.leftHandSide)
+--												else iva.leftHandSide.getProperty endif
+												iva.leftHandSide.getFieldDec
 											else OclUndefined endif
 										endif	
 									endif,
@@ -3369,7 +3466,9 @@ rule variableAssignementListOrArray {
 			inputElement <- expNode,
 			inStructuredNode <- iva.refImmediateComposite()
 		),
+		
 		addStructuralFeatureAction : UML!AddStructuralFeatureValueAction(
+			name <- 'add',
 			isReplaceAll <- false,
 			inStructuredNode <- expReg,
 			object <- inputObjectAddStrucFeat,
@@ -3378,15 +3477,26 @@ rule variableAssignementListOrArray {
 			structuralFeature <- 	if (not iva.leftHandSide.oclIsTypeOf(JAVA!ArrayAccess)
 										and not iva.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess)
 									)then
-										thisModule.createStructFeature(iva.leftHandSide.field)
+										if (not iva.leftHandSide.field.oclIsUndefined())then
+--											if not iva.leftHandSide.field.isEverTransformed then
+--												thisModule.createProperty(iva.leftHandSide.field)
+--											else iva.leftHandSide.field.getProperty endif
+											iva.leftHandSide.field.getFieldDec
+										else OclUndefined endif	
 									else
 										if (iva.leftHandSide.oclIsTypeOf(JAVA!ArrayAccess))then
 											if (iva.leftHandSide.array.oclIsTypeOf(JAVA!SingleVariableAccess))then
-												thisModule.createStructFeature(iva.leftHandSide.array)
+--												if not iva.leftHandSide.array.isEverTransformed then
+--													thisModule.createProperty(iva.leftHandSide.array)
+--												else iva.leftHandSide.array.getProperty endif
+												iva.leftHandSide.array.getFieldDec
 											else OclUndefined endif	
 										else	
 											if (iva.leftHandSide.oclIsTypeOf(JAVA!SingleVariableAccess))then
-												thisModule.createStructFeature(iva.leftHandSide)
+--												if not iva.leftHandSide.isEverTransformed then
+--													thisModule.createProperty(iva.leftHandSide)
+--												else iva.leftHandSide.getProperty endif
+												iva.leftHandSide.getFieldDec
 											else OclUndefined endif
 										endif	
 									endif
@@ -4438,76 +4548,154 @@ unique lazy rule createObjectFlowToNode{
 		)
 }
 
-unique lazy rule createStructFeature{
+rule fieldDeclarationToProperty{
 	from
-		singleAccess : JAVA!Expression
+		fieldDec : JAVA!FieldDeclaration
 	to
 		struct : UML!Property(
-			name <- if (singleAccess.oclIsKindOf(JAVA!InfixExpression)) then
-						if (singleAccess.leftOperand.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
-							singleAccess.leftOperand.element.name
-						else singleAccess.leftOperand.name endif
-					else
-						if (not singleAccess.isALiteral and not singleAccess.oclIsKindOf(JAVA!TypeAccess))then
-							singleAccess.variable.name
-						else 
-							if (singleAccess.type.oclIsKindOf(JAVA!ClassDeclaration))then
-								singleAccess.type.name
-							else							
-								singleAccess.type.type.name 
-							endif
-						endif	
-					endif	
-					,
-			type <- if (singleAccess.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then 
-						singleAccess.getVariableType.typeArguments -> first().type.excludeUnresolvedTypeDec
-					else 
-						if (singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
-							singleAccess.getVariableType.elementType.type.excludeUnresolvedTypeDec
-						else
-							singleAccess.getVariableType.excludeUnresolvedTypeDec
-						endif	
+			name <- fieldDec.getFieldName,
+			type <- if (fieldDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
+							fieldDec.getFieldType
+					else if (fieldDec.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
+								fieldDec.getFieldType
+						 else 
+						 	if (fieldDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+								fieldDec.getFieldType.typeArguments ->first().type.excludeUnresolvedTypeDec
+							else fieldDec.getFieldType endif	
+						 endif
 					endif,
-			lower <- if (singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
+			lower <- if (fieldDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
 						1
 					else 0 endif,
-			upper <- if (singleAccess.isAList or singleAccess.isASet
-							or singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
-						-1
-					else 1 endif,
-			isUnique <-  singleAccess.isASet,
-			isOrdered <- singleAccess.isAList or singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType),
-			visibility <- 	if (not singleAccess.isALiteral and not singleAccess.oclIsKindOf(JAVA!TypeAccess)
-								and not singleAccess.oclIsKindOf(JAVA!InfixExpression))then
-								if (singleAccess.variable.oclIsKindOf(JAVA!VariableDeclarationFragment))then
-									if (singleAccess.variable.variablesContainer.oclIsKindOf(JAVA!FieldDeclaration))then
-										singleAccess.variable.variablesContainer.getFieldVisibility
-									else OclUndefined endif		
-								else OclUndefined endif	
-							else 								
-								if (singleAccess.oclIsKindOf(JAVA!InfixExpression)) then
-									if (singleAccess.leftOperand.oclIsKindOf(JAVA!MethodInvocation)) then
-										if (singleAccess.leftOperand.method.oclIsKindOf(JAVA!MethodDeclaration)) then
-											singleAccess.leftOperand.method.modifier.visibility
-										else #package endif
-									else
-										if (singleAccess.leftOperand.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
-											#package
-										else 
-											singleAccess.leftOperand.type.modifier.visibility 
-										endif
-									endif	
-								else
-									if (singleAccess.oclIsKindOf(JAVA!TypeAccess) 
-										and singleAccess.type.oclIsKindOf(JAVA!ClassDeclaration))then
-										singleAccess.type.modifier.visibility
-									else
-										singleAccess.type.type.modifier.visibility
-									endif
-								endif
-							endif	
+			upper <- if (fieldDec.isAList or fieldDec.isASet)then
+						if fieldDec.getFieldType.oclIsKindOf(JAVA!ArrayType) then
+							-1
+						else 1 endif
+					else 1	endif,
+			isUnique <-  fieldDec.isASet,
+			isOrdered <- fieldDec.isAList or fieldDec.getFieldType.oclIsKindOf(JAVA!ArrayType),
+			visibility <- fieldDec.getFieldVisibility
+							
 		)
 	do{
+		if (not thisModule.resolveTemp(fieldDec.getInstanciedClass, 't').oclIsUndefined())then
+			thisModule.resolveTemp(fieldDec.getInstanciedClass, 't').refSetValue('ownedAttribute', struct)
+		else OclUndefined endif;
+	}	
+}
+
+unique lazy rule createProperty{
+	from
+--		singleAccess : JAVA!Expression
+		singleAccess : JAVA!ASTNode
+	to
+		struct : UML!Property(
+			name <- if (singleAccess.debug(singleAccess.oclType().toString()).oclIsKindOf(JAVA!FieldDeclaration))then
+						singleAccess.getFieldName
+					else	
+						if (singleAccess.oclIsKindOf(JAVA!InfixExpression)) then
+							if (singleAccess.leftOperand.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+								singleAccess.leftOperand.element.name
+							else singleAccess.leftOperand.name endif
+						else
+							if (not singleAccess.isALiteral and not singleAccess.oclIsKindOf(JAVA!TypeAccess))then
+								singleAccess.variable.name
+							else 
+								if (singleAccess.type.oclIsKindOf(JAVA!ClassDeclaration))then
+									singleAccess.type.name
+								else							
+									singleAccess.type.type.name 
+								endif
+							endif	
+						endif
+					endif,
+			type <- if (singleAccess.oclIsKindOf(JAVA!FieldDeclaration))then
+						if (singleAccess.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
+									singleAccess.getFieldType
+							else if (singleAccess.getFieldType.oclIsKindOf(JAVA!TypeParameter)) then
+										singleAccess.getFieldType
+								 else 
+								 	if (singleAccess.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
+										singleAccess.getFieldType.typeArguments ->first().type.excludeUnresolvedTypeDec
+									else singleAccess.getFieldType endif	
+								 endif
+							endif
+					else	
+						if (singleAccess.getVariableType.oclIsKindOf(JAVA!ParameterizedType)) then 
+							singleAccess.getVariableType.typeArguments -> first().type.excludeUnresolvedTypeDec
+						else 
+							if (singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
+								singleAccess.getVariableType.elementType.type.excludeUnresolvedTypeDec
+							else
+								singleAccess.getVariableType.excludeUnresolvedTypeDec
+							endif	
+						endif
+					endif,
+			lower <-if (singleAccess.oclIsKindOf(JAVA!FieldDeclaration))then
+						if (singleAccess.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
+							1
+						else 0 endif
+					else
+						if (singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)) then
+							1
+						else 0 endif
+					endif,
+			upper <- if (singleAccess.isAList or singleAccess.isASet)then
+						if singleAccess.oclIsKindOf(JAVA!FieldDeclaration)then
+							if singleAccess.getFieldType.oclIsKindOf(JAVA!ArrayType) then
+								-1
+							else 1 endif
+						else
+							if singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType) then
+								-1
+							else 1 endif
+						endif
+					else 1	endif,
+			isUnique <-  singleAccess.isASet,
+			isOrdered <- singleAccess.isAList or 
+							(
+								if singleAccess.oclIsKindOf(JAVA!FieldDeclaration)then
+									singleAccess.getFieldType.oclIsKindOf(JAVA!ArrayType)
+								else 
+									singleAccess.getVariableType.oclIsKindOf(JAVA!ArrayType)
+								endif
+							),
+			visibility <- 	if (singleAccess.oclIsKindOf(JAVA!FieldDeclaration))then
+								singleAccess.getFieldVisibility
+							else
+								if (not singleAccess.isALiteral and not singleAccess.oclIsKindOf(JAVA!TypeAccess)
+									and not singleAccess.oclIsKindOf(JAVA!InfixExpression))then
+									if (singleAccess.variable.oclIsKindOf(JAVA!VariableDeclarationFragment))then
+										if (singleAccess.variable.variablesContainer.oclIsKindOf(JAVA!FieldDeclaration))then
+											singleAccess.variable.variablesContainer.getFieldVisibility
+										else OclUndefined endif		
+									else OclUndefined endif	
+								else 								
+									if (singleAccess.oclIsKindOf(JAVA!InfixExpression)) then
+										if (singleAccess.leftOperand.oclIsKindOf(JAVA!MethodInvocation)) then
+											if (singleAccess.leftOperand.method.oclIsKindOf(JAVA!MethodDeclaration)) then
+												singleAccess.leftOperand.method.modifier.visibility
+											else #package endif
+										else
+											if (singleAccess.leftOperand.oclIsKindOf(JAVA!UnresolvedItemAccess)) then
+												#package
+											else 
+												singleAccess.leftOperand.type.modifier.visibility 
+											endif
+										endif	
+									else
+										if (singleAccess.oclIsKindOf(JAVA!TypeAccess) 
+											and singleAccess.type.oclIsKindOf(JAVA!ClassDeclaration))then
+											singleAccess.type.modifier.visibility
+										else
+											singleAccess.type.type.modifier.visibility
+										endif
+									endif
+								endif
+							endif
+		)
+	do{
+		thisModule.allASTNode <- thisModule.allASTNode -> including(singleAccess, struct);
 		if (not thisModule.resolveTemp(singleAccess.getInstanciedClass, 't').oclIsUndefined())then
 			thisModule.resolveTemp(singleAccess.getInstanciedClass, 't').refSetValue('ownedAttribute', struct)
 		else OclUndefined endif;
