@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <ns3:obtainUserResponse xmlns:ns3="http://webservices.artist.eu/">
+      <return>
+        <age></age>
+        <email>franz@fgmial.com</email>
+        <password>asdas</password>
+        <uid>1</uid>
+        <username>franz</username>
+      </return>
+    </ns3:obtainUserResponse>
+  </soapenv:Body>
+</soapenv:Envelope>

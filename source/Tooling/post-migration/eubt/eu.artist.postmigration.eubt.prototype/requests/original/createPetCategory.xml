@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <web:createPetCategory xmlns:web="http://webservices.artist.eu/">
+      <categoryid>7</categoryid>
+      <categoryname>Flying Animals</categoryname>
+      <categorydescription>Animals that can fly.</categorydescription>
+    </web:createPetCategory>
+  </soapenv:Body>
+</soapenv:Envelope>

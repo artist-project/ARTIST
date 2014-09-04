@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.artist.eu/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:createPetCategory>
+         <categoryid>7</categoryid>
+         <categoryname>Flying Animals</categoryname>
+         <categorydescription>Animals that can fly.</categorydescription>
+         <instock>5000</instock>
+      </web:createPetCategory>
+   </soapenv:Body>
+</soapenv:Envelope>

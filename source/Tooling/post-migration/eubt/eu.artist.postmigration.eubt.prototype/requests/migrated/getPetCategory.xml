@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservices.artist.eu/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:getPetCategory>
+         <categoryid>1</categoryid>
+      </web:getPetCategory>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <web:createUser xmlns:web="http://webservices.artist.eu/">
+      <userid>77</userid>
+      <username>mjackson</username>
+      <password>michaels_secret</password>
+      <email>michael@jackson.com</email>
+    </web:createUser>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservices.artist.eu/" xmlns:tns="http://webservices.artist.eu/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="createPetCategory" type="tns:createPetCategory"/>
+
+  <xs:element name="createPetCategoryResponse" type="tns:createPetCategoryResponse"/>
+
+  <xs:element name="createUser" type="tns:createUser"/>
+
+  <xs:element name="createUserResponse" type="tns:createUserResponse"/>
+
+  <xs:element name="getPetCategory" type="tns:getPetCategory"/>
+
+  <xs:element name="getPetCategoryResponse" type="tns:getPetCategoryResponse"/>
+
+  <xs:element name="getUser" type="tns:getUser"/>
+
+  <xs:element name="getUserResponse" type="tns:getUserResponse"/>
+
+  <xs:element name="updatePetCategoryStock" type="tns:updatePetCategoryStock"/>
+
+  <xs:element name="updatePetCategoryStockResponse" type="tns:updatePetCategoryStockResponse"/>
+
+  <xs:complexType name="getPetCategory">
+    <xs:sequence>
+      <xs:element name="categoryid" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getPetCategoryResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:petCategoryPojo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="petCategoryPojo">
+    <xs:sequence>
+      <xs:element name="categoryDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="categoryName" type="xs:string" minOccurs="0"/>
+      <xs:element name="inStock" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createPetCategory">
+    <xs:sequence>
+      <xs:element name="categoryid" type="xs:string" minOccurs="0"/>
+      <xs:element name="categoryname" type="xs:string" minOccurs="0"/>
+      <xs:element name="categorydescription" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createPetCategoryResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUser">
+    <xs:sequence>
+      <xs:element name="userid" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:userPojo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="userPojo">
+    <xs:sequence>
+      <xs:element name="age" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="userid" type="xs:string" minOccurs="0"/>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createUser">
+    <xs:sequence>
+      <xs:element name="userid" type="xs:string" minOccurs="0"/>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="age" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updatePetCategoryStock">
+    <xs:sequence>
+      <xs:element name="categoryid" type="xs:string" minOccurs="0"/>
+      <xs:element name="instock" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updatePetCategoryStockResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

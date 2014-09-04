@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <web:updatePetCategoryStock xmlns:web="http://webservices.artist.eu/">
+      <categoryid>7</categoryid>
+      <instock>5000</instock>
+    </web:updatePetCategoryStock>
+  </soapenv:Body>
+</soapenv:Envelope>

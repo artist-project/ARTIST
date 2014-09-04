@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated WSMigrationTrace -->
+      <package
+            uri="http://wsmigrationtrace/1.0"
+            class="eu.artist.postmigration.eubt.migrationtracemodel.wsmigrationtrace.WsmigrationtracePackage"
+            genModel="models/WSMigrationTrace.genmodel"/>
+   </extension>
+
+</plugin>
