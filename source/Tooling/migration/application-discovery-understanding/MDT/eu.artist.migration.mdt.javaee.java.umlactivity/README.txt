@@ -25,12 +25,7 @@ them (Information flows, object flows, ...) and their elements (Control flows, .
 
 KNOWN ISSUES
 ------------
-- Uncontained elements :
-	* Some 'Class' UML elements (representing the 'UnresolvedMethodDeclaration' Java 
-	elements) are not in their correct containers.
-	* In specific cases, 'Property', 'Operation', 'ControlFlow', 'ObjectFlow', 
-	'ValueSpecificationAction', 'StructuredActivityNode' and 'ExpansionRegion' UML 
-	elements are not correctly contained. 
+- Some 'XFlow' elements (ControlFlow, ObjectFlow ...) are duplicated,
 - Some relations between activities are incorrect (e.g. incorrect 'InputPin' elements for
 an 'ObjectFlow' elements).	
 
