@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_RekSukxkEeOBxZSbU2smUA" name="SecurityProfile" metaclassReference="_Si-G0LXfEeO-AabAHMumtw" metamodelReference="_RekSu0xkEeOBxZSbU2smUA">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6WsUxlEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_9TMkAbT6EeO-w7rhB4FMaw" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_9TMkALT6EeO-w7rhB4FMaw/7" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9TNyILT6EeO-w7rhB4FMaw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9TNyIbT6EeO-w7rhB4FMaw" key="Version" value="0.0.8"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9TNyIrT6EeO-w7rhB4FMaw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9TNyI7T6EeO-w7rhB4FMaw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9TNyJLT6EeO-w7rhB4FMaw" key="Date" value="2014-03-26"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9TNyJbT6EeO-w7rhB4FMaw" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_9TMkArT6EeO-w7rhB4FMaw" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9TMkA7T6EeO-w7rhB4FMaw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9TMkBLT6EeO-w7rhB4FMaw" name="doS_Type" ordered="false" lowerBound="1" upperBound="-1" eType="_9TMkDrT6EeO-w7rhB4FMaw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9TMkBrT6EeO-w7rhB4FMaw" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9TMkCLT6EeO-w7rhB4FMaw" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9TMkCrT6EeO-w7rhB4FMaw" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_9TMkDLT6EeO-w7rhB4FMaw" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9TMkDbT6EeO-w7rhB4FMaw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_9TMkDrT6EeO-w7rhB4FMaw" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9TMkD7T6EeO-w7rhB4FMaw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_9TMkELT6EeO-w7rhB4FMaw" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_9TMkEbT6EeO-w7rhB4FMaw" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_9TMkErT6EeO-w7rhB4FMaw" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_76DkoLTrEeO0PsdSH1lHUQ" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_76C9kLTrEeO0PsdSH1lHUQ/6" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_76GA4LTrEeO0PsdSH1lHUQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_76GA4bTrEeO0PsdSH1lHUQ" key="Version" value="0.0.7"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_76GA4rTrEeO0PsdSH1lHUQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_76GA47TrEeO0PsdSH1lHUQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_76GA5LTrEeO0PsdSH1lHUQ" key="Date" value="2014-03-26"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_76GA5bTrEeO0PsdSH1lHUQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_76DkobTrEeO0PsdSH1lHUQ" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_76DkorTrEeO0PsdSH1lHUQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_76Dko7TrEeO0PsdSH1lHUQ" name="doS_Type" ordered="false" lowerBound="1" upperBound="-1" eType="_76Dkr7TrEeO0PsdSH1lHUQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_76DkpbTrEeO0PsdSH1lHUQ" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_76Dkp7TrEeO0PsdSH1lHUQ" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_76DkqbTrEeO0PsdSH1lHUQ" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_76Dkq7TrEeO0PsdSH1lHUQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_76DkrbTrEeO0PsdSH1lHUQ" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_76DkrrTrEeO0PsdSH1lHUQ" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_76Dkr7TrEeO0PsdSH1lHUQ" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_76DksLTrEeO0PsdSH1lHUQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_76DksbTrEeO0PsdSH1lHUQ" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_76DksrTrEeO0PsdSH1lHUQ" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_76Dks7TrEeO0PsdSH1lHUQ" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_2asY8LTrEeO0PsdSH1lHUQ" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_2arx4LTrEeO0PsdSH1lHUQ/5" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2avcQLTrEeO0PsdSH1lHUQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2avcQbTrEeO0PsdSH1lHUQ" key="Version" value="0.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2avcQrTrEeO0PsdSH1lHUQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2avcQ7TrEeO0PsdSH1lHUQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2avcRLTrEeO0PsdSH1lHUQ" key="Date" value="2014-03-26"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2avcRbTrEeO0PsdSH1lHUQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2asY8bTrEeO0PsdSH1lHUQ" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2asY8rTrEeO0PsdSH1lHUQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2asY87TrEeO0PsdSH1lHUQ" name="doS_Type" ordered="false" lowerBound="1" upperBound="-1" eType="_2asY_7TrEeO0PsdSH1lHUQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2asY9bTrEeO0PsdSH1lHUQ" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2asY97TrEeO0PsdSH1lHUQ" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2asY-bTrEeO0PsdSH1lHUQ" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2asY-7TrEeO0PsdSH1lHUQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_2asY_bTrEeO0PsdSH1lHUQ" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2asY_rTrEeO0PsdSH1lHUQ" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_2asY_7TrEeO0PsdSH1lHUQ" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2asZALTrEeO0PsdSH1lHUQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2asZAbTrEeO0PsdSH1lHUQ" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2asZArTrEeO0PsdSH1lHUQ" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2asZA7TrEeO0PsdSH1lHUQ" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_X4H10Y2LEeO3Odifa0Gohw" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_X4H10I2LEeO3Odifa0Gohw/4" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4Q_wo2LEeO3Odifa0Gohw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X4Q_w42LEeO3Odifa0Gohw" key="Version" value="0.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X4Q_xI2LEeO3Odifa0Gohw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X4Q_xY2LEeO3Odifa0Gohw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X4Q_xo2LEeO3Odifa0Gohw" key="Date" value="2014-02-04"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X4Q_x42LEeO3Odifa0Gohw" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_X4H10o2LEeO3Odifa0Gohw" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4H1042LEeO3Odifa0Gohw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_X4H11I2LEeO3Odifa0Gohw" name="doS_Type" ordered="false" lowerBound="1" upperBound="-1" eType="_X4H17I2LEeO3Odifa0Gohw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_X4H11o2LEeO3Odifa0Gohw" name="usedTool" ordered="false" lowerBound="1" upperBound="-1" eType="_X4H16I2LEeO3Odifa0Gohw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_X4H12I2LEeO3Odifa0Gohw" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_X4H12o2LEeO3Odifa0Gohw" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_X4H13I2LEeO3Odifa0Gohw" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_X4H13o2LEeO3Odifa0Gohw" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_X4H14I2LEeO3Odifa0Gohw" name="ProviderSecurity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4H14Y2LEeO3Odifa0Gohw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_X4H14o2LEeO3Odifa0Gohw" name="stereotype1" ordered="false" lowerBound="1" upperBound="-1" eType="_X4H10o2LEeO3Odifa0Gohw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_X4H15I2LEeO3Odifa0Gohw" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_X4H15o2LEeO3Odifa0Gohw" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4H1542LEeO3Odifa0Gohw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_X4H16I2LEeO3Odifa0Gohw" name="UsedTools">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4H16Y2LEeO3Odifa0Gohw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_X4H16o2LEeO3Odifa0Gohw" name="SimulationX_Tool"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_X4H1642LEeO3Odifa0Gohw" name="SimulationY_Tool" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_X4H17I2LEeO3Odifa0Gohw" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X4H17Y2LEeO3Odifa0Gohw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_X4H17o2LEeO3Odifa0Gohw" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_X4H1742LEeO3Odifa0Gohw" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_X4H18I2LEeO3Odifa0Gohw" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_obaHcYc0EeOV-5nOcTRFZA" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_obaHcIc0EeOV-5nOcTRFZA/3" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obaHlIc0EeOV-5nOcTRFZA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_obaHlYc0EeOV-5nOcTRFZA" key="Version" value="0.0.4"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_obaHloc0EeOV-5nOcTRFZA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_obaHl4c0EeOV-5nOcTRFZA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_obaHmIc0EeOV-5nOcTRFZA" key="Date" value="2014-01-27"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_obaHmYc0EeOV-5nOcTRFZA" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_obaHcoc0EeOV-5nOcTRFZA" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obaHc4c0EeOV-5nOcTRFZA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_obaHdIc0EeOV-5nOcTRFZA" name="doS_Type" ordered="false" lowerBound="1" eType="_obaHjIc0EeOV-5nOcTRFZA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_obaHdoc0EeOV-5nOcTRFZA" name="usedTool" ordered="false" lowerBound="1" eType="_obaHiIc0EeOV-5nOcTRFZA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_obaHeIc0EeOV-5nOcTRFZA" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_obaHeoc0EeOV-5nOcTRFZA" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_obaHfIc0EeOV-5nOcTRFZA" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_obaHfoc0EeOV-5nOcTRFZA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_obaHgIc0EeOV-5nOcTRFZA" name="ProviderSecurity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obaHgYc0EeOV-5nOcTRFZA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_obaHgoc0EeOV-5nOcTRFZA" name="stereotype1" ordered="false" lowerBound="1" upperBound="-1" eType="_obaHcoc0EeOV-5nOcTRFZA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_obaHhIc0EeOV-5nOcTRFZA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_obaHhoc0EeOV-5nOcTRFZA" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obaHh4c0EeOV-5nOcTRFZA" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_obaHiIc0EeOV-5nOcTRFZA" name="UsedTools">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obaHiYc0EeOV-5nOcTRFZA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_obaHioc0EeOV-5nOcTRFZA" name="SimulationX_Tool"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_obaHi4c0EeOV-5nOcTRFZA" name="SimulationY_Tool" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_obaHjIc0EeOV-5nOcTRFZA" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_obaHjYc0EeOV-5nOcTRFZA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_obaHjoc0EeOV-5nOcTRFZA" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_obaHj4c0EeOV-5nOcTRFZA" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_obaHkIc0EeOV-5nOcTRFZA" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_2Pi9MYT5EeOnAfhQ5taUEQ" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_2Pi9MIT5EeOnAfhQ5taUEQ/2" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Pi9UYT5EeOnAfhQ5taUEQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2Pi9UoT5EeOnAfhQ5taUEQ" key="Version" value="0.0.3"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2Pi9U4T5EeOnAfhQ5taUEQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2Pi9VIT5EeOnAfhQ5taUEQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2Pi9VYT5EeOnAfhQ5taUEQ" key="Date" value="2014-01-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2Pi9VoT5EeOnAfhQ5taUEQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2Pi9MoT5EeOnAfhQ5taUEQ" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Pi9M4T5EeOnAfhQ5taUEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2Pi9NIT5EeOnAfhQ5taUEQ" name="doS_Type" ordered="false" lowerBound="1" eType="_2Pi9SoT5EeOnAfhQ5taUEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2Pi9NoT5EeOnAfhQ5taUEQ" name="usedTool" ordered="false" lowerBound="1" eType="_2Pi9RoT5EeOnAfhQ5taUEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2Pi9OIT5EeOnAfhQ5taUEQ" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2Pi9OoT5EeOnAfhQ5taUEQ" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2Pi9PIT5EeOnAfhQ5taUEQ" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2Pi9PoT5EeOnAfhQ5taUEQ" name="ProviderSecurity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Pi9P4T5EeOnAfhQ5taUEQ" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2Pi9QIT5EeOnAfhQ5taUEQ" name="stereotype1" ordered="false" lowerBound="1" upperBound="-1" eType="_2Pi9MoT5EeOnAfhQ5taUEQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2Pi9QoT5EeOnAfhQ5taUEQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_2Pi9RIT5EeOnAfhQ5taUEQ" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Pi9RYT5EeOnAfhQ5taUEQ" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_2Pi9RoT5EeOnAfhQ5taUEQ" name="UsedTools">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Pi9R4T5EeOnAfhQ5taUEQ" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2Pi9SIT5EeOnAfhQ5taUEQ" name="SimulationX_Tool"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2Pi9SYT5EeOnAfhQ5taUEQ" name="SimulationY_Tool" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_2Pi9SoT5EeOnAfhQ5taUEQ" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Pi9S4T5EeOnAfhQ5taUEQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2Pi9TIT5EeOnAfhQ5taUEQ" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2Pi9TYT5EeOnAfhQ5taUEQ" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2Pi9ToT5EeOnAfhQ5taUEQ" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_ej2wIUxzEeOBxZSbU2smUA" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_ej2wIExzEeOBxZSbU2smUA/1" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ej2wPkxzEeOBxZSbU2smUA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ej2wP0xzEeOBxZSbU2smUA" key="Version" value="0.0.2"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ej2wQExzEeOBxZSbU2smUA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ej2wQUxzEeOBxZSbU2smUA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ej2wQkxzEeOBxZSbU2smUA" key="Date" value="2013-11-13"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ej2wQ0xzEeOBxZSbU2smUA" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_ej2wIkxzEeOBxZSbU2smUA" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ej2wI0xzEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ej2wJExzEeOBxZSbU2smUA" name="doS_Type" ordered="false" lowerBound="1" eType="_ej2wOExzEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ej2wJkxzEeOBxZSbU2smUA" name="usedTool" ordered="false" lowerBound="1" eType="_ej2wNExzEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ej2wKExzEeOBxZSbU2smUA" name="timeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ej2wKkxzEeOBxZSbU2smUA" name="pingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ej2wLExzEeOBxZSbU2smUA" name="sizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_ej2wLkxzEeOBxZSbU2smUA" name="ProviderSecurity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ej2wL0xzEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_ej2wMExzEeOBxZSbU2smUA" name="stereotype1" ordered="false" lowerBound="1" upperBound="-1" eType="_ej2wIkxzEeOBxZSbU2smUA"/>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_ej2wMkxzEeOBxZSbU2smUA" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ej2wM0xzEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_ej2wNExzEeOBxZSbU2smUA" name="UsedTools">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ej2wNUxzEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_ej2wNkxzEeOBxZSbU2smUA" name="SimulationX_Tool"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_ej2wN0xzEeOBxZSbU2smUA" name="SimulationY_Tool" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_ej2wOExzEeOBxZSbU2smUA" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ej2wOUxzEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_ej2wOkxzEeOBxZSbU2smUA" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_ej2wO0xzEeOBxZSbU2smUA" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_ej2wPExzEeOBxZSbU2smUA" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_kV6WskxlEeOBxZSbU2smUA" name="SecurityProfile" nsURI="http:///schemas/SecurityProfile/_kV6WsExlEeOBxZSbU2smUA/0" nsPrefix="SecurityProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6Wz0xlEeOBxZSbU2smUA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kV6W0ExlEeOBxZSbU2smUA" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kV6W0UxlEeOBxZSbU2smUA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kV6W0kxlEeOBxZSbU2smUA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kV6W00xlEeOBxZSbU2smUA" key="Date" value="2013-11-13"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kV6W1ExlEeOBxZSbU2smUA" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_kV6Ws0xlEeOBxZSbU2smUA" name="DoS_resillience">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6WtExlEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_fQGI4ExkEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_kV6WtUxlEeOBxZSbU2smUA" name="DoS_Type" ordered="false" lowerBound="1" eType="_kV6WyUxlEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_kV6Wt0xlEeOBxZSbU2smUA" name="UsedTool" ordered="false" lowerBound="1" eType="_kV6WxUxlEeOBxZSbU2smUA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_kV6WuUxlEeOBxZSbU2smUA" name="TimeToLiveUntilCrash" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_kV6Wu0xlEeOBxZSbU2smUA" name="PingingDelay" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Real"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_kV6WvUxlEeOBxZSbU2smUA" name="SizeOfAttack" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_kV6Wv0xlEeOBxZSbU2smUA" name="ProviderSecurity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6WwExlEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_kV6WwUxlEeOBxZSbU2smUA" name="stereotype1" ordered="false" lowerBound="1" upperBound="-1" eType="_kV6Ws0xlEeOBxZSbU2smUA"/>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_kV6Ww0xlEeOBxZSbU2smUA" name="SecurityDataTypes" nsURI="http:///SecurityProfile/SecurityDataTypes.ecore" nsPrefix="SecurityProfile.SecurityDataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6WxExlEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Wnp28ExlEeOBxZSbU2smUA"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_kV6WxUxlEeOBxZSbU2smUA" name="UsedTools">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6WxkxlEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_kV6Wx0xlEeOBxZSbU2smUA" name="SimulationX_Tool"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_kV6WyExlEeOBxZSbU2smUA" name="SimulationY_Tool" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_kV6WyUxlEeOBxZSbU2smUA" name="DoS_Type">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kV6WykxlEeOBxZSbU2smUA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_E5J04ExlEeOBxZSbU2smUA"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_kV6Wy0xlEeOBxZSbU2smUA" name="ICMP"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_kV6WzExlEeOBxZSbU2smUA" name="SYN" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_kV6WzUxlEeOBxZSbU2smUA" name="Teardrop" value="2"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_Si-G0LXfEeO-AabAHMumtw" alias="Stereotype">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Stereotype"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_RekSu0xkEeOBxZSbU2smUA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_RekSvExkEeOBxZSbU2smUA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_2yl9wLT6EeO-w7rhB4FMaw">
+    <importedPackage xmi:type="uml:Profile" href="../main_profiles/core.profile.uml#_iJe4UEX3EeOdcMUAioSDaw"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_DuUjYLW2EeOtoaoGghfAOw">
+    <importedPackage xmi:type="uml:Profile" href="../main_profiles/core.profile.uml#_iJe4UEX3EeOdcMUAioSDaw"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_DuUjYbW2EeOtoaoGghfAOw">
+    <importedPackage xmi:type="uml:Package" href="../main_profiles/core.profile.uml#_qmK6UEh0EeO3d5K3kW4N0w"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_fQGI4ExkEeOBxZSbU2smUA" name="DoS_resillience">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_z_r9YExkEeOBxZSbU2smUA" name="doS_Type" visibility="public" type="_E5J04ExlEeOBxZSbU2smUA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0J96wExkEeOBxZSbU2smUA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0J96wUxkEeOBxZSbU2smUA" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_0J96wkxkEeOBxZSbU2smUA">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_0isj0ExkEeOBxZSbU2smUA" name="timeToLiveUntilCrash" visibility="public">
+      <type xmi:type="uml:Stereotype" href="../main_profiles/core.profile.uml#_-3L5ULWJEeOtoaoGghfAOw"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0ql7kExkEeOBxZSbU2smUA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0ql7kUxkEeOBxZSbU2smUA" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_0ql7kkxkEeOBxZSbU2smUA">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_0xvscExkEeOBxZSbU2smUA" name="pingingDelay" visibility="public">
+      <type xmi:type="uml:Stereotype" href="../main_profiles/core.profile.uml#_-3L5ULWJEeOtoaoGghfAOw"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_07IR8ExkEeOBxZSbU2smUA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_07IR8UxkEeOBxZSbU2smUA" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_07IR8kxkEeOBxZSbU2smUA">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_1BO58ExkEeOBxZSbU2smUA" name="sizeOfAttack" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1H7-4ExkEeOBxZSbU2smUA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1H7-4UxkEeOBxZSbU2smUA" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_1H7-4kxkEeOBxZSbU2smUA">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UEaEYLXfEeO-AabAHMumtw" name="base_Stereotype" association="_UEduwLXfEeO-AabAHMumtw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Stereotype"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_Wnp28ExlEeOBxZSbU2smUA" name="SecurityDataTypes">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_E5J04ExlEeOBxZSbU2smUA" name="DoS_Type">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_F-uV0ExlEeOBxZSbU2smUA" name="ICMP"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_GVq2MExlEeOBxZSbU2smUA" name="SYN"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_G-yrsExlEeOBxZSbU2smUA" name="Teardrop"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_UEduwLXfEeO-AabAHMumtw" name="E_DoS_resillience_Stereotype1" memberEnd="_UEduwbXfEeO-AabAHMumtw _UEaEYLXfEeO-AabAHMumtw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_UEduwbXfEeO-AabAHMumtw" name="extension_DoS_resillience" type="_fQGI4ExkEeOBxZSbU2smUA" aggregation="composite" association="_UEduwLXfEeO-AabAHMumtw"/>
+  </packagedElement>
+</uml:Profile>
