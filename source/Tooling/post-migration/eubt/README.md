@@ -14,6 +14,21 @@ Reference
 ---------
 The End User-Based Testing (EUBT) Prototype is described in the ARTIST deliverable D11.2 (currently under review), which is part of task 11.2 in work package 11.
 
+Expected Functionality
+----------------------
+User requests are assumed to be created by a real user on the migrated software and stored to the file system.
+The prototype then uses these user request files and a migration trace model to map the migrated user request to one or multiple original user requests to induce equivalent behavior on both sides.
+To verify whether the two systems actually behave equally, the respective runtime traces are extracted from both system and abstracted into a platform-specific compatible trace.
+After comparing both traces, which are compatible to each other, a verdict about their equivalence can be yielded.
+A runtime trace is defined as the output of a request (i.e., the response), operation calls, their parameters, as well as their parameter values.
+The test oracle can distinguish a comparison to be successful if both traces contain the response of equivalent operation calls, or equivalent operation calls and their parameter names, or equivalent operation calls, their parameter names, and their parameter values.
+
+Known/Open Issues
+-----------------
+  * Automatic and direct user request capturing from running applications
+  * Support for different web service types other than SOAP (i.e., UI-based applications, REST web services, etc.)
+  *  Replacement of exemplaric migration trace model with the migration trace model eventually established within the context of ARTIST WP9
+
 Instructions to build
 ---------------------
 Running the build requires Apache Maven to be installed, either as an Eclipse plugin or natively on the machine.
@@ -66,9 +81,9 @@ STEP 5:  Evaluating the response retrieved from the web service.
 
 The evaluation in step 5 can be made at different levels of comparison. The responses retrieved by the Monitor and (internally) evaluated by the TestOracle will return “ true ” if the verdict produced is “ PASS ” and “ false ” in case the verdict produced is “ FAIL ”.
 Within the prototype, SOAP web services can be compared at the following levels of comparison:
-• Operation level (i.e., the operation name)
-• Parameter level (i.e., the operation name and the parameter names)
-• Parameter value level (i.e., the operation name, the parameter names, and the parameter values)
+  * Operation level (i.e., the operation name)
+  * Parameter level (i.e., the operation name and the parameter names)
+  * Parameter value level (i.e., the operation name, the parameter names, and the parameter values)
 
 Details on the exemplary web services
 -------------------------------------
@@ -85,18 +100,3 @@ ORIGINAL_APP_WSDL = "http://artist-jaxws-original.appspot.com/WebservicesDemoSer
 MIGRATED_APP_WSDL = "http://artist-jaxws-migrated.appspot.com/WebservicesDemoService.wsdl";
 ORIGINAL_APP_SERVICE_URL = "http://artist-jaxws-original.appspot.com/WebservicesDemoService";
 MIGRATED_APP_SERVICE_URL = "http://artist-jaxws-migrated.appspot.com/WebservicesDemoService";
-
-Expected Functionality
-----------------------
-User requests are assumed to be created by a real user on the migrated software and stored to the file system.
-The prototype then uses these user request files and a migration trace model to map the migrated user request to one or multiple original user requests to induce equivalent behavior on both sides.
-To verify whether the two systems actually behave equally, the respective runtime traces are extracted from both system and abstracted into a platform-specific compatible trace.
-After comparing both traces, which are compatible to each other, a verdict about their equivalence can be yielded.
-A runtime trace is defined as the output of a request (i.e., the response), operation calls, their parameters, as well as their parameter values.
-The test oracle can distinguish a comparison to be successful if both traces contain the response of equivalent operation calls, or equivalent operation calls and their parameter names, or equivalent operation calls, their parameter names, and their parameter values.
-
-Known/Open Issues
------------------
-• Automatic and direct user request capturing from running applications
-• Support for different web service types other than SOAP (i.e., UI-based applications, REST web services, etc.)
-• Replacement of exemplaric migration trace model with the migration trace model eventually established within the context of ARTIST WP9
