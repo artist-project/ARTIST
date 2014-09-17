@@ -6,7 +6,8 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
+ * Martin Fleck (Vienna University of Technology) - retrieved from an old 
+ * API: org.eclipse.ui.model.WorkbenchContentProvider
  *
  * Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
@@ -37,6 +38,8 @@ import org.eclipse.ui.model.BaseWorkbenchContentProvider;
  * <p>
  * This class may be instantiated, or subclassed by clients.
  * </p>
+ * This class was retrieved from old an API: 
+ * org.eclipse.ui.model.WorkbenchContentProvider
  */
 public class WorkbenchContentProvider extends BaseWorkbenchContentProvider
 		implements IResourceChangeListener {

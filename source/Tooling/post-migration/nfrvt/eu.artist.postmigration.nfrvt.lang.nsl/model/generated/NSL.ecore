@@ -32,6 +32,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="DirectionKind">
     <eLiterals name="INCREASING" literal="increasing"/>
     <eLiterals name="DECREASING" value="1" literal="decreasing"/>
+    <eLiterals name="RANGE" value="2" literal="range"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertyImpact">
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Property"/>

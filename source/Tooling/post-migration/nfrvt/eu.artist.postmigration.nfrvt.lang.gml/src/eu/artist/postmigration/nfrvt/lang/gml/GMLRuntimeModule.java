@@ -28,10 +28,10 @@ import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
  */
 public class GMLRuntimeModule extends eu.artist.postmigration.nfrvt.lang.gml.AbstractGMLRuntimeModule {
 
-////	@Override
-////	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
-////		return GMLImportUriGlobalScopeProvider.class;
-////	}
+//	@Override
+//	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+//		return GMLImportUriGlobalScopeProvider.class;
+//	}
 //	
 //	@Override
 //	public Class<? extends XtextResourceSet> bindXtextResourceSet() {

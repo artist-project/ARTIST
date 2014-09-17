@@ -22,6 +22,11 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.Workload;
 import eu.artist.postmigration.nfrvt.lang.nsl.renderer.NSLTextRenderer;
 
+/**
+ * Text renderer for goal models.
+ * 
+ * @author Martin Fleck
+ */
 public class GMLTextRenderer extends NSLTextRenderer {
 
 	protected String render(AppliedQuantitativePropertyExpression e) {

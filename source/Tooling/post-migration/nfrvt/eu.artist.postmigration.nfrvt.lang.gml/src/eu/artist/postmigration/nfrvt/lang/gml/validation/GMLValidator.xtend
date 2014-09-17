@@ -13,6 +13,7 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal
 import java.util.HashSet
 import java.util.Set
 import org.eclipse.xtext.validation.Check
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage
 
 //import org.eclipse.xtext.validation.Check
 
@@ -25,6 +26,12 @@ class GMLValidator extends AbstractGMLValidator {
 
 	CompositeGoalValidator compositeGoalValidator = new CompositeGoalValidator();
 	HardGoalValidator hardGoalConditionValidator = new HardGoalValidator();
+
+	override protected getEPackages() {
+		val result = super.getEPackages()
+		result.add(ArtistCommonPackage.eINSTANCE)
+		return result
+	}
 
 	def showAll(ExpressionValidator validator) {
 		validator.errors.forEach[msg, feature| error(msg, feature)]
@@ -54,12 +61,12 @@ class GMLValidator extends AbstractGMLValidator {
 		if(ValueUtil.isBooleanOrNull(result) && variableExpressions.empty)
 			warning("No $variables used in this condition, always returns " + ValueUtil.getBooleanOrNull(result) + ".", GmlPackage.Literals.HARD_GOAL__CONDITION)
 	}
-	
+/*	
 	@Check
 	def infoAppliedProperty(AppliedQuantitativePropertyExpression exp) {
 		info("Please make sure that " + exp.value.property.name + " has a compatible data type for the expression.", GmlPackage.Literals.APPLIED_QUANTITATIVE_PROPERTY_EXPRESSION__VALUE);
 	}
-	
+ */	
 	@Check
 	def circularReferenceCompositeGoalExpression(CompositeGoal goal) {
 		if(goal.checkCircle(new HashSet<CompositeGoal>()))

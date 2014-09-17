@@ -49,7 +49,17 @@ public enum DirectionKind implements Enumerator
    * @generated
    * @ordered
    */
-  DECREASING(1, "DECREASING", "decreasing");
+  DECREASING(1, "DECREASING", "decreasing"),
+
+  /**
+   * The '<em><b>RANGE</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #RANGE_VALUE
+   * @generated
+   * @ordered
+   */
+  RANGE(2, "RANGE", "range");
 
   /**
    * The '<em><b>INCREASING</b></em>' literal value.
@@ -82,6 +92,21 @@ public enum DirectionKind implements Enumerator
   public static final int DECREASING_VALUE = 1;
 
   /**
+   * The '<em><b>RANGE</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>RANGE</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #RANGE
+   * @model literal="range"
+   * @generated
+   * @ordered
+   */
+  public static final int RANGE_VALUE = 2;
+
+  /**
    * An array of all the '<em><b>Direction Kind</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -92,6 +117,7 @@ public enum DirectionKind implements Enumerator
     {
       INCREASING,
       DECREASING,
+      RANGE,
     };
 
   /**
@@ -152,6 +178,7 @@ public enum DirectionKind implements Enumerator
     {
       case INCREASING_VALUE: return INCREASING;
       case DECREASING_VALUE: return DECREASING;
+      case RANGE_VALUE: return RANGE;
     }
     return null;
   }

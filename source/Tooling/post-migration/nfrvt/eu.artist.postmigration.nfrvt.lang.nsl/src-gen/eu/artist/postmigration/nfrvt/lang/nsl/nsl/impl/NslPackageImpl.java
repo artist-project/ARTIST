@@ -568,6 +568,7 @@ public class NslPackageImpl extends EPackageImpl implements NslPackage
     initEEnum(directionKindEEnum, DirectionKind.class, "DirectionKind");
     addEEnumLiteral(directionKindEEnum, DirectionKind.INCREASING);
     addEEnumLiteral(directionKindEEnum, DirectionKind.DECREASING);
+    addEEnumLiteral(directionKindEEnum, DirectionKind.RANGE);
 
     // Create resource
     createResource(eNS_URI);

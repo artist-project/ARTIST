@@ -1057,8 +1057,7 @@ public class GMLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	 *         name=ID 
 	 *         property=[QuantitativeProperty|QualifiedName] 
 	 *         (function=MinOperator | function=MaxOperator | function=AvgOperator | function=SumOperator)? 
-	 *         context+=[NamedElement|QualifiedName] 
-	 *         context+=[NamedElement|QualifiedName]* 
+	 *         (context+=[NamedElement|QualifiedName] context+=[NamedElement|QualifiedName]*)? 
 	 *         workload=[Workload|QualifiedName]?
 	 *     )
 	 */

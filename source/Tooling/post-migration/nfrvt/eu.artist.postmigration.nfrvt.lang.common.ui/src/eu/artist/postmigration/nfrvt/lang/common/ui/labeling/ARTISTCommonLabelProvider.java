@@ -19,10 +19,14 @@ import java.net.URL;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.Keyword;
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+
+import sun.java2d.pipe.TextRenderer;
 
 import com.google.inject.Inject;
 
@@ -32,51 +36,100 @@ import eu.artist.postmigration.nfrvt.lang.common.ui.internal.ARTISTCommonActivat
 
 /**
  * Provides labels for a EObjects.
+ * Textual descriptions are provided by the specified {@link ITextRenderer}.
+ * Image descriptions are provided by searching for an icon-directory and then
+ * an image with the class name of the respective objects. If no image can be
+ * found, we look for the image of a super class. Both gif and png format 
+ * images are supported, however pngs are given priority over gifs. 
+ * The name of keyword images should be 'Keyword_<keyword-string>'. A default 
+ * keyword image file should be named 'Keyword'.
  * 
- * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
+ * First all images from the given plugin are searched, then the images from
+ * the {@link ARTISTCommonActivator#getInstance()} plugin.
+ * 
+ * @see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-public class ARTISTCommonLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+public class ARTISTCommonLabelProvider extends DefaultEObjectLabelProvider {
 
 	private static ARTISTCommonRenderer DEFAULT_RENDERER = new ARTISTCommonRenderer();
 	private static AbstractUIPlugin DEFAULT_PLUGIN = ARTISTCommonActivator.getInstance();
 	
+	private static final String IMAGE_DIRECTORY = "icons/";
+	private static final String GIF_FILEEXTENSION = ".gif";
+	private static final String PNG_FILEEXTENSION = ".png";
+	private static final String KEYWORD_PREFIX = "Keyword_";
+	private static final String KEYWORD_DEFAULT_GIF = "Keyword.gif";
+	private static final String KEYWORD_DEFAULT_PNG = "Keyword.png";
+	
 	private ITextRenderer textRenderer;
 	private AbstractUIPlugin plugin;
 	
+	@Inject
+	public ARTISTCommonLabelProvider(AdapterFactoryLabelProvider delegate) {
+		super(delegate);
+	}
+	
+	/**
+	 * Creates an {@link ARTISTCommonLabelProvider}.
+	 * @param delegate 
+	 * @param renderer {@link TextRenderer} used for converting objects into 
+	 * {@link String}s
+	 * @param plugin plugin containing the image files.
+	 */
+	public ARTISTCommonLabelProvider(AdapterFactoryLabelProvider delegate, ITextRenderer renderer, AbstractUIPlugin plugin) {
+		super(delegate);
+		setTextRenderer(renderer);
+		setPlugin(plugin);
+	}
+	
+	/**
+	 * Returns the {@link TextRenderer} used for converting objects into 
+	 * {@link String}s. If no renderer has been specified by the user, the
+	 * {@link #DEFAULT_RENDERER} is used.
+	 * @return text renderer
+	 */
 	private ITextRenderer getTextRenderer() {
 		if(textRenderer == null)
 			return DEFAULT_RENDERER;
 		return textRenderer;
 	}
 
+	/**
+	 * Sets the {@link TextRenderer} used for converting objects into 
+	 * {@link String}s.
+	 */
 	private void setTextRenderer(ITextRenderer textRenderer) {
 		this.textRenderer = textRenderer;
 	}
 
+	/**
+	 * Returns the plugin containing the images, may be null.
+	 * @return plugin containing the images or null if no plugin has been
+	 * specified
+	 */
 	private AbstractUIPlugin getPlugin() {
 		return plugin;
 	}
 
+	/**
+	 * Sets the plugin containing the images.
+	 */
 	private void setPlugin(AbstractUIPlugin plugin) {
 		this.plugin = plugin;
 	}
 	
-	@Inject
-	public ARTISTCommonLabelProvider(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
-		super(delegate);
-	}
-	
-	public ARTISTCommonLabelProvider(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate, ITextRenderer renderer, AbstractUIPlugin plugin) {
-		super(delegate);
-		setTextRenderer(renderer);
-		setPlugin(plugin);
-	}
-	
+	/**
+	 * Retrieves the image specified by the imageName from the given plugin.
+	 * If no such image can be found, null is returned.
+	 * @param plugin plugin to be searched
+	 * @param imageName name of the image
+	 * @return image if found or null
+	 */
 	private Image getImageByName(AbstractUIPlugin plugin, String imageName) {
 		if(plugin == null || imageName == null || imageName.isEmpty())
 			return null;
 		
-		URL imgUrl = plugin.getBundle().getEntry("icons/" + imageName);
+		URL imgUrl = plugin.getBundle().getEntry(IMAGE_DIRECTORY + imageName);
 		if(imgUrl != null) {
 			ImageDescriptor id = null;
 			Image result = plugin.getImageRegistry().get(imgUrl.toExternalForm());
@@ -92,6 +145,13 @@ public class ARTISTCommonLabelProvider extends org.eclipse.xtext.ui.label.Defaul
 		return null;
 	}
 	
+	/**
+	 * Returns the image provided at the given name locations. The first image
+	 * found is returned. If no image is found, null is returned.
+	 * @param plugin plugin to be searched
+	 * @param possibleNames locations of the images
+	 * @return first image found or null if no image is found
+	 */
 	private Image getImageByName(AbstractUIPlugin plugin, String... possibleNames) {
 		Image image = null;
 		for(String name : possibleNames) {
@@ -102,33 +162,44 @@ public class ARTISTCommonLabelProvider extends org.eclipse.xtext.ui.label.Defaul
 		return null;
 	}
 	
-	private String getImageNameGif(EClass element) {
-		return element.getName() + ".gif";
+	/**
+	 * Returns the name for the respective image based on the elements class.
+	 * @param element
+	 * @return
+	 */
+	private String getImageName(EClass element) {
+		return element.getName();
 	}
 	
-	private String getImageNamePng(EClass element) {
-		return element.getName() + ".png";
+	/**
+	 * Returns the name for the respective image based on the keywords value.
+	 * @param element
+	 * @return
+	 */
+	private String getImageName(Keyword keyword) {
+		return KEYWORD_PREFIX + keyword.getValue();
 	}
 	
-	private String getImageNameGif(Keyword keyword) {
-		return "Keyword_" + keyword.getValue() + ".gif";
-	}
-	
-	private String getImageNamePng(Keyword keyword) {
-		return "Keyword_" + keyword.getValue() + ".png";
-	}
-
-	public String text(EObject element) {
-		return getTextRenderer().doRender(element);
-	}
-	
+	/**
+	 * Returns the image based on the given class name.
+	 * @param clazz 
+	 * @return image for the given class
+	 */
 	public Image getImageByClassName(EClass clazz) {
-		Image img = getImageByName(getPlugin(), getImageNamePng(clazz), getImageNameGif(clazz));
-		if(img != null)
-			return img;
-		return getImageByName(DEFAULT_PLUGIN, getImageNamePng(clazz), getImageNameGif(clazz));
+		return getFirst(
+			getImageByName(getPlugin(), 
+				getImageName(clazz) + PNG_FILEEXTENSION, 
+				getImageName(clazz) + GIF_FILEEXTENSION),
+			getImageByName(DEFAULT_PLUGIN, 
+				getImageName(clazz) + PNG_FILEEXTENSION, 
+				getImageName(clazz) + GIF_FILEEXTENSION));
 	}
 	
+	/**
+	 * Returns the image based on the objects class name.
+	 * @param clazz 
+	 * @return image for the given object
+	 */
 	public Object image(EObject element) {		
 		Image img = getImageByClassName(element.eClass());
 		if(img != null)
@@ -144,10 +215,39 @@ public class ARTISTCommonLabelProvider extends org.eclipse.xtext.ui.label.Defaul
 	}
 	
 	public Object image(Keyword keyword) {
-		Image img = getImageByName(getPlugin(), getImageNamePng(keyword), getImageNameGif(keyword), "Keyword.png", "Keyword.gif");
-		if(img != null)
-			return img;
-		
-		return getImageByName(DEFAULT_PLUGIN, getImageNamePng(keyword), getImageNameGif(keyword), "Keyword.png", "Keyword.gif");
+		return getFirst(
+			getImageByName(getPlugin(), 
+				getImageName(keyword) + PNG_FILEEXTENSION, 
+				getImageName(keyword) + GIF_FILEEXTENSION, 
+				KEYWORD_DEFAULT_PNG, 
+				KEYWORD_DEFAULT_GIF),
+			getImageByName(DEFAULT_PLUGIN, 
+				getImageName(keyword) + PNG_FILEEXTENSION, 
+				getImageName(keyword) + GIF_FILEEXTENSION, 
+				KEYWORD_DEFAULT_PNG, 
+				KEYWORD_DEFAULT_GIF));
+	}
+	
+	/**
+	 * Returns the String representation of this element as dictated
+	 * by the {@link TextRenderer}.
+	 * @param element
+	 * @return string representation of element
+	 */
+	public String text(EObject element) {
+		return getTextRenderer().doRender(element);
+	}
+	
+	/**
+	 * Returns the first non-null element.
+	 * @param elements elements to be checked
+	 * @return first non-null element or null if no such element exists
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T extends Object> T getFirst(T... elements) {
+		for(T element : elements)
+			if(element != null)
+				return element;
+		return null;
 	}
 }

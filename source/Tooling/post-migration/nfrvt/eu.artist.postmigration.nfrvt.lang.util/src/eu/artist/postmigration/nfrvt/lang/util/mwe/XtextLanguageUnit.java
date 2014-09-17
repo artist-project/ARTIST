@@ -19,7 +19,22 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.mwe.utils.Mapping;
 import org.eclipse.uml2.uml.resource.UMLResource;
 
+/**
+ * A XtextLanguageUnit encapsulates all necessary information to use one 
+ * language in another language. This may include the Namespace URI, the
+ * URI mappings, the generated EPackage and the GenModelFile.
+ * <p/>
+ * This class provides some static instances for the more often used
+ * languages.
+ * 
+ * @author Martin Fleck
+ *
+ */
 public class XtextLanguageUnit {
+	/**
+	 * Base for all ARTIST languages containing the Namespace URI, the URI 
+	 * mappings, the generated EPackages and the GenModelFiles.
+	 */
 	protected static XtextLanguageUnit ARTIST_COMMON_UNIT = new XtextLanguageUnit();
 	static {
 		ARTIST_COMMON_UNIT = new XtextLanguageUnit();
@@ -38,6 +53,10 @@ public class XtextLanguageUnit {
 		ARTIST_COMMON_UNIT.addGenModelFile("platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel");
 	}
 	
+	/**
+	 * Ecore Unit containing the Namespace URI, the URI mappings, the generated
+	 * EPackages and the GenModelFiles.
+	 */
 	protected static XtextLanguageUnit ECORE_UNIT = new XtextLanguageUnit();
 	static {
 		ECORE_UNIT = new XtextLanguageUnit();
@@ -66,12 +85,19 @@ public class XtextLanguageUnit {
 //		ECORE_UNIT.addUri(UMLResource.ECORE_PROFILE_URI);
 	}
 	
+	/**
+	 * Ecore Primitive Types Library unit containing the library URI.
+	 */
 	protected static XtextLanguageUnit ECORE_TYPES_UNIT = new XtextLanguageUnit();
 	static {
 		ECORE_TYPES_UNIT = new XtextLanguageUnit();
 		ECORE_TYPES_UNIT.addUri(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI);
 	}
 	
+	/**
+	 * UML Unit containing the Namespace URI, the URI mappings, the generated
+	 * EPackages and the GenModelFiles.
+	 */
 	protected static XtextLanguageUnit UML_UNIT = new XtextLanguageUnit();
 	static {
 		UML_UNIT = new XtextLanguageUnit();
@@ -106,6 +132,10 @@ public class XtextLanguageUnit {
 //		UML_UNIT.addUri(UMLResource.UML2_PROFILE_URI);
 	}
 	
+	/**
+	 * Xtext Unit containing the Namespace URI, the URI mappings, the generated
+	 * EPackages and the GenModelFiles.
+	 */
 	protected static XtextLanguageUnit UML_TYPES_UNIT = new XtextLanguageUnit();
 	static {
 		UML_TYPES_UNIT = new XtextLanguageUnit();
@@ -126,6 +156,10 @@ public class XtextLanguageUnit {
 //		UML_TYPES_UNIT.addUri(UMLResource.UML_PRIMITIVE_TYPES_LIBRARY_URI);
 	}
 	
+	/**
+	 * MARTE Profile Unit containing the Namespace URI, the URI mappings, the 
+	 * generated EPackages and the GenModelFiles.
+	 */
 	protected static XtextLanguageUnit MARTE_UNIT = new XtextLanguageUnit();
 	static {
 		MARTE_UNIT = new XtextLanguageUnit();
@@ -146,19 +180,10 @@ public class XtextLanguageUnit {
 		MARTE_UNIT.addUri(UMLResource.UML2_PROFILE_URI);
 	}
 	
-	protected static XtextLanguageUnit MARTE_LIBRARY_UNIT = new XtextLanguageUnit();
-	static {
-		MARTE_LIBRARY_UNIT = new XtextLanguageUnit();
-//		MARTE_LIBRARY_UNIT.addUriMapping(
-//				"platform:/plugin/org.eclipse.papyrus.marte.static.profile/resources/MARTE_Library.library.uml",
-//				"platform:/resource/org.eclipse.papyrus.marte.static.profile/resources/MARTE_Library.library.uml");
-//		MARTE_LIBRARY_UNIT.addUriMapping(
-//				"platform:/plugin/org.eclipse.papyrus.marte.static.profile/resources/MARTE_Library.ecore",
-//				"platform:/resource/org.eclipse.papyrus.marte.static.profile/resources/MARTE_Library.ecore");
-		
-//		MARTE_LIBRARY_UNIT.addUri("pathmap://Papyrus_LIBRARIES/MARTE_Library.library.uml");
-	}
-	
+	/**
+	 * MARTE Value Specification Language Unit containing the generated 
+	 * EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit VSL_UNIT = new XtextLanguageUnit();
 	static {		
 		VSL_UNIT = new XtextLanguageUnit();
@@ -166,6 +191,9 @@ public class XtextLanguageUnit {
 		VSL_UNIT.addGenModelFile("platform:/resource/org.eclipse.papyrus.marte.vsl/src/org/eclipse/papyrus/marte/vsl/VSL.genmodel");
 	}
 	
+	/**
+	 * Xbase Language Unit containing the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit XBASE_UNIT = new XtextLanguageUnit();
 	static {	
 		XBASE_UNIT = new XtextLanguageUnit();
@@ -173,6 +201,10 @@ public class XtextLanguageUnit {
 		XBASE_UNIT.addGenModelFile("platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel");
 	}
 	
+	/**
+	 * Property Specification Language Unit containing the the Namespace URI, 
+	 * the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit NSL_UNIT = new XtextLanguageUnit();
 	static {
 		NSL_UNIT = new XtextLanguageUnit();
@@ -190,6 +222,10 @@ public class XtextLanguageUnit {
 		NSL_UNIT.addGenModelFile("platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.genmodel");
 	}
 	
+	/**
+	 * Pattern Specification Language Unit containing the the Namespace URI, 
+	 * the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit TSL_UNIT = new XtextLanguageUnit();
 	static {
 		TSL_UNIT = new XtextLanguageUnit();
@@ -207,6 +243,10 @@ public class XtextLanguageUnit {
 		TSL_UNIT.addGenModelFile("platform:/resource/eu.artist.postmigration.nfrvt.lang.tsl/model/generated/TSL.genmodel");
 	}
 	
+	/**
+	 * Evaluation Strategy Specification Language Unit containing the the 
+	 * Namespace URI, the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit ESL_UNIT = new XtextLanguageUnit();
 	static {
 		ESL_UNIT = new XtextLanguageUnit();
@@ -224,6 +264,10 @@ public class XtextLanguageUnit {
 		ESL_UNIT.addGenModelFile("platform:/resource/eu.artist.postmigration.nfrvt.lang.esl/model/generated/ESL.genmodel");
 	}
 	
+	/**
+	 * Goal Modeling Language Unit containing the the Namespace URI, 
+	 * the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit GML_UNIT = new XtextLanguageUnit();
 	static {
 		GML_UNIT = new XtextLanguageUnit();
@@ -241,6 +285,10 @@ public class XtextLanguageUnit {
 		GML_UNIT.addGenModelFile("platform:/resource/eu.artist.postmigration.nfrvt.lang.gml/model/generated/GML.genmodel");
 	}
 	
+	/**
+	 * Goal Evaluation Language Unit containing the the Namespace URI, 
+	 * the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit GEL_UNIT = new XtextLanguageUnit();
 	static {
 		GEL_UNIT = new XtextLanguageUnit();
@@ -258,6 +306,10 @@ public class XtextLanguageUnit {
 		GEL_UNIT.addGenModelFile("platform:/resource/eu.artist.postmigration.nfrvt.lang.gel/model/generated/GEL.genmodel");
 	}
 	
+	/**
+	 * Xtext JavaVMTypes Language Unit containing the the Namespace URI, 
+	 * the generated EPackage and the GenModelFile.
+	 */
 	protected static XtextLanguageUnit JVMTYPES_UNIT = new XtextLanguageUnit();
 	static {
 		JVMTYPES_UNIT = new XtextLanguageUnit();

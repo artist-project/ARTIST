@@ -119,7 +119,7 @@ public class ESLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '!=' | '<>'
+	 *     '<>' | '!='
 	 */
 	protected void emit_NotEqualsOperator_ExclamationMarkEqualsSignKeyword_1_0_or_LessThanSignGreaterThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -127,7 +127,7 @@ public class ESLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '!' | 'not'
+	 *     'not' | '!'
 	 */
 	protected void emit_NotOperator_ExclamationMarkKeyword_1_0_or_NotKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

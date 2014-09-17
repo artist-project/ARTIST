@@ -72,6 +72,18 @@ import eu.artist.postmigration.nfrvt.lang.common.eval.logic.RelationalLogic;
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil;
 import eu.artist.postmigration.nfrvt.lang.common.renderer.ITextRenderer;
 
+/**
+ * An expression validator is able to evaluate any {@link Expression}. This 
+ * class delegates the actual validation of objects of type T to methods with 
+ * the signature 'evaluate(T)' using a {@link PolymorphicDispatcher}. 
+ * Subclasses only need to provide additional evaluate-methods.
+ * <p/>
+ * Any infos, warnings, or errors produced during the evaluation, can be stored
+ * and retrieved using the respective methods.
+ * 
+ * @author Martin Fleck
+ *
+ */
 public class ExpressionValidator {
 	
 	protected Map<String, EStructuralFeature> infos = new HashMap<>();
@@ -79,51 +91,134 @@ public class ExpressionValidator {
 	protected Map<String, EStructuralFeature> errors = new HashMap<>();
 	protected ITextRenderer renderer;
 	
+	private EStructuralFeature feature; // currently evaluated feature
 	private PolymorphicDispatcher<? extends ValueSpecification> evaluateDispatcher = new PolymorphicDispatcher<>(
 			"evaluate", Collections.singletonList(this));
 
+	/**
+	 * Creates a new expression validator able to evaluate any 
+	 * {@link Expression}. Any infos, warnings, or errors produced during the 
+	 * evaluation, can be retrieved using the respective methods.
+	 * 
+	 * @param renderer text renderer used for info, warning or error messages
+	 * 
+	 * @see #getInfos()
+	 * @see #getWarnings()
+	 * @see #getErrors()
+	 */
 	public ExpressionValidator(ITextRenderer renderer) {
 		this.setRenderer(renderer);
 	}
 	
+	/**
+	 * Returns the renderer used for info, warning, or error messages.
+	 * 
+	 * @return text renderer
+	 */
 	protected ITextRenderer getRenderer() {
 		return renderer;
 	}
 
+	/**
+	 * Sets the renderer used for info, warning, or error messages.
+	 * 
+	 * @param renderer text renderer to be used for messages
+	 */
 	protected void setRenderer(ITextRenderer renderer) {
 		this.renderer = renderer;
 	}
 	
+	/**
+	 * Returns the feature currently evaluated.
+	 * 
+	 * @return feature currently evaluated
+	 */
+	public EStructuralFeature getFeature() {
+		return feature;
+	}
+
+	/**
+	 * Sets the feature currently evaluated.
+	 * 
+	 * @param feature feature currently evaluated
+	 */
+	public void setFeature(EStructuralFeature feature) {
+		this.feature = feature;
+	}
+	
+	/**
+	 * Adds a new warning about the given feature to this evaluation.
+	 * 
+	 * @param warning warning message
+	 * @param feature concerning feature
+	 */
 	public void addWarning(String warning, EStructuralFeature feature) {
 		warnings.put(warning, feature);
 	}
 	
+	/**
+	 * Returns all warnings and their respective features.
+	 * 
+	 * @return warnings
+	 */
 	public Map<String, EStructuralFeature> getWarnings() {
 		return warnings;
 	}
 	
+	/**
+	 * Adds a new error about the given feature to this evaluation.
+	 * 
+	 * @param error error message
+	 * @param feature concerning feature
+	 */
 	public void addError(String error, EStructuralFeature feature) {
 		errors.put(error, feature);
 	}
 	
+	/**
+	 * Returns all errors and their respective features.
+	 * 
+	 * @return errors
+	 */
 	public Map<String, EStructuralFeature> getErrors() {
 		return errors;
 	}
 	
+	/**
+	 * Adds a new info about the given feature to this evaluation.
+	 * 
+	 * @param info info message
+	 * @param feature concerning feature
+	 */
 	public void addInfo(String info, EStructuralFeature feature) {
 		infos.put(info, feature);
 	}
 	
+	/**
+	 * Returns all infos and their respective features.
+	 * 
+	 * @return infos
+	 */
 	public Map<String, EStructuralFeature> getInfos() {
 		return infos;
 	}
 	
+	/**
+	 * Resets all recorded infos, warnings, and errors.
+	 */
 	public void reset() {
 		infos = new HashMap<>();
 		warnings = new HashMap<>();
 		errors = new HashMap<>();
 	}
 	
+	/**
+	 * Evaluates the given object and returns the evaluated value, if possible
+	 * - null otherwise.
+	 * 
+	 * @param obj object to be evaluated
+	 * @return resulting value or null
+	 */
 	public ValueSpecification doEvaluate(Object obj) {
 		if(obj == null)
 			return null;
@@ -132,11 +227,11 @@ public class ExpressionValidator {
 	}
 	
 	protected ValueSpecification evaluate(Object obj) {
-		return null;
+		return null; // generic method called -> null
 	}
 	
 	protected ValueSpecification evaluate(Expression e) {
-		return null;
+		return null; // generic method called -> null
 	}
 	
 	protected ValueSpecification evaluate(Implication e) {
@@ -291,7 +386,7 @@ public class ExpressionValidator {
 		List<BigDecimal> evaluationResults = new ArrayList<>();
 		NumberLiteral cur;
 		for(NumberExpression numberExpression : values) {
-			cur = asNumberLiteral(doEvaluate(numberExpression));
+			cur = ValueUtil.asNumberLiteral(doEvaluate(numberExpression));
 			if(cur != null && cur.getValue() != null) {
 					evaluationResults.add(cur.getValue());
 			}
@@ -327,29 +422,29 @@ public class ExpressionValidator {
 	}
 	
 	protected NumberLiteral evaluate(ExponentialFunction e) {
-		NumberLiteral base = asNumberLiteral(doEvaluate(e.getBase()));
-		NumberLiteral exp = asNumberLiteral(doEvaluate(e.getExponent()));
+		NumberLiteral base = ValueUtil.asNumberLiteral(doEvaluate(e.getBase()));
+		NumberLiteral exp = ValueUtil.asNumberLiteral(doEvaluate(e.getExponent()));
 		if(base == null || exp == null)
 			return null;
 		return ValueUtil.createNumberLiteralOrNull(NumericLogic.pow(base.getValue(), exp.getValue()));
 	}
 	
 	protected NumberLiteral evaluate(AbsoluteFunction e) {		
-		NumberLiteral value = asNumberLiteral(doEvaluate(e.getValue()));
+		NumberLiteral value = ValueUtil.asNumberLiteral(doEvaluate(e.getValue()));
 		if(value == null)
 			return null;
 		return ValueUtil.createNumberLiteralOrNull(NumericLogic.abs(value.getValue()));
 	}
 	
 	protected NumberLiteral evaluate(NaturalLogarithmFunction e) {
-		NumberLiteral value = asNumberLiteral(doEvaluate(e.getValue()));
+		NumberLiteral value = ValueUtil.asNumberLiteral(doEvaluate(e.getValue()));
 		if(value == null)
 			return null;
 		return ValueUtil.createNumberLiteralOrNull(NumericLogic.ln(value.getValue()));
 	}
 	
 	protected NumberLiteral evaluate(CommonLogarithmFunction e) {
-		NumberLiteral value = asNumberLiteral(doEvaluate(e.getValue()));
+		NumberLiteral value = ValueUtil.asNumberLiteral(doEvaluate(e.getValue()));
 		if(value == null)
 			return null;
 		return ValueUtil.createNumberLiteralOrNull(NumericLogic.log(value.getValue()));
@@ -369,21 +464,5 @@ public class ExpressionValidator {
 	
 	protected ValueSpecification evaluate(ObjectSpecificationExpression  e) {
 		return e;
-	}
-
-	private EStructuralFeature feature;
-	
-	public EStructuralFeature getFeature() {
-		return feature;
-	}
-
-	public void setFeature(EStructuralFeature feature) {
-		this.feature = feature;
-	}
-	
-	private static NumberLiteral asNumberLiteral(ValueSpecification e) {
-		if(e instanceof NumberLiteral)
-			return (NumberLiteral) e;
-		return null;
 	}
 }

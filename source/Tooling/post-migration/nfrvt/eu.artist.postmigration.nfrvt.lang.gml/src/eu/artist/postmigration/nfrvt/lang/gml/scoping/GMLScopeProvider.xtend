@@ -13,8 +13,6 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.PropertyValuePair
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ObjectSpecificationExpression
 
 /**
  * This class contains custom scoping description.

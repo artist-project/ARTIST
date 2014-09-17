@@ -799,7 +799,7 @@ public class NSLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID description=STRING type=[DataType|QualifiedName] direction=DirectionKind (impacts+=PropertyImpact impacts+=PropertyImpact*)?)
+	 *     (name=ID description=STRING type=[DataType|QualifiedName] direction=DirectionKind? (impacts+=PropertyImpact impacts+=PropertyImpact*)?)
 	 */
 	protected void sequence_BaseQuantitativeProperty(EObject context, BaseQuantitativeProperty semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

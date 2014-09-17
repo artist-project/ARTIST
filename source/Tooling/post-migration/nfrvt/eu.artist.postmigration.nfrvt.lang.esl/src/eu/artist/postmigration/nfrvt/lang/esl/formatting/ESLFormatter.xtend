@@ -3,11 +3,10 @@
  */
 package eu.artist.postmigration.nfrvt.lang.esl.formatting
 
-import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
-import org.eclipse.xtext.formatting.impl.FormattingConfig
-import eu.artist.postmigration.nfrvt.lang.esl.services.ESLGrammarAccess
 import com.google.inject.Inject
+import eu.artist.postmigration.nfrvt.lang.esl.services.ESLGrammarAccess
 import eu.artist.postmigration.nfrvt.lang.util.mwe.formatting.ARTISTDeclarativeFormatter
+import org.eclipse.xtext.formatting.impl.FormattingConfig
 
 // import com.google.inject.Inject;
 // import eu.artist.postmigration.nfrvt.lang.esl.services.ESLGrammarAccess

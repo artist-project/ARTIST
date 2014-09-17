@@ -19,6 +19,13 @@ import org.eclipse.xtext.conversion.impl.QualifiedNameValueConverter;
 
 import com.google.inject.Inject;
 
+/**
+ * Converters for Strings, Integers, IDs, qualified names and qualified names
+ * with wildcards.
+ * 
+ * @author Martin Fleck
+ *
+ */
 public class ARTISTCommonConverters extends DefaultTerminalConverters {
 
 	@Inject

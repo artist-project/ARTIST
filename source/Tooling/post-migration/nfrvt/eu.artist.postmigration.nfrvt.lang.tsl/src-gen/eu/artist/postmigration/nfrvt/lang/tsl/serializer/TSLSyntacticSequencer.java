@@ -103,7 +103,7 @@ public class TSLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     '&&' | 'and'
+	 *     'and' | '&&'
 	 */
 	protected void emit_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -127,7 +127,7 @@ public class TSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'not' | '!'
+	 *     '!' | 'not'
 	 */
 	protected void emit_NotOperator_ExclamationMarkKeyword_1_0_or_NotKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -135,7 +135,7 @@ public class TSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     'or' | '||'
+	 *     '||' | 'or'
 	 */
 	protected void emit_OrOperator_OrKeyword_1_0_or_VerticalLineVerticalLineKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -143,7 +143,7 @@ public class TSLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '^' | 'xor'
+	 *     'xor' | '^'
 	 */
 	protected void emit_XOrOperator_CircumflexAccentKeyword_1_1_or_XorKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

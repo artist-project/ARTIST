@@ -21,6 +21,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -31,6 +32,8 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GMLGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0;
+	protected AbstractElementAlias match_AppliedQualitativeProperty___CommaKeyword_5_0_ContextKeyword_5_1_LeftSquareBracketKeyword_5_2_RightSquareBracketKeyword_5_4__q;
+	protected AbstractElementAlias match_AppliedQuantitativeProperty___CommaKeyword_6_0_ContextKeyword_6_1_LeftSquareBracketKeyword_6_2_RightSquareBracketKeyword_6_4__q;
 	protected AbstractElementAlias match_ImplicationOperator_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1;
 	protected AbstractElementAlias match_NotEqualsOperator_ExclamationMarkEqualsSignKeyword_1_0_or_LessThanSignGreaterThanSignKeyword_1_1;
 	protected AbstractElementAlias match_NotOperator_ExclamationMarkKeyword_1_0_or_NotKeyword_1_1;
@@ -41,6 +44,8 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GMLGrammarAccess) access;
 		match_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndOperatorAccess().getAmpersandAmpersandKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getAndOperatorAccess().getAndKeyword_1_0()));
+		match_AppliedQualitativeProperty___CommaKeyword_5_0_ContextKeyword_5_1_LeftSquareBracketKeyword_5_2_RightSquareBracketKeyword_5_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAppliedQualitativePropertyAccess().getCommaKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getAppliedQualitativePropertyAccess().getContextKeyword_5_1()), new TokenAlias(false, false, grammarAccess.getAppliedQualitativePropertyAccess().getLeftSquareBracketKeyword_5_2()), new TokenAlias(false, false, grammarAccess.getAppliedQualitativePropertyAccess().getRightSquareBracketKeyword_5_4()));
+		match_AppliedQuantitativeProperty___CommaKeyword_6_0_ContextKeyword_6_1_LeftSquareBracketKeyword_6_2_RightSquareBracketKeyword_6_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getAppliedQuantitativePropertyAccess().getContextKeyword_6_1()), new TokenAlias(false, false, grammarAccess.getAppliedQuantitativePropertyAccess().getLeftSquareBracketKeyword_6_2()), new TokenAlias(false, false, grammarAccess.getAppliedQuantitativePropertyAccess().getRightSquareBracketKeyword_6_4()));
 		match_ImplicationOperator_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getImplicationOperatorAccess().getEqualsSignGreaterThanSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getImplicationOperatorAccess().getHyphenMinusGreaterThanSignKeyword_1_1()));
 		match_NotEqualsOperator_ExclamationMarkEqualsSignKeyword_1_0_or_LessThanSignGreaterThanSignKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotEqualsOperatorAccess().getExclamationMarkEqualsSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getNotEqualsOperatorAccess().getLessThanSignGreaterThanSignKeyword_1_1()));
 		match_NotOperator_ExclamationMarkKeyword_1_0_or_NotKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotOperatorAccess().getExclamationMarkKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getNotOperatorAccess().getNotKeyword_1_1()));
@@ -87,6 +92,10 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0.equals(syntax))
 				emit_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_AppliedQualitativeProperty___CommaKeyword_5_0_ContextKeyword_5_1_LeftSquareBracketKeyword_5_2_RightSquareBracketKeyword_5_4__q.equals(syntax))
+				emit_AppliedQualitativeProperty___CommaKeyword_5_0_ContextKeyword_5_1_LeftSquareBracketKeyword_5_2_RightSquareBracketKeyword_5_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_AppliedQuantitativeProperty___CommaKeyword_6_0_ContextKeyword_6_1_LeftSquareBracketKeyword_6_2_RightSquareBracketKeyword_6_4__q.equals(syntax))
+				emit_AppliedQuantitativeProperty___CommaKeyword_6_0_ContextKeyword_6_1_LeftSquareBracketKeyword_6_2_RightSquareBracketKeyword_6_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ImplicationOperator_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1.equals(syntax))
 				emit_ImplicationOperator_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_NotEqualsOperator_ExclamationMarkEqualsSignKeyword_1_0_or_LessThanSignGreaterThanSignKeyword_1_1.equals(syntax))
@@ -103,7 +112,7 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'and' | '&&'
+	 *     '&&' | 'and'
 	 */
 	protected void emit_AndOperator_AmpersandAmpersandKeyword_1_1_or_AndKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -111,7 +120,23 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '=>' | '->'
+	 *     (',' 'context' '[' ']')?
+	 */
+	protected void emit_AppliedQualitativeProperty___CommaKeyword_5_0_ContextKeyword_5_1_LeftSquareBracketKeyword_5_2_RightSquareBracketKeyword_5_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     (',' 'context' '[' ']')?
+	 */
+	protected void emit_AppliedQuantitativeProperty___CommaKeyword_6_0_ContextKeyword_6_1_LeftSquareBracketKeyword_6_2_RightSquareBracketKeyword_6_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     '->' | '=>'
 	 */
 	protected void emit_ImplicationOperator_EqualsSignGreaterThanSignKeyword_1_0_or_HyphenMinusGreaterThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -119,7 +144,7 @@ public class GMLSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     '<>' | '!='
+	 *     '!=' | '<>'
 	 */
 	protected void emit_NotEqualsOperator_ExclamationMarkEqualsSignKeyword_1_0_or_LessThanSignGreaterThanSignKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

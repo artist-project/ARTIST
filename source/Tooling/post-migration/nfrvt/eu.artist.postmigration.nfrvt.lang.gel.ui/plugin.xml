@@ -6,12 +6,12 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="gel"
             id="eu.artist.postmigration.nfrvt.lang.gel.GEL"
-            name="GEL Editor">
+            name="Textual Goal Model Evaluation Editor">
         </editor>
     </extension>
     <extension

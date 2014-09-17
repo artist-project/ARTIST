@@ -22,6 +22,7 @@ import java.util.Set;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
+import eu.artist.postmigration.nfrvt.lang.esl.esl.EvaluationStrategy;
 import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
@@ -48,6 +49,18 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEv
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.Property;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyImpact;
 
+/**
+ * A property evaluator can evaluate applied qualitative and quantitative
+ * property. Applied qualitative properties are evaluated using impact
+ * analysis. Applied quantitative properties are evaluated using the 
+ * respective evaluation strategies.
+ * 
+ * @author Martin Fleck
+ * 
+ * @see AppliedQualitativeProperty
+ * @see AppliedQuantitativeProperty
+ * @see EvaluationStrategy
+ */
 public class PropertyEvaluator {
 	
 	private static GELTextRenderer renderer = new GELTextRenderer();
@@ -56,40 +69,70 @@ public class PropertyEvaluator {
 	private EvaluationSettings settings;
 	private List<AppliedProperty> relevantProperties;
 	
+	/**
+	 * A property evaluator can evaluate applied qualitative and quantitative
+	 * property. Applied qualitative properties are evaluated using impact
+	 * analysis. Applied quantitative properties are evaluated using the 
+	 * respective evaluation strategies.
+	 * 
+	 * @param relevantTransformations used transformations containing impacts
+	 * on different properties
+	 * @param settings settings used for the evaluation
+	 */
 	public PropertyEvaluator(Set<Transformation> relevantTransformations, EvaluationSettings settings) {
 		this.relevantTransformations = relevantTransformations;
 		this.settings = settings;
 	}
 	
-	public void setSettings(EvaluationSettings s) {
-		settings = s;
+	/**
+	 * The settings specify how numeric evaluations should be handled, e.g., 
+	 * their precision and their rounding mode.
+	 * 
+	 * @param settings new settings
+	 */
+	public void setSettings(EvaluationSettings settings) {
+		this.settings = settings;
 	}
 	
+	/**
+	 * Returns the current settings used for the evaluation.
+	 * 
+	 * @return current settings
+	 */
 	public EvaluationSettings getSettings() {
 		return settings;
 	}
 	
-	public void setRelevantTransformations(Set<Transformation> relevantTransformations) {
+	protected void setRelevantTransformations(Set<Transformation> relevantTransformations) {
 		this.relevantTransformations = relevantTransformations;
 	}
 	
+	/**
+	 * Returns the transformations considered during the property evaluations.
+	 * 
+	 * @return evaluation relevant transformations
+	 */
 	public Set<Transformation> getRelevantTransformations() {
 		if(relevantTransformations == null)
 			return Collections.emptySet();
 		return relevantTransformations;
 	}
 	
-	public void setRelevantProperties(List<AppliedProperty> relevantProperties) {
+	protected void setRelevantProperties(List<AppliedProperty> relevantProperties) {
 		this.relevantProperties = relevantProperties;
 	}
 	
+	/**
+	 * Returns the relevant properties
+	 * @return
+	 */
 	public List<AppliedProperty> getRelevantProperties() {
 		if(relevantProperties == null)
 			return Collections.emptyList();
 		return relevantProperties;
 	}
 	
-	public Map<AppliedProperty, AppliedPropertyEvaluation> evaluate(List<AppliedProperty> appliedProperties, Map<AppliedProperty, AppliedPropertyEvaluation> existingEvaluations) {
+	protected Map<AppliedProperty, AppliedPropertyEvaluation> evaluate(List<AppliedProperty> appliedProperties, Map<AppliedProperty, AppliedPropertyEvaluation> existingEvaluations) {
 		setRelevantProperties(appliedProperties);
 		Map<AppliedProperty, AppliedPropertyEvaluation> appliedPropertyEvaluations = existingEvaluations;
 		AppliedPropertyEvaluation eval;
@@ -102,7 +145,7 @@ public class PropertyEvaluator {
 		return appliedPropertyEvaluations;
 	}
 	
-	public AppliedPropertyEvaluation evaluate(AppliedProperty property, AppliedPropertyEvaluation evaluation) {
+	protected AppliedPropertyEvaluation evaluate(AppliedProperty property, AppliedPropertyEvaluation evaluation) {
 		if(property instanceof AppliedQualitativeProperty) {
 			if(evaluation == null) {
 				evaluation = GelFactory.eINSTANCE.createAppliedQualitativePropertyEvaluation();
@@ -123,7 +166,7 @@ public class PropertyEvaluator {
 		return null;
 	}
 	
-	public void addOrReplaceRealization(AppliedQuantitativePropertyEvaluation evaluation, QuantitativePropertyRealization realization) {
+	protected void addOrReplaceRealization(AppliedQuantitativePropertyEvaluation evaluation, QuantitativePropertyRealization realization) {
 		if(realization == null || evaluation == null || realization.getName() == null)
 			return;
 		QuantitativePropertyRealization toRemove = null;
@@ -138,7 +181,7 @@ public class PropertyEvaluator {
 		evaluation.getRealizations().add(realization);
 	}
 	
-	public AppliedQuantitativePropertyEvaluation evaluate(AppliedQuantitativeProperty p, AppliedQuantitativePropertyEvaluation evaluation) {		
+	protected AppliedQuantitativePropertyEvaluation evaluate(AppliedQuantitativeProperty p, AppliedQuantitativePropertyEvaluation evaluation) {		
 		QuantitativePropertyRealization randomRealization = RandomRealizationStrategy.createRandomRealization(p);
 		addOrReplaceRealization(evaluation, randomRealization);
 		
@@ -150,7 +193,7 @@ public class PropertyEvaluator {
 		return evaluation;
 	}
 	
-	public List<ValueSpecification> getValues(List<QuantitativePropertyRealization> realizations) {
+	protected List<ValueSpecification> getValues(List<QuantitativePropertyRealization> realizations) {
 		if(realizations == null)
 			return Collections.emptyList();
 		
@@ -160,7 +203,7 @@ public class PropertyEvaluator {
 		return values;
 	}
 	
-	public ValueSpecification retrieveValue(AppliedQuantitativePropertyEvaluation evaluation) {
+	protected ValueSpecification retrieveValue(AppliedQuantitativePropertyEvaluation evaluation) {
 		List<ValueSpecification> values = getValues(evaluation.getRealizations());
 		DataType type = evaluation.getProperty().getProperty().getType();
 		
@@ -213,7 +256,7 @@ public class PropertyEvaluator {
 		return resultLiteral;
 	}
 	
-	public AppliedQualitativePropertyEvaluation evaluate(AppliedQualitativeProperty p, AppliedQualitativePropertyEvaluation evaluation) {
+	protected AppliedQualitativePropertyEvaluation evaluate(AppliedQualitativeProperty p, AppliedQualitativePropertyEvaluation evaluation) {
 		NumberExpressionEvaluation sumImpact = evaluateSum(p);
 		
 		evaluation.setEvaluation(sumImpact);

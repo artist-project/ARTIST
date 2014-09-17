@@ -277,31 +277,32 @@ public class NSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final CrossReference cTypeDataTypeCrossReference_7_0 = (CrossReference)cTypeAssignment_7.eContents().get(0);
 		private final RuleCall cTypeDataTypeQualifiedNameParserRuleCall_7_0_1 = (RuleCall)cTypeDataTypeCrossReference_7_0.eContents().get(1);
-		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cDirectionKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cDirectionAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cDirectionDirectionKindEnumRuleCall_10_0 = (RuleCall)cDirectionAssignment_10.eContents().get(0);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cImpactsKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_11_2 = (Keyword)cGroup_11.eContents().get(2);
-		private final Assignment cImpactsAssignment_11_3 = (Assignment)cGroup_11.eContents().get(3);
-		private final RuleCall cImpactsPropertyImpactParserRuleCall_11_3_0 = (RuleCall)cImpactsAssignment_11_3.eContents().get(0);
-		private final Group cGroup_11_4 = (Group)cGroup_11.eContents().get(4);
-		private final Keyword cCommaKeyword_11_4_0 = (Keyword)cGroup_11_4.eContents().get(0);
-		private final Assignment cImpactsAssignment_11_4_1 = (Assignment)cGroup_11_4.eContents().get(1);
-		private final RuleCall cImpactsPropertyImpactParserRuleCall_11_4_1_0 = (RuleCall)cImpactsAssignment_11_4_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_11_5 = (Keyword)cGroup_11.eContents().get(5);
-		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cCommaKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cDirectionKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cDirectionAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cDirectionDirectionKindEnumRuleCall_8_2_0 = (RuleCall)cDirectionAssignment_8_2.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cImpactsKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_9_2 = (Keyword)cGroup_9.eContents().get(2);
+		private final Assignment cImpactsAssignment_9_3 = (Assignment)cGroup_9.eContents().get(3);
+		private final RuleCall cImpactsPropertyImpactParserRuleCall_9_3_0 = (RuleCall)cImpactsAssignment_9_3.eContents().get(0);
+		private final Group cGroup_9_4 = (Group)cGroup_9.eContents().get(4);
+		private final Keyword cCommaKeyword_9_4_0 = (Keyword)cGroup_9_4.eContents().get(0);
+		private final Assignment cImpactsAssignment_9_4_1 = (Assignment)cGroup_9_4.eContents().get(1);
+		private final RuleCall cImpactsPropertyImpactParserRuleCall_9_4_1_0 = (RuleCall)cImpactsAssignment_9_4_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_9_5 = (Keyword)cGroup_9.eContents().get(5);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//BaseQuantitativeProperty:
-		//	"quantitative" name=ID "{" "description" description=STRING "," "type" type=[uml::DataType|QualifiedName] ","
-		//	"direction" direction=DirectionKind ("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
+		//	"quantitative" name=ID "{" "description" description=STRING "," "type" type=[uml::DataType|QualifiedName] (","
+		//	"direction" direction=DirectionKind)? ("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
 		//	"}";
 		public ParserRule getRule() { return rule; }
 
-		//"quantitative" name=ID "{" "description" description=STRING "," "type" type=[uml::DataType|QualifiedName] ","
-		//"direction" direction=DirectionKind ("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
+		//"quantitative" name=ID "{" "description" description=STRING "," "type" type=[uml::DataType|QualifiedName] (","
+		//"direction" direction=DirectionKind)? ("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
 		//"}"
 		public Group getGroup() { return cGroup; }
 
@@ -341,53 +342,56 @@ public class NSLGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getTypeDataTypeQualifiedNameParserRuleCall_7_0_1() { return cTypeDataTypeQualifiedNameParserRuleCall_7_0_1; }
 
+		//("," "direction" direction=DirectionKind)?
+		public Group getGroup_8() { return cGroup_8; }
+
 		//","
-		public Keyword getCommaKeyword_8() { return cCommaKeyword_8; }
+		public Keyword getCommaKeyword_8_0() { return cCommaKeyword_8_0; }
 
 		//"direction"
-		public Keyword getDirectionKeyword_9() { return cDirectionKeyword_9; }
+		public Keyword getDirectionKeyword_8_1() { return cDirectionKeyword_8_1; }
 
 		//direction=DirectionKind
-		public Assignment getDirectionAssignment_10() { return cDirectionAssignment_10; }
+		public Assignment getDirectionAssignment_8_2() { return cDirectionAssignment_8_2; }
 
 		//DirectionKind
-		public RuleCall getDirectionDirectionKindEnumRuleCall_10_0() { return cDirectionDirectionKindEnumRuleCall_10_0; }
+		public RuleCall getDirectionDirectionKindEnumRuleCall_8_2_0() { return cDirectionDirectionKindEnumRuleCall_8_2_0; }
 
 		//("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_9() { return cGroup_9; }
 
 		//","
-		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
+		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
 
 		//"impacts"
-		public Keyword getImpactsKeyword_11_1() { return cImpactsKeyword_11_1; }
+		public Keyword getImpactsKeyword_9_1() { return cImpactsKeyword_9_1; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_11_2() { return cLeftSquareBracketKeyword_11_2; }
+		public Keyword getLeftSquareBracketKeyword_9_2() { return cLeftSquareBracketKeyword_9_2; }
 
 		//impacts+=PropertyImpact
-		public Assignment getImpactsAssignment_11_3() { return cImpactsAssignment_11_3; }
+		public Assignment getImpactsAssignment_9_3() { return cImpactsAssignment_9_3; }
 
 		//PropertyImpact
-		public RuleCall getImpactsPropertyImpactParserRuleCall_11_3_0() { return cImpactsPropertyImpactParserRuleCall_11_3_0; }
+		public RuleCall getImpactsPropertyImpactParserRuleCall_9_3_0() { return cImpactsPropertyImpactParserRuleCall_9_3_0; }
 
 		//("," impacts+=PropertyImpact)*
-		public Group getGroup_11_4() { return cGroup_11_4; }
+		public Group getGroup_9_4() { return cGroup_9_4; }
 
 		//","
-		public Keyword getCommaKeyword_11_4_0() { return cCommaKeyword_11_4_0; }
+		public Keyword getCommaKeyword_9_4_0() { return cCommaKeyword_9_4_0; }
 
 		//impacts+=PropertyImpact
-		public Assignment getImpactsAssignment_11_4_1() { return cImpactsAssignment_11_4_1; }
+		public Assignment getImpactsAssignment_9_4_1() { return cImpactsAssignment_9_4_1; }
 
 		//PropertyImpact
-		public RuleCall getImpactsPropertyImpactParserRuleCall_11_4_1_0() { return cImpactsPropertyImpactParserRuleCall_11_4_1_0; }
+		public RuleCall getImpactsPropertyImpactParserRuleCall_9_4_1_0() { return cImpactsPropertyImpactParserRuleCall_9_4_1_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_11_5() { return cRightSquareBracketKeyword_11_5; }
+		public Keyword getRightSquareBracketKeyword_9_5() { return cRightSquareBracketKeyword_9_5; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class DerivedQuantitativePropertyElements extends AbstractParserRuleElementFinder {
@@ -674,12 +678,14 @@ public class NSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cINCREASINGIncreasingKeyword_0_0 = (Keyword)cINCREASINGEnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cDECREASINGEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cDECREASINGDecreasingKeyword_1_0 = (Keyword)cDECREASINGEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cRANGEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRANGERangeKeyword_2_0 = (Keyword)cRANGEEnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum DirectionKind:
-		//	INCREASING="increasing" | DECREASING="decreasing";
+		//	INCREASING="increasing" | DECREASING="decreasing" | RANGE="range";
 		public EnumRule getRule() { return rule; }
 
-		//INCREASING="increasing" | DECREASING="decreasing"
+		//INCREASING="increasing" | DECREASING="decreasing" | RANGE="range"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//INCREASING="increasing"
@@ -693,6 +699,12 @@ public class NSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"decreasing"
 		public Keyword getDECREASINGDecreasingKeyword_1_0() { return cDECREASINGDecreasingKeyword_1_0; }
+
+		//RANGE="range"
+		public EnumLiteralDeclaration getRANGEEnumLiteralDeclaration_2() { return cRANGEEnumLiteralDeclaration_2; }
+
+		//"range"
+		public Keyword getRANGERangeKeyword_2_0() { return cRANGERangeKeyword_2_0; }
 	}
 	
 	private PropertyCatalogueElements pPropertyCatalogue;
@@ -789,8 +801,8 @@ public class NSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BaseQuantitativeProperty:
-	//	"quantitative" name=ID "{" "description" description=STRING "," "type" type=[uml::DataType|QualifiedName] ","
-	//	"direction" direction=DirectionKind ("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
+	//	"quantitative" name=ID "{" "description" description=STRING "," "type" type=[uml::DataType|QualifiedName] (","
+	//	"direction" direction=DirectionKind)? ("," "impacts" "[" impacts+=PropertyImpact ("," impacts+=PropertyImpact)* "]")?
 	//	"}";
 	public BaseQuantitativePropertyElements getBaseQuantitativePropertyAccess() {
 		return (pBaseQuantitativeProperty != null) ? pBaseQuantitativeProperty : (pBaseQuantitativeProperty = new BaseQuantitativePropertyElements());
@@ -853,7 +865,7 @@ public class NSLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum DirectionKind:
-	//	INCREASING="increasing" | DECREASING="decreasing";
+	//	INCREASING="increasing" | DECREASING="decreasing" | RANGE="range";
 	public DirectionKindElements getDirectionKindAccess() {
 		return (unknownRuleDirectionKind != null) ? unknownRuleDirectionKind : (unknownRuleDirectionKind = new DirectionKindElements());
 	}

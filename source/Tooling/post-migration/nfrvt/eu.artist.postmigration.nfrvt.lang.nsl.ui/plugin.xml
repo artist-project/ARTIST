@@ -6,12 +6,12 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="nsl"
             id="eu.artist.postmigration.nfrvt.lang.nsl.NSL"
-            name="NSL Text Editor">
+            name="Textual Property Catalogue Editor">
         </editor>
     </extension>
     <extension
@@ -394,5 +394,25 @@
             extensions="nsl">
     </provider>
   </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
+           class="eu.artist.postmigration.nfrvt.lang.nsl.ui.wizards.NewPropertyFileWizard"
+           icon="icons/PropertyCatalogue.png"
+           id="eu.artist.postmigration.nfrvt.lang.nsl.ui.wizards.NewPropertyFileWizard"
+           name="Property Catalogue File">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="*">
+        <newWizardShortcut
+              id="eu.artist.postmigration.nfrvt.lang.nsl.ui.wizards.NewPropertyFileWizard">
+        </newWizardShortcut>
+     </perspectiveExtension>
+  </extension>
+  
 
 </plugin>

@@ -4,7 +4,7 @@
 <extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
-            delegate="eu.artist.postmigration.nfrvt.eval.run.launch.GMLLaunchDelegate"
+            delegate="eu.artist.postmigration.nfrvt.eval.run.launch.EvaluationLaunchDelegate"
             id="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType "
             modes="run"
             name="GML Evaluation"
@@ -14,14 +14,14 @@
    <extension
          point="org.eclipse.debug.core.processFactories">
       <processFactory
-            class="eu.artist.postmigration.nfrvt.eval.run.process.GMLProcessFactory"
+            class="eu.artist.postmigration.nfrvt.eval.run.process.EvaluationProcessFactory"
             id="eu.artist.postmigration.nfrvt.eval.run.process.processFactory">
       </processFactory>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
           <launchConfigurationTabGroup
-            class="eu.artist.postmigration.nfrvt.eval.run.ui.launch.GMLLaunchConfigurationTabGroup"
+            class="eu.artist.postmigration.nfrvt.eval.run.ui.launch.EvaluationLaunchConfigurationTabGroup"
             id="eu.artist.postmigration.nfrvt.eval.run.ui.launchConfigurationTabGroup"
             type="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType ">
       </launchConfigurationTabGroup>
@@ -37,7 +37,7 @@
      <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="eu.artist.postmigration.nfrvt.eval.run.handler.EvaluateGMLHandler"
+            class="eu.artist.postmigration.nfrvt.eval.run.handler.EvaluationHandler"
             commandId="eu.artist.postmigration.nfrvt.eval.GML.evaluate">
         <activeWhen>
          <reference

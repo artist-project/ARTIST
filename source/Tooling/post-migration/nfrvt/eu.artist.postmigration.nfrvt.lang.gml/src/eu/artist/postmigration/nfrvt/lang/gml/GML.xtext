@@ -1,3 +1,15 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Martin Fleck (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
 grammar eu.artist.postmigration.nfrvt.lang.gml.GML with eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon
 
 import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as artistCommon
@@ -36,16 +48,16 @@ AppliedProperty:
 
 AppliedQualitativeProperty:
 	"qualitative" name = ID "{"
-		"property" property = [nsl::QualitativeProperty | QualifiedName] ","
-		"context" "[" (context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])*)? "]"
+		"property" property = [nsl::QualitativeProperty | QualifiedName] 
+		("," "context" "[" (context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])*)? "]")?
 	"}"
 ;
 
 AppliedQuantitativeProperty:
 	"quantitative" name = ID "{"
-		"property" property = [nsl::QuantitativeProperty | QualifiedName] ","
-		("function" function = (MinOperator | MaxOperator | AvgOperator | SumOperator) ",")?
-		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]"
+		"property" property = [nsl::QuantitativeProperty | QualifiedName] 
+		("," "function" function = (MinOperator | MaxOperator | AvgOperator | SumOperator))?
+		("," "context" "[" (context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])*)? "]")?
 		("," "workload" workload = [Workload | QualifiedName])?
 	"}"
 ;
@@ -60,11 +72,11 @@ enum GoalKind:
 
 SoftGoal:
 	"softgoal" name=ID "{"
-		"kind" kind = GoalKind ","
-		"priority" priority = INT ","
-		"property" property = [AppliedQualitativeProperty | QualifiedName] ","
+		"kind" kind = GoalKind 
+		"," "priority" priority = INT 
+		"," "property" "$" property = [AppliedQualitativeProperty | QualifiedName] 
 //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
-		"threshold" threshold = Impact
+		"," "threshold" threshold = Impact
 		("," "impacts" "[" impacts += SoftGoalImpact ("," impacts += SoftGoalImpact)* "]")?
 	"}"
 ;
@@ -76,18 +88,18 @@ SoftGoalImpact:
 
 HardGoal:
 	"hardgoal" name=ID "{"
-	    "kind" kind = GoalKind ","
-		"priority" priority = INT ","
-		"condition" condition = Expression 
+	    "kind" kind = GoalKind 
+		"," "priority" priority = INT 
+		"," "condition" condition = Expression 
 		("," "successRate" successRate = POSITIVE_SMALL_DECIMAL)?
 	"}"
 ;
 
 CompositeGoal:
 	"composite" name=ID "{"
-	    "kind" kind = GoalKind ","
-		"priority" priority = INT ","
-		"condition" condition = GoalExpression
+	    "kind" kind = GoalKind 
+		"," "priority" priority = INT 
+		"," "condition" condition = GoalExpression
 	"}"
 ;
 

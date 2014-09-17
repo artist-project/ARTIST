@@ -15,6 +15,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.tsl;
 
+import com.google.inject.Injector;
+
 import eu.artist.postmigration.nfrvt.lang.tsl.TSLStandaloneSetupGenerated;
 
 /**
@@ -23,8 +25,17 @@ import eu.artist.postmigration.nfrvt.lang.tsl.TSLStandaloneSetupGenerated;
  */
 public class TSLStandaloneSetup extends TSLStandaloneSetupGenerated{
 
+private static Injector injector = null;
+	
+	public static Injector getInjector() {
+		return injector;
+	}
+	
+	/**
+	 * Initializes the TSL support for standalone applications.
+	 */
 	public static void doSetup() {
-		new TSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new TSLStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 }
 

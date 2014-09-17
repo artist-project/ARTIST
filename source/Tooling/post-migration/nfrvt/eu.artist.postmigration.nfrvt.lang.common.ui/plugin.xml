@@ -6,7 +6,7 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.common.ui.ARTISTCommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="eu.artist.postmigration.nfrvt.lang.common.ui.ARTISTCommonExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="artist"
@@ -391,6 +391,13 @@
             class="eu.artist.postmigration.nfrvt.lang.common.ui.ARTISTCommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
             extensions="artist">
     </provider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <category
+           id="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
+           name="Goal Modeling">
+     </category>
   </extension>
 
 </plugin>

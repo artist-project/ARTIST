@@ -23,8 +23,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  eu.artist.postmigration.nfrvt.lang.util;bundle-version="1.0.0",
  org.junit,
  org.eclipse.uml2;bundle-version="4.1.2",
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
- org.eclipse.papyrus.marte.static.profile;bundle-version="0.10.2"
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

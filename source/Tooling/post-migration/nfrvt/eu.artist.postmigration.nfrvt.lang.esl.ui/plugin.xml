@@ -6,12 +6,12 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.esl.ui.ESLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="eu.artist.postmigration.nfrvt.lang.esl.ui.ESLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="esl"
             id="eu.artist.postmigration.nfrvt.lang.esl.ESL"
-            name="ESL Textual Editor">
+            name="Textual Strategy Catalogue Editor">
         </editor>
     </extension>
     <extension
@@ -394,5 +394,23 @@
             extensions="esl">
     </provider>
   </extension>
-
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
+           class="eu.artist.postmigration.nfrvt.lang.esl.ui.wizards.NewStrategyCatalogueFileWizard"
+           icon="icons/EvaluationStrategyCatalogue.png"
+           id="eu.artist.postmigration.nfrvt.lang.esl.ui.wizards.NewStrategyCatalogueFileWizard"
+           name="Strategy Catalogue File">
+     </wizard>
+  </extension>
+	<extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="*">
+        <newWizardShortcut
+              id="eu.artist.postmigration.nfrvt.lang.esl.ui.wizards.NewStrategyCatalogueFileWizard">
+        </newWizardShortcut>
+     </perspectiveExtension>
+  </extension>
 </plugin>

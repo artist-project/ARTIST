@@ -35,9 +35,10 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalNSLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_EBOOLEAN", "RULE_NULL", "RULE_INT", "RULE_POSITIVE_SMALL_DECIMAL", "RULE_SMALL_DECIMAL", "RULE_EBIGDECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'property-catalogue'", "'{'", "'}'", "'qualitative'", "'description'", "','", "'direction'", "'properties'", "'['", "']'", "'impacts'", "'quantitative'", "'type'", "'derived'", "'expression'", "'('", "')'", "'='", "'*'", "'or'", "'||'", "'xor'", "'^'", "'and'", "'&&'", "'=>'", "'->'", "'=='", "'!='", "'<>'", "'!'", "'not'", "'>'", "'>='", "'<'", "'<='", "'+'", "'-'", "'/'", "'%'", "'max'", "'min'", "'avg'", "'sum'", "'exp'", "'abs'", "'ln'", "'log'", "'.'", "'.*'", "'import'", "'increasing'", "'decreasing'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_EBOOLEAN", "RULE_NULL", "RULE_INT", "RULE_POSITIVE_SMALL_DECIMAL", "RULE_SMALL_DECIMAL", "RULE_EBIGDECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'property-catalogue'", "'{'", "'}'", "'qualitative'", "'description'", "','", "'direction'", "'properties'", "'['", "']'", "'impacts'", "'quantitative'", "'type'", "'derived'", "'expression'", "'('", "')'", "'='", "'*'", "'or'", "'||'", "'xor'", "'^'", "'and'", "'&&'", "'=>'", "'->'", "'=='", "'!='", "'<>'", "'!'", "'not'", "'>'", "'>='", "'<'", "'<='", "'+'", "'-'", "'/'", "'%'", "'max'", "'min'", "'avg'", "'sum'", "'exp'", "'abs'", "'ln'", "'log'", "'.'", "'.*'", "'import'", "'increasing'", "'decreasing'", "'range'"
     };
     public static final int T__68=68;
+    public static final int T__69=69;
     public static final int RULE_ID=4;
     public static final int T__66=66;
     public static final int T__67=67;
@@ -1204,7 +1205,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBaseQuantitativeProperty"
-    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:430:1: ruleBaseQuantitativeProperty returns [EObject current=null] : (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:430:1: ruleBaseQuantitativeProperty returns [EObject current=null] : (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) (otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) )? (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' ) ;
     public final EObject ruleBaseQuantitativeProperty() throws RecognitionException {
         EObject current = null;
 
@@ -1233,11 +1234,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:433:28: ( (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:434:1: (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' )
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:433:28: ( (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) (otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) )? (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:434:1: (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) (otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) )? (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:434:1: (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' )
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:434:3: otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}'
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:434:1: (otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) (otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) )? (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}' )
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:434:3: otherlv_0= 'quantitative' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) (otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) )? (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )? otherlv_18= '}'
             {
             otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleBaseQuantitativeProperty926); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1363,80 +1364,101 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,21,FOLLOW_21_in_ruleBaseQuantitativeProperty1053); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:505:2: (otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-                  	newLeafNode(otherlv_8, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_8());
-                  
+            if ( (LA10_0==21) ) {
+                int LA10_1 = input.LA(2);
+
+                if ( (LA10_1==22) ) {
+                    alt10=1;
+                }
             }
-            otherlv_9=(Token)match(input,22,FOLLOW_22_in_ruleBaseQuantitativeProperty1065); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-                  	newLeafNode(otherlv_9, grammarAccess.getBaseQuantitativePropertyAccess().getDirectionKeyword_9());
-                  
-            }
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:513:1: ( (lv_direction_10_0= ruleDirectionKind ) )
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:514:1: (lv_direction_10_0= ruleDirectionKind )
-            {
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:514:1: (lv_direction_10_0= ruleDirectionKind )
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:515:3: lv_direction_10_0= ruleDirectionKind
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getDirectionDirectionKindEnumRuleCall_10_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleDirectionKind_in_ruleBaseQuantitativeProperty1086);
-            lv_direction_10_0=ruleDirectionKind();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getBaseQuantitativePropertyRule());
-              	        }
-                     		set(
-                     			current, 
-                     			"direction",
-                      		lv_direction_10_0, 
-                      		"DirectionKind");
-              	        afterParserOrEnumRuleCall();
-              	    
-            }
-
-            }
-
-
-            }
-
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:531:2: (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==21) ) {
-                alt11=1;
-            }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:531:4: otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']'
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:505:4: otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) )
                     {
-                    otherlv_11=(Token)match(input,21,FOLLOW_21_in_ruleBaseQuantitativeProperty1099); if (state.failed) return current;
+                    otherlv_8=(Token)match(input,21,FOLLOW_21_in_ruleBaseQuantitativeProperty1054); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_11, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_11_0());
+                          	newLeafNode(otherlv_8, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_8_0());
                           
                     }
-                    otherlv_12=(Token)match(input,26,FOLLOW_26_in_ruleBaseQuantitativeProperty1111); if (state.failed) return current;
+                    otherlv_9=(Token)match(input,22,FOLLOW_22_in_ruleBaseQuantitativeProperty1066); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_12, grammarAccess.getBaseQuantitativePropertyAccess().getImpactsKeyword_11_1());
+                          	newLeafNode(otherlv_9, grammarAccess.getBaseQuantitativePropertyAccess().getDirectionKeyword_8_1());
                           
                     }
-                    otherlv_13=(Token)match(input,24,FOLLOW_24_in_ruleBaseQuantitativeProperty1123); if (state.failed) return current;
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:513:1: ( (lv_direction_10_0= ruleDirectionKind ) )
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:514:1: (lv_direction_10_0= ruleDirectionKind )
+                    {
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:514:1: (lv_direction_10_0= ruleDirectionKind )
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:515:3: lv_direction_10_0= ruleDirectionKind
+                    {
+                    if ( state.backtracking==0 ) {
+                       
+                      	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getDirectionDirectionKindEnumRuleCall_8_2_0()); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleDirectionKind_in_ruleBaseQuantitativeProperty1087);
+                    lv_direction_10_0=ruleDirectionKind();
+
+                    state._fsp--;
+                    if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_13, grammarAccess.getBaseQuantitativePropertyAccess().getLeftSquareBracketKeyword_11_2());
+                      	        if (current==null) {
+                      	            current = createModelElementForParent(grammarAccess.getBaseQuantitativePropertyRule());
+                      	        }
+                             		set(
+                             			current, 
+                             			"direction",
+                              		lv_direction_10_0, 
+                              		"DirectionKind");
+                      	        afterParserOrEnumRuleCall();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:531:4: (otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']' )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
+
+            if ( (LA12_0==21) ) {
+                alt12=1;
+            }
+            switch (alt12) {
+                case 1 :
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:531:6: otherlv_11= ',' otherlv_12= 'impacts' otherlv_13= '[' ( (lv_impacts_14_0= rulePropertyImpact ) ) (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )* otherlv_17= ']'
+                    {
+                    otherlv_11=(Token)match(input,21,FOLLOW_21_in_ruleBaseQuantitativeProperty1102); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                          	newLeafNode(otherlv_11, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_9_0());
+                          
+                    }
+                    otherlv_12=(Token)match(input,26,FOLLOW_26_in_ruleBaseQuantitativeProperty1114); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                          	newLeafNode(otherlv_12, grammarAccess.getBaseQuantitativePropertyAccess().getImpactsKeyword_9_1());
+                          
+                    }
+                    otherlv_13=(Token)match(input,24,FOLLOW_24_in_ruleBaseQuantitativeProperty1126); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                          	newLeafNode(otherlv_13, grammarAccess.getBaseQuantitativePropertyAccess().getLeftSquareBracketKeyword_9_2());
                           
                     }
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:543:1: ( (lv_impacts_14_0= rulePropertyImpact ) )
@@ -1447,10 +1469,10 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     {
                     if ( state.backtracking==0 ) {
                        
-                      	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_11_3_0()); 
+                      	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_9_3_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1144);
+                    pushFollow(FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1147);
                     lv_impacts_14_0=rulePropertyImpact();
 
                     state._fsp--;
@@ -1475,24 +1497,24 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     }
 
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:561:2: (otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) ) )*
-                    loop10:
+                    loop11:
                     do {
-                        int alt10=2;
-                        int LA10_0 = input.LA(1);
+                        int alt11=2;
+                        int LA11_0 = input.LA(1);
 
-                        if ( (LA10_0==21) ) {
-                            alt10=1;
+                        if ( (LA11_0==21) ) {
+                            alt11=1;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt11) {
                     	case 1 :
                     	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:561:4: otherlv_15= ',' ( (lv_impacts_16_0= rulePropertyImpact ) )
                     	    {
-                    	    otherlv_15=(Token)match(input,21,FOLLOW_21_in_ruleBaseQuantitativeProperty1157); if (state.failed) return current;
+                    	    otherlv_15=(Token)match(input,21,FOLLOW_21_in_ruleBaseQuantitativeProperty1160); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
-                    	          	newLeafNode(otherlv_15, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_11_4_0());
+                    	          	newLeafNode(otherlv_15, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_9_4_0());
                     	          
                     	    }
                     	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:565:1: ( (lv_impacts_16_0= rulePropertyImpact ) )
@@ -1503,10 +1525,10 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     	    {
                     	    if ( state.backtracking==0 ) {
                     	       
-                    	      	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_11_4_1_0()); 
+                    	      	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_9_4_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1178);
+                    	    pushFollow(FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1181);
                     	    lv_impacts_16_0=rulePropertyImpact();
 
                     	    state._fsp--;
@@ -1535,14 +1557,14 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop11;
                         }
                     } while (true);
 
-                    otherlv_17=(Token)match(input,25,FOLLOW_25_in_ruleBaseQuantitativeProperty1192); if (state.failed) return current;
+                    otherlv_17=(Token)match(input,25,FOLLOW_25_in_ruleBaseQuantitativeProperty1195); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_17, grammarAccess.getBaseQuantitativePropertyAccess().getRightSquareBracketKeyword_11_5());
+                          	newLeafNode(otherlv_17, grammarAccess.getBaseQuantitativePropertyAccess().getRightSquareBracketKeyword_9_5());
                           
                     }
 
@@ -1551,10 +1573,10 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_18=(Token)match(input,18,FOLLOW_18_in_ruleBaseQuantitativeProperty1206); if (state.failed) return current;
+            otherlv_18=(Token)match(input,18,FOLLOW_18_in_ruleBaseQuantitativeProperty1209); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_18, grammarAccess.getBaseQuantitativePropertyAccess().getRightCurlyBracketKeyword_12());
+                  	newLeafNode(otherlv_18, grammarAccess.getBaseQuantitativePropertyAccess().getRightCurlyBracketKeyword_10());
                   
             }
 
@@ -1594,7 +1616,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDerivedQuantitativePropertyRule()); 
             }
-            pushFollow(FOLLOW_ruleDerivedQuantitativeProperty_in_entryRuleDerivedQuantitativeProperty1242);
+            pushFollow(FOLLOW_ruleDerivedQuantitativeProperty_in_entryRuleDerivedQuantitativeProperty1245);
             iv_ruleDerivedQuantitativeProperty=ruleDerivedQuantitativeProperty();
 
             state._fsp--;
@@ -1602,7 +1624,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDerivedQuantitativeProperty; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDerivedQuantitativeProperty1252); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDerivedQuantitativeProperty1255); if (state.failed) return current;
 
             }
 
@@ -1659,7 +1681,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:612:1: (otherlv_0= 'derived' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) otherlv_11= ',' otherlv_12= 'expression' ( (lv_expression_13_0= ruleArithmeticExpression ) ) (otherlv_14= ',' otherlv_15= 'impacts' otherlv_16= '[' ( (lv_impacts_17_0= rulePropertyImpact ) ) (otherlv_18= ',' ( (lv_impacts_19_0= rulePropertyImpact ) ) )* otherlv_20= ']' )? otherlv_21= '}' )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:612:3: otherlv_0= 'derived' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'description' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= ',' otherlv_6= 'type' ( ( ruleQualifiedName ) ) otherlv_8= ',' otherlv_9= 'direction' ( (lv_direction_10_0= ruleDirectionKind ) ) otherlv_11= ',' otherlv_12= 'expression' ( (lv_expression_13_0= ruleArithmeticExpression ) ) (otherlv_14= ',' otherlv_15= 'impacts' otherlv_16= '[' ( (lv_impacts_17_0= rulePropertyImpact ) ) (otherlv_18= ',' ( (lv_impacts_19_0= rulePropertyImpact ) ) )* otherlv_20= ']' )? otherlv_21= '}'
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleDerivedQuantitativeProperty1289); if (state.failed) return current;
+            otherlv_0=(Token)match(input,29,FOLLOW_29_in_ruleDerivedQuantitativeProperty1292); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getDerivedQuantitativePropertyAccess().getDerivedKeyword_0());
@@ -1671,7 +1693,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:617:1: (lv_name_1_0= RULE_ID )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:618:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDerivedQuantitativeProperty1306); if (state.failed) return current;
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDerivedQuantitativeProperty1309); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_name_1_0, grammarAccess.getDerivedQuantitativePropertyAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -1695,13 +1717,13 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleDerivedQuantitativeProperty1323); if (state.failed) return current;
+            otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleDerivedQuantitativeProperty1326); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_2, grammarAccess.getDerivedQuantitativePropertyAccess().getLeftCurlyBracketKeyword_2());
                   
             }
-            otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleDerivedQuantitativeProperty1335); if (state.failed) return current;
+            otherlv_3=(Token)match(input,20,FOLLOW_20_in_ruleDerivedQuantitativeProperty1338); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getDerivedQuantitativePropertyAccess().getDescriptionKeyword_3());
@@ -1713,7 +1735,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:643:1: (lv_description_4_0= RULE_STRING )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:644:3: lv_description_4_0= RULE_STRING
             {
-            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDerivedQuantitativeProperty1352); if (state.failed) return current;
+            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDerivedQuantitativeProperty1355); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_description_4_0, grammarAccess.getDerivedQuantitativePropertyAccess().getDescriptionSTRINGTerminalRuleCall_4_0()); 
@@ -1737,13 +1759,13 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1369); if (state.failed) return current;
+            otherlv_5=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1372); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getDerivedQuantitativePropertyAccess().getCommaKeyword_5());
                   
             }
-            otherlv_6=(Token)match(input,28,FOLLOW_28_in_ruleDerivedQuantitativeProperty1381); if (state.failed) return current;
+            otherlv_6=(Token)match(input,28,FOLLOW_28_in_ruleDerivedQuantitativeProperty1384); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_6, grammarAccess.getDerivedQuantitativePropertyAccess().getTypeKeyword_6());
@@ -1767,7 +1789,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getDerivedQuantitativePropertyAccess().getTypeDataTypeCrossReference_7_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleDerivedQuantitativeProperty1404);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleDerivedQuantitativeProperty1407);
             ruleQualifiedName();
 
             state._fsp--;
@@ -1783,13 +1805,13 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1416); if (state.failed) return current;
+            otherlv_8=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1419); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_8, grammarAccess.getDerivedQuantitativePropertyAccess().getCommaKeyword_8());
                   
             }
-            otherlv_9=(Token)match(input,22,FOLLOW_22_in_ruleDerivedQuantitativeProperty1428); if (state.failed) return current;
+            otherlv_9=(Token)match(input,22,FOLLOW_22_in_ruleDerivedQuantitativeProperty1431); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_9, grammarAccess.getDerivedQuantitativePropertyAccess().getDirectionKeyword_9());
@@ -1806,7 +1828,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getDerivedQuantitativePropertyAccess().getDirectionDirectionKindEnumRuleCall_10_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleDirectionKind_in_ruleDerivedQuantitativeProperty1449);
+            pushFollow(FOLLOW_ruleDirectionKind_in_ruleDerivedQuantitativeProperty1452);
             lv_direction_10_0=ruleDirectionKind();
 
             state._fsp--;
@@ -1830,13 +1852,13 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1461); if (state.failed) return current;
+            otherlv_11=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1464); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_11, grammarAccess.getDerivedQuantitativePropertyAccess().getCommaKeyword_11());
                   
             }
-            otherlv_12=(Token)match(input,30,FOLLOW_30_in_ruleDerivedQuantitativeProperty1473); if (state.failed) return current;
+            otherlv_12=(Token)match(input,30,FOLLOW_30_in_ruleDerivedQuantitativeProperty1476); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_12, grammarAccess.getDerivedQuantitativePropertyAccess().getExpressionKeyword_12());
@@ -1853,7 +1875,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getDerivedQuantitativePropertyAccess().getExpressionArithmeticExpressionParserRuleCall_13_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleArithmeticExpression_in_ruleDerivedQuantitativeProperty1494);
+            pushFollow(FOLLOW_ruleArithmeticExpression_in_ruleDerivedQuantitativeProperty1497);
             lv_expression_13_0=ruleArithmeticExpression();
 
             state._fsp--;
@@ -1878,29 +1900,29 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:735:2: (otherlv_14= ',' otherlv_15= 'impacts' otherlv_16= '[' ( (lv_impacts_17_0= rulePropertyImpact ) ) (otherlv_18= ',' ( (lv_impacts_19_0= rulePropertyImpact ) ) )* otherlv_20= ']' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==21) ) {
-                alt13=1;
+            if ( (LA14_0==21) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:735:4: otherlv_14= ',' otherlv_15= 'impacts' otherlv_16= '[' ( (lv_impacts_17_0= rulePropertyImpact ) ) (otherlv_18= ',' ( (lv_impacts_19_0= rulePropertyImpact ) ) )* otherlv_20= ']'
                     {
-                    otherlv_14=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1507); if (state.failed) return current;
+                    otherlv_14=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1510); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_14, grammarAccess.getDerivedQuantitativePropertyAccess().getCommaKeyword_14_0());
                           
                     }
-                    otherlv_15=(Token)match(input,26,FOLLOW_26_in_ruleDerivedQuantitativeProperty1519); if (state.failed) return current;
+                    otherlv_15=(Token)match(input,26,FOLLOW_26_in_ruleDerivedQuantitativeProperty1522); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_15, grammarAccess.getDerivedQuantitativePropertyAccess().getImpactsKeyword_14_1());
                           
                     }
-                    otherlv_16=(Token)match(input,24,FOLLOW_24_in_ruleDerivedQuantitativeProperty1531); if (state.failed) return current;
+                    otherlv_16=(Token)match(input,24,FOLLOW_24_in_ruleDerivedQuantitativeProperty1534); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_16, grammarAccess.getDerivedQuantitativePropertyAccess().getLeftSquareBracketKeyword_14_2());
@@ -1917,7 +1939,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getDerivedQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_14_3_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1552);
+                    pushFollow(FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1555);
                     lv_impacts_17_0=rulePropertyImpact();
 
                     state._fsp--;
@@ -1942,21 +1964,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     }
 
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:765:2: (otherlv_18= ',' ( (lv_impacts_19_0= rulePropertyImpact ) ) )*
-                    loop12:
+                    loop13:
                     do {
-                        int alt12=2;
-                        int LA12_0 = input.LA(1);
+                        int alt13=2;
+                        int LA13_0 = input.LA(1);
 
-                        if ( (LA12_0==21) ) {
-                            alt12=1;
+                        if ( (LA13_0==21) ) {
+                            alt13=1;
                         }
 
 
-                        switch (alt12) {
+                        switch (alt13) {
                     	case 1 :
                     	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:765:4: otherlv_18= ',' ( (lv_impacts_19_0= rulePropertyImpact ) )
                     	    {
-                    	    otherlv_18=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1565); if (state.failed) return current;
+                    	    otherlv_18=(Token)match(input,21,FOLLOW_21_in_ruleDerivedQuantitativeProperty1568); if (state.failed) return current;
                     	    if ( state.backtracking==0 ) {
 
                     	          	newLeafNode(otherlv_18, grammarAccess.getDerivedQuantitativePropertyAccess().getCommaKeyword_14_4_0());
@@ -1973,7 +1995,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     	      	        newCompositeNode(grammarAccess.getDerivedQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_14_4_1_0()); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1586);
+                    	    pushFollow(FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1589);
                     	    lv_impacts_19_0=rulePropertyImpact();
 
                     	    state._fsp--;
@@ -2002,11 +2024,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop12;
+                    	    break loop13;
                         }
                     } while (true);
 
-                    otherlv_20=(Token)match(input,25,FOLLOW_25_in_ruleDerivedQuantitativeProperty1600); if (state.failed) return current;
+                    otherlv_20=(Token)match(input,25,FOLLOW_25_in_ruleDerivedQuantitativeProperty1603); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_20, grammarAccess.getDerivedQuantitativePropertyAccess().getRightSquareBracketKeyword_14_5());
@@ -2018,7 +2040,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_21=(Token)match(input,18,FOLLOW_18_in_ruleDerivedQuantitativeProperty1614); if (state.failed) return current;
+            otherlv_21=(Token)match(input,18,FOLLOW_18_in_ruleDerivedQuantitativeProperty1617); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_21, grammarAccess.getDerivedQuantitativePropertyAccess().getRightCurlyBracketKeyword_15());
@@ -2061,7 +2083,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getComparableExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleComparableExpression_in_entryRuleComparableExpression1650);
+            pushFollow(FOLLOW_ruleComparableExpression_in_entryRuleComparableExpression1653);
             iv_ruleComparableExpression=ruleComparableExpression();
 
             state._fsp--;
@@ -2069,7 +2091,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleComparableExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComparableExpression1660); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComparableExpression1663); if (state.failed) return current;
 
             }
 
@@ -2105,7 +2127,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getComparableExpressionAccess().getNumberExpressionParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleComparableExpression1706);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleComparableExpression1709);
             this_NumberExpression_0=ruleNumberExpression();
 
             state._fsp--;
@@ -2150,7 +2172,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_entryRuleNumberExpression1740);
+            pushFollow(FOLLOW_ruleNumberExpression_in_entryRuleNumberExpression1743);
             iv_ruleNumberExpression=ruleNumberExpression();
 
             state._fsp--;
@@ -2158,7 +2180,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumberExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberExpression1750); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberExpression1753); if (state.failed) return current;
 
             }
 
@@ -2196,14 +2218,14 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:846:1: (this_NumberLiteral_0= ruleNumberLiteral | this_NumberFunction_1= ruleNumberFunction | this_ParenthesizedArithmeticExpression_2= ruleParenthesizedArithmeticExpression | this_QuantitativePropertyExpression_3= ruleQuantitativePropertyExpression )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:846:1: (this_NumberLiteral_0= ruleNumberLiteral | this_NumberFunction_1= ruleNumberFunction | this_ParenthesizedArithmeticExpression_2= ruleParenthesizedArithmeticExpression | this_QuantitativePropertyExpression_3= ruleQuantitativePropertyExpression )
-            int alt14=4;
+            int alt15=4;
             switch ( input.LA(1) ) {
             case RULE_INT:
             case RULE_POSITIVE_SMALL_DECIMAL:
             case RULE_SMALL_DECIMAL:
             case RULE_EBIGDECIMAL:
                 {
-                alt14=1;
+                alt15=1;
                 }
                 break;
             case 56:
@@ -2215,28 +2237,28 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             case 62:
             case 63:
                 {
-                alt14=2;
+                alt15=2;
                 }
                 break;
             case 31:
                 {
-                alt14=3;
+                alt15=3;
                 }
                 break;
             case RULE_ID:
                 {
-                alt14=4;
+                alt15=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 15, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:847:5: this_NumberLiteral_0= ruleNumberLiteral
                     {
@@ -2245,7 +2267,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberExpressionAccess().getNumberLiteralParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNumberLiteral_in_ruleNumberExpression1797);
+                    pushFollow(FOLLOW_ruleNumberLiteral_in_ruleNumberExpression1800);
                     this_NumberLiteral_0=ruleNumberLiteral();
 
                     state._fsp--;
@@ -2267,7 +2289,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberExpressionAccess().getNumberFunctionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNumberFunction_in_ruleNumberExpression1824);
+                    pushFollow(FOLLOW_ruleNumberFunction_in_ruleNumberExpression1827);
                     this_NumberFunction_1=ruleNumberFunction();
 
                     state._fsp--;
@@ -2289,7 +2311,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberExpressionAccess().getParenthesizedArithmeticExpressionParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleParenthesizedArithmeticExpression_in_ruleNumberExpression1851);
+                    pushFollow(FOLLOW_ruleParenthesizedArithmeticExpression_in_ruleNumberExpression1854);
                     this_ParenthesizedArithmeticExpression_2=ruleParenthesizedArithmeticExpression();
 
                     state._fsp--;
@@ -2311,7 +2333,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberExpressionAccess().getQuantitativePropertyExpressionParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleQuantitativePropertyExpression_in_ruleNumberExpression1878);
+                    pushFollow(FOLLOW_ruleQuantitativePropertyExpression_in_ruleNumberExpression1881);
                     this_QuantitativePropertyExpression_3=ruleQuantitativePropertyExpression();
 
                     state._fsp--;
@@ -2362,7 +2384,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getParenthesizedArithmeticExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleParenthesizedArithmeticExpression_in_entryRuleParenthesizedArithmeticExpression1913);
+            pushFollow(FOLLOW_ruleParenthesizedArithmeticExpression_in_entryRuleParenthesizedArithmeticExpression1916);
             iv_ruleParenthesizedArithmeticExpression=ruleParenthesizedArithmeticExpression();
 
             state._fsp--;
@@ -2370,7 +2392,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleParenthesizedArithmeticExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParenthesizedArithmeticExpression1923); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParenthesizedArithmeticExpression1926); if (state.failed) return current;
 
             }
 
@@ -2422,7 +2444,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getParenthesizedArithmeticExpressionAccess().getLeftParenthesisParserRuleCall_1()); 
                   
             }
-            pushFollow(FOLLOW_ruleLeftParenthesis_in_ruleParenthesizedArithmeticExpression1973);
+            pushFollow(FOLLOW_ruleLeftParenthesis_in_ruleParenthesizedArithmeticExpression1976);
             ruleLeftParenthesis();
 
             state._fsp--;
@@ -2443,7 +2465,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getParenthesizedArithmeticExpressionAccess().getValueArithmeticExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleArithmeticExpression_in_ruleParenthesizedArithmeticExpression1993);
+            pushFollow(FOLLOW_ruleArithmeticExpression_in_ruleParenthesizedArithmeticExpression1996);
             lv_value_2_0=ruleArithmeticExpression();
 
             state._fsp--;
@@ -2472,7 +2494,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getParenthesizedArithmeticExpressionAccess().getRightParenthesisParserRuleCall_3()); 
                   
             }
-            pushFollow(FOLLOW_ruleRightParenthesis_in_ruleParenthesizedArithmeticExpression2009);
+            pushFollow(FOLLOW_ruleRightParenthesis_in_ruleParenthesizedArithmeticExpression2012);
             ruleRightParenthesis();
 
             state._fsp--;
@@ -2519,7 +2541,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQuantitativePropertyExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleQuantitativePropertyExpression_in_entryRuleQuantitativePropertyExpression2044);
+            pushFollow(FOLLOW_ruleQuantitativePropertyExpression_in_entryRuleQuantitativePropertyExpression2047);
             iv_ruleQuantitativePropertyExpression=ruleQuantitativePropertyExpression();
 
             state._fsp--;
@@ -2527,7 +2549,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQuantitativePropertyExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQuantitativePropertyExpression2054); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQuantitativePropertyExpression2057); if (state.failed) return current;
 
             }
 
@@ -2589,7 +2611,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getQuantitativePropertyExpressionAccess().getValueQuantitativePropertyCrossReference_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleQuantitativePropertyExpression2111);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleQuantitativePropertyExpression2114);
             ruleQualifiedName();
 
             state._fsp--;
@@ -2642,7 +2664,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPropertyImpactRule()); 
             }
-            pushFollow(FOLLOW_rulePropertyImpact_in_entryRulePropertyImpact2147);
+            pushFollow(FOLLOW_rulePropertyImpact_in_entryRulePropertyImpact2150);
             iv_rulePropertyImpact=rulePropertyImpact();
 
             state._fsp--;
@@ -2650,7 +2672,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_rulePropertyImpact; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyImpact2157); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyImpact2160); if (state.failed) return current;
 
             }
 
@@ -2702,7 +2724,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getPropertyImpactAccess().getTargetPropertyCrossReference_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyImpact2205);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyImpact2208);
             ruleQualifiedName();
 
             state._fsp--;
@@ -2729,7 +2751,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getPropertyImpactAccess().getImpactImpactParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleImpact_in_rulePropertyImpact2226);
+            pushFollow(FOLLOW_ruleImpact_in_rulePropertyImpact2229);
             lv_impact_1_0=ruleImpact();
 
             state._fsp--;
@@ -2790,7 +2812,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression2262);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression2265);
             iv_ruleExpression=ruleExpression();
 
             state._fsp--;
@@ -2798,7 +2820,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression2272); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression2275); if (state.failed) return current;
 
             }
 
@@ -2834,7 +2856,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getExpressionAccess().getImplicationParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleImplication_in_ruleExpression2318);
+            pushFollow(FOLLOW_ruleImplication_in_ruleExpression2321);
             this_Implication_0=ruleImplication();
 
             state._fsp--;
@@ -2879,7 +2901,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImplicationRule()); 
             }
-            pushFollow(FOLLOW_ruleImplication_in_entryRuleImplication2352);
+            pushFollow(FOLLOW_ruleImplication_in_entryRuleImplication2355);
             iv_ruleImplication=ruleImplication();
 
             state._fsp--;
@@ -2887,7 +2909,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImplication; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplication2362); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImplication2365); if (state.failed) return current;
 
             }
 
@@ -2930,7 +2952,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getImplicationAccess().getDisjunctionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleDisjunction_in_ruleImplication2409);
+            pushFollow(FOLLOW_ruleDisjunction_in_ruleImplication2412);
             this_Disjunction_0=ruleDisjunction();
 
             state._fsp--;
@@ -2942,17 +2964,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1102:1: ( () ( (lv_operator_2_0= ruleImplicationOperator ) ) ( (lv_right_3_0= ruleDisjunction ) ) )*
-            loop15:
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( ((LA15_0>=41 && LA15_0<=42)) ) {
-                    alt15=1;
+                if ( ((LA16_0>=41 && LA16_0<=42)) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1102:2: () ( (lv_operator_2_0= ruleImplicationOperator ) ) ( (lv_right_3_0= ruleDisjunction ) )
             	    {
@@ -2980,7 +3002,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getImplicationAccess().getOperatorImplicationOperatorParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleImplicationOperator_in_ruleImplication2439);
+            	    pushFollow(FOLLOW_ruleImplicationOperator_in_ruleImplication2442);
             	    lv_operator_2_0=ruleImplicationOperator();
 
             	    state._fsp--;
@@ -3015,7 +3037,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getImplicationAccess().getRightDisjunctionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleDisjunction_in_ruleImplication2460);
+            	    pushFollow(FOLLOW_ruleDisjunction_in_ruleImplication2463);
             	    lv_right_3_0=ruleDisjunction();
 
             	    state._fsp--;
@@ -3044,7 +3066,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -3085,7 +3107,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDisjunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleDisjunction_in_entryRuleDisjunction2498);
+            pushFollow(FOLLOW_ruleDisjunction_in_entryRuleDisjunction2501);
             iv_ruleDisjunction=ruleDisjunction();
 
             state._fsp--;
@@ -3093,7 +3115,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDisjunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDisjunction2508); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDisjunction2511); if (state.failed) return current;
 
             }
 
@@ -3138,7 +3160,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getDisjunctionAccess().getConjunctionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleConjunction_in_ruleDisjunction2555);
+            pushFollow(FOLLOW_ruleConjunction_in_ruleDisjunction2558);
             this_Conjunction_0=ruleConjunction();
 
             state._fsp--;
@@ -3150,17 +3172,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1174:1: ( () ( ( (lv_operator_2_1= ruleOrOperator | lv_operator_2_2= ruleXOrOperator ) ) ) ( (lv_right_3_0= ruleConjunction ) ) )*
-            loop17:
+            loop18:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( ((LA17_0>=35 && LA17_0<=38)) ) {
-                    alt17=1;
+                if ( ((LA18_0>=35 && LA18_0<=38)) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt18) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1174:2: () ( ( (lv_operator_2_1= ruleOrOperator | lv_operator_2_2= ruleXOrOperator ) ) ) ( (lv_right_3_0= ruleConjunction ) )
             	    {
@@ -3184,23 +3206,23 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1182:1: (lv_operator_2_1= ruleOrOperator | lv_operator_2_2= ruleXOrOperator )
             	    {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1182:1: (lv_operator_2_1= ruleOrOperator | lv_operator_2_2= ruleXOrOperator )
-            	    int alt16=2;
-            	    int LA16_0 = input.LA(1);
+            	    int alt17=2;
+            	    int LA17_0 = input.LA(1);
 
-            	    if ( ((LA16_0>=35 && LA16_0<=36)) ) {
-            	        alt16=1;
+            	    if ( ((LA17_0>=35 && LA17_0<=36)) ) {
+            	        alt17=1;
             	    }
-            	    else if ( ((LA16_0>=37 && LA16_0<=38)) ) {
-            	        alt16=2;
+            	    else if ( ((LA17_0>=37 && LA17_0<=38)) ) {
+            	        alt17=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 16, 0, input);
+            	            new NoViableAltException("", 17, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt16) {
+            	    switch (alt17) {
             	        case 1 :
             	            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1183:3: lv_operator_2_1= ruleOrOperator
             	            {
@@ -3209,7 +3231,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getDisjunctionAccess().getOperatorOrOperatorParserRuleCall_1_1_0_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleOrOperator_in_ruleDisjunction2587);
+            	            pushFollow(FOLLOW_ruleOrOperator_in_ruleDisjunction2590);
             	            lv_operator_2_1=ruleOrOperator();
 
             	            state._fsp--;
@@ -3238,7 +3260,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getDisjunctionAccess().getOperatorXOrOperatorParserRuleCall_1_1_0_1()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleXOrOperator_in_ruleDisjunction2606);
+            	            pushFollow(FOLLOW_ruleXOrOperator_in_ruleDisjunction2609);
             	            lv_operator_2_2=ruleXOrOperator();
 
             	            state._fsp--;
@@ -3279,7 +3301,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getDisjunctionAccess().getRightConjunctionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleConjunction_in_ruleDisjunction2630);
+            	    pushFollow(FOLLOW_ruleConjunction_in_ruleDisjunction2633);
             	    lv_right_3_0=ruleConjunction();
 
             	    state._fsp--;
@@ -3308,7 +3330,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop18;
                 }
             } while (true);
 
@@ -3349,7 +3371,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getConjunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleConjunction_in_entryRuleConjunction2668);
+            pushFollow(FOLLOW_ruleConjunction_in_entryRuleConjunction2671);
             iv_ruleConjunction=ruleConjunction();
 
             state._fsp--;
@@ -3357,7 +3379,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleConjunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConjunction2678); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConjunction2681); if (state.failed) return current;
 
             }
 
@@ -3400,7 +3422,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getConjunctionAccess().getComparisonParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleComparison_in_ruleConjunction2725);
+            pushFollow(FOLLOW_ruleComparison_in_ruleConjunction2728);
             this_Comparison_0=ruleComparison();
 
             state._fsp--;
@@ -3412,17 +3434,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1264:1: ( () ( (lv_operator_2_0= ruleAndOperator ) ) ( (lv_right_3_0= ruleComparison ) ) )*
-            loop18:
+            loop19:
             do {
-                int alt18=2;
-                int LA18_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( ((LA18_0>=39 && LA18_0<=40)) ) {
-                    alt18=1;
+                if ( ((LA19_0>=39 && LA19_0<=40)) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt18) {
+                switch (alt19) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1264:2: () ( (lv_operator_2_0= ruleAndOperator ) ) ( (lv_right_3_0= ruleComparison ) )
             	    {
@@ -3450,7 +3472,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getConjunctionAccess().getOperatorAndOperatorParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleAndOperator_in_ruleConjunction2755);
+            	    pushFollow(FOLLOW_ruleAndOperator_in_ruleConjunction2758);
             	    lv_operator_2_0=ruleAndOperator();
 
             	    state._fsp--;
@@ -3485,7 +3507,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getConjunctionAccess().getRightComparisonParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleComparison_in_ruleConjunction2776);
+            	    pushFollow(FOLLOW_ruleComparison_in_ruleConjunction2779);
             	    lv_right_3_0=ruleComparison();
 
             	    state._fsp--;
@@ -3514,7 +3536,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop18;
+            	    break loop19;
                 }
             } while (true);
 
@@ -3555,7 +3577,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getComparisonRule()); 
             }
-            pushFollow(FOLLOW_ruleComparison_in_entryRuleComparison2814);
+            pushFollow(FOLLOW_ruleComparison_in_entryRuleComparison2817);
             iv_ruleComparison=ruleComparison();
 
             state._fsp--;
@@ -3563,7 +3585,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleComparison; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComparison2824); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComparison2827); if (state.failed) return current;
 
             }
 
@@ -3608,7 +3630,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getComparisonAccess().getBooleanUnitParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleBooleanUnit_in_ruleComparison2871);
+            pushFollow(FOLLOW_ruleBooleanUnit_in_ruleComparison2874);
             this_BooleanUnit_0=ruleBooleanUnit();
 
             state._fsp--;
@@ -3620,17 +3642,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1336:1: ( () ( ( (lv_operator_2_1= ruleEqualsOperator | lv_operator_2_2= ruleNotEqualsOperator ) ) ) ( (lv_right_3_0= ruleBooleanUnit ) ) )*
-            loop20:
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( ((LA20_0>=43 && LA20_0<=45)) ) {
-                    alt20=1;
+                if ( ((LA21_0>=43 && LA21_0<=45)) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1336:2: () ( ( (lv_operator_2_1= ruleEqualsOperator | lv_operator_2_2= ruleNotEqualsOperator ) ) ) ( (lv_right_3_0= ruleBooleanUnit ) )
             	    {
@@ -3654,23 +3676,23 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1344:1: (lv_operator_2_1= ruleEqualsOperator | lv_operator_2_2= ruleNotEqualsOperator )
             	    {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1344:1: (lv_operator_2_1= ruleEqualsOperator | lv_operator_2_2= ruleNotEqualsOperator )
-            	    int alt19=2;
-            	    int LA19_0 = input.LA(1);
+            	    int alt20=2;
+            	    int LA20_0 = input.LA(1);
 
-            	    if ( (LA19_0==43) ) {
-            	        alt19=1;
+            	    if ( (LA20_0==43) ) {
+            	        alt20=1;
             	    }
-            	    else if ( ((LA19_0>=44 && LA19_0<=45)) ) {
-            	        alt19=2;
+            	    else if ( ((LA20_0>=44 && LA20_0<=45)) ) {
+            	        alt20=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 19, 0, input);
+            	            new NoViableAltException("", 20, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt19) {
+            	    switch (alt20) {
             	        case 1 :
             	            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1345:3: lv_operator_2_1= ruleEqualsOperator
             	            {
@@ -3679,7 +3701,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getComparisonAccess().getOperatorEqualsOperatorParserRuleCall_1_1_0_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleEqualsOperator_in_ruleComparison2903);
+            	            pushFollow(FOLLOW_ruleEqualsOperator_in_ruleComparison2906);
             	            lv_operator_2_1=ruleEqualsOperator();
 
             	            state._fsp--;
@@ -3708,7 +3730,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getComparisonAccess().getOperatorNotEqualsOperatorParserRuleCall_1_1_0_1()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleNotEqualsOperator_in_ruleComparison2922);
+            	            pushFollow(FOLLOW_ruleNotEqualsOperator_in_ruleComparison2925);
             	            lv_operator_2_2=ruleNotEqualsOperator();
 
             	            state._fsp--;
@@ -3749,7 +3771,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getComparisonAccess().getRightBooleanUnitParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleBooleanUnit_in_ruleComparison2946);
+            	    pushFollow(FOLLOW_ruleBooleanUnit_in_ruleComparison2949);
             	    lv_right_3_0=ruleBooleanUnit();
 
             	    state._fsp--;
@@ -3778,7 +3800,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop21;
                 }
             } while (true);
 
@@ -3819,7 +3841,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanUnitRule()); 
             }
-            pushFollow(FOLLOW_ruleBooleanUnit_in_entryRuleBooleanUnit2984);
+            pushFollow(FOLLOW_ruleBooleanUnit_in_entryRuleBooleanUnit2987);
             iv_ruleBooleanUnit=ruleBooleanUnit();
 
             state._fsp--;
@@ -3827,7 +3849,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleBooleanUnit; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanUnit2994); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanUnit2997); if (state.failed) return current;
 
             }
 
@@ -3863,12 +3885,12 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1417:1: (this_Negation_0= ruleNegation | this_RelationalExpression_1= ruleRelationalExpression | this_BooleanLiteral_2= ruleBooleanLiteral )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1417:1: (this_Negation_0= ruleNegation | this_RelationalExpression_1= ruleRelationalExpression | this_BooleanLiteral_2= ruleBooleanLiteral )
-            int alt21=3;
+            int alt22=3;
             switch ( input.LA(1) ) {
             case 46:
             case 47:
                 {
-                alt21=1;
+                alt22=1;
                 }
                 break;
             case RULE_ID:
@@ -3886,23 +3908,23 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             case 62:
             case 63:
                 {
-                alt21=2;
+                alt22=2;
                 }
                 break;
             case RULE_EBOOLEAN:
                 {
-                alt21=3;
+                alt22=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1418:5: this_Negation_0= ruleNegation
                     {
@@ -3911,7 +3933,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getBooleanUnitAccess().getNegationParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNegation_in_ruleBooleanUnit3041);
+                    pushFollow(FOLLOW_ruleNegation_in_ruleBooleanUnit3044);
                     this_Negation_0=ruleNegation();
 
                     state._fsp--;
@@ -3933,7 +3955,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getBooleanUnitAccess().getRelationalExpressionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleRelationalExpression_in_ruleBooleanUnit3068);
+                    pushFollow(FOLLOW_ruleRelationalExpression_in_ruleBooleanUnit3071);
                     this_RelationalExpression_1=ruleRelationalExpression();
 
                     state._fsp--;
@@ -3955,7 +3977,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getBooleanUnitAccess().getBooleanLiteralParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleBooleanUnit3095);
+                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleBooleanUnit3098);
                     this_BooleanLiteral_2=ruleBooleanLiteral();
 
                     state._fsp--;
@@ -4006,7 +4028,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNegationRule()); 
             }
-            pushFollow(FOLLOW_ruleNegation_in_entryRuleNegation3130);
+            pushFollow(FOLLOW_ruleNegation_in_entryRuleNegation3133);
             iv_ruleNegation=ruleNegation();
 
             state._fsp--;
@@ -4014,7 +4036,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNegation; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNegation3140); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNegation3143); if (state.failed) return current;
 
             }
 
@@ -4061,7 +4083,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getNegationAccess().getOperatorNotOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNotOperator_in_ruleNegation3186);
+            pushFollow(FOLLOW_ruleNotOperator_in_ruleNegation3189);
             lv_operator_0_0=ruleNotOperator();
 
             state._fsp--;
@@ -4096,7 +4118,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getNegationAccess().getValueBooleanUnitParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleBooleanUnit_in_ruleNegation3207);
+            pushFollow(FOLLOW_ruleBooleanUnit_in_ruleNegation3210);
             lv_value_1_0=ruleBooleanUnit();
 
             state._fsp--;
@@ -4157,7 +4179,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getRelationalExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleRelationalExpression_in_entryRuleRelationalExpression3243);
+            pushFollow(FOLLOW_ruleRelationalExpression_in_entryRuleRelationalExpression3246);
             iv_ruleRelationalExpression=ruleRelationalExpression();
 
             state._fsp--;
@@ -4165,7 +4187,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleRelationalExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationalExpression3253); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelationalExpression3256); if (state.failed) return current;
 
             }
 
@@ -4214,7 +4236,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getRelationalExpressionAccess().getComparableExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3300);
+            pushFollow(FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3303);
             this_ComparableExpression_0=ruleComparableExpression();
 
             state._fsp--;
@@ -4226,52 +4248,52 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1533:1: ( ( ( () ( (lv_operator_2_0= ruleGreaterThanOperator ) ) ) | ( () ( (lv_operator_4_0= ruleGreaterOrEqualThanOperator ) ) ) | ( () ( (lv_operator_6_0= ruleLessOrEqualThanOperator ) ) ) | ( () ( (lv_operator_8_0= ruleLessThanOperator ) ) ) ) ( (lv_right_9_0= ruleComparableExpression ) ) )*
-            loop23:
+            loop24:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( ((LA23_0>=48 && LA23_0<=51)) ) {
-                    alt23=1;
+                if ( ((LA24_0>=48 && LA24_0<=51)) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt24) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1533:2: ( ( () ( (lv_operator_2_0= ruleGreaterThanOperator ) ) ) | ( () ( (lv_operator_4_0= ruleGreaterOrEqualThanOperator ) ) ) | ( () ( (lv_operator_6_0= ruleLessOrEqualThanOperator ) ) ) | ( () ( (lv_operator_8_0= ruleLessThanOperator ) ) ) ) ( (lv_right_9_0= ruleComparableExpression ) )
             	    {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1533:2: ( ( () ( (lv_operator_2_0= ruleGreaterThanOperator ) ) ) | ( () ( (lv_operator_4_0= ruleGreaterOrEqualThanOperator ) ) ) | ( () ( (lv_operator_6_0= ruleLessOrEqualThanOperator ) ) ) | ( () ( (lv_operator_8_0= ruleLessThanOperator ) ) ) )
-            	    int alt22=4;
+            	    int alt23=4;
             	    switch ( input.LA(1) ) {
             	    case 48:
             	        {
-            	        alt22=1;
+            	        alt23=1;
             	        }
             	        break;
             	    case 49:
             	        {
-            	        alt22=2;
+            	        alt23=2;
             	        }
             	        break;
             	    case 51:
             	        {
-            	        alt22=3;
+            	        alt23=3;
             	        }
             	        break;
             	    case 50:
             	        {
-            	        alt22=4;
+            	        alt23=4;
             	        }
             	        break;
             	    default:
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 22, 0, input);
+            	            new NoViableAltException("", 23, 0, input);
 
             	        throw nvae;
             	    }
 
-            	    switch (alt22) {
+            	    switch (alt23) {
             	        case 1 :
             	            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1533:3: ( () ( (lv_operator_2_0= ruleGreaterThanOperator ) ) )
             	            {
@@ -4302,7 +4324,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getRelationalExpressionAccess().getOperatorGreaterThanOperatorParserRuleCall_1_0_0_1_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleGreaterThanOperator_in_ruleRelationalExpression3332);
+            	            pushFollow(FOLLOW_ruleGreaterThanOperator_in_ruleRelationalExpression3335);
             	            lv_operator_2_0=ruleGreaterThanOperator();
 
             	            state._fsp--;
@@ -4362,7 +4384,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getRelationalExpressionAccess().getOperatorGreaterOrEqualThanOperatorParserRuleCall_1_0_1_1_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleGreaterOrEqualThanOperator_in_ruleRelationalExpression3370);
+            	            pushFollow(FOLLOW_ruleGreaterOrEqualThanOperator_in_ruleRelationalExpression3373);
             	            lv_operator_4_0=ruleGreaterOrEqualThanOperator();
 
             	            state._fsp--;
@@ -4422,7 +4444,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getRelationalExpressionAccess().getOperatorLessOrEqualThanOperatorParserRuleCall_1_0_2_1_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleLessOrEqualThanOperator_in_ruleRelationalExpression3408);
+            	            pushFollow(FOLLOW_ruleLessOrEqualThanOperator_in_ruleRelationalExpression3411);
             	            lv_operator_6_0=ruleLessOrEqualThanOperator();
 
             	            state._fsp--;
@@ -4482,7 +4504,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getRelationalExpressionAccess().getOperatorLessThanOperatorParserRuleCall_1_0_3_1_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleLessThanOperator_in_ruleRelationalExpression3446);
+            	            pushFollow(FOLLOW_ruleLessThanOperator_in_ruleRelationalExpression3449);
             	            lv_operator_8_0=ruleLessThanOperator();
 
             	            state._fsp--;
@@ -4526,7 +4548,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getRelationalExpressionAccess().getRightComparableExpressionParserRuleCall_1_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3469);
+            	    pushFollow(FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3472);
             	    lv_right_9_0=ruleComparableExpression();
 
             	    state._fsp--;
@@ -4555,7 +4577,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop24;
                 }
             } while (true);
 
@@ -4596,7 +4618,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getArithmeticExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleArithmeticExpression_in_entryRuleArithmeticExpression3507);
+            pushFollow(FOLLOW_ruleArithmeticExpression_in_entryRuleArithmeticExpression3510);
             iv_ruleArithmeticExpression=ruleArithmeticExpression();
 
             state._fsp--;
@@ -4604,7 +4626,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleArithmeticExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleArithmeticExpression3517); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleArithmeticExpression3520); if (state.failed) return current;
 
             }
 
@@ -4640,7 +4662,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getArithmeticExpressionAccess().getAdditiveExpressionParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleArithmeticExpression3563);
+            pushFollow(FOLLOW_ruleAdditiveExpression_in_ruleArithmeticExpression3566);
             this_AdditiveExpression_0=ruleAdditiveExpression();
 
             state._fsp--;
@@ -4685,7 +4707,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAdditiveExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression3597);
+            pushFollow(FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression3600);
             iv_ruleAdditiveExpression=ruleAdditiveExpression();
 
             state._fsp--;
@@ -4693,7 +4715,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAdditiveExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditiveExpression3607); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditiveExpression3610); if (state.failed) return current;
 
             }
 
@@ -4738,7 +4760,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getAdditiveExpressionAccess().getMultiplicativeExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3654);
+            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3657);
             this_MultiplicativeExpression_0=ruleMultiplicativeExpression();
 
             state._fsp--;
@@ -4750,17 +4772,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1710:1: ( () ( ( (lv_operator_2_1= ruleSubstractionOperator | lv_operator_2_2= ruleAdditionOperator ) ) ) ( (lv_right_3_0= ruleMultiplicativeExpression ) ) )*
-            loop25:
+            loop26:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( ((LA25_0>=52 && LA25_0<=53)) ) {
-                    alt25=1;
+                if ( ((LA26_0>=52 && LA26_0<=53)) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt26) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1710:2: () ( ( (lv_operator_2_1= ruleSubstractionOperator | lv_operator_2_2= ruleAdditionOperator ) ) ) ( (lv_right_3_0= ruleMultiplicativeExpression ) )
             	    {
@@ -4784,23 +4806,23 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1718:1: (lv_operator_2_1= ruleSubstractionOperator | lv_operator_2_2= ruleAdditionOperator )
             	    {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1718:1: (lv_operator_2_1= ruleSubstractionOperator | lv_operator_2_2= ruleAdditionOperator )
-            	    int alt24=2;
-            	    int LA24_0 = input.LA(1);
+            	    int alt25=2;
+            	    int LA25_0 = input.LA(1);
 
-            	    if ( (LA24_0==53) ) {
-            	        alt24=1;
+            	    if ( (LA25_0==53) ) {
+            	        alt25=1;
             	    }
-            	    else if ( (LA24_0==52) ) {
-            	        alt24=2;
+            	    else if ( (LA25_0==52) ) {
+            	        alt25=2;
             	    }
             	    else {
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 24, 0, input);
+            	            new NoViableAltException("", 25, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt24) {
+            	    switch (alt25) {
             	        case 1 :
             	            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1719:3: lv_operator_2_1= ruleSubstractionOperator
             	            {
@@ -4809,7 +4831,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getAdditiveExpressionAccess().getOperatorSubstractionOperatorParserRuleCall_1_1_0_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleSubstractionOperator_in_ruleAdditiveExpression3686);
+            	            pushFollow(FOLLOW_ruleSubstractionOperator_in_ruleAdditiveExpression3689);
             	            lv_operator_2_1=ruleSubstractionOperator();
 
             	            state._fsp--;
@@ -4838,7 +4860,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getAdditiveExpressionAccess().getOperatorAdditionOperatorParserRuleCall_1_1_0_1()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleAdditionOperator_in_ruleAdditiveExpression3705);
+            	            pushFollow(FOLLOW_ruleAdditionOperator_in_ruleAdditiveExpression3708);
             	            lv_operator_2_2=ruleAdditionOperator();
 
             	            state._fsp--;
@@ -4879,7 +4901,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getAdditiveExpressionAccess().getRightMultiplicativeExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3729);
+            	    pushFollow(FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3732);
             	    lv_right_3_0=ruleMultiplicativeExpression();
 
             	    state._fsp--;
@@ -4908,7 +4930,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop26;
                 }
             } while (true);
 
@@ -4949,7 +4971,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMultiplicativeExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression3767);
+            pushFollow(FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression3770);
             iv_ruleMultiplicativeExpression=ruleMultiplicativeExpression();
 
             state._fsp--;
@@ -4957,7 +4979,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMultiplicativeExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicativeExpression3777); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicativeExpression3780); if (state.failed) return current;
 
             }
 
@@ -5004,7 +5026,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getNumberExpressionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3824);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3827);
             this_NumberExpression_0=ruleNumberExpression();
 
             state._fsp--;
@@ -5016,17 +5038,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1800:1: ( () ( ( (lv_operator_2_1= ruleMultiplicationOperator | lv_operator_2_2= ruleDivisionOperator | lv_operator_2_3= ruleModulusOperator ) ) ) ( (lv_right_3_0= ruleNumberExpression ) ) )*
-            loop27:
+            loop28:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA27_0==34||(LA27_0>=54 && LA27_0<=55)) ) {
-                    alt27=1;
+                if ( (LA28_0==34||(LA28_0>=54 && LA28_0<=55)) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt28) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1800:2: () ( ( (lv_operator_2_1= ruleMultiplicationOperator | lv_operator_2_2= ruleDivisionOperator | lv_operator_2_3= ruleModulusOperator ) ) ) ( (lv_right_3_0= ruleNumberExpression ) )
             	    {
@@ -5050,32 +5072,32 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1808:1: (lv_operator_2_1= ruleMultiplicationOperator | lv_operator_2_2= ruleDivisionOperator | lv_operator_2_3= ruleModulusOperator )
             	    {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1808:1: (lv_operator_2_1= ruleMultiplicationOperator | lv_operator_2_2= ruleDivisionOperator | lv_operator_2_3= ruleModulusOperator )
-            	    int alt26=3;
+            	    int alt27=3;
             	    switch ( input.LA(1) ) {
             	    case 34:
             	        {
-            	        alt26=1;
+            	        alt27=1;
             	        }
             	        break;
             	    case 54:
             	        {
-            	        alt26=2;
+            	        alt27=2;
             	        }
             	        break;
             	    case 55:
             	        {
-            	        alt26=3;
+            	        alt27=3;
             	        }
             	        break;
             	    default:
             	        if (state.backtracking>0) {state.failed=true; return current;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 26, 0, input);
+            	            new NoViableAltException("", 27, 0, input);
 
             	        throw nvae;
             	    }
 
-            	    switch (alt26) {
+            	    switch (alt27) {
             	        case 1 :
             	            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1809:3: lv_operator_2_1= ruleMultiplicationOperator
             	            {
@@ -5084,7 +5106,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getOperatorMultiplicationOperatorParserRuleCall_1_1_0_0()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleMultiplicationOperator_in_ruleMultiplicativeExpression3856);
+            	            pushFollow(FOLLOW_ruleMultiplicationOperator_in_ruleMultiplicativeExpression3859);
             	            lv_operator_2_1=ruleMultiplicationOperator();
 
             	            state._fsp--;
@@ -5113,7 +5135,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getOperatorDivisionOperatorParserRuleCall_1_1_0_1()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleDivisionOperator_in_ruleMultiplicativeExpression3875);
+            	            pushFollow(FOLLOW_ruleDivisionOperator_in_ruleMultiplicativeExpression3878);
             	            lv_operator_2_2=ruleDivisionOperator();
 
             	            state._fsp--;
@@ -5142,7 +5164,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	              	        newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getOperatorModulusOperatorParserRuleCall_1_1_0_2()); 
             	              	    
             	            }
-            	            pushFollow(FOLLOW_ruleModulusOperator_in_ruleMultiplicativeExpression3894);
+            	            pushFollow(FOLLOW_ruleModulusOperator_in_ruleMultiplicativeExpression3897);
             	            lv_operator_2_3=ruleModulusOperator();
 
             	            state._fsp--;
@@ -5183,7 +5205,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getMultiplicativeExpressionAccess().getRightNumberExpressionParserRuleCall_1_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3918);
+            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3921);
             	    lv_right_3_0=ruleNumberExpression();
 
             	    state._fsp--;
@@ -5212,7 +5234,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop28;
                 }
             } while (true);
 
@@ -5253,7 +5275,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleNumberFunction_in_entryRuleNumberFunction3956);
+            pushFollow(FOLLOW_ruleNumberFunction_in_entryRuleNumberFunction3959);
             iv_ruleNumberFunction=ruleNumberFunction();
 
             state._fsp--;
@@ -5261,7 +5283,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumberFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberFunction3966); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberFunction3969); if (state.failed) return current;
 
             }
 
@@ -5307,57 +5329,57 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1896:1: (this_MaximumFunction_0= ruleMaximumFunction | this_MinimumFunction_1= ruleMinimumFunction | this_AverageFunction_2= ruleAverageFunction | this_SumFunction_3= ruleSumFunction | this_ExponentialFunction_4= ruleExponentialFunction | this_AbsoluteFunction_5= ruleAbsoluteFunction | this_NaturalLogarithmFunction_6= ruleNaturalLogarithmFunction | this_CommonLogarithmFunction_7= ruleCommonLogarithmFunction )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1896:1: (this_MaximumFunction_0= ruleMaximumFunction | this_MinimumFunction_1= ruleMinimumFunction | this_AverageFunction_2= ruleAverageFunction | this_SumFunction_3= ruleSumFunction | this_ExponentialFunction_4= ruleExponentialFunction | this_AbsoluteFunction_5= ruleAbsoluteFunction | this_NaturalLogarithmFunction_6= ruleNaturalLogarithmFunction | this_CommonLogarithmFunction_7= ruleCommonLogarithmFunction )
-            int alt28=8;
+            int alt29=8;
             switch ( input.LA(1) ) {
             case 56:
                 {
-                alt28=1;
+                alt29=1;
                 }
                 break;
             case 57:
                 {
-                alt28=2;
+                alt29=2;
                 }
                 break;
             case 58:
                 {
-                alt28=3;
+                alt29=3;
                 }
                 break;
             case 59:
                 {
-                alt28=4;
+                alt29=4;
                 }
                 break;
             case 60:
                 {
-                alt28=5;
+                alt29=5;
                 }
                 break;
             case 61:
                 {
-                alt28=6;
+                alt29=6;
                 }
                 break;
             case 62:
                 {
-                alt28=7;
+                alt29=7;
                 }
                 break;
             case 63:
                 {
-                alt28=8;
+                alt29=8;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt28) {
+            switch (alt29) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:1897:5: this_MaximumFunction_0= ruleMaximumFunction
                     {
@@ -5366,7 +5388,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getMaximumFunctionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleMaximumFunction_in_ruleNumberFunction4013);
+                    pushFollow(FOLLOW_ruleMaximumFunction_in_ruleNumberFunction4016);
                     this_MaximumFunction_0=ruleMaximumFunction();
 
                     state._fsp--;
@@ -5388,7 +5410,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getMinimumFunctionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleMinimumFunction_in_ruleNumberFunction4040);
+                    pushFollow(FOLLOW_ruleMinimumFunction_in_ruleNumberFunction4043);
                     this_MinimumFunction_1=ruleMinimumFunction();
 
                     state._fsp--;
@@ -5410,7 +5432,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getAverageFunctionParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAverageFunction_in_ruleNumberFunction4067);
+                    pushFollow(FOLLOW_ruleAverageFunction_in_ruleNumberFunction4070);
                     this_AverageFunction_2=ruleAverageFunction();
 
                     state._fsp--;
@@ -5432,7 +5454,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getSumFunctionParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSumFunction_in_ruleNumberFunction4094);
+                    pushFollow(FOLLOW_ruleSumFunction_in_ruleNumberFunction4097);
                     this_SumFunction_3=ruleSumFunction();
 
                     state._fsp--;
@@ -5454,7 +5476,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getExponentialFunctionParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExponentialFunction_in_ruleNumberFunction4121);
+                    pushFollow(FOLLOW_ruleExponentialFunction_in_ruleNumberFunction4124);
                     this_ExponentialFunction_4=ruleExponentialFunction();
 
                     state._fsp--;
@@ -5476,7 +5498,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getAbsoluteFunctionParserRuleCall_5()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAbsoluteFunction_in_ruleNumberFunction4148);
+                    pushFollow(FOLLOW_ruleAbsoluteFunction_in_ruleNumberFunction4151);
                     this_AbsoluteFunction_5=ruleAbsoluteFunction();
 
                     state._fsp--;
@@ -5498,7 +5520,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getNaturalLogarithmFunctionParserRuleCall_6()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNaturalLogarithmFunction_in_ruleNumberFunction4175);
+                    pushFollow(FOLLOW_ruleNaturalLogarithmFunction_in_ruleNumberFunction4178);
                     this_NaturalLogarithmFunction_6=ruleNaturalLogarithmFunction();
 
                     state._fsp--;
@@ -5520,7 +5542,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getNumberFunctionAccess().getCommonLogarithmFunctionParserRuleCall_7()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleCommonLogarithmFunction_in_ruleNumberFunction4202);
+                    pushFollow(FOLLOW_ruleCommonLogarithmFunction_in_ruleNumberFunction4205);
                     this_CommonLogarithmFunction_7=ruleCommonLogarithmFunction();
 
                     state._fsp--;
@@ -5571,7 +5593,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMaximumFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleMaximumFunction_in_entryRuleMaximumFunction4237);
+            pushFollow(FOLLOW_ruleMaximumFunction_in_entryRuleMaximumFunction4240);
             iv_ruleMaximumFunction=ruleMaximumFunction();
 
             state._fsp--;
@@ -5579,7 +5601,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMaximumFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMaximumFunction4247); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMaximumFunction4250); if (state.failed) return current;
 
             }
 
@@ -5631,7 +5653,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getMaximumFunctionAccess().getOperatorMaxOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleMaxOperator_in_ruleMaximumFunction4293);
+            pushFollow(FOLLOW_ruleMaxOperator_in_ruleMaximumFunction4296);
             lv_operator_0_0=ruleMaxOperator();
 
             state._fsp--;
@@ -5655,7 +5677,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleMaximumFunction4305); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleMaximumFunction4308); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMaximumFunctionAccess().getLeftParenthesisKeyword_1());
@@ -5672,7 +5694,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getMaximumFunctionAccess().getValuesNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4326);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4329);
             lv_values_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -5697,21 +5719,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2036:2: (otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) ) )*
-            loop29:
+            loop30:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA29_0==21) ) {
-                    alt29=1;
+                if ( (LA30_0==21) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt30) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2036:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleMaximumFunction4339); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleMaximumFunction4342); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getMaximumFunctionAccess().getCommaKeyword_3_0());
@@ -5728,7 +5750,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getMaximumFunctionAccess().getValuesNumberExpressionParserRuleCall_3_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4360);
+            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4363);
             	    lv_values_4_0=ruleNumberExpression();
 
             	    state._fsp--;
@@ -5757,11 +5779,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop30;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleMaximumFunction4374); if (state.failed) return current;
+            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleMaximumFunction4377); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getMaximumFunctionAccess().getRightParenthesisKeyword_4());
@@ -5804,7 +5826,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMinimumFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleMinimumFunction_in_entryRuleMinimumFunction4410);
+            pushFollow(FOLLOW_ruleMinimumFunction_in_entryRuleMinimumFunction4413);
             iv_ruleMinimumFunction=ruleMinimumFunction();
 
             state._fsp--;
@@ -5812,7 +5834,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMinimumFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMinimumFunction4420); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMinimumFunction4423); if (state.failed) return current;
 
             }
 
@@ -5864,7 +5886,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getMinimumFunctionAccess().getOperatorMinOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleMinOperator_in_ruleMinimumFunction4466);
+            pushFollow(FOLLOW_ruleMinOperator_in_ruleMinimumFunction4469);
             lv_operator_0_0=ruleMinOperator();
 
             state._fsp--;
@@ -5888,7 +5910,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleMinimumFunction4478); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleMinimumFunction4481); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMinimumFunctionAccess().getLeftParenthesisKeyword_1());
@@ -5905,7 +5927,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getMinimumFunctionAccess().getValuesNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4499);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4502);
             lv_values_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -5930,21 +5952,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2123:2: (otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) ) )*
-            loop30:
+            loop31:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA30_0==21) ) {
-                    alt30=1;
+                if ( (LA31_0==21) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt31) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2123:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleMinimumFunction4512); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleMinimumFunction4515); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getMinimumFunctionAccess().getCommaKeyword_3_0());
@@ -5961,7 +5983,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getMinimumFunctionAccess().getValuesNumberExpressionParserRuleCall_3_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4533);
+            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4536);
             	    lv_values_4_0=ruleNumberExpression();
 
             	    state._fsp--;
@@ -5990,11 +6012,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop31;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleMinimumFunction4547); if (state.failed) return current;
+            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleMinimumFunction4550); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getMinimumFunctionAccess().getRightParenthesisKeyword_4());
@@ -6037,7 +6059,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAverageFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleAverageFunction_in_entryRuleAverageFunction4583);
+            pushFollow(FOLLOW_ruleAverageFunction_in_entryRuleAverageFunction4586);
             iv_ruleAverageFunction=ruleAverageFunction();
 
             state._fsp--;
@@ -6045,7 +6067,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAverageFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAverageFunction4593); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAverageFunction4596); if (state.failed) return current;
 
             }
 
@@ -6097,7 +6119,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getAverageFunctionAccess().getOperatorAvgOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleAvgOperator_in_ruleAverageFunction4639);
+            pushFollow(FOLLOW_ruleAvgOperator_in_ruleAverageFunction4642);
             lv_operator_0_0=ruleAvgOperator();
 
             state._fsp--;
@@ -6121,7 +6143,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleAverageFunction4651); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleAverageFunction4654); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAverageFunctionAccess().getLeftParenthesisKeyword_1());
@@ -6138,7 +6160,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getAverageFunctionAccess().getValuesNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleAverageFunction4672);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleAverageFunction4675);
             lv_values_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -6163,21 +6185,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2210:2: (otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) ) )*
-            loop31:
+            loop32:
             do {
-                int alt31=2;
-                int LA31_0 = input.LA(1);
+                int alt32=2;
+                int LA32_0 = input.LA(1);
 
-                if ( (LA31_0==21) ) {
-                    alt31=1;
+                if ( (LA32_0==21) ) {
+                    alt32=1;
                 }
 
 
-                switch (alt31) {
+                switch (alt32) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2210:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleAverageFunction4685); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleAverageFunction4688); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getAverageFunctionAccess().getCommaKeyword_3_0());
@@ -6194,7 +6216,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getAverageFunctionAccess().getValuesNumberExpressionParserRuleCall_3_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleAverageFunction4706);
+            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleAverageFunction4709);
             	    lv_values_4_0=ruleNumberExpression();
 
             	    state._fsp--;
@@ -6223,11 +6245,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop31;
+            	    break loop32;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleAverageFunction4720); if (state.failed) return current;
+            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleAverageFunction4723); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getAverageFunctionAccess().getRightParenthesisKeyword_4());
@@ -6270,7 +6292,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSumFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleSumFunction_in_entryRuleSumFunction4756);
+            pushFollow(FOLLOW_ruleSumFunction_in_entryRuleSumFunction4759);
             iv_ruleSumFunction=ruleSumFunction();
 
             state._fsp--;
@@ -6278,7 +6300,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSumFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSumFunction4766); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSumFunction4769); if (state.failed) return current;
 
             }
 
@@ -6330,7 +6352,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getSumFunctionAccess().getOperatorSumOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleSumOperator_in_ruleSumFunction4812);
+            pushFollow(FOLLOW_ruleSumOperator_in_ruleSumFunction4815);
             lv_operator_0_0=ruleSumOperator();
 
             state._fsp--;
@@ -6354,7 +6376,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleSumFunction4824); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleSumFunction4827); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSumFunctionAccess().getLeftParenthesisKeyword_1());
@@ -6371,7 +6393,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getSumFunctionAccess().getValuesNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleSumFunction4845);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleSumFunction4848);
             lv_values_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -6396,21 +6418,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2297:2: (otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) ) )*
-            loop32:
+            loop33:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA32_0==21) ) {
-                    alt32=1;
+                if ( (LA33_0==21) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt33) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2297:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleSumFunction4858); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleSumFunction4861); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getSumFunctionAccess().getCommaKeyword_3_0());
@@ -6427,7 +6449,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getSumFunctionAccess().getValuesNumberExpressionParserRuleCall_3_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleSumFunction4879);
+            	    pushFollow(FOLLOW_ruleNumberExpression_in_ruleSumFunction4882);
             	    lv_values_4_0=ruleNumberExpression();
 
             	    state._fsp--;
@@ -6456,11 +6478,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop33;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleSumFunction4893); if (state.failed) return current;
+            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleSumFunction4896); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getSumFunctionAccess().getRightParenthesisKeyword_4());
@@ -6503,7 +6525,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExponentialFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleExponentialFunction_in_entryRuleExponentialFunction4929);
+            pushFollow(FOLLOW_ruleExponentialFunction_in_entryRuleExponentialFunction4932);
             iv_ruleExponentialFunction=ruleExponentialFunction();
 
             state._fsp--;
@@ -6511,7 +6533,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExponentialFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExponentialFunction4939); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExponentialFunction4942); if (state.failed) return current;
 
             }
 
@@ -6563,7 +6585,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getExponentialFunctionAccess().getOperatorExponentialOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleExponentialOperator_in_ruleExponentialFunction4985);
+            pushFollow(FOLLOW_ruleExponentialOperator_in_ruleExponentialFunction4988);
             lv_operator_0_0=ruleExponentialOperator();
 
             state._fsp--;
@@ -6587,7 +6609,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleExponentialFunction4997); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleExponentialFunction5000); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getExponentialFunctionAccess().getLeftParenthesisKeyword_1());
@@ -6604,7 +6626,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getExponentialFunctionAccess().getBaseNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5018);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5021);
             lv_base_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -6628,7 +6650,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleExponentialFunction5030); if (state.failed) return current;
+            otherlv_3=(Token)match(input,21,FOLLOW_21_in_ruleExponentialFunction5033); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getExponentialFunctionAccess().getCommaKeyword_3());
@@ -6645,7 +6667,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getExponentialFunctionAccess().getExponentNumberExpressionParserRuleCall_4_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5051);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5054);
             lv_exponent_4_0=ruleNumberExpression();
 
             state._fsp--;
@@ -6669,7 +6691,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleExponentialFunction5063); if (state.failed) return current;
+            otherlv_5=(Token)match(input,32,FOLLOW_32_in_ruleExponentialFunction5066); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getExponentialFunctionAccess().getRightParenthesisKeyword_5());
@@ -6712,7 +6734,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAbsoluteFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleAbsoluteFunction_in_entryRuleAbsoluteFunction5099);
+            pushFollow(FOLLOW_ruleAbsoluteFunction_in_entryRuleAbsoluteFunction5102);
             iv_ruleAbsoluteFunction=ruleAbsoluteFunction();
 
             state._fsp--;
@@ -6720,7 +6742,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAbsoluteFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteFunction5109); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteFunction5112); if (state.failed) return current;
 
             }
 
@@ -6769,7 +6791,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getAbsoluteFunctionAccess().getOperatorAbsoluteOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleAbsoluteOperator_in_ruleAbsoluteFunction5155);
+            pushFollow(FOLLOW_ruleAbsoluteOperator_in_ruleAbsoluteFunction5158);
             lv_operator_0_0=ruleAbsoluteOperator();
 
             state._fsp--;
@@ -6793,7 +6815,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleAbsoluteFunction5167); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleAbsoluteFunction5170); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAbsoluteFunctionAccess().getLeftParenthesisKeyword_1());
@@ -6810,7 +6832,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getAbsoluteFunctionAccess().getValueNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleAbsoluteFunction5188);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleAbsoluteFunction5191);
             lv_value_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -6834,7 +6856,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleAbsoluteFunction5200); if (state.failed) return current;
+            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleAbsoluteFunction5203); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getAbsoluteFunctionAccess().getRightParenthesisKeyword_3());
@@ -6877,7 +6899,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNaturalLogarithmFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleNaturalLogarithmFunction_in_entryRuleNaturalLogarithmFunction5236);
+            pushFollow(FOLLOW_ruleNaturalLogarithmFunction_in_entryRuleNaturalLogarithmFunction5239);
             iv_ruleNaturalLogarithmFunction=ruleNaturalLogarithmFunction();
 
             state._fsp--;
@@ -6885,7 +6907,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNaturalLogarithmFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNaturalLogarithmFunction5246); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNaturalLogarithmFunction5249); if (state.failed) return current;
 
             }
 
@@ -6934,7 +6956,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getNaturalLogarithmFunctionAccess().getOperatorNaturalLogarithmOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNaturalLogarithmOperator_in_ruleNaturalLogarithmFunction5292);
+            pushFollow(FOLLOW_ruleNaturalLogarithmOperator_in_ruleNaturalLogarithmFunction5295);
             lv_operator_0_0=ruleNaturalLogarithmOperator();
 
             state._fsp--;
@@ -6958,7 +6980,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleNaturalLogarithmFunction5304); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleNaturalLogarithmFunction5307); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNaturalLogarithmFunctionAccess().getLeftParenthesisKeyword_1());
@@ -6975,7 +6997,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getNaturalLogarithmFunctionAccess().getValueNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleNaturalLogarithmFunction5325);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleNaturalLogarithmFunction5328);
             lv_value_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -6999,7 +7021,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleNaturalLogarithmFunction5337); if (state.failed) return current;
+            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleNaturalLogarithmFunction5340); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getNaturalLogarithmFunctionAccess().getRightParenthesisKeyword_3());
@@ -7042,7 +7064,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCommonLogarithmFunctionRule()); 
             }
-            pushFollow(FOLLOW_ruleCommonLogarithmFunction_in_entryRuleCommonLogarithmFunction5373);
+            pushFollow(FOLLOW_ruleCommonLogarithmFunction_in_entryRuleCommonLogarithmFunction5376);
             iv_ruleCommonLogarithmFunction=ruleCommonLogarithmFunction();
 
             state._fsp--;
@@ -7050,7 +7072,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleCommonLogarithmFunction; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonLogarithmFunction5383); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonLogarithmFunction5386); if (state.failed) return current;
 
             }
 
@@ -7099,7 +7121,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getCommonLogarithmFunctionAccess().getOperatorCommonLogarithmOperatorParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleCommonLogarithmOperator_in_ruleCommonLogarithmFunction5429);
+            pushFollow(FOLLOW_ruleCommonLogarithmOperator_in_ruleCommonLogarithmFunction5432);
             lv_operator_0_0=ruleCommonLogarithmOperator();
 
             state._fsp--;
@@ -7123,7 +7145,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleCommonLogarithmFunction5441); if (state.failed) return current;
+            otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleCommonLogarithmFunction5444); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getCommonLogarithmFunctionAccess().getLeftParenthesisKeyword_1());
@@ -7140,7 +7162,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getCommonLogarithmFunctionAccess().getValueNumberExpressionParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumberExpression_in_ruleCommonLogarithmFunction5462);
+            pushFollow(FOLLOW_ruleNumberExpression_in_ruleCommonLogarithmFunction5465);
             lv_value_2_0=ruleNumberExpression();
 
             state._fsp--;
@@ -7164,7 +7186,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleCommonLogarithmFunction5474); if (state.failed) return current;
+            otherlv_3=(Token)match(input,32,FOLLOW_32_in_ruleCommonLogarithmFunction5477); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getCommonLogarithmFunctionAccess().getRightParenthesisKeyword_3());
@@ -7207,7 +7229,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getValueSpecificationRule()); 
             }
-            pushFollow(FOLLOW_ruleValueSpecification_in_entryRuleValueSpecification5512);
+            pushFollow(FOLLOW_ruleValueSpecification_in_entryRuleValueSpecification5515);
             iv_ruleValueSpecification=ruleValueSpecification();
 
             state._fsp--;
@@ -7215,7 +7237,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleValueSpecification; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValueSpecification5522); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleValueSpecification5525); if (state.failed) return current;
 
             }
 
@@ -7251,9 +7273,9 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2628:1: (this_LiteralValueExpression_0= ruleLiteralValueExpression | this_InstanceSpecificationExpression_1= ruleInstanceSpecificationExpression | this_ObjectSpecificationExpression_2= ruleObjectSpecificationExpression )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2628:1: (this_LiteralValueExpression_0= ruleLiteralValueExpression | this_InstanceSpecificationExpression_1= ruleInstanceSpecificationExpression | this_ObjectSpecificationExpression_2= ruleObjectSpecificationExpression )
-            int alt33=3;
-            alt33 = dfa33.predict(input);
-            switch (alt33) {
+            int alt34=3;
+            alt34 = dfa34.predict(input);
+            switch (alt34) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2629:5: this_LiteralValueExpression_0= ruleLiteralValueExpression
                     {
@@ -7262,7 +7284,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getValueSpecificationAccess().getLiteralValueExpressionParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleLiteralValueExpression_in_ruleValueSpecification5569);
+                    pushFollow(FOLLOW_ruleLiteralValueExpression_in_ruleValueSpecification5572);
                     this_LiteralValueExpression_0=ruleLiteralValueExpression();
 
                     state._fsp--;
@@ -7284,7 +7306,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getValueSpecificationAccess().getInstanceSpecificationExpressionParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleInstanceSpecificationExpression_in_ruleValueSpecification5596);
+                    pushFollow(FOLLOW_ruleInstanceSpecificationExpression_in_ruleValueSpecification5599);
                     this_InstanceSpecificationExpression_1=ruleInstanceSpecificationExpression();
 
                     state._fsp--;
@@ -7306,7 +7328,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getValueSpecificationAccess().getObjectSpecificationExpressionParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleObjectSpecificationExpression_in_ruleValueSpecification5623);
+                    pushFollow(FOLLOW_ruleObjectSpecificationExpression_in_ruleValueSpecification5626);
                     this_ObjectSpecificationExpression_2=ruleObjectSpecificationExpression();
 
                     state._fsp--;
@@ -7357,7 +7379,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getObjectSpecificationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleObjectSpecificationExpression_in_entryRuleObjectSpecificationExpression5658);
+            pushFollow(FOLLOW_ruleObjectSpecificationExpression_in_entryRuleObjectSpecificationExpression5661);
             iv_ruleObjectSpecificationExpression=ruleObjectSpecificationExpression();
 
             state._fsp--;
@@ -7365,7 +7387,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleObjectSpecificationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleObjectSpecificationExpression5668); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleObjectSpecificationExpression5671); if (state.failed) return current;
 
             }
 
@@ -7419,7 +7441,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getObjectSpecificationExpressionAccess().getTypeDataTypeCrossReference_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleObjectSpecificationExpression5716);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleObjectSpecificationExpression5719);
             ruleQualifiedName();
 
             state._fsp--;
@@ -7436,23 +7458,23 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2693:2: ( ( (lv_value_1_0= ruleCollection ) ) | ( (lv_value_2_0= ruleTuple ) ) )
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA34_0==24) ) {
-                alt34=1;
+            if ( (LA35_0==24) ) {
+                alt35=1;
             }
-            else if ( (LA34_0==17) ) {
-                alt34=2;
+            else if ( (LA35_0==17) ) {
+                alt35=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 34, 0, input);
+                    new NoViableAltException("", 35, 0, input);
 
                 throw nvae;
             }
-            switch (alt34) {
+            switch (alt35) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2693:3: ( (lv_value_1_0= ruleCollection ) )
                     {
@@ -7467,7 +7489,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getObjectSpecificationExpressionAccess().getValueCollectionParserRuleCall_1_0_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleCollection_in_ruleObjectSpecificationExpression5738);
+                    pushFollow(FOLLOW_ruleCollection_in_ruleObjectSpecificationExpression5741);
                     lv_value_1_0=ruleCollection();
 
                     state._fsp--;
@@ -7508,7 +7530,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       	        newCompositeNode(grammarAccess.getObjectSpecificationExpressionAccess().getValueTupleParserRuleCall_1_1_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleTuple_in_ruleObjectSpecificationExpression5765);
+                    pushFollow(FOLLOW_ruleTuple_in_ruleObjectSpecificationExpression5768);
                     lv_value_2_0=ruleTuple();
 
                     state._fsp--;
@@ -7575,7 +7597,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCollectionRule()); 
             }
-            pushFollow(FOLLOW_ruleCollection_in_entryRuleCollection5802);
+            pushFollow(FOLLOW_ruleCollection_in_entryRuleCollection5805);
             iv_ruleCollection=ruleCollection();
 
             state._fsp--;
@@ -7583,7 +7605,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleCollection; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCollection5812); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCollection5815); if (state.failed) return current;
 
             }
 
@@ -7622,7 +7644,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2751:1: (otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']' )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2751:3: otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleCollection5849); if (state.failed) return current;
+            otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleCollection5852); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getCollectionAccess().getLeftSquareBracketKeyword_0());
@@ -7639,7 +7661,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection5870);
+            pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection5873);
             lv_values_1_0=ruleValueSpecification();
 
             state._fsp--;
@@ -7664,21 +7686,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2773:2: (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )*
-            loop35:
+            loop36:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt36=2;
+                int LA36_0 = input.LA(1);
 
-                if ( (LA35_0==21) ) {
-                    alt35=1;
+                if ( (LA36_0==21) ) {
+                    alt36=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt36) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2773:4: otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) )
             	    {
-            	    otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleCollection5883); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleCollection5886); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getCollectionAccess().getCommaKeyword_2_0());
@@ -7695,7 +7717,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection5904);
+            	    pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection5907);
             	    lv_values_3_0=ruleValueSpecification();
 
             	    state._fsp--;
@@ -7724,11 +7746,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop36;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,25,FOLLOW_25_in_ruleCollection5918); if (state.failed) return current;
+            otherlv_4=(Token)match(input,25,FOLLOW_25_in_ruleCollection5921); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getCollectionAccess().getRightSquareBracketKeyword_3());
@@ -7771,7 +7793,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTupleRule()); 
             }
-            pushFollow(FOLLOW_ruleTuple_in_entryRuleTuple5954);
+            pushFollow(FOLLOW_ruleTuple_in_entryRuleTuple5957);
             iv_ruleTuple=ruleTuple();
 
             state._fsp--;
@@ -7779,7 +7801,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleTuple; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTuple5964); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTuple5967); if (state.failed) return current;
 
             }
 
@@ -7818,7 +7840,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2820:1: (otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}' )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2820:3: otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleTuple6001); if (state.failed) return current;
+            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleTuple6004); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getTupleAccess().getLeftCurlyBracketKeyword_0());
@@ -7835,7 +7857,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple6022);
+            pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple6025);
             lv_tuples_1_0=rulePropertyValuePair();
 
             state._fsp--;
@@ -7860,21 +7882,21 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2842:2: (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )*
-            loop36:
+            loop37:
             do {
-                int alt36=2;
-                int LA36_0 = input.LA(1);
+                int alt37=2;
+                int LA37_0 = input.LA(1);
 
-                if ( (LA36_0==21) ) {
-                    alt36=1;
+                if ( (LA37_0==21) ) {
+                    alt37=1;
                 }
 
 
-                switch (alt36) {
+                switch (alt37) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2842:4: otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) )
             	    {
-            	    otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleTuple6035); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,21,FOLLOW_21_in_ruleTuple6038); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getTupleAccess().getCommaKeyword_2_0());
@@ -7891,7 +7913,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	      	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_1_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple6056);
+            	    pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple6059);
             	    lv_tuples_3_0=rulePropertyValuePair();
 
             	    state._fsp--;
@@ -7920,11 +7942,11 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop36;
+            	    break loop37;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,18,FOLLOW_18_in_ruleTuple6070); if (state.failed) return current;
+            otherlv_4=(Token)match(input,18,FOLLOW_18_in_ruleTuple6073); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_4, grammarAccess.getTupleAccess().getRightCurlyBracketKeyword_3());
@@ -7967,7 +7989,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPropertyValuePairRule()); 
             }
-            pushFollow(FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair6106);
+            pushFollow(FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair6109);
             iv_rulePropertyValuePair=rulePropertyValuePair();
 
             state._fsp--;
@@ -7975,7 +7997,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_rulePropertyValuePair; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyValuePair6116); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyValuePair6119); if (state.failed) return current;
 
             }
 
@@ -8028,7 +8050,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getPropertyValuePairAccess().getPropertyPropertyCrossReference_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyValuePair6164);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyValuePair6167);
             ruleQualifiedName();
 
             state._fsp--;
@@ -8044,7 +8066,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,33,FOLLOW_33_in_rulePropertyValuePair6176); if (state.failed) return current;
+            otherlv_1=(Token)match(input,33,FOLLOW_33_in_rulePropertyValuePair6179); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getPropertyValuePairAccess().getEqualsSignKeyword_1());
@@ -8061,7 +8083,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getPropertyValuePairAccess().getValueValueSpecificationParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValueSpecification_in_rulePropertyValuePair6197);
+            pushFollow(FOLLOW_ruleValueSpecification_in_rulePropertyValuePair6200);
             lv_value_2_0=ruleValueSpecification();
 
             state._fsp--;
@@ -8122,7 +8144,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInstanceSpecificationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression6233);
+            pushFollow(FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression6236);
             iv_ruleInstanceSpecificationExpression=ruleInstanceSpecificationExpression();
 
             state._fsp--;
@@ -8130,7 +8152,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleInstanceSpecificationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression6243); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression6246); if (state.failed) return current;
 
             }
 
@@ -8176,7 +8198,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getInstanceSpecificationExpressionAccess().getValueInstanceSpecificationCrossReference_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression6290);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression6293);
             ruleQualifiedName();
 
             state._fsp--;
@@ -8226,7 +8248,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLiteralValueExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression6325);
+            pushFollow(FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression6328);
             iv_ruleLiteralValueExpression=ruleLiteralValueExpression();
 
             state._fsp--;
@@ -8234,7 +8256,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLiteralValueExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralValueExpression6335); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralValueExpression6338); if (state.failed) return current;
 
             }
 
@@ -8274,45 +8296,45 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2983:1: (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2983:1: (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral )
-            int alt37=5;
+            int alt38=5;
             switch ( input.LA(1) ) {
             case RULE_INT:
             case RULE_POSITIVE_SMALL_DECIMAL:
             case RULE_SMALL_DECIMAL:
             case RULE_EBIGDECIMAL:
                 {
-                alt37=1;
+                alt38=1;
                 }
                 break;
             case RULE_EBOOLEAN:
                 {
-                alt37=2;
+                alt38=2;
                 }
                 break;
             case RULE_NULL:
                 {
-                alt37=3;
+                alt38=3;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt37=4;
+                alt38=4;
                 }
                 break;
             case 34:
                 {
-                alt37=5;
+                alt38=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 37, 0, input);
+                    new NoViableAltException("", 38, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt37) {
+            switch (alt38) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:2984:5: this_NumberLiteral_0= ruleNumberLiteral
                     {
@@ -8321,7 +8343,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getNumberLiteralParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression6382);
+                    pushFollow(FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression6385);
                     this_NumberLiteral_0=ruleNumberLiteral();
 
                     state._fsp--;
@@ -8343,7 +8365,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getBooleanLiteralParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression6409);
+                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression6412);
                     this_BooleanLiteral_1=ruleBooleanLiteral();
 
                     state._fsp--;
@@ -8365,7 +8387,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getNullLiteralParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression6436);
+                    pushFollow(FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression6439);
                     this_NullLiteral_2=ruleNullLiteral();
 
                     state._fsp--;
@@ -8387,7 +8409,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getStringLiteralParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression6463);
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression6466);
                     this_StringLiteral_3=ruleStringLiteral();
 
                     state._fsp--;
@@ -8409,7 +8431,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getUnlimitedLiteralParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression6490);
+                    pushFollow(FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression6493);
                     this_UnlimitedLiteral_4=ruleUnlimitedLiteral();
 
                     state._fsp--;
@@ -8460,7 +8482,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral6525);
+            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral6528);
             iv_ruleBooleanLiteral=ruleBooleanLiteral();
 
             state._fsp--;
@@ -8468,7 +8490,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleBooleanLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral6535); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral6538); if (state.failed) return current;
 
             }
 
@@ -8504,7 +8526,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3054:1: (lv_value_0_0= RULE_EBOOLEAN )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3055:3: lv_value_0_0= RULE_EBOOLEAN
             {
-            lv_value_0_0=(Token)match(input,RULE_EBOOLEAN,FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral6576); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_EBOOLEAN,FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral6579); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getBooleanLiteralAccess().getValueEBOOLEANTerminalRuleCall_0()); 
@@ -8562,7 +8584,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral6616);
+            pushFollow(FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral6619);
             iv_ruleNumberLiteral=ruleNumberLiteral();
 
             state._fsp--;
@@ -8570,7 +8592,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumberLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLiteral6626); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLiteral6629); if (state.failed) return current;
 
             }
 
@@ -8612,7 +8634,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueNumberParserRuleCall_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumber_in_ruleNumberLiteral6671);
+            pushFollow(FOLLOW_ruleNumber_in_ruleNumberLiteral6674);
             lv_value_0_0=ruleNumber();
 
             state._fsp--;
@@ -8670,7 +8692,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNullLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral6706);
+            pushFollow(FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral6709);
             iv_ruleNullLiteral=ruleNullLiteral();
 
             state._fsp--;
@@ -8678,7 +8700,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNullLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNullLiteral6716); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNullLiteral6719); if (state.failed) return current;
 
             }
 
@@ -8714,7 +8736,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3132:1: (lv_value_0_0= RULE_NULL )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3133:3: lv_value_0_0= RULE_NULL
             {
-            lv_value_0_0=(Token)match(input,RULE_NULL,FOLLOW_RULE_NULL_in_ruleNullLiteral6757); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_NULL,FOLLOW_RULE_NULL_in_ruleNullLiteral6760); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getNullLiteralAccess().getValueNULLTerminalRuleCall_0()); 
@@ -8772,7 +8794,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral6797);
+            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral6800);
             iv_ruleStringLiteral=ruleStringLiteral();
 
             state._fsp--;
@@ -8780,7 +8802,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStringLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral6807); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral6810); if (state.failed) return current;
 
             }
 
@@ -8816,7 +8838,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3171:1: (lv_value_0_0= RULE_STRING )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3172:3: lv_value_0_0= RULE_STRING
             {
-            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral6848); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral6851); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
@@ -8874,7 +8896,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getUnlimitedLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral6888);
+            pushFollow(FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral6891);
             iv_ruleUnlimitedLiteral=ruleUnlimitedLiteral();
 
             state._fsp--;
@@ -8882,7 +8904,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleUnlimitedLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnlimitedLiteral6898); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnlimitedLiteral6901); if (state.failed) return current;
 
             }
 
@@ -8918,7 +8940,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3210:1: (lv_value_0_0= '*' )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3211:3: lv_value_0_0= '*'
             {
-            lv_value_0_0=(Token)match(input,34,FOLLOW_34_in_ruleUnlimitedLiteral6940); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,34,FOLLOW_34_in_ruleUnlimitedLiteral6943); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_value_0_0, grammarAccess.getUnlimitedLiteralAccess().getValueAsteriskKeyword_0());
@@ -8972,7 +8994,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOrOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleOrOperator_in_entryRuleOrOperator6988);
+            pushFollow(FOLLOW_ruleOrOperator_in_entryRuleOrOperator6991);
             iv_ruleOrOperator=ruleOrOperator();
 
             state._fsp--;
@@ -8980,7 +9002,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleOrOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOrOperator6998); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOrOperator7001); if (state.failed) return current;
 
             }
 
@@ -9028,27 +9050,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3251:2: (otherlv_1= 'or' | otherlv_2= '||' )
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA38_0==35) ) {
-                alt38=1;
+            if ( (LA39_0==35) ) {
+                alt39=1;
             }
-            else if ( (LA38_0==36) ) {
-                alt38=2;
+            else if ( (LA39_0==36) ) {
+                alt39=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 38, 0, input);
+                    new NoViableAltException("", 39, 0, input);
 
                 throw nvae;
             }
-            switch (alt38) {
+            switch (alt39) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3251:4: otherlv_1= 'or'
                     {
-                    otherlv_1=(Token)match(input,35,FOLLOW_35_in_ruleOrOperator7045); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,35,FOLLOW_35_in_ruleOrOperator7048); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getOrOperatorAccess().getOrKeyword_1_0());
@@ -9060,7 +9082,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3256:7: otherlv_2= '||'
                     {
-                    otherlv_2=(Token)match(input,36,FOLLOW_36_in_ruleOrOperator7063); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,36,FOLLOW_36_in_ruleOrOperator7066); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getOrOperatorAccess().getVerticalLineVerticalLineKeyword_1_1());
@@ -9109,7 +9131,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXOrOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator7100);
+            pushFollow(FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator7103);
             iv_ruleXOrOperator=ruleXOrOperator();
 
             state._fsp--;
@@ -9117,7 +9139,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXOrOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleXOrOperator7110); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleXOrOperator7113); if (state.failed) return current;
 
             }
 
@@ -9165,27 +9187,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3287:2: (otherlv_1= 'xor' | otherlv_2= '^' )
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA39_0==37) ) {
-                alt39=1;
+            if ( (LA40_0==37) ) {
+                alt40=1;
             }
-            else if ( (LA39_0==38) ) {
-                alt39=2;
+            else if ( (LA40_0==38) ) {
+                alt40=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 39, 0, input);
+                    new NoViableAltException("", 40, 0, input);
 
                 throw nvae;
             }
-            switch (alt39) {
+            switch (alt40) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3287:4: otherlv_1= 'xor'
                     {
-                    otherlv_1=(Token)match(input,37,FOLLOW_37_in_ruleXOrOperator7157); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,37,FOLLOW_37_in_ruleXOrOperator7160); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getXOrOperatorAccess().getXorKeyword_1_0());
@@ -9197,7 +9219,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3292:7: otherlv_2= '^'
                     {
-                    otherlv_2=(Token)match(input,38,FOLLOW_38_in_ruleXOrOperator7175); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,38,FOLLOW_38_in_ruleXOrOperator7178); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getXOrOperatorAccess().getCircumflexAccentKeyword_1_1());
@@ -9246,7 +9268,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAndOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAndOperator_in_entryRuleAndOperator7212);
+            pushFollow(FOLLOW_ruleAndOperator_in_entryRuleAndOperator7215);
             iv_ruleAndOperator=ruleAndOperator();
 
             state._fsp--;
@@ -9254,7 +9276,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAndOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAndOperator7222); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAndOperator7225); if (state.failed) return current;
 
             }
 
@@ -9302,27 +9324,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3323:2: (otherlv_1= 'and' | otherlv_2= '&&' )
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA40_0==39) ) {
-                alt40=1;
+            if ( (LA41_0==39) ) {
+                alt41=1;
             }
-            else if ( (LA40_0==40) ) {
-                alt40=2;
+            else if ( (LA41_0==40) ) {
+                alt41=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 40, 0, input);
+                    new NoViableAltException("", 41, 0, input);
 
                 throw nvae;
             }
-            switch (alt40) {
+            switch (alt41) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3323:4: otherlv_1= 'and'
                     {
-                    otherlv_1=(Token)match(input,39,FOLLOW_39_in_ruleAndOperator7269); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,39,FOLLOW_39_in_ruleAndOperator7272); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getAndOperatorAccess().getAndKeyword_1_0());
@@ -9334,7 +9356,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3328:7: otherlv_2= '&&'
                     {
-                    otherlv_2=(Token)match(input,40,FOLLOW_40_in_ruleAndOperator7287); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,40,FOLLOW_40_in_ruleAndOperator7290); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getAndOperatorAccess().getAmpersandAmpersandKeyword_1_1());
@@ -9383,7 +9405,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImplicationOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator7324);
+            pushFollow(FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator7327);
             iv_ruleImplicationOperator=ruleImplicationOperator();
 
             state._fsp--;
@@ -9391,7 +9413,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImplicationOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicationOperator7334); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicationOperator7337); if (state.failed) return current;
 
             }
 
@@ -9439,27 +9461,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3359:2: (otherlv_1= '=>' | otherlv_2= '->' )
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA41_0==41) ) {
-                alt41=1;
+            if ( (LA42_0==41) ) {
+                alt42=1;
             }
-            else if ( (LA41_0==42) ) {
-                alt41=2;
+            else if ( (LA42_0==42) ) {
+                alt42=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 41, 0, input);
+                    new NoViableAltException("", 42, 0, input);
 
                 throw nvae;
             }
-            switch (alt41) {
+            switch (alt42) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3359:4: otherlv_1= '=>'
                     {
-                    otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleImplicationOperator7381); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleImplicationOperator7384); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getImplicationOperatorAccess().getEqualsSignGreaterThanSignKeyword_1_0());
@@ -9471,7 +9493,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3364:7: otherlv_2= '->'
                     {
-                    otherlv_2=(Token)match(input,42,FOLLOW_42_in_ruleImplicationOperator7399); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,42,FOLLOW_42_in_ruleImplicationOperator7402); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getImplicationOperatorAccess().getHyphenMinusGreaterThanSignKeyword_1_1());
@@ -9520,7 +9542,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEqualsOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator7436);
+            pushFollow(FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator7439);
             iv_ruleEqualsOperator=ruleEqualsOperator();
 
             state._fsp--;
@@ -9528,7 +9550,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleEqualsOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEqualsOperator7446); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEqualsOperator7449); if (state.failed) return current;
 
             }
 
@@ -9574,7 +9596,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleEqualsOperator7492); if (state.failed) return current;
+            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleEqualsOperator7495); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getEqualsOperatorAccess().getEqualsSignEqualsSignKeyword_1());
@@ -9617,7 +9639,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNotEqualsOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator7528);
+            pushFollow(FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator7531);
             iv_ruleNotEqualsOperator=ruleNotEqualsOperator();
 
             state._fsp--;
@@ -9625,7 +9647,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNotEqualsOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNotEqualsOperator7538); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNotEqualsOperator7541); if (state.failed) return current;
 
             }
 
@@ -9673,27 +9695,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3426:2: (otherlv_1= '!=' | otherlv_2= '<>' )
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            int alt43=2;
+            int LA43_0 = input.LA(1);
 
-            if ( (LA42_0==44) ) {
-                alt42=1;
+            if ( (LA43_0==44) ) {
+                alt43=1;
             }
-            else if ( (LA42_0==45) ) {
-                alt42=2;
+            else if ( (LA43_0==45) ) {
+                alt43=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 42, 0, input);
+                    new NoViableAltException("", 43, 0, input);
 
                 throw nvae;
             }
-            switch (alt42) {
+            switch (alt43) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3426:4: otherlv_1= '!='
                     {
-                    otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleNotEqualsOperator7585); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleNotEqualsOperator7588); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getNotEqualsOperatorAccess().getExclamationMarkEqualsSignKeyword_1_0());
@@ -9705,7 +9727,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3431:7: otherlv_2= '<>'
                     {
-                    otherlv_2=(Token)match(input,45,FOLLOW_45_in_ruleNotEqualsOperator7603); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,45,FOLLOW_45_in_ruleNotEqualsOperator7606); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getNotEqualsOperatorAccess().getLessThanSignGreaterThanSignKeyword_1_1());
@@ -9754,7 +9776,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNotOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNotOperator_in_entryRuleNotOperator7640);
+            pushFollow(FOLLOW_ruleNotOperator_in_entryRuleNotOperator7643);
             iv_ruleNotOperator=ruleNotOperator();
 
             state._fsp--;
@@ -9762,7 +9784,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNotOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNotOperator7650); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNotOperator7653); if (state.failed) return current;
 
             }
 
@@ -9810,27 +9832,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             }
 
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3462:2: (otherlv_1= '!' | otherlv_2= 'not' )
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            int alt44=2;
+            int LA44_0 = input.LA(1);
 
-            if ( (LA43_0==46) ) {
-                alt43=1;
+            if ( (LA44_0==46) ) {
+                alt44=1;
             }
-            else if ( (LA43_0==47) ) {
-                alt43=2;
+            else if ( (LA44_0==47) ) {
+                alt44=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 44, 0, input);
 
                 throw nvae;
             }
-            switch (alt43) {
+            switch (alt44) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3462:4: otherlv_1= '!'
                     {
-                    otherlv_1=(Token)match(input,46,FOLLOW_46_in_ruleNotOperator7697); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,46,FOLLOW_46_in_ruleNotOperator7700); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getNotOperatorAccess().getExclamationMarkKeyword_1_0());
@@ -9842,7 +9864,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:3467:7: otherlv_2= 'not'
                     {
-                    otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleNotOperator7715); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,47,FOLLOW_47_in_ruleNotOperator7718); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getNotOperatorAccess().getNotKeyword_1_1());
@@ -9891,7 +9913,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGreaterThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator7752);
+            pushFollow(FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator7755);
             iv_ruleGreaterThanOperator=ruleGreaterThanOperator();
 
             state._fsp--;
@@ -9899,7 +9921,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGreaterThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterThanOperator7762); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterThanOperator7765); if (state.failed) return current;
 
             }
 
@@ -9945,7 +9967,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,48,FOLLOW_48_in_ruleGreaterThanOperator7808); if (state.failed) return current;
+            otherlv_1=(Token)match(input,48,FOLLOW_48_in_ruleGreaterThanOperator7811); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGreaterThanOperatorAccess().getGreaterThanSignKeyword_1());
@@ -9988,7 +10010,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGreaterOrEqualThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator7844);
+            pushFollow(FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator7847);
             iv_ruleGreaterOrEqualThanOperator=ruleGreaterOrEqualThanOperator();
 
             state._fsp--;
@@ -9996,7 +10018,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGreaterOrEqualThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator7854); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator7857); if (state.failed) return current;
 
             }
 
@@ -10042,7 +10064,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,49,FOLLOW_49_in_ruleGreaterOrEqualThanOperator7900); if (state.failed) return current;
+            otherlv_1=(Token)match(input,49,FOLLOW_49_in_ruleGreaterOrEqualThanOperator7903); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGreaterOrEqualThanOperatorAccess().getGreaterThanSignEqualsSignKeyword_1());
@@ -10085,7 +10107,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLessThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator7936);
+            pushFollow(FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator7939);
             iv_ruleLessThanOperator=ruleLessThanOperator();
 
             state._fsp--;
@@ -10093,7 +10115,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLessThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLessThanOperator7946); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLessThanOperator7949); if (state.failed) return current;
 
             }
 
@@ -10139,7 +10161,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,50,FOLLOW_50_in_ruleLessThanOperator7992); if (state.failed) return current;
+            otherlv_1=(Token)match(input,50,FOLLOW_50_in_ruleLessThanOperator7995); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getLessThanOperatorAccess().getLessThanSignKeyword_1());
@@ -10182,7 +10204,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLessOrEqualThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator8028);
+            pushFollow(FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator8031);
             iv_ruleLessOrEqualThanOperator=ruleLessOrEqualThanOperator();
 
             state._fsp--;
@@ -10190,7 +10212,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLessOrEqualThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator8038); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator8041); if (state.failed) return current;
 
             }
 
@@ -10236,7 +10258,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,51,FOLLOW_51_in_ruleLessOrEqualThanOperator8084); if (state.failed) return current;
+            otherlv_1=(Token)match(input,51,FOLLOW_51_in_ruleLessOrEqualThanOperator8087); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getLessOrEqualThanOperatorAccess().getLessThanSignEqualsSignKeyword_1());
@@ -10279,7 +10301,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAdditionOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator8120);
+            pushFollow(FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator8123);
             iv_ruleAdditionOperator=ruleAdditionOperator();
 
             state._fsp--;
@@ -10287,7 +10309,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAdditionOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditionOperator8130); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditionOperator8133); if (state.failed) return current;
 
             }
 
@@ -10333,7 +10355,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,52,FOLLOW_52_in_ruleAdditionOperator8176); if (state.failed) return current;
+            otherlv_1=(Token)match(input,52,FOLLOW_52_in_ruleAdditionOperator8179); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAdditionOperatorAccess().getPlusSignKeyword_1());
@@ -10376,7 +10398,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSubstractionOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator8212);
+            pushFollow(FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator8215);
             iv_ruleSubstractionOperator=ruleSubstractionOperator();
 
             state._fsp--;
@@ -10384,7 +10406,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSubstractionOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSubstractionOperator8222); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSubstractionOperator8225); if (state.failed) return current;
 
             }
 
@@ -10430,7 +10452,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,53,FOLLOW_53_in_ruleSubstractionOperator8268); if (state.failed) return current;
+            otherlv_1=(Token)match(input,53,FOLLOW_53_in_ruleSubstractionOperator8271); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSubstractionOperatorAccess().getHyphenMinusKeyword_1());
@@ -10473,7 +10495,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMultiplicationOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator8304);
+            pushFollow(FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator8307);
             iv_ruleMultiplicationOperator=ruleMultiplicationOperator();
 
             state._fsp--;
@@ -10481,7 +10503,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMultiplicationOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicationOperator8314); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicationOperator8317); if (state.failed) return current;
 
             }
 
@@ -10527,7 +10549,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleMultiplicationOperator8360); if (state.failed) return current;
+            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleMultiplicationOperator8363); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMultiplicationOperatorAccess().getAsteriskKeyword_1());
@@ -10570,7 +10592,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDivisionOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator8396);
+            pushFollow(FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator8399);
             iv_ruleDivisionOperator=ruleDivisionOperator();
 
             state._fsp--;
@@ -10578,7 +10600,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDivisionOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDivisionOperator8406); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDivisionOperator8409); if (state.failed) return current;
 
             }
 
@@ -10624,7 +10646,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,54,FOLLOW_54_in_ruleDivisionOperator8452); if (state.failed) return current;
+            otherlv_1=(Token)match(input,54,FOLLOW_54_in_ruleDivisionOperator8455); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getDivisionOperatorAccess().getSolidusKeyword_1());
@@ -10667,7 +10689,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getModulusOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator8488);
+            pushFollow(FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator8491);
             iv_ruleModulusOperator=ruleModulusOperator();
 
             state._fsp--;
@@ -10675,7 +10697,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleModulusOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModulusOperator8498); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModulusOperator8501); if (state.failed) return current;
 
             }
 
@@ -10721,7 +10743,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,55,FOLLOW_55_in_ruleModulusOperator8544); if (state.failed) return current;
+            otherlv_1=(Token)match(input,55,FOLLOW_55_in_ruleModulusOperator8547); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getModulusOperatorAccess().getPercentSignKeyword_1());
@@ -10764,7 +10786,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMaxOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator8580);
+            pushFollow(FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator8583);
             iv_ruleMaxOperator=ruleMaxOperator();
 
             state._fsp--;
@@ -10772,7 +10794,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMaxOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMaxOperator8590); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMaxOperator8593); if (state.failed) return current;
 
             }
 
@@ -10818,7 +10840,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,56,FOLLOW_56_in_ruleMaxOperator8636); if (state.failed) return current;
+            otherlv_1=(Token)match(input,56,FOLLOW_56_in_ruleMaxOperator8639); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMaxOperatorAccess().getMaxKeyword_1());
@@ -10861,7 +10883,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMinOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleMinOperator_in_entryRuleMinOperator8672);
+            pushFollow(FOLLOW_ruleMinOperator_in_entryRuleMinOperator8675);
             iv_ruleMinOperator=ruleMinOperator();
 
             state._fsp--;
@@ -10869,7 +10891,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMinOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMinOperator8682); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMinOperator8685); if (state.failed) return current;
 
             }
 
@@ -10915,7 +10937,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,57,FOLLOW_57_in_ruleMinOperator8728); if (state.failed) return current;
+            otherlv_1=(Token)match(input,57,FOLLOW_57_in_ruleMinOperator8731); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMinOperatorAccess().getMinKeyword_1());
@@ -10958,7 +10980,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAvgOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator8764);
+            pushFollow(FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator8767);
             iv_ruleAvgOperator=ruleAvgOperator();
 
             state._fsp--;
@@ -10966,7 +10988,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAvgOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAvgOperator8774); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAvgOperator8777); if (state.failed) return current;
 
             }
 
@@ -11012,7 +11034,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,58,FOLLOW_58_in_ruleAvgOperator8820); if (state.failed) return current;
+            otherlv_1=(Token)match(input,58,FOLLOW_58_in_ruleAvgOperator8823); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAvgOperatorAccess().getAvgKeyword_1());
@@ -11055,7 +11077,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSumOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleSumOperator_in_entryRuleSumOperator8856);
+            pushFollow(FOLLOW_ruleSumOperator_in_entryRuleSumOperator8859);
             iv_ruleSumOperator=ruleSumOperator();
 
             state._fsp--;
@@ -11063,7 +11085,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSumOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSumOperator8866); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSumOperator8869); if (state.failed) return current;
 
             }
 
@@ -11109,7 +11131,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,59,FOLLOW_59_in_ruleSumOperator8912); if (state.failed) return current;
+            otherlv_1=(Token)match(input,59,FOLLOW_59_in_ruleSumOperator8915); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSumOperatorAccess().getSumKeyword_1());
@@ -11152,7 +11174,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExponentialOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator8948);
+            pushFollow(FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator8951);
             iv_ruleExponentialOperator=ruleExponentialOperator();
 
             state._fsp--;
@@ -11160,7 +11182,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExponentialOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExponentialOperator8958); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExponentialOperator8961); if (state.failed) return current;
 
             }
 
@@ -11206,7 +11228,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,60,FOLLOW_60_in_ruleExponentialOperator9004); if (state.failed) return current;
+            otherlv_1=(Token)match(input,60,FOLLOW_60_in_ruleExponentialOperator9007); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getExponentialOperatorAccess().getExpKeyword_1());
@@ -11249,7 +11271,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAbsoluteOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator9040);
+            pushFollow(FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator9043);
             iv_ruleAbsoluteOperator=ruleAbsoluteOperator();
 
             state._fsp--;
@@ -11257,7 +11279,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAbsoluteOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteOperator9050); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteOperator9053); if (state.failed) return current;
 
             }
 
@@ -11303,7 +11325,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,61,FOLLOW_61_in_ruleAbsoluteOperator9096); if (state.failed) return current;
+            otherlv_1=(Token)match(input,61,FOLLOW_61_in_ruleAbsoluteOperator9099); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAbsoluteOperatorAccess().getAbsKeyword_1());
@@ -11346,7 +11368,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNaturalLogarithmOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator9132);
+            pushFollow(FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator9135);
             iv_ruleNaturalLogarithmOperator=ruleNaturalLogarithmOperator();
 
             state._fsp--;
@@ -11354,7 +11376,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNaturalLogarithmOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator9142); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator9145); if (state.failed) return current;
 
             }
 
@@ -11400,7 +11422,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,62,FOLLOW_62_in_ruleNaturalLogarithmOperator9188); if (state.failed) return current;
+            otherlv_1=(Token)match(input,62,FOLLOW_62_in_ruleNaturalLogarithmOperator9191); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNaturalLogarithmOperatorAccess().getLnKeyword_1());
@@ -11443,7 +11465,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCommonLogarithmOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator9224);
+            pushFollow(FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator9227);
             iv_ruleCommonLogarithmOperator=ruleCommonLogarithmOperator();
 
             state._fsp--;
@@ -11451,7 +11473,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleCommonLogarithmOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonLogarithmOperator9234); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonLogarithmOperator9237); if (state.failed) return current;
 
             }
 
@@ -11497,7 +11519,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,63,FOLLOW_63_in_ruleCommonLogarithmOperator9280); if (state.failed) return current;
+            otherlv_1=(Token)match(input,63,FOLLOW_63_in_ruleCommonLogarithmOperator9283); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getCommonLogarithmOperatorAccess().getLogKeyword_1());
@@ -11540,7 +11562,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLeftParenthesisRule()); 
             }
-            pushFollow(FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis9317);
+            pushFollow(FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis9320);
             iv_ruleLeftParenthesis=ruleLeftParenthesis();
 
             state._fsp--;
@@ -11548,7 +11570,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLeftParenthesis.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftParenthesis9328); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftParenthesis9331); if (state.failed) return current;
 
             }
 
@@ -11578,7 +11600,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4018:28: (kw= '(' )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4020:2: kw= '('
             {
-            kw=(Token)match(input,31,FOLLOW_31_in_ruleLeftParenthesis9365); if (state.failed) return current;
+            kw=(Token)match(input,31,FOLLOW_31_in_ruleLeftParenthesis9368); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -11619,7 +11641,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getRightParenthesisRule()); 
             }
-            pushFollow(FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis9405);
+            pushFollow(FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis9408);
             iv_ruleRightParenthesis=ruleRightParenthesis();
 
             state._fsp--;
@@ -11627,7 +11649,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleRightParenthesis.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRightParenthesis9416); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRightParenthesis9419); if (state.failed) return current;
 
             }
 
@@ -11657,7 +11679,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4045:28: (kw= ')' )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4047:2: kw= ')'
             {
-            kw=(Token)match(input,32,FOLLOW_32_in_ruleRightParenthesis9453); if (state.failed) return current;
+            kw=(Token)match(input,32,FOLLOW_32_in_ruleRightParenthesis9456); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -11698,7 +11720,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName9493);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName9496);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
@@ -11706,7 +11728,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName9504); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName9507); if (state.failed) return current;
 
             }
 
@@ -11741,7 +11763,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4073:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4073:6: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName9544); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName9547); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -11753,24 +11775,24 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4080:1: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
-            loop44:
+            loop45:
             do {
-                int alt44=2;
-                int LA44_0 = input.LA(1);
+                int alt45=2;
+                int LA45_0 = input.LA(1);
 
-                if ( (LA44_0==64) && (synpred1_InternalNSL())) {
-                    alt44=1;
+                if ( (LA45_0==64) && (synpred1_InternalNSL())) {
+                    alt45=1;
                 }
 
 
-                switch (alt44) {
+                switch (alt45) {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4080:2: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
             	    {
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4080:2: ( ( '.' )=>kw= '.' )
             	    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4080:3: ( '.' )=>kw= '.'
             	    {
-            	    kw=(Token)match(input,64,FOLLOW_64_in_ruleQualifiedName9572); if (state.failed) return current;
+            	    kw=(Token)match(input,64,FOLLOW_64_in_ruleQualifiedName9575); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -11780,7 +11802,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName9588); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName9591); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_ID_2);
@@ -11796,7 +11818,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop44;
+            	    break loop45;
                 }
             } while (true);
 
@@ -11837,7 +11859,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameWithWildcardRule()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard9636);
+            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard9639);
             iv_ruleQualifiedNameWithWildcard=ruleQualifiedNameWithWildcard();
 
             state._fsp--;
@@ -11845,7 +11867,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedNameWithWildcard.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard9647); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard9650); if (state.failed) return current;
 
             }
 
@@ -11885,7 +11907,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                       newCompositeNode(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard9694);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard9697);
             this_QualifiedName_0=ruleQualifiedName();
 
             state._fsp--;
@@ -11901,17 +11923,17 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                   
             }
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4127:1: (kw= '.*' )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA45_0==65) ) {
-                alt45=1;
+            if ( (LA46_0==65) ) {
+                alt46=1;
             }
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4128:2: kw= '.*'
                     {
-                    kw=(Token)match(input,65,FOLLOW_65_in_ruleQualifiedNameWithWildcard9713); if (state.failed) return current;
+                    kw=(Token)match(input,65,FOLLOW_65_in_ruleQualifiedNameWithWildcard9716); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -11961,7 +11983,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImportNamespaceRule()); 
             }
-            pushFollow(FOLLOW_ruleImportNamespace_in_entryRuleImportNamespace9759);
+            pushFollow(FOLLOW_ruleImportNamespace_in_entryRuleImportNamespace9762);
             iv_ruleImportNamespace=ruleImportNamespace();
 
             state._fsp--;
@@ -11969,7 +11991,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImportNamespace; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImportNamespace9769); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImportNamespace9772); if (state.failed) return current;
 
             }
 
@@ -12004,7 +12026,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4158:1: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4158:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
             {
-            otherlv_0=(Token)match(input,66,FOLLOW_66_in_ruleImportNamespace9806); if (state.failed) return current;
+            otherlv_0=(Token)match(input,66,FOLLOW_66_in_ruleImportNamespace9809); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_0, grammarAccess.getImportNamespaceAccess().getImportKeyword_0());
@@ -12021,7 +12043,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getImportNamespaceAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_ruleImportNamespace9827);
+            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_ruleImportNamespace9830);
             lv_importedNamespace_1_0=ruleQualifiedNameWithWildcard();
 
             state._fsp--;
@@ -12082,7 +12104,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberRule()); 
             }
-            pushFollow(FOLLOW_ruleNumber_in_entryRuleNumber9864);
+            pushFollow(FOLLOW_ruleNumber_in_entryRuleNumber9867);
             iv_ruleNumber=ruleNumber();
 
             state._fsp--;
@@ -12090,7 +12112,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumber.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumber9875); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumber9878); if (state.failed) return current;
 
             }
 
@@ -12124,41 +12146,41 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4201:1: (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4201:1: (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL )
-            int alt46=4;
+            int alt47=4;
             switch ( input.LA(1) ) {
             case RULE_INT:
                 {
-                alt46=1;
+                alt47=1;
                 }
                 break;
             case RULE_POSITIVE_SMALL_DECIMAL:
                 {
-                alt46=2;
+                alt47=2;
                 }
                 break;
             case RULE_SMALL_DECIMAL:
                 {
-                alt46=3;
+                alt47=3;
                 }
                 break;
             case RULE_EBIGDECIMAL:
                 {
-                alt46=4;
+                alt47=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 46, 0, input);
+                    new NoViableAltException("", 47, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt46) {
+            switch (alt47) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4201:6: this_INT_0= RULE_INT
                     {
-                    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleNumber9915); if (state.failed) return current;
+                    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleNumber9918); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_INT_0);
@@ -12175,7 +12197,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4209:10: this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL
                     {
-                    this_POSITIVE_SMALL_DECIMAL_1=(Token)match(input,RULE_POSITIVE_SMALL_DECIMAL,FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber9941); if (state.failed) return current;
+                    this_POSITIVE_SMALL_DECIMAL_1=(Token)match(input,RULE_POSITIVE_SMALL_DECIMAL,FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber9944); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_POSITIVE_SMALL_DECIMAL_1);
@@ -12192,7 +12214,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4217:10: this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL
                     {
-                    this_SMALL_DECIMAL_2=(Token)match(input,RULE_SMALL_DECIMAL,FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber9967); if (state.failed) return current;
+                    this_SMALL_DECIMAL_2=(Token)match(input,RULE_SMALL_DECIMAL,FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber9970); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_SMALL_DECIMAL_2);
@@ -12209,7 +12231,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4225:10: this_EBIGDECIMAL_3= RULE_EBIGDECIMAL
                     {
-                    this_EBIGDECIMAL_3=(Token)match(input,RULE_EBIGDECIMAL,FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber9993); if (state.failed) return current;
+                    this_EBIGDECIMAL_3=(Token)match(input,RULE_EBIGDECIMAL,FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber9996); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_EBIGDECIMAL_3);
@@ -12260,7 +12282,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImpactRule()); 
             }
-            pushFollow(FOLLOW_ruleImpact_in_entryRuleImpact10039);
+            pushFollow(FOLLOW_ruleImpact_in_entryRuleImpact10042);
             iv_ruleImpact=ruleImpact();
 
             state._fsp--;
@@ -12268,7 +12290,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImpact.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImpact10050); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImpact10053); if (state.failed) return current;
 
             }
 
@@ -12300,27 +12322,27 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4253:1: (this_POSITIVE_SMALL_DECIMAL_0= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_1= RULE_SMALL_DECIMAL )
             {
             // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4253:1: (this_POSITIVE_SMALL_DECIMAL_0= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_1= RULE_SMALL_DECIMAL )
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA47_0==RULE_POSITIVE_SMALL_DECIMAL) ) {
-                alt47=1;
+            if ( (LA48_0==RULE_POSITIVE_SMALL_DECIMAL) ) {
+                alt48=1;
             }
-            else if ( (LA47_0==RULE_SMALL_DECIMAL) ) {
-                alt47=2;
+            else if ( (LA48_0==RULE_SMALL_DECIMAL) ) {
+                alt48=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 47, 0, input);
+                    new NoViableAltException("", 48, 0, input);
 
                 throw nvae;
             }
-            switch (alt47) {
+            switch (alt48) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4253:6: this_POSITIVE_SMALL_DECIMAL_0= RULE_POSITIVE_SMALL_DECIMAL
                     {
-                    this_POSITIVE_SMALL_DECIMAL_0=(Token)match(input,RULE_POSITIVE_SMALL_DECIMAL,FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleImpact10090); if (state.failed) return current;
+                    this_POSITIVE_SMALL_DECIMAL_0=(Token)match(input,RULE_POSITIVE_SMALL_DECIMAL,FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleImpact10093); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_POSITIVE_SMALL_DECIMAL_0);
@@ -12337,7 +12359,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4261:10: this_SMALL_DECIMAL_1= RULE_SMALL_DECIMAL
                     {
-                    this_SMALL_DECIMAL_1=(Token)match(input,RULE_SMALL_DECIMAL,FOLLOW_RULE_SMALL_DECIMAL_in_ruleImpact10116); if (state.failed) return current;
+                    this_SMALL_DECIMAL_1=(Token)match(input,RULE_SMALL_DECIMAL,FOLLOW_RULE_SMALL_DECIMAL_in_ruleImpact10119); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_SMALL_DECIMAL_1);
@@ -12374,43 +12396,53 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDirectionKind"
-    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4278:1: ruleDirectionKind returns [Enumerator current=null] : ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4278:1: ruleDirectionKind returns [Enumerator current=null] : ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) | (enumLiteral_2= 'range' ) ) ;
     public final Enumerator ruleDirectionKind() throws RecognitionException {
         Enumerator current = null;
 
         Token enumLiteral_0=null;
         Token enumLiteral_1=null;
+        Token enumLiteral_2=null;
 
          enterRule(); 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4280:28: ( ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:1: ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4280:28: ( ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) | (enumLiteral_2= 'range' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:1: ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) | (enumLiteral_2= 'range' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:1: ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) )
-            int alt48=2;
-            int LA48_0 = input.LA(1);
-
-            if ( (LA48_0==67) ) {
-                alt48=1;
-            }
-            else if ( (LA48_0==68) ) {
-                alt48=2;
-            }
-            else {
+            // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:1: ( (enumLiteral_0= 'increasing' ) | (enumLiteral_1= 'decreasing' ) | (enumLiteral_2= 'range' ) )
+            int alt49=3;
+            switch ( input.LA(1) ) {
+            case 67:
+                {
+                alt49=1;
+                }
+                break;
+            case 68:
+                {
+                alt49=2;
+                }
+                break;
+            case 69:
+                {
+                alt49=3;
+                }
+                break;
+            default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 48, 0, input);
+                    new NoViableAltException("", 49, 0, input);
 
                 throw nvae;
             }
-            switch (alt48) {
+
+            switch (alt49) {
                 case 1 :
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:2: (enumLiteral_0= 'increasing' )
                     {
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:2: (enumLiteral_0= 'increasing' )
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4281:4: enumLiteral_0= 'increasing'
                     {
-                    enumLiteral_0=(Token)match(input,67,FOLLOW_67_in_ruleDirectionKind10177); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,67,FOLLOW_67_in_ruleDirectionKind10180); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getDirectionKindAccess().getINCREASINGEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -12429,11 +12461,30 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4287:6: (enumLiteral_1= 'decreasing' )
                     // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4287:8: enumLiteral_1= 'decreasing'
                     {
-                    enumLiteral_1=(Token)match(input,68,FOLLOW_68_in_ruleDirectionKind10194); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,68,FOLLOW_68_in_ruleDirectionKind10197); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getDirectionKindAccess().getDECREASINGEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                               newLeafNode(enumLiteral_1, grammarAccess.getDirectionKindAccess().getDECREASINGEnumLiteralDeclaration_1()); 
+                          
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4293:6: (enumLiteral_2= 'range' )
+                    {
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4293:6: (enumLiteral_2= 'range' )
+                    // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4293:8: enumLiteral_2= 'range'
+                    {
+                    enumLiteral_2=(Token)match(input,69,FOLLOW_69_in_ruleDirectionKind10214); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                              current = grammarAccess.getDirectionKindAccess().getRANGEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+                              newLeafNode(enumLiteral_2, grammarAccess.getDirectionKindAccess().getRANGEEnumLiteralDeclaration_2()); 
                           
                     }
 
@@ -12468,7 +12519,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
         // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4080:3: ( '.' )
         // ../eu.artist.postmigration.nfrvt.lang.nsl/src-gen/eu/artist/postmigration/nfrvt/lang/nsl/parser/antlr/internal/InternalNSL.g:4081:2: '.'
         {
-        match(input,64,FOLLOW_64_in_synpred1_InternalNSL9563); if (state.failed) return ;
+        match(input,64,FOLLOW_64_in_synpred1_InternalNSL9566); if (state.failed) return ;
 
         }
     }
@@ -12492,20 +12543,20 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
     }
 
 
-    protected DFA33 dfa33 = new DFA33(this);
-    static final String DFA33_eotS =
+    protected DFA34 dfa34 = new DFA34(this);
+    static final String DFA34_eotS =
         "\7\uffff";
-    static final String DFA33_eofS =
+    static final String DFA34_eofS =
         "\2\uffff\1\5\3\uffff\1\5";
-    static final String DFA33_minS =
+    static final String DFA34_minS =
         "\1\4\1\uffff\1\21\1\4\2\uffff\1\21";
-    static final String DFA33_maxS =
+    static final String DFA34_maxS =
         "\1\42\1\uffff\1\100\1\4\2\uffff\1\100";
-    static final String DFA33_acceptS =
+    static final String DFA34_acceptS =
         "\1\uffff\1\1\2\uffff\1\3\1\2\1\uffff";
-    static final String DFA33_specialS =
+    static final String DFA34_specialS =
         "\7\uffff}>";
-    static final String[] DFA33_transitionS = {
+    static final String[] DFA34_transitionS = {
             "\1\2\7\1\26\uffff\1\1",
             "",
             "\1\4\1\5\2\uffff\1\5\2\uffff\1\4\1\5\46\uffff\1\3",
@@ -12515,34 +12566,34 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
             "\1\4\1\5\2\uffff\1\5\2\uffff\1\4\1\5\46\uffff\1\3"
     };
 
-    static final short[] DFA33_eot = DFA.unpackEncodedString(DFA33_eotS);
-    static final short[] DFA33_eof = DFA.unpackEncodedString(DFA33_eofS);
-    static final char[] DFA33_min = DFA.unpackEncodedStringToUnsignedChars(DFA33_minS);
-    static final char[] DFA33_max = DFA.unpackEncodedStringToUnsignedChars(DFA33_maxS);
-    static final short[] DFA33_accept = DFA.unpackEncodedString(DFA33_acceptS);
-    static final short[] DFA33_special = DFA.unpackEncodedString(DFA33_specialS);
-    static final short[][] DFA33_transition;
+    static final short[] DFA34_eot = DFA.unpackEncodedString(DFA34_eotS);
+    static final short[] DFA34_eof = DFA.unpackEncodedString(DFA34_eofS);
+    static final char[] DFA34_min = DFA.unpackEncodedStringToUnsignedChars(DFA34_minS);
+    static final char[] DFA34_max = DFA.unpackEncodedStringToUnsignedChars(DFA34_maxS);
+    static final short[] DFA34_accept = DFA.unpackEncodedString(DFA34_acceptS);
+    static final short[] DFA34_special = DFA.unpackEncodedString(DFA34_specialS);
+    static final short[][] DFA34_transition;
 
     static {
-        int numStates = DFA33_transitionS.length;
-        DFA33_transition = new short[numStates][];
+        int numStates = DFA34_transitionS.length;
+        DFA34_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA33_transition[i] = DFA.unpackEncodedString(DFA33_transitionS[i]);
+            DFA34_transition[i] = DFA.unpackEncodedString(DFA34_transitionS[i]);
         }
     }
 
-    class DFA33 extends DFA {
+    class DFA34 extends DFA {
 
-        public DFA33(BaseRecognizer recognizer) {
+        public DFA34(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 33;
-            this.eot = DFA33_eot;
-            this.eof = DFA33_eof;
-            this.min = DFA33_min;
-            this.max = DFA33_max;
-            this.accept = DFA33_accept;
-            this.special = DFA33_special;
-            this.transition = DFA33_transition;
+            this.decisionNumber = 34;
+            this.eot = DFA34_eot;
+            this.eof = DFA34_eof;
+            this.min = DFA34_min;
+            this.max = DFA34_max;
+            this.accept = DFA34_accept;
+            this.special = DFA34_special;
+            this.transition = DFA34_transition;
         }
         public String getDescription() {
             return "2628:1: (this_LiteralValueExpression_0= ruleLiteralValueExpression | this_InstanceSpecificationExpression_1= ruleInstanceSpecificationExpression | this_ObjectSpecificationExpression_2= ruleObjectSpecificationExpression )";
@@ -12570,7 +12621,7 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_20_in_ruleQualitativeProperty459 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleQualitativeProperty476 = new BitSet(new long[]{0x0000000000240000L});
     public static final BitSet FOLLOW_21_in_ruleQualitativeProperty494 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleQualitativeProperty506 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_22_in_ruleQualitativeProperty506 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000038L});
     public static final BitSet FOLLOW_ruleDirectionKind_in_ruleQualitativeProperty527 = new BitSet(new long[]{0x0000000000240000L});
     public static final BitSet FOLLOW_21_in_ruleQualitativeProperty542 = new BitSet(new long[]{0x0000000000800000L});
     public static final BitSet FOLLOW_23_in_ruleQualitativeProperty554 = new BitSet(new long[]{0x0000000001000000L});
@@ -12598,352 +12649,353 @@ public class InternalNSLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleBaseQuantitativeProperty989 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1006 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_28_in_ruleBaseQuantitativeProperty1018 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleBaseQuantitativeProperty1041 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1053 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleBaseQuantitativeProperty1065 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_ruleDirectionKind_in_ruleBaseQuantitativeProperty1086 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1099 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleBaseQuantitativeProperty1111 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleBaseQuantitativeProperty1123 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1144 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1157 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1178 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_25_in_ruleBaseQuantitativeProperty1192 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleBaseQuantitativeProperty1206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDerivedQuantitativeProperty_in_entryRuleDerivedQuantitativeProperty1242 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDerivedQuantitativeProperty1252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleDerivedQuantitativeProperty1289 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDerivedQuantitativeProperty1306 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleDerivedQuantitativeProperty1323 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleDerivedQuantitativeProperty1335 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDerivedQuantitativeProperty1352 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1369 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleDerivedQuantitativeProperty1381 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleDerivedQuantitativeProperty1404 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1416 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleDerivedQuantitativeProperty1428 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_ruleDirectionKind_in_ruleDerivedQuantitativeProperty1449 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1461 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleDerivedQuantitativeProperty1473 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleArithmeticExpression_in_ruleDerivedQuantitativeProperty1494 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1507 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleDerivedQuantitativeProperty1519 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleDerivedQuantitativeProperty1531 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1552 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1565 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1586 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_25_in_ruleDerivedQuantitativeProperty1600 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleDerivedQuantitativeProperty1614 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComparableExpression_in_entryRuleComparableExpression1650 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComparableExpression1660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleComparableExpression1706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_entryRuleNumberExpression1740 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberExpression1750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleNumberExpression1797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberFunction_in_ruleNumberExpression1824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParenthesizedArithmeticExpression_in_ruleNumberExpression1851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuantitativePropertyExpression_in_ruleNumberExpression1878 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParenthesizedArithmeticExpression_in_entryRuleParenthesizedArithmeticExpression1913 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParenthesizedArithmeticExpression1923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_ruleParenthesizedArithmeticExpression1973 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleArithmeticExpression_in_ruleParenthesizedArithmeticExpression1993 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_ruleRightParenthesis_in_ruleParenthesizedArithmeticExpression2009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuantitativePropertyExpression_in_entryRuleQuantitativePropertyExpression2044 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQuantitativePropertyExpression2054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQuantitativePropertyExpression2111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyImpact_in_entryRulePropertyImpact2147 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyImpact2157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyImpact2205 = new BitSet(new long[]{0x0000000000000600L});
-    public static final BitSet FOLLOW_ruleImpact_in_rulePropertyImpact2226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression2262 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression2272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplication_in_ruleExpression2318 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplication_in_entryRuleImplication2352 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplication2362 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication2409 = new BitSet(new long[]{0x0000060000000002L});
-    public static final BitSet FOLLOW_ruleImplicationOperator_in_ruleImplication2439 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication2460 = new BitSet(new long[]{0x0000060000000002L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_entryRuleDisjunction2498 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDisjunction2508 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction2555 = new BitSet(new long[]{0x0000007800000002L});
-    public static final BitSet FOLLOW_ruleOrOperator_in_ruleDisjunction2587 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleXOrOperator_in_ruleDisjunction2606 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction2630 = new BitSet(new long[]{0x0000007800000002L});
-    public static final BitSet FOLLOW_ruleConjunction_in_entryRuleConjunction2668 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConjunction2678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction2725 = new BitSet(new long[]{0x0000018000000002L});
-    public static final BitSet FOLLOW_ruleAndOperator_in_ruleConjunction2755 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction2776 = new BitSet(new long[]{0x0000018000000002L});
-    public static final BitSet FOLLOW_ruleComparison_in_entryRuleComparison2814 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComparison2824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison2871 = new BitSet(new long[]{0x0000380000000002L});
-    public static final BitSet FOLLOW_ruleEqualsOperator_in_ruleComparison2903 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_ruleComparison2922 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison2946 = new BitSet(new long[]{0x0000380000000002L});
-    public static final BitSet FOLLOW_ruleBooleanUnit_in_entryRuleBooleanUnit2984 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanUnit2994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNegation_in_ruleBooleanUnit3041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelationalExpression_in_ruleBooleanUnit3068 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleBooleanUnit3095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNegation_in_entryRuleNegation3130 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNegation3140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotOperator_in_ruleNegation3186 = new BitSet(new long[]{0xFF00C00080000F50L});
-    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleNegation3207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelationalExpression_in_entryRuleRelationalExpression3243 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRelationalExpression3253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3300 = new BitSet(new long[]{0x000F000000000002L});
-    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_ruleRelationalExpression3332 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_ruleRelationalExpression3370 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_ruleRelationalExpression3408 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleLessThanOperator_in_ruleRelationalExpression3446 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3469 = new BitSet(new long[]{0x000F000000000002L});
-    public static final BitSet FOLLOW_ruleArithmeticExpression_in_entryRuleArithmeticExpression3507 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleArithmeticExpression3517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleArithmeticExpression3563 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression3597 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveExpression3607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3654 = new BitSet(new long[]{0x0030000000000002L});
-    public static final BitSet FOLLOW_ruleSubstractionOperator_in_ruleAdditiveExpression3686 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleAdditionOperator_in_ruleAdditiveExpression3705 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3729 = new BitSet(new long[]{0x0030000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression3767 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicativeExpression3777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3824 = new BitSet(new long[]{0x00C0000400000002L});
-    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_ruleMultiplicativeExpression3856 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleDivisionOperator_in_ruleMultiplicativeExpression3875 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleModulusOperator_in_ruleMultiplicativeExpression3894 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3918 = new BitSet(new long[]{0x00C0000400000002L});
-    public static final BitSet FOLLOW_ruleNumberFunction_in_entryRuleNumberFunction3956 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberFunction3966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMaximumFunction_in_ruleNumberFunction4013 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinimumFunction_in_ruleNumberFunction4040 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAverageFunction_in_ruleNumberFunction4067 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSumFunction_in_ruleNumberFunction4094 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExponentialFunction_in_ruleNumberFunction4121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbsoluteFunction_in_ruleNumberFunction4148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNaturalLogarithmFunction_in_ruleNumberFunction4175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonLogarithmFunction_in_ruleNumberFunction4202 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMaximumFunction_in_entryRuleMaximumFunction4237 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMaximumFunction4247 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMaxOperator_in_ruleMaximumFunction4293 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleMaximumFunction4305 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4326 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_21_in_ruleMaximumFunction4339 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4360 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_32_in_ruleMaximumFunction4374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinimumFunction_in_entryRuleMinimumFunction4410 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMinimumFunction4420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinOperator_in_ruleMinimumFunction4466 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleMinimumFunction4478 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4499 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_21_in_ruleMinimumFunction4512 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4533 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_32_in_ruleMinimumFunction4547 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAverageFunction_in_entryRuleAverageFunction4583 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAverageFunction4593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAvgOperator_in_ruleAverageFunction4639 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleAverageFunction4651 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction4672 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_21_in_ruleAverageFunction4685 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction4706 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_32_in_ruleAverageFunction4720 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSumFunction_in_entryRuleSumFunction4756 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSumFunction4766 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSumOperator_in_ruleSumFunction4812 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleSumFunction4824 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction4845 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_21_in_ruleSumFunction4858 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction4879 = new BitSet(new long[]{0x0000000100200000L});
-    public static final BitSet FOLLOW_32_in_ruleSumFunction4893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExponentialFunction_in_entryRuleExponentialFunction4929 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExponentialFunction4939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExponentialOperator_in_ruleExponentialFunction4985 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleExponentialFunction4997 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5018 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleExponentialFunction5030 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5051 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleExponentialFunction5063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbsoluteFunction_in_entryRuleAbsoluteFunction5099 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteFunction5109 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_ruleAbsoluteFunction5155 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleAbsoluteFunction5167 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAbsoluteFunction5188 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleAbsoluteFunction5200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNaturalLogarithmFunction_in_entryRuleNaturalLogarithmFunction5236 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmFunction5246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_ruleNaturalLogarithmFunction5292 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleNaturalLogarithmFunction5304 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleNaturalLogarithmFunction5325 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleNaturalLogarithmFunction5337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonLogarithmFunction_in_entryRuleCommonLogarithmFunction5373 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmFunction5383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_ruleCommonLogarithmFunction5429 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_31_in_ruleCommonLogarithmFunction5441 = new BitSet(new long[]{0xFF00000080000F10L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleCommonLogarithmFunction5462 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleCommonLogarithmFunction5474 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_entryRuleValueSpecification5512 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValueSpecification5522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteralValueExpression_in_ruleValueSpecification5569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInstanceSpecificationExpression_in_ruleValueSpecification5596 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleObjectSpecificationExpression_in_ruleValueSpecification5623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleObjectSpecificationExpression_in_entryRuleObjectSpecificationExpression5658 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleObjectSpecificationExpression5668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleObjectSpecificationExpression5716 = new BitSet(new long[]{0x0000000001020000L});
-    public static final BitSet FOLLOW_ruleCollection_in_ruleObjectSpecificationExpression5738 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTuple_in_ruleObjectSpecificationExpression5765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCollection_in_entryRuleCollection5802 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCollection5812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleCollection5849 = new BitSet(new long[]{0xFF00C00480000FF0L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection5870 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_21_in_ruleCollection5883 = new BitSet(new long[]{0xFF00C00480000FF0L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection5904 = new BitSet(new long[]{0x0000000002200000L});
-    public static final BitSet FOLLOW_25_in_ruleCollection5918 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTuple_in_entryRuleTuple5954 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTuple5964 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleTuple6001 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple6022 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_21_in_ruleTuple6035 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple6056 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_18_in_ruleTuple6070 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair6106 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyValuePair6116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyValuePair6164 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_33_in_rulePropertyValuePair6176 = new BitSet(new long[]{0xFF00C00480000FF0L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_rulePropertyValuePair6197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression6233 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression6243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression6290 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression6325 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralValueExpression6335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression6382 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression6409 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression6436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression6463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression6490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral6525 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral6535 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral6576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral6616 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLiteral6626 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_ruleNumberLiteral6671 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral6706 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNullLiteral6716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NULL_in_ruleNullLiteral6757 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral6797 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral6807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral6848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral6888 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnlimitedLiteral6898 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleUnlimitedLiteral6940 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOrOperator_in_entryRuleOrOperator6988 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOrOperator6998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleOrOperator7045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleOrOperator7063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator7100 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleXOrOperator7110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleXOrOperator7157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleXOrOperator7175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAndOperator_in_entryRuleAndOperator7212 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAndOperator7222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleAndOperator7269 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleAndOperator7287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator7324 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplicationOperator7334 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleImplicationOperator7381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleImplicationOperator7399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator7436 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEqualsOperator7446 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleEqualsOperator7492 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator7528 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNotEqualsOperator7538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleNotEqualsOperator7585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleNotEqualsOperator7603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotOperator_in_entryRuleNotOperator7640 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNotOperator7650 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleNotOperator7697 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleNotOperator7715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator7752 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterThanOperator7762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleGreaterThanOperator7808 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator7844 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator7854 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleGreaterOrEqualThanOperator7900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator7936 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLessThanOperator7946 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleLessThanOperator7992 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator8028 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator8038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleLessOrEqualThanOperator8084 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator8120 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAdditionOperator8130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleAdditionOperator8176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator8212 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSubstractionOperator8222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleSubstractionOperator8268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator8304 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicationOperator8314 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleMultiplicationOperator8360 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator8396 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDivisionOperator8406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleDivisionOperator8452 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator8488 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModulusOperator8498 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleModulusOperator8544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator8580 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMaxOperator8590 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleMaxOperator8636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinOperator_in_entryRuleMinOperator8672 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMinOperator8682 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleMinOperator8728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator8764 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAvgOperator8774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleAvgOperator8820 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSumOperator_in_entryRuleSumOperator8856 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSumOperator8866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleSumOperator8912 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator8948 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExponentialOperator8958 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleExponentialOperator9004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator9040 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteOperator9050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleAbsoluteOperator9096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator9132 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator9142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleNaturalLogarithmOperator9188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator9224 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmOperator9234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleCommonLogarithmOperator9280 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis9317 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis9328 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleLeftParenthesis9365 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis9405 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis9416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleRightParenthesis9453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName9493 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName9504 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName9544 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_64_in_ruleQualifiedName9572 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName9588 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
-    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard9636 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard9647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard9694 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleQualifiedNameWithWildcard9713 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImportNamespace_in_entryRuleImportNamespace9759 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImportNamespace9769 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleImportNamespace9806 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_ruleImportNamespace9827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber9864 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumber9875 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleNumber9915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber9941 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber9967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber9993 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImpact_in_entryRuleImpact10039 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImpact10050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleImpact10090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_SMALL_DECIMAL_in_ruleImpact10116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleDirectionKind10177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleDirectionKind10194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_synpred1_InternalNSL9563 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleBaseQuantitativeProperty1041 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1054 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleBaseQuantitativeProperty1066 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000038L});
+    public static final BitSet FOLLOW_ruleDirectionKind_in_ruleBaseQuantitativeProperty1087 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1102 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleBaseQuantitativeProperty1114 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleBaseQuantitativeProperty1126 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1147 = new BitSet(new long[]{0x0000000002200000L});
+    public static final BitSet FOLLOW_21_in_ruleBaseQuantitativeProperty1160 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleBaseQuantitativeProperty1181 = new BitSet(new long[]{0x0000000002200000L});
+    public static final BitSet FOLLOW_25_in_ruleBaseQuantitativeProperty1195 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleBaseQuantitativeProperty1209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDerivedQuantitativeProperty_in_entryRuleDerivedQuantitativeProperty1245 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDerivedQuantitativeProperty1255 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleDerivedQuantitativeProperty1292 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDerivedQuantitativeProperty1309 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleDerivedQuantitativeProperty1326 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleDerivedQuantitativeProperty1338 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleDerivedQuantitativeProperty1355 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1372 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_28_in_ruleDerivedQuantitativeProperty1384 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleDerivedQuantitativeProperty1407 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1419 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleDerivedQuantitativeProperty1431 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000038L});
+    public static final BitSet FOLLOW_ruleDirectionKind_in_ruleDerivedQuantitativeProperty1452 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1464 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleDerivedQuantitativeProperty1476 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleArithmeticExpression_in_ruleDerivedQuantitativeProperty1497 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1510 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_26_in_ruleDerivedQuantitativeProperty1522 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleDerivedQuantitativeProperty1534 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1555 = new BitSet(new long[]{0x0000000002200000L});
+    public static final BitSet FOLLOW_21_in_ruleDerivedQuantitativeProperty1568 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rulePropertyImpact_in_ruleDerivedQuantitativeProperty1589 = new BitSet(new long[]{0x0000000002200000L});
+    public static final BitSet FOLLOW_25_in_ruleDerivedQuantitativeProperty1603 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleDerivedQuantitativeProperty1617 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComparableExpression_in_entryRuleComparableExpression1653 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComparableExpression1663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleComparableExpression1709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_entryRuleNumberExpression1743 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberExpression1753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleNumberExpression1800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberFunction_in_ruleNumberExpression1827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParenthesizedArithmeticExpression_in_ruleNumberExpression1854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuantitativePropertyExpression_in_ruleNumberExpression1881 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParenthesizedArithmeticExpression_in_entryRuleParenthesizedArithmeticExpression1916 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParenthesizedArithmeticExpression1926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_ruleParenthesizedArithmeticExpression1976 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleArithmeticExpression_in_ruleParenthesizedArithmeticExpression1996 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_ruleRightParenthesis_in_ruleParenthesizedArithmeticExpression2012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuantitativePropertyExpression_in_entryRuleQuantitativePropertyExpression2047 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQuantitativePropertyExpression2057 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQuantitativePropertyExpression2114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyImpact_in_entryRulePropertyImpact2150 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyImpact2160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyImpact2208 = new BitSet(new long[]{0x0000000000000600L});
+    public static final BitSet FOLLOW_ruleImpact_in_rulePropertyImpact2229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression2265 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression2275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplication_in_ruleExpression2321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplication_in_entryRuleImplication2355 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImplication2365 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication2412 = new BitSet(new long[]{0x0000060000000002L});
+    public static final BitSet FOLLOW_ruleImplicationOperator_in_ruleImplication2442 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication2463 = new BitSet(new long[]{0x0000060000000002L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_entryRuleDisjunction2501 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDisjunction2511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction2558 = new BitSet(new long[]{0x0000007800000002L});
+    public static final BitSet FOLLOW_ruleOrOperator_in_ruleDisjunction2590 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleXOrOperator_in_ruleDisjunction2609 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction2633 = new BitSet(new long[]{0x0000007800000002L});
+    public static final BitSet FOLLOW_ruleConjunction_in_entryRuleConjunction2671 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConjunction2681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction2728 = new BitSet(new long[]{0x0000018000000002L});
+    public static final BitSet FOLLOW_ruleAndOperator_in_ruleConjunction2758 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction2779 = new BitSet(new long[]{0x0000018000000002L});
+    public static final BitSet FOLLOW_ruleComparison_in_entryRuleComparison2817 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComparison2827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison2874 = new BitSet(new long[]{0x0000380000000002L});
+    public static final BitSet FOLLOW_ruleEqualsOperator_in_ruleComparison2906 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_ruleComparison2925 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison2949 = new BitSet(new long[]{0x0000380000000002L});
+    public static final BitSet FOLLOW_ruleBooleanUnit_in_entryRuleBooleanUnit2987 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanUnit2997 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNegation_in_ruleBooleanUnit3044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelationalExpression_in_ruleBooleanUnit3071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleBooleanUnit3098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNegation_in_entryRuleNegation3133 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNegation3143 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotOperator_in_ruleNegation3189 = new BitSet(new long[]{0xFF00C00080000F50L});
+    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleNegation3210 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelationalExpression_in_entryRuleRelationalExpression3246 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelationalExpression3256 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3303 = new BitSet(new long[]{0x000F000000000002L});
+    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_ruleRelationalExpression3335 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_ruleRelationalExpression3373 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_ruleRelationalExpression3411 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleLessThanOperator_in_ruleRelationalExpression3449 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression3472 = new BitSet(new long[]{0x000F000000000002L});
+    public static final BitSet FOLLOW_ruleArithmeticExpression_in_entryRuleArithmeticExpression3510 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleArithmeticExpression3520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleArithmeticExpression3566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression3600 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveExpression3610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3657 = new BitSet(new long[]{0x0030000000000002L});
+    public static final BitSet FOLLOW_ruleSubstractionOperator_in_ruleAdditiveExpression3689 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleAdditionOperator_in_ruleAdditiveExpression3708 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression3732 = new BitSet(new long[]{0x0030000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression3770 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicativeExpression3780 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3827 = new BitSet(new long[]{0x00C0000400000002L});
+    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_ruleMultiplicativeExpression3859 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleDivisionOperator_in_ruleMultiplicativeExpression3878 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleModulusOperator_in_ruleMultiplicativeExpression3897 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression3921 = new BitSet(new long[]{0x00C0000400000002L});
+    public static final BitSet FOLLOW_ruleNumberFunction_in_entryRuleNumberFunction3959 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberFunction3969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMaximumFunction_in_ruleNumberFunction4016 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinimumFunction_in_ruleNumberFunction4043 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAverageFunction_in_ruleNumberFunction4070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSumFunction_in_ruleNumberFunction4097 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExponentialFunction_in_ruleNumberFunction4124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteFunction_in_ruleNumberFunction4151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNaturalLogarithmFunction_in_ruleNumberFunction4178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonLogarithmFunction_in_ruleNumberFunction4205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMaximumFunction_in_entryRuleMaximumFunction4240 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMaximumFunction4250 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMaxOperator_in_ruleMaximumFunction4296 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleMaximumFunction4308 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4329 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_21_in_ruleMaximumFunction4342 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction4363 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_32_in_ruleMaximumFunction4377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinimumFunction_in_entryRuleMinimumFunction4413 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMinimumFunction4423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinOperator_in_ruleMinimumFunction4469 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleMinimumFunction4481 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4502 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_21_in_ruleMinimumFunction4515 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction4536 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_32_in_ruleMinimumFunction4550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAverageFunction_in_entryRuleAverageFunction4586 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAverageFunction4596 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAvgOperator_in_ruleAverageFunction4642 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleAverageFunction4654 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction4675 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_21_in_ruleAverageFunction4688 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction4709 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_32_in_ruleAverageFunction4723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSumFunction_in_entryRuleSumFunction4759 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSumFunction4769 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSumOperator_in_ruleSumFunction4815 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleSumFunction4827 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction4848 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_21_in_ruleSumFunction4861 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction4882 = new BitSet(new long[]{0x0000000100200000L});
+    public static final BitSet FOLLOW_32_in_ruleSumFunction4896 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExponentialFunction_in_entryRuleExponentialFunction4932 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExponentialFunction4942 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExponentialOperator_in_ruleExponentialFunction4988 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleExponentialFunction5000 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5021 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_ruleExponentialFunction5033 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction5054 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleExponentialFunction5066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteFunction_in_entryRuleAbsoluteFunction5102 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteFunction5112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_ruleAbsoluteFunction5158 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleAbsoluteFunction5170 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAbsoluteFunction5191 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleAbsoluteFunction5203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNaturalLogarithmFunction_in_entryRuleNaturalLogarithmFunction5239 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmFunction5249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_ruleNaturalLogarithmFunction5295 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleNaturalLogarithmFunction5307 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleNaturalLogarithmFunction5328 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleNaturalLogarithmFunction5340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonLogarithmFunction_in_entryRuleCommonLogarithmFunction5376 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmFunction5386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_ruleCommonLogarithmFunction5432 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_31_in_ruleCommonLogarithmFunction5444 = new BitSet(new long[]{0xFF00000080000F10L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleCommonLogarithmFunction5465 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_ruleCommonLogarithmFunction5477 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_entryRuleValueSpecification5515 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleValueSpecification5525 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralValueExpression_in_ruleValueSpecification5572 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInstanceSpecificationExpression_in_ruleValueSpecification5599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleObjectSpecificationExpression_in_ruleValueSpecification5626 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleObjectSpecificationExpression_in_entryRuleObjectSpecificationExpression5661 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleObjectSpecificationExpression5671 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleObjectSpecificationExpression5719 = new BitSet(new long[]{0x0000000001020000L});
+    public static final BitSet FOLLOW_ruleCollection_in_ruleObjectSpecificationExpression5741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTuple_in_ruleObjectSpecificationExpression5768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCollection_in_entryRuleCollection5805 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCollection5815 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleCollection5852 = new BitSet(new long[]{0xFF00C00480000FF0L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection5873 = new BitSet(new long[]{0x0000000002200000L});
+    public static final BitSet FOLLOW_21_in_ruleCollection5886 = new BitSet(new long[]{0xFF00C00480000FF0L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection5907 = new BitSet(new long[]{0x0000000002200000L});
+    public static final BitSet FOLLOW_25_in_ruleCollection5921 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTuple_in_entryRuleTuple5957 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTuple5967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleTuple6004 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple6025 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_21_in_ruleTuple6038 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple6059 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_18_in_ruleTuple6073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair6109 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyValuePair6119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyValuePair6167 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_rulePropertyValuePair6179 = new BitSet(new long[]{0xFF00C00480000FF0L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_rulePropertyValuePair6200 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression6236 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression6246 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression6293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression6328 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralValueExpression6338 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression6385 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression6412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression6439 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression6466 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression6493 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral6528 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral6538 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral6579 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral6619 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLiteral6629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_ruleNumberLiteral6674 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral6709 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNullLiteral6719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NULL_in_ruleNullLiteral6760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral6800 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral6810 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral6851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral6891 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnlimitedLiteral6901 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleUnlimitedLiteral6943 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOrOperator_in_entryRuleOrOperator6991 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOrOperator7001 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleOrOperator7048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleOrOperator7066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator7103 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleXOrOperator7113 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleXOrOperator7160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleXOrOperator7178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAndOperator_in_entryRuleAndOperator7215 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAndOperator7225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleAndOperator7272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleAndOperator7290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator7327 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImplicationOperator7337 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleImplicationOperator7384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleImplicationOperator7402 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator7439 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEqualsOperator7449 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleEqualsOperator7495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator7531 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNotEqualsOperator7541 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleNotEqualsOperator7588 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleNotEqualsOperator7606 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotOperator_in_entryRuleNotOperator7643 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNotOperator7653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleNotOperator7700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleNotOperator7718 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator7755 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterThanOperator7765 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleGreaterThanOperator7811 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator7847 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator7857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleGreaterOrEqualThanOperator7903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator7939 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLessThanOperator7949 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleLessThanOperator7995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator8031 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator8041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleLessOrEqualThanOperator8087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator8123 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAdditionOperator8133 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleAdditionOperator8179 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator8215 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSubstractionOperator8225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleSubstractionOperator8271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator8307 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicationOperator8317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleMultiplicationOperator8363 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator8399 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDivisionOperator8409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleDivisionOperator8455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator8491 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModulusOperator8501 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleModulusOperator8547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator8583 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMaxOperator8593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleMaxOperator8639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinOperator_in_entryRuleMinOperator8675 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMinOperator8685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleMinOperator8731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator8767 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAvgOperator8777 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleAvgOperator8823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSumOperator_in_entryRuleSumOperator8859 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSumOperator8869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleSumOperator8915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator8951 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExponentialOperator8961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleExponentialOperator9007 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator9043 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteOperator9053 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleAbsoluteOperator9099 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator9135 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator9145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleNaturalLogarithmOperator9191 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator9227 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmOperator9237 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleCommonLogarithmOperator9283 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis9320 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis9331 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleLeftParenthesis9368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis9408 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis9419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleRightParenthesis9456 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName9496 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName9507 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName9547 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_64_in_ruleQualifiedName9575 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName9591 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
+    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard9639 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard9650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard9697 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleQualifiedNameWithWildcard9716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImportNamespace_in_entryRuleImportNamespace9762 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImportNamespace9772 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleImportNamespace9809 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_ruleImportNamespace9830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber9867 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumber9878 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleNumber9918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber9944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber9970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber9996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImpact_in_entryRuleImpact10042 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImpact10053 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleImpact10093 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_SMALL_DECIMAL_in_ruleImpact10119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleDirectionKind10180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleDirectionKind10197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleDirectionKind10214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_synpred1_InternalNSL9566 = new BitSet(new long[]{0x0000000000000002L});
 
 }

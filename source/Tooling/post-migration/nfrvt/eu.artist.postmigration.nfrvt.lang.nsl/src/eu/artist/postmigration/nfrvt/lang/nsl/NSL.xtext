@@ -1,3 +1,15 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Martin Fleck (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
 grammar eu.artist.postmigration.nfrvt.lang.nsl.NSL with eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon
 
 import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as artistCommon
@@ -20,9 +32,9 @@ Property:
 
 QualitativeProperty:
 	"qualitative" name=ID "{"
-		"description" description=STRING ("," 
-		"direction" direction = DirectionKind)? ("," 
-		"properties" "[" (properties+=[Property | QualifiedName])+ "]")? 
+		"description" description=STRING 
+		("," "direction" direction = DirectionKind)?
+		("," "properties" "[" (properties+=[Property | QualifiedName])+ "]")? 
 		("," "impacts" "[" impacts += PropertyImpact ("," impacts += PropertyImpact)*"]")?
 	"}"
 ;
@@ -33,19 +45,19 @@ QuantitativeProperty:
 
 BaseQuantitativeProperty:
 	"quantitative" name=ID "{"
-		"description" description=STRING ","
-		"type" type=[uml::DataType | QualifiedName] ","
-		"direction" direction = DirectionKind 
+		"description" description=STRING
+		"," "type" type=[uml::DataType | QualifiedName]
+		("," "direction" direction = DirectionKind)?
 		("," "impacts" "[" impacts += PropertyImpact ("," impacts += PropertyImpact)* "]" )?
 	"}"
 ;
 
 DerivedQuantitativeProperty:
 	"derived" name=ID "{"
-		"description" description=STRING ","
-		"type" type=[uml::DataType | QualifiedName] ","
-		"direction" direction = DirectionKind ","
-		"expression" expression = ArithmeticExpression
+		"description" description=STRING 
+		"," "type" type=[uml::DataType | QualifiedName]
+		"," "direction" direction = DirectionKind
+		"," "expression" expression = ArithmeticExpression
 		("," "impacts" "[" impacts += PropertyImpact ("," impacts += PropertyImpact)* "]" )?
 	"}"
 ;
@@ -67,7 +79,7 @@ QuantitativePropertyExpression returns artistCommon::NumberExpression:
 ;
 
 enum DirectionKind:
-	INCREASING = "increasing" | DECREASING = "decreasing"
+	INCREASING = "increasing" | DECREASING = "decreasing" | RANGE = "range"
 ;
 
 PropertyImpact:

@@ -15,16 +15,27 @@
 */
 package eu.artist.postmigration.nfrvt.lang.gml;
 
-import eu.artist.postmigration.nfrvt.lang.gml.GMLStandaloneSetupGenerated;
+import com.google.inject.Injector;
 
 /**
  * Initialization support for running Xtext languages 
  * without equinox extension registry
  */
-public class GMLStandaloneSetup extends GMLStandaloneSetupGenerated{
+public class GMLStandaloneSetup extends GMLStandaloneSetupGenerated {
 
+	private static Injector injector = null;
+	
+	/**
+	 * Initializes the GML support for standalone applications.
+	 */
 	public static void doSetup() {
-		new GMLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new GMLStandaloneSetup().createInjectorAndDoEMFRegistration();
+	}
+	
+	public static Injector getInjector() {
+		if(injector == null)
+			doSetup();
+		return injector;
 	}
 }
 

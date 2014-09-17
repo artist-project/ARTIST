@@ -29,6 +29,15 @@ import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 import com.google.common.base.Predicate;
 import com.google.inject.Inject;
 
+/**
+ * Scope provider that gives access to both the imported URIs and the elements
+ * on the classpath. URIs that should be imported without the need of explicit
+ * imports may be added to this class.
+ * <p/>
+ * The automatic import of URIs has been deactivated for now!!!
+ * @author Martin Fleck
+ *
+ */
 public abstract class ARTISTImportUriGlobalScopeProvider extends ImportUriGlobalScopeProvider implements IScopeProvider {
 
 	public static URI ECORE_PRIMITIVE_TYPES = URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI);
@@ -37,7 +46,10 @@ public abstract class ARTISTImportUriGlobalScopeProvider extends ImportUriGlobal
 	public static URI XML_PRIMITIVE_TYPES = URI.createURI(UMLResource.XML_PRIMITIVE_TYPES_LIBRARY_URI);
 	public static URI MARTE_LIBRARY = URI.createURI("pathmap://Papyrus_LIBRARIES/MARTE_Library.library.uml");
 		
+	@Inject
+	private ParentalDefaultScopeProvider projectImportGlobalScopeProvider;
 	private List<URI> additionalUris = new ArrayList<URI>();
+	
 	
 	public void addAdditionalUri(String uri) {
 		additionalUris.add(URI.createURI(uri));
@@ -51,13 +63,11 @@ public abstract class ARTISTImportUriGlobalScopeProvider extends ImportUriGlobal
 		return this.additionalUris;
 	}
 	
-	@Inject
-	private ParentalDefaultScopeProvider projectImportGlobalScopeProvider;
-	
 	@Override
 	protected LinkedHashSet<URI> getImportedUris(Resource resource) {
 		LinkedHashSet<URI> importedUris = super.getImportedUris(resource);
-//		importedUris.addAll(getAdditionalUris());
+		// for now: deactivate automatically imported URIs
+		// importedUris.addAll(getAdditionalUris()); - 
 		return importedUris;
 	}
 	

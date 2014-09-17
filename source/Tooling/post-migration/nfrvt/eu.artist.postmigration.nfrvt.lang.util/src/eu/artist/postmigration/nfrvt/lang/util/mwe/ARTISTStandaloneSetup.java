@@ -17,6 +17,19 @@ import java.util.Collection;
 import org.eclipse.emf.mwe.utils.Mapping;
 import org.eclipse.emf.mwe.utils.StandaloneSetup;
 
+/**
+ * A convenience class to declare the standalone setup in model workflow files 
+ * (mwe). It provides methods to specify the usage of common packages and 
+ * libraries, e.g., Ecore, UML or MARTE, as well as of the ARTIST migration 
+ * languages, e.g., the goal modeling language GML.
+ * <p/>
+ * As single point of configuration, the class 
+ * {@link ARTISTStandaloneUsageDependencies} is used.
+ * 
+ * @author Martin Fleck
+ * @see ARTISTStandaloneUsageDependencies
+ *
+ */
 public class ARTISTStandaloneSetup extends StandaloneSetup {
 	
 	private ARTISTStandaloneUsageDependencies usageDependencies = new ARTISTStandaloneUsageDependencies();
@@ -29,26 +42,32 @@ public class ARTISTStandaloneSetup extends StandaloneSetup {
 		return usageDependencies;
 	}
 	
+	/**
+	 * Sets the usage dependency configuration for this standalone setup.
+	 * 
+	 * @param usageDependencies
+	 */
 	public void setUsageDependencies(ARTISTStandaloneUsageDependencies usageDependencies) {
 		this.usageDependencies = usageDependencies;
 		if(usageDependencies != null) {
+			// order of the following calls is important.
 			addUriMaps(usageDependencies.getMappings());
 			addRegisterGeneratedEPackages(usageDependencies.getGeneratedEPackages());
 			addRegisterGenModelFiles(usageDependencies.getGenModelFiles());
 		}
 	}
 	
-	public void addUriMaps(Collection<Mapping> maps) {
+	protected void addUriMaps(Collection<Mapping> maps) {
 		for(Mapping m : maps)
 			addUriMap(m);
 	}
 	
-	public void addRegisterGeneratedEPackages(Collection<String> generatedEPackages) {
+	protected void addRegisterGeneratedEPackages(Collection<String> generatedEPackages) {
 		for(String p : generatedEPackages)
 			addRegisterGeneratedEPackage(p);
 	}
 	
-	public void addRegisterGenModelFiles(Collection<String> genModelFiles) {
+	protected void addRegisterGenModelFiles(Collection<String> genModelFiles) {
 		for(String g : genModelFiles)
 			addRegisterGenModelFile(g);
 	}

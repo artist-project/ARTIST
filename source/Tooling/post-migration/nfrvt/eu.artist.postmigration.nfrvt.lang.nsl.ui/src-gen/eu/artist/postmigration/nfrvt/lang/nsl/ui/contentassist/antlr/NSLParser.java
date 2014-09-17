@@ -80,8 +80,9 @@ public class NSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualitativePropertyAccess().getGroup_7(), "rule__QualitativeProperty__Group_7__0");
 					put(grammarAccess.getQualitativePropertyAccess().getGroup_7_4(), "rule__QualitativeProperty__Group_7_4__0");
 					put(grammarAccess.getBaseQuantitativePropertyAccess().getGroup(), "rule__BaseQuantitativeProperty__Group__0");
-					put(grammarAccess.getBaseQuantitativePropertyAccess().getGroup_11(), "rule__BaseQuantitativeProperty__Group_11__0");
-					put(grammarAccess.getBaseQuantitativePropertyAccess().getGroup_11_4(), "rule__BaseQuantitativeProperty__Group_11_4__0");
+					put(grammarAccess.getBaseQuantitativePropertyAccess().getGroup_8(), "rule__BaseQuantitativeProperty__Group_8__0");
+					put(grammarAccess.getBaseQuantitativePropertyAccess().getGroup_9(), "rule__BaseQuantitativeProperty__Group_9__0");
+					put(grammarAccess.getBaseQuantitativePropertyAccess().getGroup_9_4(), "rule__BaseQuantitativeProperty__Group_9_4__0");
 					put(grammarAccess.getDerivedQuantitativePropertyAccess().getGroup(), "rule__DerivedQuantitativeProperty__Group__0");
 					put(grammarAccess.getDerivedQuantitativePropertyAccess().getGroup_14(), "rule__DerivedQuantitativeProperty__Group_14__0");
 					put(grammarAccess.getDerivedQuantitativePropertyAccess().getGroup_14_4(), "rule__DerivedQuantitativeProperty__Group_14_4__0");
@@ -168,9 +169,9 @@ public class NSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBaseQuantitativePropertyAccess().getNameAssignment_1(), "rule__BaseQuantitativeProperty__NameAssignment_1");
 					put(grammarAccess.getBaseQuantitativePropertyAccess().getDescriptionAssignment_4(), "rule__BaseQuantitativeProperty__DescriptionAssignment_4");
 					put(grammarAccess.getBaseQuantitativePropertyAccess().getTypeAssignment_7(), "rule__BaseQuantitativeProperty__TypeAssignment_7");
-					put(grammarAccess.getBaseQuantitativePropertyAccess().getDirectionAssignment_10(), "rule__BaseQuantitativeProperty__DirectionAssignment_10");
-					put(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsAssignment_11_3(), "rule__BaseQuantitativeProperty__ImpactsAssignment_11_3");
-					put(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsAssignment_11_4_1(), "rule__BaseQuantitativeProperty__ImpactsAssignment_11_4_1");
+					put(grammarAccess.getBaseQuantitativePropertyAccess().getDirectionAssignment_8_2(), "rule__BaseQuantitativeProperty__DirectionAssignment_8_2");
+					put(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsAssignment_9_3(), "rule__BaseQuantitativeProperty__ImpactsAssignment_9_3");
+					put(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsAssignment_9_4_1(), "rule__BaseQuantitativeProperty__ImpactsAssignment_9_4_1");
 					put(grammarAccess.getDerivedQuantitativePropertyAccess().getNameAssignment_1(), "rule__DerivedQuantitativeProperty__NameAssignment_1");
 					put(grammarAccess.getDerivedQuantitativePropertyAccess().getDescriptionAssignment_4(), "rule__DerivedQuantitativeProperty__DescriptionAssignment_4");
 					put(grammarAccess.getDerivedQuantitativePropertyAccess().getTypeAssignment_7(), "rule__DerivedQuantitativeProperty__TypeAssignment_7");

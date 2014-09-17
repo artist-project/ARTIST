@@ -14,13 +14,28 @@ package eu.artist.postmigration.nfrvt.eval.util;
 
 import java.util.Comparator;
 
+import org.eclipse.emf.ecore.EObject;
+
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 
+/**
+ * Utility class as main access point for creating comparators of the 
+ * generated {@link EObject}s.
+ * 
+ * @author Martin Fleck
+ * @see Comparator
+ */
 public class ComparatorUtil {
 
 	private static ComparatorUtil INSTANCE = new ComparatorUtil();
 	
+	/**
+	 * Compares two {@link Transformation}s based on their names.
+	 * 
+	 * @author Martin Fleck
+	 * @see Transformation
+	 */
 	public class TransformationComparator implements Comparator<Transformation> {
 		@Override
 		public int compare(Transformation first, Transformation second) {
@@ -28,6 +43,13 @@ public class ComparatorUtil {
 		}
 	}
 	
+	/**
+	 * Compares two {@link AppliedPropertyEvaluation}s based on their property
+	 * names.
+	 * 
+	 * @author Martin Fleck
+	 * @see AppliedPropertyEvaluation
+	 */
 	public class AppliedPropertyEvaluationComparator implements Comparator<AppliedPropertyEvaluation> {
 		@Override
 		public int compare(AppliedPropertyEvaluation first, AppliedPropertyEvaluation second) {
@@ -35,10 +57,18 @@ public class ComparatorUtil {
 		}
 	}
 	
+	/**
+	 * Returns a new {@link TransformationComparator} instance.
+	 * @return new {@link TransformationComparator} instance
+	 */
 	public static TransformationComparator createTransformationComparator() {
 		return INSTANCE.new TransformationComparator();
 	}
 	
+	/**
+	 * Returns a new {@link AppliedPropertyEvaluationComparator} instance.
+	 * @return new {@link AppliedPropertyEvaluationComparator} instance
+	 */
 	public static AppliedPropertyEvaluationComparator createAppliedPropertyEvaluationComparator() {
 		return INSTANCE.new AppliedPropertyEvaluationComparator();
 	}

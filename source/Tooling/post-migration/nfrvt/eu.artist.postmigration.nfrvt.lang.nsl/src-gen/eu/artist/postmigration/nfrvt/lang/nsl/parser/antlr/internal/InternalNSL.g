@@ -502,18 +502,18 @@ ruleBaseQuantitativeProperty returns [EObject current=null]
 	    }
 
 )
-)	otherlv_8=',' 
+)(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_8_0());
     }
 	otherlv_9='direction' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getBaseQuantitativePropertyAccess().getDirectionKeyword_9());
+    	newLeafNode(otherlv_9, grammarAccess.getBaseQuantitativePropertyAccess().getDirectionKeyword_8_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getDirectionDirectionKindEnumRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getDirectionDirectionKindEnumRuleCall_8_2_0()); 
 	    }
 		lv_direction_10_0=ruleDirectionKind		{
 	        if ($current==null) {
@@ -528,22 +528,22 @@ ruleBaseQuantitativeProperty returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_11=',' 
+))?(	otherlv_11=',' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_11_0());
+    	newLeafNode(otherlv_11, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_9_0());
     }
 	otherlv_12='impacts' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getBaseQuantitativePropertyAccess().getImpactsKeyword_11_1());
+    	newLeafNode(otherlv_12, grammarAccess.getBaseQuantitativePropertyAccess().getImpactsKeyword_9_1());
     }
 	otherlv_13='[' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getBaseQuantitativePropertyAccess().getLeftSquareBracketKeyword_11_2());
+    	newLeafNode(otherlv_13, grammarAccess.getBaseQuantitativePropertyAccess().getLeftSquareBracketKeyword_9_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_11_3_0()); 
+	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_9_3_0()); 
 	    }
 		lv_impacts_14_0=rulePropertyImpact		{
 	        if ($current==null) {
@@ -560,12 +560,12 @@ ruleBaseQuantitativeProperty returns [EObject current=null]
 )
 )(	otherlv_15=',' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_11_4_0());
+    	newLeafNode(otherlv_15, grammarAccess.getBaseQuantitativePropertyAccess().getCommaKeyword_9_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_11_4_1_0()); 
+	        newCompositeNode(grammarAccess.getBaseQuantitativePropertyAccess().getImpactsPropertyImpactParserRuleCall_9_4_1_0()); 
 	    }
 		lv_impacts_16_0=rulePropertyImpact		{
 	        if ($current==null) {
@@ -582,11 +582,11 @@ ruleBaseQuantitativeProperty returns [EObject current=null]
 )
 ))*	otherlv_17=']' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getBaseQuantitativePropertyAccess().getRightSquareBracketKeyword_11_5());
+    	newLeafNode(otherlv_17, grammarAccess.getBaseQuantitativePropertyAccess().getRightSquareBracketKeyword_9_5());
     }
 )?	otherlv_18='}' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getBaseQuantitativePropertyAccess().getRightCurlyBracketKeyword_12());
+    	newLeafNode(otherlv_18, grammarAccess.getBaseQuantitativePropertyAccess().getRightCurlyBracketKeyword_10());
     }
 )
 ;
@@ -4288,6 +4288,12 @@ ruleDirectionKind returns [Enumerator current=null]
 	{
         $current = grammarAccess.getDirectionKindAccess().getDECREASINGEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_1, grammarAccess.getDirectionKindAccess().getDECREASINGEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='range' 
+	{
+        $current = grammarAccess.getDirectionKindAccess().getRANGEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getDirectionKindAccess().getRANGEEnumLiteralDeclaration_2()); 
     }
 ));
 

@@ -15,6 +15,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.nsl;
 
+import com.google.inject.Injector;
+
 import eu.artist.postmigration.nfrvt.lang.nsl.NSLStandaloneSetupGenerated;
 
 /**
@@ -22,9 +24,18 @@ import eu.artist.postmigration.nfrvt.lang.nsl.NSLStandaloneSetupGenerated;
  * without equinox extension registry
  */
 public class NSLStandaloneSetup extends NSLStandaloneSetupGenerated{
-
+	
+	private static Injector injector = null;
+	
+	/**
+	 * Initializes the NSL support for standalone applications.
+	 */
 	public static void doSetup() {
-		new NSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new NSLStandaloneSetup().createInjectorAndDoEMFRegistration();
+	}
+	
+	public static Injector getInjector() {
+		return injector;
 	}
 }
 

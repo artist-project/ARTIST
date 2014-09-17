@@ -480,17 +480,17 @@ ruleAppliedQualitativeProperty returns [EObject current=null]
 	    }
 
 )
-)	otherlv_5=',' 
+)(	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getAppliedQualitativePropertyAccess().getCommaKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getAppliedQualitativePropertyAccess().getCommaKeyword_5_0());
     }
 	otherlv_6='context' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getAppliedQualitativePropertyAccess().getContextKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getAppliedQualitativePropertyAccess().getContextKeyword_5_1());
     }
 	otherlv_7='[' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getAppliedQualitativePropertyAccess().getLeftSquareBracketKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getAppliedQualitativePropertyAccess().getLeftSquareBracketKeyword_5_2());
     }
 ((
 (
@@ -500,7 +500,7 @@ ruleAppliedQualitativeProperty returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getAppliedQualitativePropertyAccess().getContextNamedElementCrossReference_8_0_0()); 
+	        newCompositeNode(grammarAccess.getAppliedQualitativePropertyAccess().getContextNamedElementCrossReference_5_3_0_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -509,7 +509,7 @@ ruleAppliedQualitativeProperty returns [EObject current=null]
 )
 )(	otherlv_9=',' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getAppliedQualitativePropertyAccess().getCommaKeyword_8_1_0());
+    	newLeafNode(otherlv_9, grammarAccess.getAppliedQualitativePropertyAccess().getCommaKeyword_5_3_1_0());
     }
 (
 (
@@ -519,7 +519,7 @@ ruleAppliedQualitativeProperty returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getAppliedQualitativePropertyAccess().getContextNamedElementCrossReference_8_1_1_0()); 
+	        newCompositeNode(grammarAccess.getAppliedQualitativePropertyAccess().getContextNamedElementCrossReference_5_3_1_1_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -528,11 +528,11 @@ ruleAppliedQualitativeProperty returns [EObject current=null]
 )
 ))*)?	otherlv_11=']' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getAppliedQualitativePropertyAccess().getRightSquareBracketKeyword_9());
+    	newLeafNode(otherlv_11, grammarAccess.getAppliedQualitativePropertyAccess().getRightSquareBracketKeyword_5_4());
     }
-	otherlv_12='}' 
+)?	otherlv_12='}' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getAppliedQualitativePropertyAccess().getRightCurlyBracketKeyword_10());
+    	newLeafNode(otherlv_12, grammarAccess.getAppliedQualitativePropertyAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;
@@ -600,19 +600,19 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	    }
 
 )
-)	otherlv_5=',' 
+)(	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_5_0());
     }
-(	otherlv_6='function' 
+	otherlv_6='function' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionKeyword_6_0());
+    	newLeafNode(otherlv_6, grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionKeyword_5_1());
     }
 (
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionMinOperatorParserRuleCall_6_1_0_0()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionMinOperatorParserRuleCall_5_2_0_0()); 
 	    }
 		lv_function_7_1=ruleMinOperator		{
 	        if ($current==null) {
@@ -627,7 +627,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	    }
 
     |		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionMaxOperatorParserRuleCall_6_1_0_1()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionMaxOperatorParserRuleCall_5_2_0_1()); 
 	    }
 		lv_function_7_2=ruleMaxOperator		{
 	        if ($current==null) {
@@ -642,7 +642,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	    }
 
     |		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionAvgOperatorParserRuleCall_6_1_0_2()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionAvgOperatorParserRuleCall_5_2_0_2()); 
 	    }
 		lv_function_7_3=ruleAvgOperator		{
 	        if ($current==null) {
@@ -657,7 +657,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	    }
 
     |		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionSumOperatorParserRuleCall_6_1_0_3()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getFunctionSumOperatorParserRuleCall_5_2_0_3()); 
 	    }
 		lv_function_7_4=ruleSumOperator		{
 	        if ($current==null) {
@@ -674,19 +674,19 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 )
 
 )
-)	otherlv_8=',' 
+))?(	otherlv_8=',' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_6_2());
+    	newLeafNode(otherlv_8, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_6_0());
     }
-)?	otherlv_9='context' 
+	otherlv_9='context' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getAppliedQuantitativePropertyAccess().getContextKeyword_7());
+    	newLeafNode(otherlv_9, grammarAccess.getAppliedQuantitativePropertyAccess().getContextKeyword_6_1());
     }
 	otherlv_10='[' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getAppliedQuantitativePropertyAccess().getLeftSquareBracketKeyword_8());
+    	newLeafNode(otherlv_10, grammarAccess.getAppliedQuantitativePropertyAccess().getLeftSquareBracketKeyword_6_2());
     }
-(
+((
 (
 		{
 			if ($current==null) {
@@ -694,7 +694,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getContextNamedElementCrossReference_9_0()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getContextNamedElementCrossReference_6_3_0_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -703,7 +703,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 )
 )(	otherlv_12=',' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_10_0());
+    	newLeafNode(otherlv_12, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_6_3_1_0());
     }
 (
 (
@@ -713,24 +713,24 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getContextNamedElementCrossReference_10_1_0()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getContextNamedElementCrossReference_6_3_1_1_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_14=']' 
+))*)?	otherlv_14=']' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getAppliedQuantitativePropertyAccess().getRightSquareBracketKeyword_11());
+    	newLeafNode(otherlv_14, grammarAccess.getAppliedQuantitativePropertyAccess().getRightSquareBracketKeyword_6_4());
     }
-(	otherlv_15=',' 
+)?(	otherlv_15=',' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_12_0());
+    	newLeafNode(otherlv_15, grammarAccess.getAppliedQuantitativePropertyAccess().getCommaKeyword_7_0());
     }
 	otherlv_16='workload' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getAppliedQuantitativePropertyAccess().getWorkloadKeyword_12_1());
+    	newLeafNode(otherlv_16, grammarAccess.getAppliedQuantitativePropertyAccess().getWorkloadKeyword_7_1());
     }
 (
 (
@@ -740,7 +740,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getWorkloadWorkloadCrossReference_12_2_0()); 
+	        newCompositeNode(grammarAccess.getAppliedQuantitativePropertyAccess().getWorkloadWorkloadCrossReference_7_2_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
@@ -749,7 +749,7 @@ ruleAppliedQuantitativeProperty returns [EObject current=null]
 )
 ))?	otherlv_18='}' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getAppliedQuantitativePropertyAccess().getRightCurlyBracketKeyword_13());
+    	newLeafNode(otherlv_18, grammarAccess.getAppliedQuantitativePropertyAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;
@@ -904,6 +904,10 @@ ruleSoftGoal returns [EObject current=null]
     {
     	newLeafNode(otherlv_9, grammarAccess.getSoftGoalAccess().getPropertyKeyword_9());
     }
+	otherlv_10='$' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getSoftGoalAccess().getDollarSignKeyword_10());
+    }
 (
 (
 		{
@@ -912,98 +916,98 @@ ruleSoftGoal returns [EObject current=null]
 	        }
         }
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getPropertyAppliedQualitativePropertyCrossReference_10_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getPropertyAppliedQualitativePropertyCrossReference_11_0()); 
 	    }
 		ruleQualifiedName		{ 
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_11=',' 
+)	otherlv_12=',' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getSoftGoalAccess().getCommaKeyword_11());
+    	newLeafNode(otherlv_12, grammarAccess.getSoftGoalAccess().getCommaKeyword_12());
     }
-	otherlv_12='threshold' 
+	otherlv_13='threshold' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getSoftGoalAccess().getThresholdKeyword_12());
+    	newLeafNode(otherlv_13, grammarAccess.getSoftGoalAccess().getThresholdKeyword_13());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getThresholdImpactParserRuleCall_13_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getThresholdImpactParserRuleCall_14_0()); 
 	    }
-		lv_threshold_13_0=ruleImpact		{
+		lv_threshold_14_0=ruleImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSoftGoalRule());
 	        }
        		set(
        			$current, 
        			"threshold",
-        		lv_threshold_13_0, 
+        		lv_threshold_14_0, 
         		"Impact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_14=',' 
+)(	otherlv_15=',' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getSoftGoalAccess().getCommaKeyword_14_0());
+    	newLeafNode(otherlv_15, grammarAccess.getSoftGoalAccess().getCommaKeyword_15_0());
     }
-	otherlv_15='impacts' 
+	otherlv_16='impacts' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getSoftGoalAccess().getImpactsKeyword_14_1());
+    	newLeafNode(otherlv_16, grammarAccess.getSoftGoalAccess().getImpactsKeyword_15_1());
     }
-	otherlv_16='[' 
+	otherlv_17='[' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getSoftGoalAccess().getLeftSquareBracketKeyword_14_2());
+    	newLeafNode(otherlv_17, grammarAccess.getSoftGoalAccess().getLeftSquareBracketKeyword_15_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_14_3_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_15_3_0()); 
 	    }
-		lv_impacts_17_0=ruleSoftGoalImpact		{
+		lv_impacts_18_0=ruleSoftGoalImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSoftGoalRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_17_0, 
+        		lv_impacts_18_0, 
         		"SoftGoalImpact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_18=',' 
+)(	otherlv_19=',' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getSoftGoalAccess().getCommaKeyword_14_4_0());
+    	newLeafNode(otherlv_19, grammarAccess.getSoftGoalAccess().getCommaKeyword_15_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_14_4_1_0()); 
+	        newCompositeNode(grammarAccess.getSoftGoalAccess().getImpactsSoftGoalImpactParserRuleCall_15_4_1_0()); 
 	    }
-		lv_impacts_19_0=ruleSoftGoalImpact		{
+		lv_impacts_20_0=ruleSoftGoalImpact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSoftGoalRule());
 	        }
        		add(
        			$current, 
        			"impacts",
-        		lv_impacts_19_0, 
+        		lv_impacts_20_0, 
         		"SoftGoalImpact");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_20=']' 
+))*	otherlv_21=']' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getSoftGoalAccess().getRightSquareBracketKeyword_14_5());
+    	newLeafNode(otherlv_21, grammarAccess.getSoftGoalAccess().getRightSquareBracketKeyword_15_5());
     }
-)?	otherlv_21='}' 
+)?	otherlv_22='}' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getSoftGoalAccess().getRightCurlyBracketKeyword_15());
+    	newLeafNode(otherlv_22, grammarAccess.getSoftGoalAccess().getRightCurlyBracketKeyword_16());
     }
 )
 ;

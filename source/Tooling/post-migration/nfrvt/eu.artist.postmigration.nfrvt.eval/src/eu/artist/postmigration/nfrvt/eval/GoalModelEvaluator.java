@@ -29,6 +29,7 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.common.eval.logic.BooleanLogic;
+import eu.artist.postmigration.nfrvt.lang.common.eval.logic.NumericLogic;
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.BooleanExpressionEvaluation;
@@ -42,6 +43,15 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Verdict;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.DirectionKind;
 
+/**
+ * An evaluator for goal models. Goal models are evaluated by evaluating all
+ * goals within the goal model and checking whether all top-level goals are
+ * fulfilled. Top level goals are goals that are not used in the condition
+ * of a composite goal.
+ * 
+ * @author Martin Fleck
+ *
+ */
 public class GoalModelEvaluator {
 	
 	private static GELTextRenderer renderer = new GELTextRenderer();
@@ -50,54 +60,150 @@ public class GoalModelEvaluator {
 	private EvaluationSettings settings = new EvaluationSettings();
 	private List<Goal> topLevelGoals = new ArrayList<>();
 	private Map<Goal, GoalEvaluation> goalEvaluations = new HashMap<>();
+	private GoalExpressionEvaluator goalExpressionEvaluator = new GoalExpressionEvaluator(this, getSettings());
+	private HardGoalConditionEvaluator hardGoalConditionEvaluator = new HardGoalConditionEvaluator(this, getSettings());
 	
+	/**
+	 * An evaluator for goal models. Goal models are evaluated by evaluating all
+	 * goals within the goal model and checking whether all top-level goals are
+	 * fulfilled. Top level goals are goals that are not used in the condition
+	 * of a composite goal.
+	 *
+	 * @param appliedPropertyEvaluations available property evaluations
+	 * @param settings settings to be used for the evaluation
+	 */
 	public GoalModelEvaluator(Map<AppliedProperty, AppliedPropertyEvaluation> appliedPropertyEvaluations, EvaluationSettings settings) {
 		this.appliedPropertyEvaluations = appliedPropertyEvaluations;
 		this.settings = settings;
 	}
 	
+	/**
+	 * The settings specify how numeric evaluations should be handled, e.g., 
+	 * their precision and their rounding mode.
+	 * 
+	 * @param settings new settings
+	 */
 	public void setSettings(EvaluationSettings settings) {
 		this.settings = settings;
+		NumericLogic.setSettings(settings);
 	}
 	
+	/**
+	 * Returns the current settings used for the evaluation.
+	 * 
+	 * @return current settings
+	 */
 	public EvaluationSettings getSettings() {
 		return settings;
 	}
 	
+	/**
+	 * Returns a map of all goals that have been evaluated so far together
+	 * with their respective evaluation results.
+	 * 
+	 * @return map of all evaluated goals and their evaluation results
+	 */
 	public Map<Goal, GoalEvaluation> getGoalEvaluations() {
 		return goalEvaluations;
 	}
 	
+	/**
+	 * Returns the evaluator used in composite goals.
+	 * 
+	 * @return composite goals expression evaluator
+	 */
+	protected GoalExpressionEvaluator getGoalExpressionEvaluator() {
+		return goalExpressionEvaluator;
+	}
+	
+	/**
+	 * Returns the evaluator used for hard goal expressions.
+	 * 
+	 * @return hard goal expression evaluator
+	 */
+	protected HardGoalConditionEvaluator getHardGoalConditionEvaluator() {
+		return hardGoalConditionEvaluator;
+	}
+	
+	/**
+	 * Adds a new goal evaluation result to this evaluation. Any old evaluation
+	 * will be replaced.
+	 * 
+	 * @param goal goal that has been evaluated
+	 * @param evaluation evaluation result
+	 */
 	public void addGoalEvaluation(Goal goal, GoalEvaluation evaluation) {
 		this.goalEvaluations.put(goal, evaluation);
 	}
 	
+	/**
+	 * Returns the evaluation result for the given goal.
+	 * 
+	 * @param goal goal for which to retrieve the evaluation result
+	 * @return evaluation result or null if no evaluation result is available 
+	 * yet
+	 */
 	public GoalEvaluation getGoalEvaluation(Goal goal) {
 		return this.goalEvaluations.get(goal);
 	}
 	
-	public void setTopLevelGoals(List<Goal> topLevelGoals) {
+	/**
+	 * Sets the list of top level goals of the goal model that is evaluated.
+	 * 
+	 * @param topLevelGoals list of top level goals
+	 */
+	protected void setTopLevelGoals(List<Goal> topLevelGoals) {
 		this.topLevelGoals = new ArrayList<Goal>(topLevelGoals);
 	}
 	
-	public void removeTopLevelGoal(Goal goal) {
+	/**
+	 * Remove the given goal from the list of top level goals.
+	 * 
+	 * @param goal goal that is not top level
+	 */
+	protected void removeTopLevelGoal(Goal goal) {
 		topLevelGoals.remove(goal);
 	}
 	
+	/**
+	 * Returns all top level goals so far. Top level goals are goals that are 
+	 * not used in the condition of a composite goal.
+	 * 
+	 * @return top level goals
+	 */
 	public List<Goal> getTopLevelGoals() {
 		return topLevelGoals;
 	}
 	
+	/**
+	 * Returns a map of applied properties and their evaluations. This map may
+	 * be empty.
+	 * 
+	 * @return applied properties and their evaluation results
+	 */
 	public Map<AppliedProperty, AppliedPropertyEvaluation> getAppliedPropertyEvaluations() {
 		if(appliedPropertyEvaluations == null)
 			return Collections.emptyMap();
 		return appliedPropertyEvaluations;
 	}
 	
+	/**
+	 * Return the evaluation result for the given applied property.
+	 * 
+	 * @param property applied property
+	 * @return evaluation of property or null if no evaluation is available
+	 * so far
+	 */
 	public AppliedPropertyEvaluation getAppliedPropertyEvaluation(AppliedProperty property) {
 		return getAppliedPropertyEvaluations().get(property);
 	}
 	
+	/**
+	 * Evaluates the given goal model.
+	 * 
+	 * @param goalModel model to be evaluated
+	 * @return evaluation result
+	 */
 	public GoalModelEvaluation evaluate(GoalModel goalModel) {
 		GoalModelEvaluation goalModelEvaluation = GelFactory.eINSTANCE.createGoalModelEvaluation();
 		goalModelEvaluation.setGoalModel(goalModel);
@@ -132,7 +238,17 @@ public class GoalModelEvaluator {
 		return goalModelEvaluation;
 	}
 
-	public GoalEvaluation evaluate(Goal goal) {
+	/**
+	 * Evaluates the given goal by delegating to the more specific method.
+	 * 
+	 * @param goal goal to be evaluated
+	 * @return evaluation result
+	 * 
+	 * @see #evaluate(SoftGoal)
+	 * @see #evaluate(HardGoal)
+	 * @see #evaluate(CompositeGoal)
+	 */
+	protected GoalEvaluation evaluate(Goal goal) {
 		GoalEvaluation evaluation = getGoalEvaluation(goal);
 		if(evaluation != null)
 			return evaluation;
@@ -149,7 +265,15 @@ public class GoalModelEvaluator {
 		return evaluation;
 	}
 	
-	public SoftGoalEvaluation evaluate(SoftGoal goal) {
+	/**
+	 * Evaluates the given soft goal. Soft goals are evaluated using impact
+	 * analysis, i.e., the impacts that are produced by applying different
+	 * patterns (transformations).
+	 * 
+	 * @param goal goal to be evaluated
+	 * @return evaluation result
+	 */
+	protected SoftGoalEvaluation evaluate(SoftGoal goal) {
 		SoftGoalEvaluation evaluation = GelFactory.eINSTANCE.createSoftGoalEvaluation();
 		evaluation.setGoal(goal);
 		evaluation.setName(goal.getName() + getSettings().getSuffix());
@@ -172,18 +296,21 @@ public class GoalModelEvaluator {
 				renderer.doRender(goal.getProperty()) + " = " + renderer.doRender(impact) + 
 					", Threshold is " + renderer.doRender(goal.getThreshold()) + 
 					", Direction is " + direction.getLiteral());
-		Boolean success = (direction == DirectionKind.DECREASING && impact.compareTo(goal.getThreshold()) <= 0) ||
-		                  (direction == DirectionKind.INCREASING && impact.compareTo(goal.getThreshold()) >= 0);
+		Boolean success = 
+				(direction == DirectionKind.RANGE && impact.compareTo(goal.getThreshold()) == 0) ||
+				(direction == DirectionKind.DECREASING && impact.compareTo(goal.getThreshold()) <= 0) ||
+		        (direction == DirectionKind.INCREASING && impact.compareTo(goal.getThreshold()) >= 0);
 		evaluation.setVerdict(VerdictConverter.toVerdict(success));
 		return evaluation;
 	}
 	
-	private GoalExpressionEvaluator goalExpressionEvaluator = new GoalExpressionEvaluator(this, getSettings());
-	
-	public GoalExpressionEvaluator getGoalExpressionEvaluator() {
-		return goalExpressionEvaluator;
-	}
-	
+	/**
+	 * Evaluates the given composite goal. Composite goals are evaluated by 
+	 * evaluating the boolean condition referring to other goals.
+	 * 
+	 * @param goal goal to be evaluated
+	 * @return evaluation result
+	 */
 	public CompositeGoalEvaluation evaluate(CompositeGoal goal) {
 		CompositeGoalEvaluation evaluation = GelFactory.eINSTANCE.createCompositeGoalEvaluation();
 		evaluation.setGoal(goal);
@@ -200,12 +327,14 @@ public class GoalModelEvaluator {
 		return evaluation;
 	}
 	
-	private HardGoalConditionEvaluator hardGoalConditionEvaluator = new HardGoalConditionEvaluator(this, getSettings());
-	
-	public HardGoalConditionEvaluator getHardGoalConditionEvaluator() {
-		return hardGoalConditionEvaluator;
-	}
-	
+	/**
+	 * Evaluates the given hard goal. Hard goals are evaluated by 
+	 * evaluating the boolean condition referring to applied quantitative
+	 * goals.
+	 * 
+	 * @param goal goal to be evaluated
+	 * @return evaluation result
+	 */
 	public HardGoalEvaluation evaluate(HardGoal goal) {
 		HardGoalEvaluation evaluation = GelFactory.eINSTANCE.createHardGoalEvaluation();
 		evaluation.setGoal(goal);

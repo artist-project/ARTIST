@@ -14,6 +14,10 @@ package eu.artist.postmigration.nfrvt.lang.common;
 
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 
+/**
+ * Computes the fully qualified name of an EObject.
+ * @author Martin Fleck
+ */
 public class ARTISTQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
 
 //	 QualifiedName qualifiedName(ObjectSpecificationExpression e) {

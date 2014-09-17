@@ -36,18 +36,29 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.QuantitativeProperty;
 
+/**
+ * A random evaluation strategy producing random evaluation results. This
+ * strategy is meant to be used for testing purposed only.
+ * 
+ * @author Martin Fleck
+ *
+ */
 public class RandomRealizationStrategy {
+	
+	protected static String ALPHABET_ALPHA        = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	protected static String ALPHABET_NUMERIC      = "1234567890";
+	protected static String ALPHABET_ALPHANUMERIC = ALPHABET_ALPHA + ALPHABET_NUMERIC;
+
 	private static Random random = new Random();
-	
-	public static String ALPHABET_ALPHA        = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	public static String ALPHABET_NUMERIC      = "1234567890";
-	public static String ALPHABET_ALPHANUMERIC = ALPHABET_ALPHA + ALPHABET_NUMERIC;
-	
-	public static QuantitativePropertyRealization createRandomRealization(AppliedQuantitativeProperty p) {
+
+	@Inject
+	static IContainer.Manager manager;
+
+	protected static QuantitativePropertyRealization createRandomRealization(AppliedQuantitativeProperty p) {
 		return createRandomRealization(p, 1, 2);
 	}
 	
-	public static QuantitativePropertyRealization createRandomRealization(AppliedQuantitativeProperty p, int min, int max) {
+	protected static QuantitativePropertyRealization createRandomRealization(AppliedQuantitativeProperty p, int min, int max) {
 		// if(random.nextBoolean())
 		//	return null;
 
@@ -71,15 +82,15 @@ public class RandomRealizationStrategy {
 		return realization;
 	}
 	
-	public static boolean canHandle(QuantitativeProperty property) {
+	protected static boolean canHandle(QuantitativeProperty property) {
 		return canHandle(property.getType());
 	}
 	
-	public static boolean canHandle(DataType type) {
+	protected static boolean canHandle(DataType type) {
 		return (type instanceof Enumeration || type instanceof PrimitiveType);
 	}
 	
-	public static ValueSpecification createRandomValue(DataType type) {
+	protected static ValueSpecification createRandomValue(DataType type) {
 		if(type instanceof Enumeration)
 			return createRandomValue((Enumeration)type);
 		if(type instanceof PrimitiveType)
@@ -89,11 +100,11 @@ public class RandomRealizationStrategy {
 		return ValueUtil.createNumberLiteral(new BigDecimal(random.nextDouble()));
 	}
 	
-	public static String createRandomString(int length) {
+	protected static String createRandomString(int length) {
 		return createRandomString(ALPHABET_ALPHANUMERIC, length);
 	}
 	
-	public static String createRandomString(String alphabet, int length) {
+	protected static String createRandomString(String alphabet, int length) {
 		StringBuffer buffer = new StringBuffer();
 		int charactersLength = alphabet.length();
 
@@ -104,7 +115,7 @@ public class RandomRealizationStrategy {
 		return buffer.toString();
 	}
 	
-	public static ValueSpecification createRandomValue(Enumeration type) {
+	protected static ValueSpecification createRandomValue(Enumeration type) {
 //		if(type.eIsProxy()) {
 //			InternalEObject obj = (InternalEObject) type;
 //			URI proxyURI = obj.eProxyURI();
@@ -122,11 +133,8 @@ public class RandomRealizationStrategy {
 			return null;
 		return ValueUtil.createInstanceSpecificationExpression(type.getOwnedLiterals().get(random.nextInt(type.getOwnedLiterals().size())));
 	}
-	
-	@Inject
-	static IContainer.Manager manager;
-	
-	public static void listVisibleResources(Resource myResource, IResourceDescriptions index) {
+		
+	protected static void listVisibleResources(Resource myResource, IResourceDescriptions index) {
 		IResourceDescription descr = index.getResourceDescription(myResource.getURI());
 		for(IContainer visibleContainer : manager.getVisibleContainers(descr, index)) {
 			for(IResourceDescription visibleResourceDescription : visibleContainer.getResourceDescriptions()) {
@@ -137,7 +145,7 @@ public class RandomRealizationStrategy {
 		}
 	}
 	
-	public static ValueSpecification createRandomValue(PrimitiveType type) {
+	protected static ValueSpecification createRandomValue(PrimitiveType type) {
 		if(UMLUtil.isBoolean(type))
 			return ValueUtil.createBooleanLiteral(random.nextBoolean());
 		if(UMLUtil.isInteger(type))

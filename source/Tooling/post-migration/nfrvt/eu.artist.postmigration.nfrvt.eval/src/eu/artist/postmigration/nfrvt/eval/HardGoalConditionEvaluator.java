@@ -20,23 +20,54 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression;
 
-public class HardGoalConditionEvaluator extends ExpressionEvaluator {
+/**
+ * An evaluator for hard goal conditions that uses the evaluation 
+ * results from the evaluation strategies.
+ * 
+ * @author Martin Fleck
+ *
+ */
+class HardGoalConditionEvaluator extends ExpressionEvaluator {
 
 	private GoalModelEvaluator goalModelEvaluator;
 	
+	/**
+	 * Evaluator for hard goal conditions.
+	 * 
+	 * @param goalModelEvaluator evaluator containing applied property evaluations
+	 * @param settings settings to be considered during evaluation
+	 */
 	public HardGoalConditionEvaluator(GoalModelEvaluator goalModelEvaluator, EvaluationSettings settings) {
 		super(settings);
 		this.setGoalModelEvaluator(goalModelEvaluator);
 	}
 
+	/**
+	 * Returns the goal model evaluator used.
+	 * 
+	 * @return used goal model evaluator
+	 */
 	public GoalModelEvaluator getGoalModelEvaluator() {
 		return goalModelEvaluator;
 	}
 
-	public void setGoalModelEvaluator(GoalModelEvaluator goalModelEvaluator) {
+	/**
+	 * Sets the goal model evaluator, for which the top level goals should be
+	 * set.
+	 * 
+	 * @param goalModelEvaluator goal model evaluator
+	 */
+	protected void setGoalModelEvaluator(GoalModelEvaluator goalModelEvaluator) {
 		this.goalModelEvaluator = goalModelEvaluator;
 	}
 	
+	/**
+	 * Evaluates the given applied property expression by checking the value
+	 * for the property in the goal model evaluator.
+	 * 
+	 * @param reference reference to be evaluated
+	 * @return evaluation result
+	 */
 	public ValueExpressionEvaluation evaluate(AppliedQuantitativePropertyExpression reference) {		
 		AppliedPropertyEvaluation propertyEvaluation = getGoalModelEvaluator().getAppliedPropertyEvaluation(reference.getValue());
 		if(propertyEvaluation == null) 

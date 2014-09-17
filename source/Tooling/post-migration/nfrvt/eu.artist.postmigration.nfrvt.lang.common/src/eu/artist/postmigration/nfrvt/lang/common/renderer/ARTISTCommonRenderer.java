@@ -76,6 +76,15 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.XOrOperator;
 
+/**
+ * A base renderer for all ARTIST migration languages. All rendering is 
+ * delegated to methods with the signature 'render(T)' using a 
+ * {@link PolymorphicDispatcher}. Subclasses can implement
+ * additional render methods for the objects of type T they want to 
+ * render.
+ * 
+ * @author Martin Fleck
+ */
 public class ARTISTCommonRenderer implements ITextRenderer {
 
 	private PolymorphicDispatcher<String> renderDispatcher = new PolymorphicDispatcher<>(

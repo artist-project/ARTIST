@@ -36,6 +36,9 @@ public class NSLTextRenderer extends ARTISTCommonRenderer {
 	}
 	
 	protected String render(Property property) {
-		return property.getName() + " (" + property.getDirection().getLiteral() + ")";
+		return property.getName() + (
+				property.getDirection() != null ? 
+						" (" + property.getDirection().getLiteral() + ")" 
+						: "");
 	}
 }

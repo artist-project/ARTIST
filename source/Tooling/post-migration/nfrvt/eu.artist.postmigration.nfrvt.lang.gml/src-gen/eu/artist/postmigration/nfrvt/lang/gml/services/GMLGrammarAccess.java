@@ -285,28 +285,29 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPropertyAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cPropertyQualitativePropertyCrossReference_4_0 = (CrossReference)cPropertyAssignment_4.eContents().get(0);
 		private final RuleCall cPropertyQualitativePropertyQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cPropertyQualitativePropertyCrossReference_4_0.eContents().get(1);
-		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cContextKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cLeftSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Assignment cContextAssignment_8_0 = (Assignment)cGroup_8.eContents().get(0);
-		private final CrossReference cContextNamedElementCrossReference_8_0_0 = (CrossReference)cContextAssignment_8_0.eContents().get(0);
-		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_8_0_0_1 = (RuleCall)cContextNamedElementCrossReference_8_0_0.eContents().get(1);
-		private final Group cGroup_8_1 = (Group)cGroup_8.eContents().get(1);
-		private final Keyword cCommaKeyword_8_1_0 = (Keyword)cGroup_8_1.eContents().get(0);
-		private final Assignment cContextAssignment_8_1_1 = (Assignment)cGroup_8_1.eContents().get(1);
-		private final CrossReference cContextNamedElementCrossReference_8_1_1_0 = (CrossReference)cContextAssignment_8_1_1.eContents().get(0);
-		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_8_1_1_0_1 = (RuleCall)cContextNamedElementCrossReference_8_1_1_0.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cContextKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
+		private final Assignment cContextAssignment_5_3_0 = (Assignment)cGroup_5_3.eContents().get(0);
+		private final CrossReference cContextNamedElementCrossReference_5_3_0_0 = (CrossReference)cContextAssignment_5_3_0.eContents().get(0);
+		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_5_3_0_0_1 = (RuleCall)cContextNamedElementCrossReference_5_3_0_0.eContents().get(1);
+		private final Group cGroup_5_3_1 = (Group)cGroup_5_3.eContents().get(1);
+		private final Keyword cCommaKeyword_5_3_1_0 = (Keyword)cGroup_5_3_1.eContents().get(0);
+		private final Assignment cContextAssignment_5_3_1_1 = (Assignment)cGroup_5_3_1.eContents().get(1);
+		private final CrossReference cContextNamedElementCrossReference_5_3_1_1_0 = (CrossReference)cContextAssignment_5_3_1_1.eContents().get(0);
+		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_5_3_1_1_0_1 = (RuleCall)cContextNamedElementCrossReference_5_3_1_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//AppliedQualitativeProperty:
-		//	"qualitative" name=ID "{" "property" property=[nsl::QualitativeProperty|QualifiedName] "," "context" "["
-		//	(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]" "}";
+		//	"qualitative" name=ID "{" "property" property=[nsl::QualitativeProperty|QualifiedName] ("," "context" "["
+		//	(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"qualitative" name=ID "{" "property" property=[nsl::QualitativeProperty|QualifiedName] "," "context" "["
-		//(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]" "}"
+		//"qualitative" name=ID "{" "property" property=[nsl::QualitativeProperty|QualifiedName] ("," "context" "["
+		//(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"qualitative"
@@ -333,47 +334,50 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getPropertyQualitativePropertyQualifiedNameParserRuleCall_4_0_1() { return cPropertyQualitativePropertyQualifiedNameParserRuleCall_4_0_1; }
 
+		//("," "context" "[" (context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")?
+		public Group getGroup_5() { return cGroup_5; }
+
 		//","
-		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
 
 		//"context"
-		public Keyword getContextKeyword_6() { return cContextKeyword_6; }
+		public Keyword getContextKeyword_5_1() { return cContextKeyword_5_1; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_7() { return cLeftSquareBracketKeyword_7; }
+		public Keyword getLeftSquareBracketKeyword_5_2() { return cLeftSquareBracketKeyword_5_2; }
 
 		//(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_5_3() { return cGroup_5_3; }
 
 		//context+=[uml::NamedElement|QualifiedName]
-		public Assignment getContextAssignment_8_0() { return cContextAssignment_8_0; }
+		public Assignment getContextAssignment_5_3_0() { return cContextAssignment_5_3_0; }
 
 		//[uml::NamedElement|QualifiedName]
-		public CrossReference getContextNamedElementCrossReference_8_0_0() { return cContextNamedElementCrossReference_8_0_0; }
+		public CrossReference getContextNamedElementCrossReference_5_3_0_0() { return cContextNamedElementCrossReference_5_3_0_0; }
 
 		//QualifiedName
-		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_8_0_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_8_0_0_1; }
+		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_5_3_0_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_5_3_0_0_1; }
 
 		//("," context+=[uml::NamedElement|QualifiedName])*
-		public Group getGroup_8_1() { return cGroup_8_1; }
+		public Group getGroup_5_3_1() { return cGroup_5_3_1; }
 
 		//","
-		public Keyword getCommaKeyword_8_1_0() { return cCommaKeyword_8_1_0; }
+		public Keyword getCommaKeyword_5_3_1_0() { return cCommaKeyword_5_3_1_0; }
 
 		//context+=[uml::NamedElement|QualifiedName]
-		public Assignment getContextAssignment_8_1_1() { return cContextAssignment_8_1_1; }
+		public Assignment getContextAssignment_5_3_1_1() { return cContextAssignment_5_3_1_1; }
 
 		//[uml::NamedElement|QualifiedName]
-		public CrossReference getContextNamedElementCrossReference_8_1_1_0() { return cContextNamedElementCrossReference_8_1_1_0; }
+		public CrossReference getContextNamedElementCrossReference_5_3_1_1_0() { return cContextNamedElementCrossReference_5_3_1_1_0; }
 
 		//QualifiedName
-		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_8_1_1_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_8_1_1_0_1; }
+		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_5_3_1_1_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_5_3_1_1_0_1; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_9() { return cRightSquareBracketKeyword_9; }
+		public Keyword getRightSquareBracketKeyword_5_4() { return cRightSquareBracketKeyword_5_4; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class AppliedQuantitativePropertyElements extends AbstractParserRuleElementFinder {
@@ -387,45 +391,47 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPropertyAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final CrossReference cPropertyQuantitativePropertyCrossReference_4_0 = (CrossReference)cPropertyAssignment_4.eContents().get(0);
 		private final RuleCall cPropertyQuantitativePropertyQualifiedNameParserRuleCall_4_0_1 = (RuleCall)cPropertyQuantitativePropertyCrossReference_4_0.eContents().get(1);
-		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cFunctionKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cFunctionAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final Alternatives cFunctionAlternatives_5_2_0 = (Alternatives)cFunctionAssignment_5_2.eContents().get(0);
+		private final RuleCall cFunctionMinOperatorParserRuleCall_5_2_0_0 = (RuleCall)cFunctionAlternatives_5_2_0.eContents().get(0);
+		private final RuleCall cFunctionMaxOperatorParserRuleCall_5_2_0_1 = (RuleCall)cFunctionAlternatives_5_2_0.eContents().get(1);
+		private final RuleCall cFunctionAvgOperatorParserRuleCall_5_2_0_2 = (RuleCall)cFunctionAlternatives_5_2_0.eContents().get(2);
+		private final RuleCall cFunctionSumOperatorParserRuleCall_5_2_0_3 = (RuleCall)cFunctionAlternatives_5_2_0.eContents().get(3);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cFunctionKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cFunctionAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final Alternatives cFunctionAlternatives_6_1_0 = (Alternatives)cFunctionAssignment_6_1.eContents().get(0);
-		private final RuleCall cFunctionMinOperatorParserRuleCall_6_1_0_0 = (RuleCall)cFunctionAlternatives_6_1_0.eContents().get(0);
-		private final RuleCall cFunctionMaxOperatorParserRuleCall_6_1_0_1 = (RuleCall)cFunctionAlternatives_6_1_0.eContents().get(1);
-		private final RuleCall cFunctionAvgOperatorParserRuleCall_6_1_0_2 = (RuleCall)cFunctionAlternatives_6_1_0.eContents().get(2);
-		private final RuleCall cFunctionSumOperatorParserRuleCall_6_1_0_3 = (RuleCall)cFunctionAlternatives_6_1_0.eContents().get(3);
-		private final Keyword cCommaKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cContextKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cLeftSquareBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cContextAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cContextNamedElementCrossReference_9_0 = (CrossReference)cContextAssignment_9.eContents().get(0);
-		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_9_0_1 = (RuleCall)cContextNamedElementCrossReference_9_0.eContents().get(1);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cCommaKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cContextAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final CrossReference cContextNamedElementCrossReference_10_1_0 = (CrossReference)cContextAssignment_10_1.eContents().get(0);
-		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_10_1_0_1 = (RuleCall)cContextNamedElementCrossReference_10_1_0.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cCommaKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Keyword cWorkloadKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
-		private final Assignment cWorkloadAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
-		private final CrossReference cWorkloadWorkloadCrossReference_12_2_0 = (CrossReference)cWorkloadAssignment_12_2.eContents().get(0);
-		private final RuleCall cWorkloadWorkloadQualifiedNameParserRuleCall_12_2_0_1 = (RuleCall)cWorkloadWorkloadCrossReference_12_2_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cContextKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
+		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
+		private final Assignment cContextAssignment_6_3_0 = (Assignment)cGroup_6_3.eContents().get(0);
+		private final CrossReference cContextNamedElementCrossReference_6_3_0_0 = (CrossReference)cContextAssignment_6_3_0.eContents().get(0);
+		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_6_3_0_0_1 = (RuleCall)cContextNamedElementCrossReference_6_3_0_0.eContents().get(1);
+		private final Group cGroup_6_3_1 = (Group)cGroup_6_3.eContents().get(1);
+		private final Keyword cCommaKeyword_6_3_1_0 = (Keyword)cGroup_6_3_1.eContents().get(0);
+		private final Assignment cContextAssignment_6_3_1_1 = (Assignment)cGroup_6_3_1.eContents().get(1);
+		private final CrossReference cContextNamedElementCrossReference_6_3_1_1_0 = (CrossReference)cContextAssignment_6_3_1_1.eContents().get(0);
+		private final RuleCall cContextNamedElementQualifiedNameParserRuleCall_6_3_1_1_0_1 = (RuleCall)cContextNamedElementCrossReference_6_3_1_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cWorkloadKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cWorkloadAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final CrossReference cWorkloadWorkloadCrossReference_7_2_0 = (CrossReference)cWorkloadAssignment_7_2.eContents().get(0);
+		private final RuleCall cWorkloadWorkloadQualifiedNameParserRuleCall_7_2_0_1 = (RuleCall)cWorkloadWorkloadCrossReference_7_2_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//AppliedQuantitativeProperty:
-		//	"quantitative" name=ID "{" "property" property=[nsl::QuantitativeProperty|QualifiedName] "," ("function"
-		//	function=(MinOperator | MaxOperator | AvgOperator | SumOperator) ",")? "context" "["
-		//	context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])* "]" ("," "workload"
+		//	"quantitative" name=ID "{" "property" property=[nsl::QuantitativeProperty|QualifiedName] ("," "function"
+		//	function=(MinOperator | MaxOperator | AvgOperator | SumOperator))? ("," "context" "["
+		//	(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")? ("," "workload"
 		//	workload=[Workload|QualifiedName])? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"quantitative" name=ID "{" "property" property=[nsl::QuantitativeProperty|QualifiedName] "," ("function"
-		//function=(MinOperator | MaxOperator | AvgOperator | SumOperator) ",")? "context" "["
-		//context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])* "]" ("," "workload"
+		//"quantitative" name=ID "{" "property" property=[nsl::QuantitativeProperty|QualifiedName] ("," "function"
+		//function=(MinOperator | MaxOperator | AvgOperator | SumOperator))? ("," "context" "["
+		//(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")? ("," "workload"
 		//workload=[Workload|QualifiedName])? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -453,89 +459,95 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getPropertyQuantitativePropertyQualifiedNameParserRuleCall_4_0_1() { return cPropertyQuantitativePropertyQualifiedNameParserRuleCall_4_0_1; }
 
-		//","
-		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
+		//("," "function" function=(MinOperator | MaxOperator | AvgOperator | SumOperator))?
+		public Group getGroup_5() { return cGroup_5; }
 
-		//("function" function=(MinOperator | MaxOperator | AvgOperator | SumOperator) ",")?
-		public Group getGroup_6() { return cGroup_6; }
+		//","
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
 
 		//"function"
-		public Keyword getFunctionKeyword_6_0() { return cFunctionKeyword_6_0; }
+		public Keyword getFunctionKeyword_5_1() { return cFunctionKeyword_5_1; }
 
 		//function=(MinOperator | MaxOperator | AvgOperator | SumOperator)
-		public Assignment getFunctionAssignment_6_1() { return cFunctionAssignment_6_1; }
+		public Assignment getFunctionAssignment_5_2() { return cFunctionAssignment_5_2; }
 
 		//MinOperator | MaxOperator | AvgOperator | SumOperator
-		public Alternatives getFunctionAlternatives_6_1_0() { return cFunctionAlternatives_6_1_0; }
+		public Alternatives getFunctionAlternatives_5_2_0() { return cFunctionAlternatives_5_2_0; }
 
 		//MinOperator
-		public RuleCall getFunctionMinOperatorParserRuleCall_6_1_0_0() { return cFunctionMinOperatorParserRuleCall_6_1_0_0; }
+		public RuleCall getFunctionMinOperatorParserRuleCall_5_2_0_0() { return cFunctionMinOperatorParserRuleCall_5_2_0_0; }
 
 		//MaxOperator
-		public RuleCall getFunctionMaxOperatorParserRuleCall_6_1_0_1() { return cFunctionMaxOperatorParserRuleCall_6_1_0_1; }
+		public RuleCall getFunctionMaxOperatorParserRuleCall_5_2_0_1() { return cFunctionMaxOperatorParserRuleCall_5_2_0_1; }
 
 		//AvgOperator
-		public RuleCall getFunctionAvgOperatorParserRuleCall_6_1_0_2() { return cFunctionAvgOperatorParserRuleCall_6_1_0_2; }
+		public RuleCall getFunctionAvgOperatorParserRuleCall_5_2_0_2() { return cFunctionAvgOperatorParserRuleCall_5_2_0_2; }
 
 		//SumOperator
-		public RuleCall getFunctionSumOperatorParserRuleCall_6_1_0_3() { return cFunctionSumOperatorParserRuleCall_6_1_0_3; }
+		public RuleCall getFunctionSumOperatorParserRuleCall_5_2_0_3() { return cFunctionSumOperatorParserRuleCall_5_2_0_3; }
+
+		//("," "context" "[" (context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")?
+		public Group getGroup_6() { return cGroup_6; }
 
 		//","
-		public Keyword getCommaKeyword_6_2() { return cCommaKeyword_6_2; }
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
 
 		//"context"
-		public Keyword getContextKeyword_7() { return cContextKeyword_7; }
+		public Keyword getContextKeyword_6_1() { return cContextKeyword_6_1; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_8() { return cLeftSquareBracketKeyword_8; }
+		public Keyword getLeftSquareBracketKeyword_6_2() { return cLeftSquareBracketKeyword_6_2; }
+
+		//(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)?
+		public Group getGroup_6_3() { return cGroup_6_3; }
 
 		//context+=[uml::NamedElement|QualifiedName]
-		public Assignment getContextAssignment_9() { return cContextAssignment_9; }
+		public Assignment getContextAssignment_6_3_0() { return cContextAssignment_6_3_0; }
 
 		//[uml::NamedElement|QualifiedName]
-		public CrossReference getContextNamedElementCrossReference_9_0() { return cContextNamedElementCrossReference_9_0; }
+		public CrossReference getContextNamedElementCrossReference_6_3_0_0() { return cContextNamedElementCrossReference_6_3_0_0; }
 
 		//QualifiedName
-		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_9_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_9_0_1; }
+		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_6_3_0_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_6_3_0_0_1; }
 
 		//("," context+=[uml::NamedElement|QualifiedName])*
-		public Group getGroup_10() { return cGroup_10; }
+		public Group getGroup_6_3_1() { return cGroup_6_3_1; }
 
 		//","
-		public Keyword getCommaKeyword_10_0() { return cCommaKeyword_10_0; }
+		public Keyword getCommaKeyword_6_3_1_0() { return cCommaKeyword_6_3_1_0; }
 
 		//context+=[uml::NamedElement|QualifiedName]
-		public Assignment getContextAssignment_10_1() { return cContextAssignment_10_1; }
+		public Assignment getContextAssignment_6_3_1_1() { return cContextAssignment_6_3_1_1; }
 
 		//[uml::NamedElement|QualifiedName]
-		public CrossReference getContextNamedElementCrossReference_10_1_0() { return cContextNamedElementCrossReference_10_1_0; }
+		public CrossReference getContextNamedElementCrossReference_6_3_1_1_0() { return cContextNamedElementCrossReference_6_3_1_1_0; }
 
 		//QualifiedName
-		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_10_1_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_10_1_0_1; }
+		public RuleCall getContextNamedElementQualifiedNameParserRuleCall_6_3_1_1_0_1() { return cContextNamedElementQualifiedNameParserRuleCall_6_3_1_1_0_1; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_11() { return cRightSquareBracketKeyword_11; }
+		public Keyword getRightSquareBracketKeyword_6_4() { return cRightSquareBracketKeyword_6_4; }
 
 		//("," "workload" workload=[Workload|QualifiedName])?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//","
-		public Keyword getCommaKeyword_12_0() { return cCommaKeyword_12_0; }
+		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
 
 		//"workload"
-		public Keyword getWorkloadKeyword_12_1() { return cWorkloadKeyword_12_1; }
+		public Keyword getWorkloadKeyword_7_1() { return cWorkloadKeyword_7_1; }
 
 		//workload=[Workload|QualifiedName]
-		public Assignment getWorkloadAssignment_12_2() { return cWorkloadAssignment_12_2; }
+		public Assignment getWorkloadAssignment_7_2() { return cWorkloadAssignment_7_2; }
 
 		//[Workload|QualifiedName]
-		public CrossReference getWorkloadWorkloadCrossReference_12_2_0() { return cWorkloadWorkloadCrossReference_12_2_0; }
+		public CrossReference getWorkloadWorkloadCrossReference_7_2_0() { return cWorkloadWorkloadCrossReference_7_2_0; }
 
 		//QualifiedName
-		public RuleCall getWorkloadWorkloadQualifiedNameParserRuleCall_12_2_0_1() { return cWorkloadWorkloadQualifiedNameParserRuleCall_12_2_0_1; }
+		public RuleCall getWorkloadWorkloadQualifiedNameParserRuleCall_7_2_0_1() { return cWorkloadWorkloadQualifiedNameParserRuleCall_7_2_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class GoalElements extends AbstractParserRuleElementFinder {
@@ -578,35 +590,36 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPriorityINTTerminalRuleCall_7_0 = (RuleCall)cPriorityAssignment_7.eContents().get(0);
 		private final Keyword cCommaKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Keyword cPropertyKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cPropertyAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cPropertyAppliedQualitativePropertyCrossReference_10_0 = (CrossReference)cPropertyAssignment_10.eContents().get(0);
-		private final RuleCall cPropertyAppliedQualitativePropertyQualifiedNameParserRuleCall_10_0_1 = (RuleCall)cPropertyAppliedQualitativePropertyCrossReference_10_0.eContents().get(1);
-		private final Keyword cCommaKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cThresholdKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cThresholdAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cThresholdImpactParserRuleCall_13_0 = (RuleCall)cThresholdAssignment_13.eContents().get(0);
-		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
-		private final Keyword cCommaKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
-		private final Keyword cImpactsKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
-		private final Keyword cLeftSquareBracketKeyword_14_2 = (Keyword)cGroup_14.eContents().get(2);
-		private final Assignment cImpactsAssignment_14_3 = (Assignment)cGroup_14.eContents().get(3);
-		private final RuleCall cImpactsSoftGoalImpactParserRuleCall_14_3_0 = (RuleCall)cImpactsAssignment_14_3.eContents().get(0);
-		private final Group cGroup_14_4 = (Group)cGroup_14.eContents().get(4);
-		private final Keyword cCommaKeyword_14_4_0 = (Keyword)cGroup_14_4.eContents().get(0);
-		private final Assignment cImpactsAssignment_14_4_1 = (Assignment)cGroup_14_4.eContents().get(1);
-		private final RuleCall cImpactsSoftGoalImpactParserRuleCall_14_4_1_0 = (RuleCall)cImpactsAssignment_14_4_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_14_5 = (Keyword)cGroup_14.eContents().get(5);
-		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cDollarSignKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cPropertyAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final CrossReference cPropertyAppliedQualitativePropertyCrossReference_11_0 = (CrossReference)cPropertyAssignment_11.eContents().get(0);
+		private final RuleCall cPropertyAppliedQualitativePropertyQualifiedNameParserRuleCall_11_0_1 = (RuleCall)cPropertyAppliedQualitativePropertyCrossReference_11_0.eContents().get(1);
+		private final Keyword cCommaKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cThresholdKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cThresholdAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cThresholdImpactParserRuleCall_14_0 = (RuleCall)cThresholdAssignment_14.eContents().get(0);
+		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
+		private final Keyword cCommaKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
+		private final Keyword cImpactsKeyword_15_1 = (Keyword)cGroup_15.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_15_2 = (Keyword)cGroup_15.eContents().get(2);
+		private final Assignment cImpactsAssignment_15_3 = (Assignment)cGroup_15.eContents().get(3);
+		private final RuleCall cImpactsSoftGoalImpactParserRuleCall_15_3_0 = (RuleCall)cImpactsAssignment_15_3.eContents().get(0);
+		private final Group cGroup_15_4 = (Group)cGroup_15.eContents().get(4);
+		private final Keyword cCommaKeyword_15_4_0 = (Keyword)cGroup_15_4.eContents().get(0);
+		private final Assignment cImpactsAssignment_15_4_1 = (Assignment)cGroup_15_4.eContents().get(1);
+		private final RuleCall cImpactsSoftGoalImpactParserRuleCall_15_4_1_0 = (RuleCall)cImpactsAssignment_15_4_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_15_5 = (Keyword)cGroup_15.eContents().get(5);
+		private final Keyword cRightCurlyBracketKeyword_16 = (Keyword)cGroup.eContents().get(16);
 		
 		//SoftGoal:
-		//	"softgoal" name=ID "{" "kind" kind=GoalKind "," "priority" priority=INT "," "property"
-		//	property=[AppliedQualitativeProperty|QualifiedName] "," //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
-		//	"threshold" threshold=Impact ("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")? "}";
+		//	"softgoal" name=ID "{" "kind" kind=GoalKind "," "priority" priority=INT "," "property" "$"
+		//	property=[AppliedQualitativeProperty|QualifiedName] //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
+		//	"," "threshold" threshold=Impact ("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"softgoal" name=ID "{" "kind" kind=GoalKind "," "priority" priority=INT "," "property"
-		//property=[AppliedQualitativeProperty|QualifiedName] "," //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
-		//"threshold" threshold=Impact ("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")? "}"
+		//"softgoal" name=ID "{" "kind" kind=GoalKind "," "priority" priority=INT "," "property" "$"
+		//property=[AppliedQualitativeProperty|QualifiedName] //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
+		//"," "threshold" threshold=Impact ("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"softgoal"
@@ -648,63 +661,66 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 		//"property"
 		public Keyword getPropertyKeyword_9() { return cPropertyKeyword_9; }
 
+		//"$"
+		public Keyword getDollarSignKeyword_10() { return cDollarSignKeyword_10; }
+
 		//property=[AppliedQualitativeProperty|QualifiedName]
-		public Assignment getPropertyAssignment_10() { return cPropertyAssignment_10; }
+		public Assignment getPropertyAssignment_11() { return cPropertyAssignment_11; }
 
 		//[AppliedQualitativeProperty|QualifiedName]
-		public CrossReference getPropertyAppliedQualitativePropertyCrossReference_10_0() { return cPropertyAppliedQualitativePropertyCrossReference_10_0; }
+		public CrossReference getPropertyAppliedQualitativePropertyCrossReference_11_0() { return cPropertyAppliedQualitativePropertyCrossReference_11_0; }
 
 		//QualifiedName
-		public RuleCall getPropertyAppliedQualitativePropertyQualifiedNameParserRuleCall_10_0_1() { return cPropertyAppliedQualitativePropertyQualifiedNameParserRuleCall_10_0_1; }
-
-		//","
-		public Keyword getCommaKeyword_11() { return cCommaKeyword_11; }
+		public RuleCall getPropertyAppliedQualitativePropertyQualifiedNameParserRuleCall_11_0_1() { return cPropertyAppliedQualitativePropertyQualifiedNameParserRuleCall_11_0_1; }
 
 		////		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
+		//","
+		public Keyword getCommaKeyword_12() { return cCommaKeyword_12; }
+
 		//"threshold"
-		public Keyword getThresholdKeyword_12() { return cThresholdKeyword_12; }
+		public Keyword getThresholdKeyword_13() { return cThresholdKeyword_13; }
 
 		//threshold=Impact
-		public Assignment getThresholdAssignment_13() { return cThresholdAssignment_13; }
+		public Assignment getThresholdAssignment_14() { return cThresholdAssignment_14; }
 
 		//Impact
-		public RuleCall getThresholdImpactParserRuleCall_13_0() { return cThresholdImpactParserRuleCall_13_0; }
+		public RuleCall getThresholdImpactParserRuleCall_14_0() { return cThresholdImpactParserRuleCall_14_0; }
 
 		//("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")?
-		public Group getGroup_14() { return cGroup_14; }
+		public Group getGroup_15() { return cGroup_15; }
 
 		//","
-		public Keyword getCommaKeyword_14_0() { return cCommaKeyword_14_0; }
+		public Keyword getCommaKeyword_15_0() { return cCommaKeyword_15_0; }
 
 		//"impacts"
-		public Keyword getImpactsKeyword_14_1() { return cImpactsKeyword_14_1; }
+		public Keyword getImpactsKeyword_15_1() { return cImpactsKeyword_15_1; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_14_2() { return cLeftSquareBracketKeyword_14_2; }
+		public Keyword getLeftSquareBracketKeyword_15_2() { return cLeftSquareBracketKeyword_15_2; }
 
 		//impacts+=SoftGoalImpact
-		public Assignment getImpactsAssignment_14_3() { return cImpactsAssignment_14_3; }
+		public Assignment getImpactsAssignment_15_3() { return cImpactsAssignment_15_3; }
 
 		//SoftGoalImpact
-		public RuleCall getImpactsSoftGoalImpactParserRuleCall_14_3_0() { return cImpactsSoftGoalImpactParserRuleCall_14_3_0; }
+		public RuleCall getImpactsSoftGoalImpactParserRuleCall_15_3_0() { return cImpactsSoftGoalImpactParserRuleCall_15_3_0; }
 
 		//("," impacts+=SoftGoalImpact)*
-		public Group getGroup_14_4() { return cGroup_14_4; }
+		public Group getGroup_15_4() { return cGroup_15_4; }
 
 		//","
-		public Keyword getCommaKeyword_14_4_0() { return cCommaKeyword_14_4_0; }
+		public Keyword getCommaKeyword_15_4_0() { return cCommaKeyword_15_4_0; }
 
 		//impacts+=SoftGoalImpact
-		public Assignment getImpactsAssignment_14_4_1() { return cImpactsAssignment_14_4_1; }
+		public Assignment getImpactsAssignment_15_4_1() { return cImpactsAssignment_15_4_1; }
 
 		//SoftGoalImpact
-		public RuleCall getImpactsSoftGoalImpactParserRuleCall_14_4_1_0() { return cImpactsSoftGoalImpactParserRuleCall_14_4_1_0; }
+		public RuleCall getImpactsSoftGoalImpactParserRuleCall_15_4_1_0() { return cImpactsSoftGoalImpactParserRuleCall_15_4_1_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_14_5() { return cRightSquareBracketKeyword_14_5; }
+		public Keyword getRightSquareBracketKeyword_15_5() { return cRightSquareBracketKeyword_15_5; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_15() { return cRightCurlyBracketKeyword_15; }
+		public Keyword getRightCurlyBracketKeyword_16() { return cRightCurlyBracketKeyword_16; }
 	}
 
 	public class SoftGoalImpactElements extends AbstractParserRuleElementFinder {
@@ -1426,8 +1442,8 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AppliedQualitativeProperty:
-	//	"qualitative" name=ID "{" "property" property=[nsl::QualitativeProperty|QualifiedName] "," "context" "["
-	//	(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]" "}";
+	//	"qualitative" name=ID "{" "property" property=[nsl::QualitativeProperty|QualifiedName] ("," "context" "["
+	//	(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")? "}";
 	public AppliedQualitativePropertyElements getAppliedQualitativePropertyAccess() {
 		return (pAppliedQualitativeProperty != null) ? pAppliedQualitativeProperty : (pAppliedQualitativeProperty = new AppliedQualitativePropertyElements());
 	}
@@ -1437,9 +1453,9 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AppliedQuantitativeProperty:
-	//	"quantitative" name=ID "{" "property" property=[nsl::QuantitativeProperty|QualifiedName] "," ("function"
-	//	function=(MinOperator | MaxOperator | AvgOperator | SumOperator) ",")? "context" "["
-	//	context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])* "]" ("," "workload"
+	//	"quantitative" name=ID "{" "property" property=[nsl::QuantitativeProperty|QualifiedName] ("," "function"
+	//	function=(MinOperator | MaxOperator | AvgOperator | SumOperator))? ("," "context" "["
+	//	(context+=[uml::NamedElement|QualifiedName] ("," context+=[uml::NamedElement|QualifiedName])*)? "]")? ("," "workload"
 	//	workload=[Workload|QualifiedName])? "}";
 	public AppliedQuantitativePropertyElements getAppliedQuantitativePropertyAccess() {
 		return (pAppliedQuantitativeProperty != null) ? pAppliedQuantitativeProperty : (pAppliedQuantitativeProperty = new AppliedQuantitativePropertyElements());
@@ -1470,9 +1486,9 @@ public class GMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SoftGoal:
-	//	"softgoal" name=ID "{" "kind" kind=GoalKind "," "priority" priority=INT "," "property"
-	//	property=[AppliedQualitativeProperty|QualifiedName] "," //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
-	//	"threshold" threshold=Impact ("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")? "}";
+	//	"softgoal" name=ID "{" "kind" kind=GoalKind "," "priority" priority=INT "," "property" "$"
+	//	property=[AppliedQualitativeProperty|QualifiedName] //		"context" "[" context += [uml::NamedElement | QualifiedName] ("," context += [uml::NamedElement | QualifiedName])* "]" ","
+	//	"," "threshold" threshold=Impact ("," "impacts" "[" impacts+=SoftGoalImpact ("," impacts+=SoftGoalImpact)* "]")? "}";
 	public SoftGoalElements getSoftGoalAccess() {
 		return (pSoftGoal != null) ? pSoftGoal : (pSoftGoal = new SoftGoalElements());
 	}

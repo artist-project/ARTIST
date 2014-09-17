@@ -15,6 +15,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.gel;
 
+import com.google.inject.Injector;
+
 import eu.artist.postmigration.nfrvt.lang.gel.GELStandaloneSetupGenerated;
 
 /**
@@ -23,8 +25,17 @@ import eu.artist.postmigration.nfrvt.lang.gel.GELStandaloneSetupGenerated;
  */
 public class GELStandaloneSetup extends GELStandaloneSetupGenerated{
 
+private static Injector injector = null;
+	
+	public static Injector getInjector() {
+		return injector;
+	}
+	
+	/**
+	 * Initializes the GEL support for standalone applications.
+	 */
 	public static void doSetup() {
-		new GELStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new GELStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 }
 

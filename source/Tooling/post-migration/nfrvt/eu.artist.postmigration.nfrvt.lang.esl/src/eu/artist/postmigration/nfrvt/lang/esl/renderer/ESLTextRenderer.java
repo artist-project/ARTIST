@@ -14,6 +14,12 @@ package eu.artist.postmigration.nfrvt.lang.esl.renderer;
 
 import eu.artist.postmigration.nfrvt.lang.common.renderer.ARTISTCommonRenderer;
 
+/**
+ * Text renderer for evaluation strategy catalogues.
+ * 
+ * @author Martin Fleck
+ *
+ */
 public class ESLTextRenderer extends ARTISTCommonRenderer {
 
 }

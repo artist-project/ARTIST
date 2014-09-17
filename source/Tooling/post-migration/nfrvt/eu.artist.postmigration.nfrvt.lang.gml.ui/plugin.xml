@@ -6,13 +6,14 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="gml"
             id="eu.artist.postmigration.nfrvt.lang.gml.GML"
-            name="GML Editor">
+            name="Textual Goal Model Editor">
         </editor>
+		<!-- class before org.eclipse.xtext.ui.editor.XtextEditor -->
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
@@ -394,5 +395,23 @@
             extensions="gml">
     </provider>
   </extension>
-
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
+           class="eu.artist.postmigration.nfrvt.lang.gml.ui.wizards.NewGoalModelFileWizard"
+           icon="icons/GoalModel.png"
+           id="eu.artist.postmigration.nfrvt.lang.gml.ui.wizards.NewGoalModelFileWizard"
+           name="Goal Model File">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="*">
+        <newWizardShortcut
+              id="eu.artist.postmigration.nfrvt.lang.gml.ui.wizards.NewGoalModelFileWizard">
+        </newWizardShortcut>
+     </perspectiveExtension>
+  </extension>
 </plugin>

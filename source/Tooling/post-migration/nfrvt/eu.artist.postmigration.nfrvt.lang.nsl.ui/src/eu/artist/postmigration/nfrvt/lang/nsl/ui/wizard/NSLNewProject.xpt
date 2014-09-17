@@ -1,0 +1,14 @@
+«IMPORT eu::artist::postmigration::nfrvt::lang::nsl::ui::wizard»
+
+«DEFINE main FOR NSLProjectInfo»
+«EXPAND model FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR NSLProjectInfo»
+«FILE "src/model/Model.nsl"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»

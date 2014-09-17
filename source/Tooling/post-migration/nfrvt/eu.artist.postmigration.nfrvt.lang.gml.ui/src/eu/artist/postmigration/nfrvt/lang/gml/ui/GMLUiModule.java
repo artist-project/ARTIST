@@ -16,6 +16,7 @@
 package eu.artist.postmigration.nfrvt.lang.gml.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.contentassist.ITemplateProposalProvider;
 import org.eclipse.xtext.ui.editor.contentassist.XtextContentAssistProcessor;
 
 import com.google.inject.Binder;
@@ -35,5 +36,10 @@ public class GMLUiModule extends eu.artist.postmigration.nfrvt.lang.gml.ui.Abstr
 		binder.bind(String.class)
 				.annotatedWith(com.google.inject.name.Names.named((XtextContentAssistProcessor.COMPLETION_AUTO_ACTIVATION_CHARS)))
 				.toInstance(".:" + eol);
+	}
+	
+	@Override
+	public Class<? extends ITemplateProposalProvider> bindITemplateProposalProvider() {
+		return GMLTemplateProposalProvider.class;
 	}
 }

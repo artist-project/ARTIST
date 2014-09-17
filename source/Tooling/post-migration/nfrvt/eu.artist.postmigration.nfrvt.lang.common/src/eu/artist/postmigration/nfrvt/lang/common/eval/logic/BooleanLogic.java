@@ -12,33 +12,44 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.common.eval.logic;
 
+/**
+ * A class with static methods to evaluate boolean expressions.
+ * 
+ * @author Martin Fleck
+ */
 public class BooleanLogic {
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *             RHS
+	 *     ___|_T_|_U_|_F_|    T .. True
+	 *      T | T | U | F |    U .. Unknown/Null
+	 * LHS  U | T | U | U |    F .. False
+	 *      F | T | T | T |
+	 * </pre>
 	 * 
-	 *  ___|_T_|_U_|_F_|
-	 *   T | T | U | F |
-	 *   U | T | U | U |
-	 *   F | T | T | T |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table
 	 */
 	public static Boolean implies(Boolean left, Boolean right) {
 		return or(not(left), right);
 	}
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *             RHS
+	 *     ___|_T_|_U_|_F_|    T .. True
+	 *      T | T | U | F |    U .. Unknown/Null
+	 * LHS  U | U | U | F |    F .. False
+	 *      F | F | F | F |
+	 * </pre>
 	 * 
-	 *  ___|_T_|_U_|_F_|
-	 *   T | T | U | F |
-	 *   U | U | U | F |
-	 *   F | F | F | F |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table
 	 */
 	public static Boolean and(Boolean left, Boolean right) {
 		if(left != null && right != null)
@@ -54,15 +65,18 @@ public class BooleanLogic {
 	}
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *             RHS
+	 *     ___|_T_|_U_|_F_|    T .. True
+	 *      T | T | T | T |    U .. Unknown/Null
+	 * LHS  U | T | U | U |    F .. False
+	 *      F | T | U | F |
+	 * </pre>
 	 * 
-	 *  ___|_T_|_U_|_F_|
-	 *   T | T | T | T |
-	 *   U | T | U | U |
-	 *   F | T | U | F |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table
 	 */
 	public static Boolean or(Boolean left, Boolean right) {
 		if(left == null || right == null) {
@@ -77,15 +91,18 @@ public class BooleanLogic {
 	}
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *             RHS
+	 *     ___|_T_|_U_|_F_|    T .. True
+	 *      T | F | U | T |    U .. Unknown/Null
+	 * LHS  U | U | U | U |    F .. False
+	 *      F | T | U | F |
+	 * </pre>
 	 * 
-	 *  ___|_T_|_U_|_F_|
-	 *   T | F | U | T |
-	 *   U | U | U | U |
-	 *   F | T | U | F |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table
 	 */
 	public static Boolean xor(Boolean left, Boolean right) {
 		if(left == null || right == null) 
@@ -96,15 +113,18 @@ public class BooleanLogic {
 	}
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *            
+	 *        ___|___|    T .. True
+	 *         T | F |    U .. Unknown/Null
+	 *  value  U | U |    F .. False
+	 *         F | T |
+	 * </pre>
 	 * 
-	 *  ___|___|
-	 *   T | F |
-	 *   U | U |
-	 *   F | T |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table 
 	 */
 	public static Boolean not(Boolean value) {
 		if(value == null)
@@ -113,15 +133,18 @@ public class BooleanLogic {
 	}
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *             RHS
+	 *     ___|_T_|_U_|_F_|    T .. True
+	 *      T | T | U | F |    U .. Unknown/Null
+	 * LHS  U | U | T | U |    F .. False
+	 *      F | F | U | T |
+	 * </pre>
 	 * 
-	 *  ___|_T_|_U_|_F_|
-	 *   T | T | U | F |
-	 *   U | U | T | U |
-	 *   F | F | U | T |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table
 	 */
 	public static Boolean equals(Boolean left, Boolean right) {
 		if(left == null && right == null)
@@ -132,15 +155,18 @@ public class BooleanLogic {
 	}
 	
 	/***
+	 * Truth table:
+	 * <pre>
+	 *             RHS
+	 *     ___|_T_|_U_|_F_|    T .. True
+	 *      T | F | U | T |    U .. Unknown/Null
+	 * LHS  U | U | F | U |    F .. False
+	 *      F | T | U | F |
+	 * </pre>
 	 * 
-	 *  ___|_T_|_U_|_F_|
-	 *   T | F | U | T |
-	 *   U | U | F | U |
-	 *   F | T | U | F |
-	 * 
-	 * @param left
-	 * @param right
-	 * @return
+	 * @param left left-hand side
+	 * @param right right-hand side
+	 * @return result according to truth table
 	 */
 	public static Boolean unequals(Boolean left, Boolean right) {
 		return not(equals(left, right));

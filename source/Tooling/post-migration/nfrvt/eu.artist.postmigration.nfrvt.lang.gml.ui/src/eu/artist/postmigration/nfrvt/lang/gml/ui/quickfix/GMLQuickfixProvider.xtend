@@ -3,6 +3,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.gml.ui.quickfix
 
+import eu.artist.postmigration.nfrvt.lang.common.ui.quickfix.ARTISTCommonQuickfixProvider
+
 //import org.eclipse.xtext.ui.editor.quickfix.Fix
 //import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 //import org.eclipse.xtext.validation.Issue
@@ -12,7 +14,7 @@ package eu.artist.postmigration.nfrvt.lang.gml.ui.quickfix
  *
  * see http://www.eclipse.org/Xtext/documentation.html#quickfixes
  */
-class GMLQuickfixProvider extends eu.artist.postmigration.nfrvt.lang.common.ui.quickfix.ARTISTCommonQuickfixProvider {
+class GMLQuickfixProvider extends ARTISTCommonQuickfixProvider {
 
 //	@Fix(MyDslValidator::INVALID_NAME)
 //	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {

@@ -15,6 +15,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.esl;
 
+import com.google.inject.Injector;
+
 import eu.artist.postmigration.nfrvt.lang.esl.ESLStandaloneSetupGenerated;
 
 /**
@@ -23,8 +25,17 @@ import eu.artist.postmigration.nfrvt.lang.esl.ESLStandaloneSetupGenerated;
  */
 public class ESLStandaloneSetup extends ESLStandaloneSetupGenerated{
 
+private static Injector injector = null;
+	
+	public static Injector getInjector() {
+		return injector;
+	}
+	
+	/**
+	 * Initializes the ESL support for standalone applications.
+	 */
 	public static void doSetup() {
-		new ESLStandaloneSetup().createInjectorAndDoEMFRegistration();
+		injector = new ESLStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 }
 

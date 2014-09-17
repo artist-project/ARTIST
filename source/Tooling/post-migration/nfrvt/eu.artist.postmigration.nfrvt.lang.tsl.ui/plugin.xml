@@ -6,12 +6,12 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
             extensions="tsl"
             id="eu.artist.postmigration.nfrvt.lang.tsl.TSL"
-            name="TSL Textual Editor">
+            name="Textual Pattern Catalogue Editor">
         </editor>
     </extension>
     <extension
@@ -393,6 +393,25 @@
             class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
             extensions="tsl">
     </provider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
+           class="eu.artist.postmigration.nfrvt.lang.tsl.ui.wizards.NewPatternSpecificationWizard"
+           icon="icons/PatternCatalogue.png"
+           id="eu.artist.postmigration.nfrvt.lang.tsl.ui.wizards.NewPatternSpecificationWizard"
+           name="Pattern Catalogue File">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="*">
+        <newWizardShortcut
+              id="eu.artist.postmigration.nfrvt.lang.tsl.ui.wizards.NewPatternSpecificationWizard">
+        </newWizardShortcut>
+     </perspectiveExtension>
   </extension>
 
 </plugin>

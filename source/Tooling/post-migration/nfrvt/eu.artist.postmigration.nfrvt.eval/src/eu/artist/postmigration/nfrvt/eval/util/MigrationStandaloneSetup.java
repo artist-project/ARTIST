@@ -19,9 +19,24 @@ import eu.artist.postmigration.nfrvt.lang.nsl.NSLStandaloneSetup;
 import eu.artist.postmigration.nfrvt.lang.tsl.TSLStandaloneSetup;
 import eu.artist.postmigration.nfrvt.lang.uml.uml.UmlSupport;
 
+/**
+ * This class provides a way to initialize support for running the ARTIST 
+ * migration Xtext languages without the equinox extension registry.
+ * 
+ * @author Martin Fleck
+ */
 public class MigrationStandaloneSetup {
 	private static boolean initialized = false;
 	
+	/**
+	 * This method initializes support for running the ARTIST migration Xtext
+	 * languages without the equinox extension registry. Calling this method
+	 * creates the necessary injectors, registers the EMF packages of the 
+	 * languages and provides the necessary resource factory and service 
+	 * provider for handling the language extensions.
+	 * <p/>
+	 * Calling this method multiple times has no negative effect.
+	 */
 	public static void doSetup() {
 		if(!initialized) {
 			UmlSupport.doSetup();
