@@ -1,0 +1,125 @@
+-- @nsURI INSERTSQL=http://www.artist.eu/migration/mdt/database/sql/inserteditor/InsertSQLDSL
+-- @nsURI UML=http://www.eclipse.org/uml2/4.0.0/UML
+
+-- ******************************************************************************
+-- Copyright (c) 2013 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  authors: Matthieu Allon (matthieu.allon at gmail.com)
+-- Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- ******************************************************************************
+
+module InsertClass2UMLObject;
+
+create OUT: UML from INONE: INSERTSQL, INSEC: UML;
+
+uses InsertClass2UMLObjectHelpers;
+
+rule SQLModelUMLModel {
+	from 
+		sqlDB : INSERTSQL!Model
+	to 
+		umlModel : UML!Model (
+			name <- 'UMLObjectModel',
+			packagedElement <- thisModule.getAllSQLTab
+								-> select(tab | tab.isFindingClass)
+								-> union(
+											thisModule.getAllSQLTab
+												-> collect(tab | 
+																if (tab.isFindingClass and tab.isFindingAssociation)then
+																	Sequence{
+																				thisModule.resolveTemp(tab, 'umlInstanceClass'),
+																				thisModule.resolveTemp(tab, 'umlInstanceAssociation')
+																	}
+																else OclUndefined endif	
+												)				
+								)
+		)
+}
+
+rule SQLTab2UMLInstance {
+	from 
+		sqlTab : INSERTSQL!Tab(
+			sqlTab.isFindingClass
+			and not sqlTab.isFindingAssociation
+		)
+	to 
+		umlInstanceClass : UML!InstanceSpecification (
+			name <- sqlTab.getInstanceName + ' : ' + sqlTab.getCorrespondingClass.name	,
+			slot <- sqlTab.getCorrespondingClass.ownedAttribute
+						->collect(umlProperty | 
+							if (not sqlTab.getCorrespondingField(umlProperty).oclIsUndefined()) then
+								thisModule.createUMLSlotForUMLPropertyForISAsClass(sqlTab, umlProperty)
+							else OclUndefined endif	
+						),
+			classifier <- sqlTab.getCorrespondingClass
+		)
+}
+
+rule createUMLSlotForUMLPropertyForISAsClass(sqlTab : INSERTSQL!Tab, umlProperty : UML!Property) {
+	using{
+		field : INSERTSQL!Field = sqlTab.getCorrespondingField(umlProperty);
+	}
+	to 
+		umlSlot : UML!Slot (			
+			definingFeature <- umlProperty,
+			value <- UMLLiterString
+		),
+		UMLLiterString : UML!LiteralString (
+			name <- field.getCorrespondingColumn.value,
+			value <- field.value
+		)
+	do{		
+		umlSlot;	
+	}
+}
+
+rule SQLTab2UMLAssociation {
+	from 
+		sqlTab : INSERTSQL!Tab(
+			sqlTab.isFindingClass
+			and sqlTab.isFindingAssociation
+		)
+	to 
+		umlInstanceClass : UML!InstanceSpecification (
+			name <- sqlTab.getInstanceName + ' : ' + sqlTab.getCorrespondingClass.name	,
+			slot <- sqlTab.getCorrespondingClass.ownedAttribute
+						->collect(umlProperty | 
+							if (not sqlTab.getCorrespondingField(umlProperty).oclIsUndefined()) then
+								thisModule.createUMLSlotForUMLPropertyForISAsClass(sqlTab, umlProperty)
+							else OclUndefined endif	
+						),
+			classifier <- sqlTab.getCorrespondingClass
+		),
+		umlInstanceAssociation : UML!InstanceSpecification (
+			name <- sqlTab.getInstanceName + ' : ' + sqlTab.getCorrespondingAssociation.name,
+			slot <- sqlTab.getCorrespondingAssociation.memberEnd
+						->collect(umlProperty | 
+							if (not sqlTab.getCorrespondingField(umlProperty).oclIsUndefined()) then
+								thisModule.createUMLSlotForUMLPropertyForISAsAssociation(sqlTab, umlProperty)
+							else OclUndefined endif	
+						),
+			classifier <- sqlTab.getCorrespondingAssociation
+		)
+}
+
+rule createUMLSlotForUMLPropertyForISAsAssociation(sqlTab : INSERTSQL!Tab, umlProperty : UML!Property) {
+	to 
+		umlSlot : UML!Slot (			
+			definingFeature <- umlProperty,
+			value <- instanceValue
+		),
+		instanceValue : UML!InstanceValue (
+			name <- thisModule.resolveTemp(umlProperty.type.getCorrespondingTab, 'umlInstanceClass').name,
+			type <- umlProperty.type,
+			instance <- umlProperty.type.getCorrespondingTab --binding to 'SQLTab2UMLInstance'
+		)
+	do{		
+		umlSlot;	
+	}
+}

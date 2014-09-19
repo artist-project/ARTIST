@@ -1,0 +1,131 @@
+-- @nsURI INSERTSQL=http://www.artist.eu/migration/mdt/database/sql/inserteditor/InsertSQLDSL
+-- @nsURI UML=http://www.eclipse.org/uml2/4.0.0/UML
+
+-- ******************************************************************************
+-- Copyright (c) 2013 INRIA. 
+-- All rights reserved. This program and the accompanying materials 
+-- are made available under the terms of the Eclipse Public License v1.0 
+-- which accompanies this distribution, and is available at
+-- http://www.eclipse.org/legal/epl-v10.html
+-- 
+-- Contributors: 
+-- 	INRIA - Initial implementation
+--  authors: Matthieu Allon (matthieu.allon at gmail.com)
+-- Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- ******************************************************************************
+
+library InsertClass2UMLObjectHelpers;
+
+--*************Get instances sequence****************
+
+helper def : getAllUMLClasses : Sequence(UML!Class) =
+	UML!Class.allInstancesFrom('INSEC')
+;	
+
+helper def : getAllUMLAssociations : Sequence(UML!Association) =
+	UML!Association.allInstancesFrom('INSEC')
+;	
+
+helper def : getAllSQLTab : Sequence(INSERTSQL!Tab) =
+	INSERTSQL!Tab.allInstancesFrom('INONE')
+;	
+
+--*************Find container/other model container****************
+
+helper context INSERTSQL!Tab def: isFindingClass : Boolean =
+	not self.getCorrespondingClass.oclIsUndefined()
+;
+
+helper context INSERTSQL!Field def: isFindingClass : Boolean =
+	not self.getCorrespondingClass.oclIsUndefined()
+;
+
+helper context INSERTSQL!Tab def: isFindingAssociation : Boolean =
+	not self.getCorrespondingAssociation.oclIsUndefined()
+;
+
+helper context UML!Property def: isFindingTab : Boolean =
+	not self.getCorrespondingTab.oclIsUndefined()
+;
+
+--*************Get corresponding element**********************************************************************
+
+helper context INSERTSQL!Tab def: getCorrespondingClass : UML!Class =
+	thisModule.getAllUMLClasses
+		-> select(class | class.name = self.value)
+		-> first()
+;
+
+helper context UML!Class def: getCorrespondingTab : INSERTSQL!Tab =
+	thisModule.getAllSQLTab
+		-> select(tab | tab.value = self.name)
+		-> first()
+;
+
+helper context INSERTSQL!Field def: getCorrespondingClass : UML!Class =
+	thisModule.getAllUMLClasses
+		-> select(class | class.name = self.refImmediateComposite().tab.value)
+		-> first()
+;
+
+helper context INSERTSQL!Tab def: getCorrespondingAssociation : UML!Association =
+	thisModule.getAllUMLAssociations
+		-> select(association | association.ownedEnd -> first().type.name = self.value)
+		-> first()
+;
+
+helper context UML!Property def: getCorrespondingTab : INSERTSQL!Tab =
+	thisModule.getAllSQLTab
+		-> select(tab | tab.value = self.refImmediateComposite().name)
+		-> first()
+;
+
+helper context INSERTSQL!Tab def: getInstanceName : String =
+		let primaryKeyName : String = 	self.getPrimaryKeyValue
+		in 
+			if primaryKeyName.oclIsUndefined() then
+				''
+			else primaryKeyName endif
+;
+
+helper context UML!Property def: isDBColumn : Boolean =
+	if self.hasStereotypes then
+		self.getAppliedStereotypes()
+				-> first()
+				.name='DBColumn'
+	else false endif			
+;
+
+helper context UML!Property def: hasStereotypes : Boolean =
+	not self.getAppliedStereotypes()
+				-> first()
+				.oclIsUndefined()
+;
+
+helper context INSERTSQL!Tab def: getPrimaryKeyValue : String =
+	let propAsPrimaK : UML!Property = 
+		self.getCorrespondingClass.ownedAttribute
+									->select(umlProperty | if umlProperty.isDBColumn then
+																umlProperty.getValue(
+																				umlProperty.getAppliedStereotypes()
+																								-> first(),
+																				'IsPrimaryKey'		
+																)
+																=true
+															else false endif	
+									)
+									->first()
+	in
+		self.getCorrespondingField(propAsPrimaK).value.toString()
+;
+
+helper context INSERTSQL!Tab def: getCorrespondingField(umlProperty : UML!Property) : INSERTSQL!Field =
+	self.refImmediateComposite().fields
+		-> select(field | field.getCorrespondingColumn.value = umlProperty.name)
+		-> first()
+;
+
+helper context INSERTSQL!Field def: getCorrespondingColumn : INSERTSQL!Column =
+	self.refImmediateComposite().columns
+		->at(self.refImmediateComposite().fields.indexOf(self))
+;

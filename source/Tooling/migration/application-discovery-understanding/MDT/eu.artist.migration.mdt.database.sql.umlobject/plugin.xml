@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?>
+<plugin>
+ <!--UML profile-->
+ <extension point="org.eclipse.emf.ecore.uri_mapping">
+ 	<mapping
+            source="pathmap://DB_PROFILE/model.profile.uml"
+            target="platform:/plugin/eu.artist.migration.mdt.database.sql.umlobject/models/model.profile.uml">
+      </mapping>  
+ </extension>
+ <extension point="org.eclipse.uml2.uml.dynamic_package">
+   <profile uri="http://www.spikes.be/dbmlprofile.uml" location="pathmap://DB_PROFILE/model.profile.uml"/>
+ </extension>
+ 
+  <!--Discoverers-->
+  <extension point="org.eclipse.modisco.infra.discovery.core.discoverer">
+     <discoverer class="eu.artist.migration.mdt.database.sql.umlobject.discoverer.SQL2UMLObjectDiscoverer" id="eu.artist.migration.mdt.database.sql.umlobject.discoverer"/>
+  </extension>
+  <extension
+        point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+     <discoverer
+           discovererID="eu.artist.migration.mdt.database.sql.umlobject.discoverer"
+           icon="icons/artist.png"
+           label="SQL to UML Object Discoverer...">
+     </discoverer>
+  </extension>
+</plugin>

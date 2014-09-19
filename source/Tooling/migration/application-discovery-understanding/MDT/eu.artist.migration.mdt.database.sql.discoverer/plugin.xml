@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+        id="SQL"
+        name="sqlContentType"
+        base-type="org.eclipse.core.runtime.text"
+        priority="high"
+		file-extensions="sql">
+		<describer class="org.eclipse.core.internal.content.TextContentDescriber"/>
+		</content-type>
+  </extension>		
+  <extension point="org.eclipse.modisco.infra.discovery.core.discoverer">
+     <discoverer class="eu.artist.migration.mdt.database.sql.discoverer.SQLDiscoverer" id="eu.artist.migration.mdt.database.sql.discoverer"/>
+  </extension>
+  <extension
+        point="org.eclipse.modisco.infra.discovery.ui.discoverer">
+     <discoverer
+           discovererID="eu.artist.migration.mdt.database.sql.discoverer"
+           icon="icons/artist.png"
+           label="SQL Discoverer">
+     </discoverer>
+  </extension>
+</plugin>
