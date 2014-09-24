@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="reusability.menu"
+               label="Artist"
+               mnemonic="A">
+            <command
+                  commandId="reusability.command"
+                  id="reusability.command"
+                  mnemonic="R">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="reusability.category"
+            name="ARTIST category">
+      </category>
+      <command
+            categoryId="reusability.category"
+            defaultHandler="eu.artist.migration.mdt.reusability.ReusabilityHandler"
+            id="reusability.command"
+            name="Reusability Wizard">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.artist.migration.mdt.reusability.ReusabilityHandler"
+            commandId="reusability.command">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="reusability.command"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+
+</plugin>
