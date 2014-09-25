@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Profile="http:///schemas/Profile/_LFC3EM7VEeOyf80j4L0mXQ/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/Profile/_LFC3EM7VEeOyf80j4L0mXQ/3 file:/C:/test/SP2UML/res/model.profile.uml#_LFMoEM7VEeOyf80j4L0mXQ">
+  <uml:Model xmi:id="_6viF8PFqEeO3mrBkZ-zwXQ" name="SP_Model">
+    <elementImport xmi:id="_6viF8fFqEeO3mrBkZ-zwXQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <elementImport xmi:id="_6viF8vFqEeO3mrBkZ-zwXQ">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6viF8_FqEeO3mrBkZ-zwXQ" name="SpikesTogetherWorkflowTracing">
+      <ownedAttribute xmi:id="_6viF9PFqEeO3mrBkZ-zwXQ" name="ContentType" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viF9fFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viF9vFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viF9_FqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viF-PFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viF-fFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viF-vFqEeO3mrBkZ-zwXQ" name="SelectFilename" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viF-_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viF_PFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viF_fFqEeO3mrBkZ-zwXQ" name="FileLeafRef" type="_6viGF_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viF_vFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viF__FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGAPFqEeO3mrBkZ-zwXQ" name="Created" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGAfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGAvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGA_FqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGBPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGBfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGBvFqEeO3mrBkZ-zwXQ" name="Modified" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGB_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGCPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGCfFqEeO3mrBkZ-zwXQ" name="Modified_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGCvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGC_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGDPFqEeO3mrBkZ-zwXQ" name="Created_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGDfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGDvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGD_FqEeO3mrBkZ-zwXQ" name="WorkflowInstanceID" type="_6viGGfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGEPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGEfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGEvFqEeO3mrBkZ-zwXQ" name="SPTGCompletionDate" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGE_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGFPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6viGFfFqEeO3mrBkZ-zwXQ" name="Computed"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6viGFvFqEeO3mrBkZ-zwXQ" name="Text"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6viGF_FqEeO3mrBkZ-zwXQ" name="File"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6viGGPFqEeO3mrBkZ-zwXQ" name="DateTime"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6viGGfFqEeO3mrBkZ-zwXQ" name="Guid"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6viGGvFqEeO3mrBkZ-zwXQ" name="SpikesTogetherPendingWorkflowNotifications">
+      <ownedAttribute xmi:id="_6viGG_FqEeO3mrBkZ-zwXQ" name="ContentType" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGHPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGHfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGHvFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGH_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGIPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGIfFqEeO3mrBkZ-zwXQ" name="SelectFilename" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGIvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGI_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGJPFqEeO3mrBkZ-zwXQ" name="FileLeafRef" type="_6viGF_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGJfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGJvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGJ_FqEeO3mrBkZ-zwXQ" name="Created" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGKPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGKfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGKvFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGK_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGLPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGLfFqEeO3mrBkZ-zwXQ" name="Modified" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGLvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGL_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGMPFqEeO3mrBkZ-zwXQ" name="Modified_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGMfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGMvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGM_FqEeO3mrBkZ-zwXQ" name="Created_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGNPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGNfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGNvFqEeO3mrBkZ-zwXQ" name="WorkflowInstanceID" type="_6viGGfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGN_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGOPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGOfFqEeO3mrBkZ-zwXQ" name="SPTGCompletionDate" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGOvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGO_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6viGPPFqEeO3mrBkZ-zwXQ" name="SpikesTogetherWRCDeployments">
+      <ownedAttribute xmi:id="_6viGPfFqEeO3mrBkZ-zwXQ" name="ContentType" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGPvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGP_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGQPFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGQfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGQvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGQ_FqEeO3mrBkZ-zwXQ" name="SelectFilename" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGRPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGRfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGRvFqEeO3mrBkZ-zwXQ" name="FileLeafRef" type="_6viGF_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGR_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGSPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGSfFqEeO3mrBkZ-zwXQ" name="Created" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGSvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGS_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGTPFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGTfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGTvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGT_FqEeO3mrBkZ-zwXQ" name="Modified" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGUPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGUfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGUvFqEeO3mrBkZ-zwXQ" name="Modified_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGU_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGVPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGVfFqEeO3mrBkZ-zwXQ" name="Created_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGVvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGV_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGWPFqEeO3mrBkZ-zwXQ" name="SPTGConfigurationId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGWfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGWvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGW_FqEeO3mrBkZ-zwXQ" name="SPTGWorkflowId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGXPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGXfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGXvFqEeO3mrBkZ-zwXQ" name="SPTGWorkflowVersion" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGX_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGYPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGYfFqEeO3mrBkZ-zwXQ" name="SPTGDescription" type="_6viGZ_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGYvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGY_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGZPFqEeO3mrBkZ-zwXQ" name="ReferenceId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGZfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGZvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6viGZ_FqEeO3mrBkZ-zwXQ" name="Note"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6viGaPFqEeO3mrBkZ-zwXQ" name="SpikesTogetherWRCInstances">
+      <ownedAttribute xmi:id="_6viGafFqEeO3mrBkZ-zwXQ" name="ContentType" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGavFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGa_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGbPFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGbfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGbvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGb_FqEeO3mrBkZ-zwXQ" name="SelectFilename" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGcPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGcfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGcvFqEeO3mrBkZ-zwXQ" name="FileLeafRef" type="_6viGF_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGc_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGdPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGdfFqEeO3mrBkZ-zwXQ" name="Created" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGdvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGd_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGePFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGefFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGevFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGe_FqEeO3mrBkZ-zwXQ" name="Modified" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGfPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGffFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGfvFqEeO3mrBkZ-zwXQ" name="Modified_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGf_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGgPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGgfFqEeO3mrBkZ-zwXQ" name="Created_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGgvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGg_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGhPFqEeO3mrBkZ-zwXQ" name="SPTGConfigurationId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGhfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGhvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGh_FqEeO3mrBkZ-zwXQ" name="SPTGWorkflowId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGiPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGifFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGivFqEeO3mrBkZ-zwXQ" name="SPTGWorkflowVersion" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGi_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGjPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGjfFqEeO3mrBkZ-zwXQ" name="SPTGDescription" type="_6viGZ_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGjvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGj_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGkPFqEeO3mrBkZ-zwXQ" name="ReferenceId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGkfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGkvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6viGk_FqEeO3mrBkZ-zwXQ" name="SpikesTogetherWRCDesigns">
+      <ownedAttribute xmi:id="_6viGlPFqEeO3mrBkZ-zwXQ" name="ContentType" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGlfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGlvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGl_FqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGmPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGmfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGmvFqEeO3mrBkZ-zwXQ" name="SelectFilename" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGm_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGnPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGnfFqEeO3mrBkZ-zwXQ" name="FileLeafRef" type="_6viGF_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGnvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGn_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGoPFqEeO3mrBkZ-zwXQ" name="Created" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGofFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGovFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGo_FqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGpPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGpfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGpvFqEeO3mrBkZ-zwXQ" name="Modified" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGp_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGqPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGqfFqEeO3mrBkZ-zwXQ" name="Modified_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGqvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGq_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGrPFqEeO3mrBkZ-zwXQ" name="Created_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGrfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGrvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGr_FqEeO3mrBkZ-zwXQ" name="SPTGConfigurationId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGsPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGsfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGsvFqEeO3mrBkZ-zwXQ" name="SPTGWorkflowId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGs_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGtPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGtfFqEeO3mrBkZ-zwXQ" name="SPTGWorkflowVersion" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGtvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGt_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGuPFqEeO3mrBkZ-zwXQ" name="SPTGDescription" type="_6viGZ_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGufFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGuvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGu_FqEeO3mrBkZ-zwXQ" name="ReferenceId" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGvPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGvfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6viGvvFqEeO3mrBkZ-zwXQ" name="SpikesTogetherWorkflowInstances">
+      <ownedAttribute xmi:id="_6viGv_FqEeO3mrBkZ-zwXQ" name="ContentType" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGwPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGwfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGwvFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGw_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGxPFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGxfFqEeO3mrBkZ-zwXQ" name="SelectFilename" type="_6viGFfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGxvFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGx_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGyPFqEeO3mrBkZ-zwXQ" name="FileLeafRef" type="_6viGF_FqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGyfFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGyvFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGy_FqEeO3mrBkZ-zwXQ" name="Created" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGzPFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viGzfFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viGzvFqEeO3mrBkZ-zwXQ" name="Title" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viGz_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viG0PFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viG0fFqEeO3mrBkZ-zwXQ" name="Modified" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viG0vFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viG0_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viG1PFqEeO3mrBkZ-zwXQ" name="Modified_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viG1fFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viG1vFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viG1_FqEeO3mrBkZ-zwXQ" name="Created_x0020_By" type="_6viGFvFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viG2PFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viG2fFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viG2vFqEeO3mrBkZ-zwXQ" name="WorkflowInstanceID" type="_6viGGfFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viG2_FqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viG3PFqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_6viG3fFqEeO3mrBkZ-zwXQ" name="SPTGCompletionDate" type="_6viGGPFqEeO3mrBkZ-zwXQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6viG3vFqEeO3mrBkZ-zwXQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6viG3_FqEeO3mrBkZ-zwXQ" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:id="_6viG4PFqEeO3mrBkZ-zwXQ">
+      <eAnnotations xmi:id="_6viG4fFqEeO3mrBkZ-zwXQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="file:/C:/test/SP2UML/res/model.profile.uml#_LFMoEM7VEeOyf80j4L0mXQ"/>
+      </eAnnotations>
+      <appliedProfile href="file:/C:/test/SP2UML/res/model.profile.uml#_lFpnEL5fEeOiNJDYlkdAvg"/>
+    </profileApplication>
+  </uml:Model>
+  <Profile:SPTable xmi:id="_6viG4vFqEeO3mrBkZ-zwXQ" base_Class="_6viF8_FqEeO3mrBkZ-zwXQ" Title="SpikesTogether Workflow Tracing"/>
+  <Profile:SPField xmi:id="_6viG4_FqEeO3mrBkZ-zwXQ" base_Property="_6viF9PFqEeO3mrBkZ-zwXQ" DisplayName="Content Type"/>
+  <Profile:SPField xmi:id="_6viG5PFqEeO3mrBkZ-zwXQ" base_Property="_6viF9_FqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6viG5fFqEeO3mrBkZ-zwXQ" base_Property="_6viF-vFqEeO3mrBkZ-zwXQ" DisplayName="Select"/>
+  <Profile:SPField xmi:id="_6viG5vFqEeO3mrBkZ-zwXQ" base_Property="_6viF_fFqEeO3mrBkZ-zwXQ" DisplayName="Name"/>
+  <Profile:SPField xmi:id="_6viG5_FqEeO3mrBkZ-zwXQ" base_Property="_6viGAPFqEeO3mrBkZ-zwXQ" DisplayName="Created"/>
+  <Profile:SPField xmi:id="_6viG6PFqEeO3mrBkZ-zwXQ" base_Property="_6viGA_FqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6viG6fFqEeO3mrBkZ-zwXQ" base_Property="_6viGBvFqEeO3mrBkZ-zwXQ" DisplayName="Modified"/>
+  <Profile:SPField xmi:id="_6viG6vFqEeO3mrBkZ-zwXQ" base_Property="_6viGCfFqEeO3mrBkZ-zwXQ" DisplayName="Document Modified By"/>
+  <Profile:SPField xmi:id="_6viG6_FqEeO3mrBkZ-zwXQ" base_Property="_6viGDPFqEeO3mrBkZ-zwXQ" DisplayName="Document Created By"/>
+  <Profile:SPField xmi:id="_6viG7PFqEeO3mrBkZ-zwXQ" base_Property="_6viGD_FqEeO3mrBkZ-zwXQ" DisplayName="Workflow Instance ID"/>
+  <Profile:SPField xmi:id="_6viG7fFqEeO3mrBkZ-zwXQ" base_Property="_6viGEvFqEeO3mrBkZ-zwXQ" DisplayName="Completion Date"/>
+  <Profile:SPTable xmi:id="_6viG7vFqEeO3mrBkZ-zwXQ" base_Class="_6viGGvFqEeO3mrBkZ-zwXQ" Title="SpikesTogether Pending Workflow Notifications"/>
+  <Profile:SPField xmi:id="_6viG7_FqEeO3mrBkZ-zwXQ" base_Property="_6viGG_FqEeO3mrBkZ-zwXQ" DisplayName="Content Type"/>
+  <Profile:SPField xmi:id="_6viG8PFqEeO3mrBkZ-zwXQ" base_Property="_6viGHvFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6viG8fFqEeO3mrBkZ-zwXQ" base_Property="_6viGIfFqEeO3mrBkZ-zwXQ" DisplayName="Select"/>
+  <Profile:SPField xmi:id="_6viG8vFqEeO3mrBkZ-zwXQ" base_Property="_6viGJPFqEeO3mrBkZ-zwXQ" DisplayName="Name"/>
+  <Profile:SPField xmi:id="_6viG8_FqEeO3mrBkZ-zwXQ" base_Property="_6viGJ_FqEeO3mrBkZ-zwXQ" DisplayName="Created"/>
+  <Profile:SPField xmi:id="_6viG9PFqEeO3mrBkZ-zwXQ" base_Property="_6viGKvFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6viG9fFqEeO3mrBkZ-zwXQ" base_Property="_6viGLfFqEeO3mrBkZ-zwXQ" DisplayName="Modified"/>
+  <Profile:SPField xmi:id="_6viG9vFqEeO3mrBkZ-zwXQ" base_Property="_6viGMPFqEeO3mrBkZ-zwXQ" DisplayName="Document Modified By"/>
+  <Profile:SPField xmi:id="_6viG9_FqEeO3mrBkZ-zwXQ" base_Property="_6viGM_FqEeO3mrBkZ-zwXQ" DisplayName="Document Created By"/>
+  <Profile:SPField xmi:id="_6viG-PFqEeO3mrBkZ-zwXQ" base_Property="_6viGNvFqEeO3mrBkZ-zwXQ" DisplayName="Workflow Instance ID"/>
+  <Profile:SPField xmi:id="_6viG-fFqEeO3mrBkZ-zwXQ" base_Property="_6viGOfFqEeO3mrBkZ-zwXQ" DisplayName="Completion Date"/>
+  <Profile:SPTable xmi:id="_6viG-vFqEeO3mrBkZ-zwXQ" base_Class="_6viGPPFqEeO3mrBkZ-zwXQ" Title="SpikesTogether WRC Deployments"/>
+  <Profile:SPField xmi:id="_6viG-_FqEeO3mrBkZ-zwXQ" base_Property="_6viGPfFqEeO3mrBkZ-zwXQ" DisplayName="Content Type"/>
+  <Profile:SPField xmi:id="_6vr28PFqEeO3mrBkZ-zwXQ" base_Property="_6viGQPFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6vr28fFqEeO3mrBkZ-zwXQ" base_Property="_6viGQ_FqEeO3mrBkZ-zwXQ" DisplayName="Select"/>
+  <Profile:SPField xmi:id="_6vr28vFqEeO3mrBkZ-zwXQ" base_Property="_6viGRvFqEeO3mrBkZ-zwXQ" DisplayName="Name"/>
+  <Profile:SPField xmi:id="_6vr28_FqEeO3mrBkZ-zwXQ" base_Property="_6viGSfFqEeO3mrBkZ-zwXQ" DisplayName="Created"/>
+  <Profile:SPField xmi:id="_6vr29PFqEeO3mrBkZ-zwXQ" base_Property="_6viGTPFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6vr29fFqEeO3mrBkZ-zwXQ" base_Property="_6viGT_FqEeO3mrBkZ-zwXQ" DisplayName="Modified"/>
+  <Profile:SPField xmi:id="_6vr29vFqEeO3mrBkZ-zwXQ" base_Property="_6viGUvFqEeO3mrBkZ-zwXQ" DisplayName="Document Modified By"/>
+  <Profile:SPField xmi:id="_6vr29_FqEeO3mrBkZ-zwXQ" base_Property="_6viGVfFqEeO3mrBkZ-zwXQ" DisplayName="Document Created By"/>
+  <Profile:SPField xmi:id="_6vr2-PFqEeO3mrBkZ-zwXQ" base_Property="_6viGWPFqEeO3mrBkZ-zwXQ" DisplayName="Configuration Id"/>
+  <Profile:SPField xmi:id="_6vr2-fFqEeO3mrBkZ-zwXQ" base_Property="_6viGW_FqEeO3mrBkZ-zwXQ" DisplayName="Workflow Id"/>
+  <Profile:SPField xmi:id="_6vr2-vFqEeO3mrBkZ-zwXQ" base_Property="_6viGXvFqEeO3mrBkZ-zwXQ" DisplayName="Workflow Version"/>
+  <Profile:SPField xmi:id="_6vr2-_FqEeO3mrBkZ-zwXQ" base_Property="_6viGYfFqEeO3mrBkZ-zwXQ" DisplayName="Description"/>
+  <Profile:SPField xmi:id="_6vr2_PFqEeO3mrBkZ-zwXQ" base_Property="_6viGZPFqEeO3mrBkZ-zwXQ" DisplayName="ReferenceId"/>
+  <Profile:SPTable xmi:id="_6vr2_fFqEeO3mrBkZ-zwXQ" base_Class="_6viGaPFqEeO3mrBkZ-zwXQ" Title="SpikesTogether WRC Instances"/>
+  <Profile:SPField xmi:id="_6vr2_vFqEeO3mrBkZ-zwXQ" base_Property="_6viGafFqEeO3mrBkZ-zwXQ" DisplayName="Content Type"/>
+  <Profile:SPField xmi:id="_6vr2__FqEeO3mrBkZ-zwXQ" base_Property="_6viGbPFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6v-x4PFqEeO3mrBkZ-zwXQ" base_Property="_6viGb_FqEeO3mrBkZ-zwXQ" DisplayName="Select"/>
+  <Profile:SPField xmi:id="_6v-x4fFqEeO3mrBkZ-zwXQ" base_Property="_6viGcvFqEeO3mrBkZ-zwXQ" DisplayName="Name"/>
+  <Profile:SPField xmi:id="_6v-x4vFqEeO3mrBkZ-zwXQ" base_Property="_6viGdfFqEeO3mrBkZ-zwXQ" DisplayName="Created"/>
+  <Profile:SPField xmi:id="_6v-x4_FqEeO3mrBkZ-zwXQ" base_Property="_6viGePFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6v-x5PFqEeO3mrBkZ-zwXQ" base_Property="_6viGe_FqEeO3mrBkZ-zwXQ" DisplayName="Modified"/>
+  <Profile:SPField xmi:id="_6v-x5fFqEeO3mrBkZ-zwXQ" base_Property="_6viGfvFqEeO3mrBkZ-zwXQ" DisplayName="Document Modified By"/>
+  <Profile:SPField xmi:id="_6v-x5vFqEeO3mrBkZ-zwXQ" base_Property="_6viGgfFqEeO3mrBkZ-zwXQ" DisplayName="Document Created By"/>
+  <Profile:SPField xmi:id="_6v-x5_FqEeO3mrBkZ-zwXQ" base_Property="_6viGhPFqEeO3mrBkZ-zwXQ" DisplayName="Configuration Id"/>
+  <Profile:SPField xmi:id="_6v-x6PFqEeO3mrBkZ-zwXQ" base_Property="_6viGh_FqEeO3mrBkZ-zwXQ" DisplayName="Workflow Id"/>
+  <Profile:SPField xmi:id="_6v-x6fFqEeO3mrBkZ-zwXQ" base_Property="_6viGivFqEeO3mrBkZ-zwXQ" DisplayName="Workflow Version"/>
+  <Profile:SPField xmi:id="_6v-x6vFqEeO3mrBkZ-zwXQ" base_Property="_6viGjfFqEeO3mrBkZ-zwXQ" DisplayName="Description"/>
+  <Profile:SPField xmi:id="_6v-x6_FqEeO3mrBkZ-zwXQ" base_Property="_6viGkPFqEeO3mrBkZ-zwXQ" DisplayName="ReferenceId"/>
+  <Profile:SPTable xmi:id="_6v-x7PFqEeO3mrBkZ-zwXQ" base_Class="_6viGk_FqEeO3mrBkZ-zwXQ" Title="SpikesTogether WRC Designs"/>
+  <Profile:SPField xmi:id="_6v-x7fFqEeO3mrBkZ-zwXQ" base_Property="_6viGlPFqEeO3mrBkZ-zwXQ" DisplayName="Content Type"/>
+  <Profile:SPField xmi:id="_6v-x7vFqEeO3mrBkZ-zwXQ" base_Property="_6viGl_FqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6v-x7_FqEeO3mrBkZ-zwXQ" base_Property="_6viGmvFqEeO3mrBkZ-zwXQ" DisplayName="Select"/>
+  <Profile:SPField xmi:id="_6v-x8PFqEeO3mrBkZ-zwXQ" base_Property="_6viGnfFqEeO3mrBkZ-zwXQ" DisplayName="Name"/>
+  <Profile:SPField xmi:id="_6v-x8fFqEeO3mrBkZ-zwXQ" base_Property="_6viGoPFqEeO3mrBkZ-zwXQ" DisplayName="Created"/>
+  <Profile:SPField xmi:id="_6v-x8vFqEeO3mrBkZ-zwXQ" base_Property="_6viGo_FqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6v-x8_FqEeO3mrBkZ-zwXQ" base_Property="_6viGpvFqEeO3mrBkZ-zwXQ" DisplayName="Modified"/>
+  <Profile:SPField xmi:id="_6v-x9PFqEeO3mrBkZ-zwXQ" base_Property="_6viGqfFqEeO3mrBkZ-zwXQ" DisplayName="Document Modified By"/>
+  <Profile:SPField xmi:id="_6v-x9fFqEeO3mrBkZ-zwXQ" base_Property="_6viGrPFqEeO3mrBkZ-zwXQ" DisplayName="Document Created By"/>
+  <Profile:SPField xmi:id="_6v-x9vFqEeO3mrBkZ-zwXQ" base_Property="_6viGr_FqEeO3mrBkZ-zwXQ" DisplayName="Configuration Id"/>
+  <Profile:SPField xmi:id="_6v-x9_FqEeO3mrBkZ-zwXQ" base_Property="_6viGsvFqEeO3mrBkZ-zwXQ" DisplayName="Workflow Id"/>
+  <Profile:SPField xmi:id="_6v-x-PFqEeO3mrBkZ-zwXQ" base_Property="_6viGtfFqEeO3mrBkZ-zwXQ" DisplayName="Workflow Version"/>
+  <Profile:SPField xmi:id="_6v-x-fFqEeO3mrBkZ-zwXQ" base_Property="_6viGuPFqEeO3mrBkZ-zwXQ" DisplayName="Description"/>
+  <Profile:SPField xmi:id="_6v-x-vFqEeO3mrBkZ-zwXQ" base_Property="_6viGu_FqEeO3mrBkZ-zwXQ" DisplayName="ReferenceId"/>
+  <Profile:SPTable xmi:id="_6v-x-_FqEeO3mrBkZ-zwXQ" base_Class="_6viGvvFqEeO3mrBkZ-zwXQ" Title="SpikesTogether Workflow Instances"/>
+  <Profile:SPField xmi:id="_6v-x_PFqEeO3mrBkZ-zwXQ" base_Property="_6viGv_FqEeO3mrBkZ-zwXQ" DisplayName="Content Type"/>
+  <Profile:SPField xmi:id="_6v-x_fFqEeO3mrBkZ-zwXQ" base_Property="_6viGwvFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6v-x_vFqEeO3mrBkZ-zwXQ" base_Property="_6viGxfFqEeO3mrBkZ-zwXQ" DisplayName="Select"/>
+  <Profile:SPField xmi:id="_6v-x__FqEeO3mrBkZ-zwXQ" base_Property="_6viGyPFqEeO3mrBkZ-zwXQ" DisplayName="Name"/>
+  <Profile:SPField xmi:id="_6v-yAPFqEeO3mrBkZ-zwXQ" base_Property="_6viGy_FqEeO3mrBkZ-zwXQ" DisplayName="Created"/>
+  <Profile:SPField xmi:id="_6v-yAfFqEeO3mrBkZ-zwXQ" base_Property="_6viGzvFqEeO3mrBkZ-zwXQ" DisplayName="Title"/>
+  <Profile:SPField xmi:id="_6v-yAvFqEeO3mrBkZ-zwXQ" base_Property="_6viG0fFqEeO3mrBkZ-zwXQ" DisplayName="Modified"/>
+  <Profile:SPField xmi:id="_6v-yA_FqEeO3mrBkZ-zwXQ" base_Property="_6viG1PFqEeO3mrBkZ-zwXQ" DisplayName="Document Modified By"/>
+  <Profile:SPField xmi:id="_6v-yBPFqEeO3mrBkZ-zwXQ" base_Property="_6viG1_FqEeO3mrBkZ-zwXQ" DisplayName="Document Created By"/>
+  <Profile:SPField xmi:id="_6v-yBfFqEeO3mrBkZ-zwXQ" base_Property="_6viG2vFqEeO3mrBkZ-zwXQ" DisplayName="Workflow Instance ID"/>
+  <Profile:SPField xmi:id="_6v-yBvFqEeO3mrBkZ-zwXQ" base_Property="_6viG3fFqEeO3mrBkZ-zwXQ" DisplayName="Completion Date"/>
+</xmi:XMI>

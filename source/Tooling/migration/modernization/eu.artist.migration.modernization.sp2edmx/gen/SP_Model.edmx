@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  	<!-- EF Runtime content -->
+  	<edmx:Runtime>
+		<!-- SSDL content -->
+		<edmx:StorageModels>
+		    <Schema Namespace="SP_ModelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+				<EntityType Name="SpikesTogetherWRCDeployments">
+					<Key>
+					</Key>
+					<Property Name="Modified" />			
+					<Property Name="SPTGConfigurationId" />			
+					<Property Name="Title" />			
+					<Property Name="SPTGDescription" />			
+					<Property Name="Created_x0020_By" />			
+					<Property Name="Title" />			
+					<Property Name="FileLeafRef" />			
+					<Property Name="SPTGWorkflowId" />			
+					<Property Name="ReferenceId" />			
+					<Property Name="SelectFilename" />			
+					<Property Name="Modified_x0020_By" />			
+					<Property Name="SPTGWorkflowVersion" />			
+					<Property Name="Created" />			
+					<Property Name="ContentType" />			
+				</EntityType>
+				<EntityType Name="SpikesTogetherWorkflowInstances">
+					<Key>
+					</Key>
+					<Property Name="SPTGCompletionDate" />			
+					<Property Name="WorkflowInstanceID" />			
+					<Property Name="Title" />			
+					<Property Name="Title" />			
+					<Property Name="Created" />			
+					<Property Name="SelectFilename" />			
+					<Property Name="FileLeafRef" />			
+					<Property Name="Created_x0020_By" />			
+					<Property Name="ContentType" />			
+					<Property Name="Modified" />			
+					<Property Name="Modified_x0020_By" />			
+				</EntityType>
+				<EntityType Name="SpikesTogetherWRCInstances">
+					<Key>
+					</Key>
+					<Property Name="FileLeafRef" />			
+					<Property Name="SPTGDescription" />			
+					<Property Name="Modified_x0020_By" />			
+					<Property Name="ContentType" />			
+					<Property Name="SelectFilename" />			
+					<Property Name="Title" />			
+					<Property Name="Modified" />			
+					<Property Name="ReferenceId" />			
+					<Property Name="SPTGWorkflowVersion" />			
+					<Property Name="SPTGWorkflowId" />			
+					<Property Name="Created" />			
+					<Property Name="Title" />			
+					<Property Name="SPTGConfigurationId" />			
+					<Property Name="Created_x0020_By" />			
+				</EntityType>
+				<EntityType Name="SpikesTogetherWorkflowTracing">
+					<Key>
+					</Key>
+					<Property Name="Title" />			
+					<Property Name="WorkflowInstanceID" />			
+					<Property Name="SPTGCompletionDate" />			
+					<Property Name="SelectFilename" />			
+					<Property Name="ContentType" />			
+					<Property Name="Modified_x0020_By" />			
+					<Property Name="Created" />			
+					<Property Name="Modified" />			
+					<Property Name="Title" />			
+					<Property Name="FileLeafRef" />			
+					<Property Name="Created_x0020_By" />			
+				</EntityType>
+				<EntityType Name="SpikesTogetherPendingWorkflowNotifications">
+					<Key>
+					</Key>
+					<Property Name="Title" />			
+					<Property Name="FileLeafRef" />			
+					<Property Name="Title" />			
+					<Property Name="ContentType" />			
+					<Property Name="WorkflowInstanceID" />			
+					<Property Name="Created" />			
+					<Property Name="SelectFilename" />			
+					<Property Name="Modified" />			
+					<Property Name="SPTGCompletionDate" />			
+					<Property Name="Modified_x0020_By" />			
+					<Property Name="Created_x0020_By" />			
+				</EntityType>
+				<EntityType Name="SpikesTogetherWRCDesigns">
+					<Key>
+					</Key>
+					<Property Name="Modified_x0020_By" />			
+					<Property Name="SPTGConfigurationId" />			
+					<Property Name="Title" />			
+					<Property Name="ContentType" />			
+					<Property Name="Title" />			
+					<Property Name="SelectFilename" />			
+					<Property Name="SPTGWorkflowId" />			
+					<Property Name="SPTGDescription" />			
+					<Property Name="Created" />			
+					<Property Name="ReferenceId" />			
+					<Property Name="SPTGWorkflowVersion" />			
+					<Property Name="FileLeafRef" />			
+					<Property Name="Created_x0020_By" />			
+					<Property Name="Modified" />			
+				</EntityType>
+				<EntityContainer Name="SP_ModelModelStoreContainer">
+					<EntitySet Name="SpikesTogetherWRCDeployments" EntityType="Self.SpikesTogetherWRCDeployments" Schema="dbo" store:Type="Tables" />
+					<EntitySet Name="SpikesTogetherWorkflowInstances" EntityType="Self.SpikesTogetherWorkflowInstances" Schema="dbo" store:Type="Tables" />
+					<EntitySet Name="SpikesTogetherWRCInstances" EntityType="Self.SpikesTogetherWRCInstances" Schema="dbo" store:Type="Tables" />
+					<EntitySet Name="SpikesTogetherWorkflowTracing" EntityType="Self.SpikesTogetherWorkflowTracing" Schema="dbo" store:Type="Tables" />
+					<EntitySet Name="SpikesTogetherPendingWorkflowNotifications" EntityType="Self.SpikesTogetherPendingWorkflowNotifications" Schema="dbo" store:Type="Tables" />
+					<EntitySet Name="SpikesTogetherWRCDesigns" EntityType="Self.SpikesTogetherWRCDesigns" Schema="dbo" store:Type="Tables" />
+				</EntityContainer>
+			</Schema>
+		</edmx:StorageModels>
+		<!-- CSDL content -->
+		<edmx:ConceptualModels>
+			<Schema Namespace="SP_ModelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+				<EntityType Name="SpikesTogetherWRCDeployments">
+					<Key>
+					
+					</Key>
+					<Property Name="Modified" />					
+					<Property Name="SPTGConfigurationId" />					
+					<Property Name="Title" />					
+					<Property Name="SPTGDescription" />					
+					<Property Name="Created_x0020_By" />					
+					<Property Name="Title" />					
+					<Property Name="FileLeafRef" />					
+					<Property Name="SPTGWorkflowId" />					
+					<Property Name="ReferenceId" />					
+					<Property Name="SelectFilename" />					
+					<Property Name="Modified_x0020_By" />					
+					<Property Name="SPTGWorkflowVersion" />					
+					<Property Name="Created" />					
+					<Property Name="ContentType" />					
+				</EntityType>
+				<EntityType Name="SpikesTogetherWorkflowInstances">
+					<Key>
+					
+					</Key>
+					<Property Name="SPTGCompletionDate" />					
+					<Property Name="WorkflowInstanceID" />					
+					<Property Name="Title" />					
+					<Property Name="Title" />					
+					<Property Name="Created" />					
+					<Property Name="SelectFilename" />					
+					<Property Name="FileLeafRef" />					
+					<Property Name="Created_x0020_By" />					
+					<Property Name="ContentType" />					
+					<Property Name="Modified" />					
+					<Property Name="Modified_x0020_By" />					
+				</EntityType>
+				<EntityType Name="SpikesTogetherWRCInstances">
+					<Key>
+					
+					</Key>
+					<Property Name="FileLeafRef" />					
+					<Property Name="SPTGDescription" />					
+					<Property Name="Modified_x0020_By" />					
+					<Property Name="ContentType" />					
+					<Property Name="SelectFilename" />					
+					<Property Name="Title" />					
+					<Property Name="Modified" />					
+					<Property Name="ReferenceId" />					
+					<Property Name="SPTGWorkflowVersion" />					
+					<Property Name="SPTGWorkflowId" />					
+					<Property Name="Created" />					
+					<Property Name="Title" />					
+					<Property Name="SPTGConfigurationId" />					
+					<Property Name="Created_x0020_By" />					
+				</EntityType>
+				<EntityType Name="SpikesTogetherWorkflowTracing">
+					<Key>
+					
+					</Key>
+					<Property Name="Title" />					
+					<Property Name="WorkflowInstanceID" />					
+					<Property Name="SPTGCompletionDate" />					
+					<Property Name="SelectFilename" />					
+					<Property Name="ContentType" />					
+					<Property Name="Modified_x0020_By" />					
+					<Property Name="Created" />					
+					<Property Name="Modified" />					
+					<Property Name="Title" />					
+					<Property Name="FileLeafRef" />					
+					<Property Name="Created_x0020_By" />					
+				</EntityType>
+				<EntityType Name="SpikesTogetherPendingWorkflowNotifications">
+					<Key>
+					
+					</Key>
+					<Property Name="Title" />					
+					<Property Name="FileLeafRef" />					
+					<Property Name="Title" />					
+					<Property Name="ContentType" />					
+					<Property Name="WorkflowInstanceID" />					
+					<Property Name="Created" />					
+					<Property Name="SelectFilename" />					
+					<Property Name="Modified" />					
+					<Property Name="SPTGCompletionDate" />					
+					<Property Name="Modified_x0020_By" />					
+					<Property Name="Created_x0020_By" />					
+				</EntityType>
+				<EntityType Name="SpikesTogetherWRCDesigns">
+					<Key>
+					
+					</Key>
+					<Property Name="Modified_x0020_By" />					
+					<Property Name="SPTGConfigurationId" />					
+					<Property Name="Title" />					
+					<Property Name="ContentType" />					
+					<Property Name="Title" />					
+					<Property Name="SelectFilename" />					
+					<Property Name="SPTGWorkflowId" />					
+					<Property Name="SPTGDescription" />					
+					<Property Name="Created" />					
+					<Property Name="ReferenceId" />					
+					<Property Name="SPTGWorkflowVersion" />					
+					<Property Name="FileLeafRef" />					
+					<Property Name="Created_x0020_By" />					
+					<Property Name="Modified" />					
+				</EntityType>
+				<EntityContainer Name="SP_ModelEntities" annotation:LazyLoadingEnabled="true">
+					<EntitySet Name="SpikesTogetherWRCDeployments" EntityType="Self.SpikesTogetherWRCDeployments" />
+					<EntitySet Name="SpikesTogetherWorkflowInstances" EntityType="Self.SpikesTogetherWorkflowInstances" />
+					<EntitySet Name="SpikesTogetherWRCInstances" EntityType="Self.SpikesTogetherWRCInstances" />
+					<EntitySet Name="SpikesTogetherWorkflowTracing" EntityType="Self.SpikesTogetherWorkflowTracing" />
+					<EntitySet Name="SpikesTogetherPendingWorkflowNotifications" EntityType="Self.SpikesTogetherPendingWorkflowNotifications" />
+					<EntitySet Name="SpikesTogetherWRCDesigns" EntityType="Self.SpikesTogetherWRCDesigns" />
+				</EntityContainer>
+			</Schema>
+		</edmx:ConceptualModels>
+		<!-- C-S mapping content -->
+		<edmx:Mappings>
+			<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+				<EntityContainerMapping StorageEntityContainer="SP_ModelModelStoreContainer" CdmEntityContainer="SP_ModelEntities">
+		 			<EntitySetMapping Name="SpikesTogetherWRCDeployments">
+						<EntityTypeMapping TypeName="SP_ModelModel.SpikesTogetherWRCDeployments">
+							<MappingFragment StoreEntitySet="SpikesTogetherWRCDeployments">
+								<ScalarProperty Name="Modified" ColumnName="Modified" />
+								<ScalarProperty Name="SPTGConfigurationId" ColumnName="SPTGConfigurationId" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="SPTGDescription" ColumnName="SPTGDescription" />
+								<ScalarProperty Name="Created_x0020_By" ColumnName="Created_x0020_By" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="FileLeafRef" ColumnName="FileLeafRef" />
+								<ScalarProperty Name="SPTGWorkflowId" ColumnName="SPTGWorkflowId" />
+								<ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+								<ScalarProperty Name="SelectFilename" ColumnName="SelectFilename" />
+								<ScalarProperty Name="Modified_x0020_By" ColumnName="Modified_x0020_By" />
+								<ScalarProperty Name="SPTGWorkflowVersion" ColumnName="SPTGWorkflowVersion" />
+								<ScalarProperty Name="Created" ColumnName="Created" />
+								<ScalarProperty Name="ContentType" ColumnName="ContentType" />
+							</MappingFragment>
+		            	</EntityTypeMapping>
+					</EntitySetMapping>
+		 			<EntitySetMapping Name="SpikesTogetherWorkflowInstances">
+						<EntityTypeMapping TypeName="SP_ModelModel.SpikesTogetherWorkflowInstances">
+							<MappingFragment StoreEntitySet="SpikesTogetherWorkflowInstances">
+								<ScalarProperty Name="SPTGCompletionDate" ColumnName="SPTGCompletionDate" />
+								<ScalarProperty Name="WorkflowInstanceID" ColumnName="WorkflowInstanceID" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="Created" ColumnName="Created" />
+								<ScalarProperty Name="SelectFilename" ColumnName="SelectFilename" />
+								<ScalarProperty Name="FileLeafRef" ColumnName="FileLeafRef" />
+								<ScalarProperty Name="Created_x0020_By" ColumnName="Created_x0020_By" />
+								<ScalarProperty Name="ContentType" ColumnName="ContentType" />
+								<ScalarProperty Name="Modified" ColumnName="Modified" />
+								<ScalarProperty Name="Modified_x0020_By" ColumnName="Modified_x0020_By" />
+							</MappingFragment>
+		            	</EntityTypeMapping>
+					</EntitySetMapping>
+		 			<EntitySetMapping Name="SpikesTogetherWRCInstances">
+						<EntityTypeMapping TypeName="SP_ModelModel.SpikesTogetherWRCInstances">
+							<MappingFragment StoreEntitySet="SpikesTogetherWRCInstances">
+								<ScalarProperty Name="FileLeafRef" ColumnName="FileLeafRef" />
+								<ScalarProperty Name="SPTGDescription" ColumnName="SPTGDescription" />
+								<ScalarProperty Name="Modified_x0020_By" ColumnName="Modified_x0020_By" />
+								<ScalarProperty Name="ContentType" ColumnName="ContentType" />
+								<ScalarProperty Name="SelectFilename" ColumnName="SelectFilename" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="Modified" ColumnName="Modified" />
+								<ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+								<ScalarProperty Name="SPTGWorkflowVersion" ColumnName="SPTGWorkflowVersion" />
+								<ScalarProperty Name="SPTGWorkflowId" ColumnName="SPTGWorkflowId" />
+								<ScalarProperty Name="Created" ColumnName="Created" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="SPTGConfigurationId" ColumnName="SPTGConfigurationId" />
+								<ScalarProperty Name="Created_x0020_By" ColumnName="Created_x0020_By" />
+							</MappingFragment>
+		            	</EntityTypeMapping>
+					</EntitySetMapping>
+		 			<EntitySetMapping Name="SpikesTogetherWorkflowTracing">
+						<EntityTypeMapping TypeName="SP_ModelModel.SpikesTogetherWorkflowTracing">
+							<MappingFragment StoreEntitySet="SpikesTogetherWorkflowTracing">
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="WorkflowInstanceID" ColumnName="WorkflowInstanceID" />
+								<ScalarProperty Name="SPTGCompletionDate" ColumnName="SPTGCompletionDate" />
+								<ScalarProperty Name="SelectFilename" ColumnName="SelectFilename" />
+								<ScalarProperty Name="ContentType" ColumnName="ContentType" />
+								<ScalarProperty Name="Modified_x0020_By" ColumnName="Modified_x0020_By" />
+								<ScalarProperty Name="Created" ColumnName="Created" />
+								<ScalarProperty Name="Modified" ColumnName="Modified" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="FileLeafRef" ColumnName="FileLeafRef" />
+								<ScalarProperty Name="Created_x0020_By" ColumnName="Created_x0020_By" />
+							</MappingFragment>
+		            	</EntityTypeMapping>
+					</EntitySetMapping>
+		 			<EntitySetMapping Name="SpikesTogetherPendingWorkflowNotifications">
+						<EntityTypeMapping TypeName="SP_ModelModel.SpikesTogetherPendingWorkflowNotifications">
+							<MappingFragment StoreEntitySet="SpikesTogetherPendingWorkflowNotifications">
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="FileLeafRef" ColumnName="FileLeafRef" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="ContentType" ColumnName="ContentType" />
+								<ScalarProperty Name="WorkflowInstanceID" ColumnName="WorkflowInstanceID" />
+								<ScalarProperty Name="Created" ColumnName="Created" />
+								<ScalarProperty Name="SelectFilename" ColumnName="SelectFilename" />
+								<ScalarProperty Name="Modified" ColumnName="Modified" />
+								<ScalarProperty Name="SPTGCompletionDate" ColumnName="SPTGCompletionDate" />
+								<ScalarProperty Name="Modified_x0020_By" ColumnName="Modified_x0020_By" />
+								<ScalarProperty Name="Created_x0020_By" ColumnName="Created_x0020_By" />
+							</MappingFragment>
+		            	</EntityTypeMapping>
+					</EntitySetMapping>
+		 			<EntitySetMapping Name="SpikesTogetherWRCDesigns">
+						<EntityTypeMapping TypeName="SP_ModelModel.SpikesTogetherWRCDesigns">
+							<MappingFragment StoreEntitySet="SpikesTogetherWRCDesigns">
+								<ScalarProperty Name="Modified_x0020_By" ColumnName="Modified_x0020_By" />
+								<ScalarProperty Name="SPTGConfigurationId" ColumnName="SPTGConfigurationId" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="ContentType" ColumnName="ContentType" />
+								<ScalarProperty Name="Title" ColumnName="Title" />
+								<ScalarProperty Name="SelectFilename" ColumnName="SelectFilename" />
+								<ScalarProperty Name="SPTGWorkflowId" ColumnName="SPTGWorkflowId" />
+								<ScalarProperty Name="SPTGDescription" ColumnName="SPTGDescription" />
+								<ScalarProperty Name="Created" ColumnName="Created" />
+								<ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+								<ScalarProperty Name="SPTGWorkflowVersion" ColumnName="SPTGWorkflowVersion" />
+								<ScalarProperty Name="FileLeafRef" ColumnName="FileLeafRef" />
+								<ScalarProperty Name="Created_x0020_By" ColumnName="Created_x0020_By" />
+								<ScalarProperty Name="Modified" ColumnName="Modified" />
+							</MappingFragment>
+		            	</EntityTypeMapping>
+					</EntitySetMapping>
+				</EntityContainerMapping>
+			</Mapping>
+		</edmx:Mappings>
+  	</edmx:Runtime>
+  	<!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+	<Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+	    <Connection>
+	      <DesignerInfoPropertySet>
+	        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+	      </DesignerInfoPropertySet>
+	    </Connection>
+	    <Options>
+	      <DesignerInfoPropertySet>
+	        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+	        <DesignerProperty Name="EnablePluralization" Value="false" />
+	        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+	        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+	        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+	      </DesignerInfoPropertySet>
+	    </Options>
+	    <!-- Diagram content (shape and connector positions) -->
+	    <Diagrams></Diagrams>
+	  </Designer>
+</edmx:Edmx>

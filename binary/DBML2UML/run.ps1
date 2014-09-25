@@ -1,0 +1,1 @@
+﻿.\dbml2uml.bat

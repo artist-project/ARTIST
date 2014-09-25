@@ -1,0 +1,2166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllTasks" xml:space="preserve">
+    <value>All Tasks</value>
+  </data>
+  <data name="ConfigureDynamicListForms" xml:space="preserve">
+    <value>Configure Dynamic List Forms</value>
+  </data>
+  <data name="ContentTypeTemplates" xml:space="preserve">
+    <value>Content Type Templates</value>
+  </data>
+  <data name="ContentTypeVisioWorkflowDescription" xml:space="preserve">
+    <value>Create a new workflow.</value>
+  </data>
+  <data name="ContentTypeVisioWorkflowName" xml:space="preserve">
+    <value>SpikesTogether Visio Workflow</value>
+  </data>
+  <data name="ContentTypeWorkflowDesignDescription" xml:space="preserve">
+    <value>Design your SpikesTogether workflow</value>
+  </data>
+  <data name="ContentTypeWorkflowDesignName" xml:space="preserve">
+    <value>Workflow Design</value>
+  </data>
+  <data name="ContentTypeWorkflowTaskDescription" xml:space="preserve">
+    <value>A work item created by a SpikesTogether workflow that you or your team needs to complete.</value>
+  </data>
+  <data name="CTRL_ActivityConstraintsUserControlTabHeader" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="CTRL_ActivityGeneralUserControTabHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="CTRL_ActivityInitiateInfoText" xml:space="preserve">
+    <value>Select the activity that users can initiate.</value>
+  </data>
+  <data name="CTRL_ActivityInitiationUserControlTabHeader" xml:space="preserve">
+    <value>Activities on Request</value>
+  </data>
+  <data name="CTRL_ActivityLiteralText" xml:space="preserve">
+    <value>Activity to Initiate</value>
+  </data>
+  <data name="CTRL_ActivityOnRequestInfoLiteralText" xml:space="preserve">
+    <value>Configure which activities can be manually initiated by users when this activity is running. The activities listed below can be initiated by means of the Workflow Management Web Part.</value>
+  </data>
+  <data name="CTRL_ActivityTasksUserControlTabHeader" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="CTRL_ActivityValidationLiteralText" xml:space="preserve">
+    <value>Please fill in a name for the activity before setting up activity initations.</value>
+  </data>
+  <data name="CTRL_AddCheckListItemButtonText" xml:space="preserve">
+    <value>Add checklist item</value>
+  </data>
+  <data name="CTRL_AddConfigurationButtonText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="CTRL_AddFromExistingColumnsButtonText" xml:space="preserve">
+    <value>Add From Existing Columns</value>
+  </data>
+  <data name="CTRL_AddNewColumnButtonText" xml:space="preserve">
+    <value>Add New Column</value>
+  </data>
+  <data name="CTRL_AddOutcomeButtonToolTip" xml:space="preserve">
+    <value>Add Outcome</value>
+  </data>
+  <data name="CTRL_AddVariableButtonText" xml:space="preserve">
+    <value>Add Activity On Request</value>
+  </data>
+  <data name="CTRL_AddWorkflowVariableButtonText" xml:space="preserve">
+    <value>Add Workflow Variable</value>
+  </data>
+  <data name="CTRL_AllAnyOutcomeText" xml:space="preserve">
+    <value>All participants need to agree on an outcome</value>
+  </data>
+  <data name="CTRL_AllowDelegationCheckBoxText" xml:space="preserve">
+    <value>Allow users to delegate their tasks</value>
+  </data>
+  <data name="CTRL_AllowMultipleValuesCheckBoxText" xml:space="preserve">
+    <value>Allow multiple values</value>
+  </data>
+  <data name="CTRL_AllowOverrideCheckboxText" xml:space="preserve">
+    <value>Allow workflow administrators to override default user and group assignment.</value>
+  </data>
+  <data name="CTRL_AllSpecificOutcomeAfterDropdownLiteralText" xml:space="preserve">
+    <value>Outcome</value>
+  </data>
+  <data name="CTRL_AllSpecificOutcomeText" xml:space="preserve">
+    <value>All participants needs to agree on the</value>
+  </data>
+  <data name="CTRL_AndTheActivityIsText" xml:space="preserve">
+    <value>and the activity is</value>
+  </data>
+  <data name="CTRL_AssignmentLiteralText" xml:space="preserve">
+    <value>Assignment</value>
+  </data>
+  <data name="CTRL_AssignTasksInLiteralText" xml:space="preserve">
+    <value>Assign tasks in</value>
+  </data>
+  <data name="CTRL_AssignUsersLiteralText" xml:space="preserve">
+    <value>Default Users and Groups </value>
+  </data>
+  <data name="CTRL_AttachmentCheckboxText" xml:space="preserve">
+    <value>Send workflow document as attachment</value>
+  </data>
+  <data name="CTRL_AttachmentInfoLiteralText" xml:space="preserve">
+    <value>This function is only available if the workflow is associated with a document.</value>
+  </data>
+  <data name="CTRL_AttachmentLiteralText" xml:space="preserve">
+    <value>Attachment</value>
+  </data>
+  <data name="CTRL_BaseContentTypeLiteralText" xml:space="preserve">
+    <value>Base content type</value>
+  </data>
+  <data name="CTRL_BCCLiteralText" xml:space="preserve">
+    <value>BCc</value>
+  </data>
+  <data name="CTRL_BindingStatusDropDownListListItemFormula" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="CTRL_BindingStatusDropDownListListItemValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="CTRL_BodyLiteralText" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="CTRL_BreakInheritanceButtonText" xml:space="preserve">
+    <value>Break Inheritance</value>
+  </data>
+  <data name="CTRL_CancelButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CTRL_CategoriesLiteralText" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="CTRL_CCLiteralText" xml:space="preserve">
+    <value>Cc</value>
+  </data>
+  <data name="CTRL_ChangeColumnOrderingButtonText" xml:space="preserve">
+    <value>Change Column Ordering</value>
+  </data>
+  <data name="CTRL_ChangeLinkText" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="CTRL_ChangePublishLocationText" xml:space="preserve">
+    <value>Change Publish Location</value>
+  </data>
+  <data name="CTRL_CheckListLiteralText" xml:space="preserve">
+    <value>Checklist Items</value>
+  </data>
+  <data name="CTRL_ChkFormListItemDisplay_Form" xml:space="preserve">
+    <value>Display Form</value>
+  </data>
+  <data name="CTRL_ChkFormListItemEdit_Form" xml:space="preserve">
+    <value>Edit Form</value>
+  </data>
+  <data name="CTRL_ColumnLiteralText" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="CTRL_ConditionDropDownListItemNoCondition" xml:space="preserve">
+    <value>&lt;No Condition&gt;</value>
+  </data>
+  <data name="CTRL_ConditionLiteralText" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="CTRL_ConditionSelectionDescription" xml:space="preserve">
+    <value>Select Conditions for form settings</value>
+  </data>
+  <data name="CTRL_ConditionSelectionTitle" xml:space="preserve">
+    <value>Select Condition</value>
+  </data>
+  <data name="CTRL_ConfigurationIdLiteralText" xml:space="preserve">
+    <value>Configuration Id</value>
+  </data>
+  <data name="CTRL_ConfigureActivitiesOnRequestWorkflowLiteralText" xml:space="preserve">
+    <value>Configure which activities can be started on request when this workflow is running. The activities listed below can be initiated by users by means of the Workflow Management Web Part</value>
+  </data>
+  <data name="CTRL_ConfigureColumnsButtonText" xml:space="preserve">
+    <value>Configure Columns</value>
+  </data>
+  <data name="CTRL_ConfigureLiteralText" xml:space="preserve">
+    <value>Allowed Role</value>
+  </data>
+  <data name="CTRL_ConfigureRoleButtonText" xml:space="preserve">
+    <value>Configure Role</value>
+  </data>
+  <data name="CTRL_ConfigureTaskFormButtonText" xml:space="preserve">
+    <value>Configure Task Form</value>
+  </data>
+  <data name="CTRL_ConstraintInfoLiteralText" xml:space="preserve">
+    <value>Constraint Activity Execution</value>
+  </data>
+  <data name="CTRL_ConstraintNumberOfExecutionsInfoLiteralText" xml:space="preserve">
+    <value>Constraint the number of times the activity is allowed to run. By default there is no restriction in place.</value>
+  </data>
+  <data name="CTRL_ConstraintsEnabledRadioButtonListListItemNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="CTRL_ConstraintsEnabledRadioButtonListListItemYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="CTRL_ContentTypeDropDownListText" xml:space="preserve">
+    <value>Parent Type</value>
+  </data>
+  <data name="CTRL_ContentTypeSelectorDescription" xml:space="preserve">
+    <value>Show or hide the content type selector control should be shown in edit mode.</value>
+  </data>
+  <data name="CTRL_ContentTypeSelectorDropDownListItemHide" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="CTRL_ContentTypeSelectorDropDownListItemShow" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="CTRL_ContentTypeSelectorTitle" xml:space="preserve">
+    <value>Content Type Selector</value>
+  </data>
+  <data name="CTRL_CreateNewFormTypeLinkText" xml:space="preserve">
+    <value>Create new form type</value>
+  </data>
+  <data name="CTRL_CreateNewTaskTypeLiteralText" xml:space="preserve">
+    <value>Create new task type</value>
+  </data>
+  <data name="CTRL_CreateNewTemplateLiteralText" xml:space="preserve">
+    <value>Create New Template</value>
+  </data>
+  <data name="CTRL_DDL_BCCListItemEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="CTRL_DDL_BCCListItemRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="CTRL_DDL_BCCListItemUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="CTRL_DelegationLiteralText" xml:space="preserve">
+    <value>Task Delegation</value>
+  </data>
+  <data name="CTRL_DeleteAllVariablesButtonOnClientClick" xml:space="preserve">
+    <value>return confirm('Confirm deletion of all variables');</value>
+  </data>
+  <data name="CTRL_DeleteAllVariablesButtonText" xml:space="preserve">
+    <value>Delete All</value>
+  </data>
+  <data name="CTRL_DeleteButtonOnClientClick" xml:space="preserve">
+    <value>javascript:return confirm('Checklist item will be deleted. Are you sure?');</value>
+  </data>
+  <data name="CTRL_DeleteButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CTRL_DeleteConditionButtonText" xml:space="preserve">
+    <value>Delete Condition</value>
+  </data>
+  <data name="CTRL_DeleteConditionButtonToolTip" xml:space="preserve">
+    <value>Delete selected condition</value>
+  </data>
+  <data name="CTRL_DeleteTemplateLinkOnClientClick" xml:space="preserve">
+    <value>return confirm('Are you sure you want to delete this template?');</value>
+  </data>
+  <data name="CTRL_DeleteTemplateLinkText" xml:space="preserve">
+    <value>Delete Selected Template</value>
+  </data>
+  <data name="CTRL_DescriptionLiteralText" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CTRL_DisplayRenderModeRadioButtonText" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="CTRL_DynamicFormInheritFromParentLiteralText" xml:space="preserve">
+    <value>The dynamic form inherits its settings from the parent content type.</value>
+  </data>
+  <data name="CTRL_DynamicFormNotInheritFromParentLiteralText" xml:space="preserve">
+    <value>This dynamic form does not inherit its settings from the parent content type.</value>
+  </data>
+  <data name="CTRL_EditActivityOnRequestConfirmationText" xml:space="preserve">
+    <value>Edit Activity On Request</value>
+  </data>
+  <data name="CTRL_EditButtonText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CTRL_EditConditionButtonText" xml:space="preserve">
+    <value>Edit Condition</value>
+  </data>
+  <data name="CTRL_EditConditionButtonToolTip" xml:space="preserve">
+    <value>Edit selected condition</value>
+  </data>
+  <data name="CTRL_EditorSectionFormDescription" xml:space="preserve">
+    <value>Select the form modes to which the rule need to be applied</value>
+  </data>
+  <data name="CTRL_EditorSectionFormTitle" xml:space="preserve">
+    <value>Select Rule Form Modes</value>
+  </data>
+  <data name="CTRL_EditorSectionInputDescription" xml:space="preserve">
+    <value>Unique Name for the Rule</value>
+  </data>
+  <data name="CTRL_EditorSectionInputTitle" xml:space="preserve">
+    <value>Rule Name</value>
+  </data>
+  <data name="CTRL_EditorSectionPriorityDescription" xml:space="preserve">
+    <value>Set the priority of the rule between 0 and 10</value>
+  </data>
+  <data name="CTRL_EditorSectionPriorityTitle" xml:space="preserve">
+    <value>Rule Priority</value>
+  </data>
+  <data name="CTRL_EditorSectionQueryDescription" xml:space="preserve">
+    <value>Compose your query from the available fields on the list</value>
+  </data>
+  <data name="CTRL_EditorSectionQueryDescription1" xml:space="preserve">
+    <value>Compose your query.</value>
+  </data>
+  <data name="CTRL_EditorSectionQueryTitle" xml:space="preserve">
+    <value>Compose Query</value>
+  </data>
+  <data name="CTRL_EditorSectionRoleDescription" xml:space="preserve">
+    <value>Select the group to which the user must belong</value>
+  </data>
+  <data name="CTRL_EditorSectionRoleTitle" xml:space="preserve">
+    <value>Select Role Membership</value>
+  </data>
+  <data name="CTRL_EditorSectionWorkflowDescription" xml:space="preserve">
+    <value>Select a workflow. This condition will be true if the active user has an active workflow task.</value>
+  </data>
+  <data name="CTRL_EditorSectionWorkflowTitle" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+  <data name="CTRL_EditOutcomeButtonToolTip" xml:space="preserve">
+    <value>Edit outcome</value>
+  </data>
+  <data name="CTRL_EditTemplateLiteralText" xml:space="preserve">
+    <value>Edit Selected Template</value>
+  </data>
+  <data name="CTRL_EnableDynamicFormsInputSectionTitleDescription" xml:space="preserve">
+    <value>Enable or disable dynamic forms for this content type.</value>
+  </data>
+  <data name="CTRL_EnableDynamicFormsInputSectionTitleTitle" xml:space="preserve">
+    <value>Enable Dynamic Forms</value>
+  </data>
+  <data name="CTRL_EndWithActivityLiteralText" xml:space="preserve">
+    <value>End With Activity</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemActivityBlocked" xml:space="preserve">
+    <value>When an activity is supspended</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemActivityCompleted" xml:space="preserve">
+    <value>When an activity is completed</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemActivityInitialized" xml:space="preserve">
+    <value>When an activity is started</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemActivityUnblocked" xml:space="preserve">
+    <value>When an activity is resumed</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemItemReferenceUpdated" xml:space="preserve">
+    <value>When the item is updated</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemTaskCreated" xml:space="preserve">
+    <value>When a task is created</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemTaskDelegated" xml:space="preserve">
+    <value>When a task is delegated</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemTaskExecuted" xml:space="preserve">
+    <value>When a task is completed</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemTimerNotification" xml:space="preserve">
+    <value>No specific event</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemWorkflowCompleted" xml:space="preserve">
+    <value>When the workfow completes</value>
+  </data>
+  <data name="CTRL_EventsDropDownListListItemWorkflowStarted" xml:space="preserve">
+    <value>When the workflow starts</value>
+  </data>
+  <data name="CTRL_ExecuteOnceRadioButtonText" xml:space="preserve">
+    <value>Do not execute more then once</value>
+  </data>
+  <data name="CTRL_ExecutionModeLiteralText" xml:space="preserve">
+    <value>Execution Mode</value>
+  </data>
+  <data name="CTRL_ExecutionModeRadioButtonListListItemStartAndContinue" xml:space="preserve">
+    <value>Start and continue immediately</value>
+  </data>
+  <data name="CTRL_ExecutionModeRadioButtonListListItemStartAndWait" xml:space="preserve">
+    <value>Start and wait until the workflow completes</value>
+  </data>
+  <data name="CTRL_ExternalAssignmentLiteralText" xml:space="preserve">
+    <value>External Assignment</value>
+  </data>
+  <data name="CTRL_FallBackUsersAndGroupsInfoLiteralText" xml:space="preserve">
+    <value>Fill in one or multiple users or groups that will be used when the above conditions do not resolve to a principal.</value>
+  </data>
+  <data name="CTRL_FallbackUsersAndGroupsLiteralText" xml:space="preserve">
+    <value>Fallback Users And Groups</value>
+  </data>
+  <data name="CTRL_FeaturesMustBeActivatedLiteralText" xml:space="preserve">
+    <value>*Features must be active to enable publishing to this site. Contact the system administrator for more information.</value>
+  </data>
+  <data name="CTRL_FieldLiteralText" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="CTRL_FieldSettingsInputSectionTitleDescription" xml:space="preserve">
+    <value>Specify the behavior of each field</value>
+  </data>
+  <data name="CTRL_FieldSettingsInputSectionTitleTitle" xml:space="preserve">
+    <value>Field Settings</value>
+  </data>
+  <data name="CTRL_FormSelectionInputSectionTitleDescription" xml:space="preserve">
+    <value>Select the form type to configure.</value>
+  </data>
+  <data name="CTRL_FormSelectionInputSectionTitleTitle" xml:space="preserve">
+    <value>Select Form Type</value>
+  </data>
+  <data name="CTRL_FormTypeDropDownListItemNewForm" xml:space="preserve">
+    <value>New Form</value>
+  </data>
+  <data name="CTRL_FormTypeInfoLiteralText" xml:space="preserve">
+    <value>Select he form to  display when the user starts the task.</value>
+  </data>
+  <data name="CTRL_FromLiteralText" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="CTRL_HiddenRenderModeRadioButtonText" xml:space="preserve">
+    <value>Hidden</value>
+  </data>
+  <data name="CTRL_HideExternalUserPickerLinkButtonText" xml:space="preserve">
+    <value>I no longer want to include external users</value>
+  </data>
+  <data name="CTRL_IncomingStatusLiteralText" xml:space="preserve">
+    <value>Incoming Status</value>
+  </data>
+  <data name="CTRL_InheritButtonText" xml:space="preserve">
+    <value>Inherit from parent content type</value>
+  </data>
+  <data name="CTRL_InitiateActivityDescriptionInfoText" xml:space="preserve">
+    <value>Enter a description that is shown to the user when initiating activities.</value>
+  </data>
+  <data name="CTRL_InitiateActivityGeneralUserControl1TabHeader" xml:space="preserve">
+    <value>Start Activity</value>
+  </data>
+  <data name="CTRL_InitiateActivityRoleInfoText" xml:space="preserve">
+    <value>Only members of the selected role are allowed to initiate the activity.</value>
+  </data>
+  <data name="CTRL_InitiateWorkflowUserControlTabHeader" xml:space="preserve">
+    <value>Start Workflow</value>
+  </data>
+  <data name="CTRL_IntervalDropDownListItemDays" xml:space="preserve">
+    <value>Day(s)</value>
+  </data>
+  <data name="CTRL_IntervalDropDownListItemHours" xml:space="preserve">
+    <value>Hour(s)</value>
+  </data>
+  <data name="CTRL_IntervalDropDownListItemMinutes" xml:space="preserve">
+    <value>Minute(s)</value>
+  </data>
+  <data name="CTRL_ListWorkflowRadioButtonText" xml:space="preserve">
+    <value>List Worfklow</value>
+  </data>
+  <data name="CTRL_MajorityAnyOutcomeText" xml:space="preserve">
+    <value>The majority needs to agree on an outcome</value>
+  </data>
+  <data name="CTRL_MajoritySpecificOutcomeText" xml:space="preserve">
+    <value>The majority needs to agree on the</value>
+  </data>
+  <data name="CTRL_MatchLiteralText" xml:space="preserve">
+    <value>Match</value>
+  </data>
+  <data name="CTRL_MaxOccurenceOneRadioButtonText" xml:space="preserve">
+    <value>Do not execute if the current activity is already running.</value>
+  </data>
+  <data name="CTRL_MyOpenTaskLiteralText" xml:space="preserve">
+    <value>My Open Tasks</value>
+  </data>
+  <data name="CTRL_NameLiteralText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="CTRL_NewConditionButtonText" xml:space="preserve">
+    <value>New Condition</value>
+  </data>
+  <data name="CTRL_NewConditionButtonToolTip" xml:space="preserve">
+    <value>Create a new condition</value>
+  </data>
+  <data name="CTRL_NoActivitiesOnRequestText" xml:space="preserve">
+    <value>No 'Activities on Request' configured.</value>
+  </data>
+  <data name="CTRL_NoEditableColumnsAvailableText" xml:space="preserve">
+    <value>No editable columns available. First make sure that the selected content type has editable columns available. If this is not the case, add at least one.</value>
+  </data>
+  <data name="CTRL_NoOptionsLiteralText" xml:space="preserve">
+    <value>No additional options</value>
+  </data>
+  <data name="CTRL_NoOwnTasksFoundLiteralText" xml:space="preserve">
+    <value>No tasks were found</value>
+  </data>
+  <data name="CTRL_NoWorkflowVariablesDefinedLiteralText" xml:space="preserve">
+    <value>No workflow variables defined</value>
+  </data>
+  <data name="CTRL_NrExecutionsRadioButtonListListItemAllUsers" xml:space="preserve">
+    <value>All users need to execute this task</value>
+  </data>
+  <data name="CTRL_NrExecutionsRadioButtonListListItemOneUser" xml:space="preserve">
+    <value>Only the first user needs to execute this task</value>
+  </data>
+  <data name="CTRL_OfTheFollowingRulesLiteralText" xml:space="preserve">
+    <value>of the following rules</value>
+  </data>
+  <data name="CTRL_OnDemandCheckBoxText" xml:space="preserve">
+    <value>Load workflow on demand</value>
+  </data>
+  <data name="CTRL_OptionsLiteralText" xml:space="preserve">
+    <value>Additional Options</value>
+  </data>
+  <data name="TaskOutcomeCompleted" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="CTRL_OutcomesLiteralText" xml:space="preserve">
+    <value>Outcome</value>
+  </data>
+  <data name="CTRL_OutcomeStrategyLiteralText" xml:space="preserve">
+    <value>Oucome Strategy</value>
+  </data>
+  <data name="CTRL_OutcomeUndeterminedLiteralText" xml:space="preserve">
+    <value>If outcome is undetermined, use</value>
+  </data>
+  <data name="CTRL_OutgoingStatusLiteralText" xml:space="preserve">
+    <value>Outgoing Status</value>
+  </data>
+  <data name="CTRL_OverrideAssignmentLiteralText" xml:space="preserve">
+    <value>Override Assignment</value>
+  </data>
+  <data name="CTRL_PublishButtonText" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="CTRL_PublishToLiteralText" xml:space="preserve">
+    <value>Publish Location</value>
+  </data>
+  <data name="CTRL_RemoveOutcomeButtonToolTip" xml:space="preserve">
+    <value>Remove outcome</value>
+  </data>
+  <data name="CTRL_RenderModeLiteralText" xml:space="preserve">
+    <value>Render Mode</value>
+  </data>
+  <data name="CTRL_RequiredDropDownListListItemInherit" xml:space="preserve">
+    <value>Inherit from Content Type</value>
+  </data>
+  <data name="CTRL_RequiredDropDownListListItemNotRequired" xml:space="preserve">
+    <value>Not Required</value>
+  </data>
+  <data name="CTRL_RequiredDropDownListListItemRequired" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="CTRL_RequiredFieldLiteralText" xml:space="preserve">
+    <value>Required Field</value>
+  </data>
+  <data name="CTRL_ReturnToNormalModeFormulaLiteralText" xml:space="preserve">
+    <value>Return to normal mode</value>
+  </data>
+  <data name="CTRL_RoleDropDownListItem3" xml:space="preserve">
+    <value>Viewers</value>
+  </data>
+  <data name="CTRL_RoleDropDownListItem5" xml:space="preserve">
+    <value>SPTG Owners</value>
+  </data>
+  <data name="CTRL_RoleDropDownListItem6" xml:space="preserve">
+    <value>SPTG Visitors</value>
+  </data>
+  <data name="CTRL_RoleDropDownListItem7" xml:space="preserve">
+    <value>SPTG Members</value>
+  </data>
+  <data name="CTRL_RoleDropDownListItemNone" xml:space="preserve">
+    <value>No Membership Required</value>
+  </data>
+  <data name="CTRL_RoleNameLiteralText" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="CTRL_RuleLiteralText" xml:space="preserve">
+    <value>Rule</value>
+  </data>
+  <data name="CTRL_SaveAndCloseButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CTRL_SaveButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CTRL_SectionTemplatesDescription" xml:space="preserve">
+    <value>Select a template from the list or use the standard alert behaviour.</value>
+  </data>
+  <data name="CTRL_SectionTemplatesTitle" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="CTRL_SelectedSiteInformationLiteralText" xml:space="preserve">
+    <value>Selected Site Information</value>
+  </data>
+  <data name="CTRL_SelectWorkflowFieldLiteralText" xml:space="preserve">
+    <value>Select workflow field</value>
+  </data>
+  <data name="CTRL_SelectWorkflowLiteralText" xml:space="preserve">
+    <value>Select Workflow to Start</value>
+  </data>
+  <data name="CTRL_ShowExternalUserPickerLinkButtonText" xml:space="preserve">
+    <value>I also want to include external users</value>
+  </data>
+  <data name="CTRL_SiteTitleLiteralText" xml:space="preserve">
+    <value>Site Title</value>
+  </data>
+  <data name="CTRL_SiteUrlLiteralText" xml:space="preserve">
+    <value>Site Url</value>
+  </data>
+  <data name="CTRL_SiteWorkflowRadioButtonText" xml:space="preserve">
+    <value>Site Worfklow</value>
+  </data>
+  <data name="CTRL_SPTGFeaturesActiveLiteralText" xml:space="preserve">
+    <value>SpikesTogether Features Active</value>
+  </data>
+  <data name="CTRL_StartWithActivitiesDropdownListItem" xml:space="preserve">
+    <value>&lt;Choose Activity&gt;</value>
+  </data>
+  <data name="CTRL_StartWithActivityLiteralText" xml:space="preserve">
+    <value>Start With Activity</value>
+  </data>
+  <data name="CTRL_TargetDurationLiteralText" xml:space="preserve">
+    <value>Target Duration</value>
+  </data>
+  <data name="CTRL_TaskExecutionDropDownListListItemParallel" xml:space="preserve">
+    <value>Parallel</value>
+  </data>
+  <data name="CTRL_TaskExecutionDropDownListListItemSequence" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
+  <data name="CTRL_TaskExecutionLiteralText" xml:space="preserve">
+    <value>Task Execution</value>
+  </data>
+  <data name="CTRL_TaskFormLiteralText" xml:space="preserve">
+    <value>Task Form</value>
+  </data>
+  <data name="CTRL_TaskInitiatedByMeLiteralText" xml:space="preserve">
+    <value>Tasks Initiated By Me</value>
+  </data>
+  <data name="CTRL_TemplateSettingsPageDescriptionLiteralText" xml:space="preserve">
+    <value>This page allows you to configure template settings for the selected content type.</value>
+  </data>
+  <data name="CTRL_TimeBasedRadioButtonText" xml:space="preserve">
+    <value>Do not execute if the current activity was started less then </value>
+  </data>
+  <data name="CTRL_ToLiteralText" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="CTRL_TriggerActivityUserControlTabHeader" xml:space="preserve">
+    <value>Trigger</value>
+  </data>
+  <data name="CTRL_TypeFormulaLiteralText" xml:space="preserve">
+    <value>Type formula</value>
+  </data>
+  <data name="CTRL_TypeLiteralText" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemBoolean" xml:space="preserve">
+    <value>Yes/No</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemDateTime" xml:space="preserve">
+    <value>Date and Time</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemDouble" xml:space="preserve">
+    <value>Decimal</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemInteger" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemObject" xml:space="preserve">
+    <value>Dynamic</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemPrincipalCollection" xml:space="preserve">
+    <value>Users and Groups</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemString" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="CTRL_TypeRadioButtonListListItemTimeSpan" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="CTRL_UpdateWorkflowVariableUserControlTabHeader" xml:space="preserve">
+    <value>Update Workflow Variable</value>
+  </data>
+  <data name="CTRL_UrlLiteralText" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="CTRL_UseConditionText" xml:space="preserve">
+    <value>Add an additional condition</value>
+  </data>
+  <data name="CTRL_VersionLiteralText" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="CTRL_ViewTasksLiteralText" xml:space="preserve">
+    <value>View Tasks</value>
+  </data>
+  <data name="CTRL_WorkflowContainerInitiationUserControlTabHeader" xml:space="preserve">
+    <value>Activities On Request</value>
+  </data>
+  <data name="CTRL_WorkflowDropDownListItemNone" xml:space="preserve">
+    <value>No Workflow</value>
+  </data>
+  <data name="CTRL_WorkflowIdLiteralText" xml:space="preserve">
+    <value>Workflow ID</value>
+  </data>
+  <data name="CTRL_WorkflowManagementLiteralText" xml:space="preserve">
+    <value>Workflow Management</value>
+  </data>
+  <data name="CTRL_WorkflowOwnersLiteralText" xml:space="preserve">
+    <value>Workflow Owners</value>
+  </data>
+  <data name="CTRL_WorkflowsDropDownListListItem" xml:space="preserve">
+    <value>&lt;Choose Workflow&gt;</value>
+  </data>
+  <data name="CTRL_WorkflowTypeText" xml:space="preserve">
+    <value>Workflow Type</value>
+  </data>
+  <data name="CTRL_WorkflowVariableInfoLiteralText" xml:space="preserve">
+    <value>This page shows a list of all the workflow variables that you have defined. Workflow variables can be used to store data in your workflow. Click 'Add Workflow Variable' to create a new variable.</value>
+  </data>
+  <data name="CTRL_WorkflowVariablesUserControlTabHeader" xml:space="preserve">
+    <value>Workflow Variables</value>
+  </data>
+  <data name="DelegateTask" xml:space="preserve">
+    <value>Delegate Task</value>
+  </data>
+  <data name="DelegateTasks" xml:space="preserve">
+    <value>Delegate Tasks</value>
+  </data>
+  <data name="ExportingWorkflow" xml:space="preserve">
+    <value>Exporting Workflow...</value>
+  </data>
+  <data name="FieldActionOutcomesDisplayName" xml:space="preserve">
+    <value>Allowed Action Outcomes</value>
+  </data>
+  <data name="FieldActivityInternalNameDisplayName" xml:space="preserve">
+    <value>Activity Internal Name</value>
+  </data>
+  <data name="FieldActvityInstanceIdDisplayName" xml:space="preserve">
+    <value>Activity Instance Id</value>
+  </data>
+  <data name="FieldAssignedToExternalDisplayName" xml:space="preserve">
+    <value>Assigned to External</value>
+  </data>
+  <data name="FieldChecklistItemAllowEditDisplayName" xml:space="preserve">
+    <value>Allow Edit</value>
+  </data>
+  <data name="FieldChecklistItemExecutedDisplayName" xml:space="preserve">
+    <value>Executed</value>
+  </data>
+  <data name="FieldCommentsDisplayName" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="FieldCompletionDateDisplayName" xml:space="preserve">
+    <value>Completion Date</value>
+  </data>
+  <data name="FieldConditionHashDisplayName" xml:space="preserve">
+    <value>Condition Hash</value>
+  </data>
+  <data name="FieldConditionTextDefaultValue" xml:space="preserve">
+    <value>No Condition</value>
+  </data>
+  <data name="FieldDelegationAllowedDisplayName" xml:space="preserve">
+    <value>Delegation Allowed</value>
+  </data>
+  <data name="FieldDelegationCommentsDisplayName" xml:space="preserve">
+    <value>Delegation Comments</value>
+  </data>
+  <data name="FieldIsProcessedDisplayName" xml:space="preserve">
+    <value>Is Processed</value>
+  </data>
+  <data name="FieldLazyTaskExecutionAllowedDisplayName" xml:space="preserve">
+    <value>Allow lazy task execution</value>
+  </data>
+  <data name="FieldOriginatedFromDisplayName" xml:space="preserve">
+    <value>Originated From</value>
+  </data>
+  <data name="FieldReferenceIdDisplayName" xml:space="preserve">
+    <value>ReferenceId</value>
+  </data>
+  <data name="FieldStatusDisplayName" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="FieldTaskHistoryDisplayName" xml:space="preserve">
+    <value>Task History</value>
+  </data>
+  <data name="FieldTaskIdDisplayName" xml:space="preserve">
+    <value>Task Id</value>
+  </data>
+  <data name="FieldTaskItemIdDisplayName" xml:space="preserve">
+    <value>Task Item Id</value>
+  </data>
+  <data name="FieldTaskOutcomeDisplayName" xml:space="preserve">
+    <value>Task Outcome</value>
+  </data>
+  <data name="FieldTaskSelectedOutcomeIdDisplayName" xml:space="preserve">
+    <value>Task Selected Outcome Id</value>
+  </data>
+  <data name="FieldTaskSelectedOutcomeNameDisplayName" xml:space="preserve">
+    <value>Task Selected Outcome Name</value>
+  </data>
+  <data name="FieldUsersDisplayName" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="FieldWorkflowInstanceIdDisplayName" xml:space="preserve">
+    <value>Workflow Instance Id</value>
+  </data>
+  <data name="FieldWorkflowStatusDisplayName" xml:space="preserve">
+    <value>Workflow Status</value>
+  </data>
+  <data name="FieldWorkflowTitleDescription" xml:space="preserve">
+    <value>Describe the purpose of your workflow.</value>
+  </data>
+  <data name="FieldWorkflowTitleDisplayName" xml:space="preserve">
+    <value>Workflow Title</value>
+  </data>
+  <data name="FieldWorkflowVersionDisplayName" xml:space="preserve">
+    <value>Workflow Version</value>
+  </data>
+  <data name="GeneratedControl_ChoicePropertyFieldListItem_1__High" xml:space="preserve">
+    <value>(1) High</value>
+  </data>
+  <data name="GeneratedControl_ChoicePropertyFieldListItem_2__Normal" xml:space="preserve">
+    <value>(2) Normal</value>
+  </data>
+  <data name="GeneratedControl_ChoicePropertyFieldListItem_3__Low" xml:space="preserve">
+    <value>(3) Low</value>
+  </data>
+  <data name="GeneratedControl_ChoicePropertyFieldToolTip" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="IgnoreShapeOutOfSwimlaneDetail" xml:space="preserve">
+    <value>There are shapes located out of a swimlane, those will be ignored!</value>
+  </data>
+  <data name="IgnoreShapeOutOfSwimlaneTitle" xml:space="preserve">
+    <value>Invalid shapes</value>
+  </data>
+  <data name="Licenses" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="LiteralDescriptionText" xml:space="preserve">
+    <value>Select a content type</value>
+  </data>
+  <data name="LiteralTitleText" xml:space="preserve">
+    <value>Content Types</value>
+  </data>
+  <data name="LogicOperationDropDownListListItemAnd" xml:space="preserve">
+    <value>all</value>
+  </data>
+  <data name="LogicOperationDropDownListListItemOr" xml:space="preserve">
+    <value>any</value>
+  </data>
+  <data name="ManageWorkflowsDescription" xml:space="preserve">
+    <value>Manage your SpikesTogether workflows.</value>
+  </data>
+  <data name="ManageWorkflowsTitle" xml:space="preserve">
+    <value>Manage Workflows</value>
+  </data>
+  <data name="NewWorkflowDescription" xml:space="preserve">
+    <value>Create a SpikesTogether workflow</value>
+  </data>
+  <data name="NewWorkflowTitle" xml:space="preserve">
+    <value>New Workflow</value>
+  </data>
+  <data name="InvalidCondition" xml:space="preserve">
+    <value>Invalid condition</value>
+  </data>
+  <data name="NoTitleSpecified" xml:space="preserve">
+    <value>No Title Specified</value>
+  </data>
+  <data name="OpenWorkflowItem" xml:space="preserve">
+    <value>Open Workflow Item</value>
+  </data>
+  <data name="OperatorBeginsWith" xml:space="preserve">
+    <value>Begins with</value>
+  </data>
+  <data name="OperatorBetween" xml:space="preserve">
+    <value>Between</value>
+  </data>
+  <data name="OperatorContains" xml:space="preserve">
+    <value>Contains</value>
+  </data>
+  <data name="OperatorEquals" xml:space="preserve">
+    <value>Equals</value>
+  </data>
+  <data name="OperatorGreatherThan" xml:space="preserve">
+    <value>Greather than</value>
+  </data>
+  <data name="OperatorGreatherThanOrEqual" xml:space="preserve">
+    <value>Greather than or equal</value>
+  </data>
+  <data name="OperatorIsBlank" xml:space="preserve">
+    <value>Is Blank</value>
+  </data>
+  <data name="OperatorIsNot" xml:space="preserve">
+    <value>Is not</value>
+  </data>
+  <data name="OperatorIsNotBlank" xml:space="preserve">
+    <value>Is not Blank</value>
+  </data>
+  <data name="OperatorLessThan" xml:space="preserve">
+    <value>Less than</value>
+  </data>
+  <data name="OperatorLessThanOrEqual" xml:space="preserve">
+    <value>Less than or equal</value>
+  </data>
+  <data name="OperatorLowerThan" xml:space="preserve">
+    <value>Lower than</value>
+  </data>
+  <data name="OperatorLowerThanOrEqual" xml:space="preserve">
+    <value>Lower than or equal to</value>
+  </data>
+  <data name="Outcome" xml:space="preserve">
+    <value>Outcome</value>
+  </data>
+  <data name="PublishingWorkflow" xml:space="preserve">
+    <value>Publishing Workflow...</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>An error occured while saving the visio document</value>
+  </data>
+  <data name="SaveFirstDetail" xml:space="preserve">
+    <value>You need to save the Visio diagram before you can execute this action.</value>
+  </data>
+  <data name="SaveFirstTitle" xml:space="preserve">
+    <value>Save visio required</value>
+  </data>
+  <data name="SavingWorkflow" xml:space="preserve">
+    <value>Saving Workflow...</value>
+  </data>
+  <data name="SectionFieldInformationTitle" xml:space="preserve">
+    <value>Available fields of the selected content type</value>
+  </data>
+  <data name="SectionTemplateBodyDescription" xml:space="preserve">
+    <value>Specify the body of the template. You can make use of the [[fieldname]] syntax to insert field values.</value>
+  </data>
+  <data name="SectionTemplateBodyTitle" xml:space="preserve">
+    <value>Template Body *</value>
+  </data>
+  <data name="SectionTemplatesDescription" xml:space="preserve">
+    <value>Select a template from the list or create a new one.</value>
+  </data>
+  <data name="SectionTemplateTitleDescription" xml:space="preserve">
+    <value>Specify a title of the template. You can make use of the [[fieldname]] syntax to insert field values.</value>
+  </data>
+  <data name="SectionTemplateTitleTitle" xml:space="preserve">
+    <value>Template Title *</value>
+  </data>
+  <data name="ShapeCategoryMissing" xml:space="preserve">
+    <value>Shape Category property must be set!!</value>
+  </data>
+  <data name="ShapeOutOfSwimlaneDetail" xml:space="preserve">
+    <value>This shape is not in a swimlane and can therefore not be configured.</value>
+  </data>
+  <data name="ShapeOutOfSwimlaneTitle" xml:space="preserve">
+    <value>Invalid shape selected</value>
+  </data>
+  <data name="SharepointRootMissing" xml:space="preserve">
+    <value>SharePoint root url not set!!</value>
+  </data>
+  <data name="SpikesTogether" xml:space="preserve">
+    <value>SpikesTogether</value>
+  </data>
+  <data name="SPTGActivityPropertiesButton" xml:space="preserve">
+    <value>Activity Properties</value>
+  </data>
+  <data name="SPTGBackstageGroup" xml:space="preserve">
+    <value>SpikesTogether Workflow</value>
+  </data>
+  <data name="SPTGCategory" xml:space="preserve">
+    <value>Other Actions</value>
+  </data>
+  <data name="SPTGExportWorkflowButton" xml:space="preserve">
+    <value>Export Workflow Configuration</value>
+  </data>
+  <data name="SPTGPublishWorkflowBackstageButton" xml:space="preserve">
+    <value>Publish Workflow</value>
+  </data>
+  <data name="SPTGPublishWorkflowButton" xml:space="preserve">
+    <value>Publish Workflow to SharePoint</value>
+  </data>
+  <data name="SPTGValidateTask" xml:space="preserve">
+    <value>Validate Workflow</value>
+  </data>
+  <data name="SPTGWorkflowConfigurationGroup" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="SPTGWorkflowContainerPropertiesButton" xml:space="preserve">
+    <value>Workflow Aspect Properties</value>
+  </data>
+  <data name="SPTGWorkflowPropertiesButton" xml:space="preserve">
+    <value>Workflow Properties</value>
+  </data>
+  <data name="TaskActions" xml:space="preserve">
+    <value>Task Actions</value>
+  </data>
+  <data name="TranslationInUse" xml:space="preserve">
+    <value>Template name is already in use. It needs to be unique.</value>
+  </data>
+  <data name="Use" xml:space="preserve">
+    <value>use</value>
+  </data>
+  <data name="Validation_ActivityMultipleRowsRequiredField" xml:space="preserve">
+    <value>Required Field: Activity, please make sure an activity is selected for each row.</value>
+  </data>
+  <data name="Validation_ConfigureActivity" xml:space="preserve">
+    <value>Please configure the following activity: </value>
+  </data>
+  <data name="Validation_EndActivityRequiredField" xml:space="preserve">
+    <value>Required Field: At least 1 end activity is required!</value>
+  </data>
+  <data name="Validation_OutcomesDuplicate" xml:space="preserve">
+    <value>Duplicate outcomes detected! Outcomes must be unique!</value>
+  </data>
+  <data name="Validation_OutcomesEmpty" xml:space="preserve">
+    <value>Empty outcomes are not allowed.</value>
+  </data>
+  <data name="Validation_OutcomesRequiredField" xml:space="preserve">
+    <value>Required Field: Outcomes, at least 1 outcome is required</value>
+  </data>
+  <data name="Validation_RoleMultipleRowsRequiredField" xml:space="preserve">
+    <value>Required Field: Role, please make sure a role is selected for each row.</value>
+  </data>
+  <data name="Validation_StartActivityRequiredField" xml:space="preserve">
+    <value>Required Field: Start Activity</value>
+  </data>
+  <data name="Validation_StartWorkflowRequiredField" xml:space="preserve">
+    <value>Please select the workflow you want to start.</value>
+  </data>
+  <data name="Validation_TitleMultipleRowsRequiredField" xml:space="preserve">
+    <value>Required Field: Title, please fill in a title for each row.</value>
+  </data>
+  <data name="Validation_TitleRequiredField" xml:space="preserve">
+    <value>Required Field: Title</value>
+  </data>
+  <data name="WorkflowError" xml:space="preserve">
+    <value>Error creating workflow object.</value>
+  </data>
+  <data name="WorkflowIdMissing" xml:space="preserve">
+    <value>Workflow ID property must be set!!</value>
+  </data>
+  <data name="WorkflowLinks" xml:space="preserve">
+    <value>Workflow Links</value>
+  </data>
+  <data name="CTRL_AssignedToLiteralText" xml:space="preserve">
+    <value>Assigned To:</value>
+  </data>
+  <data name="CTRL_CancelEditButtonToolTip" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CTRL_CheckListEmptyLiteralText" xml:space="preserve">
+    <value>No checklist items defined...</value>
+  </data>
+  <data name="CTRL_CompleteTaskLiteralText" xml:space="preserve">
+    <value>Complete Task</value>
+  </data>
+  <data name="CTRL_NoActivityInitationsAvailableLiteralText" xml:space="preserve">
+    <value>No actions available...</value>
+  </data>
+  <data name="CTRL_SaveButtonToolTip" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CTRL_ShowTaskButtonText" xml:space="preserve">
+    <value>Show Details</value>
+  </data>
+  <data name="CTRL_TaskCompletedText" xml:space="preserve">
+    <value>The task was completed with outcome </value>
+  </data>
+  <data name="CTRL_TaskDetailsLinkText" xml:space="preserve">
+    <value>[Task Details]</value>
+  </data>
+  <data name="CTRL_TaskOutcomesDropDownListListItemNo_outcome_selected" xml:space="preserve">
+    <value>No outcome selected</value>
+  </data>
+  <data name="CTRL_TaskRepeaterEmptyLiteralText" xml:space="preserve">
+    <value>No tasks found...</value>
+  </data>
+  <data name="CTRL_TitleLiteralText" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CTRL_WorkflowLiteralText" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+  <data name="InitiateAction" xml:space="preserve">
+    <value>Initiate Action</value>
+  </data>
+  <data name="MyInitiatedActions" xml:space="preserve">
+    <value>My Initiated Actions</value>
+  </data>
+  <data name="MyOpenTasks" xml:space="preserve">
+    <value>My Open Tasks</value>
+  </data>
+  <data name="Checklist" xml:space="preserve">
+    <value>Checklist</value>
+  </data>
+  <data name="AddSpikesTogetherWorkflow" xml:space="preserve">
+    <value>Add SpikesTogether Workflow</value>
+  </data>
+  <data name="BtnCancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfigureRoleResolvement" xml:space="preserve">
+    <value>Configure Role Resolvement</value>
+  </data>
+  <data name="CTRL_RoleResolvementButtonText" xml:space="preserve">
+    <value>Configure Role Resolvement</value>
+  </data>
+  <data name="CTRL_RoleResolvementLiteralText" xml:space="preserve">
+    <value>Role Resolvement</value>
+  </data>
+  <data name="CTRL_SaveAndGoBackButtonText" xml:space="preserve">
+    <value>Save And Go Back</value>
+  </data>
+  <data name="CTRL_WorkflowsDropDownListItem" xml:space="preserve">
+    <value>Select...</value>
+  </data>
+  <data name="CTRL_WorkflowSelectorDescription" xml:space="preserve">
+    <value>Select a SpikesTogether Workflow that you would like to run.</value>
+  </data>
+  <data name="CTRL_WorkflowSelectorTitle" xml:space="preserve">
+    <value>Select Workflow</value>
+  </data>
+  <data name="CTRL_WorkflowsLiteralText" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+  <data name="CTRL_WorkflowsRequiredLiteralText" xml:space="preserve">
+    <value>* Please select a workflow.</value>
+  </data>
+  <data name="FieldConditionDisplayName" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="FieldDescriptionDisplayName" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="CTRL_ChooseFileLiteralText" xml:space="preserve">
+    <value>Choose workflow package file (.zip)</value>
+  </data>
+  <data name="CTRL_DeleteWorkflowRuntimeconfigurationButtonOnClientClick" xml:space="preserve">
+    <value>return confirm('Confirm deletion');</value>
+  </data>
+  <data name="CTRL_DeleteWorkflowRuntimeconfigurationButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CTRL_ExportActionsLiteralText" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="CTRL_ExportButtonText" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="CTRL_ExportTabLiteralText" xml:space="preserve">
+    <value>Workflow Configurations</value>
+  </data>
+  <data name="CTRL_ExportWorkflowsPageTitleText" xml:space="preserve">
+    <value>SpikesTogether Workflow Management</value>
+  </data>
+  <data name="CTRL_FiltersLiteralText" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="CTRL_ImportActionsLiteralText" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="CTRL_ImportButtonText" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="CTRL_ImportOptionsText" xml:space="preserve">
+    <value>Import options</value>
+  </data>
+  <data name="CTRL_ImportTabLiteralText" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="CTRL_ImportValidOnlyCheckBoxText" xml:space="preserve">
+    <value>Only import workflow definitions of which all content types exactly match the content types in this site.</value>
+  </data>
+  <data name="CTRL_RestartButtonText" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="CTRL_SelectAllNoneCheckBoxToolTip" xml:space="preserve">
+    <value>Select all/none</value>
+  </data>
+  <data name="CTRL_TaskContentTypesLiteralText" xml:space="preserve">
+    <value>Task Content Types</value>
+  </data>
+  <data name="CTRL_ViewModeLiteralText" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="CTRL_ViewModesDropDownListListItem1" xml:space="preserve">
+    <value>Latest version for all</value>
+  </data>
+  <data name="CTRL_ViewModesDropDownListListItem2" xml:space="preserve">
+    <value>All deployed workflow configurations</value>
+  </data>
+  <data name="CTRL_ViewModesDropDownListListItem3" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="CTRL_WorkflowBaseContenttypeLiteralText" xml:space="preserve">
+    <value>Base Content Type</value>
+  </data>
+  <data name="CTRL_WorkflowConfigurationsLiteralText" xml:space="preserve">
+    <value>Workflow Configurations</value>
+  </data>
+  <data name="CTRL_WorkflowConsoleInfoLiteralText" xml:space="preserve">
+    <value>Manage your deployed SpikesTogether workflow configurations.</value>
+  </data>
+  <data name="CTRL_WorkflowConsolePageTitleInTitleAreasText" xml:space="preserve">
+    <value>SpikesTogether Workflow Management</value>
+  </data>
+  <data name="CTRL_WorkflowConsolePageTitleText" xml:space="preserve">
+    <value>SpikesTogether Workflow Management</value>
+  </data>
+  <data name="CTRL_WorkflowDetailsText" xml:space="preserve">
+    <value>Workflow Details</value>
+  </data>
+  <data name="CTRL_WorkflowImportLogTitleText" xml:space="preserve">
+    <value>Import Log</value>
+  </data>
+  <data name="CTRL_WorkflowTitleLiteralText" xml:space="preserve">
+    <value>Workflow Title</value>
+  </data>
+  <data name="CTRL_WorkflowVersionLiteralText" xml:space="preserve">
+    <value>Workflow Version</value>
+  </data>
+  <data name="InvalidFile" xml:space="preserve">
+    <value>The uploaded file is not a valid file.</value>
+  </data>
+  <data name="FieldUserDisplayName" xml:space="preserve">
+    <value>Delegate to</value>
+  </data>
+  <data name="CTRL_AddActivityButtonText" xml:space="preserve">
+    <value>Add Activity On Request</value>
+  </data>
+  <data name="CTRL_AddChecklistItemLiteralText" xml:space="preserve">
+    <value>Add checklist item</value>
+  </data>
+  <data name="CTRL_AddOutcomeLinkButtonText" xml:space="preserve">
+    <value>Add Outcome</value>
+  </data>
+  <data name="CTRL_AllowDecisionInMailCheckBoxText" xml:space="preserve">
+    <value>Allow users to execute their tasks by email</value>
+  </data>
+  <data name="CTRL_AllowLazyTaskExecutionCheckBoxText" xml:space="preserve">
+    <value>Enable lazy task execution</value>
+  </data>
+  <data name="CTRL_CancelOutcomeText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CTRL_CheckListEmptyLiteralTextText" xml:space="preserve">
+    <value>No checklist configured. Click 'Add checklist item' to add an item to the check list.</value>
+  </data>
+  <data name="CTRL_CheckListInfoLiteralText" xml:space="preserve">
+    <value>Define a checklist for this activity to guide your users in executing their tasks. Users can check off the checklist to keep track of their work.</value>
+  </data>
+  <data name="CTRL_CloseButtonOnClientClick" xml:space="preserve">
+    <value>SP.UI.ModalDialog.commonModalDialogClose(null, true); return false;</value>
+  </data>
+  <data name="CTRL_CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CTRL_ConfigureActivitiesOnRequestWorkflowContainerLiteralText" xml:space="preserve">
+    <value>Configure which activities can be manually initiated by users when this workflow is running. The activities listed below can be initiated by means of the Workflow Management Web Part.</value>
+  </data>
+  <data name="CTRL_DDL_CCListItemEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="CTRL_DDL_CCListItemRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="CTRL_DDL_CCListItemUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="CTRL_DDL_FromListItemEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="CTRL_DDL_FromListItemUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="CTRL_DDL_ToListItemEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="CTRL_DDL_ToListItemRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="CTRL_DDL_ToListItemUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="CTRL_DeleteConditionButtonOnClientClick" xml:space="preserve">
+    <value>return confirm('Are you sure you want to delete this condition? You cannot revert this operation! The rows that use this condition will also be deleted.')</value>
+  </data>
+  <data name="CTRL_DeleteConfigurationButtonToolTip" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CTRL_EditPolicyLiteralText" xml:space="preserve">
+    <value>Edit Policy</value>
+  </data>
+  <data name="CTRL_EditPolicyRadioButtonListListItemEditableByUsers" xml:space="preserve">
+    <value>Allow users to add additional checklist items</value>
+  </data>
+  <data name="CTRL_EditPolicyRadioButtonListListItemNotEditableByUsers" xml:space="preserve">
+    <value>Do not allow users to add additional checklist items</value>
+  </data>
+  <data name="CTRL_MajoritySpecificOutcomeAfterDropdownLiteralText" xml:space="preserve">
+    <value>outcome</value>
+  </data>
+  <data name="CTRL_NoCustomActivitiesLiteralText" xml:space="preserve">
+    <value>No custom activities installed.</value>
+  </data>
+  <data name="CTRL_RoleLiteralText" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="CTRL_SaveOutcomeText" xml:space="preserve">
+    <value>Add Outcome</value>
+  </data>
+  <data name="CTRL_SelectCustomActivityPageTitleInTitleAreaLiteralText" xml:space="preserve">
+    <value>Select Custom Activity</value>
+  </data>
+  <data name="CTRL_SelectCustomActivityPageTitleLiteralText" xml:space="preserve">
+    <value>Select Custom Activity</value>
+  </data>
+  <data name="CTRL_SelectCustomActivityText" xml:space="preserve">
+    <value>Please select a custom activity:</value>
+  </data>
+  <data name="CTRL_SendMailsCheckBoxText" xml:space="preserve">
+    <value>Send summary email for each task</value>
+  </data>
+  <data name="CTRL_SendMailsLiteralText" xml:space="preserve">
+    <value>Mail Sending</value>
+  </data>
+  <data name="CTRL_SubmitText" xml:space="preserve">
+    <value>Confirm Selection</value>
+  </data>
+  <data name="FarmFeatureDiagnosticLoggingTitle" xml:space="preserve">
+    <value>SpikesTogether Diagnostic Logging</value>
+  </data>
+  <data name="FarmFeatureFoundationProductCatalogTitle" xml:space="preserve">
+    <value>SpikesTogether Foundation Product Catalog</value>
+  </data>
+  <data name="FarmFeatureWorkflowServiceApplicationTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Service Application</value>
+  </data>
+  <data name="SiteCollectionFeatureCAADescription" xml:space="preserve">
+    <value>Enables the context aware alerts for this site collection. This feature enhances the standard alerts behaviour.</value>
+  </data>
+  <data name="SiteCollectionFeatureCAATitle" xml:space="preserve">
+    <value>SpikesTogether Context Aware Alerts Site Collection features</value>
+  </data>
+  <data name="SiteCollectionFeatureDesignTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Design Site Collection Features</value>
+  </data>
+  <data name="SiteCollectionFeatureDynamicFormsExampleDescription" xml:space="preserve">
+    <value>This feature activates the SpikesTogether Dynamic Forms example.</value>
+  </data>
+  <data name="SiteCollectionFeatureDynamicFormsExampleTitle" xml:space="preserve">
+    <value>SpikesTogether DynamicForms Usercontrol Example</value>
+  </data>
+  <data name="SiteCollectionFeatureDynamicTabsTitle" xml:space="preserve">
+    <value>SpikesTogether Dynamic Tabs</value>
+  </data>
+  <data name="SiteCollectionFeatureTemplatesTitle" xml:space="preserve">
+    <value>SpikesTogether Templates Site Collection features</value>
+  </data>
+  <data name="SiteCollectionFeatureWorkflowTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Site Collection features</value>
+  </data>
+  <data name="WebApplicationFeatureActivityExtensionExampleDescription" xml:space="preserve">
+    <value>This feature adds a new activity module to the usertask activity and this module logs a new item to the workflow history.</value>
+  </data>
+  <data name="WebApplicationFeatureActivityExtensionExampleTitle" xml:space="preserve">
+    <value>SpikesTogether Examples Activity Extension</value>
+  </data>
+  <data name="WebApplicationFeatureContextAwareAlertsDescription" xml:space="preserve">
+    <value>Enables the context aware alerts. This feature enhances the standard alerts behaviour. Feature still needs to be activated on each desired site collection.</value>
+  </data>
+  <data name="WebApplicationFeatureContextAwareAlertsTitle" xml:space="preserve">
+    <value>SpikesTogether Context Aware Alerts Webapplication Feature</value>
+  </data>
+  <data name="WebApplicationFeatureCustomActivityExampleTitle" xml:space="preserve">
+    <value>SpikesTogether Examples Custom Activity</value>
+  </data>
+  <data name="WebApplicationFeatureCustomServiceProviderExampleDescription" xml:space="preserve">
+    <value>This example will enable a custom service provider to be used with the SpikesTogether Workflow.</value>
+  </data>
+  <data name="WebApplicationFeatureCustomServiceProviderExampleTitle" xml:space="preserve">
+    <value>SpikesTogether WF Example Custom Service Provider</value>
+  </data>
+  <data name="WebApplicationFeatureTimerJobTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Timer Job Web Applications</value>
+  </data>
+  <data name="WebApplicationFeatureWorkflowHostServiceTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Host Service</value>
+  </data>
+  <data name="WebFeatureApprovalWorkflowExampleTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Example - Approval Workflow</value>
+  </data>
+  <data name="WebFeatureComplaintsWorkflowExampleTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Example - Complaint Workflow</value>
+  </data>
+  <data name="WebFeatureDesignTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Design Web Features</value>
+  </data>
+  <data name="WebFeatureDynamicListFormsTitle" xml:space="preserve">
+    <value>SpikesTogether Dynamic Forms</value>
+  </data>
+  <data name="WebFeatureLicenseManagerTitle" xml:space="preserve">
+    <value>SpikesTogether License Manager</value>
+  </data>
+  <data name="WebFeatureWorkflowDevelopmentExampleTitle" xml:space="preserve">
+    <value>SpikesTogether WF Development Example</value>
+  </data>
+  <data name="WebFeatureWorkflowTitle" xml:space="preserve">
+    <value>SpikesTogether Workflow Web Features</value>
+  </data>
+  <data name="WFCContentTypeDefinitionMatch" xml:space="preserve">
+    <value>&lt;BR/&gt;---- Definition of content type "{0}" matches exactly with the site content type.</value>
+  </data>
+  <data name="WFCContentTypeNotExist" xml:space="preserve">
+    <value>&lt;BR/&gt;---- Content type "{0}" does not exist!</value>
+  </data>
+  <data name="WFCContentTypesExactlyMatch" xml:space="preserve">
+    <value>&lt;BR/&gt;All content types used in workflow "{0}" match exactly with the content types in this site.</value>
+  </data>
+  <data name="WFCContentTypesNoMatch" xml:space="preserve">
+    <value>&lt;BR/&gt;Content types used in workflow "{0}" do not exist or do not match with the content types in this site.</value>
+  </data>
+  <data name="WFCErrorOccured" xml:space="preserve">
+    <value>&lt;BR/&gt;&lt;font color="red"&gt;Error occured!&lt;/font&gt;</value>
+  </data>
+  <data name="WFCFieldNotExist" xml:space="preserve">
+    <value>&lt;BR/&gt;--------- Field "{0}" (internal name = "{1}", ID="{2}" does not exist on content type "{3}"!</value>
+  </data>
+  <data name="WFCImportingWorkflow" xml:space="preserve">
+    <value>&lt;BR/&gt;Importing workflow "{0}".</value>
+  </data>
+  <data name="WFCImportWorkflowNok" xml:space="preserve">
+    <value>&lt;BR/&gt;Error importing workflow definition.</value>
+  </data>
+  <data name="WFCImportWorkflowOk" xml:space="preserve">
+    <value>&lt;BR/&gt;&lt;font color="green"&gt;Workflow "{0}" succesfully imported.&lt;/font&gt;</value>
+  </data>
+  <data name="WFCValidatingContentType" xml:space="preserve">
+    <value>&lt;BR/&gt;---- Validating content type "{0}".</value>
+  </data>
+  <data name="WFCValidatingFields" xml:space="preserve">
+    <value>&lt;BR/&gt;------ Validating fields for content type "{0}".</value>
+  </data>
+  <data name="WFCValidatingTaskContentTypesEnded" xml:space="preserve">
+    <value>&lt;BR/&gt;-- Validating task content types ended.</value>
+  </data>
+  <data name="WFCValidatingTaskContentTypesStarted" xml:space="preserve">
+    <value>&lt;BR/&gt;-- Validating task content types started.</value>
+  </data>
+  <data name="WFCValidatingWorkflowBaseContentTypeEnded" xml:space="preserve">
+    <value>&lt;BR/&gt;-- Validating workflow base content type ended.</value>
+  </data>
+  <data name="WFCValidatingWorkflowBaseContentTypeStarted" xml:space="preserve">
+    <value>&lt;BR/&gt;-- Validating workflow base content type started.</value>
+  </data>
+  <data name="WFCValidatingWorkflowEnded" xml:space="preserve">
+    <value>&lt;BR/&gt;Validating workflow "{0}" ended.</value>
+  </data>
+  <data name="WFCValidatingWorkflowStarted" xml:space="preserve">
+    <value>&lt;BR/&gt;Validating workflow "{0}" started.</value>
+  </data>
+  <data name="CTRL_AddConfigurationButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AddOutcomeButtonAlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AddOutcomeLinkButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AddToTaskHistoryCheckBoxText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AddToTaskHistoryCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllAnyOutcomeToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllowDecisionInMailCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllowDelegationCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllowLazyTaskExecutionCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllowOverrideCheckboxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllSpecificOutcomeDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AllSpecificOutcomeToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_AttachmentCheckboxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_BaseContentTypeDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_BindingStatusDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_CancelOutcomeToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_CloseButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ConditionDropDownToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ConditionSelectorToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ConstraintsEnabledRadioButtonListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_CustomActivitiesToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DDL_BCCToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DDL_CCToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DDL_FromToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DDL_ToToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DeleteAllVariablesButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DeleteConfigurationButtonAlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DeleteWorkflowRuntimeconfigurationButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_EditOutcomeButtonAlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_EditPolicyRadioButtonListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_EndActivitiesCheckboxListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ErrorLiteralText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ExecuteOnceRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ExecutionModeRadioButtonListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ExportButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_HideExternalUserPickerLinkButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ImportButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ImportValidOnlyCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_IntervalDropDownToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ListWorkflowRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_MajorityAnyOutcomeToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_MajoritySpecificOutcomeDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_MajoritySpecificOutcomeToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_MaxOccurenceOneRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_NrExecutionsRadioButtonListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_RemoveOutcomeButtonAlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_RestartButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SaveAndCloseButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SaveAsVariableCheckBoxText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SaveAsVariableCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SaveButtonAlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SaveOutcomeToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SelectAllNoneCheckBoxText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SelectedCheckBoxText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SelectedCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SendMailsCheckBoxToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ShowExternalUserPickerLinkButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SiteWorkflowRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_StartWithActivitiesDropdownToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SubmitToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_TaskContentTypeDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_TaskExecutionDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_TimeBasedRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_UndeterminedOutcomeDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ViewModesDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_WorkflowBaseContentTypeLinkText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_WorkflowImportLogOutputText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DelegatingTask" xml:space="preserve">
+    <value>Delegating task...</value>
+  </data>
+  <data name="EditSpikesTogetherWorkflowServiceApplication" xml:space="preserve">
+    <value>Edit SpikesTogether Workflow Service Application</value>
+  </data>
+  <data name="FarmFeatureDiagnosticLoggingDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FarmFeatureFoundationProductCatalogDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FarmFeatureWorkflowServiceApplicationDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FillInAdditionalFields" xml:space="preserve">
+    <value>Please fill in the additional details (if any).</value>
+  </data>
+  <data name="InvalidLicense" xml:space="preserve">
+    <value>Invalid License. Please contact the system administrator.</value>
+  </data>
+  <data name="LogicOperationDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MetadataConditionInvalid" xml:space="preserve">
+    <value>Metadata condition is not valid.</value>
+  </data>
+  <data name="NoCondition" xml:space="preserve">
+    <value>No condition.</value>
+  </data>
+  <data name="ProcessingTask" xml:space="preserve">
+    <value>Processing task...</value>
+  </data>
+  <data name="RuleAlreadyExists" xml:space="preserve">
+    <value>Rule already exists, use different Rule Name</value>
+  </data>
+  <data name="SelectFormType" xml:space="preserve">
+    <value>Select Form Type to apply Rule</value>
+  </data>
+  <data name="SiteCollectionFeatureDesignDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SiteCollectionFeatureDynamicTabsDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SiteCollectionFeatureTemplatesDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SiteCollectionFeatureWorkflowDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TaskAlreadyCompleted" xml:space="preserve">
+    <value>This task has already been completed.</value>
+  </data>
+  <data name="TaskDelegationDisabled" xml:space="preserve">
+    <value>This task does not have delegation enabled.</value>
+  </data>
+  <data name="TaskDelegationNotPossible" xml:space="preserve">
+    <value>Delegation is only possible on a running workflow.</value>
+  </data>
+  <data name="TaskNoLongerAvailable" xml:space="preserve">
+    <value>This task is no longer available.</value>
+  </data>
+  <data name="TaskWillBeDelegated" xml:space="preserve">
+    <value>This task will be delegated.</value>
+  </data>
+  <data name="TaskWrongContentType" xml:space="preserve">
+    <value>This task is not of the correct content type.</value>
+  </data>
+  <data name="WebApplicationFeatureCustomActivityExampleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebApplicationFeatureTimerJobDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebApplicationFeatureWorkflowHostServiceDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureApprovalWorkflowExampleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureComplaintsWorkflowExampleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureDesignDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureDynamicListFormsDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureLicenseManagerDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureWorkflowDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WebFeatureWorkflowDevelopmentExampleDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FieldChecklistItemDescriptionDisplayName" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="FieldChecklistItemUrlDisplayName" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="ConditionConfigExists" xml:space="preserve">
+    <value>A condition with the same configuration already exists.</value>
+  </data>
+  <data name="ConditionDoesNotExist" xml:space="preserve">
+    <value>The condition that you are trying to update does not exists.</value>
+  </data>
+  <data name="ConditionNameRequired" xml:space="preserve">
+    <value>Please fill in a name for the condition.</value>
+  </data>
+  <data name="ContentTypeExists" xml:space="preserve">
+    <value>The contenttype already exists.</value>
+  </data>
+  <data name="DescribeWorkflowPurpose" xml:space="preserve">
+    <value>Describe the purpose of your worklfow</value>
+  </data>
+  <data name="ExternalUserPicker" xml:space="preserve">
+    <value>External User Picker</value>
+  </data>
+  <data name="MissingParameters" xml:space="preserve">
+    <value>Missing parameters.</value>
+  </data>
+  <data name="MissingParametersInfo" xml:space="preserve">
+    <value>&lt;h2&gt;There are missing parameters. Operation aborted.&lt;/h2&gt;</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Please fill in a name.</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoMatchingPrincipals" xml:space="preserve">
+    <value>No matching principals found.</value>
+  </data>
+  <data name="NoSearchProvider" xml:space="preserve">
+    <value>No search provider</value>
+  </data>
+  <data name="PublishingWorkflowInfo" xml:space="preserve">
+    <value>Please wait while the workflow is being published</value>
+  </data>
+  <data name="SelectAPrincipal" xml:space="preserve">
+    <value>Please select a principal</value>
+  </data>
+  <data name="TaskExecutionFailed" xml:space="preserve">
+    <value>Task execution failed.</value>
+  </data>
+  <data name="TaskExecutionFailedInfo" xml:space="preserve">
+    <value>&lt;h2 style='color: red;'&gt;Failed to execute the task with outcome "{0}". Please make sure that the task is still active.&lt;/h2&gt;</value>
+  </data>
+  <data name="TaskExecutionSucces" xml:space="preserve">
+    <value>Task successfully executed.</value>
+  </data>
+  <data name="TaskExecutionSuccesInfo" xml:space="preserve">
+    <value>&lt;h2&gt;Your task has been succesfully executed with the outcome "{0}". This window can now be closed.&lt;/h2&gt;</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="FieldConfigurationIdDisplayName" xml:space="preserve">
+    <value>Configuration Id</value>
+  </data>
+  <data name="FieldWorkflowIdDisplayName" xml:space="preserve">
+    <value>Workflow Id</value>
+  </data>
+  <data name="ExecutedByAndOn" xml:space="preserve">
+    <value>Executed by {0} on {1}</value>
+  </data>
+  <data name="NoHistoryYet" xml:space="preserve">
+    <value>No history yet.</value>
+  </data>
+  <data name="TitleAndRoleRequired" xml:space="preserve">
+    <value>Please fill in the title and role before saving.</value>
+  </data>
+  <data name="ToggleDetails" xml:space="preserve">
+    <value>Toggle details</value>
+  </data>
+  <data name="CTRL_DynamicFormValidationErrorsText" xml:space="preserve">
+    <value>Please review all condition tabs and correct the indicated errors.</value>
+  </data>
+  <data name="Validation_MailFromRequiredField" xml:space="preserve">
+    <value>Required Field: From</value>
+  </data>
+  <data name="Validation_MailToRequiredField" xml:space="preserve">
+    <value>Required Field: To</value>
+  </data>
+  <data name="Validation_NameRequired" xml:space="preserve">
+    <value>Required Field: Name</value>
+  </data>
+  <data name="Validation_RoleRequired" xml:space="preserve">
+    <value>Required Field: Role</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="CTRL_WorkflowContainerGeneralUserControlTabHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="CTRL_WorkflowGeneralUserControlTabHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="CTRL_WorkflowInitiationUserControlTabHeader" xml:space="preserve">
+    <value>Activities on Request</value>
+  </data>
+  <data name="ActivitytoInitiate" xml:space="preserve">
+    <value>Activity to Initiate</value>
+  </data>
+  <data name="AllowedRoles" xml:space="preserve">
+    <value>Allowed Roles</value>
+  </data>
+  <data name="CTRL_ColumnHeaderLiteralText" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="CTRL_EditHeaderLiteralText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CTRL_IncludeInTaskHistoryHeaderLiteralText" xml:space="preserve">
+    <value>Include in task history</value>
+  </data>
+  <data name="CTRL_SaveAsVariableHeaderLiteralText" xml:space="preserve">
+    <value>Save as variable</value>
+  </data>
+  <data name="CTRL_ValueHeaderLiteralText" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="FormType" xml:space="preserve">
+    <value>Form Type</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CTRL_FormTypeLiteral" xml:space="preserve">
+    <value>Form Type</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CTRL_AddTabText" xml:space="preserve">
+    <value>Add tab</value>
+  </data>
+  <data name="CTRL_AddTabToolTip" xml:space="preserve">
+    <value>Add tab</value>
+  </data>
+  <data name="CTRL_CancelLiteralText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CTRL_EmptyCheckListText" xml:space="preserve">
+    <value>No checklist items defined...</value>
+  </data>
+  <data name="CTRL_NewImageButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CTRL_NewImageButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ParentContentTypeLiteralText" xml:space="preserve">
+    <value>Parent Content Type</value>
+  </data>
+  <data name="CTRL_RemoveTabText" xml:space="preserve">
+    <value>Remove tab</value>
+  </data>
+  <data name="CTRL_RemoveTabToolTip" xml:space="preserve">
+    <value>Remove tab</value>
+  </data>
+  <data name="EnterTheDescription" xml:space="preserve">
+    <value>Enter the description</value>
+  </data>
+  <data name="Url" xml:space="preserve">
+    <value>Url</value>
+  </data>
+  <data name="CTRL_ActivityGeneralUserControlTabHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="CTRL_BlockActivityUserControlTabHeader" xml:space="preserve">
+    <value>Suspend</value>
+  </data>
+  <data name="CTRL_BreakInheritanceButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_CancelButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ConditionsSectionFormDescription" xml:space="preserve">
+    <value>Specify the conditions of this rule.</value>
+  </data>
+  <data name="CTRL_ConditionsSectionFormTitle" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="CTRL_ConditionTrueIfUserHasOpenTaskLiteralText" xml:space="preserve">
+    <value>The condition is true if the user has an open task for the workflow</value>
+  </data>
+  <data name="CTRL_ContentTypeSelectorDropDownToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DDLConditionsListItemNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="CTRL_DDLConditionsToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DeleteImageButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CTRL_DisplayRenderModeRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_DynamcFormsEnabledListItemFalse" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="CTRL_DynamcFormsEnabledListItemTrue" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="CTRL_DynamcFormsEnabledToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_EditRenderModeRadioButtonText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CTRL_EditRenderModeRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_FormLiteralText" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="CTRL_FormTypeDropDownListItemDisplay_Form" xml:space="preserve">
+    <value>Display Form</value>
+  </data>
+  <data name="CTRL_FormTypeDropDownListItemEdit_Form" xml:space="preserve">
+    <value>Edit Form</value>
+  </data>
+  <data name="CTRL_FormTypeDropDownListItemNew_Form" xml:space="preserve">
+    <value>New Form</value>
+  </data>
+  <data name="CTRL_FormTypeDropDownToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_HiddenRenderModeRadioButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_InheritButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_Label_AddRuleText" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="CTRL_Label_EditText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="CTRL_ListFormConditionsPageTitleLiteralText" xml:space="preserve">
+    <value>List Form Conditions</value>
+  </data>
+  <data name="CTRL_NotificationUserControlTabHeader" xml:space="preserve">
+    <value>Mail Settings</value>
+  </data>
+  <data name="CTRL_RemoveQueryText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CTRL_RemoveQueryToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_RequiredDropDownListToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_SaveLiteralText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CTRL_SubmitButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CTRL_SubmitButtonToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CTRL_ToggleContentTypeSelectorText" xml:space="preserve">
+    <value>Show or hide the content type selector in edit mode:</value>
+  </data>
+  <data name="CTRL_UnblockActivityUserControlTabHeader" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="CTRL_UserMustBeMemberOfLiteralText" xml:space="preserve">
+    <value>User must be a member of</value>
+  </data>
+  <data name="SectionContentTypeDescription" xml:space="preserve">
+    <value>Select a content type.</value>
+  </data>
+  <data name="SectionContentTypeTitle" xml:space="preserve">
+    <value>Content Types</value>
+  </data>
+</root>

@@ -1,0 +1,1 @@
+﻿.\sharepointmodel2uml.bat
