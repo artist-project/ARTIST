@@ -1,0 +1,42 @@
+[**
+ * Copyright (c) 2014 Spikes N.V.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Spikes - Initial implementation
+ */]
+
+[comment encoding = UTF-8 /]
+[module ssdl('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::sp2edmx::services::sp2edmxservices /]
+
+[template public generateSSDL(aModel : Model)]
+<edmx:StorageModels>
+    <Schema Namespace="[aModel.name/]Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+	[for (aClass : Class | aModel.packagedElement->filter(Class))]
+	[if (aClass.hasStereotype('SPTable'))]
+		<EntityType Name="[aClass.name/]">
+			<Key>
+			</Key>
+			[for (property: Property | aClass.attribute)]
+			[if (property.isStereotypeApplied(property.getAppliedStereotype('Profile::SPField')))]
+			<Property Name="[property.name/]" />			
+			[/if]	
+			[/for]
+		</EntityType>
+	[/if]
+ 	[/for]
+		<EntityContainer Name="[aModel.name/]ModelStoreContainer">
+			[for (aClass : Class | aModel.packagedElement->filter(Class))]
+			[if (aClass.hasStereotype('SPTable'))]
+			<EntitySet Name="[aClass.name/]" EntityType="Self.[aClass.name/]" Schema="dbo" store:Type="Tables" />
+			[/if]
+ 			[/for]
+		</EntityContainer>
+	</Schema>
+</edmx:StorageModels>
+[/template]

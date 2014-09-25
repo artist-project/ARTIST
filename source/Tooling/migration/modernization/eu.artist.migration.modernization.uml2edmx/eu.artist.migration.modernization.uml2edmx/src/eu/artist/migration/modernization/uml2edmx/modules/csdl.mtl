@@ -1,0 +1,85 @@
+[**
+ * Copyright (c) 2014 Spikes N.V.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Spikes - Initial implementation
+ */]
+
+[comment encoding = UTF-8 /]
+[module csdl('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::uml2edmx::services::dbml2edmxservices /]
+
+[template public generateCSDL(aModel : Model)]
+<edmx:ConceptualModels>
+	<Schema Namespace="[aModel.name/]Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+    [for (aClass : Class | aModel.packagedElement->filter(Class))]
+	[if (aClass.hasStereotype('DBTable'))]
+		<EntityType Name="[aClass.name/]">
+			<Key>
+			[for (property: Property | aClass.attribute)]
+			[if (property.isStereotypeApplied(property.getAppliedStereotype('Profile::DBColumn')))]
+			[if (property.isID)]
+            	<PropertyRef Name="[property.name/]" />
+			[/if]
+			[/if]
+   			[/for]
+			</Key>
+			[for (property: Property | aClass.attribute)]
+			[if (property.isStereotypeApplied(property.getAppliedStereotype('Profile::DBColumn')))]
+			<Property Name="[property.name/]" [property.generateCLRType('')/] Nullable="[property.isNullable()/]" />					
+			[/if]	
+			[/for]
+		</EntityType>
+	[/if]
+ 	[/for]
+	[for (aClass : Class | aModel.packagedElement->filter(Class))]
+	[if (aClass.hasStereotype('DBTable'))]
+		[for (property: Property | aClass.attribute)]
+		[if (property.isStereotypeApplied(property.getAppliedStereotype('Profile::DBAssociation')))]
+		[if (property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'IsForeignKey').oclAsType(Boolean) = false)]
+		<Association Name="[property.name/]">
+			<End Role="[aClass.name/]" Type="Self.[aClass.name/]" Multiplicity="1" />
+          	<End Role="[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'MemberType')/]" Type="Self.[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'MemberType')/]" Multiplicity="[if (property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'Cardinality') = 'ONE')]1[else]*[/if]" />
+          	<ReferentialConstraint>
+            	<Principal Role="[aClass.name/]">
+              		<PropertyRef Name="[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'ThisKey')/]" />
+            	</Principal>
+            	<Dependent Role="[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'MemberType')/]">
+              		<PropertyRef Name="[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'OtherKey')/]" />
+            	</Dependent>
+          	</ReferentialConstraint>
+		</Association>	
+		[/if]
+		[/if]
+   		[/for]
+	[/if]
+ 	[/for]
+		<EntityContainer Name="[aModel.name/]Entities" annotation:LazyLoadingEnabled="true">
+			[for (aClass : Class | aModel.packagedElement->filter(Class))]
+			[if (aClass.hasStereotype('DBTable'))]
+			<EntitySet Name="[aClass.name/]" EntityType="Self.[aClass.name/]" />
+			[/if]
+ 			[/for]
+			[for (aClass : Class | aModel.packagedElement->filter(Class))]
+			[if (aClass.hasStereotype('DBTable'))]
+			[for (property: Property | aClass.attribute)]
+			[if (property.isStereotypeApplied(property.getAppliedStereotype('Profile::DBAssociation')))]
+			[if (property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'IsForeignKey').oclAsType(Boolean) = false)]
+			<AssociationSet Name="[property.name/]" Association="Self.[property.name/]">
+				<End Role="[aClass.name/]" EntitySet="[aClass.name/]" />
+          		<End Role="[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'MemberType')/]" EntitySet="[property.getValue(property.getAppliedStereotype('Profile::DBAssociation'), 'MemberType')/]" />
+			</AssociationSet>	
+			[/if]
+			[/if]
+   			[/for]
+			[/if]
+ 			[/for]
+		</EntityContainer>
+	</Schema>
+</edmx:ConceptualModels>
+[/template]
