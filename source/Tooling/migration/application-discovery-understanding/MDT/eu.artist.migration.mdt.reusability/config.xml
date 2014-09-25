@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>	
+	<programming_languages>
+		<element>
+			<name>java</name>
+			<source_code-file_ext>java</source_code-file_ext>
+		</element>
+		<element>
+			<name>c#</name>
+			<source_code-file_ext>cs</source_code-file_ext>
+		</element>			
+	</programming_languages>
+	<!-- reusability_level has two possible values "method" and "class" -->
+	<data_storage reusability_level="method">
+		<element>
+			<name>Relational Database</name>
+			<keywords>
+				<element>SELECT</element>
+			</keywords>
+		</element>
+		<element>
+			<name>NoSQL Database</name>
+		</element>
+	</data_storage>
+	<data_storage_products reusability_level="method">
+		<element>
+			<name>Oracle</name>
+			<specific_functions />
+		</element>
+		<element>
+			<name>MySQL</name>
+			<specific_functions />
+		</element>
+		<element>
+			<name>Microsoft SQL Server</name>
+			<specific_functions />
+		</element>
+		<element>
+			<name>PostgreSQL</name>
+			<specific_functions />
+		</element>
+		<element>
+			<name>DB2</name>
+			<specific_functions />
+		</element>
+		<element>
+			<name>Other</name>
+			<specific_functions />
+		</element>
+	</data_storage_products>
+	<data_storage_frameworks reusability_level="class">
+		<element>
+			<name>JPA</name>
+			<keywords>
+				<!-- jpa specific annotations at class level-->
+				<element>@Embeddable</element>
+				<element>@Entity</element>
+				<element>@MappedSuperclass</element>
+				<element>@Cacheable</element>
+				<element>@EntityListeners</element>
+				<element>@ExcludeDefaultListeners</element>
+				<element>@ExcludeSuperclassListeners</element>
+				<element>@IdClass</element>
+				<!-- jpa specific packages-->
+				<element>javax.persistence</element>
+				<element>javax.validation</element>								
+			</keywords>
+		</element>
+		<element>
+			<name>Objectify</name>			
+		</element>
+	</data_storage_frameworks>
+</config>
+
