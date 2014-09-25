@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{1e3a68bb-1ed2-4498-a95a-e172faa55921}"
+       Name="MigrationType"
+       DisplayName="Migration Type"
+       Type="Choice"
+       Required="FALSE"
+       Group="Custom Site Columns">
+    <CHOICES>
+      <CHOICE>Default</CHOICE>
+      <CHOICE>Custom</CHOICE>
+      <CHOICE>None</CHOICE>
+    </CHOICES>
+    <Default>None</Default>
+  </Field>
+</Elements>

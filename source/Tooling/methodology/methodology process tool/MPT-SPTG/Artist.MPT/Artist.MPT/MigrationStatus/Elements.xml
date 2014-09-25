@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">  
+  <Field
+       ID="{8a5c5b02-87bd-4fc7-92c4-db06a1c44ead}"
+       Name="MigrationStatus"
+       DisplayName="Migration Status"
+       Type="Choice"
+       Required="FALSE"
+       Group="Custom Site Columns">
+    <CHOICES>
+      <CHOICE>Undecided</CHOICE>
+      <CHOICE>Ongoing</CHOICE>
+      <CHOICE>Cancelled</CHOICE>
+      <CHOICE>Completed</CHOICE>
+    </CHOICES>
+    <Default>Undecided</Default>
+  </Field>
+</Elements>

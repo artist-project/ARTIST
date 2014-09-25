@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="Migrations" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Migrations" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/" EnableContentTypes="TRUE">
+  <MetaData>
+    <ContentTypes>
+      
+      
+    <ContentType ID="0x01008ef7d31e6c0d48c88890e867dbe02ad8" Name="ListFieldsContentType"><FieldRefs><FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" /><FieldRef ID="{2ad8514e-2b8a-4fab-8da3-ed110e4308dc}" Name="Description1" /><FieldRef ID="{c0e20fe7-6ba2-4858-8934-5ec34d6265c8}" Name="Repository" /><FieldRef ID="{8a5c5b02-87bd-4fc7-92c4-db06a1c44ead}" Name="MigrationStatus" /><FieldRef ID="{1e3a68bb-1ed2-4498-a95a-e172faa55921}" Name="MigrationType" /><FieldRef ID="{12f439de-cb30-4a7a-b20c-b39adb529ea9}" Name="CustomMigration" /></FieldRefs></ContentType><ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef><ContentTypeRef ID="0x0120" /><ContentType ID="0x01004BB8EF447F4B40559E3B27B6A31A8F7A" Name="Artist Migration" Group="Custom Content Types" Description="Artist Migration Content Type" Inherits="TRUE" Version="0"><FieldRefs><FieldRef ID="{8a5c5b02-87bd-4fc7-92c4-db06a1c44ead}" DisplayName="Migration Status" Required="FALSE" Name="MigrationStatus" /><FieldRef ID="{1e3a68bb-1ed2-4498-a95a-e172faa55921}" DisplayName="Migration Type" Required="FALSE" Name="MigrationType" /><FieldRef ID="{12f439de-cb30-4a7a-b20c-b39adb529ea9}" DisplayName="Custom Migration" Required="FALSE" Name="CustomMigration" /></FieldRefs></ContentType></ContentTypes>
+    <Fields>
+      
+    <Field ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Type="Text" Name="Title" DisplayName="$Resources:core,Title;" Required="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Title" MaxLength="255" /><Field Name="Description1" ID="{2ad8514e-2b8a-4fab-8da3-ed110e4308dc}" DisplayName="Description" Type="Note" /><Field Name="Repository" ID="{c0e20fe7-6ba2-4858-8934-5ec34d6265c8}" DisplayName="Repository" Type="Text" /><Field Name="MigrationStatus" ID="{8a5c5b02-87bd-4fc7-92c4-db06a1c44ead}" DisplayName="Migration Status" Type="Choice" Required="FALSE"><CHOICES><CHOICE>Undecided</CHOICE><CHOICE>Ongoing</CHOICE><CHOICE>Cancelled</CHOICE><CHOICE>Completed</CHOICE></CHOICES></Field><Field Name="MigrationType" ID="{1e3a68bb-1ed2-4498-a95a-e172faa55921}" DisplayName="Migration Type" Type="Choice" Required="FALSE"><CHOICES><CHOICE>Default</CHOICE><CHOICE>Custom</CHOICE><CHOICE>None</CHOICE></CHOICES></Field><Field ID="{12f439de-cb30-4a7a-b20c-b39adb529ea9}" Name="CustomMigration" DisplayName="Custom Migration" Type="Text" Required="FALSE" Group="Custom Site Columns"></Field></Fields>
+    <Views>
+      
+      
+    <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitleNoMenu"></FieldRef></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="Modified" Ascending="FALSE"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View><View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          
+        <FieldRef Name="LinkTitle"></FieldRef><FieldRef Name="Description1" /><FieldRef Name="Repository" /><FieldRef Name="MigrationStatus" /><FieldRef Name="MigrationType" /><FieldRef Name="CustomMigration" /></ViewFields>
+        <Query>
+          <OrderBy>
+            
+          <FieldRef Name="ID"></FieldRef></OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View></Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

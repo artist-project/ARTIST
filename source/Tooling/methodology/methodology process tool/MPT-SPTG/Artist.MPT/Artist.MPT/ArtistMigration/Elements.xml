@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x01004BB8EF447F4B40559E3B27B6A31A8F7A" Name="Artist Migration" Group="Custom Content Types" Description="Artist Migration Content Type" Inherits="TRUE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{8a5c5b02-87bd-4fc7-92c4-db06a1c44ead}" DisplayName="Migration Status" Required="FALSE" Name="MigrationStatus" />
+      <FieldRef ID="{1e3a68bb-1ed2-4498-a95a-e172faa55921}" DisplayName="Migration Type" Required="FALSE" Name="MigrationType" />
+      <FieldRef ID="{12f439de-cb30-4a7a-b20c-b39adb529ea9}" DisplayName="Custom Migration" Required="FALSE" Name="CustomMigration" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListTemplateId="10000">
+      <Receiver>
+        <Name>CustomizationHandlerItemUpdating</Name>
+        <Type>ItemUpdating</Type>
+        <Assembly>Artist.MPT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=28a3e29172b4e6aa</Assembly>
+        <Class>Artist.MPT.CustomizationHandler.CustomizationHandler</Class>
+        <SequenceNumber>10000</SequenceNumber>
+      </Receiver>
+      <Receiver>
+        <Name>CustomizationHandlerItemUpdated</Name>
+        <Type>ItemUpdated</Type>
+        <Assembly>Artist.MPT, Version=1.0.0.0, Culture=neutral, PublicKeyToken=28a3e29172b4e6aa</Assembly>
+        <Class>Artist.MPT.CustomizationHandler.CustomizationHandler</Class>
+        <SequenceNumber>10000</SequenceNumber>
+      </Receiver>
+  </Receivers>
+</Elements>
