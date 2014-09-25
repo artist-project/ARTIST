@@ -44,7 +44,7 @@ public class ModelBuilder {
 		String current = System.getProperty("user.dir");
 		builder.registerPathmaps(URI.createURI("jar:file:" + current + "\\lib\\org.eclipse.uml2.uml.resources_4.1.0.v20140202-2055.jar!/"));
 		
-		URI profileUri = URI.createFileURI(current + "\\res\\model.profile.uml");
+		URI profileUri = URI.createFileURI("model.profile.uml");
 		spProfile = builder.importProfile(profileUri);
 		
 	}
@@ -124,6 +124,7 @@ public class ModelBuilder {
 				builder.applyStereotype(property, columnStereotype);
 				
 				builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("DisplayName", model.getOwnedType("String")), f.getDisplayName());
+				builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("Required", model.getOwnedType("Boolean")), f.getRequired());
 			}
 		}
 	}

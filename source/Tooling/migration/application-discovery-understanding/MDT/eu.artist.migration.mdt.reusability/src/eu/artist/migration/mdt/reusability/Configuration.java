@@ -24,7 +24,8 @@ import eu.artist.migration.mdt.reusability.beans.ProgrammingLanguage;
 public class Configuration {	
 	private static ProgrammingLanguage programmingLanguage;
 	private static DataStorageFramework dataStorageFramework;
-	protected static String uriMAT = "http://172.25.30.136:8089/ArtistEva/webresources/question/getrtt";
+	//protected static String uriMAT = "http://172.25.30.136:8089/ArtistEva/webresources/question/getrtt";
+	protected static String uriMAT = "http://54.196.142.179:8080/ArtistEva/webresources/question/getrtt";
 	
 	//values comming from MAT (two possible values yes or no)
 	public static String sameProgramingLanguageMAT ="";

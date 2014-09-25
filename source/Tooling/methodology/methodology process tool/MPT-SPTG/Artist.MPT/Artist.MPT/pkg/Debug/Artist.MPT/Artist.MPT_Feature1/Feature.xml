@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="Artist Methodology Process Tool Feature" Description="The feature related to the Artist Methodology Process Tool" Id="7a7886b3-a7bc-4ca7-854b-6008b4b986aa" Scope="Web">
+  <ElementManifests>
+    <ElementManifest Location="MigrationsInstance\Elements.xml" />
+    <ElementManifest Location="Migrations\Elements.xml" />
+    <ElementFile Location="Migrations\Schema.xml" />
+    <ElementManifest Location="MigrationStatus\Elements.xml" />
+    <ElementManifest Location="MigrationType\Elements.xml" />
+    <ElementManifest Location="CustomMigration\Elements.xml" />
+    <ElementManifest Location="ArtistMigration\Elements.xml" />
+    <ElementManifest Location="CustomizationHandler\Elements.xml" />
+  </ElementManifests>
+</Feature>

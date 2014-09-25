@@ -1,7 +1,1177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AvailabilityProfile="http:///schemas/AvailabilityProfile/_HAKHMDHvEeSc0-e7rdSlVQ/20" xmlns:CoreProfile="http:///schemas/CoreProfile/_Wm5ycOyqEeO-rPIhJIKqcQ/325" xmlns:CoreProfile_1="http:///schemas/CoreProfile/_Y_vEQDQ2EeSO2NIFYvO4Kw/347" xmlns:IaaS="http://CoreProfile/schemas/IaaS/_Wnu44OyqEeO-rPIhJIKqcQ/261" xmlns:IaaS_1="http://CoreProfile/schemas/IaaS/_ZAEbcDQ2EeSO2NIFYvO4Kw/283" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/AvailabilityProfile/_HAKHMDHvEeSc0-e7rdSlVQ/20 ../supporting_profiles/model.profile.uml#_HAKHMTHvEeSc0-e7rdSlVQ http:///schemas/CoreProfile/_Y_vEQDQ2EeSO2NIFYvO4Kw/347 core.profile.uml#_Y_wSYDQ2EeSO2NIFYvO4Kw http://CoreProfile/schemas/IaaS/_ZAEbcDQ2EeSO2NIFYvO4Kw/283 core.profile.uml#_ZAFpkDQ2EeSO2NIFYvO4Kw">
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AvailabilityProfile="http:///schemas/AvailabilityProfile/_Q9XFwDp3EeSfD8y2Aw_Mmw/22" xmlns:CoreProfile="http:///schemas/CoreProfile/_Wm5ycOyqEeO-rPIhJIKqcQ/325" xmlns:CoreProfile_1="http:///schemas/CoreProfile/_AQcB0D8fEeSig8J50GysHg/357" xmlns:IaaS="http://CoreProfile/schemas/IaaS/_Wnu44OyqEeO-rPIhJIKqcQ/261" xmlns:IaaS_1="http://CoreProfile/schemas/IaaS/_AQ0cUD8fEeSig8J50GysHg/293" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/AvailabilityProfile/_Q9XFwDp3EeSfD8y2Aw_Mmw/22 ../supporting_profiles/model.profile.uml#_Q9aJEDp3EeSfD8y2Aw_Mmw http:///schemas/CoreProfile/_AQcB0D8fEeSig8J50GysHg/357 core.profile.uml#_AQd3AD8fEeSig8J50GysHg http://CoreProfile/schemas/IaaS/_AQ0cUD8fEeSig8J50GysHg/293 core.profile.uml#_AQ1qcD8fEeSig8J50GysHg">
   <uml:Profile xmi:id="_UGCHALA3EeOUsY7ZBJ5LeQ" name="Profile" metaclassReference="_G6YhkOTbEeOA3eSV5kmFuQ" metamodelReference="_UGCHAbA3EeOUsY7ZBJ5LeQ">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jXcM0bA9EeOUsY7ZBJ5LeQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <contents xmi:type="ecore:EPackage" xmi:id="_agySsD8rEeSU27OYdhej2g" name="Profile" nsURI="http:///schemas/Profile/_aguoUD8rEeSU27OYdhej2g/91" nsPrefix="Profile">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agySsT8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/4.0.0/UML">
+          <references xmi:type="uml:Profile" href="core.profile.uml#_8ysycJPyEeO93NzULdWyqQ"/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ahCxYT8rEeSU27OYdhej2g" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ahCxYj8rEeSU27OYdhej2g" key="Version" value="0.0.92"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ahCxYz8rEeSU27OYdhej2g" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ahCxZD8rEeSU27OYdhej2g" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ahCxZT8rEeSU27OYdhej2g" key="Date" value="2014-09-18"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ahCxZj8rEeSU27OYdhej2g" key="Author" value=""/>
+        </eAnnotations>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agySsj8rEeSU27OYdhej2g" name="WindowsAzureProcessingService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agySsz8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zZuMYLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rLj8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agyStD8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agyS0j8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_ServiceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyS0z8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_bHC_wJVpEeOLZprHczeW-A"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyS1D8rEeSU27OYdhej2g" name="Infrastructure"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyS1T8rEeSU27OYdhej2g" name="Platform" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyS1j8rEeSU27OYdhej2g" name="Software" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agyTDz8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_OSs">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTED8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_SB2egJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTET8rEeSU27OYdhej2g" name="CentOS"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTEj8rEeSU27OYdhej2g" name="RedHatEnterpriseLinux" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTEz8rEeSU27OYdhej2g" name="Debian" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTFD8rEeSU27OYdhej2g" name="OracleEnterpriseLinux" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTFT8rEeSU27OYdhej2g" name="WindowsServer" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTFj8rEeSU27OYdhej2g" name="SUSELinuxEnterprise" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTFz8rEeSU27OYdhej2g" name="Ubuntu" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTGD8rEeSU27OYdhej2g" name="FreeBSD" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTGT8rEeSU27OYdhej2g" name="openSUSELinux" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTGj8rEeSU27OYdhej2g" name="SUSEEnterpriseLinux" value="9"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agyTGz8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_ArchitectureTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTHD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_rm3hkJriEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTHT8rEeSU27OYdhej2g" name="Arch_64_Bit"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTHj8rEeSU27OYdhej2g" name="Arch_32_Bit" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agyTHz8rEeSU27OYdhej2g" name="WindowsAzureStorageService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTID8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8gotkLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1q1j8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agyTIT8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agyTLz8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_IaaSStorageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTMD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RwBHoJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTMT8rEeSU27OYdhej2g" name="Raw_storage"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTMj8rEeSU27OYdhej2g" name="Volume_storage" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTMz8rEeSU27OYdhej2g" name="Object_storage" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTND8rEeSU27OYdhej2g" name="Block_blobs" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTNT8rEeSU27OYdhej2g" name="Page_blobs" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTNj8rEeSU27OYdhej2g" name="Tables" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTNz8rEeSU27OYdhej2g" name="Queues" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agyTOD8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_AvailabilityZones">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTOT8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_OP61gEe7EeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTOj8rEeSU27OYdhej2g" name="East_US"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTOz8rEeSU27OYdhej2g" name="North_Central_US" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTPD8rEeSU27OYdhej2g" name="South_Central_US" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTPT8rEeSU27OYdhej2g" name="West_US" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTPj8rEeSU27OYdhej2g" name="East_Asia" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTPz8rEeSU27OYdhej2g" name="Southeast_Asia" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTQD8rEeSU27OYdhej2g" name="Brazil_South" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTQT8rEeSU27OYdhej2g" name="North_Europe" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTQj8rEeSU27OYdhej2g" name="West_Europe" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTQz8rEeSU27OYdhej2g" name="Japan_East" value="9"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTRD8rEeSU27OYdhej2g" name="Japan_West" value="10"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agyTRT8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_StorageAccountReplicatinTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTRj8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_mGlLsOf4EeOiWrwmr-KSgQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTRz8rEeSU27OYdhej2g" name="Geo_Redundant"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTSD8rEeSU27OYdhej2g" name="Read_Access_Geo_Redundant" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agyTST8rEeSU27OYdhej2g" name="Locally_Redundant" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agyTSj8rEeSU27OYdhej2g" name="A0">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agyTSz8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gJ66MLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agyTTD8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy5xD8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_InstanceCategories">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy5xT8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_TjsrwJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5xj8rEeSU27OYdhej2g" name="General_Purpose"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5xz8rEeSU27OYdhej2g" name="Memory_Optimized" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5yD8rEeSU27OYdhej2g" name="Storage_Optimized" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5yT8rEeSU27OYdhej2g" name="Compute_Optimized" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy5yj8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_NetworkPerformanceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy5yz8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_C09_4JrjEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5zD8rEeSU27OYdhej2g" name="Very_Low"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5zT8rEeSU27OYdhej2g" name="Low" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5zj8rEeSU27OYdhej2g" name="Moderate" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy5zz8rEeSU27OYdhej2g" name="High" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy50D8rEeSU27OYdhej2g" name="Very_High" value="4"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy50T8rEeSU27OYdhej2g" name="A2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy50j8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_hKAeMLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy50z8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy51j8rEeSU27OYdhej2g" name="A1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy51z8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q3XUULA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy52D8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy52z8rEeSU27OYdhej2g" name="A4">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy53D8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sJ7vcLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy53T8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy54D8rEeSU27OYdhej2g" name="A5">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy54T8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sc7j8LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy54j8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy55T8rEeSU27OYdhej2g" name="A6">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy55j8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ssyk4LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy55z8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy56j8rEeSU27OYdhej2g" name="A3">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy56z8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_1LJRQLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy57D8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy57z8rEeSU27OYdhej2g" name="A7">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy58D8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4Bd-ILA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy58T8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy59D8rEeSU27OYdhej2g" name="WindowsAzureProcessingOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy59T8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q9bUQLDhEeO_ysYqqoYd2Q"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQd3Fj8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy59j8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy5_z8rEeSU27OYdhej2g" name="WindowsAzureFeatures">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6AD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_YkqmMOf1EeOiWrwmr-KSgQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1qcj8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy6AT8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6MT8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_PricingPlans">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6Mj8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_eHevoEexEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Mz8rEeSU27OYdhej2g" name="by_month"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6ND8rEeSU27OYdhej2g" name="year_discount" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6NT8rEeSU27OYdhej2g" name="other" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Nj8rEeSU27OYdhej2g" name="pay_as_you_go" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Nz8rEeSU27OYdhej2g" name="by_hour" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6OD8rEeSU27OYdhej2g" name="semester" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6OT8rEeSU27OYdhej2g" name="year" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6Oj8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_Certifications">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6Oz8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_lslDUEeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6PD8rEeSU27OYdhej2g" name="pci"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6PT8rEeSU27OYdhej2g" name="sas_70" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Pj8rEeSU27OYdhej2g" name="other" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Pz8rEeSU27OYdhej2g" name="none" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6QD8rEeSU27OYdhej2g" name="fisma" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6QT8rEeSU27OYdhej2g" name="iso_27001" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Qj8rEeSU27OYdhej2g" name="safe_harbor" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6Qz8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_HighLevelEvaluation">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6RD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_T4q80EeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6RT8rEeSU27OYdhej2g" name="poor"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Rj8rEeSU27OYdhej2g" name="average" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Rz8rEeSU27OYdhej2g" name="extensive" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6SD8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_ApplicationTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6ST8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_R64FUEewEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Sj8rEeSU27OYdhej2g" name="DB"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Sz8rEeSU27OYdhej2g" name="Data_Analytics" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6TD8rEeSU27OYdhej2g" name="Web_Serving" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6TT8rEeSU27OYdhej2g" name="Streaming" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Tj8rEeSU27OYdhej2g" name="Software_Testing" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Tz8rEeSU27OYdhej2g" name="WebSearch" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6UD8rEeSU27OYdhej2g" name="Web2_0" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6UT8rEeSU27OYdhej2g" name="Scientific" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6Uj8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_PublicPrivate">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6Uz8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_86jwYEezEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6VD8rEeSU27OYdhej2g" name="public"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6VT8rEeSU27OYdhej2g" name="private" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6Vj8rEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_UsageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6Vz8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_ekJFwJirEeOjDZ4wsrI7kQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6WD8rEeSU27OYdhej2g" name="Free"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6WT8rEeSU27OYdhej2g" name="Paid" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Wj8rEeSU27OYdhej2g" name="Premier" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_agy6Wz8rEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_Hypervisors">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6XD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RfCsYJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6XT8rEeSU27OYdhej2g" name="Xen"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Xj8rEeSU27OYdhej2g" name="KVM" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6Xz8rEeSU27OYdhej2g" name="VMware" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_agy6YD8rEeSU27OYdhej2g" name="Hyper_V" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6YT8rEeSU27OYdhej2g" name="WindowsAzureServiceBus">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6Yj8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_STZtAOyWEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQd3HD8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_agy6Yz8rEeSU27OYdhej2g" name="namespace" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_agy6ZT8rEeSU27OYdhej2g" name="region" ordered="false" lowerBound="1" eType="_agyTOD8rEeSU27OYdhej2g"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy6Zz8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6aj8rEeSU27OYdhej2g" name="A8">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6az8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ybHnoOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy6bD8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6bz8rEeSU27OYdhej2g" name="A9">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6cD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ywFLAOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_agy6cT8rEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6dD8rEeSU27OYdhej2g" name="WindowsAzurePlatformOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6dT8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eja7AO2EEeOtuatIubGSqA"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQd3OD8fEeSig8J50GysHg"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6fT8rEeSU27OYdhej2g" name="WindowsAzureComputeSLADiscount1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6fj8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WCUYMDKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6fz8rEeSU27OYdhej2g" name="WindowsAzureComputeSLADiscount2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6gD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4eGP4DKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6gT8rEeSU27OYdhej2g" name="WindosAzure">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6gj8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_AYBrQDTREeSTw9oWb6kOYg"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_agy6gz8rEeSU27OYdhej2g" name="WindowsAzureStorageOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_agy6hD8rEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_oEsggD5jEeSA0ZMqttI1_Q"/>
+        </eClassifiers>
+      </contents>
+      <contents xmi:type="ecore:EPackage" xmi:id="_U5FO4D8hEeSU27OYdhej2g" name="Profile" nsURI="http:///schemas/Profile/_U5A9cD8hEeSU27OYdhej2g/90" nsPrefix="Profile">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5FO4T8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/4.0.0/UML">
+          <references xmi:type="uml:Profile" href="core.profile.uml#_8ysycJPyEeO93NzULdWyqQ"/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5QOBT8hEeSU27OYdhej2g" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_U5QOBj8hEeSU27OYdhej2g" key="Version" value="0.0.91"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_U5QOBz8hEeSU27OYdhej2g" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_U5QOCD8hEeSU27OYdhej2g" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_U5QOCT8hEeSU27OYdhej2g" key="Date" value="2014-09-18"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_U5QOCj8hEeSU27OYdhej2g" key="Author" value=""/>
+        </eAnnotations>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5FO4j8hEeSU27OYdhej2g" name="WindowsAzureProcessingService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5FO4z8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zZuMYLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rLj8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5FO5D8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5FPAj8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_ServiceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5FPAz8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_bHC_wJVpEeOLZprHczeW-A"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPBD8hEeSU27OYdhej2g" name="Infrastructure"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPBT8hEeSU27OYdhej2g" name="Platform" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPBj8hEeSU27OYdhej2g" name="Software" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5FPPz8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_OSs">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5FPQD8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_SB2egJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPQT8hEeSU27OYdhej2g" name="CentOS"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPQj8hEeSU27OYdhej2g" name="RedHatEnterpriseLinux" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPQz8hEeSU27OYdhej2g" name="Debian" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPRD8hEeSU27OYdhej2g" name="OracleEnterpriseLinux" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPRT8hEeSU27OYdhej2g" name="WindowsServer" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPRj8hEeSU27OYdhej2g" name="SUSELinuxEnterprise" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPRz8hEeSU27OYdhej2g" name="Ubuntu" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPSD8hEeSU27OYdhej2g" name="FreeBSD" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5FPST8hEeSU27OYdhej2g" name="openSUSELinux" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F18D8hEeSU27OYdhej2g" name="SUSEEnterpriseLinux" value="9"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F18T8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_ArchitectureTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F18j8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_rm3hkJriEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F18z8hEeSU27OYdhej2g" name="Arch_64_Bit"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F19D8hEeSU27OYdhej2g" name="Arch_32_Bit" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F19T8hEeSU27OYdhej2g" name="WindowsAzureStorageService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F19j8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8gotkLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1q1j8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F19z8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2BT8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_IaaSStorageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Bj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RwBHoJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Bz8hEeSU27OYdhej2g" name="Raw_storage"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2CD8hEeSU27OYdhej2g" name="Volume_storage" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2CT8hEeSU27OYdhej2g" name="Object_storage" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Cj8hEeSU27OYdhej2g" name="Block_blobs" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Cz8hEeSU27OYdhej2g" name="Page_blobs" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2DD8hEeSU27OYdhej2g" name="Tables" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2DT8hEeSU27OYdhej2g" name="Queues" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2Dj8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_AvailabilityZones">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Dz8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_OP61gEe7EeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2ED8hEeSU27OYdhej2g" name="East_US"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2ET8hEeSU27OYdhej2g" name="North_Central_US" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Ej8hEeSU27OYdhej2g" name="South_Central_US" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Ez8hEeSU27OYdhej2g" name="West_US" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2FD8hEeSU27OYdhej2g" name="East_Asia" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2FT8hEeSU27OYdhej2g" name="Southeast_Asia" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Fj8hEeSU27OYdhej2g" name="Brazil_South" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Fz8hEeSU27OYdhej2g" name="North_Europe" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2GD8hEeSU27OYdhej2g" name="West_Europe" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2GT8hEeSU27OYdhej2g" name="Japan_East" value="9"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Gj8hEeSU27OYdhej2g" name="Japan_West" value="10"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2Gz8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_StorageAccountReplicatinTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2HD8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_mGlLsOf4EeOiWrwmr-KSgQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2HT8hEeSU27OYdhej2g" name="Geo_Redundant"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Hj8hEeSU27OYdhej2g" name="Read_Access_Geo_Redundant" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Hz8hEeSU27OYdhej2g" name="Locally_Redundant" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2ID8hEeSU27OYdhej2g" name="A0">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2IT8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gJ66MLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2Ij8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2Oz8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_InstanceCategories">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2PD8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_TjsrwJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2PT8hEeSU27OYdhej2g" name="General_Purpose"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Pj8hEeSU27OYdhej2g" name="Memory_Optimized" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Pz8hEeSU27OYdhej2g" name="Storage_Optimized" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2QD8hEeSU27OYdhej2g" name="Compute_Optimized" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2QT8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_NetworkPerformanceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Qj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_C09_4JrjEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Qz8hEeSU27OYdhej2g" name="Very_Low"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2RD8hEeSU27OYdhej2g" name="Low" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2RT8hEeSU27OYdhej2g" name="Moderate" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Rj8hEeSU27OYdhej2g" name="High" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2Rz8hEeSU27OYdhej2g" name="Very_High" value="4"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2SD8hEeSU27OYdhej2g" name="A2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2ST8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_hKAeMLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2Sj8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2TT8hEeSU27OYdhej2g" name="A1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Tj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q3XUULA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2Tz8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2Uj8hEeSU27OYdhej2g" name="A4">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Uz8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sJ7vcLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2VD8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2Vz8hEeSU27OYdhej2g" name="A5">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2WD8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sc7j8LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2WT8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2XD8hEeSU27OYdhej2g" name="A6">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2XT8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ssyk4LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2Xj8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2YT8hEeSU27OYdhej2g" name="A3">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Yj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_1LJRQLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2Yz8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2Zj8hEeSU27OYdhej2g" name="A7">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2Zz8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4Bd-ILA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2aD8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2az8hEeSU27OYdhej2g" name="WindowsAzureProcessingOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2bD8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q9bUQLDhEeO_ysYqqoYd2Q"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQd3Fj8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2bT8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2dj8hEeSU27OYdhej2g" name="WindowsAzureFeatures">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2dz8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_YkqmMOf1EeOiWrwmr-KSgQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1qcj8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F2eD8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2qD8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_PricingPlans">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2qT8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_eHevoEexEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2qj8hEeSU27OYdhej2g" name="by_month"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2qz8hEeSU27OYdhej2g" name="year_discount" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2rD8hEeSU27OYdhej2g" name="other" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2rT8hEeSU27OYdhej2g" name="pay_as_you_go" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2rj8hEeSU27OYdhej2g" name="by_hour" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2rz8hEeSU27OYdhej2g" name="semester" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2sD8hEeSU27OYdhej2g" name="year" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2sT8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_Certifications">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2sj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_lslDUEeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2sz8hEeSU27OYdhej2g" name="pci"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2tD8hEeSU27OYdhej2g" name="sas_70" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2tT8hEeSU27OYdhej2g" name="other" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2tj8hEeSU27OYdhej2g" name="none" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2tz8hEeSU27OYdhej2g" name="fisma" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2uD8hEeSU27OYdhej2g" name="iso_27001" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2uT8hEeSU27OYdhej2g" name="safe_harbor" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2uj8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_HighLevelEvaluation">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2uz8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_T4q80EeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2vD8hEeSU27OYdhej2g" name="poor"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2vT8hEeSU27OYdhej2g" name="average" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2vj8hEeSU27OYdhej2g" name="extensive" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2vz8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_ApplicationTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2wD8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_R64FUEewEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2wT8hEeSU27OYdhej2g" name="DB"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2wj8hEeSU27OYdhej2g" name="Data_Analytics" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2wz8hEeSU27OYdhej2g" name="Web_Serving" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2xD8hEeSU27OYdhej2g" name="Streaming" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2xT8hEeSU27OYdhej2g" name="Software_Testing" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2xj8hEeSU27OYdhej2g" name="WebSearch" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2xz8hEeSU27OYdhej2g" name="Web2_0" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2yD8hEeSU27OYdhej2g" name="Scientific" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2yT8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_PublicPrivate">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2yj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_86jwYEezEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2yz8hEeSU27OYdhej2g" name="public"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2zD8hEeSU27OYdhej2g" name="private" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F2zT8hEeSU27OYdhej2g" name="CoreProfile_CoreDataTypes_UsageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2zj8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_ekJFwJirEeOjDZ4wsrI7kQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F2zz8hEeSU27OYdhej2g" name="Free"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F20D8hEeSU27OYdhej2g" name="Paid" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F20T8hEeSU27OYdhej2g" name="Premier" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_U5F20j8hEeSU27OYdhej2g" name="CoreProfile_IaaS_IaaSDataTypes_Hypervisors">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F20z8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RfCsYJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F21D8hEeSU27OYdhej2g" name="Xen"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F21T8hEeSU27OYdhej2g" name="KVM" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F21j8hEeSU27OYdhej2g" name="VMware" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_U5F21z8hEeSU27OYdhej2g" name="Hyper_V" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F22D8hEeSU27OYdhej2g" name="WindowsAzureServiceBus">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F22T8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_STZtAOyWEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQd3HD8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_U5F22j8hEeSU27OYdhej2g" name="namespace" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_U5F23D8hEeSU27OYdhej2g" name="region" ordered="false" lowerBound="1" eType="_U5F2Dj8hEeSU27OYdhej2g"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F23j8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F24T8hEeSU27OYdhej2g" name="A8">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F24j8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ybHnoOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F24z8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F25j8hEeSU27OYdhej2g" name="A9">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F25z8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ywFLAOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQ1rOT8fEeSig8J50GysHg"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_U5F26D8hEeSU27OYdhej2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F26z8hEeSU27OYdhej2g" name="WindowsAzurePlatformOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F27D8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eja7AO2EEeOtuatIubGSqA"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_AQd3OD8fEeSig8J50GysHg"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F29D8hEeSU27OYdhej2g" name="WindowsAzureComputeSLADiscount1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F29T8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WCUYMDKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F29j8hEeSU27OYdhej2g" name="WindowsAzureComputeSLADiscount2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F29z8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4eGP4DKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2-D8hEeSU27OYdhej2g" name="WindosAzure">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2-T8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_AYBrQDTREeSTw9oWb6kOYg"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_U5F2-j8hEeSU27OYdhej2g" name="WindowsAzureStorageOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_U5F2-z8hEeSU27OYdhej2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_oEsggD5jEeSA0ZMqttI1_Q"/>
+        </eClassifiers>
+      </contents>
+      <contents xmi:type="ecore:EPackage" xmi:id="_YHjccD5lEeSA0ZMqttI1_Q" name="Profile" nsURI="http:///schemas/Profile/_YHhAMD5lEeSA0ZMqttI1_Q/89" nsPrefix="Profile">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjccT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/4.0.0/UML">
+          <references xmi:type="uml:Profile" href="core.profile.uml#_8ysycJPyEeO93NzULdWyqQ"/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHt0iT5lEeSA0ZMqttI1_Q" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YHt0ij5lEeSA0ZMqttI1_Q" key="Version" value="0.0.90"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YHt0iz5lEeSA0ZMqttI1_Q" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YHt0jD5lEeSA0ZMqttI1_Q" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YHt0jT5lEeSA0ZMqttI1_Q" key="Date" value="2014-09-17"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YHt0jj5lEeSA0ZMqttI1_Q" key="Author" value=""/>
+        </eAnnotations>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjccj5lEeSA0ZMqttI1_Q" name="WindowsAzureProcessingService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjccz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zZuMYLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVwT5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjcdD5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjckj5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_ServiceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjckz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_bHC_wJVpEeOLZprHczeW-A"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjclD5lEeSA0ZMqttI1_Q" name="Infrastructure"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjclT5lEeSA0ZMqttI1_Q" name="Platform" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjclj5lEeSA0ZMqttI1_Q" name="Software" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjczz5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_OSs">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjc0D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_SB2egJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc0T5lEeSA0ZMqttI1_Q" name="CentOS"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc0j5lEeSA0ZMqttI1_Q" name="RedHatEnterpriseLinux" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc0z5lEeSA0ZMqttI1_Q" name="Debian" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc1D5lEeSA0ZMqttI1_Q" name="OracleEnterpriseLinux" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc1T5lEeSA0ZMqttI1_Q" name="WindowsServer" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc1j5lEeSA0ZMqttI1_Q" name="SUSELinuxEnterprise" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc1z5lEeSA0ZMqttI1_Q" name="Ubuntu" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc2D5lEeSA0ZMqttI1_Q" name="FreeBSD" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc2T5lEeSA0ZMqttI1_Q" name="openSUSELinux" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc2j5lEeSA0ZMqttI1_Q" name="SUSEEnterpriseLinux" value="9"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjc2z5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_ArchitectureTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjc3D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_rm3hkJriEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc3T5lEeSA0ZMqttI1_Q" name="Arch_64_Bit"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc3j5lEeSA0ZMqttI1_Q" name="Arch_32_Bit" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjc3z5lEeSA0ZMqttI1_Q" name="WindowsAzureStorageService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjc4D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8gotkLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVaT5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjc4T5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjc7z5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_IaaSStorageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjc8D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RwBHoJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc8T5lEeSA0ZMqttI1_Q" name="Raw_storage"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc8j5lEeSA0ZMqttI1_Q" name="Volume_storage" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc8z5lEeSA0ZMqttI1_Q" name="Object_storage" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc9D5lEeSA0ZMqttI1_Q" name="Block_blobs" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc9T5lEeSA0ZMqttI1_Q" name="Page_blobs" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc9j5lEeSA0ZMqttI1_Q" name="Tables" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc9z5lEeSA0ZMqttI1_Q" name="Queues" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjc-D5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_AvailabilityZones">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjc-T5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_OP61gEe7EeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc-j5lEeSA0ZMqttI1_Q" name="East_US"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc-z5lEeSA0ZMqttI1_Q" name="North_Central_US" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc_D5lEeSA0ZMqttI1_Q" name="South_Central_US" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc_T5lEeSA0ZMqttI1_Q" name="West_US" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc_j5lEeSA0ZMqttI1_Q" name="East_Asia" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjc_z5lEeSA0ZMqttI1_Q" name="Southeast_Asia" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdAD5lEeSA0ZMqttI1_Q" name="Brazil_South" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdAT5lEeSA0ZMqttI1_Q" name="North_Europe" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdAj5lEeSA0ZMqttI1_Q" name="West_Europe" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdAz5lEeSA0ZMqttI1_Q" name="Japan_East" value="9"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdBD5lEeSA0ZMqttI1_Q" name="Japan_West" value="10"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdBT5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_StorageAccountReplicatinTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdBj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_mGlLsOf4EeOiWrwmr-KSgQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdBz5lEeSA0ZMqttI1_Q" name="Geo_Redundant"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdCD5lEeSA0ZMqttI1_Q" name="Read_Access_Geo_Redundant" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdCT5lEeSA0ZMqttI1_Q" name="Locally_Redundant" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdCj5lEeSA0ZMqttI1_Q" name="A0">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdCz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gJ66MLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdDD5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdJT5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_InstanceCategories">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdJj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_TjsrwJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdJz5lEeSA0ZMqttI1_Q" name="General_Purpose"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdKD5lEeSA0ZMqttI1_Q" name="Memory_Optimized" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdKT5lEeSA0ZMqttI1_Q" name="Storage_Optimized" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdKj5lEeSA0ZMqttI1_Q" name="Compute_Optimized" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdKz5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_NetworkPerformanceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdLD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_C09_4JrjEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdLT5lEeSA0ZMqttI1_Q" name="Very_Low"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdLj5lEeSA0ZMqttI1_Q" name="Low" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdLz5lEeSA0ZMqttI1_Q" name="Moderate" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdMD5lEeSA0ZMqttI1_Q" name="High" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdMT5lEeSA0ZMqttI1_Q" name="Very_High" value="4"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdMj5lEeSA0ZMqttI1_Q" name="A2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdMz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_hKAeMLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdND5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdNz5lEeSA0ZMqttI1_Q" name="A1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdOD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q3XUULA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdOT5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdPD5lEeSA0ZMqttI1_Q" name="A4">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdPT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sJ7vcLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdPj5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdQT5lEeSA0ZMqttI1_Q" name="A5">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdQj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sc7j8LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdQz5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdRj5lEeSA0ZMqttI1_Q" name="A6">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdRz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ssyk4LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdSD5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdSz5lEeSA0ZMqttI1_Q" name="A3">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdTD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_1LJRQLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdTT5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdUD5lEeSA0ZMqttI1_Q" name="A7">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdUT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4Bd-ILA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdUj5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdVT5lEeSA0ZMqttI1_Q" name="WindowsAzureProcessingOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdVj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q9bUQLDhEeO_ysYqqoYd2Q"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Ds9Xtj5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdVz5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdYD5lEeSA0ZMqttI1_Q" name="WindowsAzureFeatures">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdYT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_YkqmMOf1EeOiWrwmr-KSgQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVAj5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdYj5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdkj5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_PricingPlans">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdkz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_eHevoEexEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdlD5lEeSA0ZMqttI1_Q" name="by_month"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdlT5lEeSA0ZMqttI1_Q" name="year_discount" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdlj5lEeSA0ZMqttI1_Q" name="pay_as_you_go_or_monthly" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdlz5lEeSA0ZMqttI1_Q" name="other" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdmD5lEeSA0ZMqttI1_Q" name="pay_as_you_go" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdmT5lEeSA0ZMqttI1_Q" name="by_hour" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdmj5lEeSA0ZMqttI1_Q" name="semester" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdmz5lEeSA0ZMqttI1_Q" name="year" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdnD5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_Certifications">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdnT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_lslDUEeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdnj5lEeSA0ZMqttI1_Q" name="pci"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdnz5lEeSA0ZMqttI1_Q" name="sas_70" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdoD5lEeSA0ZMqttI1_Q" name="pci_and_sas_70" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdoT5lEeSA0ZMqttI1_Q" name="other" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdoj5lEeSA0ZMqttI1_Q" name="none" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdoz5lEeSA0ZMqttI1_Q" name="fisma" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdpD5lEeSA0ZMqttI1_Q" name="iso_27001" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdpT5lEeSA0ZMqttI1_Q" name="safe_harbor" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdpj5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_HighLevelEvaluation">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdpz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_T4q80EeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdqD5lEeSA0ZMqttI1_Q" name="poor"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdqT5lEeSA0ZMqttI1_Q" name="average" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdqj5lEeSA0ZMqttI1_Q" name="extensive" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdqz5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_ApplicationTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdrD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_R64FUEewEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdrT5lEeSA0ZMqttI1_Q" name="DB"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdrj5lEeSA0ZMqttI1_Q" name="Data_Analytics" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdrz5lEeSA0ZMqttI1_Q" name="Web_Serving" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdsD5lEeSA0ZMqttI1_Q" name="Streaming" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdsT5lEeSA0ZMqttI1_Q" name="Software_Testing" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdsj5lEeSA0ZMqttI1_Q" name="WebSearch" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdsz5lEeSA0ZMqttI1_Q" name="Web2_0" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdtD5lEeSA0ZMqttI1_Q" name="Scientific" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdtT5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_PublicPrivate">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdtj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_86jwYEezEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdtz5lEeSA0ZMqttI1_Q" name="public"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjduD5lEeSA0ZMqttI1_Q" name="private" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjduT5lEeSA0ZMqttI1_Q" name="public_or_private" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjduj5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_UsageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjduz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_ekJFwJirEeOjDZ4wsrI7kQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdvD5lEeSA0ZMqttI1_Q" name="Free"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdvT5lEeSA0ZMqttI1_Q" name="Paid" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdvj5lEeSA0ZMqttI1_Q" name="Premier" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_YHjdvz5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_Hypervisors">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdwD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RfCsYJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdwT5lEeSA0ZMqttI1_Q" name="Xen"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdwj5lEeSA0ZMqttI1_Q" name="KVM" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdwz5lEeSA0ZMqttI1_Q" name="VMware" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_YHjdxD5lEeSA0ZMqttI1_Q" name="Hyper_V" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdxT5lEeSA0ZMqttI1_Q" name="WindowsAzureServiceBus">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdxj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_STZtAOyWEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Ds9XvD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_YHjdxz5lEeSA0ZMqttI1_Q" name="namespace" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_YHjdyT5lEeSA0ZMqttI1_Q" name="region" ordered="false" lowerBound="1" eType="_YHjc-D5lEeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjdyz5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjdzj5lEeSA0ZMqttI1_Q" name="A8">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjdzz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ybHnoOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjd0D5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjd0z5lEeSA0ZMqttI1_Q" name="A9">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjd1D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ywFLAOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHjd1T5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjd2D5lEeSA0ZMqttI1_Q" name="WindowsAzurePlatformOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjd2T5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eja7AO2EEeOtuatIubGSqA"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Ds9X2D5REeSA0ZMqttI1_Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjd4T5lEeSA0ZMqttI1_Q" name="WindowsAzureComputeSLADiscount1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjd4j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WCUYMDKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjd4z5lEeSA0ZMqttI1_Q" name="WindowsAzureComputeSLADiscount2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjd5D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4eGP4DKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjd5T5lEeSA0ZMqttI1_Q" name="WindosAzure">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjd5j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_AYBrQDTREeSTw9oWb6kOYg"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHjd5z5lEeSA0ZMqttI1_Q" name="WindowsAzureStorageOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHjd6D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_oEsggD5jEeSA0ZMqttI1_Q"/>
+        </eClassifiers>
+      </contents>
+      <contents xmi:type="ecore:EPackage" xmi:id="_BBpQ0D5lEeSA0ZMqttI1_Q" name="Profile" nsURI="http:///schemas/Profile/_BBm0kD5lEeSA0ZMqttI1_Q/88" nsPrefix="Profile">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBpQ0T5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/4.0.0/UML">
+          <references xmi:type="uml:Profile" href="core.profile.uml#_8ysycJPyEeO93NzULdWyqQ"/>
+        </eAnnotations>
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BB36Uz5lEeSA0ZMqttI1_Q" source="PapyrusVersion">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BB36VD5lEeSA0ZMqttI1_Q" key="Version" value="0.0.89"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BB36VT5lEeSA0ZMqttI1_Q" key="Comment" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BB36Vj5lEeSA0ZMqttI1_Q" key="Copyright" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BB36Vz5lEeSA0ZMqttI1_Q" key="Date" value="2014-09-17"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BB36WD5lEeSA0ZMqttI1_Q" key="Author" value=""/>
+        </eAnnotations>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBpQ0j5lEeSA0ZMqttI1_Q" name="WindowsAzureProcessingService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBpQ0z5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_zZuMYLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVwT5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBpQ1D5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBpQ8j5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_ServiceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBpQ8z5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_bHC_wJVpEeOLZprHczeW-A"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBpQ9D5lEeSA0ZMqttI1_Q" name="Infrastructure"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBpQ9T5lEeSA0ZMqttI1_Q" name="Platform" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBpQ9j5lEeSA0ZMqttI1_Q" name="Software" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp34T5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_OSs">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp34j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_SB2egJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp34z5lEeSA0ZMqttI1_Q" name="CentOS"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp35D5lEeSA0ZMqttI1_Q" name="RedHatEnterpriseLinux" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp35T5lEeSA0ZMqttI1_Q" name="Debian" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp35j5lEeSA0ZMqttI1_Q" name="OracleEnterpriseLinux" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp35z5lEeSA0ZMqttI1_Q" name="WindowsServer" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp36D5lEeSA0ZMqttI1_Q" name="SUSELinuxEnterprise" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp36T5lEeSA0ZMqttI1_Q" name="Ubuntu" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp36j5lEeSA0ZMqttI1_Q" name="FreeBSD" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp36z5lEeSA0ZMqttI1_Q" name="openSUSELinux" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp37D5lEeSA0ZMqttI1_Q" name="SUSEEnterpriseLinux" value="9"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp37T5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_ArchitectureTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp37j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_rm3hkJriEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp37z5lEeSA0ZMqttI1_Q" name="Arch_64_Bit"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp38D5lEeSA0ZMqttI1_Q" name="Arch_32_Bit" value="1"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp38T5lEeSA0ZMqttI1_Q" name="WindowsAzureStorageService">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp38j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8gotkLA3EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVaT5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp38z5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4AT5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_IaaSStorageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Aj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RwBHoJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Az5lEeSA0ZMqttI1_Q" name="Raw_storage"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4BD5lEeSA0ZMqttI1_Q" name="Volume_storage" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4BT5lEeSA0ZMqttI1_Q" name="Object_storage" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Bj5lEeSA0ZMqttI1_Q" name="Block_blobs" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Bz5lEeSA0ZMqttI1_Q" name="Page_blobs" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4CD5lEeSA0ZMqttI1_Q" name="Tables" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4CT5lEeSA0ZMqttI1_Q" name="Queues" value="6"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4Cj5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_AvailabilityZones">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Cz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_OP61gEe7EeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4DD5lEeSA0ZMqttI1_Q" name="East_US"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4DT5lEeSA0ZMqttI1_Q" name="North_Central_US" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Dj5lEeSA0ZMqttI1_Q" name="South_Central_US" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Dz5lEeSA0ZMqttI1_Q" name="West_US" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4ED5lEeSA0ZMqttI1_Q" name="East_Asia" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4ET5lEeSA0ZMqttI1_Q" name="Southeast_Asia" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Ej5lEeSA0ZMqttI1_Q" name="Brazil_South" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Ez5lEeSA0ZMqttI1_Q" name="North_Europe" value="7"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4FD5lEeSA0ZMqttI1_Q" name="West_Europe" value="8"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4FT5lEeSA0ZMqttI1_Q" name="Japan_East" value="9"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Fj5lEeSA0ZMqttI1_Q" name="Japan_West" value="10"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4Fz5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_StorageAccountReplicatinTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4GD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_mGlLsOf4EeOiWrwmr-KSgQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4GT5lEeSA0ZMqttI1_Q" name="Geo_Redundant"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Gj5lEeSA0ZMqttI1_Q" name="Read_Access_Geo_Redundant" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Gz5lEeSA0ZMqttI1_Q" name="Locally_Redundant" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4HD5lEeSA0ZMqttI1_Q" name="A0">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4HT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_gJ66MLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4Hj5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4Nz5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_InstanceCategories">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4OD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_TjsrwJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4OT5lEeSA0ZMqttI1_Q" name="General_Purpose"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Oj5lEeSA0ZMqttI1_Q" name="Memory_Optimized" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Oz5lEeSA0ZMqttI1_Q" name="Storage_Optimized" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4PD5lEeSA0ZMqttI1_Q" name="Compute_Optimized" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4PT5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_NetworkPerformanceTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Pj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_C09_4JrjEeO8r-Fwgl_n3w"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Pz5lEeSA0ZMqttI1_Q" name="Very_Low"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4QD5lEeSA0ZMqttI1_Q" name="Low" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4QT5lEeSA0ZMqttI1_Q" name="Moderate" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Qj5lEeSA0ZMqttI1_Q" name="High" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4Qz5lEeSA0ZMqttI1_Q" name="Very_High" value="4"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4RD5lEeSA0ZMqttI1_Q" name="A2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4RT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_hKAeMLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4Rj5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4ST5lEeSA0ZMqttI1_Q" name="A1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Sj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q3XUULA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4Sz5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4Tj5lEeSA0ZMqttI1_Q" name="A4">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Tz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sJ7vcLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4UD5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4Uz5lEeSA0ZMqttI1_Q" name="A5">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4VD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_sc7j8LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4VT5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4WD5lEeSA0ZMqttI1_Q" name="A6">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4WT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ssyk4LA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4Wj5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4XT5lEeSA0ZMqttI1_Q" name="A3">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Xj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_1LJRQLA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4Xz5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4Yj5lEeSA0ZMqttI1_Q" name="A7">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4Yz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4Bd-ILA4EeOUsY7ZBJ5LeQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4ZD5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4Zz5lEeSA0ZMqttI1_Q" name="WindowsAzureProcessingOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4aD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_q9bUQLDhEeO_ysYqqoYd2Q"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Ds9Xtj5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4aT5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4cj5lEeSA0ZMqttI1_Q" name="WindowsAzureFeatures">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4cz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_YkqmMOf1EeOiWrwmr-KSgQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVAj5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp4dD5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4pD5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_PricingPlans">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4pT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_eHevoEexEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4pj5lEeSA0ZMqttI1_Q" name="by_month"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4pz5lEeSA0ZMqttI1_Q" name="year_discount" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4qD5lEeSA0ZMqttI1_Q" name="pay_as_you_go_or_monthly" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4qT5lEeSA0ZMqttI1_Q" name="other" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4qj5lEeSA0ZMqttI1_Q" name="pay_as_you_go" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4qz5lEeSA0ZMqttI1_Q" name="by_hour" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4rD5lEeSA0ZMqttI1_Q" name="semester" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4rT5lEeSA0ZMqttI1_Q" name="year" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4rj5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_Certifications">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4rz5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_lslDUEeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4sD5lEeSA0ZMqttI1_Q" name="pci"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4sT5lEeSA0ZMqttI1_Q" name="sas_70" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4sj5lEeSA0ZMqttI1_Q" name="pci_and_sas_70" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4sz5lEeSA0ZMqttI1_Q" name="other" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4tD5lEeSA0ZMqttI1_Q" name="none" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4tT5lEeSA0ZMqttI1_Q" name="fisma" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4tj5lEeSA0ZMqttI1_Q" name="iso_27001" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4tz5lEeSA0ZMqttI1_Q" name="safe_harbor" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4uD5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_HighLevelEvaluation">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4uT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_T4q80EeyEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4uj5lEeSA0ZMqttI1_Q" name="poor"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4uz5lEeSA0ZMqttI1_Q" name="average" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4vD5lEeSA0ZMqttI1_Q" name="extensive" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4vT5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_ApplicationTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4vj5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_R64FUEewEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4vz5lEeSA0ZMqttI1_Q" name="DB"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4wD5lEeSA0ZMqttI1_Q" name="Data_Analytics" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4wT5lEeSA0ZMqttI1_Q" name="Web_Serving" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4wj5lEeSA0ZMqttI1_Q" name="Streaming" value="3"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4wz5lEeSA0ZMqttI1_Q" name="Software_Testing" value="4"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4xD5lEeSA0ZMqttI1_Q" name="WebSearch" value="5"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4xT5lEeSA0ZMqttI1_Q" name="Web2_0" value="6"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4xj5lEeSA0ZMqttI1_Q" name="Scientific" value="7"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4xz5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_PublicPrivate">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4yD5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_86jwYEezEeONm5kUJO0Jug"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4yT5lEeSA0ZMqttI1_Q" name="public"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4yj5lEeSA0ZMqttI1_Q" name="private" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4yz5lEeSA0ZMqttI1_Q" name="public_or_private" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp4zD5lEeSA0ZMqttI1_Q" name="CoreProfile_CoreDataTypes_UsageTypes">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4zT5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_ekJFwJirEeOjDZ4wsrI7kQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4zj5lEeSA0ZMqttI1_Q" name="Free"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp4zz5lEeSA0ZMqttI1_Q" name="Paid" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp40D5lEeSA0ZMqttI1_Q" name="Premier" value="2"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_BBp40T5lEeSA0ZMqttI1_Q" name="CoreProfile_IaaS_IaaSDataTypes_Hypervisors">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp40j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <references xmi:type="uml:Enumeration" href="core.profile.uml#_RfCsYJP4EeO93NzULdWyqQ"/>
+          </eAnnotations>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp40z5lEeSA0ZMqttI1_Q" name="Xen"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp41D5lEeSA0ZMqttI1_Q" name="KVM" value="1"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp41T5lEeSA0ZMqttI1_Q" name="VMware" value="2"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_BBp41j5lEeSA0ZMqttI1_Q" name="Hyper_V" value="3"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp41z5lEeSA0ZMqttI1_Q" name="WindowsAzureServiceBus">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp42D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_STZtAOyWEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Ds9XvD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_BBp42T5lEeSA0ZMqttI1_Q" name="namespace" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/4.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_BBp42z5lEeSA0ZMqttI1_Q" name="region" ordered="false" lowerBound="1" eType="_BBp4Cj5lEeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp43T5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp44D5lEeSA0ZMqttI1_Q" name="A8">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp44T5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ybHnoOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp44j5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp45T5lEeSA0ZMqttI1_Q" name="A9">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp45j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_ywFLAOynEeO-rPIhJIKqcQ"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_DteVzD5REeSA0ZMqttI1_Q"/>
+          <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_BBp45z5lEeSA0ZMqttI1_Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp46j5lEeSA0ZMqttI1_Q" name="WindowsAzurePlatformOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp46z5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eja7AO2EEeOtuatIubGSqA"/>
+          <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Ds9X2D5REeSA0ZMqttI1_Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp48z5lEeSA0ZMqttI1_Q" name="WindowsAzureComputeSLADiscount1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp49D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_WCUYMDKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp49T5lEeSA0ZMqttI1_Q" name="WindowsAzureComputeSLADiscount2">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp49j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_4eGP4DKGEeSB5cVNG41h8Q"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp49z5lEeSA0ZMqttI1_Q" name="WindosAzure">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4-D5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_AYBrQDTREeSTw9oWb6kOYg"/>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_BBp4-T5lEeSA0ZMqttI1_Q" name="WindowsAzureStorageOffering">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BBp4-j5lEeSA0ZMqttI1_Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_oEsggD5jEeSA0ZMqttI1_Q"/>
+        </eClassifiers>
+      </contents>
       <contents xmi:type="ecore:EPackage" xmi:id="_rD10kDTTEeSTw9oWb6kOYg" name="Profile" nsURI="http:///schemas/Profile/_rDyxQDTTEeSTw9oWb6kOYg/87" nsPrefix="Profile">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rD10kTTTEeSTw9oWb6kOYg" source="http://www.eclipse.org/uml2/4.0.0/UML">
           <references xmi:type="uml:Profile" href="core.profile.uml#_8ysycJPyEeO93NzULdWyqQ"/>
@@ -176,7 +1346,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_rD2cEDTTEeSTw9oWb6kOYg" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rD2cETTTEeSTw9oWb6kOYg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rD2cETTTEeSTw9oWb6kOYg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Y_wSjjQ2EeSO2NIFYvO4Kw"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_rD2cEjTTEeSTw9oWb6kOYg" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -474,7 +1644,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_pekLdTTREeSTw9oWb6kOYg" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pekLdjTREeSTw9oWb6kOYg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pekLdjTREeSTw9oWb6kOYg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Y_wSjjQ2EeSO2NIFYvO4Kw"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pekLdzTREeSTw9oWb6kOYg" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -772,7 +1942,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_7y5FizQ3EeSO2NIFYvO4Kw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7y5FjDQ3EeSO2NIFYvO4Kw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7y5FjDQ3EeSO2NIFYvO4Kw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_Y_wSjjQ2EeSO2NIFYvO4Kw"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7y5FjTQ3EeSO2NIFYvO4Kw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -1074,7 +2244,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_fUhGsjQaEeSbDpbBRY8d2g" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fUhGszQaEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fUhGszQaEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_fUhGtDQaEeSbDpbBRY8d2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -1371,7 +2541,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_WwTCpjQaEeSbDpbBRY8d2g" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WwTCpzQaEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WwTCpzQaEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WwTCqDQaEeSbDpbBRY8d2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -1668,7 +2838,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_yEqdHzQYEeSbDpbBRY8d2g" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yEqdIDQYEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yEqdIDQYEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_yEqdITQYEeSbDpbBRY8d2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -1965,7 +3135,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_ra8-jjQYEeSbDpbBRY8d2g" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ra8-jzQYEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ra8-jzQYEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_ra8-kDQYEeSbDpbBRY8d2g" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -2262,7 +3432,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_VcABMjKgEeSyIYW-Oy6BGw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VcABMzKgEeSyIYW-Oy6BGw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VcABMzKgEeSyIYW-Oy6BGw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_VcABNDKgEeSyIYW-Oy6BGw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -2559,7 +3729,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_NNJSwjKHEeSB5cVNG41h8Q" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NNJSwzKHEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NNJSwzKHEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_NNJSxDKHEeSB5cVNG41h8Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -2862,7 +4032,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_CURrwjKHEeSB5cVNG41h8Q" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CURrwzKHEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CURrwzKHEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_CURrxDKHEeSB5cVNG41h8Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -3165,7 +4335,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_nIgdyTKGEeSB5cVNG41h8Q" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nIgdyjKGEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nIgdyjKGEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_nIgdyzKGEeSB5cVNG41h8Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -3465,7 +4635,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_RYu-4jKGEeSB5cVNG41h8Q" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RYu-4zKGEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RYu-4zKGEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_RYu-5DKGEeSB5cVNG41h8Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -3762,7 +4932,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_1fdK4jKFEeSB5cVNG41h8Q" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1fdK4zKFEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1fdK4zKFEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_1fdK5DKFEeSB5cVNG41h8Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -4053,7 +5223,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_nOuQMjKFEeSB5cVNG41h8Q" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nOuQMzKFEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nOuQMzKFEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_nOuQNDKFEeSB5cVNG41h8Q" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -4344,7 +5514,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_TleNszKEEeS7pvHRjLr3YQ" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TleNtDKEEeS7pvHRjLr3YQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TleNtDKEEeS7pvHRjLr3YQ" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_8ghnXieIEeSWZKPaini08w"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_TleNtTKEEeS7pvHRjLr3YQ" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -4634,7 +5804,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_-xukb-2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-xukcO2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-xukcO2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_r4thSu2EEeOtuatIubGSqA"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_-xukce2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -4924,7 +6094,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_7sggD-2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7sggEO2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7sggEO2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_r4thSu2EEeOtuatIubGSqA"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7sggEe2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -5214,7 +6384,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_5LCoz-2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5LCo0O2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5LCo0O2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_r4thSu2EEeOtuatIubGSqA"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_5LCo0e2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -5503,7 +6673,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_dxy_z-2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dxy_0O2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dxy_0O2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_r4thSu2EEeOtuatIubGSqA"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_dxy_0e2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -5724,7 +6894,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_aWgkr-2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aWgksO2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aWgksO2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eSuperTypes xmi:type="ecore:EClass" href="core.profile.uml#_r4thSu2EEeOtuatIubGSqA"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_aWgkse2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
@@ -5944,7 +7114,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_S4ALAe2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_S4ALAu2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_S4ALAu2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_S4ALA-2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -6162,7 +7332,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_QtXgJu2GEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QtXgJ-2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QtXgJ-2GEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QtXgKO2GEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -6380,7 +7550,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_Y6jZdu2FEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Y6jZd-2FEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Y6jZd-2FEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Y6jZeO2FEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -6597,7 +7767,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_0KzUBu2EEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0KzUB-2EEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0KzUB-2EEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0KzUCO2EEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -6814,7 +7984,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_tBJJXu2EEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tBJJX-2EEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tBJJX-2EEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_tBJJYO2EEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -7031,7 +8201,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_YHLRNu2EEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHLRN-2EEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YHLRN-2EEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_YHLROO2EEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -7251,7 +8421,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_J0PMhu2DEeOtuatIubGSqA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J0PMh-2DEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J0PMh-2DEeOtuatIubGSqA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_J0PMiO2DEeOtuatIubGSqA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -7465,7 +8635,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_zMM6OO2AEeOwmp2kfktjlQ" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zMM6Oe2AEeOwmp2kfktjlQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zMM6Oe2AEeOwmp2kfktjlQ" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_zMM6Ou2AEeOwmp2kfktjlQ" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -7679,7 +8849,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_baWgrO1-EeOwmp2kfktjlQ" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_baWgre1-EeOwmp2kfktjlQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_baWgre1-EeOwmp2kfktjlQ" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_baWgru1-EeOwmp2kfktjlQ" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -7893,7 +9063,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_hVD-yO1uEeO9TcNdy_wO9w" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hVD-ye1uEeO9TcNdy_wO9w" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hVD-ye1uEeO9TcNdy_wO9w" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_hVD-yu1uEeO9TcNdy_wO9w" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8019,7 +9189,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_Qky7nu1tEeO9TcNdy_wO9w" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qky7n-1tEeO9TcNdy_wO9w" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qky7n-1tEeO9TcNdy_wO9w" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Qky7oO1tEeO9TcNdy_wO9w" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8153,7 +9323,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_hSuG4-1sEeO9TcNdy_wO9w" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hSuG5O1sEeO9TcNdy_wO9w" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hSuG5O1sEeO9TcNdy_wO9w" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_hSuG5e1sEeO9TcNdy_wO9w" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8287,7 +9457,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_khjjzu1TEeOZMpFTGXkbSw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_khjjz-1TEeOZMpFTGXkbSw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_khjjz-1TEeOZMpFTGXkbSw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_khjj0O1TEeOZMpFTGXkbSw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8421,7 +9591,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_JJycfuzGEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JJycf-zGEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JJycf-zGEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_JJycgOzGEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8555,7 +9725,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_GQ48vuzGEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GQ48v-zGEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GQ48v-zGEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_GQ48wOzGEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8689,7 +9859,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_6gw9nuzFEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6gw9n-zFEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6gw9n-zFEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_6gw9oOzFEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8823,7 +9993,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_RaWPXuzEEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RaWPX-zEEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RaWPX-zEEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_RaWPYOzEEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -8957,7 +10127,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_7yU9_-zDEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7yU-AOzDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7yU-AOzDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7yU-AezDEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9091,7 +10261,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_iOae7uzDEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iOae7-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iOae7-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iOae8OzDEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9225,7 +10395,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_gYLWDuzDEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gYLWD-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gYLWD-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_gYLWEOzDEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9359,7 +10529,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_VspnfuzDEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Vspnf-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Vspnf-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_VspngOzDEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9463,7 +10633,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_LrV6juzDEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LrV6j-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LrV6j-zDEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_LrV6kOzDEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9561,7 +10731,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_7i_W1OzCEeOPnunJGMlAFw" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7i_W1ezCEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7i_W1ezCEeOPnunJGMlAFw" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7i_W1uzCEeOPnunJGMlAFw" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9659,7 +10829,7 @@
           </eStructuralFeatures>
         </eClassifiers>
         <eClassifiers xmi:type="ecore:EClass" xmi:id="_0va4v-y_EeOgkbC_qToWMA" name="WindowsAzureStorageOffering">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0va4wOy_EeOgkbC_qToWMA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rUDrkLDhEeO_ysYqqoYd2Q"/>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0va4wOy_EeOgkbC_qToWMA" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
           <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0va4wey_EeOgkbC_qToWMA" name="base_InstanceSpecification" ordered="false" lowerBound="1">
             <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//InstanceSpecification"/>
           </eStructuralFeatures>
@@ -9724,9 +10894,6 @@
     </packageImport>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_BXW-kO2GEeOtuatIubGSqA">
       <importedPackage xmi:type="uml:Package" href="core.profile.uml#_qmK6UEh0EeO3d5K3kW4N0w"/>
-    </packageImport>
-    <packageImport xmi:type="uml:PackageImport" xmi:id="_JX-V8DQaEeSbDpbBRY8d2g">
-      <importedPackage xmi:type="uml:Profile" href="../supporting_profiles/multitenancy.profile.uml#_gfNMsDQZEeSbDpbBRY8d2g"/>
     </packageImport>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_zZuMYLA3EeOUsY7ZBJ5LeQ" name="WindowsAzureProcessingService">
       <generalization xmi:type="uml:Generalization" xmi:id="_NqG2gO1uEeO9TcNdy_wO9w">
@@ -9815,17 +10982,6 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_JsSBcOTbEeOA3eSV5kmFuQ" name="base_InstanceSpecification" association="_JsSBceTbEeOA3eSV5kmFuQ">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#InstanceSpecification"/>
       </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_rUDrkLDhEeO_ysYqqoYd2Q" name="WindowsAzureStorageOffering">
-      <generalization xmi:type="uml:Generalization" xmi:id="_XNgygO2GEeOtuatIubGSqA">
-        <general xmi:type="uml:Stereotype" href="core.profile.uml#_vUHSoLAbEeOUsY7ZBJ5LeQ"/>
-      </generalization>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_JVeD8OTbEeOA3eSV5kmFuQ" name="base_InstanceSpecification" association="_JVerAOTbEeOA3eSV5kmFuQ">
-        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#InstanceSpecification"/>
-      </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_JVerAOTbEeOA3eSV5kmFuQ" name="E_WindowsAzureStorageOffering_InstanceSpecification1" memberEnd="_JVerAeTbEeOA3eSV5kmFuQ _JVeD8OTbEeOA3eSV5kmFuQ">
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_JVerAeTbEeOA3eSV5kmFuQ" name="extension_WindowsAzureStorageOffering" type="_rUDrkLDhEeO_ysYqqoYd2Q" aggregation="composite" association="_JVerAOTbEeOA3eSV5kmFuQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_JsSBceTbEeOA3eSV5kmFuQ" name="E_WindowsAzureProcessingOffering_InstanceSpecification1" memberEnd="_JsSBcuTbEeOA3eSV5kmFuQ _JsSBcOTbEeOA3eSV5kmFuQ">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_JsSBcuTbEeOA3eSV5kmFuQ" name="extension_WindowsAzureProcessingOffering" type="_q9bUQLDhEeO_ysYqqoYd2Q" aggregation="composite" association="_JsSBceTbEeOA3eSV5kmFuQ"/>
@@ -9928,29 +11084,24 @@
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_WCUYMDKGEeSB5cVNG41h8Q" name="WindowsAzureComputeSLADiscount1"/>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_4eGP4DKGEeSB5cVNG41h8Q" name="WindowsAzureComputeSLADiscount2"/>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_AYBrQDTREeSTw9oWb6kOYg" name="WindosAzure"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_oEsggD5jEeSA0ZMqttI1_Q" name="WindowsAzureStorageOffering"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_bR4psLA3EeOUsY7ZBJ5LeQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bUf40LA3EeOUsY7ZBJ5LeQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="core.profile.uml#_ZAFpkDQ2EeSO2NIFYvO4Kw"/>
+        <references xmi:type="ecore:EPackage" href="core.profile.uml#_AQ1qcD8fEeSig8J50GysHg"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="core.profile.uml#_8ysycJPyEeO93NzULdWyqQ"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_M7LzMLDiEeO_ysYqqoYd2Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_M7fVMLDiEeO_ysYqqoYd2Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="core.profile.uml#_Y_wSYDQ2EeSO2NIFYvO4Kw"/>
+        <references xmi:type="ecore:EPackage" href="core.profile.uml#_AQd3AD8fEeSig8J50GysHg"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="core.profile.uml#_iJe4UEX3EeOdcMUAioSDaw"/>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_D2RT8DKFEeSB5cVNG41h8Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_D2mrIDKFEeSB5cVNG41h8Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../supporting_profiles/model.profile.uml#_HAKHMTHvEeSc0-e7rdSlVQ"/>
+        <references xmi:type="ecore:EPackage" href="../supporting_profiles/model.profile.uml#_Q9aJEDp3EeSfD8y2Aw_Mmw"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../supporting_profiles/model.profile.uml#_FEvPoJ0_EeOA9_Rka1Y80w"/>
-    </profileApplication>
-    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_RcpXADQaEeSbDpbBRY8d2g">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RczIADQaEeSbDpbBRY8d2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../supporting_profiles/multitenancy.profile.uml#_V3H-QTQaEeSbDpbBRY8d2g"/>
-      </eAnnotations>
-      <appliedProfile xmi:type="uml:Profile" href="../supporting_profiles/multitenancy.profile.uml#_gfNMsDQZEeSbDpbBRY8d2g"/>
     </profileApplication>
   </uml:Profile>
   <IaaS:IaaSProcessingService xmi:id="_3LEXELA3EeOUsY7ZBJ5LeQ" base_Class="_zZuMYLA3EeOUsY7ZBJ5LeQ" numProcessors="56">
@@ -10113,34 +11264,23 @@
     <processorArchitecture xmi:id="_28kmaey3EeO-rPIhJIKqcQ">Arch_64_Bit</processorArchitecture>
     <processorArchitecture xmi:id="_28kmauy3EeO-rPIhJIKqcQ">Arch_32_Bit</processorArchitecture>
     <networkPerformance xmi:id="_28kma-y3EeO-rPIhJIKqcQ">Low</networkPerformance></IaaS:IaaSInstanceType>
-  <IaaS_1:IaasFeatures xmi:id="_XeR-AOy4EeO-rPIhJIKqcQ" scaleout="true" monitoring="average" support="extensive" loadBalancing="true" supportsMultitenancy="true" supportsFederation="true" base_Class="_YkqmMOf1EeOiWrwmr-KSgQ" virtual_private_cloud_offering="true" hypervisor="Hyper_V">
-    <pricingPlan>semester</pricingPlan>
-    <pricingPlan>year</pricingPlan>
-    <pricingPlan>pay_as_you_go</pricingPlan>
-    <certification>fisma</certification>
-    <certification>iso_27001</certification>
-    <certification>safe_harbor</certification>
+  <IaaS_1:IaasFeatures xmi:id="_XeR-AOy4EeO-rPIhJIKqcQ" scaleup="true" scaleout="true" monitoring="extensive" support="average" api="extensive" freeTier="true" gpuInstances="true" loadBalancing="true" supportsOCCI="true" supportsMultitenancy="true" supportsFederation="true" base_Class="_YkqmMOf1EeOiWrwmr-KSgQ" virtual_private_cloud_offering="true" hypervisor="Hyper_V">
+    <certification>sas_70</certification>
     <typeAppOriented>DB</typeAppOriented>
     <typeAppOriented>Web_Serving</typeAppOriented>
     <typeAppOriented>Web2_0</typeAppOriented>
-    <typeAppOriented>WebSearch</typeAppOriented>
+    <scope>public</scope>
     <availabilityZones>East_US</availabilityZones>
     <availabilityZones>North_Central_US</availabilityZones>
-    <availabilityZones>South_Central_US</availabilityZones>
     <availabilityZones>West_US</availabilityZones>
     <availabilityZones>East_Asia</availabilityZones>
     <availabilityZones>Southeast_Asia</availabilityZones>
     <availabilityZones>Brazil_South</availabilityZones>
-    <availabilityZones>North_Europe</availabilityZones>
-    <availabilityZones>West_Europe</availabilityZones>
-    <availabilityZones>Japan_East</availabilityZones>
-    <availabilityZones>Japan_West</availabilityZones>
     <usageType>Free</usageType>
     <usageType>Paid</usageType>
     <usageType>Premier</usageType>
   </IaaS_1:IaasFeatures>
-  <CoreProfile_1:ProcessingOffering xmi:id="_eTPDoOy4EeO-rPIhJIKqcQ" service="_hzbM4Oy4EeO-rPIhJIKqcQ" sla="98.0" base_Class="_q9bUQLDhEeO_ysYqqoYd2Q"/>
-  <CoreProfile_1:StorageOffering xmi:id="_gK4hwOy4EeO-rPIhJIKqcQ" sla="99.0" base_Class="_rUDrkLDhEeO_ysYqqoYd2Q" service="_ixFvAOy4EeO-rPIhJIKqcQ"/>
+  <CoreProfile_1:ProcessingOffering xmi:id="_eTPDoOy4EeO-rPIhJIKqcQ" service="_hzbM4Oy4EeO-rPIhJIKqcQ" base_Class="_q9bUQLDhEeO_ysYqqoYd2Q"/>
   <IaaS_1:IaaSProcessingService xmi:id="_hzbM4Oy4EeO-rPIhJIKqcQ" base_Class="_zZuMYLA3EeOUsY7ZBJ5LeQ" numProcessors="16" memory="112">
     <platform>CentOS</platform>
     <platform>RedHatEnterpriseLinux</platform>
@@ -10152,18 +11292,42 @@
     <platform>FreeBSD</platform>
     <platform>openSUSELinux</platform>
     <platform>SUSEEnterpriseLinux</platform>
+    <processorArchitecture>Arch_64_Bit</processorArchitecture>
+    <processorArchitecture>Arch_32_Bit</processorArchitecture>
   </IaaS_1:IaaSProcessingService>
   <IaaS_1:IaaSStorageService xmi:id="_ixFvAOy4EeO-rPIhJIKqcQ" base_Class="_8gotkLA3EeOUsY7ZBJ5LeQ">
     <type>Block_blobs</type>
     <type>Page_blobs</type>
     <type>Tables</type>
     <type>Queues</type>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <replication_type>Geo_Redundant</replication_type>
     <replication_type>Read_Access_Geo_Redundant</replication_type>
     <replication_type>Locally_Redundant</replication_type>
   </IaaS_1:IaaSStorageService>
   <IaaS_1:IaaSInstanceType xmi:id="_kxlnIOy4EeO-rPIhJIKqcQ" memory="0.768" localDisk="127" base_Class="_gJ66MLA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>General_Purpose</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10180,6 +11344,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_las1kOy4EeO-rPIhJIKqcQ" virtualCores="1" memory="1.75" localDisk="127" autoScaling="true" base_Class="_q3XUULA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>General_Purpose</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10196,6 +11371,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_mEINEOy4EeO-rPIhJIKqcQ" virtualCores="2" memory="3.5" localDisk="127" autoScaling="true" base_Class="_hKAeMLA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>General_Purpose</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10212,6 +11398,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_nWvrgOy4EeO-rPIhJIKqcQ" virtualCores="4" memory="7.0" localDisk="127" autoScaling="true" base_Class="_1LJRQLA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>General_Purpose</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10228,6 +11425,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_oSoE8Oy4EeO-rPIhJIKqcQ" virtualCores="8" memory="14.0" localDisk="127" autoScaling="true" base_Class="_sJ7vcLA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>General_Purpose</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10244,6 +11452,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_pP_sIOy4EeO-rPIhJIKqcQ" virtualCores="16" memory="112.0" localDisk="127" autoScaling="true" base_Class="_ywFLAOynEeO-rPIhJIKqcQ">
     <instanceCategory>Compute_Optimized</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10260,6 +11479,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_p1FWMOy4EeO-rPIhJIKqcQ" virtualCores="8" memory="56.0" localDisk="127" autoScaling="true" base_Class="_ybHnoOynEeO-rPIhJIKqcQ">
     <instanceCategory>Compute_Optimized</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10276,6 +11506,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_q8RnwOy4EeO-rPIhJIKqcQ" virtualCores="8" memory="56.0" localDisk="127" autoScaling="true" base_Class="_4Bd-ILA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>Memory_Optimized</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10292,6 +11533,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_rsGiMOy4EeO-rPIhJIKqcQ" virtualCores="4" memory="28.0" localDisk="127" autoScaling="true" base_Class="_ssyk4LA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>Memory_Optimized</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10308,6 +11560,17 @@
   </IaaS_1:IaaSInstanceType>
   <IaaS_1:IaaSInstanceType xmi:id="_swn6QOy4EeO-rPIhJIKqcQ" virtualCores="2" memory="14.0" localDisk="127" autoScaling="true" base_Class="_sc7j8LA4EeOUsY7ZBJ5LeQ">
     <instanceCategory>Memory_Optimized</instanceCategory>
+    <region>East_US</region>
+    <region>North_Central_US</region>
+    <region>South_Central_US</region>
+    <region>West_US</region>
+    <region>East_Asia</region>
+    <region>Southeast_Asia</region>
+    <region>Brazil_South</region>
+    <region>North_Europe</region>
+    <region>West_Europe</region>
+    <region>Japan_East</region>
+    <region>Japan_West</region>
     <operatingSystem>CentOS</operatingSystem>
     <operatingSystem>RedHatEnterpriseLinux</operatingSystem>
     <operatingSystem>Debian</operatingSystem>
@@ -10324,7 +11587,6 @@
   </IaaS_1:IaaSInstanceType>
   <CoreProfile_1:Service xmi:id="_6EiqkOy8EeOgkbC_qToWMA" base_Class="_STZtAOyWEeO-rPIhJIKqcQ"/>
   <CoreProfile_1:ProcessingOffering xmi:id="_TSufYOy_EeOgkbC_qToWMA" base_Class="_q9bUQLDhEeO_ysYqqoYd2Q"/>
-  <CoreProfile_1:StorageOffering xmi:id="_VZqWsOy_EeOgkbC_qToWMA" base_Class="_rUDrkLDhEeO_ysYqqoYd2Q"/>
   <IaaS_1:IaaSProcessingService xmi:id="_XjbfkOy_EeOgkbC_qToWMA" base_Class="_zZuMYLA3EeOUsY7ZBJ5LeQ"/>
   <IaaS_1:IaaSStorageService xmi:id="_Y_XSEOy_EeOgkbC_qToWMA" base_Class="_8gotkLA3EeOUsY7ZBJ5LeQ"/>
   <IaaS_1:IaaSInstanceType xmi:id="_axCEAOy_EeOgkbC_qToWMA" base_Class="_gJ66MLA4EeOUsY7ZBJ5LeQ"/>
@@ -10338,9 +11600,10 @@
   <IaaS_1:IaaSInstanceType xmi:id="_qLiqMOy_EeOgkbC_qToWMA" base_Class="_ybHnoOynEeO-rPIhJIKqcQ"/>
   <IaaS_1:IaaSInstanceType xmi:id="_q3Ik4Oy_EeOgkbC_qToWMA" base_Class="_ywFLAOynEeO-rPIhJIKqcQ"/>
   <IaaS_1:IaasFeatures xmi:id="_zTyBEOy_EeOgkbC_qToWMA" base_Class="_YkqmMOf1EeOiWrwmr-KSgQ"/>
-  <CoreProfile_1:PlafformOffering xmi:id="_2E95wO2EEeOtuatIubGSqA" service="_6EiqkOy8EeOgkbC_qToWMA" sla="97.0" base_Class="_eja7AO2EEeOtuatIubGSqA"/>
-  <AvailabilityProfile:IaaSProviderAbstractedDefinition xmi:id="_KFUQIDKFEeSB5cVNG41h8Q" Compensation="_egzncDKGEeSB5cVNG41h8Q _5qubEDKGEeSB5cVNG41h8Q" QuantumOfTimeInMinutes="1" CalculationCycleInDays="30" StatusAcknowledgement="Connection" GuaranteedPercentage="99.95" ServiceName="Azure Compute" base_Stereotype="_zZuMYLA3EeOUsY7ZBJ5LeQ" InstanceNumber="2"/>
+  <CoreProfile_1:PlafformOffering xmi:id="_2E95wO2EEeOtuatIubGSqA" service="_6EiqkOy8EeOgkbC_qToWMA" base_Class="_eja7AO2EEeOtuatIubGSqA"/>
+  <AvailabilityProfile:IaaSProviderAbstractedDefinition xmi:id="_KFUQIDKFEeSB5cVNG41h8Q" Compensation="_egzncDKGEeSB5cVNG41h8Q _5qubEDKGEeSB5cVNG41h8Q" QuantumOfTimeInMinutes="1" CalculationCycleInDays="30" StatusAcknowledgement="Connection" GuaranteedPercentage="99.95" base_Stereotype="_zZuMYLA3EeOUsY7ZBJ5LeQ" InstanceNumber="2"/>
   <AvailabilityProfile:DiscountType xmi:id="_egzncDKGEeSB5cVNG41h8Q" MinPercentage="99.0" MaxPercentage="99.949" Discount="10.0" base_Stereotype="_WCUYMDKGEeSB5cVNG41h8Q"/>
   <AvailabilityProfile:DiscountType xmi:id="_5qubEDKGEeSB5cVNG41h8Q" MinPercentage="0.0" MaxPercentage="98.999" Discount="25.0" base_Stereotype="_4eGP4DKGEeSB5cVNG41h8Q"/>
-  <IaaS_1:IaasProvider xmi:id="_Dg3EcDTREeSTw9oWb6kOYg" name="windows azure" description="windows azure iaas provider" homepage="azure.microsoft.com" base_Class="_AYBrQDTREeSTw9oWb6kOYg" processingOffering="_eTPDoOy4EeO-rPIhJIKqcQ" storageOffering="_gK4hwOy4EeO-rPIhJIKqcQ" plafformOffering="_2E95wO2EEeOtuatIubGSqA" iaasFeatures="_XeR-AOy4EeO-rPIhJIKqcQ" instanceTypes="_kxlnIOy4EeO-rPIhJIKqcQ _mEINEOy4EeO-rPIhJIKqcQ _las1kOy4EeO-rPIhJIKqcQ _oSoE8Oy4EeO-rPIhJIKqcQ _swn6QOy4EeO-rPIhJIKqcQ _rsGiMOy4EeO-rPIhJIKqcQ _nWvrgOy4EeO-rPIhJIKqcQ _q8RnwOy4EeO-rPIhJIKqcQ _p1FWMOy4EeO-rPIhJIKqcQ _pP_sIOy4EeO-rPIhJIKqcQ"/>
+  <IaaS_1:IaasProvider xmi:id="_Dg3EcDTREeSTw9oWb6kOYg" name="Microsoft Azure" description="Microsoft Azure iaas provider" homepage="http://azure.microsoft.com/" base_Class="_AYBrQDTREeSTw9oWb6kOYg" processingOffering="_eTPDoOy4EeO-rPIhJIKqcQ" storageOffering="_r2NDQD5jEeSA0ZMqttI1_Q" plafformOffering="_2E95wO2EEeOtuatIubGSqA" iaasFeatures="_XeR-AOy4EeO-rPIhJIKqcQ" instanceTypes="_kxlnIOy4EeO-rPIhJIKqcQ _mEINEOy4EeO-rPIhJIKqcQ _las1kOy4EeO-rPIhJIKqcQ _oSoE8Oy4EeO-rPIhJIKqcQ _swn6QOy4EeO-rPIhJIKqcQ _rsGiMOy4EeO-rPIhJIKqcQ _nWvrgOy4EeO-rPIhJIKqcQ _q8RnwOy4EeO-rPIhJIKqcQ _p1FWMOy4EeO-rPIhJIKqcQ _pP_sIOy4EeO-rPIhJIKqcQ"/>
+  <CoreProfile_1:StorageOffering xmi:id="_r2NDQD5jEeSA0ZMqttI1_Q" base_Class="_oEsggD5jEeSA0ZMqttI1_Q" service="_ixFvAOy4EeO-rPIhJIKqcQ"/>
 </xmi:XMI>

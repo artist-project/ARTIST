@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Profile="http://www.spikes.be/dbmlprofile.uml" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http://www.spikes.be/dbmlprofile.uml model.profile.uml#_DBTdUBZWEeSkvvldv--vwg">
+  <uml:Model xmi:id="_Sa4MkCLREeSXgKo03CLdng" name="DBML_Model">
+    <elementImport xmi:id="_Sa4MkSLREeSXgKo03CLdng">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <elementImport xmi:id="_Sa4MkiLREeSXgKo03CLdng">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Sa4MkyLREeSXgKo03CLdng" name="ActivityManifestRecord">
+      <ownedAttribute xmi:id="_Sa4MlCLREeSXgKo03CLdng" name="Name" type="_Sa4MmiLREeSXgKo03CLdng" isID="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MlSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MliLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MlyLREeSXgKo03CLdng" name="ManifestDefinition" type="_Sa4MmyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MmCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MmSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Sa4MmiLREeSXgKo03CLdng" name="System.String"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Sa4MmyLREeSXgKo03CLdng" name="System.Xml.Linq.XElement"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Sa4MnCLREeSXgKo03CLdng" name="TaskTraceEntity">
+      <ownedAttribute xmi:id="_Sa4MnSLREeSXgKo03CLdng" name="TaskId" type="_Sa4MviLREeSXgKo03CLdng" isID="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MniLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MnyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MoCLREeSXgKo03CLdng" name="ActivityInstanceId" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MoSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MoiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MoyLREeSXgKo03CLdng" name="Status" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MpCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MpSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MpiLREeSXgKo03CLdng" name="Outcome" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MpyLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MqCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MqSLREeSXgKo03CLdng" name="StartTime" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MqiLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MqyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MrCLREeSXgKo03CLdng" name="EndTime" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MrSLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MriLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MryLREeSXgKo03CLdng" name="AssignedTo" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MsCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MsSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MsiLREeSXgKo03CLdng" name="AssignedToDisplayName" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MsyLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MtCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MtSLREeSXgKo03CLdng" name="ExecutedBy" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MtiLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MtyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MuCLREeSXgKo03CLdng" name="ExecutedByDisplayName" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MuSLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MuiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MuyLREeSXgKo03CLdng" name="ActivityTraceEntity_TaskTraceEntity" type="_Sa4MwCLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MvCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MvSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Sa4MviLREeSXgKo03CLdng" name="System.Guid"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_Sa4MvyLREeSXgKo03CLdng" name="System.DateTime"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Sa4MwCLREeSXgKo03CLdng" name="ActivityTraceEntity">
+      <ownedAttribute xmi:id="_Sa4MwSLREeSXgKo03CLdng" name="ActivityInstanceId" type="_Sa4MviLREeSXgKo03CLdng" isID="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MwiLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MwyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MxCLREeSXgKo03CLdng" name="WorkflowInstanceId" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MxSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MxiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MxyLREeSXgKo03CLdng" name="ActivityId" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MyCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MySLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MyiLREeSXgKo03CLdng" name="ActivityInternalName" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MyyLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sa4MzCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_Sa4MzSLREeSXgKo03CLdng" name="ActivityDisplayName" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Sa4MziLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWgCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWgSLREeSXgKo03CLdng" name="ActivityDescription" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWgiLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWgyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWhCLREeSXgKo03CLdng" name="ActivityType" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWhSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWhiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWhyLREeSXgKo03CLdng" name="StartTime" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWiCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWiSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWiiLREeSXgKo03CLdng" name="EndTime" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWiyLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWjCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWjSLREeSXgKo03CLdng" name="Outcome" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWjiLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWjyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWkCLREeSXgKo03CLdng" name="Status" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWkSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWkiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWkyLREeSXgKo03CLdng" name="InitiatedByNotificationSubscription" type="_Sa4MmyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWlCLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWlSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWliLREeSXgKo03CLdng" name="OriginatingActivityInstanceID" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWlyLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWmCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWmSLREeSXgKo03CLdng" name="ExecutedByRole" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWmiLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWmyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWnCLREeSXgKo03CLdng" name="WorkflowContainer" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWnSLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWniLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWnyLREeSXgKo03CLdng" name="SLA" type="_SbBW4iLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWoCLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWoSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWoiLREeSXgKo03CLdng" name="Timestamp" type="_SbBW4yLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWoyLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWpCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWpSLREeSXgKo03CLdng" name="ActivityDurationBusinessHours" type="_SbBW4iLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWpiLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWpyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWqCLREeSXgKo03CLdng" name="ActivityTraceEntity_TaskTraceEntity" type="_Sa4MnCLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWqSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWqiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWqyLREeSXgKo03CLdng" name="WorkflowTraceEntity_ActivityTraceEntity" type="_SbBWriLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWrCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWrSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SbBWriLREeSXgKo03CLdng" name="WorkflowTraceEntity">
+      <ownedAttribute xmi:id="_SbBWryLREeSXgKo03CLdng" name="WorkflowId" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWsCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWsSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWsiLREeSXgKo03CLdng" name="WorkflowConfigurationId" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWsyLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWtCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWtSLREeSXgKo03CLdng" name="WorkflowInstanceId" type="_Sa4MviLREeSXgKo03CLdng" isID="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWtiLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWtyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWuCLREeSXgKo03CLdng" name="WorkflowTitle" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWuSLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWuiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWuyLREeSXgKo03CLdng" name="WorkflowDescription" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWvCLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWvSLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWviLREeSXgKo03CLdng" name="WorkflowVersion" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWvyLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWwCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWwSLREeSXgKo03CLdng" name="InternalStatus" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWwiLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWwyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWxCLREeSXgKo03CLdng" name="ExternalStatus" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWxSLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWxiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWxyLREeSXgKo03CLdng" name="InitiatedBy" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWyCLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWySLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWyiLREeSXgKo03CLdng" name="InitiatedByDisplayName" type="_Sa4MmiLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWyyLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWzCLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBWzSLREeSXgKo03CLdng" name="StartTime" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBWziLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBWzyLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW0CLREeSXgKo03CLdng" name="EndTime" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW0SLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW0iLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW0yLREeSXgKo03CLdng" name="WorkflowData" type="_Sa4MmyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW1CLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW1SLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW1iLREeSXgKo03CLdng" name="SLA" type="_SbBW4iLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW1yLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW2CLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW2SLREeSXgKo03CLdng" name="Timestamp" type="_SbBW4yLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW2iLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW2yLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW3CLREeSXgKo03CLdng" name="WorkflowDurationBusinessHours" type="_SbBW4iLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW3SLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW3iLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW3yLREeSXgKo03CLdng" name="WorkflowTraceEntity_ActivityTraceEntity" type="_Sa4MwCLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW4CLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW4SLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_SbBW4iLREeSXgKo03CLdng" name="System.Double"/>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_SbBW4yLREeSXgKo03CLdng" name="System.Data.Linq.Binary"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SbBW5CLREeSXgKo03CLdng" name="WorkflowInstanceLock">
+      <ownedAttribute xmi:id="_SbBW5SLREeSXgKo03CLdng" name="WorkflowInstanceId" type="_Sa4MviLREeSXgKo03CLdng" isID="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW5iLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW5yLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW6CLREeSXgKo03CLdng" name="LockedOn" type="_Sa4MvyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW6SLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW6iLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SbBW6yLREeSXgKo03CLdng" name="WorkflowQueue">
+      <ownedAttribute xmi:id="_SbBW7CLREeSXgKo03CLdng" name="Id" type="_SbBW9SLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW7SLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW7iLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW7yLREeSXgKo03CLdng" name="Payload" type="_SbBW4yLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW8CLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW8SLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW8iLREeSXgKo03CLdng" name="ApplicationId" type="_Sa4MviLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW8yLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW9CLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_SbBW9SLREeSXgKo03CLdng" name="System.Int64"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SbBW9iLREeSXgKo03CLdng" name="ServiceProvider">
+      <ownedAttribute xmi:id="_SbBW9yLREeSXgKo03CLdng" name="Name" type="_Sa4MmiLREeSXgKo03CLdng" isID="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW-CLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW-SLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW-iLREeSXgKo03CLdng" name="Definition" type="_Sa4MmyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW-yLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW_CLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBW_SLREeSXgKo03CLdng" name="Enabled" type="_SbBXAyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBW_iLREeSXgKo03CLdng"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBW_yLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SbBXACLREeSXgKo03CLdng" name="DefaultServiceProvider" type="_SbBXAyLREeSXgKo03CLdng">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SbBXASLREeSXgKo03CLdng" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_SbBXAiLREeSXgKo03CLdng" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_SbBXAyLREeSXgKo03CLdng" name="System.Boolean"/>
+    <profileApplication xmi:id="_SbBXBCLREeSXgKo03CLdng">
+      <eAnnotations xmi:id="_SbBXBSLREeSXgKo03CLdng" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="model.profile.uml#_DBTdUBZWEeSkvvldv--vwg"/>
+      </eAnnotations>
+      <appliedProfile href="model.profile.uml#_tX5zcLp1EeOZUsXM3DuWMg"/>
+    </profileApplication>
+  </uml:Model>
+  <Profile:DBTable xmi:id="_SbBXBiLREeSXgKo03CLdng" base_Class="_Sa4MkyLREeSXgKo03CLdng" FullName="dbo.ActivityManifest" Member="ActivityManifestRecords"/>
+  <Profile:DBColumn xmi:id="_SbBXByLREeSXgKo03CLdng" DbType="VarChar(250) NOT NULL" IsPrimaryKey="true" base_Property="_Sa4MlCLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXCCLREeSXgKo03CLdng" DbType="Xml NOT NULL" base_Property="_Sa4MlyLREeSXgKo03CLdng"/>
+  <Profile:DBTable xmi:id="_SbBXCSLREeSXgKo03CLdng" base_Class="_Sa4MnCLREeSXgKo03CLdng" FullName="dbo.TaskTraceEntity" Member="TaskTraceEntities"/>
+  <Profile:DBColumn xmi:id="_SbBXCiLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" base_Property="_Sa4MnSLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXCyLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" base_Property="_Sa4MoCLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXDCLREeSXgKo03CLdng" DbType="NVarChar(255) NOT NULL" base_Property="_Sa4MoyLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXDSLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_Sa4MpiLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXDiLREeSXgKo03CLdng" DbType="DateTime NOT NULL" base_Property="_Sa4MqSLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXDyLREeSXgKo03CLdng" DbType="DateTime" base_Property="_Sa4MrCLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXECLREeSXgKo03CLdng" DbType="NVarChar(500) NOT NULL" base_Property="_Sa4MryLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXESLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_Sa4MsiLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXEiLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_Sa4MtSLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXEyLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_Sa4MuCLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBAssociation xmi:id="_SbBXFCLREeSXgKo03CLdng" base_Property="_Sa4MuyLREeSXgKo03CLdng" Member="ActivityTraceEntity" ThisKey="ActivityInstanceId" OtherKey="ActivityInstanceId" IsForeignKey="true" MemberType="ActivityTraceEntity"/>
+  <Profile:DBTable xmi:id="_SbBXFSLREeSXgKo03CLdng" base_Class="_Sa4MwCLREeSXgKo03CLdng" FullName="dbo.ActivityTraceEntity" Member="ActivityTraceEntities"/>
+  <Profile:DBColumn xmi:id="_SbBXFiLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" base_Property="_Sa4MwSLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXFyLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" base_Property="_Sa4MxCLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXGCLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" base_Property="_Sa4MxyLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXGSLREeSXgKo03CLdng" DbType="NVarChar(500) NOT NULL" base_Property="_Sa4MyiLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXGiLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_Sa4MzSLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXGyLREeSXgKo03CLdng" DbType="NVarChar(1000)" base_Property="_SbBWgSLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXHCLREeSXgKo03CLdng" DbType="NVarChar(255) NOT NULL" base_Property="_SbBWhCLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXHSLREeSXgKo03CLdng" DbType="DateTime NOT NULL" base_Property="_SbBWhyLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXHiLREeSXgKo03CLdng" DbType="DateTime" base_Property="_SbBWiiLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXHyLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_SbBWjSLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXICLREeSXgKo03CLdng" DbType="NVarChar(255) NOT NULL" base_Property="_SbBWkCLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbBXISLREeSXgKo03CLdng" DbType="Xml" base_Property="_SbBWkyLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXIiLREeSXgKo03CLdng" DbType="UniqueIdentifier" base_Property="_SbBWliLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbBXIyLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_SbBWmSLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHgCLREeSXgKo03CLdng" DbType="NVarChar(500)" base_Property="_SbBWnCLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHgSLREeSXgKo03CLdng" DbType="Float" base_Property="_SbBWnyLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHgiLREeSXgKo03CLdng" DbType="rowversion NOT NULL" base_Property="_SbBWoiLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHgyLREeSXgKo03CLdng" DbType="Float" base_Property="_SbBWpSLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBAssociation xmi:id="_SbLHhCLREeSXgKo03CLdng" base_Property="_SbBWqCLREeSXgKo03CLdng" Member="TaskTraceEntities" ThisKey="ActivityInstanceId" OtherKey="ActivityInstanceId" MemberType="TaskTraceEntity"/>
+  <Profile:DBAssociation xmi:id="_SbLHhSLREeSXgKo03CLdng" base_Property="_SbBWqyLREeSXgKo03CLdng" Member="WorkflowTraceEntity" ThisKey="WorkflowInstanceId" OtherKey="WorkflowInstanceId" IsForeignKey="true" MemberType="WorkflowTraceEntity"/>
+  <Profile:DBTable xmi:id="_SbLHhiLREeSXgKo03CLdng" base_Class="_SbBWriLREeSXgKo03CLdng" FullName="dbo.WorkflowTraceEntity" Member="WorkflowTraceEntities"/>
+  <Profile:DBColumn xmi:id="_SbLHhyLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" base_Property="_SbBWryLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHiCLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" base_Property="_SbBWsiLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHiSLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" base_Property="_SbBWtSLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHiiLREeSXgKo03CLdng" DbType="NVarChar(255) NOT NULL" base_Property="_SbBWuCLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHiyLREeSXgKo03CLdng" DbType="NVarChar(1000)" base_Property="_SbBWuyLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHjCLREeSXgKo03CLdng" DbType="VarChar(10) NOT NULL" base_Property="_SbBWviLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHjSLREeSXgKo03CLdng" DbType="VarChar(255) NOT NULL" base_Property="_SbBWwSLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHjiLREeSXgKo03CLdng" DbType="NVarChar(255)" base_Property="_SbBWxCLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHjyLREeSXgKo03CLdng" DbType="NVarChar(500) NOT NULL" base_Property="_SbBWxyLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHkCLREeSXgKo03CLdng" DbType="NVarChar(500) NOT NULL" base_Property="_SbBWyiLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHkSLREeSXgKo03CLdng" DbType="DateTime NOT NULL" base_Property="_SbBWzSLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHkiLREeSXgKo03CLdng" DbType="DateTime" base_Property="_SbBW0CLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHkyLREeSXgKo03CLdng" DbType="Xml" base_Property="_SbBW0yLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHlCLREeSXgKo03CLdng" DbType="Float" base_Property="_SbBW1iLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHlSLREeSXgKo03CLdng" DbType="rowversion NOT NULL" base_Property="_SbBW2SLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHliLREeSXgKo03CLdng" DbType="Float" base_Property="_SbBW3CLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBAssociation xmi:id="_SbLHlyLREeSXgKo03CLdng" base_Property="_SbBW3yLREeSXgKo03CLdng" Member="ActivityTraceEntities" ThisKey="WorkflowInstanceId" OtherKey="WorkflowInstanceId" MemberType="ActivityTraceEntity"/>
+  <Profile:DBTable xmi:id="_SbLHmCLREeSXgKo03CLdng" base_Class="_SbBW5CLREeSXgKo03CLdng" FullName="dbo.WorkflowInstanceLocks" Member="WorkflowInstanceLocks"/>
+  <Profile:DBColumn xmi:id="_SbLHmSLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" base_Property="_SbBW5SLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHmiLREeSXgKo03CLdng" DbType="DateTime NOT NULL" base_Property="_SbBW6CLREeSXgKo03CLdng"/>
+  <Profile:DBTable xmi:id="_SbLHmyLREeSXgKo03CLdng" base_Class="_SbBW6yLREeSXgKo03CLdng" FullName="dbo.WorkflowQueue" Member="WorkflowQueues"/>
+  <Profile:DBColumn xmi:id="_SbLHnCLREeSXgKo03CLdng" DbType="BigInt NOT NULL IDENTITY" base_Property="_SbBW7CLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHnSLREeSXgKo03CLdng" DbType="VarBinary(MAX) NOT NULL" base_Property="_SbBW7yLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHniLREeSXgKo03CLdng" DbType="UniqueIdentifier NOT NULL" base_Property="_SbBW8iLREeSXgKo03CLdng"/>
+  <Profile:DBTable xmi:id="_SbLHnyLREeSXgKo03CLdng" base_Class="_SbBW9iLREeSXgKo03CLdng" FullName="dbo.ServiceProvider" Member="ServiceProviders"/>
+  <Profile:DBColumn xmi:id="_SbLHoCLREeSXgKo03CLdng" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" base_Property="_SbBW9yLREeSXgKo03CLdng"/>
+  <Profile:DBColumn xmi:id="_SbLHoSLREeSXgKo03CLdng" DbType="Xml" base_Property="_SbBW-iLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHoiLREeSXgKo03CLdng" DbType="Bit" base_Property="_SbBW_SLREeSXgKo03CLdng" CanBeNull="true"/>
+  <Profile:DBColumn xmi:id="_SbLHoyLREeSXgKo03CLdng" DbType="Bit NOT NULL" base_Property="_SbBXACLREeSXgKo03CLdng"/>
+</xmi:XMI>

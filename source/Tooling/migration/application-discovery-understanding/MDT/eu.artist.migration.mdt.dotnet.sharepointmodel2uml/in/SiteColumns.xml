@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Field Hidden="TRUE" Name="ActionOutcomes" FromBaseType="FALSE" Type="Note" DisplayName="$Resources:SPTG,FieldActionOutcomesDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{1cc3d5b9-83e4-4701-976e-91c8f85c0565}" Version="2" StaticName="ActionOutcomes" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE"></Field>
+  <Field Hidden="TRUE" Type="Text" DisplayName="$Resources:SPTG,FieldActvityInstanceIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{6534aac6-407c-48c0-bc6a-bdbc4be2802b}" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" StaticName="ActivityInstanceId" Name="ActivityInstanceId" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInListSettings="FALSE" ShowInVersionHistory="FALSE"></Field>
+  <Field Hidden="TRUE" Type="Text" DisplayName="$Resources:SPTG,FieldTaskIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{7310bbc6-407c-48c0-bc6a-bdbc4be2802c}" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" StaticName="TaskId" Name="TaskId" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInListSettings="FALSE" ShowInVersionHistory="FALSE"></Field>
+  <Field Type="Note" DisplayName="$Resources:SPTG,FieldTaskHistoryDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" UnlimitedLengthInDocumentLibrary="TRUE" NumLines="6" RichText="TRUE" RichTextMode="FullHtml" IsolateStyles="TRUE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{9ed88328-ef2c-4484-bdf0-2446fa91b55d}" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" StaticName="TaskHistory" Name="TaskHistory" ShowInNewForm="FALSE" ShowInListSettings="FALSE"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldConfigurationIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{3a72e775-950a-4f3c-9375-9365e8fec694}" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" StaticName="SPTGConfigurationId" Name="SPTGConfigurationId"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldWorkflowIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{1b26b9b8-95d0-4318-aa7c-2d7d12534336}" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" StaticName="SPTGWorkflowId" Name="SPTGWorkflowId"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldWorkflowVersionDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{a52e06a4-d609-48ac-adfc-b03897b3dd5a}" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" StaticName="SPTGWorkflowVersion" Name="SPTGWorkflowVersion"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldTaskSelectedOutcomeIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{98d1f672-ff01-41bf-b577-4d1eb9c3bc26}" SourceID="{93edc7b7-04eb-469d-9bfe-3a7fcd4db07f}" StaticName="SPTGOutcomeGuid" Name="SPTGOutcomeGuid"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldTaskItemIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{0d0eb9d6-0b6d-4bef-8a1b-25f829bc467d}" SourceID="{93edc7b7-04eb-469d-9bfe-3a7fcd4db07f}" StaticName="SPTGTaskItemGuid" Name="SPTGTaskItemGuid"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldTaskSelectedOutcomeNameDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{342b2805-50d0-4b74-951a-e2209b844422}" SourceID="{93edc7b7-04eb-469d-9bfe-3a7fcd4db07f}" StaticName="SPTGOutcomeName" Name="SPTGOutcomeName"></Field>
+  <Field Type="Note" DisplayName="$Resources:SPTG,FieldWorkflowStatusDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{c95da880-d634-40e7-9244-7711a07313c8}" SourceID="{a4045f51-077c-4c33-bd97-648c1e3cb34c}" StaticName="SPTGWorkflowStatus" Name="SPTGWorkflowStatus" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInNewForm="FALSE" ShowInListSettings="TRUE" ShowInVersionHistory="TRUE" Viewable="TRUE" NumLines="6" RichText="TRUE" RichTextMode="FullHtml" Sortable="FALSE"></Field>
+  <Field Type="Boolean" DisplayName="$Resources:SPTG,FieldIsProcessedDisplayName;" EnforceUniqueValues="FALSE" Indexed="FALSE" Group="SpikesTogether Workflow" ID="{1397448c-0f5d-4b6f-90b5-dfc2be2b6b01}" SourceID="{57521611-3013-4097-a4c3-39bfc11fdc83}" StaticName="SPTGIsProcessed" Name="SPTGIsProcessed">
+    <Default>0</Default>
+  </Field>
+  <Field Type="Choice" ID="{D9E804C9-8E29-4E91-8347-EA0C6DF91EF9}" Name="WorkflowTaskStatus" DisplayName="$Resources:SPTG,FieldStatusDisplayName;" StaticName="WorkflowTaskStatus" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" FillInChoice="FALSE" Format="Dropdown" Version="1" RowOrdinal="0" Group="SpikesTogether Workflow">
+    <CHOICES>
+      <CHOICE>Open</CHOICE>
+      <CHOICE>Picked</CHOICE>
+      <CHOICE>Completed</CHOICE>
+      <CHOICE>Completed By Other User</CHOICE>
+      <CHOICE>Locked</CHOICE>
+      <CHOICE>Blocked</CHOICE>
+      <CHOICE>Cancelled</CHOICE>
+      <CHOICE>Autocompleted</CHOICE>
+      <CHOICE>Delegated</CHOICE>
+    </CHOICES>
+    <MAPPINGS>
+      <MAPPING Value="0">Open</MAPPING>
+      <MAPPING Value="1">Picked</MAPPING>
+      <MAPPING Value="2">Completed</MAPPING>
+      <MAPPING Value="3">Completed By Other User</MAPPING>
+      <MAPPING Value="4">Locked</MAPPING>
+      <MAPPING Value="5">Blocked</MAPPING>
+      <MAPPING Value="6">Cancelled</MAPPING>
+      <MAPPING Value="7">Autocompleted</MAPPING>
+      <MAPPING Value="8">Delegated</MAPPING>
+    </MAPPINGS>
+    <Default>Open</Default>
+  </Field>
+  <Field Type="User" DisplayName="$Resources:SPTG,FieldOriginatedFromDisplayName;" List="UserInfo" Required="FALSE" ShowField="ImnName" UserSelectionMode="PeopleOnly" UserSelectionScope="0" Group="SpikesTogether Workflow" ID="{2222550b-1b53-4d15-87ee-284a807908c4}" SourceID="{91c7e83e-b60e-489b-a498-f9421d9f6cb9}" StaticName="OriginatedFrom" Name="OriginatedFrom"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldTaskOutcomeDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{e0a596aa-9356-4b02-be22-d1597d0ae008}" SourceID="{61d017a9-989f-45f3-8807-7f65c58aa8c7}" StaticName="TaskOutcome" Name="TaskOutcome"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldAssignedToExternalDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{ec6987ce-06fc-49f2-b93a-3af9eaf0db94}" SourceID="{61d017a9-989f-45f3-8807-7f65c58aa8c7}" StaticName="AssignedToExternal" Name="AssignedToExternal" Hidden="TRUE"></Field>
+  
+  <!--Delegation-->
+  <Field Hidden="TRUE" Type="Boolean" DisplayName="$Resources:SPTG,FieldDelegationAllowedDisplayName;" EnforceUniqueValues="FALSE" Indexed="FALSE" Group="SpikesTogether Workflow" ID="{61f81af6-ee14-4705-a912-340f1d6d4c3f}" SourceID="{eb328913-aeb7-40ca-be24-40530eebc10a}" StaticName="SPTGDelegationAllowed" Name="SPTGDelegationAllowed" ShowInNewForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE" ShowInDisplayForm="FALSE">
+    <Default>0</Default>
+  </Field>
+  <Field Hidden="TRUE" FromBaseType="FALSE" Type="Note" DisplayName="$Resources:SPTG,FieldDelegationCommentsDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{a119b867-ddd4-4fd6-b0b1-7028534cba45}" StaticName="SPTGDelegationComments" Name="SPTGDelegationComments" SourceID="{826918e1-aa09-497d-9d3e-178342602b5c}" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE" ShowInNewForm="FALSE" ShowInFileDlg="FALSE"></Field>
+  <Field Name="SPTGDelegationComments" FromBaseType="FALSE" Type="Note" DisplayName="$Resources:SPTG,FieldCommentsDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{97d3c326-e57c-4967-af4e-62bdabd6465e}" StaticName="SPTGDelegationComments" SourceID="{afc0b980-1421-4191-a2bc-441b03598ee2}"></Field>
+  <Field Type="User" DisplayName="$Resources:SPTG,FieldUserDisplayName;" List="UserInfo" Required="FALSE" EnforceUniqueValues="FALSE" ShowField="ImnName" UserSelectionMode="0" UserSelectionScope="0" Group="SpikesTogether Workflow" ID="{c1a4db15-c86c-4435-a0d4-84ad7af24358}" SourceID="{afc0b980-1421-4191-a2bc-441b03598ee2}" StaticName="SPTGDelegationUsers" Name="SPTGDelegationUsers"></Field>
+
+  <!--Lazy task execution field, new since 02/08/2012-->
+  <Field Hidden="TRUE" Type="Boolean" DisplayName="$Resources:SPTG,FieldLazyTaskExecutionAllowedDisplayName;" EnforceUniqueValues="FALSE" Indexed="FALSE" Group="SpikesTogether Workflow" ID="{29805561-48ff-4e86-af13-c80befa5d1e0}" SourceID="{eb328913-aeb7-40ca-be24-40530eebc10a}" StaticName="SPTGLazyTaskExecutionAllowed" Name="SPTGLazyTaskExecutionAllowed" ShowInNewForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE" ShowInDisplayForm="FALSE">
+    <Default>0</Default>
+  </Field>
+
+  <!-- Role Resolvement -->
+  <Field Type="Note" DisplayName="$Resources:SPTG,FieldDescriptionDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{e8698ed2-d109-4c10-b348-8cc4dc5117ae}" SourceID="{21d2b392-b3a8-43eb-9341-486c4fee4912}" StaticName="SPTGDescription" Name="SPTGDescription"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldConditionHashDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{daba0eab-4de1-4286-8617-a7d6892932c2}" SourceID="{21d2b392-b3a8-43eb-9341-486c4fee4912}" StaticName="SPTGConditionHash" Name="SPTGConditionHash"></Field>
+  <Field Type="Note" DisplayName="$Resources:SPTG,FieldConditionDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" RichText="FALSE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{2fede8b9-dc98-43dd-8ee1-10324d23adef}" SourceID="{21d2b392-b3a8-43eb-9341-486c4fee4912}" StaticName="SPTGConditionText" Name="SPTGConditionText"></Field>
+  <Field Type="UserMulti" DisplayName="$Resources:SPTG,FieldUsersDisplayName;" List="UserInfo" Required="FALSE" ShowField="ImnName" UserSelectionMode="1" UserSelectionScope="0" Mult="TRUE" Sortable="FALSE" Group="SpikesTogether Workflow" ID="{095a7673-d0f4-4d02-8129-a6c942887f8e}" SourceID="{21d2b392-b3a8-43eb-9341-486c4fee4912}" StaticName="SPTGUsers" Name="SPTGUsers"></Field>
+
+  <!--Activity Initiation-->
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldActivityInternalNameDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{d38ff4be-64cd-4533-bf68-1fdac4b85a56}" SourceID="{e5d71016-2038-4ca4-9556-534dd112c700}" StaticName="SPTGActivityInternalName" Name="SPTGActivityInternalName"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldWorkflowInstanceIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{2f157be8-037e-48bc-a7c4-868f494c6cd2}" SourceID="{e5d71016-2038-4ca4-9556-534dd112c700}" StaticName="SPTGWFInstanceId" Name="SPTGWFInstanceId"></Field>
+
+  <!--Workflow Instance Document-->
+  <Field Type="DateTime" DisplayName="$Resources:SPTG,FieldCompletionDateDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="DateOnly" Group="SpikesTogether Workflow" ID="{45b85b9a-e4da-4a32-806f-805b6c23d38d}" SourceID="{30db0d54-693c-4a52-9128-e4c54e22bcfe}" StaticName="SPTGCompletionDate" Name="SPTGCompletionDate"></Field>
+
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldReferenceIdDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{5d9e71b7-dd6b-42e4-b47a-025c5b1a1613}" SourceID="{5b4ddcc8-2434-4443-8e8f-a9ae2fbc0bec}" StaticName="ReferenceId" Name="ReferenceId" Hidden="TRUE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE"></Field>
+
+  <!-- Task Checklist Item Fields-->
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldChecklistItemDescriptionDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{24db5def-176b-4010-84df-542b45471fe0}" StaticName="ChecklistItemDescription" Name="ChecklistItemDescription" Hidden="FALSE" ShowInDisplayForm="TRUE" ShowInEditForm="TRUE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldChecklistItemUrlDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{0ec45e45-ac19-4857-b134-9ef41467fb9b}" StaticName="ChecklistItemUrl" Name="ChecklistItemUrl" Hidden="FALSE" ShowInDisplayForm="TRUE" ShowInEditForm="TRUE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE"></Field>
+  <Field Type="Text" DisplayName="$Resources:SPTG,FieldChecklistItemAllowEditDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{ce21602e-4a9a-47cc-9a98-fb3f27920f52}" StaticName="ChecklistItemAllowEdit" Name="ChecklistItemAllowEdit" Hidden="FALSE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE"></Field>
+  <Field Type="Boolean" DisplayName="$Resources:SPTG,FieldChecklistItemExecutedDisplayName;" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" Group="SpikesTogether Workflow" ID="{d9417118-4429-40ca-b795-afca6e5b0e1a}" StaticName="ChecklistItemExecuted" Name="ChecklistItemExecuted" Hidden="FALSE" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInVersionHistory="FALSE" ShowInListSettings="FALSE"></Field>
+
+                                                                                                                                                          
+                                                                                                                                                          
+                                                                                                                                                          
+                                                                                                                                                          
+
+</Elements>

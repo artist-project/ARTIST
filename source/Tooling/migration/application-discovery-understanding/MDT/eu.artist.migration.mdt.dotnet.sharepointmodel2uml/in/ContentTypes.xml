@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+
+  <!-- Parent ContentType: Task (0x0108) -->
+  <ContentType ID="0x01080011EE8F460037B149AB47A192430B7608" Name="SpikesTogether Workflow Task" Group="SpikesTogether Workflow" Description="$Resources:SPTG,ContentTypeWorkflowTaskDescription;" Inherits="FALSE" ReadOnly="FALSE" Version="0">
+    <FieldRefs>
+      <FieldRef ID="{9ed88328-ef2c-4484-bdf0-2446fa91b55d}" Name="TaskHistory" ShowInNewForm="FALSE" ShowInListSettings="FALSE"></FieldRef>
+      <FieldRef ID="{1cc3d5b9-83e4-4701-976e-91c8f85c0565}" Name="ActionOutcomes" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE" ShowInListSettings="FALSE" ShowInNewForm="FALSE"></FieldRef>
+      <FieldRef ID="{6534aac6-407c-48c0-bc6a-bdbc4be2802b}" Name="ActivityInstanceId"></FieldRef>
+      <FieldRef ID="{7310bbc6-407c-48c0-bc6a-bdbc4be2802c}" Name="TaskId"></FieldRef>
+      <FieldRef ID="{de8beacf-5505-47cd-80a6-aa44e7ffe2f4}" Name="WorkflowInstanceID"></FieldRef>
+      <FieldRef ID="{8e234c69-02b0-42d9-8046-d5f49bf0174f}" Name="WorkflowItemId"></FieldRef>
+      <FieldRef ID="{1bfee788-69b7-4765-b109-d4d9c31d1ac1}" Name="WorkflowListId"></FieldRef>
+      <FieldRef ID="{e506d6ca-c2da-4164-b858-306f1c41c9ec}" Name="WorkflowName" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE" ShowInListSettings="FALSE" ShowInNewForm="FALSE"></FieldRef>
+      <FieldRef ID="{D9E804C9-8E29-4E91-8347-EA0C6DF91EF9}" Name="WorkflowTaskStatus" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE"></FieldRef>
+      <FieldRef ID="{2222550b-1b53-4d15-87ee-284a807908c4}" Name="OriginatedFrom" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE"></FieldRef>
+      <FieldRef ID="{e0a596aa-9356-4b02-be22-d1597d0ae008}" Name="TaskOutcome" ShowInDisplayForm="TRUE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE" ShowInNewForm="FALSE"></FieldRef>
+      <FieldRef ID="{61f81af6-ee14-4705-a912-340f1d6d4c3f}" Name="SPTGDelegationAllowed" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE"></FieldRef>
+      <FieldRef ID="{29805561-48ff-4e86-af13-c80befa5d1e0}" Name="SPTGLazyTaskExecutionAllowed" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE"></FieldRef>
+      <FieldRef ID="{a119b867-ddd4-4fd6-b0b1-7028534cba45}" Name="SPTGDelegationComments" ShowInDisplayForm="FALSE" ShowInEditForm="FALSE" ShowInFileDlg="FALSE"></FieldRef>
+      <FieldRef ID="{35363960-d998-4aad-b7e8-058dfe2c669e}" Name="Completed"></FieldRef>
+      <FieldRef ID="{ec6987ce-06fc-49f2-b93a-3af9eaf0db94}" Name="AssignedToExternal"></FieldRef>
+
+      <RemoveFieldRef ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}"></RemoveFieldRef>
+      <RemoveFieldRef ID="{d2311440-1ed6-46ea-b46d-daa643dc3886}"></RemoveFieldRef>
+      <RemoveFieldRef ID="{c15b34c3-ce7d-490a-b133-3f4de8801b76}"></RemoveFieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!-- Workflow Instance Document -->
+  <ContentType ID="0x010100661A0D3EFE15A342B3E473B0CC62F3D8" Name="Workflow Instance Document" Group="SpikesTogether Workflow" Inherits="true" Hidden="false" ReadOnly="false" Sealed="false">
+    <FieldRefs>
+      <FieldRef ID="{de8beacf-5505-47cd-80a6-aa44e7ffe2f4}" Name="WorkflowInstanceID"></FieldRef>
+      <FieldRef ID="{45b85b9a-e4da-4a32-806f-805b6c23d38d}" Name="SPTGCompletionDate"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!-- Workflow Runtime Configuration -->
+  <ContentType ID="0x010100867EF8C0F3F0E24FA28474B2C48800ED" Name="Workflow Runtime Configuration Document" Group="SpikesTogether Workflow" Inherits="true" Hidden="false" ReadOnly="false" Sealed="false">
+    <FieldRefs>
+      <FieldRef ID="{3a72e775-950a-4f3c-9375-9365e8fec694}" Name="SPTGConfigurationId"></FieldRef>
+      <FieldRef ID="{1b26b9b8-95d0-4318-aa7c-2d7d12534336}" Name="SPTGWorkflowId"></FieldRef>
+      <FieldRef ID="{a52e06a4-d609-48ac-adfc-b03897b3dd5a}" Name="SPTGWorkflowVersion"></FieldRef>
+      <FieldRef ID="{e8698ed2-d109-4c10-b348-8cc4dc5117ae}" Name="SPTGDescription"></FieldRef>
+      <FieldRef ID="{5d9e71b7-dd6b-42e4-b47a-025c5b1a1613}" Name="ReferenceId" DisplayName="$Resources:SPTG,FieldReferenceIdDisplayName;"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!-- Task Outcomes -->
+  <ContentType ID="0x01004C7AF926640D4447876CA1ADA99ABF3D" Name="Task Outcomes Item" Group="SpikesTogether Workflow" Inherits="true" Hidden="false" ReadOnly="false" Sealed="false">
+    <FieldRefs>
+      <FieldRef ID="{0d0eb9d6-0b6d-4bef-8a1b-25f829bc467d}" Name="SPTGTaskItemGuid"></FieldRef>
+      <FieldRef ID="{98d1f672-ff01-41bf-b577-4d1eb9c3bc26}" Name="SPTGOutcomeGuid"></FieldRef>
+      <FieldRef ID="{342b2805-50d0-4b74-951a-e2209b844422}" Name="SPTGOutcomeName"></FieldRef>
+      <FieldRef ID="{1397448c-0f5d-4b6f-90b5-dfc2be2b6b01}" Name="SPTGIsProcessed"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!-- Task Checklist Items-->
+  <ContentType ID="0x0100D9A236FEC74911E1BC56EFCD6188709B" Name="Task Checklist Item" Group="SpikesTogether Workflow" Inherits="true" Hidden="false" ReadOnly="false" Sealed="false">
+    <FieldRefs>
+      <FieldRef ID="{2f157be8-037e-48bc-a7c4-868f494c6cd2}" Name="SPTGWFInstanceId" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{6534aac6-407c-48c0-bc6a-bdbc4be2802b}" Name="ActivityInstanceId" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{7310bbc6-407c-48c0-bc6a-bdbc4be2802c}" Name="TaskId" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{24db5def-176b-4010-84df-542b45471fe0}" Name="Description" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{0ec45e45-ac19-4857-b134-9ef41467fb9b}" Name="Url" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{d9417118-4429-40ca-b795-afca6e5b0e1a}" Name="Executed" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{ce21602e-4a9a-47cc-9a98-fb3f27920f52}" Name="AllowEdit" Hidden="FALSE"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!-- Role Resolvement Configuration -->
+  <ContentType ID="0x010059C351195578DA4C8E79E1E38FEF54E7" Name="Role Resolvement Configuration" Group="SpikesTogether Workflow" Version="0" Inherits="TRUE">
+    <FieldRefs>
+      <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" DisplayName="$Resources:SPTG,FieldRoleDisplayName;"></FieldRef>
+      <FieldRef ID="{e8698ed2-d109-4c10-b348-8cc4dc5117ae}" Name="SPTGDescription"></FieldRef>
+      <FieldRef ID="{daba0eab-4de1-4286-8617-a7d6892932c2}" Name="SPTGConditionHash"></FieldRef>
+      <FieldRef ID="{2fede8b9-dc98-43dd-8ee1-10324d23adef}" Name="SPTGConditionText" DefaultValue="$Resources:SPTG,FieldConditionTextDefaultValue;"></FieldRef>
+      <FieldRef ID="{095a7673-d0f4-4d02-8129-a6c942887f8e}" Name="SPTGUsers"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!--Activity Initiation-->
+  <ContentType ID="0x01007D51966CA86B6042B04BBB08DE1C45E1" Name="Activity Initiation" Group="SpikesTogether Workflow" Version="0" Hidden="TRUE" Inherits="TRUE">
+    <FieldRefs>
+      <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></FieldRef>
+      <FieldRef ID="{d38ff4be-64cd-4533-bf68-1fdac4b85a56}" Name="SPTGActivityInternalName" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{2f157be8-037e-48bc-a7c4-868f494c6cd2}" Name="SPTGWFInstanceId" Hidden="FALSE"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+  <!--Task Delegation-->
+  <ContentType ID="0x0100751EBFF3DFD4E541BCF739E21B80F8C4" Name="Task Delegation" Group="SpikesTogether Workflow" Version="0" Hidden="TRUE" Inherits="TRUE">
+    <FieldRefs>
+      <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title"></FieldRef>
+      <FieldRef ID="{2f157be8-037e-48bc-a7c4-868f494c6cd2}" Name="SPTGWFInstanceId" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{6534aac6-407c-48c0-bc6a-bdbc4be2802b}" Name="ActivityInstanceId" Hidden="FALSE"></FieldRef>
+      <FieldRef ID="{7310bbc6-407c-48c0-bc6a-bdbc4be2802c}" Name="TaskId"></FieldRef>
+      <FieldRef ID="{c1a4db15-c86c-4435-a0d4-84ad7af24358}" Name="SPTGDelegationUsers" Required="TRUE"></FieldRef>
+      <FieldRef ID="{97d3c326-e57c-4967-af4e-62bdabd6465e}" Name="SPTGDelegationComments" Required="TRUE"></FieldRef>
+    </FieldRefs>
+  </ContentType>
+
+</Elements>

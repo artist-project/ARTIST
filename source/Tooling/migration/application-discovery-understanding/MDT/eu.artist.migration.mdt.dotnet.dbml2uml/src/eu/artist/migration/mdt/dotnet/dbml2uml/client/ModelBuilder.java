@@ -37,7 +37,6 @@ public class ModelBuilder {
 	private UMLBuilder builder = new UMLBuilder();
 	private DbmlParser parser = new DbmlParser();
 	
-	private Boolean applyProfile;
 	private Profile dbmlProfile;
 	
     private HashMap<String, org.eclipse.uml2.uml.Type> primitiveTypes = new HashMap<String, org.eclipse.uml2.uml.Type>();
@@ -50,16 +49,11 @@ public class ModelBuilder {
 		String current = System.getProperty("user.dir");
 		builder.registerPathmaps(URI.createURI("jar:file:" + current + "\\lib\\org.eclipse.uml2.uml.resources_4.1.0.v20140202-2055.jar!/"));
 		
-		URI profileUri = URI.createFileURI(current + "\\res\\model.profile.uml");
+		URI profileUri = URI.createFileURI("model.profile.uml");
 		dbmlProfile = builder.importProfile(profileUri);
-		
 	}
 	
 	public void build(String dbmlFileName, String umlFileName) {
-		build(dbmlFileName, umlFileName, true);
-	}
-	
-	public void build(String dbmlFileName, String umlFileName, Boolean withProfile) {
 		primitiveTypes.clear();
 		classMap.clear();
 		
@@ -69,13 +63,9 @@ public class ModelBuilder {
 		builder.importPrimitiveType(uml2Root, "String");
 		builder.importPrimitiveType(uml2Root, "Boolean");
 		
-		applyProfile = withProfile;
-		if(applyProfile) {
-			builder.applyProfile(uml2Root, dbmlProfile);
-		}
+		builder.applyProfile(uml2Root, dbmlProfile);
 		
 		generateTables(uml2Root, db);
-		resolveAssociations(uml2Root, db);
 		
 		builder.save(uml2Root, URI.createFileURI(umlFileName));
 	}
@@ -83,17 +73,24 @@ public class ModelBuilder {
 	private void generateTables(Model model, Database db) {
 		System.out.println("Generating tables...");
 		
-		List<Table> tables = db.getTable();
-		
-		for(Table table : tables) {
+		for(Table table : db.getTable()) {
 			Type type = table.getType();
 			
-			org.eclipse.uml2.uml.Class tableClass = builder.createClass(model, type.getName(), false);
-			if(applyProfile) {
-				Stereotype tableStereotype = dbmlProfile.getOwnedStereotype("DBTable");	
-				builder.applyStereotype(tableClass, tableStereotype);
+			org.eclipse.uml2.uml.Class tableClass = null;
+			
+			if(classMap.containsKey(type.getName())) {
+				tableClass = (org.eclipse.uml2.uml.Class) classMap.get(type.getName());
 			}
-			classMap.put(type.getName(), tableClass);
+			else {
+				tableClass = builder.createClass(model, type.getName(), false);
+				classMap.put(type.getName(), tableClass);
+			}
+			
+			Stereotype tableStereotype = dbmlProfile.getOwnedStereotype("DBTable");	
+			builder.applyStereotype(tableClass, tableStereotype);
+			
+			builder.setStereotypePropertyValue(tableClass, tableStereotype, tableStereotype.getOwnedAttribute("FullName", model.getOwnedType("String")), table.getName());
+			builder.setStereotypePropertyValue(tableClass, tableStereotype, tableStereotype.getOwnedAttribute("Member", model.getOwnedType("String")), table.getMember());
 			
 			List<Object> columnsOrAssociations = type.getColumnOrAssociation();
 			
@@ -104,57 +101,48 @@ public class ModelBuilder {
 					int lowerBound = 1;
 					int upperBound = 1;
 					
-					if(c.isCanBeNull() != null && c.isCanBeNull()) {
+					Boolean isCanBeNull = (c.isCanBeNull() == null) ? false : c.isCanBeNull();
+					if(isCanBeNull) {
 						lowerBound = 0;
 					}
 					
-					Boolean isPrimaryKey = (c.isIsPrimaryKey() == null) ? false : c.isIsPrimaryKey();
-					
 					org.eclipse.uml2.uml.Property property = builder.createAttribute(tableClass, c.getName(), this.getPrimitiveType(model, c.getType()), lowerBound, upperBound);
 					
+					Boolean isPrimaryKey = (c.isIsPrimaryKey() == null) ? false : c.isIsPrimaryKey();
 					if(isPrimaryKey) {
 						property.setIsID(isPrimaryKey);
 					}
 					
-					if(applyProfile) {
-						Stereotype columnStereotype = dbmlProfile.getOwnedStereotype("DBColumn");	
-						builder.applyStereotype(property, columnStereotype);
-						
-						builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("DbType", model.getOwnedType("String")), c.getDbType());
-						builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("IsPrimaryKey", model.getOwnedType("Boolean")), isPrimaryKey);
-					}
+					Stereotype columnStereotype = dbmlProfile.getOwnedStereotype("DBColumn");	
+					builder.applyStereotype(property, columnStereotype);
+					
+					builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("DbType", model.getOwnedType("String")), c.getDbType());
+					builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("CanBeNull", model.getOwnedType("Boolean")), isCanBeNull);
+					builder.setStereotypePropertyValue(property, columnStereotype, columnStereotype.getOwnedAttribute("IsPrimaryKey", model.getOwnedType("Boolean")), isPrimaryKey);
 				}
-			}
-		}
-	}
-	
-	private void resolveAssociations(Model model, Database db) {
-		System.out.println("Resolving associations...");
-		
-		List<Table> tables = db.getTable();
-		
-		for(Table table : tables) {
-			Type type = table.getType();
-			
-			List<Object> columnsOrAssociations = type.getColumnOrAssociation();
-			
-			for(Object o : columnsOrAssociations) {
-				if(o instanceof Association) {
+				else if(o instanceof Association) {
 					Association a = (Association)o;
 					
-					Boolean isToBeProcessed = (a.isIsForeignKey() == null) ? true : !a.isIsForeignKey(); 
-					if(isToBeProcessed) {
-						Classifier s = classMap.get(type.getName());
-						Classifier t = classMap.get(a.getType());
-						
-						int cardinality = LiteralUnlimitedNatural.UNLIMITED;
-						if(a.getCardinality() != null) {
-							if(a.getCardinality().compareTo(Cardinality.ONE) == 0) cardinality = 1;
-						}
-						
-						org.eclipse.uml2.uml.Association association = builder.createAssociation(s, true, AggregationKind.NONE_LITERAL, a.getThisKey(), 0, cardinality, t, false, AggregationKind.NONE_LITERAL, a.getOtherKey(), 1, 1);
-						association.setName(a.getName());
+					org.eclipse.uml2.uml.Class typeClass = null;
+					if(classMap.containsKey(a.getType())) {
+						typeClass = (org.eclipse.uml2.uml.Class) classMap.get(a.getType());
 					}
+					else {
+						typeClass = builder.createClass(model, a.getType(), false);
+						classMap.put(a.getType(), typeClass);
+					}
+					
+					org.eclipse.uml2.uml.Property property = builder.createAttribute(tableClass, a.getName(), typeClass, 1, 1);
+					
+					Stereotype associationStereotype = dbmlProfile.getOwnedStereotype("DBAssociation");	
+					builder.applyStereotype(property, associationStereotype);
+					
+					builder.setStereotypePropertyValue(property, associationStereotype, associationStereotype.getOwnedAttribute("Member", model.getOwnedType("String")), a.getMember());
+					builder.setStereotypePropertyValue(property, associationStereotype, associationStereotype.getOwnedAttribute("ThisKey", model.getOwnedType("String")), a.getThisKey());
+					builder.setStereotypePropertyValue(property, associationStereotype, associationStereotype.getOwnedAttribute("OtherKey", model.getOwnedType("String")), a.getOtherKey());
+					builder.setStereotypePropertyValue(property, associationStereotype, associationStereotype.getOwnedAttribute("IsForeignKey", model.getOwnedType("Boolean")), a.isIsForeignKey());
+					builder.setStereotypePropertyValue(property, associationStereotype, associationStereotype.getOwnedAttribute("Cardinality", model.getOwnedType("String")), a.getCardinality());
+					builder.setStereotypePropertyValue(property, associationStereotype, associationStereotype.getOwnedAttribute("MemberType", model.getOwnedType("String")), typeClass.getName());
 				}
 			}
 		}

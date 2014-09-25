@@ -220,8 +220,6 @@ public class UMLBuilder extends AbstractUMLBuilder {
 	}
 	
 	protected Profile importProfile(URI uri) {
-		//RESOURCE_SET.getPackageRegistry().put(UMLPackage.eNS_URI, UMLPackage.eINSTANCE);
-		//RESOURCE_SET.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
 		RESOURCE_SET.createResource(uri);
 		Resource profileResource = RESOURCE_SET.getResource(uri, true);
 		Profile profile = (Profile)EcoreUtil.getObjectByType(profileResource.getContents(), UMLPackage.Literals.PROFILE);

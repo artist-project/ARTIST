@@ -214,11 +214,13 @@ public class FeatureParser {
 		String id = element.getAttribute("ID").toLowerCase();
 		String name = getActualName(element.getAttribute("Name"));
 		String displayName = getActualName(element.getAttribute("DisplayName"));
+		Boolean required = Boolean.parseBoolean(element.getAttribute("Required").toLowerCase());
 		
 		Field f = new Field();
 		f.setId(id);
 		f.setName(name);
 		f.setDisplayName(displayName);
+		f.setRequired(required);
 		
 		String type = element.getAttribute("Type");
 		f.setType(type);
