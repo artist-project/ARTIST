@@ -19,6 +19,7 @@ public class Field {
     protected String name;
     protected String type;
     protected String displayName;
+    protected Boolean required;
     protected List<String> choices;
     protected List<String> mappings;
     
@@ -52,6 +53,14 @@ public class Field {
 
     public void setDisplayName(String value) {
         this.displayName = value;
+    }
+    
+    public Boolean getRequired() {
+    	return required;
+    }
+    
+    public void setRequired(Boolean value) {
+    	this.required = value;
     }
     
     public List<String> getChoices() {

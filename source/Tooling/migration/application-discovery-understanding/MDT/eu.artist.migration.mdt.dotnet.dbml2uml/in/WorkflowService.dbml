@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SpikesTogether_WorkflowService_DB_48ef63e7e3ab4867bed3340a7a650f3c" Class="WorkflowServiceDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.ActivityManifest" Member="ActivityManifestRecords">
+    <Type Name="ActivityManifestRecord">
+      <Column Name="Name" Type="System.String" DbType="VarChar(250) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ManifestDefinition" Type="System.Xml.Linq.XElement" DbType="Xml NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaskTraceEntity" Member="TaskTraceEntities">
+    <Type Name="TaskTraceEntity">
+      <Column Name="TaskId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActivityInstanceId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Outcome" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AssignedTo" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="AssignedToDisplayName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ExecutedBy" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ExecutedByDisplayName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="ActivityTraceEntity_TaskTraceEntity" Member="ActivityTraceEntity" ThisKey="ActivityInstanceId" OtherKey="ActivityInstanceId" Type="ActivityTraceEntity" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkflowTraceEntity" Member="WorkflowTraceEntities">
+    <Type Name="WorkflowTraceEntity">
+      <Column Name="WorkflowId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="WorkflowConfigurationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="WorkflowInstanceId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkflowTitle" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkflowDescription" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="WorkflowVersion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="InternalStatus" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ExternalStatus" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="InitiatedBy" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="InitiatedByDisplayName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WorkflowData" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" />
+      <Column Name="SLA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="WorkflowDurationBusinessHours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="WorkflowTraceEntity_ActivityTraceEntity" Member="ActivityTraceEntities" ThisKey="WorkflowInstanceId" OtherKey="WorkflowInstanceId" Type="ActivityTraceEntity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActivityTraceEntity" Member="ActivityTraceEntities">
+    <Type Name="ActivityTraceEntity">
+      <Column Name="ActivityInstanceId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkflowInstanceId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityInternalName" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityDisplayName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ActivityDescription" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ActivityType" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Outcome" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="InitiatedByNotificationSubscription" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" />
+      <Column Name="OriginatingActivityInstanceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ExecutedByRole" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="WorkflowContainer" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SLA" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Column Name="ActivityDurationBusinessHours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="ActivityTraceEntity_TaskTraceEntity" Member="TaskTraceEntities" ThisKey="ActivityInstanceId" OtherKey="ActivityInstanceId" Type="TaskTraceEntity" />
+      <Association Name="WorkflowTraceEntity_ActivityTraceEntity" Member="WorkflowTraceEntity" ThisKey="WorkflowInstanceId" OtherKey="WorkflowInstanceId" Type="WorkflowTraceEntity" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkflowInstanceLocks" Member="WorkflowInstanceLocks">
+    <Type Name="WorkflowInstanceLock">
+      <Column Name="WorkflowInstanceId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LockedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkflowQueue" Member="WorkflowQueues">
+    <Type Name="WorkflowQueue">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Payload" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ServiceProvider" Member="ServiceProviders">
+    <Type Name="ServiceProvider">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Definition" Type="System.Xml.Linq.XElement" DbType="Xml" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DefaultServiceProvider" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_requestWorkflowInstanceLock" Method="RequestWorkflowInstanceLock">
+    <Parameter Name="workflowInstanceId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="sp_requestWorkflowInstanceLockResult">
+      <Column Name="LockIsAssigned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_releaseWorkflowInstanceLock" Method="ReleaseWorkflowInstanceLock">
+    <Parameter Name="workflowInstanceId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_dequeueWorkflowItem" Method="DequeueWorkflowItem">
+    <Parameter Name="applicationId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="sp_dequeueWorkflowItemResult">
+      <Column Name="Payload" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_enqueueWorkflowItem" Method="EnqueueWorkflowItem">
+    <Parameter Name="payload" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="applicationId" Type="System.Guid" DbType="UniqueIdentifier" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

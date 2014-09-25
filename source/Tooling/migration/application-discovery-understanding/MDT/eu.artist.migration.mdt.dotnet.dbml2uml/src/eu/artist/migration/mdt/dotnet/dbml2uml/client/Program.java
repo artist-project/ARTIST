@@ -48,9 +48,21 @@ public class Program {
 			
 			System.out.println(String.format("%s -- Done!", formatter.format(new Date())));
 		}
+		else if(args.length == 2) {
+			System.out.println("Starting DBML2UML Discovery (press CTRL-C to quit)");
+			
+			Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			System.out.println(String.format("%s -- Loading...", formatter.format(new Date())));
+			
+			ModelBuilder builder = new ModelBuilder();
+			builder.build(args[0], args[1]);
+			
+			System.out.println(String.format("%s -- Done!", formatter.format(new Date())));
+		}
 		else {
 			System.out.println("Too many arguments");
 			System.out.println("Usage: java -jar dbml2uml.jar <config.xml>");
+			System.out.println("Usage: java -jar <dbml-model> <uml-model>");
 		}
 	}
 
