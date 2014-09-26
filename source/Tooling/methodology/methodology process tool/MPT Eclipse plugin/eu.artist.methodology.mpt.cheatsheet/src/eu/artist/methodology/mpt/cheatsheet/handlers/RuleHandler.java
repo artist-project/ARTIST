@@ -22,6 +22,7 @@
  *  THE SOFTWARE.
  *
  * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet.handlers;
 
@@ -43,7 +44,9 @@ public class RuleHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
 		try {
-		
+			
+			//re-initialize boolean to false
+			is_rule_satisfied = "false";
 			String rule_id = event.getParameter("eu.artist.methodology.mpt.ruleParameter");
 			//Map map = event.getParameters();
 			//System.out.println("The parameters map size is " + map.size());
@@ -58,6 +61,8 @@ public class RuleHandler extends AbstractHandler {
 				is_rule_satisfied = "true";
 				
 			}
+			
+			System.out.println("Returning " + is_rule_satisfied); 
 			
 		} catch (Exception e) {
 			e.printStackTrace();

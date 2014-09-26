@@ -22,6 +22,7 @@
  *  THE SOFTWARE.
  *
  * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet;
 

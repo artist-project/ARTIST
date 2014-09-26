@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ -->
+<cheatsheet
+      title="Perform business feasibility analysis">
+   <intro>
+      <description>
+         <b>This cheat sheet shows how to create a new Business Scenario Workbench (BSW) project to define Business Models.</b>
+      </description>
+   </intro>
+   <item dialog="true"
+         title="Create a Business Scenario Workbench Project">
+      <description>
+         <b>Create a Modeling Project</b>
+      </description>
+      <subitem
+            label="Before creating a Business Model, a Modeling Project to put it in is needed. In the main toolbar, click on &quot;File -&gt; New -&gt; Other -&gt;  Sirius -&gt; Modeling Project&quot;. Enter a project name, then click Finish.">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.sirius.ui.modelingproject.wizard)"/>
+      </subitem>
+      <subitem skip="true"
+            label="If the Sirius perspective is not enabled, in the main menu select &quot;Window -&gt; Open Perspective -&gt; Sirius&quot;">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.sirius.ui.tools.perspective.design)"/>
+      </subitem>
+   </item>
+   <item dialog="true"
+         title="Create a Business Model">
+      <description>
+         <b> </b>
+      </description>
+      <subitem
+            label="Right-click on the created Modeling Project and select &quot;New -&gt; Other -&gt; BFT-Business Scenario Workbench -&gt; Business Model -&gt; Next&quot;. Enter a name for the business model file, then click Finish.">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=BFT_BSW.editor.BusinessModel)"/>
+      </subitem>
+      <subitem 
+            label="To visualize the various Business Model viewpoints right-click on the Modeling Project and select Viewpoints Selection. Enable all the viewpoints in the list, then click OK.">
+            <action 
+      				class="eu.artist.methodology.mpt.cheatsheet.actions.OpenViewPointSelectionAction" 
+      				pluginId="eu.artist.methodology.mpt.cheatsheet"/>
+      </subitem>
+   </item> 
+   <item
+         title="Scenario Workbench simulation">
+      <description>
+         <b>Simulate the different business models described in the scenario workbench.</b>
+      </description>
+   </item>  
+</cheatsheet>

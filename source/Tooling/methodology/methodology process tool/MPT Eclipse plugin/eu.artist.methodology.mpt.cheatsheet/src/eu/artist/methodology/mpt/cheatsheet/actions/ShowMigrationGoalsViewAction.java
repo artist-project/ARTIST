@@ -22,6 +22,7 @@
  *  THE SOFTWARE.
  *
  * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet.actions;
 
@@ -78,11 +79,18 @@ public class ShowMigrationGoalsViewAction extends Action implements ICheatSheetA
 				   MigrationGoalsView.xmlFile = ifile;
 		   
 				   System.out.println("The selected file has been set in migration's goals view.");
-		 
-				   ArrayList<Parameterization> parameters = new ArrayList<Parameterization>();
-				   IParameter iparam;
 
 				   final IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+				   
+				   
+				   if (window.getActivePage().findView(MigrationGoalsView.ID) != null) {
+						
+					   window.getActivePage().hideView(window.getActivePage().findView(MigrationGoalsView.ID));
+				   
+				   } 
+				   
+				   ArrayList<Parameterization> parameters = new ArrayList<Parameterization>();
+				   IParameter iparam;
 				   ICommandService cmdService = (ICommandService)window.getService(ICommandService.class);
 				   Command cmd = cmdService.getCommand("org.eclipse.ui.views.showView");
 
@@ -95,6 +103,8 @@ public class ShowMigrationGoalsViewAction extends Action implements ICheatSheetA
 			 
 				   IHandlerService handlerService = (IHandlerService)window.getService(IHandlerService.class);
 				   handlerService.executeCommand(pc, null);
+				   				   
+
 			  }
 		 }
 		   

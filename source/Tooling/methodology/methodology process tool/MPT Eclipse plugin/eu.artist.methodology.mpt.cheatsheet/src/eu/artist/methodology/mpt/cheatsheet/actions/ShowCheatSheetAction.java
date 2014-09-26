@@ -22,6 +22,7 @@
  *  THE SOFTWARE.
  *
  * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet.actions;
 
@@ -29,17 +30,35 @@ import java.util.Properties;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.cheatsheets.ICheatSheetAction;
+import org.eclipse.ui.cheatsheets.ICheatSheetManager;
 import org.eclipse.ui.cheatsheets.OpenCheatSheetAction;
 import org.eclipse.ui.intro.IIntroSite;
 import org.eclipse.ui.intro.config.IIntroAction;
 
 
-public class ShowCheatSheetAction implements IIntroAction {
+public class ShowCheatSheetAction extends Action implements IIntroAction, ICheatSheetAction{
+	
+	@Override
+	public void run(String[] params, ICheatSheetManager arg1) {
+		String id = params[0];
+		//String id = "eu.artist.methodology.mpt.cheatsheet.cheatsheet";
+		final Action action = new OpenCheatSheetAction(id);
+				
+		// Run the appropriate launcher
+		Display.getDefault().asyncExec(new Runnable(){
+			@Override
+			public void run() {
+				if (action != null)
+					action.run();
+				}					
+			}
+		);
+	}
 	
 	@Override
 	public void run(IIntroSite site, Properties params) {
-		//String id = params.getProperty("gr.ntua.artist.mpt.cheatsheet.cheatsheet1972753775");
-		String id = "eu.artist.methodology.mpt.cheatsheet.cheatsheet";
+		String id = "eu.artist.methodology.mpt.cheatsheet.premigration";
 		final Action action = new OpenCheatSheetAction(id);
 		
 		// Close the intro part
@@ -52,8 +71,8 @@ public class ShowCheatSheetAction implements IIntroAction {
 			public void run() {
 				if (action != null)
 					action.run();
+				}
 			}
-			
-		});
+		);
 	} 
 }

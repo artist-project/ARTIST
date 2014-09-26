@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--  
+<!--
  *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
@@ -22,20 +22,25 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  *
- * Contributors: Kleopatra Konstanteli 
- -->
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
 <introContent>
-  	<extensionContent id="grntuaartistmptcheatsheet-introExtension" style="css/mpt_intro.css" name="Sample Extension" path="overview/@">
-		<group style-id="content-group" id="grntuaartistmptcheatsheet-introLink-group">
-       		<link label="ARTIST: Advanced software-based service provisioning and migration of legacy software" url="http://www.artist-project.eu/" id="grntuaartistmptcheatsheet-introLink" style-id="content-link">
-          		<text>Migrate your project to the Cloud using the ARTIST family of tools.</text>
+  	<extensionContent id="MPT_overviewExtension" style="css/mpt_intro.css" name="MPT Overview" path="overview/@">
+		<group style-id="content-group" id="MPT_overview_group" label="ARTIST: Advanced software-based service provisioning and migration of legacy software">
+       		<text style-id="group-description">Migrate your project to the Cloud using the ARTIST family of tools.</text>
+       		<link label="ARTIST project" url="http://www.artist-project.eu/" id="mpt-introLink" style-id="content-link">
+          		<text>Learn more about the ARTIST project</text>
        		</link>
+        	<link label="ARTIST tools tutorial" url="http://org.eclipse.ui.intro/showPage?id=tutorials" id="mpt-introLink" style-id="content-link">
+        	 	<text>Learn how to use the ARTIST tools to migrate your project to the Cloud</text>
+        	</link>
        	</group>
   	</extensionContent>
   	
-  	<extensionContent id="grntuaartistmptcheatsheet-introExtension-tutorials" style="css/mpt_intro.css" name="Sample Extension Tutorials" path="tutorials/@">
-		<group style-id="content-group" id="grntuaartistmptcheatsheet-introLink-group">
-       		<link label="ARTIST Methodology Process Tool Tutorial" url="http://org.eclipse.ui.intro/showMPTCheatSheet" id="grntuaartistmptcheatsheet-introLink" style-id="content-link">
+  	<extensionContent id="MPT_tutorialsExtension" style="css/mpt_intro.css" name="MPT Tutorials" path="tutorials/@">
+		<group style-id="content-group" id="MPT_tutorials_group" label="ARTIST">
+       		<link label="ARTIST Methodology Process Tool Tutorial" url="http://org.eclipse.ui.intro/showMPTCheatSheet" id="mpt-introLink" style-id="content-link">
           		<text>End-to-end tutorial demonstrating how to use the ARTIST Methodology Process Tool and other related ARTIST plug-ins to migrate your project to the Cloud.</text>
        		</link>
        	</group>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
 <!--
  *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
@@ -24,7 +23,9 @@
  *  THE SOFTWARE.
  *
  * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
  -->
+<?eclipse version="3.4"?>
 <plugin>
    <extension
          id="eu.artist.methodology.mpt.cheatsheet"
@@ -36,9 +37,23 @@
       <cheatsheet
             category="eu.artist.methodology.mpt.cheatsheet.category"
             composite="true"
-            contentFile="$nl$/cheatsheets/mpt.xml"
-            id="eu.artist.methodology.mpt.cheatsheet.cheatsheet"
-            name="ARTIST Methodology Process Tool">
+            contentFile="$nl$/cheatsheets/mpt_pre_migration.xml"
+            id="eu.artist.methodology.mpt.cheatsheet.premigration"
+            name="ARTIST Methodology Process Tool Pre-Migration">
+      </cheatsheet>
+      <cheatsheet
+            category="eu.artist.methodology.mpt.cheatsheet.category"
+            composite="true"
+            contentFile="$nl$/cheatsheets/mpt_migration.xml"
+            id="eu.artist.methodology.mpt.cheatsheet.migration"
+            name="ARTIST Methodology Process Tool Migration">
+      </cheatsheet>
+      <cheatsheet
+            category="eu.artist.methodology.mpt.cheatsheet.category"
+            composite="true"
+            contentFile="$nl$/cheatsheets/mpt_post_migration.xml"
+            id="eu.artist.methodology.mpt.cheatsheet.postmigration"
+            name="ARTIST Methodology Process Tool Post-Migration">
       </cheatsheet>
    </extension>
    <extension point="org.eclipse.ui.intro.configExtension">
@@ -91,6 +106,15 @@
             	name="Rule">
             </commandParameter>
       </command>
+       <command
+            categoryId="eu.artist.methodology.mpt.cheatsheet.commands.category"
+            id="eu.artist.methodology.mpt.cheatsheet.commands.getRulesCommand"
+            name="Get rules command">
+            <commandParameter
+            	id="eu.artist.methodology.mpt.ruleParameter"
+            	name="Rule">
+            </commandParameter>
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -117,6 +141,10 @@
        <handler
             class="eu.artist.methodology.mpt.cheatsheet.handlers.RuleHandler"
             commandId="eu.artist.methodology.mpt.cheatsheet.commands.checkRuleCommand">
+      </handler>
+       <handler
+            class="eu.artist.methodology.mpt.cheatsheet.handlers.RuleHandlerTest"
+            commandId="eu.artist.methodology.mpt.cheatsheet.commands.getRulesCommand">
       </handler>
    </extension>
 </plugin>

@@ -44,3 +44,21 @@ rule "Rule_2"
 
 end
 
+rule "Rule_3"
+
+	when 
+		MigrationGoals (technicalGoals.iaas.targetPlatform == "Azure")
+	then 
+		System.out.println("Matched Rule Three"); 
+		System.out.println("Skip Target Environment Specification tasks.");
+		
+		result.setStringResult("Skip Target Environment Specification tasks.");
+		result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+		
+		rulesVariable.addInArray("RULE_3_RETURNS_TRUE");
+		
+		//testVariable.setTestString("RULE_2_RETURNS_TRUE");
+
+end
+

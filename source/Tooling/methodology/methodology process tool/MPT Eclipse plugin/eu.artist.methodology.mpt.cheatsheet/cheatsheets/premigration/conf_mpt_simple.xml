@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Configure methodology">
+   <intro>
+      <description>      
+	<b>This cheat sheet demonstrates how to use the ARTIST Methodology Process Tool (MPT) WebApp configure the migration methodology using the results of the analysis performed by the MAT, TFT and BFT tools in the previous steps.</b>
+      </description>
+   </intro>
+   <item 
+	title="Login into MPT WebApp">
+        <description>
+		<b>At first step you need to log into the MPT WebApp using your credentials. If you do not have the required credentials, you need to register first.</b>
+        </description>
+	<command
+            required="true"
+            serialization="org.eclipse.ui.browser.openBrowser(url=http://147.102.19.204:8082/eu.artist.methodology.mpt.webapp/)"/> 
+   </item>
+
+   <item
+         title="Upload MAT, TFT and BFT reports into the MPT WebApp">
+      <description>
+         <b>After logging into the MPT WebApp, click on the &quot;UPLOAD REPORTS&quot; link on the left menu. Select the MAT, TFT and BFT reports from your local file system and upload them using the corresponding buttons.</b>
+      </description>
+   </item>
+   
+   <item
+         title="Configure MPT WebApp using MAT,TFT and BFT reports">
+      <description>
+         <b>Click on the CONFIGURE MPT link on the left menu. In the displayed page, select an available MAT, TFT and BFT reports from the dropdown list and press the Configure MPT button. </b>
+      </description>
+   </item>
+
+   <item
+         title="View configured ARTIST Methodology from the EPF Composer">
+      <description>
+         <b>By clicking on the VIEW METHODOLOGY link on the left menu, you will be able to see the configured ARTIST Methodology through the EPF Composer.</b>
+      </description>
+   </item>
+   <item
+         title="Load configuration suggestions">
+      <description>
+         <b>Click here to configure the following steps of the tutorial based on the pre-migration results.</b>
+      </description>    
+      <command returns = "result"
+      	 serialization="eu.artist.methodology.mpt.cheatsheet.commands.runRuleEngineCommand()"/>
+      <onCompletion>The following migration and post migration steps have been configured based on the pre-migration results.</onCompletion>     
+   </item>
+   <item
+   		title="Next step">
+   		<description>
+   			<b> </b>
+   		</description>
+   		 <!--onCompletion>${result}</onCompletion-->     
+      	<conditional-subitem condition="${result}">
+      		<subitem when="error"
+            	label="An error occurred while loading configuration. The default configuration will be used instead. Re-do the previous step or click here to proceed to the migration phase.">
+            	<action pluginId="eu.artist.methodology.mpt.cheatsheet"
+						class="eu.artist.methodology.mpt.cheatsheet.actions.ModifyCheatSheetAction"
+						param1="eu.artist.methodology.mpt.cheatsheet.migration"/>
+      		</subitem>
+      		<subitem when="pass"
+            	label="Click here to proceed to the migration phase">
+            	<action pluginId="eu.artist.methodology.mpt.cheatsheet"
+						class="eu.artist.methodology.mpt.cheatsheet.actions.ModifyCheatSheetAction"
+						param1="eu.artist.methodology.mpt.cheatsheet.migration"/>
+      		</subitem>    	
+     	</conditional-subitem>     
+   </item>
+</cheatsheet>

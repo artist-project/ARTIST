@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
 <compositeCheatsheet name="ARTIST Methodology Process Tool">
    <taskGroup kind="set" name="Pre-Migration Group" skip="false">
       <intro>
@@ -14,7 +40,7 @@
          <onCompletion>
             <b>Conclusion</b>
          </onCompletion>
-         <param name="path" value="maturity_assessment_simple.xml">
+         <param name="path" value="premigration/maturity_assessment_simple.xml">
          </param>
       </task>
       <task kind="cheatsheet" name="Perform business feasibility analysis" skip="false">
@@ -24,7 +50,7 @@
          <onCompletion>
             <b>Conclusion</b>
          </onCompletion>
-         <param name="path" value="business_feasibility_simple.xml">
+         <param name="path" value="premigration/business_feasibility_simple.xml">
          </param>
       </task>
       <task kind="cheatsheet" name="Perform technical feasibility analysis" skip="false">
@@ -34,7 +60,7 @@
          <onCompletion>
             <b>The results from the technical feasibility analysis are included in the report from the TFT. </b>
          </onCompletion>
-         <param name="path" value="technical_feasibility_simple.xml">
+         <param name="path" value="premigration/technical_feasibility_simple.xml">
          </param>
       </task>
       <task kind="cheatsheet" name="Evaluate changes on the initial parameters" skip="false">
@@ -44,7 +70,7 @@
          <onCompletion>
             <b>Conclusion</b>
          </onCompletion>
-         <param name="path" value="evaluate_changes_simple.xml">
+         <param name="path" value="premigration/evaluate_changes_simple.xml">
          </param>
       </task>
       <task kind="cheatsheet" name="Configure methodology" skip="false">
@@ -54,7 +80,7 @@
          <onCompletion>
             <b>At the end of this task, the ARTIST Methodology has been customized according to the maturity, technical and business analysis results of the ARTIST Tools.</b>
          </onCompletion>
-         <param name="path" value="conf_mpt_simple.xml">
+         <param name="path" value="premigration/conf_mpt_simple.xml">
          </param>
       </task>
       <taskGroup kind="set" name="Migration Group" skip="false">
@@ -71,7 +97,7 @@
             <onCompletion>
                <b>Conclusion</b>
             </onCompletion>
-            <param name="path" value="model_discovery_simple.xml">
+            <param name="path" value="migration/model_discovery_simple.xml">
             </param>
          </task>
          <task kind="cheatsheet" name="Perform model understanding" skip="false">
@@ -81,7 +107,7 @@
             <onCompletion>
                <b>Conclusion</b>
             </onCompletion>
-            <param name="path" value="model_understanding_simple.xml">
+            <param name="path" value="migration/model_understanding_simple.xml">
             </param>
          </task>
          <task kind="cheatsheet" name="View Cloud providers benchmarks" skip="true">
@@ -91,7 +117,7 @@
             <onCompletion>
                <b>Conclusion</b>
             </onCompletion>
-            <param name="path" value="view_benchmarks_simple.xml">
+            <param name="path" value="migration/view_benchmarks_simple.xml">
             </param>
          </task>
          <task kind="cheatsheet" name="Benchmark and profile application" skip="false">
@@ -101,7 +127,7 @@
             <onCompletion>
                <b>Conclusion</b>
             </onCompletion>
-            <param name="path" value="profile_benchmarks_app_simple.xml">
+            <param name="path" value="migration/profile_benchmarks_app_simple.xml">
             </param>
          </task>
          <task kind="cheatsheet" name="Perform modernization" skip="false">
@@ -111,7 +137,17 @@
             <onCompletion>
                <b>Conclusion</b>
             </onCompletion>
-            <param name="path" value="modernization_simple.xml">
+            <param name="path" value="migration/modernization_simple.xml">
+            </param>
+         </task>
+         <task kind="cheatsheet" name="Test" skip="false">
+            <intro>
+               <b>Introduction</b>
+            </intro>
+            <onCompletion>
+               <b>Conclusion</b>
+            </onCompletion>
+            <param name="path" value="migration/test_simple.xml">
             </param>
          </task>
          <taskGroup kind="set" name="Post-migration Group" skip="false">
@@ -128,7 +164,7 @@
                <onCompletion>
                   <b>Conclusion</b>
                </onCompletion>
-               <param name="path" value="monitor_sla_adherence_simple.xml">
+               <param name="path" value="postmigration/monitor_sla_adherence_simple.xml">
                </param>
             </task>
          </taskGroup>

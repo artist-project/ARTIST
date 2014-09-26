@@ -1,0 +1,83 @@
+
+package rule_api_test
+
+import eu.artist.methodology.mpt.model.MigrationGoals;
+import eu.artist.methodology.mpt.model.TechnicalGoals;
+
+global eu.artist.methodology.mpt.model.Result result;
+global eu.artist.methodology.mpt.model.TestVariable testVariable;
+global eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable rulesVariable;
+//declare any global variables here
+
+rule "Rule_1"
+
+	when 
+		MigrationGoals (technicalGoals.iaas.targetPlatform == "AEC2")
+	then 
+		System.out.println("Matched Rule One"); 
+		System.out.println("Include steps in EMREQ");
+		
+		result.setStringResult("Include steps in EMREQ");
+		result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+		
+		rulesVariable.addInArray("RULE_1_RETURNS_TRUE");
+		
+		rulesVariable.addToHashMap("RULE_1", "EMREQ", "Annotate PIM with AWS requirement");
+
+end
+
+rule "Rule_2"
+
+	when 
+		MigrationGoals (businessGoals.bil.getRule() == "use")
+	then 
+		System.out.println("Matched Rule Two"); 
+		System.out.println("Include steps in EMREQ and OPTAPPFEA");
+		
+		result.setStringResult("Include steps in EMREQ and OPTAPPFEA");
+		result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+		
+		rulesVariable.addInArray("RULE_2_RETURNS_TRUE");
+		
+		rulesVariable.addToHashMap("RULE_2", "EMREQ", "Annotate PSM with monitoring and billing components");
+		rulesVariable.addToHashMap("RULE_2", "OPTAPPFEA", "Ensure that the monitoring component is created at PSM level before proceeding to the next step");
+
+end
+
+rule "Rule_3"
+
+	when 
+		MigrationGoals (technicalGoals.iaas.targetPlatform == "Azure")
+	then 
+		System.out.println("Matched Rule Three"); 
+		System.out.println("Skip Target Environment Specification tasks.");
+		
+		result.setStringResult("Skip Target Environment Specification tasks.");
+		result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+		
+		rulesVariable.addInArray("RULE_3_RETURNS_TRUE");
+		rulesVariable.addToHashMap("RULE_3","Target Environment Specification Phase","Remove ALL tasks");
+
+end
+
+rule "Rule_4"
+
+	when 
+		MigrationGoals (technicalGoals.a_p.databaseScalabilityRequirements == "high_scalability")
+	then 
+		System.out.println("Matched Rule Four"); 
+		System.out.println("Include steps in EMREQ and OPTAPPFEA");
+		
+		result.setStringResult("Include steps in EMREQ and OPTAPPFEA");
+		result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+		
+		rulesVariable.addInArray("RULE_4_RETURNS_TRUE");
+		
+		rulesVariable.addToHashMap("RULE_4", "EMREQ", "Annotate back-end component with highly scalable database requirement");
+		rulesVariable.addToHashMap("RULE_4", "OPTAPPFEA", "Ensure that: (1) Data schema re-factoring and optimization targets NoSQL persistence frameworks, (2) Data dump transformation fits the data into the target NoSQL persistence frameworks, and (3) Persistence layer adaptation is based on the selected target NoSQL persistence frameworks");
+		
+end
