@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <element name="MigrationGoals" type="tns:MigrationGoals"></element>
+    
+    <complexType name="MigrationGoals">
+    	<sequence>
+    		<element name="TechnicalGoals" type="tns:TechnicalGoals"></element>
+    		<element name="Business" type="tns:BusinessGoals"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TechnicalGoals">
+    	<sequence>
+    		<element name="a_p" type="tns:a_p"></element>
+    		<element name="SLA" type="tns:SLA"></element>
+    		<element name="u_c" type="tns:u_s"></element>
+    		<element name="iaas" type="tns:iaas"></element>
+    		<element name="interop" type="tns:interop"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="BusinessGoals">
+    	<sequence>
+    		<element name="mon" type="tns:mon"></element>
+    		<element name="use" type="tns:use"></element>
+    		<element name="bil" type="tns:bil"></element>
+    		<element name="pro" type="tns:pro"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="a_p">
+    	<sequence>
+    		<element name="migratedpl" type="string"></element>
+    		<element name="multitenancy">
+    			<simpleType>
+    				<restriction base="string">
+    					<maxLength value="40"></maxLength>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    		<element name="tdatabasereq" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="SLA">
+    	<sequence>
+    		<element name="reliability" type="int"></element>
+    		<element name="datalocation" type="string"></element>
+    		<element name="responset" type="float"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="u_s">
+    	<sequence>
+    		<element name="configreq" type="string"></element>
+    		<element name="authorreq" type="string"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="iaas">
+    	<sequence>
+    		<element name="targetplat" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="interop">
+    	<sequence>
+    		<element name="interopreq" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="mon">
+    	<sequence>
+    		<element name="measur_elem" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="use">
+    	<sequence>
+    		<element name="wai" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="bil">
+    	<sequence>
+    		<element name="rule" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="pro">
+    	<sequence>
+    		<element name="license_mod" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>

@@ -59,9 +59,11 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import eu.artist.methodology.mpt.cheatsheet.rules.Pair;
-import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
+//import eu.artist.methodology.mpt.cheatsheet.rules.Pair;
+//import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
 
+import  eu.artist.premigration.tft.mpt.rules.Pair;
+import  eu.artist.premigration.tft.mpt.rules.RulesVariable;
 
 public class ModifyCheatSheetAction extends Action implements IIntroAction, ICheatSheetAction{
 	static final HashMap<String, String> csMap;

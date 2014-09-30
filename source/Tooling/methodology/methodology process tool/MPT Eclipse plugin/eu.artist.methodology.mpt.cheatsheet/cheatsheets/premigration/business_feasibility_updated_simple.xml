@@ -38,13 +38,13 @@
          <b>Create a Modeling Project</b>
       </description>
       <subitem
-            label="Before creating a Business Model, a Modeling Project to put it in is needed. In the main toolbar, click on &quot;File -&gt; New -&gt; Other -&gt;  Sirius -&gt; Modeling Project&quot;. Enter a project name, then click Finish.">
+            label="Before creating a Business Model, a Modeling Project to put it in is needed. In the main toolbar, click on &quot;File -&gt; New -&gt; Other -&gt;  Sirius -&gt; Modeling Project&quot;. Enter a project name, then click Finish. Alternatively click on the green arrow on the right to automate the action.">
          <command
                required="false"
                serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.sirius.ui.modelingproject.wizard)"/>
       </subitem>
       <subitem skip="true"
-            label="If the Sirius perspective is not enabled, in the main menu select &quot;Window -&gt; Open Perspective -&gt; Sirius&quot;">
+            label="If the Sirius perspective is not enabled, in the main menu select &quot;Window -&gt; Open Perspective -&gt; Sirius&quot;. Alternatively click on the green arrow on the right to automate the action.">
          <command
                required="false"
                serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.sirius.ui.tools.perspective.design)"/>

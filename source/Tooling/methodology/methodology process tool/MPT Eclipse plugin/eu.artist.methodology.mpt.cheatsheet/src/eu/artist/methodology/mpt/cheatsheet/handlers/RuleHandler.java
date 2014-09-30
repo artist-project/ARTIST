@@ -32,7 +32,9 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
+//import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
+
+import eu.artist.premigration.tft.mpt.rules.RulesVariable;
 
 public class RuleHandler extends AbstractHandler {
 	

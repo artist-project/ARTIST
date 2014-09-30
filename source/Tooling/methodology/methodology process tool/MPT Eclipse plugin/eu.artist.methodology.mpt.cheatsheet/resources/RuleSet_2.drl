@@ -11,18 +11,29 @@
  *******************************************************************************/
 package rule_api_test
 
-import eu.artist.methodology.mpt.model.MigrationGoals;
-import eu.artist.methodology.mpt.model.TechnicalGoals;
 
+import eu.artist.premigration.tft.mpt.model.MigrationGoals;
+import eu.artist.premigration.tft.mpt.model.TechnicalGoals;
+
+/*
 global eu.artist.methodology.mpt.model.Result result;
 global eu.artist.methodology.mpt.model.TestVariable testVariable;
 global eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable rulesVariable;
+
+import eu.artist.premigration.tft.tft.model.MigrationGoals;
+import eu.artist.premigration.tft.tft.model.TechnicalGoals;
+*/
+
+global eu.artist.premigration.tft.mpt.model.Result result;
+global eu.artist.premigration.tft.mpt.model.TestVariable testVariable;
+global eu.artist.premigration.tft.mpt.rules.RulesVariable rulesVariable;
+
 //declare any global variables here
 
 rule "Rule_1"
 
 	when 
-		MigrationGoals (technicalGoals.iaas.targetPlatform == "AEC2")
+		MigrationGoals (technicalGoals.iaas.targetPlatform == "EC2")
 	then 
 		System.out.println("Matched Rule One"); 
 		System.out.println("Include steps in EMREQ");
@@ -33,7 +44,7 @@ rule "Rule_1"
 		
 		rulesVariable.addInArray("RULE_1_RETURNS_TRUE");
 		
-		rulesVariable.addToHashMap("RULE_1", "EMREQ", "Annotate PIM with AWS requirement");
+		rulesVariable.addToHashMap("RULE_1", "EMREQ", "Annotate PIM with cloud provider requirements");
 
 end
 
@@ -59,7 +70,7 @@ end
 rule "Rule_3"
 
 	when 
-		MigrationGoals (technicalGoals.iaas.targetPlatform == "Azure")
+		MigrationGoals (technicalGoals.iaas.targetPlatform == "AZURE")
 	then 
 		System.out.println("Matched Rule Three"); 
 		System.out.println("Skip Target Environment Specification tasks.");

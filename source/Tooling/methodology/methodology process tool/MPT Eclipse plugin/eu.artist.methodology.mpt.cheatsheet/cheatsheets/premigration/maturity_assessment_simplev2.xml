@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Perform maturity assessment">
+   <intro>
+      <description>
+         <b>Use the Maturity Assessment Tool (MAT) to analyze the application to be migrated in order to characterize the business situation of the current legacy application as well as the characteristics that the migrated application should have under the business perspective.</b>
+      </description>
+   </intro> 
+    
+   <item
+         title="Open MAT in a web browser">
+      <description>
+         <b> </b>
+      </description>
+      <command
+            required="true"
+            serialization="org.eclipse.ui.browser.openBrowser(url=http://localhost:8080/ArtistEva/)"/> 
+   </item>
+    
+   <item
+         title="Login into MAT">
+      <description>
+         <b>Login into MAT by providing a valid login and password combination and pressing the “Accept” button. If you don't have an account, click on the “Create New User” button to create one. In this window the user has to fill in the formulary and press the “Create User” button. The fields with and (*) are mandatory.</b>
+      </description>
+   </item>
+   
+   <item
+         title="Answer questions">
+      <description>
+         <b>Click the "Answer Questions" button</b>
+      </description>
+   </item>
+  
+   <item
+         title="Select dimension and scope of the questionnaire">
+      <description>
+         <b>In the dimension selection page that appears after login, select a dimension from the available ones (business, process, and technical) and the scope of the questionnaire (current situation, future situation)</b>
+      </description>
+   </item>
+  
+   <item	
+  	  title="View available categories"> 
+      <description>
+         <b>Once the dimension and the scope are selected, the category window is opened. In this window you can view all the categories to be evaluated for a certain dimension/scope. Here the current status of the score achieved (based on the current status of the questionnaire that is the answers already provided) and the maximum score for each of the areas inside a dimension are presented. Also, the total score per dimension is showed.</b>
+      </description>
+   </item>
+
+   <item	
+  	  title="Fill in questionnaires"> 
+      <description>
+         <b>Clicking in any category will allow you to access the Question window, where you need to answer the relevant questionnaire. Clicking on “Save Answers” button will store your answers, so when you enter the questionnaire again, the questions will be answered. If the “Cancel” button is clicked, the previous windows will appear without saving changes.</b>
+      </description>
+   </item>
+
+   <item	
+  	  title="Check questionnaire results"> 
+      <description>
+         <b>You can check the results of the questionnaire in the different dimension tabs.  You can also see graphical charts by clicking in the buttons of each category/dimesion. </b>
+      </description>
+   </item>
+
+   <item
+         title="Answer other questions">
+      <description>
+         <b>Click the "Other Questions" button.</b>
+      </description>
+   </item>
+
+   <item	
+  	  title="Fill in other questions questionnaire"> 
+      <description>
+         <b>You need to answer the relevant questionnaire. Clicking on “Save Answers” button will store your answers, so when you enter the questionnaire again, the questions will be answered. If the “Cancel” button is clicked, the previous windows will appear without saving changes.</b>
+      </description>
+   </item>
+
+   <item
+         title="Generate Report">
+      <description>
+         <b>Click the "Generate Report" button. A new window(tab) will  be opened into your web browser showing the MAT report pdf file.</b>
+      </description>
+   </item>
+
+   <item
+         title="Generate Files">
+      <description>
+         <b>Click the "Generate Files" button. In this section two files can be generated. MPT XML file for feeding the MPT tool and GML file to feed the Migration Goal Editor tool</b>
+      </description>
+   </item>
+   <item
+         title="Download MPT report">
+      <description>
+         <b>Download MAT MPT report in order to use it for configuring the methodology. </b>
+      </description>
+      <action pluginId="eu.artist.methodology.mpt.cheatsheet"
+			  class="eu.artist.methodology.mpt.cheatsheet.actions.DownloadMATReportAction"/>
+   </item>
+   
+   
+</cheatsheet>

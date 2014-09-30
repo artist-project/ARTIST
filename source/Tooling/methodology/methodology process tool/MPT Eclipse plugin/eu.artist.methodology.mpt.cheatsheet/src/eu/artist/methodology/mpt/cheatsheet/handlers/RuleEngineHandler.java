@@ -45,10 +45,18 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.FileLocator;
 
+/*
 import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
 import eu.artist.methodology.mpt.model.GlobalVariable;
 import eu.artist.methodology.mpt.model.Result;
 import eu.artist.methodology.mpt.rule.api.RuleEngine;
+import eu.artist.premigration.tft.tft.views.MigrationGoalsView;
+*/
+
+import eu.artist.premigration.tft.mpt.rules.RulesVariable;
+import eu.artist.premigration.tft.mpt.model.GlobalVariable;
+import eu.artist.premigration.tft.mpt.model.Result;
+import eu.artist.premigration.tft.mpt.api.RuleEngine;
 import eu.artist.premigration.tft.tft.views.MigrationGoalsView;
 
 public class RuleEngineHandler extends AbstractHandler {
@@ -57,16 +65,30 @@ public class RuleEngineHandler extends AbstractHandler {
 	}
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		
+	
+	File file = new File("C:\\mpt_logs\\ruleEngineHandler.txt");
+	file.getParentFile().mkdirs();
+	FileWriter fw = null;
+	
+	try {
+	    fw = new FileWriter(file, true);
+	} catch (IOException e2) {
+		// TODO Auto-generated catch block
+		e2.printStackTrace();
+	}
+	PrintWriter pw = new PrintWriter(fw);
+	pw.print("Rule Engine handler has been activated.");
+	
 	try {
 		
+	
 		//Bundle bundle = Platform.getBundle("eu.artist.methodology.mpt.cheatsheet");
 		//URL rulesFileURL = bundle.getEntry("resources/RuleSet_1.drl");
 		
 		URL rulesFileURL=null;
 		
 		try {
-			rulesFileURL = new URL("platform:/plugin/eu.artist.methodology.mpt.cheatsheet/resources/RuleSet_2.drl");
+			rulesFileURL = new URL("platform:/plugin/eu.artist.methodology.mpt.cheatsheet/resources/RuleSet_3.drl");
 		    /*
 			InputStream inputStream = rulesFileURL.openConnection().getInputStream();
 		    BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
@@ -80,23 +102,25 @@ public class RuleEngineHandler extends AbstractHandler {
 		    */
 		 
 		} catch (Exception e) {
-		    e.printStackTrace();
-		    return "error code x: " + e.getMessage();
+		    e.printStackTrace(pw);
+		    //return "error code x: " + e.getMessage();
+		    return "error";
 		}
 		
 		IFile ifile = null;
 		try {
 		  ifile = MigrationGoalsView.xmlFile;
 		} catch (Exception exc) {
-			return "error code 1: " + exc.getMessage();
-			//return "error";
+			exc.printStackTrace(pw);
+			//return "error code 1: " + exc.getMessage();
+			return "error";
 		}
 		
 		if (ifile == null) {
 			
-			System.out.println("IFile is null.");
-			return "error code 2: selected file does not reside in the workspace" ;
-			//return "error";
+			pw.println("IFile is null: selected file does not reside in the workspace");
+			//return "error code 2: selected file does not reside in the workspace" ;
+			return "error";
 			
 		} else {
 		
@@ -111,31 +135,34 @@ public class RuleEngineHandler extends AbstractHandler {
 						   
 				//rulesFile = new File(FileLocator.resolve(rulesFileURL).toURI());
 			} catch (URISyntaxException e1) {
-				e1.printStackTrace();
-				return "error code 3: " + e1.getMessage();
-				//return "error";
+				e1.printStackTrace(pw);
+				//return "error code 3: " + e1.getMessage();
+				return "error";
 			} catch (IOException e1) {
-				e1.printStackTrace();
-				return "error code 4: " + e1.getMessage();
-				//return "error";
+				e1.printStackTrace(pw);
+				//return "error code 4: " + e1.getMessage();
+				return "error";
 			} catch (Exception e1) {
-				e1.printStackTrace();
-				return "error code 5: " + e1.getMessage();
-				//return "error";
+				e1.printStackTrace(pw);
+				//return "error code 5: " + e1.getMessage();
+				return "error";
 			}
 			
 			try {
 				RuleEngine.INSTANCE.loadMATReport(mgFile);
 			} catch (Exception e) {
-				return "error code xx " + e.getMessage();
+				e.printStackTrace(pw);
+				//return "error code xx " + e.getMessage();
+				return "error";
 				
 			}
 			
 			try {
 				RuleEngine.INSTANCE.setRuleFile(rulesFile);
 			} catch (Exception e) {
-				return "error code xxx " + e.getMessage();
-				
+				e.printStackTrace(pw);
+				//return "error code xxx " + e.getMessage();
+				return "error";
 			}
 			
 		
@@ -150,43 +177,45 @@ public class RuleEngineHandler extends AbstractHandler {
 				//List<GlobalVariable> variables = new ArrayList<GlobalVariable>();
 				variables.add(r_variable);
 			} catch (Exception e) {
-				return "error code xxxx " + e.getMessage();
+				e.printStackTrace(pw);
+				//return "error code xxxx " + e.getMessage();
+				return "error";
 			}
 			
 			try {
 		
 				RuleEngine.INSTANCE.fireRules(variables);
 				
-			} catch (Exception e) {
-				
-				FileWriter fw = new FileWriter("C:\\eclipse\\mptlog.txt", true);
-				PrintWriter pw = new PrintWriter(fw);
+			} catch (Exception e) {				
 				e.printStackTrace (pw);
-				
-				pw.close();
-				fw.close();
-				
-				return "error code 5x " + e.getMessage() + "   " + mgFile.getPath() + "  " + rulesFile.getPath();
+				//return "error code 5x " + e.getMessage() + "   " + mgFile.getPath() + "  " + rulesFile.getPath();
+				return "error";
 			}
 			
 			try {
 				Result result = RuleEngine.INSTANCE.getResult();
 				System.out.println("Result: " + result.getStringResult());
+				pw.println("Result: " + result.getStringResult());
 				//System.out.println(((RulesVariable)r_variable.getVariable()).getRuleString());
 				//System.out.println(RulesVariable.rules);
+				pw.close();
+				
+				fw.close();
 				
 			} catch (Exception e) {
-				return "error code 6x " + e.getMessage() + "   " + mgFile.getPath() + "  " + rulesFile.getPath();
+				e.printStackTrace(pw);
+				//return "error code 6x " + e.getMessage() + "   " + mgFile.getPath() + "  " + rulesFile.getPath();
+				return "error";
 			}
 			
 			return "pass";
 		}
 		
 	} catch (Exception e) {
-			e.printStackTrace();
-			return "error code 6: " + e.getMessage();
-			//return "error";
-	}		
-	
+			e.printStackTrace(pw);
+			//return "error code 6: " + e.getMessage();	
+			
+			return "error";
+	}			
   }
 }

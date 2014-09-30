@@ -26,6 +26,10 @@
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet.handlers;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,8 +39,14 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
+/*
 import eu.artist.methodology.mpt.cheatsheet.rules.Pair;
 import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
+*/
+
+
+import  eu.artist.premigration.tft.mpt.rules.Pair;
+import  eu.artist.premigration.tft.mpt.rules.RulesVariable;
 
 public class RuleHandlerTest extends AbstractHandler {
 	
@@ -46,6 +56,17 @@ public class RuleHandlerTest extends AbstractHandler {
 	}
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		File file = new File("C:\\mpt_logs\\ruleHandling.txt");
+		file.getParentFile().mkdirs();
+		FileWriter fw = null;
+		try {
+		    fw = new FileWriter(file, true);
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		PrintWriter pw = new PrintWriter(fw);
+		pw.println("Rule handler has been activated.");
 		
 		try {
 			
@@ -69,10 +90,12 @@ public class RuleHandlerTest extends AbstractHandler {
 			
 			String rule_id = event.getParameter("eu.artist.methodology.mpt.ruleParameter");
 			System.out.println("Rule under examination refers to task: " + rule_id);
+			pw.println("Rule under examination refers to task: " + rule_id);
 			
 			HashMap<Pair<String, String>, String> rules_map = RulesVariable.rules_map;
 			
 			System.out.println("Rules map size is " + rules_map.size());
+			pw.println("Rules map size is " + rules_map.size());
 				
 			StringBuilder rules_string = new StringBuilder();
 			/*
@@ -107,8 +130,22 @@ public class RuleHandlerTest extends AbstractHandler {
 			System.out.println("Rules map string is " + rules_string);
 			rules = rules_string.toString();
 			
+			pw.println("Rules map string is " + rules);
+			
+			pw.close();
+			
+			fw.close();
+			
 		} catch (Exception e) {
-			e.printStackTrace();
+			e.printStackTrace(pw);
+			pw.close();
+			
+			try {
+				fw.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			return rules;
 		}
 		
