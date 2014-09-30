@@ -11,6 +11,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *
  */
 
 package eu.artist.migration.pt.user;
