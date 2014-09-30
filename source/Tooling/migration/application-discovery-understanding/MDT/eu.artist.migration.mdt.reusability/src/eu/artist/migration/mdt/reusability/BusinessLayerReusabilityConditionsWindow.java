@@ -121,7 +121,7 @@ public class BusinessLayerReusabilityConditionsWindow {
 			@Override
 			public void mouseDown(MouseEvent e) {
 				if ((!ContextData.isSameTechPresentation())
-						&& (btnSameProgrammingLanguageNo.getSelection()==true)) {
+						&& (!ContextData.isSameLangBusiness())) {
 					MessageDialog.openWarning(shell, "Warning",
 							"There is no possibility of reuse.");
 					shell.close();					
@@ -230,19 +230,26 @@ public class BusinessLayerReusabilityConditionsWindow {
 										.getSelection());
 						comboProgrammingLanguage
 								.setVisible(btnSameProgrammingLanguageYes
-										.getSelection());						
+										.getSelection());
+						ContextData
+								.setSameLangBusiness(btnSameProgrammingLanguageYes
+										.getSelection());
 					}
 				});
 		btnSameProgrammingLanguageYes.setText("Yes");
-		if (Configuration.sameProgramingLanguageMAT.equalsIgnoreCase("Yes"))
+		if (Configuration.sameProgramingLanguageMAT.equalsIgnoreCase("Yes")){
 			btnSameProgrammingLanguageYes.setSelection(true);
+			ContextData.setSameLangBusiness(true);
+		}
 
 		btnSameProgrammingLanguageNo = new Button(grpSameProgrammingLanguage,
 				SWT.RADIO);
 		btnSameProgrammingLanguageNo.setBounds(23, 44, 83, 16);
 		btnSameProgrammingLanguageNo.setText("No");
-		if (Configuration.sameProgramingLanguageMAT.equalsIgnoreCase("No"))
-			btnSameProgrammingLanguageNo.setSelection(true);
+		if (Configuration.sameProgramingLanguageMAT.equalsIgnoreCase("No")){
+			btnSameProgrammingLanguageNo.setSelection(true);		
+			ContextData.setSameLangBusiness(false);
+		}
 
 		comboProgrammingLanguage = new Combo(grpSameProgrammingLanguage,
 				SWT.NONE);
