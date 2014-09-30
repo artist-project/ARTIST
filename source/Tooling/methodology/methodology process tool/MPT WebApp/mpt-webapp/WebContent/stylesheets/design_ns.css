@@ -1,0 +1,78 @@
+﻿/*
+ * Copyright (c) 2005, 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ *
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial implementation
+ */
+
+.boxthin {
+	border-color: #E9E9E9;
+	border-style: solid;
+	border-width: thin;
+	width: 275px;
+}
+
+.container {
+	margin-left: 12px;
+	width: 100%;
+}
+
+.content {
+	margin-left: 12px;
+	width: 100%;
+}
+
+ /* a simple inset for blocked elements to indent */
+.inset {
+	clear: both;
+	margin-left: 13px;
+	margin-top: 4px;
+	width: 100%;
+}
+
+.midalign {
+	vertical-align: middle;
+}
+
+.spacing {
+}
+
+ /* The classes below all relate to the upper right button on the nav frame*/
+
+.whrbtn {
+	position: absolute;
+	top: 0;
+	width: 90%;
+}
+
+.whrbuttonbg {
+	background-color: #FBFBFB;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.whrbuttonhighlight {
+	background-color: #CBCBCB;
+}
+
+.whrbuttonshadow {
+	background-color: #686868;
+}
+
+.whrmargin{
+	background-color: #EFEFEF;
+}
+
+.whrmarginbrdr {
+	background-color: #DEDEDE;
+}
+
+ /* This class is provided for netscape so that the scroll bar doesn't cover the button. The spacing is provided by an image inside a div. In other browsers, it is simply turned off */
+.whrspacer {
+}

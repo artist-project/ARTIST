@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		
+		<style type="text/css">
+			body {
+        		background-color: #ffffff;
+        		font-family: arial, helvetica, sans-serif;
+        		font-size: 10pt;
+        		margin-left: 0px;
+        		margin-right: 0px;
+        		margin-top: 0px;
+        		margin-bottom: 0px;
+        		text-decoration: none;
+			}
+	   </style>
+    </h:head>
+ 
+    <h:body> 
+      <h:form>
+        <div id="result">
+            <h4>
+				<h:outputText value="#{reportUploadBean.statusMessage}">
+				</h:outputText>
+			</h4> 
+            <!-- h:commandButton action="/reportsupload.xhtml?faces-redirect=true" value="New upload?" /-->	           
+            <h:link outcome="/reportsupload.xhtml?faces-redirect=true" value="New upload?" />
+        </div>
+     </h:form>
+    </h:body>
+    
+</html>
