@@ -16,6 +16,9 @@ Profiling tool
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *
  */
  
 
@@ -26,7 +29,7 @@ Profiling tool is used:
 2. In order to acquire the same type of footprints of a set of test-applications called benchmarks on the same physical host.
 The results of both execution modes of the tool, will be served as an input to a classification tool, which will decide upon the type of the application. Application types are defined according to the categorization of the benchmarks. 
 
-
+Known Issues: Potential errors during usage are presented in section 4 of user manual
 
 PART B (Installation instructions and User Manual)
 

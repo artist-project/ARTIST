@@ -12,6 +12,8 @@ import java.security.MessageDigest;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Button;
@@ -72,6 +74,23 @@ public class LoginWindow {
 		shlLoginToMat.setLocation(400,100);
 		shlLoginToMat.setSize(319, 225);
 		shlLoginToMat.setText("Login to MAT");
+		shlLoginToMat.addKeyListener(new KeyListener(){		
+			
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				Log.writeLog("el codigo de enter es"+e.keyCode);
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+		});
+
 
 		CLabel lblLabel = new CLabel(shlLoginToMat, SWT.NONE);
 		lblLabel.setBounds(47, 28, 61, 21);
@@ -155,10 +174,11 @@ public class LoginWindow {
 			}
 			
 			strJson=builder.toString();
+			Log.writeLog("received json is "+strJson);
 			
 			JSONObject json = new JSONObject(strJson);
 			
-			if (strJson.equalsIgnoreCase("{}")){
+			if ((strJson.equalsIgnoreCase("{}"))){
 				MessageDialog.openWarning(shlLoginToMat, "Warning",
 						"Configuration values cannot be obtained from MAT. Please introduce them through next screens.");
 				return;
@@ -205,9 +225,13 @@ public class LoginWindow {
 			MessageDialog.openWarning(shlLoginToMat, "Warning",
 					"MAT cannot be invoked. You will have to insert the reusability conditions by hand. Sorry for this...");
 			Log.writeLog(e.toString());
-		} catch (JSONException e) {							
+		} catch (JSONException e) {
+			MessageDialog.openWarning(shlLoginToMat, "Warning",
+					"MAT cannot be invoked. You will have to insert the reusability conditions by hand. Sorry for this...");
 			Log.writeLog(e.toString());
-		} catch (Exception e) {						
+		} catch (Exception e) {
+			MessageDialog.openWarning(shlLoginToMat, "Warning",
+					"MAT cannot be invoked. You will have to insert the reusability conditions by hand. Sorry for this...");
 			Log.writeLog(e.toString());
 		}
 	}

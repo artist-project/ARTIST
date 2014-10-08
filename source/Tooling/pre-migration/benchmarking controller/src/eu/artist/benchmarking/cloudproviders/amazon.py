@@ -36,7 +36,6 @@ import ConfigParser
 import time
 from eu.artist.benchmarking.cloudproviders.common import CloudProviderBase
 
-
 __author__ = "Nunzio Andrea Galante, Gabriele Giammatteo"
 __copyright__ = "Copyright 2014 Engineering Ingegneria Informatica S.p.A."
 __credits__ = ["Nunzio Andrea Galante", "Gabriele Giammatteo"]
@@ -54,7 +53,6 @@ VERIFY_SSL_CERT= True
 VERIFY_SSL_CERT_STRICT= True
 
 class AmazonProvider(CloudProviderBase):
-    
 
     def initialize(self):
         driver=get_driver(Provider.EC2)
