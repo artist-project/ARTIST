@@ -29,8 +29,23 @@ Profiling tool is used:
 2. In order to acquire the same type of footprints of a set of test-applications called benchmarks on the same physical host.
 The results of both execution modes of the tool, will be served as an input to a classification tool, which will decide upon the type of the application. Application types are defined according to the categorization of the benchmarks. 
 
-Known Issues: Potential errors during usage are presented in section 4 of user manual
 
+**************************************************************************
+**************************************************************************
+
+KNOWN ISSUES
+
+Potential errors during usage are presented in section 4 of user manual
+
+**************************************************************************
+**************************************************************************
+
+EXPECTED FUNCTIONALITY
+
+-
+
+**************************************************************************
+**************************************************************************
 
 
 PART B (Installation instructions and User Manual)
