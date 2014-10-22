@@ -42,7 +42,7 @@ Potential errors during usage are presented in section 4 of user manual
 
 EXPECTED FUNCTIONALITY
 
--
+Possible bug fixing
 
 **************************************************************************
 **************************************************************************
