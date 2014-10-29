@@ -1,5 +1,5 @@
-Model Cloudification Framework
-==============================
+Model Cloudification Framework - Model2Model Transformations
+============================================================
 
 Purpose
 -------

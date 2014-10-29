@@ -1,5 +1,5 @@
-Model to Text Components
-==============================
+Model Cloudification Framework - Model2Text Transformations
+===========================================================
 
 Purpose
 -------
