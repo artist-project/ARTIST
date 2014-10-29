@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ARTIST PIM Abstractor
+Bundle-SymbolicName: eu.artist.migration.mut.pimabstractor;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.migration.mut.pimabstractor.Activator
+Bundle-Vendor: ATOS Spain S.A.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide;bundle-version="3.9.2",
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.8.101",
+ org.eclipse.core.filesystem;bundle-version="1.4.0",
+ org.eclipse.e4.core.services;bundle-version="1.1.0",
+ org.eclipse.m2m.atl.core;bundle-version="3.4.0",
+ org.eclipse.m2m.atl.core.emf;bundle-version="3.4.0",
+ org.eclipse.m2m.atl.emftvm;bundle-version="3.4.100",
+ org.eclipse.uml2.uml;bundle-version="4.1.2",
+ org.eclipse.uml2.uml.resources;bundle-version="4.1.0",
+ org.eclipse.jdt.core;bundle-version="3.9.2",
+ eu.artist.migration.m2mt.lib;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: transformations/,
+ profiles/,
+ .

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            category="eu.artist.migration.mut.category"
+            categoryId="eu.artist.migration.mut.category"
+            id="eu.artist.migration.mut.pimabstractor.commands.abstractModel"
+            name="Abstract the model">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.artist.migration.mut.pimabstractor.handler.AbstractModelHandler"
+            commandId="eu.artist.migration.mut.pimabstractor.commands.abstractModel">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="eu.artist.migration.mut.menu.main"
+               label="Model Understanding Toolbox">
+            <command
+                  commandId="eu.artist.migration.mut.pimabstractor.commands.abstractModel"
+                  id="eu.artist.migration.mut.pimabstractor.menus.abstractModel"
+                  mnemonic="A">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.uml">
+                           </test>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

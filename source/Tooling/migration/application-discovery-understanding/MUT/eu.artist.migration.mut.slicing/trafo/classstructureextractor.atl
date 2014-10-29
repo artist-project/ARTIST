@@ -1,0 +1,97 @@
+--/*******************************************************************************
+-- * Copyright (c) 2014 Vienna University of Technology.
+-- * All rights reserved. This program and the accompanying materials
+-- * are made available under the terms of the Eclipse Public License v1.0
+-- * which accompanies this distribution, and is available at
+-- * http://www.eclipse.org/legal/epl-v10.html
+-- *
+-- * Contributors:
+-- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+-- *
+-- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- *******************************************************************************/
+-- @atlcompiler emftvm
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+module classstructureextractor;
+create SLICE : UMLMM from MODEL : UMLMM, SP : UMLMM;
+
+uses commonextractor;
+
+-- @extends NamedElement2NamedElement
+rule Class2Class {
+	from s : UMLMM!Class in MODEL
+	to t : UMLMM!Class (
+		ownedAttribute <- s.ownedAttribute->select(e|e.shouldBeKept),
+		ownedOperation <- s.ownedOperation->select(e|e.shouldBeKept),
+		generalization <- s.generalization->select(e|e.shouldBeKept)
+	) 
+}
+
+-- @extends NamedElement2NamedElement
+rule Association2Association {
+	from s : UMLMM!Association in MODEL
+	to t : UMLMM!Association (
+		memberEnd <- s.memberEnd,
+		ownedEnd <- s.ownedEnd
+	)
+}
+
+-- @extends TypedElement2TypedElement
+rule Property2Property {
+	from s : UMLMM!Property in MODEL
+	to t : UMLMM!Property (
+		lower <- s.lower,
+		upper <- s.upper,
+		-- is ...
+		isDerived <- s.isDerived,
+		isComposite <- s.isComposite,
+		isDerivedUnion <- s.isDerivedUnion,
+		isID <- s.isID,
+		isLeaf <- s.isLeaf,
+		isOrdered <- s.isOrdered,
+		isReadOnly <- s.isReadOnly,
+		isStatic <- s.isStatic,
+		isUnique <- s.isUnique
+	)
+	do {
+		-- s.debug('Property');	
+	}
+}
+
+-- @extends NamedElement2NamedElement
+rule Operation2Operation {
+	from s : UMLMM!Operation in MODEL
+	to t : UMLMM!Operation (
+		ownedParameter <- s.ownedParameter->select(e|e.shouldBeKept)	
+	)
+}
+
+-- @extends TypedElement2TypedElement
+rule Parameter2Parameter {
+	from s : UMLMM!Parameter in MODEL
+	to t : UMLMM!Parameter
+}
+
+-- @extends Element2Element
+rule Generalization2Generalization {
+	from s : UMLMM!Generalization in MODEL (s.general.shouldBeKept)
+	to t : UMLMM!Generalization (
+		general <- s.general,
+		isSubstitutable <- s.isSubstitutable
+	)
+}
+
+-- @extends NamedElement2NamedElement
+rule Enumeration2Enumeration {
+	from s : UMLMM!Enumeration in MODEL
+	to t : UMLMM!Enumeration (
+		ownedLiteral <- s.ownedLiteral	
+	)
+}
+
+-- @extends NamedElement2NamedElement
+rule EnumerationLiteral2EnumerationLiteral {
+	from s : UMLMM!EnumerationLiteral in MODEL
+	to t : UMLMM!EnumerationLiteral
+}

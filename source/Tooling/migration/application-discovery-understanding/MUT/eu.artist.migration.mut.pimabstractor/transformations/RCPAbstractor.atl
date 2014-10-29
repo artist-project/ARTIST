@@ -1,0 +1,191 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+module RCPAbstractor;
+create OUT: UML2 from IN: UML2, Plugin: XML, Profile: profile;
+uses "Eclipse2RCPMapping";
+uses "lib::UMLLib";
+uses "lib::PluginLib";
+uses "lib::RCP";
+
+
+---***********************************HELPERS *************************************---
+
+--- it returns the list of stereotypes which are being applied to stereotypes applications
+helper def : getStereotypes() : Set(UML2!Stereotype) = thisModule.stereotypeAttributes(thisModule.any())->getKeys();
+
+--- Determines if the package contains any stereotype class
+helper context UML2!Package def : containsStereotypedClasses() : Boolean = 
+	thisModule.allStereotypedClasses()-> exists(c | self.containsClass(c));	
+
+--- Determines if the model in the main project model
+helper context UML2!Model def : isMainModel() : Boolean = 
+	not self.oclIsUndefined() and self.oclIsTypeOf(UML2!Model) and 
+	not (self.name = 'root model') and not (self.name ='externals') and 
+	not (self.name = 'sourcesReferences');
+
+helper context UML2!Class def : isToBeStereotyped() : Boolean = 
+	thisModule.queries()->getKeys()->select(k | k->includes (self))->notEmpty();
+
+helper context UML2!Class def : getApplicableStereotype() : UML2!Stereotype = 
+	thisModule.queries()->get(thisModule.queries()->getKeys()->select(k | k->includes (self))->asOrderedSet()->first());
+
+helper context UML2!Stereotype def : getNameAttributes() : TupleType (role:String, classLabel:String, attrName:String) = 
+	thisModule.nameAttributes()->get(self);
+
+
+---****************************** END OF HELPERS **********************************---
+
+rule Model {
+	from
+		s: UML2!Model in IN (s.isMainModel())
+	to
+		t: UML2!Model (
+			name <- s.name ,
+			visibility <- s.visibility,
+			viewpoint <- s.viewpoint,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			packageMerge <- s.packageMerge,
+			packagedElement<-s.packagedElement
+		)
+	do {
+--		--- We apply the profiles
+		for (prof in s.getAllAppliedProfiles()){
+			t.applyProfile(prof);
+		} 		
+		--- We apply the profile 
+		t.applyProfile(profile!Profile.allInstances().asSequence().first()); 
+		
+		--- We apply the UIApplication stereotype
+		t.applyStereotype(thisModule.modelStereotype); 
+	}
+}
+
+rule Package {
+    from s : UML2!"uml::Package" in IN (
+		s.oclIsTypeOf(UML2!"uml::Package") and 
+		s.belongsToMainModel() and
+		s.containsStereotypedClasses()
+	)
+    to t : UML2!"uml::Package" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+}
+
+abstract rule Class {
+    from s : UML2!"uml::Class" in IN (s.oclIsTypeOf(UML2!"uml::Class") and s.belongsToMainModel())
+    to t : UML2!"uml::Class" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception)
+}
+
+--- Transforms the detected stereotyped classes
+rule StereotypedClass extends Class{ 
+	from
+		s: UML2!Class in IN(s.isToBeStereotyped())
+	to
+		t: UML2!Class
+		
+	do {
+		--- We apply the stereotype and set some tagged values.
+		t.applyStereotype(s.getApplicableStereotype()); 
+		
+		--- Setting stereotype name property defined in nameAttributes
+		if (not s.getApplicableStereotype().getNameAttributes().oclIsUndefined())
+			t.setValue(s.getApplicableStereotype(), 'name', 
+				s.getAttributeForNameInRole(s.getApplicableStereotype().getNameAttributes().get('role'), 
+					s.getApplicableStereotype().getNameAttributes().get('classLabel'), 
+					s.getApplicableStereotype().getNameAttributes().get('attrName')));
+	}
+}
+
+--- Setting properties of stereotyped applications
+endpoint rule stereotyping(){
+	do{
+		-- Setting stereotype properties defined in stereotypeAttributes
+		for (stereotype in thisModule.getStereotypes()){
+			for (element in thisModule.traces.defaultSourceElements
+				->collect(e|e.object)->select(e|thisModule.stereotypeAttributes(element)->get(stereotype).get('stereotypedElements')->includes(e))){
+				element->debug('element');
+				for (attribute in thisModule.stereotypeAttributes(element)->get(stereotype).get('attributes')->getKeys()){
+					element.resolve().setValue(
+						stereotype->debug('stereotype'), attribute, thisModule.stereotypeAttributes(element)->get(stereotype).get('attributes').get(attribute));
+				}
+			}
+		}		
+	}
+}
+	
