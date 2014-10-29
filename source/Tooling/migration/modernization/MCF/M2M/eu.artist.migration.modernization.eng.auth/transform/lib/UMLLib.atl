@@ -1,0 +1,265 @@
+-- @atlcompiler emftvm
+-- @nsURI uml=http://www.eclipse.org/uml2/2.1.0/UML
+
+
+library "lib::UMLLib";
+
+---####################################### GLOBAL VARIABLES
+--- ####################################### ---
+helper def: allUMLelements: Sequence(uml!Element) =
+	uml!Element.allInstances();
+
+helper def: allUMLclasses: Sequence(uml!Class) =
+	uml!Class.allInstances();
+
+--- This sequence is used in the stereotype application process in order to
+--- prevent applying the same stereotype to the same component.
+helper def: appliedStereotypes: Sequence(String) =
+	Sequence{};
+
+---################################## END OF GLOBAL VARIABLES
+--- ##################################### ---
+---////////////////////////////////////////////////////////////////////////////////////////////////
+
+--- ---
+---////////////////////////////////////////////////////////////////////////////////////////////////
+
+--- ---
+---////////////////////////////////////////////////////////////////////////////////////////////////
+
+--- ---
+---####################################### HELPER METHODS
+--- ######################################### ---
+--- Returns true if the element belongs to the externals module
+helper context uml!Element def: belongsToExternals(): Boolean =
+	if (not self.oclIsKindOf(uml!NamedElement)) then
+		self.refImmediateComposite() -> belongsToExternals()
+	else
+		if (self.name = 'externals') then
+			true
+		else
+			if (self.refImmediateComposite().oclIsUndefined()) then
+				false
+			else
+				self.refImmediateComposite() -> belongsToExternals()
+			endif
+		endif
+	endif;
+
+--- Returns true if the element belongs to the source references module
+helper context uml!Element def: belongsToSourceRef(): Boolean =
+	if (not self.oclIsKindOf(uml!NamedElement)) then
+		self.refImmediateComposite() -> belongsToSourceRef()
+	else
+		if (self.name = 'sourcesReferences') then
+			true
+		else
+			if (self.refImmediateComposite().oclIsUndefined()) then
+				false
+			else
+				self.refImmediateComposite() -> belongsToSourceRef()
+			endif
+		endif
+	endif;
+
+--- Uses class stereotype as name
+helper context uml!Class def: getNameFromStereotype(): String =
+	if (self.getStereotypes().oclIsUndefined() or self.getStereotypes().first().
+			oclIsUndefined()) then
+		self.name
+	else
+		self.getStereotypes() -> first().name
+	endif;
+
+-- Get stereotypes of a uml entity
+helper context OclAny def: getStereotypes(): Sequence(String) =
+	if (not self.getAppliedStereotypes().oclIsUndefined()) then
+		self.getAppliedStereotypes()
+	else 
+		 Sequence{}
+	endif;
+
+-- Get fully qualified package name
+helper context uml!Package def: getFullyQualifiedPackageName(): String =
+	if (self.refImmediateComposite().oclIsUndefined() or (not self.
+			refImmediateComposite().oclIsKindOf(uml!Package))) then
+		self.name
+	else
+		self.refImmediateComposite() -> getFullyQualifiedPackageName() + '.' + self.name
+	endif;
+
+helper context uml!Component def: getFullyQualifiedComponentName(): String =
+	self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name;
+
+helper context uml!Classifier def: getFullyQualifiedClassName(): String =
+	if (self.refImmediateComposite().oclType().conformsTo(uml!Package)) then
+		self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name
+	else
+		if (self.refImmediateComposite().oclType().conformsTo(uml!Component)) then
+			self.refImmediateComposite().getFullyQualifiedComponentName() + '.' + self.
+					name
+		else
+			self.name
+		endif
+	endif;
+
+helper context uml!NamedElement def: getFullyQualifiedName(): String =
+	if (self.refImmediateComposite().oclType().conformsTo(uml!Package)) then
+		self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name
+	else
+		if (self.refImmediateComposite().oclType().conformsTo(uml!Component)) then
+			self.refImmediateComposite().getFullyQualifiedComponentName() + '.' + self.
+					name
+		else
+			self.name
+		endif
+	endif;
+
+helper context uml!Interface def: getFullyQualifiedIFName(): String =
+	self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name;
+
+helper context uml!Class def: belongsToComponent(): Boolean =
+	self.refImmediateComposite().oclIsTypeOf(uml!Component);
+
+helper context uml!Class def: belongsToThisComponent(component: uml!Component): Boolean =
+	if (self.belongsToComponent()) then
+		self.getFullyQualifiedClassName().indexOf(component.
+				getFullyQualifiedComponentName()) >= 0
+	else
+		false
+	endif;
+
+helper context uml!Element def: hasStereotype(stereotype: String): Boolean =
+	self.getAppliedStereotypes() -> collect(st | st.name) -> includes(stereotype);
+
+helper context uml!Element def: getStereotype(stereotype: String): uml!Stereotype =
+	self.getAppliedStereotypes() -> select (st | st.name = stereotype) -> first();
+
+--- Returns true if the class is implementing the interface passed as the parameter
+helper context uml!Class def: isImplementingInterface(interface: String): Boolean =
+	let implementing: Sequence(uml!Interface) =
+		self.getImplementedInterfaces()
+	in
+		if (implementing -> size() > 0) then
+			if (implementing -> select(e | e.fullyQualifiedName() = interface) -> size()
+					> 0) then
+				true
+			else
+				false
+			endif
+		else
+			false
+		endif;
+
+--- Returns true if the class is extending the class passed as the parameter
+helper context uml!Class def: isExtendingClass(class: String): Boolean =
+	let extending: Sequence(uml!Class) =
+		self.getSuperClasses()
+	in
+		if (extending -> size() > 0) then
+			if (extending -> select(e | e.fullyQualifiedName() = class) -> size() > 0)
+					then
+				true
+			else
+				false
+			endif
+		else
+			false
+		endif;
+
+--- Returns the first parent of type class of the element (uml!Class)
+helper context uml!Element def: getFirstParentOfTypeClass(): uml!Class =
+	if (self.oclIsTypeOf(uml!Class)) then
+		self
+	else
+		if (self.refImmediateComposite().oclIsUndefined()) then
+			OclUndefined
+		else
+			self.refImmediateComposite() -> getFirstParentOfTypeClass()
+		endif
+	endif;
+
+--- Returns the first parent of type interface of the element (uml!Interface)
+helper context uml!Element def: getFirstParentOfTypeInterface(): uml!Interface =
+	if (self.oclIsTypeOf(uml!Interface)) then
+		self
+	else
+		if (self.refImmediateComposite().oclIsUndefined()) then
+			OclUndefined
+		else
+			self.refImmediateComposite() -> getFirstParentOfTypeInterface()
+		endif
+	endif;
+
+--- Returns true if the element is the parent of the element passed as the parameter
+helper context uml!Element def: isParentOf(element: uml!Element): Boolean =
+	if (not element.refImmediateComposite().oclIsUndefined() and element.
+			refImmediateComposite() = self) then
+		true
+	else
+		if (element.refImmediateComposite().oclIsUndefined()) then
+			false
+		else
+			self.isParentOf(element.refImmediateComposite())
+		endif
+	endif;
+
+helper context uml!PrimitiveType def: fullyQualifiedName(): String =
+	self.name;
+
+helper context uml!Class def: fullyQualifiedName(): String =
+	if (self.refImmediateComposite().oclIsUndefined()) then
+		self.name
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(uml!Package)) then
+			self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name
+		else
+			self.name
+		endif
+	endif;
+
+helper context uml!Interface def: fullyQualifiedName(): String =
+	if (self.refImmediateComposite().oclIsUndefined()) then
+		self.name
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(uml!Package)) then
+			self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name
+		else
+			self.name
+		endif
+	endif;
+
+helper context uml!Enumeration def: fullyQualifiedName(): String =
+	if (self.refImmediateComposite().oclIsUndefined()) then
+		self.name
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(uml!Package)) then
+			self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name
+		else
+			self.name
+		endif
+	endif;
+
+helper context uml!Property def: fullyQualifiedName(): String =
+	if (self.refImmediateComposite().oclIsUndefined()) then
+		self.name
+	else
+		if (self.refImmediateComposite().oclIsTypeOf(uml!Class)) then
+			self.refImmediateComposite().fullyQualifiedName() + '.' + self.name
+		else
+			self.name
+		endif
+	endif;
+
+helper context uml!Operation def: getClassOfOperation(): uml!Class =
+	self.refImmediateComposite();
+
+-- checks whether there is already a component created from class stereotype
+helper context uml!Class def: existComponentForClass(): Boolean =
+	thisModule.createdComponents -> debug('Checking Created Components') -> exists(c | c
+			= self.refImmediateComposite().getFullyQualifiedPackageName() + self.
+			getNameFromStereotype());
+
+
+---####################################### END OF HELPER METHODS
+--- ######################################### ---

@@ -1,0 +1,665 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+module EclipseGUI2GWTMerger;
+create OUT: UML2 from INEclipse: UML2, INGWT: UML2;
+uses "Eclipse2GUIMapping";
+
+---*********************************** TODOs  *************************************---
+--- Reconsider current approach. Try to simplify it.
+--- Change the current approach to map elements from both input models. Instead of mapping all RCP packages and classes
+--- and only those GWT ones not already included in the RCP model, do it the other way around. 
+--- Map all GWT packages and classes and only those RCP ones not already included in the GWT model
+
+---***********************************HELPERS *************************************---
+
+-----------------------------------Eclipse Helpers -----------------------------------
+--- Eclipse RCP elements
+helper def: viewPart: String = 'eclipse::ui::part::ViewPart';
+
+--- Eclipse RCP ViewPart is mapped with the generalization of <<view>> in GWT model
+helper def: mappedViewPart: UML2!Element = 
+	thisModule.viewsInGWT.first().generalization.first().general;
+
+----- A sequence containing all the elements from IN GWT
+--helper def: elementsFromGWT: Sequence(UML2!Element) = UML2!Element.allInstancesFrom('INGWT');
+--
+----- A sequence containing all the view elements from IN GWT
+--helper def: viewsInGWT: Sequence(UML2!Element) = 
+--	thisModule.elementsFromGWT->select(e|
+--		not e.getAppliedStereotype('RCP::View').oclIsUndefined());
+
+--- returns whether or not the element belongs to Eclipse API
+helper context OclAny def: belongsToEclipse(): Boolean = false;
+helper context UML2!Element def: belongsToEclipse(): Boolean = self.getNearestPackage().qualifiedName.contains('org::eclipse');
+
+
+----------------------------------- RCP2GWT Specific Helpers -------------------------
+
+--- A sequence containing the packages from the IN RCP model
+helper def: INEclipsePackages: Sequence(UML2!Package) =
+	UML2!Package.allInstancesFrom('INEclipse')->select(e|not e.oclIsTypeOf(UML2!Model));
+
+--- A sequence containing the packages from the IN GWT model
+helper def: INGWTPackages: Sequence(UML2!Package) =
+	UML2!Package.allInstancesFrom('INGWT')->select(e|not e.oclIsTypeOf(UML2!Model));
+
+--- A sequence containing the packages from the GWT model existing in the RCP model.
+helper def: commonPackages: Sequence(UML2!Package) =
+	thisModule.INGWTPackages->select(p|
+		thisModule.INEclipsePackages->select(p1|p1.isSamePackage(p)).notEmpty());
+
+--- A sequence containing the packages from IN GWT that should be created:
+helper def: packagesToTransformFromINGWT: Sequence(UML2!Package) =
+	thisModule.INGWTPackages->select(p| not thisModule.commonPackages.includes(p));
+
+--- adds to the set of packages from INEclipse contained within self the intersection of packages in INGWT contained in self as well. 
+helper context UML2!Package def: setPackagedElement(): Sequence(UML2!PackageableElement) =
+	if thisModule.packagesToTransformFromINGWT->select(p|p.owner.isSamePackage(self)).notEmpty()
+		then self.packagedElement.union(
+			thisModule.packagesToTransformFromINGWT->select(p|p.owner.isSamePackage(self)))
+	else
+		self.packagedElement
+	endif;
+
+--- A series of helpers that return true if the INGWT element should be transformed
+--- Classifier embraces both Class and Interface
+helper context UML2!Element def: shouldTransformINGWTElement(): Boolean = false;
+helper context UML2!Classifier def: shouldTransformINGWTElement(): Boolean = 
+	self.owner.shouldTransformINGWTElement();
+
+helper context UML2!Package def: shouldTransformINGWTElement(): Boolean = 
+	thisModule.packagesToTransformFromINGWT.includes(self);
+
+helper context UML2!Generalization def: shouldTransformINGWTElement(): Boolean = 
+	if (thisModule.classesInRCP->select(c|c.existsInGWT())->select(c|
+			c.qualifiedName.endsWith(self.owner.qualifiedName)).notEmpty()) 
+		then self.owner.getElementFromRCP().generalization.isEmpty()
+		else true 
+endif;
+			
+--- A series of helpers that return true if the INEclipse element should be transformed
+--- Classifier embraces both Class and Interface
+--- ParameterableElement embraces Property, Operation, Parameter
+helper context UML2!Element def: shouldTransformINEclipseElement(): Boolean = false;
+
+helper context UML2!Package def: shouldTransformINEclipseElement(): Boolean = 
+	(self.oclIsTypeOf(UML2!"uml::Package") and not self.belongsToEclipse());
+
+helper context UML2!Classifier def: shouldTransformINEclipseElement(): Boolean = 
+	(self.oclIsTypeOf(UML2!"uml::Class") or self.oclIsTypeOf(UML2!"uml::Interface")) and
+	self.owner.shouldTransformINEclipseElement() or self.owner.oclIsTypeOf(UML2!Model);
+
+helper context UML2!Generalization def: shouldTransformINEclipseElement(): Boolean = 
+	self.owner.shouldTransformINEclipseElement() and self.general.shouldTransformINEclipseElement();
+
+helper context UML2!InterfaceRealization def: shouldTransformINEclipseElement(): Boolean = 
+	self.owner.shouldTransformINEclipseElement() and self.contract.shouldTransformINEclipseElement();
+
+--helper context UML2!Operation def: shouldTransformINEclipseElement(): Boolean = 
+--	self.owner.shouldTransformINEclipseElement() and not self.type.belongsToEclipse();
+--
+--helper context UML2!Property def: shouldTransformINEclipseElement(): Boolean = 
+--	self.owner.shouldTransformINEclipseElement(); 
+
+helper context UML2!ParameterableElement def: shouldTransformINEclipseElement(): Boolean = 
+	self.owner.shouldTransformINEclipseElement();
+
+
+------------------------------------ UML2 Helpers ------------------------------------
+----- Returns true if both elements have the same package structure
+helper context UML2!Package def: isSamePackage( pack2: UML2!Package): Boolean =
+	if self.oclIsTypeOf(UML2!Model) and pack2.oclIsTypeOf(UML2!Model) then self.name=pack2.name
+	else
+		if (pack2.name=self.name and not (pack2=self))
+			then self.owner.isSamePackage(pack2.owner)
+		else
+			false
+		endif
+	endif;
+
+----- Contains all the classes from IN RCP
+helper def: classesInRCP: Sequence(UML2!Class) = UML2!Class.allInstancesFrom('INEclipse');
+
+--- Returns true if the classifier (i.e. Class, Interface) exists in the GWT model
+helper context UML2!Classifier def: existsInGWT(): Boolean = 
+	UML2!Classifier.allInstancesFrom('INGWT')->select(c|
+		self.qualifiedName.endsWith(c.qualifiedName)).notEmpty();
+
+--- Returns the existing 'self' version in the GWT 
+helper context UML2!Classifier def: getElementFromGWT(): UML2!Classifier =
+	UML2!Classifier.allInstancesFrom('INGWT')->select(c|self.qualifiedName.endsWith(c.qualifiedName)).first();
+
+--- Returns the corresponding version of 'self' existing in the RCP model
+helper context UML2!Classifier def: getElementFromRCP(): UML2!Classifier =
+	UML2!Classifier.allInstancesFrom('INEclipse')->select(c|c.qualifiedName.endsWith(self.qualifiedName)).first();
+
+
+--- maps generalizations
+--- If existing generalization points to Eclipse ViewPart, it is mapped.
+--- If no existing generalizations and class exists on GWT model, it takes its generalization.
+--- TODO reconsider approach.
+helper context UML2!Element def: setGeneralization(): Sequence(UML2!Generalization) =
+	if (self.generalization.notEmpty() and 
+		self.generalization.first().general.qualifiedName.endsWith(thisModule.viewPart)) then
+			Sequence{thisModule.mapViewPartGeneralization(self)}
+	else
+		if (self.generalization.isEmpty() and self.existsInGWT()) then
+			self.generalization.union(self.getElementFromGWT().generalization)
+		else
+			self.generalization
+		endif
+	endif;
+
+--- Sets interfaceRealizations 
+helper context UML2!Element def: setInterfaceRealization(): Sequence(UML2!InterfaceRealization) =
+	if (self.existsInGWT()) then
+		self.interfaceRealization.union(self.getElementFromGWT().interfaceRealization)
+	else
+		self.interfaceRealization
+	endif;
+
+--- set the type of given property, considering the mapping already set in the GWT mapping, otherwise, it keeps the original one
+helper context UML2!Property def: setType(): UML2!Element =
+	if (self.refImmediateComposite().existsInGWT()) then --- property class already exists in GWT model
+		let matchedProperty:UML2!Property =
+			self.refImmediateComposite().getElementFromGWT().matchProperty(self)
+		in
+			if (not matchedProperty.oclIsUndefined()) then
+				matchedProperty.type->debug('type in GWT')
+			else
+				OclUndefined
+			endif
+	else
+		if (not self.type->debug('type').belongsToEclipse()->debug('belongsToEclipse')) then
+			self.type->debug ('type in RCP')
+		else
+			OclUndefined
+		endif
+	endif;
+
+--- set the type of given parameter, considering the mapping already set in the GWT mapping, otherwise, it keeps the original one
+helper context UML2!Parameter def: setType(): UML2!Element =
+	if (self.refImmediateComposite().refImmediateComposite().existsInGWT()) then --- property class already exists in GWT model
+		let matchedParameter: UML2!Parameter = 	
+			self.refImmediateComposite().refImmediateComposite().getElementFromGWT().
+				matchOperationParameter(self, self.refImmediateComposite())
+		in
+			if (not matchedParameter.oclIsUndefined()) then
+				matchedParameter.type
+			else
+				OclUndefined
+			endif
+	else
+		if (not self.type.belongsToEclipse()) then
+			self.type
+		else
+			OclUndefined
+		endif
+	endif;
+
+--- get the matching property by name
+helper context UML2!Class def : matchProperty(property:UML2!Property) : UML2!Property = 
+	let matchedProperties:Sequence(UML2!Property) =
+		self.ownedAttribute->select(a | a.name = property.name)
+	in
+		if (matchedProperties->notEmpty()) then
+			matchedProperties->first()
+		else
+			OclUndefined
+		endif;
+
+--- get the matching property by name
+helper context UML2!Class def : matchOperationParameter(parameter:UML2!Parameter, operation:UML2!Operation) : UML2!Property = 
+	let matchedOperations: Sequence(UML2!Operation) =
+		self.ownedOperation->select(o | o.name = operation.name)
+	in 
+		if (matchedOperations->notEmpty()) then
+			let matchedParameters: Sequence (UML2!Parameter) =
+				matchedOperations->first().
+					ownedParameter->select(p | p.name = parameter.name)
+			in
+				if (matchedParameters->notEmpty()) then
+					matchedParameters->first()
+				else
+					OclUndefined
+				endif
+		else
+			OclUndefined
+		endif;
+
+---****************************** END OF HELPERS **********************************---
+
+--- Every model in RCP input is mapped.
+rule Model {
+    from s : UML2!"uml::Model" in INEclipse
+    to t : UML2!"uml::Model" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        viewpoint <- s.viewpoint,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.setPackagedElement(),
+        profileApplication <- s.profileApplication)
+}
+
+--- maps all GWT packages not already include in the original Eclipse RCP model
+rule PackageFromGWT {
+    from s : UML2!"uml::Package" in INGWT (s.shouldTransformINGWTElement())
+    to t : UML2!"uml::Package" (
+__xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+}
+
+
+--- maps every RCP model package excepting those belonging to Eclipse.
+rule PackageFromRCP {
+    from s : UML2!"uml::Package" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::Package" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+}
+
+--- This rule copies all clases of RCP model contained in mapped packages, setting the mapping for their generalizations and interface realizations
+--- TODO: Consider to copy only those classes not contained in GWT PSM model
+rule ClassFromRCP {
+    from s : UML2!"uml::Class" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::Class" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.setGeneralization(),
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.setInterfaceRealization(),
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception)
+}
+
+--- This rule only copies those classes of GWT model (GWT classes) that don't belong to Eclipse RCP model
+rule ClassFromGWT {
+    from s : UML2!"uml::Class" in INGWT (s.shouldTransformINGWTElement())
+    to t : UML2!"uml::Class" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception)
+}
+
+--- This rule copies all interfaces of RCP model contained in mapped packages,
+rule InterfaceFromRCP {
+    from s : UML2!"uml::Interface" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::Interface" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.setGeneralization(),
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        nestedClassifier <- s.nestedClassifier,
+        ownedAttribute <- s.ownedAttribute,
+        ownedOperation <- s.ownedOperation,
+        ownedReception <- s.ownedReception,
+        protocol <- s.protocol,
+        redefinedInterface <- s.redefinedInterface)
+}
+
+--- This rule only copies those interfaces of GWT model (GWT classes) that don't belong to Eclipse RCP model
+rule InterfaceFromGWT {
+    from s : UML2!"uml::Interface" in INGWT (s.shouldTransformINGWTElement())
+    to t : UML2!"uml::Interface" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        nestedClassifier <- s.nestedClassifier,
+        ownedAttribute <- s.ownedAttribute,
+        ownedOperation <- s.ownedOperation,
+        ownedReception <- s.ownedReception,
+        protocol <- s.protocol,
+        redefinedInterface <- s.redefinedInterface)
+}
+
+--- Transforms all the generalizations from GWT
+rule GeneralizationFromGWT {
+	from
+		s: UML2!"uml::Generalization" in INGWT (s.shouldTransformINGWTElement()) 
+	to t: UML2!"uml::Generalization" (
+			__xmiID__ <- s.__xmiID__,
+			isSubstitutable <- s.isSubstitutable,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			general <- s.general,
+			generalizationSet <- s.generalizationSet)
+}
+
+--- Transforms all the generalizations from RCP
+rule GeneralizationFromRCP {
+    from s : UML2!"uml::Generalization" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::Generalization" (
+        __xmiID__ <- s.__xmiID__,
+        isSubstitutable <- s.isSubstitutable,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        general <- s.general,
+        generalizationSet <- s.generalizationSet)
+}
+
+
+rule InterfaceRealizationFromGWT {
+    from s : UML2!"uml::InterfaceRealization" in INGWT
+    to t : UML2!"uml::InterfaceRealization" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        templateParameter <- s.templateParameter,
+        supplier <- s.supplier,
+        mapping <- s.mapping,
+        contract <- s.contract)
+}
+
+rule InterfaceRealizationFromRCP {
+    from s : UML2!"uml::InterfaceRealization" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::InterfaceRealization" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        templateParameter <- s.templateParameter,
+        supplier <- s.supplier,
+        mapping <- s.mapping,
+        contract <- s.contract)
+}
+
+--- This rule copies all operations for those classes or interfaces copied from the Eclipse input model
+rule Operation {
+    from s : UML2!"uml::Operation" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::Operation" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        concurrency <- s.concurrency,
+        isAbstract <- s.isAbstract,
+        isQuery <- s.isQuery,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        method <- s.method,
+        ownedParameter <- s.ownedParameter,
+        ownedParameterSet <- s.ownedParameterSet,
+        raisedException <- s.raisedException,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        bodyCondition <- s.bodyCondition,
+        postcondition <- s.postcondition,
+        precondition <- s.precondition,
+        redefinedOperation <- s.redefinedOperation)
+}
+
+--- This rule copies all operation parameters for those operations copied from the Eclipse input model
+rule Parameter {
+    from s : UML2!"uml::Parameter" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::Parameter" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        direction <- s.direction,
+        effect <- s.effect,
+        isException <- s.isException,
+        isStream <- s.isStream,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        type <- s.setType(), --- maps the parameter type if case this maps is available
+        templateParameter <- s.templateParameter,
+        lowerValue <- s.lowerValue,
+        upperValue <- s.upperValue,
+        defaultValue <- s.defaultValue,
+        parameterSet <- s.parameterSet)
+}
+
+--- This rule copies all properties for those classes or interfaces copied from the Eclipse input model
+rule Property {
+    from s : UML2!"uml::Property" in INEclipse (
+		s.shouldTransformINEclipseElement() and 
+		s.oclIsTypeOf(UML2!"uml::Property"))
+    to t : UML2!"uml::Property" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        isReadOnly <- s.isReadOnly,
+        aggregation <- s.aggregation,
+        isDerived <- s.isDerived,
+        isDerivedUnion <- s.isDerivedUnion,
+        isID <- s.isID,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        type <- s.setType(), --- maps the property type if case this maps is available
+        lowerValue <- s.lowerValue,
+        upperValue <- s.upperValue,
+        templateParameter <- s.templateParameter,
+        deployment <- s.deployment,
+        qualifier <- s.qualifier,
+        defaultValue <- s.defaultValue,
+        redefinedProperty <- s.redefinedProperty,
+        subsettedProperty <- s.subsettedProperty,
+        association <- s.association)
+}
+
+rule LiteralInteger {
+    from s : UML2!"uml::LiteralInteger" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::LiteralInteger" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        value <- s.value,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        templateParameter <- s.templateParameter,
+        type <- s.type)
+}
+
+rule LiteralUnlimitedNatural {
+    from s : UML2!"uml::LiteralUnlimitedNatural" in INEclipse (s.shouldTransformINEclipseElement())
+    to t : UML2!"uml::LiteralUnlimitedNatural" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        value <- s.value,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        templateParameter <- s.templateParameter,
+        type <- s.type)
+}
+
+---*******************************************************************************************---
+---************************************* LAZY RULES ******************************************---
+---*******************************************************************************************---
+--- maps RCP Eclipse ViewPart generalization
+lazy rule mapViewPartGeneralization {
+	from s : UML2!"uml::Element"
+	to
+		t: UML2!"uml::Generalization" (
+			general <- thisModule.mappedViewPart
+		)
+	do {
+		t;
+	}
+}
