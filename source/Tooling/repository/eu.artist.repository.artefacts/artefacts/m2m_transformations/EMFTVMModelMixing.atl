@@ -1,0 +1,957 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---		Javier Garcia - main development
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+
+module  "Transformations::EMFTVMModelMixing";
+create OUT : UML2 from FIRST : UML2, SECOND :UML2;
+uses "Transformations::UML2CopyFirstModel";
+---*******************************************************************************--
+---******************************HELPERS******************************************--
+---*******************************************************************************--
+--- Helpers containing lists of elements from FIRST and SECOND ---
+helper def: allElementsFromFirst: Sequence(UML2!Element) = UML2!Element.allInstancesFrom('FIRST');
+helper def: allElementsFromSecond: Sequence(UML2!Element) = UML2!Element.allInstancesFrom('SECOND');
+helper def: allClassesFromFirst: Sequence (UML2!Class) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Class));
+helper def: allClassesFromSecond: Sequence (UML2!Class) = thisModule.allElementsFromSecond->select(e|e.oclIsTypeOf(UML2!Class));
+helper def: allComponentsFromFirst: Sequence (UML2!Component) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Component));
+helper def: allComponentsFromSecond: Sequence (UML2!Component) = thisModule.allElementsFromSecond->select(e|e.oclIsTypeOf(UML2!Component));
+helper def: allPackagesFromFirst: Sequence (UML2!Package) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Package));
+helper def: allPackagesFromSecond: Sequence (UML2!Package) = thisModule.allElementsFromSecond->select(e|e.oclIsTypeOf(UML2!Package));
+helper def: allInterfacesFromFirst: Sequence (UML2!Interface) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Interface));
+helper def: allInterfacesFromSecond: Sequence (UML2!Interface) = thisModule.allElementsFromSecond->select(e|e.oclIsTypeOf(UML2!Interface));
+helper def: allPropertiesFromFirst: Sequence (UML2!Property) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Property));
+helper def: allOperationsFromFirst: Sequence (UML2!Operation) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Operation));
+helper def: allParametersFromFirst: Sequence (UML2!Parameter) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Parameter));
+helper def: allAssociationsFromFirst: Sequence (UML2!Association) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Association));
+helper def: allDependenciesFromFirst: Sequence (UML2!Dependency) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Dependency));
+helper def: allGeneralizationsFromFirst: Sequence (UML2!Generalization) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Generalization));
+helper def: allInterfaceRealizationsFromFirst: Sequence (UML2!InterfaceRealization) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!InterfaceRealization));
+helper def: allEnumerationsFromFirst: Sequence (UML2!Enumeration) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Enumeration));
+helper def: allEnumerationLiteralsFromFirst: Sequence (UML2!EnumerationLiteral) = thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!EnumerationLiteral));
+-----------------------------------------------------------------------------------------------
+--- A helper
+helper def: setValueStereotypeHelper: UML2!Stereotype = OclAny;
+--- A helper
+helper def: setValueStereotypeHelperSequence: Sequence(UML2!Stereotype) = Sequence{};
+--- Contains the 'void' type
+helper def: voidType: UML2!Type = if (not UML2!Type.allInstancesFrom('FIRST')->select(e|e.name='void')->isEmpty()) then
+	UML2!Type.allInstancesFrom('FIRST')->select(e|e.name='void').first() else OclUndefined endif;
+--- Sets the proper type so it doesn't point to the input models:
+helper context UML2!Element def: setType(): UML2!Type = thisModule.voidType;
+--- A helpful sequence to set stereotypes' values
+helper def: stereotypeValues: Sequence(UML2!Element) = Sequence{};
+--- Contains all the stereotypes:
+helper def: allStereotypes: Sequence(UML2!Stereotype) = UML2!Stereotype.allInstances().union(thisModule.allElementsFromFirst->select(e|e.getAppliedStereotypes().notEmpty())->collect(e|e.getAppliedStereotypes().first()));
+--- Returns the element from the input model corresponding to the stereotypeApplication provided
+--- Thus allowing us to use resolveHelper() in order to get the stereotypeApplication of the element
+--- in the output model.
+helper context OclAny def: getElementFromValue(): UML2!Element =
+	thisModule.allElementsFromFirst.union(thisModule.elementsToTransformFromSecond)->select(e|e.getAppliedStereotypes().notEmpty())->select(e|(e.getStereotypeApplications().first()=self or e.getStereotypeApplications()=self) or (e.existsInSecond() and e.getElementFromSecond().getAppliedStereotypes().notEmpty() and (e.getElementFromSecond().getStereotypeApplications().first() = self or e.getElementFromSecond().getStereotypeApplications() = self))).first();
+--- This helper is here to help properly resolve the elements depending on where they come, since
+--- the elements existing both in PIM and PSM don't get transformed we must avoid pointing to them
+--- in the output model.
+helper context UML2!Element def: resolveHelper(): UML2!Element =
+	if (thisModule.allElementsFromSecond.includes(self) and not self.shouldTransformElementFromSecond()) then
+		self.getElementFromSecond().resolve()	
+	else
+		self.resolve()
+	endif
+	;
+--- Returns the corresponding version of 'self' existing in the PIM
+helper context UML2!Interface def: getElementFromSecond(): UML2!Interface = 
+	thisModule.allInterfacesFromSecond->select(e|e.name=self.name and e.owner.name=self.owner.name and 
+		e.getNearestPackage().isSamePackage(self.getNearestPackage())).first();
+--- Returns the existing 'self' version in the PIM 
+helper context UML2!Class def: getElementFromSecond(): UML2!Class =
+	thisModule.allClassesFromSecond->select(e|e.name=self.name and e.owner.name=self.owner.name and 
+		e.getNearestPackage().isSamePackage(self.getNearestPackage())).first();
+--- Returns false for all the elements that don't have this helper defined.
+helper context UML2!Model def: getElementFromSecond(): Boolean=UML2!Model.allInstancesFrom('SECOND')->select(e|e.name=self.name or (e=thisModule.mainModelSECOND and self=thisModule.mainModelFIRST)or (e=thisModule.mainModelFIRST and self=thisModule.mainModelSECOND )).first();
+--- Returns false for all the elements that don't have this helper defined.
+helper context UML2!Element def: getElementFromSecond(): Boolean=false;
+--- Returns true if the class 'self' exists in the PIM model
+helper context UML2!Class def: existsInSecond(): Boolean =
+	thisModule.allClassesFromSecond->select(e|e.name=self.name and (e.owner.oclIsTypeOf(UML2!Package) or e.owner.oclIsTypeOf(UML2!Class)) and e.owner.name=self.owner.name and 
+		e.getNearestPackage().isSamePackage(self.getNearestPackage())).notEmpty();
+--- Returns true if the element exists in the PIM
+helper context UML2!Interface def: existsInSecond(): Boolean = 
+	thisModule.allInterfacesFromSecond->select(e|e.name=self.name and e.owner.name=self.owner.name and 
+		e.getNearestPackage().isSamePackage(self.getNearestPackage())).notEmpty();
+--- Returns true if the element exists in the PIM
+helper context UML2!Model def: existsInSecond(): Boolean = true;
+--- Returns false for all the other elements that have not this method defined.
+helper context UML2!Element def: existsInSecond(): Boolean = false;
+--- Returns true if both elements have the same package structure
+helper context UML2!Package def: isSamePackage( pack2: UML2!Package): Boolean =
+	if self.oclIsTypeOf(UML2!Model) and pack2.oclIsTypeOf(UML2!Model) then true
+	else
+		if (pack2.name=self.name and not (pack2=self))
+			then self.getOwnerPackage().isSamePackage(pack2.getOwnerPackage())
+		else
+			false
+		endif
+	endif;
+--- Returns true if both associations are the same:
+helper context UML2!Association def: isSameAssociation(association:UML2!Association): Boolean = 
+	self.getNearestPackage().isSamePackage(association.getNearestPackage()) and
+	---TODO::: Check properly if two associations are the same or not as right now we just
+	--- check if they share the package, should probably check if endtypes are the same
+	--- but would need to compare each type to see if they are the same even though they
+	--- are in different models.
+	self.getEndTypes()->select(e|e.oclIsTypeOf(UML2!Class)).notEmpty();
+	--- Returns true if both associations are the same:
+helper context UML2!Enumeration def: isSameEnumeration(enumeration:UML2!Enumeration): Boolean =
+	not enumeration.getNearestPackage().oclIsUndefined() and
+	self.getNearestPackage().isSamePackage(enumeration.getNearestPackage()) and
+	self.name=enumeration.name
+	;
+--- Returns the corresponding package from SECOND. NOTE that for this to work there will have
+--- to exist a corresponding package in SECOND, otherwise this will throw an exception, therefore
+--- we need to check this before calling this helper.
+helper context UML2!Package def: getPackageFromSecond(): UML2!Package =
+	thisModule.allPackagesFromSecond->select(e|self.isSamePackage(e)).first();
+--- Returns the packagedElement of self with the packagedElement of the correspondent model
+--- in the SECOND model.
+helper context UML2!Model def: setModelPackagedElement(): Sequence(UML2!PackageableElement) =
+	if (self.name='root model' or self.name='sourcesReferences' or self.name='externals') then
+		self.packagedElement.union(UML2!Model.allInstancesFrom('SECOND')->select(e|e.name=self.name).first().packagedElement->reject(e|e.oclIsKindOf(UML2!Package)))
+	else
+		self.packagedElement
+	endif;
+--- Returns the packagedElement mixed with the correspondent package from SECOND if there is
+--- one.
+helper context UML2!Package def: setPackagedElement(): Sequence(UML2!PackageableElement) =
+		if thisModule.allPackagesFromSecond->select(e|self.isSamePackage(e)).notEmpty() then
+			self.packagedElement.union(self.getPackageFromSecond().packagedElement)
+		else
+			self.packagedElement
+		endif
+;
+--- Returns the generalization corresponding to this element, adding the ones from the SECOND
+--- model if there are any
+helper context UML2!Element def: setGeneralization(): Sequence(UML2!Generalization) = 
+	self.generalization;
+--- Returns the ownedAttribute corresponding to this element, adding the ones from the SECOND
+--- model if there are any
+helper context UML2!Element def: setOwnedAttribute(): Sequence(UML2!Property) = 
+	self.ownedAttribute;
+--- Returns the ownedOperation corresponding to this element, adding the ones from the SECOND
+--- model if there are any
+helper context UML2!Element def: setOwnedOperation(): Sequence(UML2!Operation) = 
+	self.ownedOperation;
+--- Returns the InterfaceRealization corresponding to this element, adding the ones from the SECOND
+--- model if there are any
+helper context UML2!Element def: setInterfaceRealization(): Sequence(UML2!InterfaceRealization) = 
+	self.interfaceRealization;
+--- Returns the element existing in the first model
+helper context UML2!Element def: setSupplierOrContract(): UML2!Element =
+	--- guard to protect of unexpected elements
+	if (not self.oclIsTypeOf(UML2!Enumeration) and not self.oclIsTypeOf(UML2!Class) and not self.oclIsTypeOf(UML2!Interface)) then
+		self
+	else
+		if (self.shouldTransformElementFromSecond()) then
+			self
+		else
+			thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Enumeration) or e.oclIsTypeOf(UML2!Class) or e.oclIsTypeOf(UML2!Interface))->select(e|e.name=self.name).first()
+		endif
+	endif	
+	;
+
+--- This helper contains the main model of FIRST
+helper def: mainModelFIRST: UML2!Model = UML2!Model.allInstancesFrom('FIRST')->reject(e|e.name='externals' or e.name='source references' or e.name='root model').first();
+--- This helper contains the main model of SECOND
+helper def: mainModelSECOND: UML2!Model = UML2!Model.allInstancesFrom('SECOND')->reject(e|e.name='externals' or e.name='source references' or e.name='root model').first();
+--- Contains a Sequence with all the elements from SECOND that should be transformed
+helper def: elementsToTransformFromSecond: Sequence(UML2!Element) = UML2!Element.allInstancesFrom('SECOND')->select(e|e.shouldTransformElementFromSecond());
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Element def: shouldTransformElementFromSecond(): Boolean = false;
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Package def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Package) and
+	(thisModule.allPackagesFromFirst->select(e|e.name=self.name and e.isSamePackage(self)).isEmpty());
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Class def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Class) and
+	not self.owner.oclIsUndefined() and
+	(self.owner.shouldTransformElementFromSecond() or -- here we use self.owner instead of self.getNearestPackage because the owner might be another class, thus we know that if the owner is a class that should be transformed we don't need to check the package
+		thisModule.allClassesFromFirst->select(e|e.name=self.name and e.getNearestPackage().isSamePackage(self.getNearestPackage())).isEmpty());
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Component def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Component) and
+	not self.owner.oclIsUndefined() and
+	(self.owner.shouldTransformElementFromSecond() or -- here we use self.owner instead of self.getNearestPackage because the owner might be another class, thus we know that if the owner is a class that should be transformed we don't need to check the package
+		thisModule.allComponentsFromFirst->select(e|e.name=self.name and e.getNearestPackage().isSamePackage(self.getNearestPackage())).isEmpty());
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Interface def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Interface)and
+	(self.owner.shouldTransformElementFromSecond() or 
+		thisModule.allInterfacesFromFirst->select(e|e.name=self.name and e.getNearestPackage().isSamePackage(self.getNearestPackage())).isEmpty());
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Property def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Property) and
+	self.owner.shouldTransformElementFromSecond();
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Operation def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Operation) and
+	self.owner.shouldTransformElementFromSecond();
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Parameter def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Parameter) and
+	self.owner.shouldTransformElementFromSecond();
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Association def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Association) and
+--	self.ownedEnd.first().type.shouldTransformElementFromSecond() and 
+	(self.owner.shouldTransformElementFromSecond() or
+	thisModule.allAssociationsFromFirst->select(e|e.isSameAssociation(self)).isEmpty())
+	
+	;
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Dependency def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Dependency) and
+	self.owner.shouldTransformElementFromSecond()
+	--- TODO: add the possibility for the dependency to exist in the second model but not in
+	--- the first one (even if the owner exists in both)?
+	;
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Generalization def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Generalization) and
+	self.owner.shouldTransformElementFromSecond()
+	--- TODO: add the possibility for the generalization to exist in the second model but not
+	--- in the first one (even if the owner exists in both)
+	;
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!InterfaceRealization def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!InterfaceRealization) and
+	self.owner.shouldTransformElementFromSecond()
+	--- TODO: add the possibility for the InterfaceRealization to exist in the second model but
+	--- not in the first one (even if the owner exists in both)
+	;
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!Enumeration def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!Enumeration) and
+	(self.owner.shouldTransformElementFromSecond() or
+		thisModule.allEnumerationsFromFirst->select(e|e.isSameEnumeration(self)).isEmpty());
+--- Returns true if the element should be transformed (meaning it doesn't already exist in the first model)
+helper context UML2!EnumerationLiteral def: shouldTransformElementFromSecond(): Boolean = 
+	not (self.oclIsUndefined()) and 
+	self.oclIsTypeOf(UML2!EnumerationLiteral) and
+	not self.owner.oclIsUndefined() and
+	self.owner.shouldTransformElementFromSecond();
+--- Used to check properties types and parameters types from SECOND
+helper def: propertyTypeHelper: Sequence(UML2!Element) =
+	thisModule.allElementsFromFirst->select(e|e.oclIsTypeOf(UML2!Type) 
+		or e.oclIsTypeOf(UML2!Class) or e.oclIsTypeOf(UML2!Interface)
+		or e.oclIsTypeOf(UML2!PrimitiveType) or e.oclIsTypeOf(UML2!Enumeration))
+		;
+helper context UML2!Element def : getOwnerPackage() : UML2!Element = 
+	if (self.refImmediateComposite().oclIsTypeOf(UML2!Package) or 
+		self.refImmediateComposite().oclIsTypeOf(UML2!Model)) then
+		self.refImmediateComposite()
+	else
+		self.refImmediateComposite().getOwnerPackage()
+	endif;
+
+helper context UML2!Model def: getAllAppliedProfilesInSecondModel(): OclAny =
+	if (UML2!Model.allInstancesFrom('SECOND')->select (m| m.name = self.name)->isEmpty()) then
+		Sequence{}
+	else 
+		UML2!Model.allInstancesFrom('SECOND')->select (m| m.name = self.name)->first().getAllAppliedProfiles()
+	endif;
+
+--- search for matched class or component in second model 
+--- TODO: to be extended to any element. Requires redefinition of qualified name
+--- TODO: explore to use OCL method to get qualified name
+helper context UML2!Element def : getMatchInSecondModel() : UML2!Element = 
+	if (self.oclIsKindOf(UML2!Class) or self.oclIsKindOf(UML2!Component)) then
+		if (thisModule.allClassesFromSecond->union(thisModule.allComponentsFromSecond)
+				->exists(e | e.fullyQualifiedName() = self.fullyQualifiedName())) then
+	 		thisModule.allClassesFromSecond->union(thisModule.allComponentsFromSecond)
+				->select(e | e.fullyQualifiedName() = self.fullyQualifiedName())->first()
+		else
+			OclUndefined
+		endif
+	else
+		OclUndefined
+	endif;
+
+	---Get fully qualified element name
+helper context UML2!Element def : fullyQualifiedName() : String = 
+	if (self.refImmediateComposite().oclIsUndefined()) then
+		self.name
+	else 
+		if (self.refImmediateComposite().oclIsTypeOf(UML2!Package)) then
+			self.refImmediateComposite().getFullyQualifiedPackageName() + '.' + self.name 
+		else
+			self.name
+		endif
+	endif
+	;
+
+--- Get fully qualified package name
+helper context UML2!Package def : getFullyQualifiedPackageName() : String = 
+	if (self.refImmediateComposite().oclIsUndefined() or (not self.refImmediateComposite().oclIsTypeOf(UML2!Package))) then
+		self.name
+	else
+		self.refImmediateComposite()->getFullyQualifiedPackageName() + '.' + self.name
+	endif;
+---*******************************************************************************--
+---***************************END OF HELPERS**************************************--
+---*******************************************************************************--
+---ELEMENTS FROM FIRST:
+rule Model {
+	from
+		s: UML2!Model in FIRST (s.oclIsTypeOf(UML2!Model))
+	to t: UML2!Model(
+		name<-s.name,
+        visibility <- s.visibility,
+        viewpoint <- s.viewpoint,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        packageMerge <- s.packageMerge,
+		packagedElement <- s.setModelPackagedElement(),
+        profileApplication <- s.profileApplication
+	)
+	--- Keeps the profile, stereotypes and its values
+	do {	
+		for (prof in s.getAllAppliedProfiles()){
+			t.applyProfile(prof);
+		}
+		
+		for (prof in s.getAllAppliedProfilesInSecondModel()){
+			t.applyProfile(prof);
+		}
+	}
+}
+rule Package {
+	from
+		pck: UML2!Package in FIRST (pck.oclIsTypeOf(UML2!Package))
+	to
+		gwtp: UML2!Package (
+			name <- pck.name,
+			templateParameter <- pck.templateParameter,
+	        templateBinding <- pck.templateBinding,
+	        ownedTemplateSignature <- pck.ownedTemplateSignature,
+			packagedElement <- pck.setPackagedElement()
+		)
+}
+
+rule Class {
+	from
+		s: UML2!Class in FIRST (s.oclIsTypeOf(UML2!Class))
+	to
+		t: UML2!Class (
+			
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.setGeneralization(),
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        ownedAttribute <- s.setOwnedAttribute(),
+        ownedConnector <- s.ownedConnector,
+        ownedBehavior <- s.ownedBehavior,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.setInterfaceRealization(),
+        nestedClassifier <- s.nestedClassifier,
+        ownedOperation <- s.setOwnedOperation(),
+        ownedReception <- s.ownedReception,
+		nestedClassifier <- s.nestedClassifier)
+	}
+rule Operation {
+    from s : UML2!"uml::Operation" in FIRST (s.oclIsTypeOf(UML2!Operation))
+    to t : UML2!"uml::Operation" (
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        isAbstract <- s.isAbstract,
+        concurrency <- s.concurrency,
+        isQuery <- s.isQuery,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        ownedParameter <- s.ownedParameter,
+        method <- s.method,
+        raisedException <- s.raisedException,
+        ownedParameterSet <- s.ownedParameterSet,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        precondition <- s.precondition,
+        postcondition <- s.postcondition,
+        redefinedOperation <- s.redefinedOperation,
+        bodyCondition <- s.bodyCondition)
+}
+rule Interface {
+    from s : UML2!"uml::Interface" in FIRST (s.oclIsTypeOf(UML2!Interface))
+    to t : UML2!"uml::Interface" (
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+		 
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.setGeneralization(),
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        ownedAttribute <- s.setOwnedAttribute(),
+        ownedOperation <- s.setOwnedOperation(),
+        nestedClassifier <- s.nestedClassifier,
+        redefinedInterface <- s.redefinedInterface,
+        ownedReception <- s.ownedReception,
+        protocol <- s.protocol)
+}
+--- ELEMENTS TO CREATE FROM SECOND:
+rule PackageFromSECOND {
+    from s : UML2!"uml::Package" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Package" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+}
+rule DataTypeFromSECOND {
+    from s : UML2!"uml::DataType" in SECOND (s.oclIsTypeOf(UML2!"uml::DataType"))
+    to t : UML2!"uml::DataType" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        ownedAttribute <- s.ownedAttribute,
+        ownedOperation <- s.ownedOperation)
+}
+rule ClassFromSECOND {
+    from s : UML2!"uml::Class" in SECOND ((not s.oclIsTypeOf(UML2!Component)) and thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Class" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        ownedBehavior <- s.ownedBehavior,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+--        --ownedtrigger <- s.--ownedtrigger,
+        nestedClassifier <- s.nestedClassifier,
+        ownedOperation <- s.ownedOperation,
+        ownedReception <- s.ownedReception,
+		nestedClassifier <- s.nestedClassifier)
+}
+
+rule ComponentFromSECOND {
+    from s : UML2!"uml::Component" in SECOND ((not s.oclIsTypeOf(UML2!Class)) and thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Component" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isActive <- s.isActive,
+        isIndirectlyInstantiated <- s.isIndirectlyInstantiated,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        ownedBehavior <- s.ownedBehavior,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        --ownedtrigger <- s.--ownedtrigger,
+        nestedClassifier <- s.nestedClassifier,
+        ownedOperation <- s.ownedOperation,
+        ownedReception <- s.ownedReception,
+        packagedElement <- s.packagedElement,
+        realization <- s.realization)
+}
+
+rule InterfaceFromSECOND {
+from s : UML2!"uml::Interface" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+to t : UML2!"uml::Interface" (
+    name <- s.name,
+    visibility <- s.visibility,
+    isLeaf <- s.isLeaf,
+    isAbstract <- s.isAbstract,
+    eAnnotations <- s.eAnnotations,
+    ownedComment <- s.ownedComment,
+    clientDependency <- s.clientDependency,
+    nameExpression <- s.nameExpression,
+    elementImport <- s.elementImport,
+    packageImport <- s.packageImport,
+    ownedRule <- s.ownedRule,
+    templateParameter <- s.templateParameter,
+    templateBinding <- s.templateBinding,
+    ownedTemplateSignature <- s.ownedTemplateSignature,
+    generalization <- s.generalization,
+    powertypeExtent <- s.powertypeExtent,
+    redefinedClassifier <- s.redefinedClassifier,
+    substitution <- s.substitution,
+    representation <- s.representation,
+    collaborationUse <- s.collaborationUse,
+    ownedUseCase <- s.ownedUseCase,
+    useCase <- s.useCase,
+    ownedAttribute <- s.ownedAttribute,
+    ownedOperation <- s.ownedOperation,
+    nestedClassifier <- s.nestedClassifier,
+    redefinedInterface <- s.redefinedInterface,
+    ownedReception <- s.ownedReception,
+    protocol <- s.protocol)
+}
+rule PropertyFromSECOND {
+    from s : UML2!"uml::Property" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Property" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        isReadOnly <- s.isReadOnly,
+        isDerived <- s.isDerived,
+        isDerivedUnion <- s.isDerivedUnion,
+        aggregation <- s.aggregation,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+--        type <- s.setType(),
+        upperValue <- s.upperValue,
+        lowerValue <- s.lowerValue,
+        templateParameter <- s.templateParameter,
+        deployment <- s.deployment,
+        redefinedProperty <- s.redefinedProperty,
+        defaultValue <- s.defaultValue,
+        subsettedProperty <- s.subsettedProperty,
+        association <- s.association,
+        qualifier <- s.qualifier)
+		do {	
+		--- Here we set the types of the properties. All this is necessary in order to ensure 
+		--- that the type exists in the output model, as otherwise the property.type would
+		--- point to one of the input models. In case the type can't be found we change it to
+		--- void and notify the user of which property and type has been changed.
+		if (not (s.type=s.type.resolve())){
+			t.type <- s.type;
+			}
+		else if (s.type.oclIsUndefined()) {
+			t.type <- thisModule.voidType;	
+		}
+		else{
+			if (thisModule.allElementsFromSecond.includes(s)){
+				if (thisModule.propertyTypeHelper->select(e|e.name=s.type.name).notEmpty())
+					if (not(thisModule.propertyTypeHelper->select(e|e.name=s.type.name).first()=
+						thisModule.propertyTypeHelper->select(e|e.name=s.type.name).first().resolve())){
+						t.type<-thisModule.propertyTypeHelper->select(e|e.name=s.type.name).first();
+					}
+					else{
+						t.type <- thisModule.voidType;	
+					}
+				
+				else{
+					t.type <- thisModule.voidType;		
+					}
+			}
+			else{
+				t.type <- thisModule.voidType;		
+			}
+		}
+		}
+}
+rule OperationFromSECOND {
+    from s : UML2!"uml::Operation" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Operation" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        isAbstract <- s.isAbstract,
+        concurrency <- s.concurrency,
+        isQuery <- s.isQuery,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        ownedParameter <- s.ownedParameter,
+        method <- s.method,
+        raisedException <- s.raisedException,
+        ownedParameterSet <- s.ownedParameterSet,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        precondition <- s.precondition,
+        postcondition <- s.postcondition,
+        redefinedOperation <- s.redefinedOperation,
+        bodyCondition <- s.bodyCondition)
+}
+rule ParameterFromSECOND {
+    from s : UML2!"uml::Parameter" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Parameter" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        direction <- s.direction,
+        isException <- s.isException,
+        isStream <- s.isStream,
+        effect <- s.effect,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+--        type <- s.setType(),
+        templateParameter <- s.templateParameter,
+        upperValue <- s.upperValue,
+        lowerValue <- s.lowerValue,
+        parameterSet <- s.parameterSet,
+        defaultValue <- s.defaultValue)
+		do {	
+		--- Here we set the types of the properties. All this is necessary in order to ensure 
+		--- that the type exists in the output model, as otherwise the property.type would
+		--- point to one of the input models. In case the type can't be found we change it to
+		--- void and notify the user of which property and type has been changed.
+		if (not (s.type=s.type.resolve())){
+			t.type <- s.type;
+			}
+		else if (s.type.oclIsUndefined()) {
+			t.type <- UML2!Type.allInstancesFrom('FIRST')->select(e|e.name='void').first();	
+		}
+		else{
+			if (thisModule.allElementsFromSecond.includes(s)){
+				if (thisModule.propertyTypeHelper->select(e|e.name=s.type.name).notEmpty())
+					if (not(thisModule.propertyTypeHelper->select(e|e.name=s.type.name).first()=
+						thisModule.propertyTypeHelper->select(e|e.name=s.type.name).first().resolve())){
+						t.type<-thisModule.propertyTypeHelper->select(e|e.name=s.type.name).first();
+					}
+					else{
+						t.type <- thisModule.voidType;	
+					}
+				
+				else{
+					t.type <- thisModule.voidType;		
+					}
+			}
+			else{
+				t.type <- thisModule.voidType;		
+			}
+		}
+	}
+}
+rule AssociationFromSECOND {
+    from s : UML2!"uml::Association" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Association" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isDerived <- s.isDerived,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        memberEnd <- s.memberEnd,
+        ownedEnd <- s.ownedEnd,
+		navigableOwnedEnd <- s.navigableOwnedEnd)
+}
+rule DependencyFromSECOND {
+from s : UML2!"uml::Dependency" in SECOND (s.oclIsTypeOf(UML2!Dependency) and thisModule.elementsToTransformFromSecond.includes(s))
+to t : UML2!"uml::Dependency" (
+--    __xmiID__ <- s.__xmiID__,
+    name <- s.name,
+    visibility <- s.visibility,
+    eAnnotations <- s.eAnnotations,
+    ownedComment <- s.ownedComment,
+    clientDependency <- s.clientDependency,
+    nameExpression <- s.nameExpression,
+    templateParameter <- s.templateParameter,
+    supplier <- Sequence{s.supplier.first().setSupplierOrContract()},
+    client <- s.client)
+}
+rule GeneralizationFromSECOND {
+from s : UML2!"uml::Generalization" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+to t : UML2!"uml::Generalization" (
+--    __xmiID__ <- s.__xmiID__,
+    isSubstitutable <- s.isSubstitutable,
+    eAnnotations <- s.eAnnotations,
+    ownedComment <- s.ownedComment,
+    general <- s.general.setSupplierOrContract(),
+    generalizationSet <- s.generalizationSet)
+--	do {		
+--		if (not (s.general=s.general.resolve())){
+--			t.general <- s.general;
+--			}
+--	}
+}
+rule InterfaceRealizationFromSECOND {
+from s : UML2!"uml::InterfaceRealization" in SECOND (s.oclIsTypeOf(UML2!InterfaceRealization) and thisModule.elementsToTransformFromSecond.includes(s))
+to t : UML2!"uml::InterfaceRealization" (
+    name <- s.name,
+    visibility <- s.visibility,
+    eAnnotations <- s.eAnnotations,
+    ownedComment <- s.ownedComment,
+    clientDependency <- s.clientDependency,
+    nameExpression <- s.nameExpression,
+    templateParameter <- s.templateParameter,
+    mapping <- s.mapping,
+    contract <- s.contract.setSupplierOrContract())
+--	do {		
+--		if (not (s.contract=s.contract.resolve())){
+--			t.contract <- s.contract;
+--			}
+--		}
+}
+
+
+rule EnumerationFromSECOND {
+    from s : UML2!"uml::Enumeration" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::Enumeration" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        templateBinding <- s.templateBinding,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        redefinedClassifier <- s.redefinedClassifier,
+        substitution <- s.substitution,
+        representation <- s.representation,
+        collaborationUse <- s.collaborationUse,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        ownedAttribute <- s.ownedAttribute,
+        ownedOperation <- s.ownedOperation,
+        ownedLiteral <- s.ownedLiteral)
+}
+
+rule EnumerationLiteralFromSECOND {
+    from s : UML2!"uml::EnumerationLiteral" in SECOND (thisModule.elementsToTransformFromSecond.includes(s))
+    to t : UML2!"uml::EnumerationLiteral" (
+--        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        deployment <- s.deployment,
+        templateParameter <- s.templateParameter,
+--        -- classifier <- s.classifier,
+        slot <- s.slot,
+        specification <- s.specification)
+}
+
+---*******************************************************************************************---
+---************************************* LAZY RULES ******************************************---
+---*******************************************************************************************---
+
+lazy rule ApplyStereotypes {
+	from s : UML2!"uml::Element" 
+	using {
+		t : UML2!"uml::Element" = s.resolve();
+		d : UML2!"uml::Element" = s.getMatchInSecondModel(); --Searching for duplicate in second model
+	}
+	do {
+		for (st in s.getAppliedStereotypes()) {
+			if (not t.refImmediateComposite().oclIsUndefined()){
+				t.applyStereotype(st);
+				for (a in st.getAllAttributes()) {
+					if (not a.name.startsWith('base_') and s.hasValue(st, a.name)) {
+						t.setValue(st, a.name, s.getValue(st, a.name));
+					}
+				}
+			}
+		}
+		
+		if (not d.oclIsUndefined()){
+			for (st in d.getAppliedStereotypes()) {
+				if (not t.refImmediateComposite().oclIsUndefined()){
+					if (not t.isStereotypeApplied(st)){
+						t.applyStereotype(st);
+						for (a in st.getAllAttributes()) {
+							if (not a.name.startsWith('base_') and s.hasValue(st, a.name)) {
+								t.setValue(st, a.name, s.getValue(st, a.name));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+endpoint rule ApplyAllStereotypes() {
+	do {
+		for (element in thisModule.traces.defaultSourceElements
+				->collect(e|e.object)
+				->select(o|o.oclIsKindOf(UML2!"uml::Element"))) {
+			thisModule.ApplyStereotypes(element);
+		}
+	}
+}

@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <xs:complexType name="BaseResource">
+    <xs:complexContent>
+      <xs:extension base="ActionableResource">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element name="comment" type="xs:string" minOccurs="0"/>
+          <xs:element name="creation_status" type="Status" minOccurs="0"/>
+          <xs:element ref="link" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="href" type="xs:string" />
+        <xs:attribute name="id" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Status">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element name="state" type="xs:string"/>
+          <xs:element name="detail" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ActionableResource">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element name="actions" type="Actions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Actions">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element ref="link" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="link" type="Link"/>
+
+  <xs:complexType name="Link">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:attribute name="href" type="xs:string"/>
+        <xs:attribute name="rel" type="xs:string"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="rsdl" type="RSDL"/>
+
+  <xs:complexType name="RSDL">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element type="xs:string" name="description" minOccurs="0"/>
+          <xs:element type="Version" name="version" minOccurs="0" />
+          <xs:element ref="schema" minOccurs="0" />
+          <xs:element type="GeneralMetadata" name="general" minOccurs="0" />
+          <xs:element type="DetailedLinks" name="links" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="href" type="xs:string"/>
+        <xs:attribute name="rel" type="xs:string"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Version">
+    <xs:complexContent>
+      <xs:extension base="BaseResource">
+        <xs:attribute name="major" type="xs:unsignedShort" />
+        <xs:attribute name="minor" type="xs:unsignedShort" />
+        <xs:attribute name="build" type="xs:unsignedShort" />
+        <xs:attribute name="revision" type="xs:unsignedShort" />
+        <xs:attribute name="full_version" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="schema" type="Schema"/>
+
+  <xs:complexType name="Schema">
+    <xs:complexContent>
+      <xs:extension base="Link">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0" />
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="general_metadata" type="GeneralMetadata"/>
+
+  <xs:complexType name="GeneralMetadata">
+    <xs:complexContent>
+      <xs:extension base="DetailedLink">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="detailedLinks" type="DetailedLinks"/>
+
+  <xs:complexType name="DetailedLinks">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element name="link" type="DetailedLink" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="DetailedLink">
+    <xs:complexContent>
+      <xs:extension base="Link">
+        <xs:sequence>
+          <xs:element name="description" type="xs:string" minOccurs="0"/>
+          <xs:element ref="request" minOccurs="0"/>
+          <xs:element ref="response" minOccurs="0"/>
+          <xs:element ref="linkCapabilities" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="request" type="Request"/>
+
+  <xs:complexType name="Request">
+    <xs:sequence>
+      <xs:element name="http_method" type="HttpMethod"/>
+      <xs:element ref="headers" minOccurs="0"/>
+      <xs:element ref="url" minOccurs="0" />
+      <xs:element ref="body" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HttpMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GET"/>
+      <xs:enumeration value="POST"/>
+      <xs:enumeration value="PUT"/>
+      <xs:enumeration value="DELETE"/>
+      <xs:enumeration value="OPTIONS"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="response" type="Response"/>
+
+  <xs:complexType name="Response">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="linkCapabilities" type="LinkCapabilities" />
+
+  <xs:complexType name="LinkCapabilities">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:sequence>
+          <xs:element name="searchable" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="url" type="Url"/>
+
+  <xs:complexType name="Url">
+    <xs:sequence>
+      <xs:element ref="parameters_set" maxOccurs="unbounded" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="body" type="Body"/>
+
+  <xs:complexType name="Body">
+    <xs:sequence>
+      <xs:element name="type" type="xs:string" />
+      <xs:element ref="parameters_set" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="required" type="xs:boolean"/>
+  </xs:complexType>
+  
+  <xs:element name="parameter" type="Parameter"/>
+
+  <xs:complexType name="Parameter">
+    <xs:complexContent>
+      <xs:extension base="BaseResource">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="1" />
+          <xs:element ref="parameters_set" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="required" type="xs:boolean"/>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="context" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="parameters_set" type="ParametersSet"/>
+
+  <xs:complexType name="ParametersSet">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element ref="parameter" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="header" type="Header"/>
+
+  <xs:complexType name="Header">
+    <xs:complexContent>
+      <xs:extension base="BaseResource">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="required" type="xs:boolean"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="headers" type="Headers"/>
+
+  <xs:complexType name="Headers">
+    <xs:sequence>
+      <xs:element ref="header" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
