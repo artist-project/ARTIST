@@ -55,10 +55,10 @@ public class StreamGobbler extends Thread {
             String line = null;
             while ((line = br.readLine()) != null) {
                 System.out.println(type + ">" + line);
-                
+                /*
                 if (line.contains("Average")){
                 	setDecision(true);
-                }
+                }*/
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();

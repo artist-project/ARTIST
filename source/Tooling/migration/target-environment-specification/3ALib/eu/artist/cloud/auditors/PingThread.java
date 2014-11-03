@@ -88,8 +88,10 @@ public class PingThread extends Thread {
             int exitVal = proc.waitFor();
             System.out.println("ExitValue: " + exitVal);
             
-            if (outputGobbler.isDecision()){
-            	//System.out.println("Destination is reachable");
+            //if (outputGobbler.isDecision()){
+            	
+            if (exitVal==0){
+            //System.out.println("Destination is reachable");
             	setFinally_reachable(true);
             }
             
