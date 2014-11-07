@@ -1,4 +1,5 @@
 -- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
 -- $Id$
 
 -------------------------------------------------------------------------------
@@ -20,6 +21,8 @@
 library "lib::UMLLib";
 --- Library with methods to manage UML2 models
 
+--- Contains all packages from IN
+helper def: allINPackages:Sequence(UML2!Package) = UML2!Package.allInstancesFrom('IN');
 --- Contains all classes from IN
 helper def: allINClasses:Sequence(UML2!Class) = UML2!Class.allInstancesFrom('IN');
 --- Contains all Interfaces from IN
@@ -305,6 +308,11 @@ helper context UML2!Element def : belongsToMainModel() : Boolean =
 		endif
 	endif;
 
+helper def : getMainModel() : UML2!Model = UML2!Model.allInstancesFrom('IN')->select(m | m.oclIsTypeOf(UML2!Model) and
+	not (m.name = 'externals') and not (m.name = 'sourcesReferences') and not (m.name = 'root model'))->first();
+
+
+
 --- returns whether or not the given package (or nested classes) contains a class that has been stereotyped with given stereotype
 helper context UML2!Package def : containsStereotypedClass(ste:UML2!Stereotype) : Boolean = 
 	if (self.packagedElement->isEmpty()) then
@@ -346,3 +354,7 @@ helper context UML2!Class def : locatePackageWithComponentsOfType(ste: UML2!Ster
 
 --- returns an OclUndefined 
 helper def : any() : OclAny = OclUndefined;
+
+--- returns whether or not a class is inner (defined within another class)
+helper context UML2!Class def : isInnerClass() : Boolean = self.owner->oclIsTypeOf(UML2!Class);
+

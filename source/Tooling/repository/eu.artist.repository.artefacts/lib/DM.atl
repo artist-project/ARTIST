@@ -1,0 +1,45 @@
+-- @atlcompiler emftvm
+-- $Id$
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library "lib::DM";
+
+---**********DataManagement (Observable pattern) profile Stereotypes***************---
+
+helper def : profile() : UML2!Profile = profile!Profile.allInstancesFrom('Profile').asSequence().first();
+
+helper def: concreteSubjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ConcreteSubject').first();
+helper def: concreteObserverStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ConcreteObserver').first();
+helper def: subjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Subject').first();
+helper def: observerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='Observer').first();
+helper def: updateStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='update').first();
+helper def: messageListenerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='MessageListener').first();
+helper def: dataModelStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='DataModel').first();
+helper def: notifyObserversStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='notifyObservers').first();
+helper def: registerObserverStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='registerObserver').first();
+helper def: removeObserverStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='removeObserver').first();
