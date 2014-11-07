@@ -23,7 +23,7 @@ package eu.artist.migration.ct.gui.rcp2gwt.abstractors;
  *
  */
 public enum Cloudifiers {
-		RCP2GWT ("RCP2GWT", "platform:/plugin/eu.artist.migration.modernization.ct.gui.rcp2gwt/PDMs/GWT-PDM_v2.0.uml", "GWTMapper");
+		RCP2GWT ("RCP2GWT", "platform:/plugin/eu.artist.repository.artefacts/pdms/GWT-PDM_v2.0.uml", "GWTMapper");
 	
 	private String label;
 	private String pdm;

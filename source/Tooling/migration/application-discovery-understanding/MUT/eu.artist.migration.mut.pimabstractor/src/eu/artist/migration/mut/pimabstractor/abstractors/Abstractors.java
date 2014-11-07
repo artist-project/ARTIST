@@ -23,8 +23,8 @@ package eu.artist.migration.mut.pimabstractor.abstractors;
  *
  */
 public enum Abstractors {
-		GUI ("GUI", "platform:/plugin/eu.artist.migration.mut.pimabstractor/profiles/gui.profile.uml", "GUIAbstractor"),
-		RCP ("RCP", "platform:/plugin/eu.artist.migration.mut.pimabstractor/profiles/rcp.profile.uml", "RCPAbstractor");
+		GUI ("GUI", "platform:/plugin/eu.artist.repository.artefacts/profiles/gui.profile.uml", "GUIAbstractor"),
+		RCP ("RCP", "platform:/plugin/eu.artist.repository.artefacts/profiles/rcp.profile.uml", "RCPAbstractor");
 	
 		
 	private String label;

@@ -21,7 +21,7 @@
 
 module GUIAbstractor;
 create OUT: UML2 from IN: UML2, Plugin: XML, Profile: profile;
-uses "Eclipse2GUIMapping";
+uses "lib::Eclipse2GUIMapping";
 uses "lib::UMLLib";
 uses "lib::PluginLib";
 uses "lib::GUI";

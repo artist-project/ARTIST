@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ASCII"?>
+<modisco.xml:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modisco.xml="http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML" name="plugin">
+  <children xsi:type="modisco.xml:Text" name="&#xA;&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension-point">
+    <children xsi:type="modisco.xml:Attribute" name="id" value="dewsep"/>
+    <children xsi:type="modisco.xml:Attribute" name="name" value="DEWS Extension Point"/>
+    <children xsi:type="modisco.xml:Attribute" name="schema" value="schema/org.dews_online.ccui.core.dewsep.exsd"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension-point">
+    <children xsi:type="modisco.xml:Attribute" name="id" value="dews_detailview_action_ep"/>
+    <children xsi:type="modisco.xml:Attribute" name="name" value="DEWS DetailView Action "/>
+    <children xsi:type="modisco.xml:Attribute" name="schema" value="schema/dews_detailview_action_ep.exsd"/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;          "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="net.refractions.udig.project.ui.tool"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+    <children xsi:type="modisco.xml:Element" name="actionTool">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.udigactions.SnapshotActionTool"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/export.gif"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.snapshot"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Snapshot"/>
+      <children xsi:type="modisco.xml:Attribute" name="onToolbar" value="true"/>
+      <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Generates a snapshot of the current map"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="enablement"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    <children xsi:type="modisco.xml:Element" name="backgroundTool">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.udigactions.PhenomenonSelector"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.phenomenonselector"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    <children xsi:type="modisco.xml:Element" name="actionTool">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.udigactions.InitialBoundingBoxAction"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/zoom_extent.gif"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.initialbbox"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="ResetBoundingBox"/>
+      <children xsi:type="modisco.xml:Attribute" name="onToolbar" value="true"/>
+      <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Re-center map view"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;                "/>
+      <children xsi:type="modisco.xml:Element" name="enablement"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    <children xsi:type="modisco.xml:Element" name="modalTool">
+      <children xsi:type="modisco.xml:Attribute" name="categoryId" value="org.dews_online.ccui.core.ccuiinfotool.category"/>
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.udigactions.CcuiInfoTool"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/info_mode.gif"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.ccuiinfotool"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Show info for selected map items"/>
+      <children xsi:type="modisco.xml:Attribute" name="onToolbar" value="true"/>
+      <children xsi:type="modisco.xml:Attribute" name="toolCursorId" value="CCUIInfoCursor"/>
+      <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Show info for objects in map"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;                   "/>
+      <children xsi:type="modisco.xml:Element" name="cursor">
+        <children xsi:type="modisco.xml:Attribute" name="hotspotX" value="10"/>
+        <children xsi:type="modisco.xml:Attribute" name="hotspotY" value="10"/>
+        <children xsi:type="modisco.xml:Attribute" name="image" value="icons/info_cursor.gif"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;                  "/>
+    <children xsi:type="modisco.xml:Element" name="toolCursor">
+      <children xsi:type="modisco.xml:Attribute" name="hotspotX" value="10"/>
+      <children xsi:type="modisco.xml:Attribute" name="hotspotY" value="10"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="CCUIInfoCursor"/>
+      <children xsi:type="modisco.xml:Attribute" name="image" value="icons/info_cursor.gif"/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;                   "/>
+    <children xsi:type="modisco.xml:Element" name="category">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.ccuiinfotool.category"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;          "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.dews_online.ccui.core.dewsep"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="dewsModelContributor">
+      <children xsi:type="modisco.xml:Attribute" name="businessObjectProvider" value="org.dews_online.ccui.core.model.snapshot.dews_ep.SnapShotProvider"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.model.dewsep.snapshot"/>
+      <children xsi:type="modisco.xml:Attribute" name="label" value="MapSnapShot"/>
+      <children xsi:type="modisco.xml:Attribute" name="viewComponentFactory" value="org.dews_online.ccui.core.model.snapshot.dews_ep.MapSnapShotViewComponentFactory"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="dewsModelContributor">
+      <children xsi:type="modisco.xml:Attribute" name="businessObjectProvider" value="org.dews_online.ccui.core.model.incident.dews_ep.IncidentProvider"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.model.dewsep.incident"/>
+      <children xsi:type="modisco.xml:Attribute" name="label" value="Incident"/>
+      <children xsi:type="modisco.xml:Attribute" name="viewComponentFactory" value="org.dews_online.ccui.core.model.incident.dews_ep.IncidentViewComponentFactory"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.startup"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="startup"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.views"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;"/>
+    <children xsi:type="modisco.xml:Element" name="view">
+      <children xsi:type="modisco.xml:Attribute" name="allowMultiple" value="false"/>
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.viewparts.SnapshotView"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/export.gif"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.viewparts.SnapshotView"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Snapshots"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+    <children xsi:type="modisco.xml:Element" name="view">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.viewparts.MapElementsView"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/globe-compass.png"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.viewparts.PhenomenonTreeView"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Map Elements"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;"/>
+    <children xsi:type="modisco.xml:Comment" name="&#xA;      &lt;view&#xA;            class=&quot;org.dews_online.ccui.core.view.viewparts.MapDetailsView&quot;&#xA;            icon=&quot;icons/globe-compass.png&quot;&#xA;            id=&quot;org.dews_online.ccui.core.view.viewparts.MapDetailsView&quot;&#xA;            name=&quot;Map Details&quot;>&#xA;   &lt;/view>&#xA;   "/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="view">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.viewparts.DetailView"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/detail.png"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.viewparts.DetailView"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Information View"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="view">
+      <children xsi:type="modisco.xml:Attribute" name="allowMultiple" value="false"/>
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.viewparts.IncidentTreeView"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/incident.png"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.viewparts.IncidentTreeView"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Incidents"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.perspectives"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+    <children xsi:type="modisco.xml:Comment" name="&#xA;      &lt;perspective&#xA;            class=&quot;org.dews_online.ccui.core.view.SystemMonitoringPerspective&quot;&#xA;            icon=&quot;icons/bug-icon.png&quot;&#xA;            id=&quot;org.dews_online.ccui.core.view.SystemMonitoringPerspective&quot;&#xA;            name=&quot;System Monitoring&quot;>&#xA;      &lt;/perspective>&#xA;      "/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="perspective">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.MonitoringPerspective"/>
+      <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/system-monitor.png"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.MonitoringPerspective"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="Monitoring"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.popupMenus"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+    <children xsi:type="modisco.xml:Element" name="objectContribution">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.objectContribution.SnapShot1"/>
+      <children xsi:type="modisco.xml:Attribute" name="objectClass" value="org.dews_online.ccui.core.model.snapshot.SnapShot"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.RenameSnapshotActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="1"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.rename"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Rename snapshot"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Renames the selected snapshot"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.ExportSnapshotActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="1"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.export"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Export as image file"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Export the snapshot as png file"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.ShowSnapshotActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="1"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.showsnapshot"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Show snapshot"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Shows all details of this snapshot"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="objectContribution">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.ioffersenvelope.objectcontribution1"/>
+      <children xsi:type="modisco.xml:Attribute" name="objectClass" value="org.dews_online.ccui.core.model.IHaveEnvelope"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.TrimMapActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="+"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/resize.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.trimmap"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Trim map to selected items"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="objectContribution">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.objectContribution.Incident"/>
+      <children xsi:type="modisco.xml:Attribute" name="objectClass" value="org.dews_online.ccui.core.model.incident.Incident"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.SetAsActiveIncidentActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="1"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/active_incident.png"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action5"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Set As Active Incident"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.CloseIncidentActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="+"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/close_incident.png"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action4"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Close Incident"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.RenameIncidentActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.incident.rename"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Rename incident"/>
+        <children xsi:type="modisco.xml:Attribute" name="state" value="true"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Renames the selected incident"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="objectContribution">
+      <children xsi:type="modisco.xml:Attribute" name="adaptable" value="false"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.objectContribution.IIncidentBasedDewsBusinessObject"/>
+      <children xsi:type="modisco.xml:Attribute" name="objectClass" value="org.dews_online.ccui.core.model.IIncidentBasedDewsBusinessObject"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.AddBusinessObjectsToActiveIncidentActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="+"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action2"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Add to active incident"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.DeleteBusinessObjectsFromActiveIncidentActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="+"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/delete_from_incident.png"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action3"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Delete From Incident"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="objectContribution">
+      <children xsi:type="modisco.xml:Attribute" name="adaptable" value="false"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.objectContribution.IDeletableBusinessObject"/>
+      <children xsi:type="modisco.xml:Attribute" name="objectClass" value="org.dews_online.ccui.core.model.IDeletableBusinessObject"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.DeleteBusinessObjectActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="+"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/delete_incident.png"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.objectContribution.IDeletableBusinessObject.action1"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Delete"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.RestoreBusinessObjectActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="enablesFor" value="+"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.objectContribution.IDeletableBusinessObject.action2"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Restore"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;          "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.viewActions"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="viewContribution">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.viewparts.PhenomenonTreeView.viewerContribution"/>
+      <children xsi:type="modisco.xml:Attribute" name="targetID" value="org.dews_online.ccui.core.view.viewparts.PhenomenonTreeView"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.TrimMapToAllActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/resize.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action3"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Trim map to all"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         &#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.LinkMapWithPhenomenonTreeActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/goal_obj.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action1"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Link with map"/>
+        <children xsi:type="modisco.xml:Attribute" name="state" value="false"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="toggle"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;        &#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="viewContribution">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.SnapShotView.viewerContribution"/>
+      <children xsi:type="modisco.xml:Attribute" name="targetID" value="org.dews_online.ccui.core.view.viewparts.SnapshotView"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.DeleteAllSnapshotsActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/doubledelete.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.ssv2"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Delete all snapshots"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.TrimMapToAllMSSActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/resize.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.ilc.ssv.1"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Trim map to all snapshots"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="viewContribution">
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.view.viewparts.IncidentTreeView.viewerContribution"/>
+      <children xsi:type="modisco.xml:Attribute" name="targetID" value="org.dews_online.ccui.core.view.viewparts.IncidentTreeView"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.CreateNewIncidentActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/add.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action1"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Create New Incident"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="push"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.control.actiondelegate.ChangeCruiseControlModeInIncidentManagerActionDelegate"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/synced.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.action2"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Toggle Cruise Control Mode (ON/OFF)"/>
+        <children xsi:type="modisco.xml:Attribute" name="state" value="false"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="toggle"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="additions"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      &#xA;         "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;          "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="net.refractions.udig.mapgraphic.mapgraphic"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    <children xsi:type="modisco.xml:Element" name="mapGraphic">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.MapGraphics.AimPhenomenonMapGraphic"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="aimphenomenon"/>
+      <children xsi:type="modisco.xml:Attribute" name="name" value="aimphenomenon"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;             "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;          "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.perspectiveExtensions"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="perspectiveExtension">
+      <children xsi:type="modisco.xml:Attribute" name="targetID" value="org.dews_online.ccui.core.view.MonitoringPerspective"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="perspectiveShortcut">
+        <children xsi:type="modisco.xml:Attribute" name="id" value="Monitoring.perspective"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.core.runtime.preferences"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="initializer">
+      <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.preferences.PreferenceInitializer"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  <children xsi:type="modisco.xml:Element" name="extension">
+    <children xsi:type="modisco.xml:Attribute" name="point" value="org.eclipse.ui.actionSets"/>
+    <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    <children xsi:type="modisco.xml:Element" name="actionSet">
+      <children xsi:type="modisco.xml:Attribute" name="description" value="Mark objects in map"/>
+      <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.markinmap.actionSet"/>
+      <children xsi:type="modisco.xml:Attribute" name="label" value="Mark objects in map"/>
+      <children xsi:type="modisco.xml:Attribute" name="visible" value="true"/>
+      <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      <children xsi:type="modisco.xml:Element" name="action">
+        <children xsi:type="modisco.xml:Attribute" name="class" value="org.dews_online.ccui.core.view.ToggleMarkObjectsInMapAction"/>
+        <children xsi:type="modisco.xml:Attribute" name="icon" value="icons/mark.gif"/>
+        <children xsi:type="modisco.xml:Attribute" name="id" value="org.dews_online.ccui.core.markinmap.action"/>
+        <children xsi:type="modisco.xml:Attribute" name="label" value="Mark objects in map"/>
+        <children xsi:type="modisco.xml:Attribute" name="state" value="false"/>
+        <children xsi:type="modisco.xml:Attribute" name="style" value="toggle"/>
+        <children xsi:type="modisco.xml:Attribute" name="toolbarPath" value="gazetteer"/>
+        <children xsi:type="modisco.xml:Attribute" name="tooltip" value="Mark objects in map"/>
+        <children xsi:type="modisco.xml:Text" name="&#xA;         "/>
+      </children>
+      <children xsi:type="modisco.xml:Text" name="&#xA;      "/>
+    </children>
+    <children xsi:type="modisco.xml:Text" name="&#xA;   "/>
+  </children>
+  <children xsi:type="modisco.xml:Text" name="&#xA;"/>
+  <leadingPIs name="eclipse" data="version=&quot;3.2&quot;"/>
+</modisco.xml:Root>
