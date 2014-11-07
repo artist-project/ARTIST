@@ -186,7 +186,7 @@ public class AbstractModelHandler extends AbstractHandler {
 				
 				M2MTHelper.performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(outUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.pimabstractor/transformations/",
-						"platform:/eu.artist.migration.mut.pimabstractor/", "platform:/plugin/eu.artist.migration.m2mt.lib/"}), 
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 						m2mtModule, metamodels, monitor);
 			}
 			

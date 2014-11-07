@@ -203,7 +203,7 @@ public class CloudifierHandler extends AbstractHandler {
 				
 				M2MTHelper.performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(outUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.modernization.ct.gui.rcp2gwt/transformations/",
-						"platform:/plugin/eu.artist.migration.m2mt.lib/"}), 
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 						m2mtModule, metamodels, monitor);
 			}
 			
@@ -226,8 +226,7 @@ public class CloudifierHandler extends AbstractHandler {
 				inModels.put("INGWT", org.eclipse.emf.common.util.URI.createURI(modelUri.toString()));
 				
 				M2MTHelper.performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(outUri.toString()),
-					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.modernization.ct.gui.rcp2gwt/transformations/",
-						"platform:/plugin/eu.artist.migration.m2mt.lib/"}), 
+					Arrays.asList(new String[]{"platform:/plugin/eu.artist.repository.artefacts/"}), 
 						"EclipseGUI2GWTMerger", metamodels, monitor);
 			}
 			
