@@ -33,8 +33,8 @@ Instructions to build
 ---------------------
 Running the build requires Apache Maven to be installed, either as an Eclipse plugin (case A) or natively on the machine (case B).
 
-In case A it has been tested successfully using "Eclipse Kepler Service Release 2 (20140224-0627)", Apache Maven plugin "m2e - Maven Integration for Eclipse (1.4.0.20130601-0317)" and JDK 1.7.0_51.
-In case B it has been tested successfully using "Apache Maven 3.2.1" and Oracle Java version 1.8.0_25.
+In case A, it has been tested successfully using "Eclipse Kepler Service Release 2 (20140224-0627)", Apache Maven plugin "m2e - Maven Integration for Eclipse (1.5.0.20140606-0033)" and JDK 1.7.0_51 on Windows 7.
+In case B, it has been tested successfully using "Apache Maven 3.2.1" and Oracle Java version 1.8.0_25 on Windows 7.
 
 To run a native Maven build change to the main project folder (i.e., "eu.artist.postmigration.eubt") and issue the following command:
 > mvn clean install
