@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="eu.artist.migration.ct.category"
+            name="Cloudification Toolbox">
+      </category>
+      <command
+            category="eu.artist.migration.ct.category"
+            categoryId="eu.artist.migration.ct.category"
+            id="eu.artist.migration.ct.gui.rcp2gwt.commands.cloudifyGUI"
+            name="Cloudify GUI">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.artist.migration.ct.gui.rcp2gwt.handler.CloudifierHandler"
+            commandId="eu.artist.migration.ct.gui.rcp2gwt.commands.cloudifyGUI">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="eu.artist.migration.ct.menu.main"
+               label="Cloudification Toolbox">
+            <command
+                  commandId="eu.artist.migration.ct.gui.rcp2gwt.commands.cloudifyGUI"
+                  id="eu.artist.migration.ct.gui.rcp2gwt.menus.cloudifyGUI"
+                  mnemonic="A">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.uml">
+                           </test>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sim -->
+      <package
+            uri="http://eu.artist.migration.mut.slicing/sim"
+            class="eu.artist.migration.mut.slicing.sim.SimPackage"/>
+   </extension>
+
+</plugin>

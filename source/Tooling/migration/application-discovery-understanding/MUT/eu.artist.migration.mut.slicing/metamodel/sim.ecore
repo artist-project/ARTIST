@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sim" nsURI="http://eu.artist.migration.mut.slicing/sim" nsPrefix="sim">
+  <eClassifiers xsi:type="ecore:EClass" name="SlicingIntent" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inject" lowerBound="1"
+        eType="#//ModelType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extract" lowerBound="1"
+        eType="#//ModelType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="criteria" lowerBound="1"
+        upperBound="-1" eType="#//SlicingCriterion" containment="true" eOpposite="#//SlicingCriterion/intent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" eType="#//SlicingConfiguration"
+        containment="true" eOpposite="#//SlicingConfiguration/intent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlicingCriterion" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intent" lowerBound="1"
+        eType="#//SlicingIntent" eOpposite="#//SlicingIntent/criteria"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inject" lowerBound="1"
+        upperBound="-1" eType="#//ModelType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+        upperBound="-1" eType="#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SlicingConfiguration" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="intent" lowerBound="1"
+        eType="#//SlicingIntent" eOpposite="#//SlicingIntent/configuration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="containmentHierarchy" eType="#//ContainmentHierarchy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="containedElement" eType="#//ContainedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="generalizationHierarchy"
+        eType="#//GeneralizationHierarchy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referencedElement" eType="#//ReferencedElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContainmentHierarchy">
+    <eLiterals name="Custom"/>
+    <eLiterals name="Nearest" value="1"/>
+    <eLiterals name="Complete" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContainedElement">
+    <eLiterals name="Custom"/>
+    <eLiterals name="All" value="1"/>
+    <eLiterals name="AllFeatures" value="2"/>
+    <eLiterals name="AllBehavioralFeatures" value="3"/>
+    <eLiterals name="AllStructuralFeatures" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReferencedElement">
+    <eLiterals name="Custom"/>
+    <eLiterals name="PackageScoped" value="1"/>
+    <eLiterals name="ModelScoped" value="2"/>
+    <eLiterals name="All" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GeneralizationHierarchy">
+    <eLiterals name="Custom"/>
+    <eLiterals name="PackageScoped" value="1"/>
+    <eLiterals name="ModelScoped" value="2"/>
+    <eLiterals name="All" value="3"/>
+    <eLiterals name="PushDown" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ModelType">
+    <eLiterals name="Annotation"/>
+    <eLiterals name="ObjectStructure" value="1"/>
+    <eLiterals name="ClassStructure" value="2"/>
+    <eLiterals name="IntraClassBehavior" value="3"/>
+    <eLiterals name="InterClassBehavior" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EObject"/>
+</ecore:EPackage>

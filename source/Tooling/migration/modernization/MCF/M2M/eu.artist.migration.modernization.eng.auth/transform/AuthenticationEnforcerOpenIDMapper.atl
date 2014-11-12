@@ -1,0 +1,560 @@
+-- @atlcompiler emftvm
+-- $Id$
+-- @nsURI uml=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+
+module AuthenticationEnforcerOpenIDMapper;
+create OUT: uml from IN: uml, PDM: uml, PROFILE: profile;
+
+uses "lib::UMLLib";
+-- ======================================================================
+-- merge helper variables begin
+-- ======================================================================
+
+helper def: toTransformElements: Set(uml!Element) =
+	uml!Element.allInstancesFrom('IN') -> union(uml!Element.allInstancesFrom('PDM') ->
+			select(e | e.fromModel('IN').oclIsUndefined())) -> select(e |  not e.oclIsTypeOf(uml!Dependency) and not e.oclIsTypeOf(uml!Association)) -> asSet();
+
+--- ELEMENT MATCHERS FROM MODEL
+helper context OclAny def: fromModel(model: String): OclAny =
+	OclUndefined; -- assuming no duplicates other then specified
+
+helper context uml!Class def: fromModel(model: String): uml!Class =
+	let packs: Sequence(uml!Class) =
+		uml!Class.allInstancesFrom(model) -> select(p | p.getFullyQualifiedClassName() =
+				self.getFullyQualifiedClassName())
+	in
+		if packs -> isEmpty() then
+			OclUndefined
+		else
+			packs -> first()
+		endif;
+
+helper context uml!DataType def: fromModel(model: String): uml!DataType =
+	let packs: Sequence(uml!DataType) =
+		uml!DataType.allInstancesFrom(model) -> select(p | p.getFullyQualifiedClassName()
+				= self.getFullyQualifiedClassName())
+	in
+		if packs -> isEmpty() then
+			OclUndefined
+		else
+			packs -> first()
+		endif;
+
+helper context uml!Interface def: fromModel(model: String): uml!Interface =
+	let packs: Sequence(uml!Interface) =
+		uml!Interface.allInstancesFrom(model) -> select(p | p.getFullyQualifiedIFName() =
+				self.getFullyQualifiedIFName())
+	in
+		if packs -> isEmpty() then
+			OclUndefined
+		else
+			packs -> first()
+		endif;
+
+helper context uml!Generalization def: fromModel(model: String): uml!Generalization =
+	let packs: Sequence(uml!Generalization) =
+		uml!Generalization.allInstancesFrom(model) -> select(p | (p.general.
+				getFullyQualifiedClassName() = self.general.getFullyQualifiedClassName())
+				and (p.specific.getFullyQualifiedClassName() = self.specific.
+				getFullyQualifiedClassName()))
+	in
+		if packs -> isEmpty() then
+			OclUndefined
+		else
+			packs -> first()
+		endif;
+
+helper context uml!Package def: fromModel(model: String): uml!Package =
+	let packs: Sequence(uml!Package) =
+		uml!Package.allInstancesFrom(model) -> select(p | p.
+				getFullyQualifiedPackageName() = self.getFullyQualifiedPackageName())
+	in
+		if packs -> isEmpty() then
+			OclUndefined
+		else
+			packs -> first()
+		endif;
+
+---HELPERS TO CREATE DEPENDENT ELEMENTS
+helper context uml!Class def: createOwnedAttribute(): Sequence(uml!Property) =
+	self.ownedAttribute -> collect(pp | thisModule.Property(pp)) -> flatten();
+
+helper context uml!Class def: createOwnedOperation(): Sequence(uml!Operation) =
+	self.ownedOperation -> collect(pp | thisModule.Operation(pp)) -> flatten();
+
+helper context uml!Interface def: createOwnedAttribute(): Sequence(uml!Property) =
+	self.ownedAttribute -> collect(pp | thisModule.Property(pp)) -> flatten();
+
+helper context uml!Interface def: createOwnedOperation(): Sequence(uml!Operation) =
+	self.ownedOperation -> collect(pp | thisModule.Operation(pp)) -> flatten();
+
+helper context uml!DataType def: createOwnedAttribute(): Sequence(uml!Property) =
+	self.ownedAttribute -> collect(pp | thisModule.Property(pp)) -> flatten();
+
+helper context uml!DataType def: createOwnedOperation(): Sequence(uml!Operation) =
+	self.ownedOperation -> collect(pp | thisModule.Operation(pp)) -> flatten();
+
+helper context uml!Operation def: createOwnedParams(): Sequence(uml!Parameter) =
+	self.ownedParameter -> collect(pp | thisModule.Parameter(pp)) -> flatten();
+
+helper context uml!Class def: createIR(): Sequence(uml!InterfaceRealization) =
+	self.interfaceRealization -> collect(pp | thisModule.InterfaceRealization(pp)) -> flatten();
+
+helper context uml!TypedElement def : newType(): OclAny =
+	if (self.type.isOldAP()) then
+		thisModule.new_AP
+	else
+		if (self.type.isOldSubj()) then
+			thisModule.new_Subj
+		else
+			if (self.type.isOldSubjStore()) then
+				thisModule.new_SubjStore
+			else
+				self.type
+			endif
+		endif
+	endif;
+
+--- AUTH_PROVIDER
+helper def: new_AP: uml!Class =
+	uml!Class.allInstancesFrom('PDM') -> any(c | c.
+			hasStereotype('AuthenticationProvider'));
+
+helper context uml!Type def: isOldAP(): Boolean =
+	if (not self.fromModel('IN').oclIsTypeOf(uml!Class)) then
+		false
+	else
+		self.fromModel('IN').hasStereotype('AuthenticationProvider')
+	endif;
+
+helper context OclAny def: isOldAP(): Boolean =
+	false;
+
+---SUBJECT
+helper context uml!Type def: isOldSubj(): Boolean =
+	if (not self.fromModel('PDM').oclIsTypeOf(uml!Class)) then
+		false
+	else
+		self.fromModel('PDM').hasStereotype('Subject')
+	endif;
+
+helper context OclAny def: isOldSubj(): Boolean =
+	false;
+
+helper def: new_Subj: uml!Class =
+	uml!Class.allInstancesFrom('IN') -> any(c | c.hasStereotype('Subject'));
+
+---S STORE
+helper context uml!Type def: isOldSubjStore(): Boolean =
+	if (not self.fromModel('PDM').oclIsTypeOf(uml!Class)) then
+		false
+	else
+		self.fromModel('PDM').hasStereotype('SubjectStore')
+	endif;
+
+helper context OclAny def: isOldSubjStore(): Boolean =
+	false;
+
+helper def: new_SubjStore: uml!Class =
+	uml!Class.allInstancesFrom('IN') -> any(c | c.hasStereotype('SubjectStore'));
+
+---RULES
+rule Model {
+	from
+		s: uml!Model (
+			s.oclIsTypeOf(uml!Model) and thisModule.toTransformElements -> includes(s)
+		)
+	using {
+		s2: uml!Model = s.fromModel('PDM');
+	}
+	to
+		t: uml!Model (
+			name <- s.name,
+			visibility <- s.visibility,
+			viewpoint <- s.viewpoint,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			packageMerge <- s.packageMerge,
+			packagedElement <- s.packagedElement -> asSet() -> union(if s2.
+					oclIsUndefined() then
+							Set{}
+						else
+							s2.packagedElement -> asSet() endif) -> select(e | thisModule.
+									toTransformElements -> includes(e)) -> asSequence()
+		)
+	do {
+		--- We apply other profiles except JAAS
+		for (prof in s.getAllAppliedProfiles()){
+			t.applyProfile(prof);
+		}
+	}
+}
+
+rule Package {
+	from
+		s: uml!Package (
+			thisModule.toTransformElements -> includes(s) and s.oclIsTypeOf(uml!Package)
+		)
+	using {
+		s2: uml!Package = s.fromModel('PDM');
+		sn: String = if (s2.oclIsUndefined()) then
+			''
+		else
+			s2.getFullyQualifiedPackageName()
+		endif;
+		pes: Sequence(uml!PackageableElement) = if (s2.oclIsUndefined()) then
+			Sequence{}
+		else
+			s2.packagedElement
+		endif;
+	}
+	to
+		t: uml!Package mapsTo s (
+			name <- s.name,
+			visibility <- s.visibility,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			packageMerge <- s.packageMerge,
+			packagedElement <- s.packagedElement -> union(pes) -> select(e | thisModule.
+					toTransformElements -> includes(e)),
+			profileApplication <- s.profileApplication
+		)
+}
+
+rule ElementImport {
+	from
+		s: uml!ElementImport (
+			thisModule.toTransformElements -> includes(s)
+		)
+	to
+		t: uml!ElementImport mapsTo s (
+			visibility <- s.visibility,
+			alias <- s.alias,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			importedElement <- s.importedElement
+		)
+}
+
+rule PackageImport {
+	from
+		s: uml!PackageImport (
+			thisModule.toTransformElements -> includes(s)
+		)
+	to
+		t: uml!PackageImport mapsTo s (
+			visibility <- s.visibility,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			importedPackage <- s.importedPackage
+		)
+}
+
+rule Generalization {
+	from
+		s: uml!Generalization (
+			thisModule.toTransformElements -> includes(s)
+		)
+	to
+		t: uml!Generalization mapsTo s (
+			isSubstitutable <- s.isSubstitutable,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			general <- s.general,
+			generalizationSet <- s.generalizationSet
+		)
+}
+
+rule Interface {
+	from
+		s: uml!Interface (
+			thisModule.toTransformElements -> includes(s)
+		)
+	to
+		t: uml!Interface mapsTo s (
+			name <- s.name,
+			visibility <- s.visibility,
+			isLeaf <- s.isLeaf,
+			isAbstract <- s.isAbstract,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			generalization <- s.generalization,
+			powertypeExtent <- s.powertypeExtent,
+			redefinedClassifier <- s.redefinedClassifier,
+			substitution <- s.substitution,
+			representation <- s.representation,
+			collaborationUse <- s.collaborationUse,
+			ownedUseCase <- s.ownedUseCase,
+			useCase <- s.useCase,
+			ownedAttribute <- s.createOwnedAttribute(),
+			ownedOperation <- s.createOwnedOperation(),
+			nestedClassifier <- s.nestedClassifier,
+			redefinedInterface <- s.redefinedInterface,
+			ownedReception <- s.ownedReception,
+			protocol <- s.protocol
+		)
+}
+
+
+rule Datatype {
+	from
+		s: uml!DataType in IN (
+			thisModule.toTransformElements -> includes(s)
+		)
+	to
+		t: uml!DataType (
+			name <- s.name,
+			visibility <- s.visibility,
+			isLeaf <- s.isLeaf,
+			isAbstract <- s.isAbstract,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			generalization <- s.generalization,
+			powertypeExtent <- s.powertypeExtent,
+			redefinedClassifier <- s.redefinedClassifier,
+			substitution <- s.substitution,
+			representation <- s.representation,
+			collaborationUse <- s.collaborationUse,
+			ownedUseCase <- s.ownedUseCase,
+			useCase <- s.useCase,
+			ownedAttribute <- s.createOwnedAttribute(),
+			ownedOperation <- s.createOwnedOperation()
+		)
+}
+
+--- base class rules ---
+rule Class {
+	from
+		s: uml!Class (
+			thisModule.toTransformElements -> includes(s) and  
+			not s.isOldAP() and
+			not s.isOldSubj() and 
+			not s.isOldSubjStore()
+		)
+	to
+		t: uml!Class (
+			__xmiID__ <- s.__xmiID__,
+			name <- s.name,
+			visibility <- s.visibility,
+			isLeaf <- s.isLeaf,
+			isAbstract <- s.isAbstract,
+			isActive <- s.isActive,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			generalization <- s.generalization,
+			powertypeExtent <- s.powertypeExtent,
+			redefinedClassifier <- s.redefinedClassifier,
+			substitution <- s.substitution,
+			representation <- s.representation,
+			collaborationUse <- s.collaborationUse,
+			ownedUseCase <- s.ownedUseCase,
+			useCase <- s.useCase,
+			ownedAttribute <- s.createOwnedAttribute(),
+			ownedConnector <- s.ownedConnector,
+			--			ownedBehavior <- s.ownedBehavior,
+			classifierBehavior <- s.classifierBehavior,
+			interfaceRealization <- s.createIR(),
+			nestedClassifier <- s.nestedClassifier,
+			ownedOperation <- s.createOwnedOperation(),
+			ownedReception <- s.ownedReception
+		)
+}
+
+
+
+unique lazy rule Property {
+	from
+		s: uml!Property 
+	to
+		t: uml!Property mapsTo s (
+			name <- s.name,
+			visibility <- s.visibility,
+			isLeaf <- s.isLeaf,
+			isStatic <- s.isStatic,
+			isOrdered <- s.isOrdered,
+			isUnique <- s.isUnique,
+			isReadOnly <- s.isReadOnly,
+			isDerived <- s.isDerived,
+			isDerivedUnion <- s.isDerivedUnion,
+			aggregation <- s.aggregation,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			type <- s.newType(),
+			--			upperValue <- s.createUpperValue(),
+--			lowerValue <- s.createLowerValue(),
+			templateParameter <- s.templateParameter,
+			deployment <- s.deployment,
+			redefinedProperty <- s.redefinedProperty,
+			defaultValue <- s.defaultValue,
+			subsettedProperty <- s.subsettedProperty,
+			qualifier <- s.qualifier
+		)
+do {
+		t.setUpper(s.upper); 
+		t.setLower(s.lower); 
+		t; 
+	}
+}
+
+unique lazy rule Operation {
+	from
+		s: uml!Operation
+	to
+		t: uml!Operation mapsTo s (
+			name <- s.name,
+			visibility <- s.visibility,
+			isLeaf <- s.isLeaf,
+			isStatic <- s.isStatic,
+			isAbstract <- s.isAbstract,
+			concurrency <- s.concurrency,
+			isQuery <- s.isQuery,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			ownedParameter <- s.createOwnedParams(),
+			method <- s.method,
+			raisedException <- s.raisedException,
+			ownedParameterSet <- s.ownedParameterSet,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			precondition <- s.precondition,
+			postcondition <- s.postcondition,
+			redefinedOperation <- s.redefinedOperation,
+			bodyCondition <- s.bodyCondition
+		)
+do {
+		t; 
+	}
+}
+
+unique lazy rule Parameter {
+	from
+		s: uml!Parameter 
+	to
+		t: uml!Parameter mapsTo s (
+			name <- s.name,
+			visibility <- s.visibility,
+			isOrdered <- s.isOrdered,
+			isUnique <- s.isUnique,
+			direction <- s.direction,
+			isException <- s.isException,
+			isStream <- s.isStream,
+			effect <- s.effect,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			type <- s.newType(),
+			templateParameter <- s.templateParameter,
+			parameterSet <- s.parameterSet,
+			defaultValue <- s.defaultValue
+		)
+do {
+		t.setLower(s.lower); 
+		t.setUpper(s.upper); 
+		t; 
+	}
+}
+
+unique lazy rule InterfaceRealization {
+	from
+		s: uml!InterfaceRealization 
+	to
+		t: uml!InterfaceRealization mapsTo s (
+			name <- s.name,
+			visibility <- s.visibility,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			--			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			templateParameter <- s.templateParameter,
+			supplier <- s.supplier,
+			client <- s.client,
+			mapping <- s.mapping,
+			contract <- s.contract
+			
+		)
+		do {
+		t; 
+	}
+}
+
+
+lazy rule ApplyStereotypes {
+	from
+		s: uml!Element (
+			thisModule.toTransformElements -> includes(s)
+		)
+	using {
+		t: uml!Element = s.resolve();
+	}
+	do {
+		
+		for (st in s.getAppliedStereotypes()) {
+			t.applyStereotype(st);
+			for (a in st.getAllAttributes()) {
+				if (not a.name.startsWith('base_') and s.hasValue(st, a.name)) {
+					t.setValue(st, a.name, s.getValue(st, a.name));
+				}
+			}
+		}
+	}
+}
+
+endpoint rule ApplyAllStereotypes() {
+	do {
+		for (element in thisModule.traces.defaultSourceElements -> collect(e | e.object)
+				-> select(o | o.oclIsKindOf(uml!Element))) {
+			thisModule.ApplyStereotypes(element);
+		}
+	}
+}

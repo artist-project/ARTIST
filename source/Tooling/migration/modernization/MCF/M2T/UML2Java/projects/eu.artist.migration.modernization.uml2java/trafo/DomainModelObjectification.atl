@@ -1,0 +1,44 @@
+-- @atlcompiler emftvm
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+module DomainModelObjectification;
+create UMLM_OUT : UMLMM refining UMLM : UMLMM, OBJECTIFY : UMLMM;
+
+helper def: objectifyProfile : UMLMM!Profile = UMLMM!Profile.allInstancesFrom('OBJECTIFY').first();
+helper def: stereotypes : Sequence(UMLMM!Stereotype) = UMLMM!Stereotype.allInstancesFrom('OBJECTIFY');
+ 
+rule ObjectifiedModel {
+    from s : UMLMM!Model in UMLM (s.oclIsTypeOf(UMLMM!Model))
+    to t : UMLMM!Model ( )
+	
+	do {
+		t.applyProfile(thisModule.objectifyProfile);	
+	}
+}
+
+rule ObjectifiedClass {
+    from s : UMLMM!Class in UMLM (s.oclIsTypeOf(UMLMM!Class))
+    to t : UMLMM!Class ( )
+	
+	do {
+		-- if the class is in a composite relationship then we apply the @Embed stereotype
+		if((UMLMM!Association.allInstancesFrom('UMLM') -> exists(a | a.memberEnd -> exists(p | p.type = s and p.isComposite))
+				or UMLMM!Class.allInstances() -> exists(c | c.ownedAttribute -> exists(p |p.type = s and p.isComposite)))
+			and not (s.ownedAttribute -> exists(p | p.isID))) {
+			t.applyStereotype(thisModule.stereotypes -> any(e | e.name = 'Embed'));
+		}
+		else {
+			t.applyStereotype(thisModule.stereotypes -> any(e | e.name = 'Entity'));	
+		}	
+	}
+}
+
+rule ObjectifiedProperty {
+    from s : UMLMM!Property in UMLM (s.oclIsTypeOf(UMLMM!Property))
+    to t : UMLMM!Property (	)
+	do {
+		if(s.isID) {
+			t.applyStereotype(thisModule.stereotypes -> any(e | e.name = 'Id'));	
+		}
+	}
+}

@@ -1,0 +1,57 @@
+-- @atlcompiler emftvm
+-- @nsURI uml=http://www.eclipse.org/uml2/2.1.0/UML
+
+
+library "lib::JAAS2AEMapping";
+uses "lib::UMLLib";
+
+
+helper def: jaas_profile: uml!Profile =
+	profile!Profile.allInstancesFrom('JAAS').asSequence().first() -> first()-> debug('j_prof');
+
+helper def: jaas_stereos :Set(profile!Stereotype) =
+profile!Stereotype.allInstancesFrom('JAAS')-> asSet() -> debug('j_stereos');
+	
+
+-- The class extending login module
+helper context uml!Class def: isAP(): Boolean =
+	self.hasStereotype('LoginModule');
+
+-- The principal
+helper context uml!Class def: isClient(): Boolean =
+	self.hasStereotype('Client');
+
+--- class containing a reference of the credentials
+helper context uml!Class def: isJSubject(): Boolean =
+	self.hasStereotype('Subject');
+
+helper context uml!Class def: isCredentials(): Boolean =
+	self.hasStereotype('Credentials');
+
+helper def: getCredentialsClass(): uml!Class =
+	uml!Class.allInstancesFrom('IN') -> any(c | c.isCredentials());
+
+helper def: getAEClass(): uml!Class =
+	uml!Class.allInstancesFrom('IN') -> any(c | c.isAE());
+
+helper def: getAPClass(): uml!Class =
+	uml!Class.allInstancesFrom('IN') -> any(c | c.isAP());
+
+helper context uml!Class def: isSStore(): Boolean =
+	self.hasStereotype('SubjectStore');
+
+-- The class representing the Auth Enforcer
+helper context uml!Class def: isAE(): Boolean =
+	self.hasStereotype('JAASClient');
+
+helper context uml!Operation def: isOAuth() : Boolean =
+	self.hasStereotype('op_authenticate');
+
+helper context uml!Operation def: isOVerify() : Boolean =
+	self.hasStereotype('op_verify');
+
+helper context uml!Operation def: isOGetSubject() : Boolean =
+	self.hasStereotype('op_retreive_subject');
+
+helper context uml!Property def: isPId() : Boolean =
+	self.hasStereotype('p_identifier');

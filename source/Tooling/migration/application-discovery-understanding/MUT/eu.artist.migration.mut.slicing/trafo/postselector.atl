@@ -1,0 +1,427 @@
+--/*******************************************************************************
+-- * Copyright (c) 2014 Vienna University of Technology.
+-- * All rights reserved. This program and the accompanying materials
+-- * are made available under the terms of the Eclipse Public License v1.0
+-- * which accompanies this distribution, and is available at
+-- * http://www.eclipse.org/legal/epl-v10.html
+-- *
+-- * Contributors:
+-- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+-- *
+-- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- *******************************************************************************/
+-- @atlcompiler emftvm
+-- @nsURI SIMM=http://eu.artist.migration.mut.slicing/sim
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+module postselector;
+create SLICESELECTION : UMLMM refining MODEL : UMLMM, SP : UMLMM, SIM : SIMM;
+
+-- helper of the slicing profile
+helper def: SlicingProfile: UMLMM!Profile = UMLMM!Profile.allInstancesFrom('SP')->first();
+helper def: Stereotypes: Sequence(UML!Stereotype) = UMLMM!Stereotype.allInstancesFrom('SP');
+helper def: Keep: UMLMM!Stereotype = thisModule.Stereotypes -> any(s | s.qualifiedName = 'slicerprofile::eu::artist::migration::mut::slicing::Keep');
+helper def: KeepReference: UMLMM!Stereotype = thisModule.Stereotypes -> any(s | s.qualifiedName = 'slicerprofile::eu::artist::migration::mut::slicing::KeepReference');
+
+-- the slicing intent model
+helper def: intent: SIMM!SlicingIntent = SIMM!SlicingIntent.allInstancesFrom('SIM')->first();
+
+-- set of models that contain elements relevant for the slice
+helper def: models: Set(UMLMM!Model) = Set{};
+
+-- finally select the model(s) that serve as root container for the selected elements
+endpoint rule SelectRelevantModel() {
+	do {
+		-- search for models that serve as root container for selected elements 
+		for (model in UMLMM!Model.allInstancesFrom('MODEL')) {
+			if(model.ownedElement->exists(e|e.isStereotypeApplied(thisModule.Keep))) {
+				thisModule.models<-thisModule.models->including(model).asSet();	
+			}
+		}
+		-- select the model(s)
+		for (model in thisModule.models) {
+			if(not model.resolve().isStereotypeApplied(thisModule.Keep)) {
+				model.resolve().debug('SelectModel');
+				model.resolve().applyStereotype(thisModule.Keep);
+			}
+		}
+	}
+}
+
+-- we don't check if the SP is applied as the rule is only evaluated if
+-- at least one 'Keep' stereotype has been applied.
+rule SelectElement {
+	from s : UMLMM!Element in MODEL (s.isStereotypeApplied(thisModule.Keep)) 
+	to t : UMLMM!Element
+	do {
+		-- keep the nearest container of a selected element
+		if(thisModule.intent.configuration.containmentHierarchy = #Nearest) {
+			thisModule.SelectNearestContainer(s);
+		}
+		
+		-- keep the complete container hierarchy of a selected element
+		if(thisModule.intent.configuration.containmentHierarchy = #Complete) {
+			thisModule.SelectCompleteContainerHierarchy(s);
+		}
+		
+		-- keep all contained elements of selected elements
+		if(thisModule.intent.configuration.containedElement = #All) {
+			thisModule.SelectAllContainedElements(s);
+		}
+		
+		-- keep all contained elements that are structural features
+		if(thisModule.intent.configuration.containedElement = #AllStructuralFeatures) {
+			thisModule.SelectAllContainedStructuralFeatures(s);
+		}
+		
+		-- keep referenced elements within the scope of the source element's model
+		if(thisModule.intent.configuration.referencedElement = #ModelScoped) {
+			thisModule.SelectModelScopedReferencedElements(s);
+		}
+		
+		-- keep referenced elements within the scope of the source element's package
+		if(thisModule.intent.configuration.referencedElement = #PackageScoped) {
+			thisModule.SelectPackageScopedReferencedElements(s);
+		}
+		
+		-- keep all referenced elements 
+		if(thisModule.intent.configuration.referencedElement = #All) {
+			thisModule.SelectAllReferencedElements(s);
+		}
+		
+		-- keep element generalizations within the scope of the element's model
+		if(thisModule.intent.configuration.generalizationHierarchy = #ModelScoped and s.oclIsKindOf(UMLMM!Classifier)) {
+			thisModule.SelectModelScopedClassifierGeneralizations(s);
+		}
+		
+		-- keep element generalizations within the scope of the element's package
+		if(thisModule.intent.configuration.generalizationHierarchy = #PackageScoped and s.oclIsKindOf(UMLMM!Classifier)) {
+			thisModule.SelectPackageScopedClassifierGeneralizations(s);
+		}
+		
+		-- keep all classifier generalizations
+		if(thisModule.intent.configuration.generalizationHierarchy = #All and s.oclIsKindOf(UMLMM!Classifier)) {
+			thisModule.SelectAllClassifierGeneralizations(s);
+		}
+		
+		-- keep all classifier generalizations
+		if(thisModule.intent.configuration.generalizationHierarchy = #PushDown and s.oclIsKindOf(UMLMM!Classifier)) {
+			thisModule.SelectAllInheritedFeatures(s);
+		}
+	}
+}
+
+rule SelectNearestContainer(element : UMLMM!Element) {
+	do {
+		element.refImmediateComposite().resolve().debug('SelectNearestContainer');
+		thisModule.ApplyStereotype(element.refImmediateComposite().resolve(), thisModule.Keep);
+		thisModule.SelectModel(element);
+	}
+}
+
+rule SelectCompleteContainerHierarchy(element : UMLMM!Element) {
+	do {
+		for(e in element.getTransitiveContainer(Sequence{})) {
+			e.resolve().debug('SelectCompleteContainerHierarchy');
+			thisModule.ApplyStereotype(e.resolve(), thisModule.Keep);
+			thisModule.SelectModel(e);
+		}		
+	}
+}
+
+rule SelectAllContainedElements(element : UMLMM!Element) {
+	do {
+		for(e in element.allOwnedElements()) {			
+			if(not e.resolve().isStereotypeApplied(thisModule.Keep)) {
+				e.resolve().debug('SelectAllContainedElements');
+				thisModule.ApplyStereotype(e.resolve(), thisModule.Keep);
+				thisModule.SelectReferencesOfContainedElements(e);
+			}
+			thisModule.SelectModel(e);
+		}			
+	}
+}
+
+rule SelectAllContainedStructuralFeatures(element : UMLMM!Element) {
+	do {
+		for(e in element.allOwnedElements()) {	
+			if(e.oclIsKindOf(UMLMM!StructuralFeature)) {
+				e.resolve().debug('SelectAllContainedStructuralFeatures');
+				thisModule.ApplyStereotype(e.resolve(), thisModule.Keep);
+				thisModule.SelectReferencesOfContainedElements(e);
+			}
+			thisModule.SelectModel(e);
+		}
+	}
+}
+
+rule SelectReferencesOfContainedElements(element : UMLMM!Element) {
+	do {
+		if(thisModule.intent.configuration.referencedElement <> #Custom) {
+			-- combination of selecting contained elemets and element references
+			-- Example: A Property is selected because of the 'select contained elements'
+			--          configuration. If we also want to select the type of this
+			--          Property - due to the 'referenced element' configuration then we
+			--          need to call the respective rules as well. 
+			-- keep referenced elements within the scope of the source element's model
+			if(thisModule.intent.configuration.referencedElement = #ModelScoped) {
+				thisModule.SelectModelScopedReferencedElements(element);
+			}
+			
+			-- keep referenced elements within the scope of the source element's package
+			else if(thisModule.intent.configuration.referencedElement = #PackageScoped) {
+				thisModule.SelectPackageScopedReferencedElements(element);
+			}
+			
+			-- keep all referenced elements 
+			else if(thisModule.intent.configuration.referencedElement = #All) {
+				thisModule.SelectAllReferencedElements(element);
+			}
+		}		
+	}
+}
+
+rule SelectModelScopedReferencedElements(element : UMLMM!Element) {
+	do {
+		for(e in element.getRelationships()) {
+			for(f in e.relatedElement) {
+				if(f.getModel() = element.getModel()) {
+					f.resolve().debug('SelectModelScopedReferencedElements-Relationship');
+					thisModule.ApplyStereotype(f.resolve(), thisModule.Keep);
+					thisModule.SelectModel(f);
+				}
+			}	
+		}
+		-- consider elements that are referenced as a result of typing
+		if(element.oclIsKindOf(UMLMM!TypedElement)) {
+			if(not element.type.oclIsUndefined()) {
+				if(element.type.getModel() = element.getModel()) {
+					element.type.resolve().debug('SelectModelScopedReferencedElements-Typing');
+					thisModule.SelectReferencedElementsByTyping(element);					
+					thisModule.SelectModel(element);
+				}
+			}
+		}		
+	}
+}
+
+rule SelectPackageScopedReferencedElements(element : UMLMM!Element) {
+	do {
+		for(e in element.getRelationships()) {
+			for(f in e.relatedElement) {
+				if(f.getNearestPackage() = element.getNearestPackage()) {
+					f.resolve().debug('SelectPackageScopedReferencedElements-Relationship');
+					-- the relationship element 
+					thisModule.ApplyStereotype(e, thisModule.Keep);
+					
+					-- if the relationship is of type 'Association' then we also need contained members
+					if(e.oclIsTypeOf(UMLMM!Association)) {
+						thisModule.SelectAllContainedElements(e);
+					}
+					
+					thisModule.ApplyStereotype(f.resolve(), thisModule.Keep);
+					thisModule.SelectModel(f);
+				}	
+			}	
+		}
+		-- consider elements that are referenced as a result of typing
+		if(element.oclIsKindOf(UMLMM!TypedElement)) {
+			if(not element.type.oclIsUndefined()) {
+				if(element.type.getNearestPackage() = element.getNearestPackage()) {
+					element.type.resolve().debug('SelectPackageScopedReferencedElements-Typing');
+					thisModule.SelectReferencedElementsByTyping(element);					
+					thisModule.SelectModel(element);
+				}
+			}
+		}		
+	}
+}
+
+rule SelectAllReferencedElements(element : UMLMM!Element) {
+	do {
+
+		if(element.oclIsKindOf(UMLMM!Type)) {
+
+			-- consider elements that are referenced via 'Relationship' 
+			for(e in element.getRelationships()) {
+				
+				if(e.relatedElement->first() <> element) {
+					-- the relationship element
+					e.resolve().debug('SelectAllReferencedElements-Relationship');
+					thisModule.ApplyStereotype(e, thisModule.Keep);
+					
+					-- if the relationship is of type 'Association' then we also need contained members
+					if(e.oclIsTypeOf(UMLMM!Association)) {
+						thisModule.SelectAllContainedElements(e);
+					}
+					
+					-- the related element
+					for(f in e.relatedElement) {
+						
+						element.debug('blah');
+						e.relatedElement.debug('Was Here');
+						
+						-- if the referenced element is contained by a model that is imported then
+						-- we annotate the typed element rather then the referenced one. The point is 
+						-- that we only persist annotations applied to the model that is being sliced.
+						f.resolve().debug('SelectAllReferencedElements-Relationship-RelatedElement');
+						if(element.getModel() <> f.getModel()) {
+							thisModule.ApplyStereotypeWithFeatures(element.resolve(), thisModule.KeepReference, Sequence{'element'}, Sequence{f});
+							
+							-- we need to keep the import element as well; the reference element can only
+							-- be contained by one container (i.e., package)
+							thisModule.ApplyStereotype(element.getModel().packageImport->select(e|e.importedPackage = f.getModel())->first().resolve(), thisModule.Keep);
+						}
+						else {
+							thisModule.ApplyStereotype(f.resolve(), thisModule.Keep);
+							thisModule.SelectModel(f);
+						}	
+					}	
+				}
+				-- consider elements that are referenced as a result of typing
+				if(element.oclIsKindOf(UMLMM!TypedElement)) {
+					if(not element.type.oclIsUndefined()) {
+						if(not element.resolve().isStereotypeApplied(thisModule.KeepReference)) {
+							element.type.resolve().debug('SelectAllReferencedElements-Typing');
+							thisModule.SelectReferencedElementsByTyping(element);					
+							thisModule.SelectModel(element);
+						}
+					}
+				}
+			}
+		}
+	
+					-- consider elements that are referenced as a result of typing
+				else if(element.oclIsKindOf(UMLMM!TypedElement)) {
+					if(not element.type.oclIsUndefined()) {
+						if(not element.resolve().isStereotypeApplied(thisModule.KeepReference)) {
+							element.type.resolve().debug('SelectAllReferencedElements-Typing');
+							thisModule.SelectReferencedElementsByTyping(element);					
+							thisModule.SelectModel(element);
+						}
+					}
+				}
+	}
+}
+
+rule SelectModelScopedClassifierGeneralizations(classifier : UMLMM!Classifier) {
+	do {
+		for(e in classifier.getGenerals()) {
+			if((not e.resolve().isStereotypeApplied(thisModule.Keep)) and e.getModel() = classifier.getModel()) {
+				e.resolve().debug('SelectModelScopedClassifierGeneralizations');
+				e.resolve().applyStereotype(thisModule.Keep);
+				thisModule.SelectModel(e);
+			}	
+		}		
+	}
+}
+
+rule SelectPackageScopedClassifierGeneralizations(classifier : UMLMM!Classifier) {
+	do {
+		for(e in classifier.getGenerals()) {
+			if((not e.resolve().isStereotypeApplied(thisModule.Keep)) and e.getNearestPackage() = classifier.getNearestPackage()) {
+				e.resolve().debug('SelectPackageScopedClassifierGeneralizations');
+				e.resolve().applyStereotype(thisModule.Keep);
+				thisModule.SelectModel(e);
+			}	
+		}	
+	}
+}
+
+rule SelectAllClassifierGeneralizations(classifier : UMLMM!Classifier) {
+	do {
+		for(e in classifier.getGenerals()) {
+			if(not e.resolve().isStereotypeApplied(thisModule.Keep)) {
+				e.resolve().debug('SelectAllClassifierGeneralizations');
+				-- check if the slicing profile is applied; apply it if it isn't as the element being selected
+				-- is probably contained by a model different to s.getModel
+				if(not e.getModel().resolve().isProfileApplied(thisModule.SlicingProfile)) {
+					e.getModel().resolve().applyProfile(thisModule.SlicingProfile);	
+				}					
+				e.resolve().applyStereotype(thisModule.Keep);
+				thisModule.SelectModel(e);
+			}	
+		}		
+	}
+}
+
+rule SelectAllInheritedFeatures(classifier : UMLMM!Classifier) {
+	do {
+		for(e in classifier.getGenerals()) {
+			for(f in e.allFeatures()) {
+				if(not f.resolve().isStereotypeApplied(thisModule.Keep)) {
+					f.resolve().debug('SelectAllInheritedFeatures');
+					-- check if the slicing profile is applied; apply it if it isn't as the element being selected
+					-- is probably contained by a model different to s.getModel
+					if(not f.getModel().resolve().isProfileApplied(thisModule.SlicingProfile)) {
+						f.getModel().resolve().applyProfile(thisModule.SlicingProfile);	
+					}					
+					f.resolve().applyStereotype(thisModule.Keep);
+					thisModule.SelectModel(f);
+				}
+			}
+		}
+	}
+}
+
+-- helper to select the model element
+rule SelectModel(element : UMLMM!Element) {
+	do{
+		thisModule.models<-thisModule.models->including(element.getModel()).asSet();
+	}
+}
+
+-- helper rule for selecting referenced elements by typing 
+rule SelectReferencedElementsByTyping(element : UMLMM!Element) {
+	do {					
+		-- if the referenced type is contained by a model that is imported then
+		-- we annotate the typed element rather then the referenced one. The point is 
+		-- that we only persist annotations applied to the model that is being sliced.
+		if(element.getModel() <> element.type.getModel()) {
+			thisModule.ApplyStereotypeWithFeatures(element.resolve(), thisModule.KeepReference, Sequence{'element'}, Sequence{element.type});
+			
+			-- we need to keep the import element as well; the reference element can only
+			-- be contained by one container (i.e., package)
+			thisModule.ApplyStereotype(element.getModel().packageImport->select(e|e.importedPackage = element.type.getModel().debug())->first().resolve(), thisModule.Keep);
+		}
+		else {
+			thisModule.ApplyStereotype(element.type.resolve(), thisModule.Keep);
+			
+			-- if the element's type is an enumeration, we also keep the literals
+			if(element.type.oclIsTypeOf(UMLMM!Enumeration) ) {
+				thisModule.SelectAllContainedElements(element.type);	
+			}
+		}	
+	}
+}
+
+-- helper rule to apply a stereotype; we check first if the stereotype is already applied!
+rule ApplyStereotype(element : UMLMM!Element, stereotype : UMLMM!Stereotype) {
+	do {
+		if(not element.isStereotypeApplied(stereotype)) {
+			element.applyStereotype(stereotype);
+		}
+	}
+}
+
+-- helper rule to apply a stereotype; we check first if the stereotype is already applied!
+rule ApplyStereotypeWithFeatures(element : UMLMM!Element, stereotype : UMLMM!Stereotype, features : Sequence(String), values : Sequence(OclAny)) {
+	do {
+		if(not element.isStereotypeApplied(stereotype)) {
+			element.applyStereotype(stereotype);
+		
+			for(feature in features) {
+				element.setValue(stereotype, feature, values->at(features->indexOf(feature)));	
+			}
+		}
+	}
+}
+
+-- transitive closure of container hierarchy
+helper context UMLMM!Element def: getTransitiveContainer(res : Sequence(UMLMM!Element)) : Sequence(UMLMM!Element) =
+	if(not self.refImmediateComposite().oclIsUndefined()) then
+		self.refImmediateComposite().getTransitiveContainer(res->append(self.refImmediateComposite()))
+	else res endif;
+	
+	
+	

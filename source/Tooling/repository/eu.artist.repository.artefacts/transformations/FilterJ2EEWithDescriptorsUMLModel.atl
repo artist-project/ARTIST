@@ -1,0 +1,472 @@
+---*******************************************************************************
+ --- Copyright (c) 2013 Atos.
+ --- All rights reserved. This program and the accompanying materials
+ --- are made available under the terms of the Eclipse Public License v1.0
+ --- which accompanies this distribution, and is available at
+ --- http://www.eclipse.org/legal/epl-v10.html
+ ---
+ --- Contributors:
+ --- 	Burak Karaboga (Atos) - initial API and implementation
+ --- 	Initially developed in the context of ARTIST EU project www.artist-project.eu
+ ---******************************************************************************
+
+-- @nsURI uml=http://www.eclipse.org/uml2/2.1.0/UML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML/Profile/L3
+-- @path params=/eu.artist.modelunderstanding.usecase.petstore/metamodels/TransformationParams.ecore
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+
+
+module FilterUMLmodel;
+
+create OUT: uml from IN: uml, annotations: profile, j2ee: profile, PARAMETERS : params, FacesConfig : XML, Persistence : XML;
+
+uses UMLLibrary;
+uses ParametersLibrary;
+uses J2EELibray;
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- TODO: Migrate reusable code to libraries
+--- TODO: Simplify repetitive code
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+
+---################################## ENTRYPOINT/ENDPOINT RULES ##################################### ---
+
+--- This rule initializes the filteredClasses global variable. 
+--- The sequence is filled with the classes that will be filtered for the target view.
+entrypoint rule initFilteredClassesSequence() {
+		
+	do {
+		for (element in thisModule.allUMLelements) {
+			if (element.oclIsTypeOf(uml!Class)) {
+				if (not thisModule.filteredClasses->exists(i | i.fullyQualifiedName() = element.fullyQualifiedName())) {
+					if (not thisModule.implementingFilter.oclIsUndefined()){
+						if (element.isImplementingInterface(thisModule.implementingFilter.value)){
+							thisModule.filteredClasses <- thisModule.filteredClasses.append(element);
+							if (thisModule.implementingFilter.value = 'javax.servlet.Filter') { 
+								thisModule.j2eeFilters <- thisModule.j2eeFilters.append(element->debug ('Filter'));
+							}
+						}
+						
+					}
+					if (not thisModule.extendingFilter.oclIsUndefined()) {
+						if (element.isExtendingClass(thisModule.extendingFilter.value)){
+							thisModule.filteredClasses <- thisModule.filteredClasses.append(element);
+							if (thisModule.extendingFilter.value = 'javax.servlet.http.HttpServlet') { 
+								thisModule.j2eeServlets <- thisModule.j2eeServlets.append(element->debug ('Servlet'));
+							}
+						}
+						if (element.fullyQualifiedName() = thisModule.extendingFilter.value) {
+							thisModule.extendingFilterAsClass <- element;
+						}
+					}
+					if (thisModule.annnotationFilters->size() > 0) {
+						if (element.hasStereotype('Annotated')) {
+							thisModule.ownedAnnotations <- element.getValue(element.getAppliedStereotype('annotationProfile::Annotated'), 'annotations');
+							for (parameter in thisModule.annnotationFilters) {
+								if (thisModule.ownedAnnotations->select(e | e = parameter.value)->size() > 0) {
+									thisModule.filteredClasses <- thisModule.filteredClasses.append(element);
+									-- NOTE: If source code explicitely does not import javax.persistence.Entity the detected annotation just contains Entity
+									-- In these cases, we need to add support for both types of annotations, but the second one is not type safe
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.persistence.Entity' or a = 'Entity').size() > 0) { 
+										thisModule.j2eeEntities <- thisModule.j2eeEntities.append(element->debug ('Entity'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.persistence.Embeddable' or a = 'Embeddable').size() > 0) { 
+										thisModule.j2eeEntities <- thisModule.j2eeEntities.append(element->debug ('Embeddable'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.inject.Named' or a = 'Named').size() > 0) { 
+										thisModule.j2eeCDIBeans <- thisModule.j2eeCDIBeans.append(element->debug ('Named'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.faces.bean.ManagedBean' or a = 'ManagedBean').size() > 0) { 
+										thisModule.j2eeManagedBeans <- thisModule.j2eeManagedBeans.append(element->debug ('ManagedBean'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.ejb.Stateless' or a = 'Stateless').size() > 0) { 
+										thisModule.j2eeEJBs <- thisModule.j2eeEJBs.append(element->debug ('Stateless'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.ejb.Singleton' or a = 'Singleton').size() > 0) { 
+										thisModule.j2eeEJBs <- thisModule.j2eeEJBs.append(element->debug ('Singleton'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.ws.rs.Path' or a = 'Path').size() > 0) { 
+										thisModule.j2eeRESTServices <- thisModule.j2eeRESTServices.append(element->debug ('Path'));
+									}
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.annotation.sql.DataSourceDefinition' or a = 'DataSourceDefinition').size() > 0) { 
+										thisModule.j2eeDataSources <- thisModule.j2eeDataSources.append(element->debug ('DataSourceDefinition'));
+									}
+								}
+							}
+						}
+					}
+				}
+			}	
+			-- Filtering classes that contains a property with required annotation
+			if (element.oclIsTypeOf(uml!Property) and element.refImmediateComposite().oclIsTypeOf(uml!Class)){
+				if (not thisModule.filteredClasses->exists(i | i.fullyQualifiedName() = element.refImmediateComposite().fullyQualifiedName())) {
+					if (thisModule.annnotationFilters->size() > 0) {
+						if (element.hasStereotype('Annotated')) {
+							thisModule.ownedAnnotations <- element.getValue(element.getAppliedStereotype('annotationProfile::Annotated'), 'annotations');
+							for (parameter in thisModule.annnotationFilters) {
+								if (thisModule.ownedAnnotations->select(e | e = parameter.value)->size() > 0) {
+									thisModule.filteredClasses <- thisModule.filteredClasses.append(element.refImmediateComposite());
+									if (thisModule.ownedAnnotations->select(a | a = 'javax.persistence.PersistenceUnit' or a = 'PersistenceUnit').size() > 0) { 
+										thisModule.j2eeDataSources <- thisModule.j2eeDataSources.append(element->debug ('DataSourceDefinition'));
+									}
+								}
+							}
+						}
+						
+					}
+				}
+			}
+			if (element.oclIsTypeOf(uml!Interface)) {
+				if (not thisModule.implementingFilter.oclIsUndefined()){
+					if (element.fullyQualifiedName() = thisModule.implementingFilter.value){
+						thisModule.implementingFilterAsInterface <- element;
+					}
+				}
+			}
+		}
+		for (bean in thisModule.managedBeans) {
+			thisModule.filteredClasses <- thisModule.filteredClasses.append(
+				thisModule.getClassByFullyQualifiedName (thisModule.getManagedBeanClass(bean)));
+			thisModule.j2eeManagedBeans <- thisModule.j2eeManagedBeans.append(
+				thisModule.getClassByFullyQualifiedName (thisModule.getManagedBeanClass(bean)->debug('Managed bean')));
+		}
+		
+		-- Persistence units detected in persistence.xml
+		for (unit in thisModule.xmlPersistenceUnits) {
+			thisModule.getPersistenceUnitName(unit)->debug('Persistence units');
+		}
+		
+		thisModule.filteredClasses->debug('Filtered Classes');
+	}
+}
+---################################## END OF ENTRYPOINT/ENDPOINT RULES ##################################### ---
+
+---///////////////////////////////////////////////////////////////////////////////////////////////////////// ---
+---///////////////////////////////////////////////////////////////////////////////////////////////////////// ---
+---///////////////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- ############################################### RULES ################################################## ---
+
+-- General Class mapping
+rule ClassToClass {
+	from src :uml!Class (not src->willBeFilteredOut())
+	to tgt :uml!Class (
+		name <- src.name,
+		visibility <- src.visibility,
+		isAbstract <- src.isAbstract,
+		nestedClassifier <- src.nestedClassifier,
+		generalization <- src.generalization,
+		interfaceRealization <- src.interfaceRealization,
+		ownedOperation <- src.ownedOperation,
+		ownedAttribute <- src.ownedAttribute
+	)
+	do {
+		if (src.hasStereotype('Annotated')) {
+			tgt.applyStereotype(profile!Stereotype.allInstances().asSequence() -> select(i | i.qualifiedName = 'annotationProfile::Annotated').last());
+			tgt.setValue(profile!Stereotype.allInstances().asSequence() -> select(i | i.qualifiedName = 'annotationProfile::Annotated').last(), 'annotations', 
+				src.getValue(src.getAppliedStereotype('annotationProfile::Annotated'), 'annotations'));
+		}
+		if (src.isEntity()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::Model').last());
+		}
+		if (src.isCDIBean()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::CDIBean').last());
+		}
+		if (src.isManagedBean()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::ManagedBean').last());
+		}
+		if (src.isServlet() or src.isFilter()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::Controller').last());
+		}
+		if (src.isEJB()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::EJB').last());
+		}
+		if (src.isRESTService()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::RESTService').last());
+		}
+		if (src.isDataSource()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::DataSource').last());
+		}
+	}
+}
+
+--- Specialized J2EE Class mappings
+--rule ClassToEntity extends ClassToClass {
+--	from
+--		src : uml!Class (src.isEntity())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::Model').last());
+--		
+--	}
+--}
+--
+--rule ClassToCDIBean extends ClassToClass {
+--	from
+--		src : uml!Class (src.isCDIBean())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::CDIBean').last());
+--		
+--	}
+--}
+--
+--rule ClassToManagedBean extends ClassToClass {
+--	from
+--		src : uml!Class (src.isManagedBean())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::ManagedBean').last());
+--		
+--	}
+--}
+--
+--rule ClassToController extends ClassToClass {
+--	from
+--		src : uml!Class (src.isServlet() or src.isFilter())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::Controller').last());
+--		
+--	}
+--}
+--
+--rule ClassToEJB extends ClassToClass {
+--	from
+--		src : uml!Class (src.isEJB())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::EJB').last());
+--		
+--	}
+--}
+--
+--rule ClassToRESTService extends ClassToClass {
+--	from
+--		src : uml!Class (src.isRESTService())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::RESTService').last());
+--		
+--	}
+--}
+--
+--rule ClassToDataSource extends ClassToClass {
+--	from
+--		src : uml!Class (src.isDataSource())
+--	do {
+--		tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+--						select(i | i.qualifiedName = 'J2EE Profile::DataSource').last());
+--		
+--	}
+--}
+
+--- END Specialized J2EE Class mappings
+
+rule InterfaceToInterface {
+	from src :uml!Interface (not src->willBeFilteredOut())
+	to tgt :uml!Interface (
+		name <- src.name,
+		visibility <- src.visibility,
+		nestedClassifier <- src.nestedClassifier
+		,generalization <- src.generalization
+		,ownedOperation <- src.ownedOperation
+		,ownedAttribute <- src.ownedAttribute
+	)
+}
+
+rule InterfaceRealizationToInterfaceRealization {
+	from src :uml!InterfaceRealization (not src->willBeFilteredOut())
+	to tgt :uml!InterfaceRealization (
+		contract <- src.contract
+	)
+}
+
+rule GeneralizationToGeneralization {
+	from src :uml!Generalization (not src->willBeFilteredOut())
+	to tgt :uml!Generalization (
+		general <- src.general
+	)
+}
+
+rule DependencyToDependency {
+	--from src :uml!Dependency (src.oclIsTypeOf(uml!Dependency)->debug('dependency') and (not src->willBeFilteredOut())->debug('helper'))
+	from src :uml!Dependency (src.oclIsTypeOf(uml!Dependency) and (not src->willBeFilteredOut()))
+	to tgt :uml!Dependency (
+		client <- src.client,
+		supplier <- src.supplier
+	)
+	do {
+		-- store the created dependency in first parent package of client element
+		thisModule.resolveTemp(src.client->first().refImmediateComposite(), 'tgt').packagedElement <- tgt;
+	}
+}
+
+rule OperationToOperation {
+	
+	from src :uml!Operation (not src->willBeFilteredOut())
+	to tgt :uml!Operation (
+		name <- src.name,
+		visibility <- src.visibility,
+		ownedParameter <- src.ownedParameter
+	)
+	do {
+		if (src.hasStereotype('Annotated')) {
+			tgt.applyStereotype(profile!Stereotype.allInstances().asSequence() -> select(i | i.qualifiedName = 'annotationProfile::Annotated').last());
+			tgt.setValue(profile!Stereotype.allInstances().asSequence() -> select(i | i.qualifiedName = 'annotationProfile::Annotated').last(), 'annotations', 
+				src.getValue(src.getAppliedStereotype('annotationProfile::Annotated'), 'annotations'));
+		}
+	}
+}
+
+rule ParameterToParameter {
+	from src :uml!Parameter (not src->willBeFilteredOut())
+	to tgt :uml!Parameter (
+		name <- src.name,
+		visibility <- src.visibility,
+		direction <- src.direction,
+		lowerValue <- lower,
+		upperValue <- upper
+	)
+	, lower : uml!LiteralInteger (
+		value <- src.lower
+	)
+	, upper : uml! LiteralUnlimitedNatural (
+		value <- src.upper
+	)
+}
+
+rule PropertyToProperty {
+	from src :uml!Property (not src->willBeFilteredOut())
+	to tgt :uml!Property (
+		name <- src.name,
+		visibility <- src.visibility,
+		isStatic <- src.isStatic,
+		type <- src.type,
+		lowerValue <- lower,
+		upperValue <- upper,
+		qualifier <- src.qualifier
+	)
+	, lower : uml!LiteralInteger (
+		value <- src.lower
+	)
+	, upper : uml! LiteralUnlimitedNatural (
+		value <- src.upper
+	)
+	do {
+		if (src.hasStereotype('Annotated')) {
+			tgt.applyStereotype(profile!Stereotype.allInstances().asSequence() -> select(i | i.qualifiedName = 'annotationProfile::Annotated').last());
+			tgt.setValue(profile!Stereotype.allInstances().asSequence() -> select(i | i.qualifiedName = 'annotationProfile::Annotated').last(), 'annotations', 
+				src.getValue(src.getAppliedStereotype('annotationProfile::Annotated'), 'annotations'));
+		}
+		if (src.isDataSource()){
+			tgt.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+				select(i | i.qualifiedName = 'J2EE Profile::DataSource').last());
+		}
+	}
+}
+
+rule AssociationToAssociation {
+	from src :uml!Association (not src->willBeFilteredOut())
+	to tgt :uml!Association (
+		name <- src.name,
+		visibility <- src.visibility,
+		memberEnd<- src.memberEnd,
+		ownedEnd <- src.ownedEnd
+	)
+}
+
+rule EnumerationLiteralToEnumerationLiteral {
+	from src :uml!EnumerationLiteral (not src->willBeFilteredOut())
+	to tgt :uml!EnumerationLiteral (
+		name <- src.name
+	)
+}
+
+rule EnumerationToEnumeration {
+	from src :uml!Enumeration (not src->willBeFilteredOut())
+	to tgt :uml!Enumeration (
+		name <- src.name,
+		visibility <- src.visibility,
+		ownedLiteral <- src.ownedLiteral
+	)
+}
+
+rule PackageToPackage {
+	from src :uml!Package (
+		not (src.oclIsTypeOf(uml!Model))
+		and not src->willBeFilteredOut()
+	)
+	to tgt :uml!Package (
+		name <- src.name,
+		visibility <- src.visibility,
+		packagedElement <- src.packagedElement
+	)
+}
+
+unique lazy rule createPersistenceUnitClass {
+	from
+		puname : String
+	to 
+		class : uml!Class (
+			name <- puname
+		)
+	do {
+		class.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+						select(i | i.qualifiedName = 'J2EE Profile::DataSource').last());
+		
+	}
+}
+
+unique lazy rule createViewClass {
+	from
+		puname : String
+	to 
+		class : uml!Class (
+			name <- 'UI'
+		)
+	do {
+		class.applyStereotype(profile!Stereotype.allInstancesFrom('j2ee').asSequence() ->
+						select(i | i.qualifiedName = 'J2EE Profile::View').last());
+		
+	}
+}
+
+rule ModelToModel {
+	from src :uml!Model (not src->willBeFilteredOut())
+	to tgt :uml!Model (
+		name <- src.name,
+		packagedElement <- src.packagedElement
+	)
+	do {
+		--Creating j2ee persistence units
+		if (not (src.name = 'root model') and not (src.name = 'externals'))
+		for (unit in thisModule.xmlPersistenceUnits) {
+			tgt.packagedElement <- thisModule.createPersistenceUnitClass(thisModule.getPersistenceUnitName(unit));
+		}
+		--Creating j2ee view
+		if (thisModule.jsfAvailable and not (src.name = 'root model') and not (src.name = 'externals')){
+			tgt.packagedElement <- thisModule.createViewClass();
+		}
+		
+		if (src.name = 'root model') {
+			tgt.applyProfile(profile!Profile.allInstancesFrom('annotations').asSequence().first());
+			tgt.applyProfile(profile!Profile.allInstancesFrom('j2ee').asSequence().first());
+		}
+	}
+}
+--- ############################################# END OF RULES ################################################# ---

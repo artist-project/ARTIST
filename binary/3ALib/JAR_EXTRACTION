@@ -1,0 +1,10 @@
+
+In order to extract it without maven, for this version that is using only AWS, we can
+
+1) export as jar the content of the two projects aws-ec2 and jclouds-core.
+
+2) Add jar to build path of Auditor
+
+3) Export running jar from Auditor (potentially with jars in separate folder for licensing issues)
+
+ 

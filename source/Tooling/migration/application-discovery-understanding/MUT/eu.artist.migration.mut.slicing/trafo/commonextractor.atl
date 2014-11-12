@@ -1,0 +1,162 @@
+--/*******************************************************************************
+-- * Copyright (c) 2014 Vienna University of Technology.
+-- * All rights reserved. This program and the accompanying materials
+-- * are made available under the terms of the Eclipse Public License v1.0
+-- * which accompanies this distribution, and is available at
+-- * http://www.eclipse.org/legal/epl-v10.html
+-- *
+-- * Contributors:
+-- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+-- *
+-- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-- *******************************************************************************/
+-- @atlcompiler emftvm
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+module commonextractor;
+create SLICE : UMLMM from MODEL : UMLMM, SP : UMLMM;
+
+helper def: Stereotypes: Sequence(UML!Stereotype) = UMLMM!Stereotype.allInstancesFrom('SP');
+
+helper def: Keep: UMLMM!Stereotype = thisModule.Stereotypes -> any(s | s.qualifiedName = 'slicerprofile::eu::artist::migration::mut::slicing::Keep');
+helper def: KeepReference: UMLMM!Stereotype = thisModule.Stereotypes -> any(s | s.qualifiedName = 'slicerprofile::eu::artist::migration::mut::slicing::KeepReference');
+
+helper def: clones : Map(UMLMM!Classifier, Sequence(UMLMM!Property)) = Map{};
+
+endpoint rule PostExtraction() {
+	do {
+		for(e in thisModule.clones.getKeys()) {
+			-- e.debug('Container');
+			-- thisModule.clones.get(e).debug();
+			e.resolve().ownedAttribute <- e.ownedAttribute->select(e|e.shouldBeKept)->union(thisModule.clones.get(e));
+			
+			if(e.name = 'Class') {
+				e.debug('Class');
+				e.ownedAttribute->select(e|e.shouldBeKept).debug();
+				thisModule.clones.get(e).debug();
+			}
+		}
+	}
+}
+
+abstract rule Element2Element {
+	from s : UMLMM!Element in MODEL (s.isStereotypeApplied(thisModule.Keep))
+	to t : UMLMM!Element
+	do {
+		-- to ensure that the connectivity regarding element ownership is
+		-- established in the slice, elements for which the container element
+		-- is not covered by the slice need to be re-assigned.
+		if(not s.isRoot) {
+			if(not s.owner.shouldBeKept) {
+				-- the nearest container is kind of Package and the elment 
+				-- is packageables
+				if(s.getNearestContainer.oclIsKindOf(UMLMM!Package) and t.oclIsKindOf(UMLMM!PackageableElement)) {
+					s.getNearestContainer.resolve().packagedElement <- s.getNearestContainer.packagedElement->select(e|e.shouldBeKept)->union(Sequence{t});  	
+				}
+				
+				-- TODO: is then always push-down?
+				if(s.oclIsKindOf(UMLMM!Property)) {
+					for(e in s.owner.getClassifierSpecializations) {
+						-- e.eClass().debug('Blih');
+						if(e.oclIsKindOf(UMLMM!StructuredClassifier) and e.shouldBeKept and not (e.feature->exists(f|f.name = s.name))) {
+							
+							if(thisModule.clones.containsKey(e)) {
+								thisModule.clones.put(e, thisModule.clones.get(e)->append(thisModule.cloneProperty(s)));
+							}
+							else {
+								thisModule.clones.put(e, Sequence{thisModule.cloneProperty(s)});	
+							}
+							
+							
+							-- if(e.name = 'Class') {
+							--	e.debug('Class');
+							--	s.debug(s.owner.name);
+							--	thisModule.clones.get(e).debug();
+							-- }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+abstract rule NamedElement2NamedElement extends Element2Element {
+	from s : UMLMM!NamedElement in MODEL
+	to t : UMLMM!NamedElement (
+		name <- s.name
+	)
+}
+
+abstract rule TypedElement2TypedElement extends NamedElement2NamedElement {
+	from s : UMLMM!TypedElement in MODEL
+	to t : UMLMM!TypedElement (
+--		type <- s.type
+		type <- if(s.isStereotypeApplied(thisModule.KeepReference))
+				then s.getValue(thisModule.KeepReference, 'element')
+				-- Parameters or Properties may not have types
+				else if(not s.type.oclIsUndefined())
+				then if(s.type.isStereotypeApplied(thisModule.Keep))
+				then s.type
+				else OclUndefined endif
+				else OclUndefined endif endif
+	)
+}
+
+rule Model2Model extends Package2Package {
+	from s : UMLMM!Model in MODEL
+	to t : UMLMM!Model (
+ 		viewpoint <- s.viewpoint
+	)
+}
+
+rule Package2Package extends NamedElement2NamedElement {
+	from s : UMLMM!Package in MODEL
+	to t : UMLMM!Package (
+		packagedElement <- s.packagedElement->select(e|e.shouldBeKept),
+		packageImport <- s.packageImport->select(e|e.shouldBeKept)
+	)
+}
+
+rule PackageImport2PackageImport extends Element2Element {
+	from s : UMLMM!PackageImport in MODEL
+	to t : UMLMM!PackageImport (
+		importedPackage <- s.importedPackage,
+		visibility <- s.visibility
+	)
+}
+
+helper context UMLMM!Classifier def: getClassifierSpecializations: Set(UMLMM!Classifier) =
+	UMLMM!Classifier.allInstancesFrom('MODEL')->select(e|e.isSubClassifierOf(self));
+
+helper context UMLMM!Classifier def: isSubClassifierOf(classifier : UMLMM!Classifier) : Boolean =
+	self.getGenerals()->includes(classifier) or self.getGenerals()->exists(e|e.isSubClassifierOf(classifier));
+
+-- helper to find for an element the nearest container that is covered 
+-- by the slice
+helper context UMLMM!Element def: getNearestContainer: UMLMM!Element =
+	if(not self.owner.shouldBeKept) then self.owner.getNearestContainer
+	else self.owner endif;
+
+-- helper to decide if an element should be covered by slice or not
+helper context UMLMM!Element def: shouldBeKept: Boolean =
+	self.isStereotypeApplied(thisModule.Keep);
+
+-- helper to decide if an element is the root 
+helper context UMLMM!Element def: isRoot: Boolean =
+	self.owner.oclIsUndefined();
+
+-- helper to clone an element
+lazy rule cloneProperty {
+	from s : UMLMM!Property
+	to t : UMLMM!Property (
+		name <- s.name,
+		type <- s.type,
+		lower <- s.lower,
+		upper <- s.upper
+	)
+	do {
+		-- s.resolve().applyStereotype(thisModule.Keep);
+		t;	
+	}
+}

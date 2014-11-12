@@ -1,0 +1,221 @@
+---*******************************************************************************
+ --- Copyright (c) 2013 Atos.
+ --- All rights reserved. This program and the accompanying materials
+ --- are made available under the terms of the Eclipse Public License v1.0
+ --- which accompanies this distribution, and is available at
+ --- http://www.eclipse.org/legal/epl-v10.html
+ ---
+ --- Contributors:
+ --- 	Burak Karaboga (Atos) - initial API and implementation
+ --- 	Initially developed in the context of ARTIST EU project www.artist-project.eu
+ ---******************************************************************************
+-- @nsURI uml=http://www.eclipse.org/uml2/2.1.0/UML
+-- @nsURI kdm=http://www.eclipse.org/MoDisco/kdm
+
+library "lib::ParametersLibrary";
+
+
+---####################################### GLOBAL VARIABLES ####################################### ---
+helper def : filteredClasses : Sequence(uml!Class) = Sequence{};
+helper def : parameters : Sequence(params!Parameter) = thisModule.getParameters();
+helper def : annnotationFilters : Sequence (params!Parameter) = thisModule.parameters->select(e | e.type = 'annotation')->debug('annotationfilters');
+helper def : implementingFilter : params!Parameter = thisModule.parameters->select(e | e.type = 'implementing')->first();
+helper def : implementingFilterAsInterface : uml!Interface = uml!Interface;
+helper def : extendingFilter : params!Parameter = thisModule.parameters->select(e | e.type = 'extending')->first();
+helper def : extendingFilterAsClass : uml!Class = uml!Class;
+helper def : ownedAnnotations : Sequence(String) = Sequence {};
+
+---################################## END OF GLOBAL VARIABLES ##################################### ---
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+---####################################### HELPER METHODS ######################################### ---
+
+--- Returns the first parameter which has the given name.
+helper def : getParameter(name : String) : params!Parameter =
+	params!Parameter.allInstancesFrom('PARAMETERS')->select(e |
+		e.name = name
+	)->first();
+
+--- Returns all the parameters in the provided model as a Sequence.
+helper def : getParameters() : Sequence(params!Parameter) =
+	params!Parameter.allInstancesFrom('PARAMETERS');
+
+--- Returns true if the element is the parent of one of the filtered classes 
+helper context uml!Element def : isParentOfFilteredClasses() : Boolean = 
+	if (thisModule.filteredClasses->exists(i | self.isParentOf(i))) then 
+		true
+	else
+		false
+	endif;
+
+--- Returns true if the element is the parent of one of the filters (class, interface) 
+helper context uml!Element def : isParentOfFilters() : Boolean = 
+	if (self.isParentOf(thisModule.extendingFilterAsClass)) then 
+		true
+	else
+		false
+	endif;
+
+--- Returns true if the element is one of the children of the filtered classes or the "extending" filter itself
+helper context uml!Element def : isChildOfFilteredClasses(): Boolean = 
+	if (not self.getFirstParentOfTypeClass().oclIsUndefined()) then
+		if (thisModule.filteredClasses->exists(i | i.name = self.getFirstParentOfTypeClass().name)
+			or (thisModule.extendingFilter.value = self.getFirstParentOfTypeClass())) then
+			true
+		else
+			false
+		endif
+	else
+		false
+	endif;
+
+--- Returns true if the element is one of the children of the "implementing" filter itself
+helper context uml!Element def : isChildOfImplementingFilter(): Boolean = 
+	if (not self.getFirstParentOfTypeInterface().oclIsUndefined()) then
+		if (thisModule.implementingFilter.value = self.getFirstParentOfTypeInterface().fullyQualifiedName()) then
+			true
+		else
+			false
+		endif
+	else
+		false
+	endif;
+
+helper context uml!Element def : isTypeReferencedWithinFilteredClass() : Boolean = 
+	if (self.oclIsKindOf(uml!Class) or self.oclIsKindOf(uml!Interface) or self.oclIsKindOf(uml!Enumeration)) then
+		if (thisModule.filteredClasses->collect(fc | 
+			fc.ownedAttribute->exists(a |
+				a.type.fullyQualifiedName() = self.fullyQualifiedName()))->exists(r | r)) then
+			true
+		else
+			false
+		endif
+	else
+		false
+	endif
+	;
+
+
+helper context uml!Element def : isParentOfTypeReferencedWithinFilteredClass() : Boolean = 
+	if (self.oclIsKindOf(uml!Package)) then
+		if (thisModule.filteredClasses->collect(fc | 
+			fc.ownedAttribute->exists(a |
+				--self->debug ('isParentOfTypeReferencedWithinFilteredClass on package' + self.getFullyQualifiedPackageName()).isParentOf (a.type)))->exists(r | r)) then
+				self.isParentOf (a.type)))->exists(r | r)) then
+			true
+		else
+			false
+		endif
+	else
+		false
+	endif
+	;
+
+--- Returns true if the source element is eligible to be filtered out according to the parameters given 
+--- #TODO: Should handle multiple parameters of implementing filter in the params.xmi  
+helper context uml!Dependency def : willBeFilteredOutss() : Boolean = 
+	
+	-- checking types referenced within filtered classes
+	-- Is referenced as type within a filtered class (either as property type or operation type)
+	if (self.isTypeReferencedWithinFilteredClass()) then
+		false->debug('first boolean ' + self.client)
+	else
+		-- Is parent of referenced type within a filtered class (either as property type or operation type)
+		if (self.isParentOfTypeReferencedWithinFilteredClass()) then
+			false->debug('second boolean ' + self.client)
+		else
+			if (thisModule.parameters->size() > 0) then 
+				if (self.oclIsTypeOf(uml!Class)) then
+					-- Belongs to the list of filtered classes
+					if (thisModule.filteredClasses->exists(i | i.fullyQualifiedName() = self.fullyQualifiedName())) then
+						false->debug('third boolean ' + self.client)
+					else 
+						-- Belongs to extending filter
+						if (not thisModule.extendingFilter.oclIsUndefined()) then
+							if (self.fullyQualifiedName() = thisModule.extendingFilter.value) then
+								false->debug('fourth boolean ' + self.client)
+							else
+								true->debug('fifth boolean ' + self.client)
+							endif
+						else
+							true->debug('sixth boolean ' + self.client)
+						endif
+					endif
+				else 
+					if (self.isParentOfFilteredClasses() or self.isParentOfFilters()) then
+						false->debug('seventh boolean ' + self.client)
+					else
+						if (self.isChildOfImplementingFilter() or self.isChildOfFilteredClasses()) then
+							false->debug('eighth boolean ' + self.client)
+						else
+							true->debug('ninth boolean ' + self.client)
+						endif
+					endif
+				endif
+			else
+				true->debug('tenth boolean ' + self.client)
+			endif
+		endif
+	endif;
+
+--- Returns true if the source element is eligible to be filtered out according to the parameters given 
+--- #TODO: Should handle multiple parameters of implementing filter in the params.xmi  
+helper context uml!Element def : willBeFilteredOut() : Boolean = 
+	
+	-- checking types referenced within filtered classes
+	-- Is referenced as type within a filtered class (either as property type or operation type)
+	if (self.isTypeReferencedWithinFilteredClass()) then
+		false
+	else
+		-- Is parent of referenced type within a filtered class (either as property type or operation type)
+		if (self.isParentOfTypeReferencedWithinFilteredClass()) then
+			false
+		else
+			if (thisModule.parameters->size() > 0) then 
+				if (self.oclIsTypeOf(uml!Class)) then
+					-- Belongs to the list of filtered classes
+					if (thisModule.filteredClasses->exists(i | i.fullyQualifiedName() = self.fullyQualifiedName())) then
+						false
+					else 
+						-- Belongs to extending filter
+						if (not thisModule.extendingFilter.oclIsUndefined()) then
+							if (self.fullyQualifiedName() = thisModule.extendingFilter.value) then
+								false
+							else
+								true
+							endif
+						else
+							true
+						endif
+					endif
+				else 
+					if (self.isParentOfFilteredClasses() or self.isParentOfFilters()) then
+						false
+					else
+						if (self.isChildOfImplementingFilter() or self.isChildOfFilteredClasses()) then
+							false
+						else
+							if (self.oclIsTypeOf(uml!Dependency)) then
+								if (thisModule.filteredClasses->exists(fc | fc = self.client->first())->debug('client') and 
+							    thisModule.filteredClasses->exists(fc | fc = self.supplier->first())->debug('supplier')) then
+									false->debug('found')
+								else
+									true
+								endif
+							else
+								true
+							endif
+						endif
+					endif
+				endif
+			else
+				true
+			endif
+		endif
+	endif; 
+		
+
+---####################################### END OF HELPER METHODS ######################################### ---

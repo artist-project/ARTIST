@@ -1,0 +1,44 @@
+-- @atlcompiler emftvm
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+module DomainModelEclipseLinkMultitenancy;
+create UMLM_OUT : UMLMM refining UMLM : UMLMM, OBJECTIFY : UMLMM;
+
+helper def: eclipseLinkProfile : UMLMM!Profile = UMLMM!Profile.allInstancesFrom('ECLIPSELINK').first();
+helper def: stereotypes : Sequence(UMLMM!Stereotype) = UMLMM!Stereotype.allInstancesFrom('ECLIPSELINK');
+ 
+rule ObjectifiedModel {
+    from s : UMLMM!Model in UMLM (s.oclIsTypeOf(UMLMM!Model))
+    to t : UMLMM!Model ( )
+	
+	do {
+		t.applyProfile(thisModule.eclipseLinkProfile);
+	}
+}
+
+rule ObjectifiedClass {
+    from s : UMLMM!Class in UMLM (s.oclIsTypeOf(UMLMM!Class))
+    to t : UMLMM!Class ( )
+	
+	do { --Apply the stereotype to all the classes since we are dealing with the data model as input
+		-- if the class is in a composite relationship then we apply the @Embed stereotype
+		t.applyStereotype(thisModule.stereotypes -> any(e | e.name = 'Multitenant'));
+		t.setValue(thisModule.stereotypes -> any(e | e.name = 'Multitenant'), 'value', 'SINGLE_TABLE');
+		t.setValue(thisModule.stereotypes -> any(e | e.name = 'Multitenant'), 'includeCriteria', 'false');
+		
+		t.applyStereotype(thisModule.stereotypes -> any(e | e.name = 'TenantDiscriminatorColumn'));
+		t.setValue(thisModule.stereotypes -> any(e | e.name = 'TenantDiscriminatorColumn'), 'name', 'TENANT_ID');
+		t.setValue(thisModule.stereotypes -> any(e | e.name = 'TenantDiscriminatorColumn'), 'contextProperty', 
+			s.name + '-tenant.id');
+	}
+}
+
+--rule ObjectifiedProperty {
+--    from s : UMLMM!Property in UMLM (s.oclIsTypeOf(UMLMM!Property))
+--    to t : UMLMM!Property (	)
+--	do {
+--		if(s.isID) {
+--			t.applyStereotype(thisModule.stereotypes -> any(e | e.name = 'Multitenant'));	
+--		}
+--	}
+--}

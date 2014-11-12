@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_bSdV0BbfEeSTtJEvdWT__A" name="slicerprofile" metaclassReference="_tR5W4BbfEeSTtJEvdWT__A" metamodelReference="_bSdV0RbfEeSTtJEvdWT__A">
+  <eAnnotations xmi:id="_OfWoAB44EeSXu8LfwAR2kQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_QjlqoC0gEeSnwZLqrnBoRw" name="slicerprofile" nsURI="http:///schemas/slicerprofile/_QjjOYC0gEeSnwZLqrnBoRw/1" nsPrefix="slicerprofile">
+      <eAnnotations xmi:id="_Qjm4wC0gEeSnwZLqrnBoRw" source="PapyrusVersion">
+        <details xmi:id="_Qjm4wS0gEeSnwZLqrnBoRw" key="Version" value="0.0.2"/>
+        <details xmi:id="_Qjm4wi0gEeSnwZLqrnBoRw" key="Comment" value=""/>
+        <details xmi:id="_Qjm4wy0gEeSnwZLqrnBoRw" key="Copyright" value="Copyright (c) 2014 Vienna University of Technology.&#xD;&#xA;All rights reserved. This program and the accompanying materials&#xD;&#xA;are made available under the terms of the Eclipse Public License v1.0&#xD;&#xA;which accompanies this distribution, and is available at&#xD;&#xA;http://www.eclipse.org/legal/epl-v10.html&#xD;&#xA;&#xD;&#xA;Contributors:&#xD;&#xA;Alexander Bergmayr (Vienna University of Technology) - initial API and implementation&#xD;&#xA;&#xD;&#xA;Initially developed in the context of ARTIST EU project www.artist-project.eu"/>
+        <details xmi:id="_Qjm4xC0gEeSnwZLqrnBoRw" key="Date" value="2014-08-26"/>
+        <details xmi:id="_Qjm4xS0gEeSnwZLqrnBoRw" key="Author" value=""/>
+      </eAnnotations>
+      <eSubpackages xmi:id="_QjlqoS0gEeSnwZLqrnBoRw" name="eu" nsURI="http:///slicerprofile/eu.ecore" nsPrefix="slicerprofile.eu">
+        <eAnnotations xmi:id="_Qjlqoi0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Bj-WsB44EeSXu8LfwAR2kQ"/>
+        <eSubpackages xmi:id="_Qjlqoy0gEeSnwZLqrnBoRw" name="artist" nsURI="http:///slicerprofile/eu/artist.ecore" nsPrefix="slicerprofile.eu.artist">
+          <eAnnotations xmi:id="_QjlqpC0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_CJYw4B44EeSXu8LfwAR2kQ"/>
+          <eSubpackages xmi:id="_QjlqpS0gEeSnwZLqrnBoRw" name="migration" nsURI="http:///slicerprofile/eu/artist/migration.ecore" nsPrefix="slicerprofile.eu.artist.migration">
+            <eAnnotations xmi:id="_Qjlqpi0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_DgOoAB44EeSXu8LfwAR2kQ"/>
+            <eSubpackages xmi:id="_Qjlqpy0gEeSnwZLqrnBoRw" name="mut" nsURI="http:///slicerprofile/eu/artist/migration/mut.ecore" nsPrefix="slicerprofile.eu.artist.migration.mut">
+              <eAnnotations xmi:id="_QjlqqC0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Dz-DYB44EeSXu8LfwAR2kQ"/>
+              <eSubpackages xmi:id="_QjlqqS0gEeSnwZLqrnBoRw" name="slicing" nsURI="http:///slicerprofile/eu/artist/migration/mut/slicing.ecore" nsPrefix="slicerprofile.eu.artist.migration.mut.slicing">
+                <eAnnotations xmi:id="_Qjlqqi0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Dz-DYR44EeSXu8LfwAR2kQ"/>
+                <eClassifiers xmi:type="ecore:EClass" xmi:id="_Qjlqqy0gEeSnwZLqrnBoRw" name="Keep">
+                  <eAnnotations xmi:id="_QjlqrC0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_oCn1oBbfEeSTtJEvdWT__A"/>
+                  <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QjlqrS0gEeSnwZLqrnBoRw" name="base_Element" ordered="false" lowerBound="1">
+                    <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
+                  </eStructuralFeatures>
+                </eClassifiers>
+                <eClassifiers xmi:type="ecore:EClass" xmi:id="_Qjlqry0gEeSnwZLqrnBoRw" name="Remove">
+                  <eAnnotations xmi:id="_QjlqsC0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_o-XFIBbfEeSTtJEvdWT__A"/>
+                  <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QjlqsS0gEeSnwZLqrnBoRw" name="base_Element" ordered="false" lowerBound="1">
+                    <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
+                  </eStructuralFeatures>
+                </eClassifiers>
+                <eClassifiers xmi:type="ecore:EClass" xmi:id="_Qjlqsy0gEeSnwZLqrnBoRw" name="KeepReference" eSuperTypes="_Qjlqqy0gEeSnwZLqrnBoRw">
+                  <eAnnotations xmi:id="_QjlqtC0gEeSnwZLqrnBoRw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_RXhecC0fEeSnwZLqrnBoRw"/>
+                  <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_QjlqtS0gEeSnwZLqrnBoRw" name="element" ordered="false" lowerBound="1">
+                    <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
+                  </eStructuralFeatures>
+                </eClassifiers>
+              </eSubpackages>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:id="_tR5W4BbfEeSTtJEvdWT__A" alias="Element">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+  </elementImport>
+  <packageImport xmi:id="_bSdV0RbfEeSTtJEvdWT__A">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_bSdV0hbfEeSTtJEvdWT__A">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_Bj-WsB44EeSXu8LfwAR2kQ" name="eu">
+    <packagedElement xmi:type="uml:Package" xmi:id="_CJYw4B44EeSXu8LfwAR2kQ" name="artist">
+      <packagedElement xmi:type="uml:Package" xmi:id="_DgOoAB44EeSXu8LfwAR2kQ" name="migration">
+        <packagedElement xmi:type="uml:Package" xmi:id="_Dz-DYB44EeSXu8LfwAR2kQ" name="mut">
+          <packagedElement xmi:type="uml:Package" xmi:id="_Dz-DYR44EeSXu8LfwAR2kQ" name="slicing">
+            <packagedElement xmi:type="uml:Stereotype" xmi:id="_oCn1oBbfEeSTtJEvdWT__A" name="Keep">
+              <ownedAttribute xmi:id="_vWnnsBbfEeSTtJEvdWT__A" name="base_Element" association="_vWnnsRbfEeSTtJEvdWT__A">
+                <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+              </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Stereotype" xmi:id="_o-XFIBbfEeSTtJEvdWT__A" name="Remove">
+              <ownedAttribute xmi:id="_wn0w4BbfEeSTtJEvdWT__A" name="base_Element" association="_wn0w4RbfEeSTtJEvdWT__A">
+                <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+              </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Stereotype" xmi:id="_RXhecC0fEeSnwZLqrnBoRw" name="KeepReference">
+              <ownedAttribute xmi:id="_Wl3LkC0fEeSnwZLqrnBoRw" name="element">
+                <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_ivNkwDT7EeS9Qv3IXx1I1w" name="base_Element" association="_ivOy4DT7EeS9Qv3IXx1I1w">
+                <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Element"/>
+              </ownedAttribute>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Extension" xmi:id="_vWnnsRbfEeSTtJEvdWT__A" name="E_Keep_Element" memberEnd="_vWoOwBbfEeSTtJEvdWT__A _vWnnsBbfEeSTtJEvdWT__A">
+              <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_vWoOwBbfEeSTtJEvdWT__A" name="extension_Keep" type="_oCn1oBbfEeSTtJEvdWT__A" aggregation="composite" association="_vWnnsRbfEeSTtJEvdWT__A"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Extension" xmi:id="_wn0w4RbfEeSTtJEvdWT__A" name="E_Remove_Element" memberEnd="_wn0w4hbfEeSTtJEvdWT__A _wn0w4BbfEeSTtJEvdWT__A">
+              <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_wn0w4hbfEeSTtJEvdWT__A" name="extension_Remove" type="_o-XFIBbfEeSTtJEvdWT__A" aggregation="composite" association="_wn0w4RbfEeSTtJEvdWT__A"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Extension" xmi:id="_ivOy4DT7EeS9Qv3IXx1I1w" name="E_KeepReference_Element1" memberEnd="_ivOy4TT7EeS9Qv3IXx1I1w _ivNkwDT7EeS9Qv3IXx1I1w">
+              <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ivOy4TT7EeS9Qv3IXx1I1w" name="extension_KeepReference" type="_RXhecC0fEeSnwZLqrnBoRw" aggregation="composite" association="_ivOy4DT7EeS9Qv3IXx1I1w"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Profile>

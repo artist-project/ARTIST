@@ -1,0 +1,323 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+module GWTMapper;
+create OUT: UML2 from IN: UML2, PDM: UML2;
+
+---***********************************HELPERS *************************************---
+helper context UML2!Class def : hasStereotypesInCommonWithPDM() : Boolean = UML2!Class.allInstancesFrom('PDM')->select(c | 
+	c.getAppliedStereotypes()-> asSet()->intersection(self.getAppliedStereotypes()->asSet())->notEmpty())->notEmpty();
+
+helper context UML2!Class def : getFirstStereotypedApplicationMappingInPDM() : UML2!Class = 
+	UML2!Class.allInstancesFrom('PDM') -> select(c | 
+		not (c.getAppliedStereotype(self.getAppliedStereotypes().first().getQualifiedName()).oclIsUndefined())) .first();
+
+helper context UML2!Property def : getFirstStereotypedApplicationMappingInPDM() : UML2!Class = 
+	if (self.getAppliedStereotypes()->notEmpty()) then
+		UML2!Class.allInstancesFrom('PDM') -> select(c | 
+			not (c.getAppliedStereotype(self.getAppliedStereotypes().first().getQualifiedName()).oclIsUndefined())) .first()
+	else 
+		self.type
+	endif;
+
+helper context UML2!Parameter def : getFirstStereotypedApplicationMappingInPDM() : UML2!Class = 
+	if (self.getAppliedStereotypes()->notEmpty()) then
+		UML2!Classifier.allInstancesFrom('PDM') -> select(c | 
+			not (c.getAppliedStereotype(self.getAppliedStereotypes().first().getQualifiedName()).oclIsUndefined())) .first()
+	else 
+		self.type
+	endif;
+---****************************** END OF HELPERS **********************************---
+
+rule Model {
+	from
+		s: UML2!Model in IN (s.oclIsTypeOf(UML2!Model))
+	to
+		t: UML2!Model (
+			name <- s.name ,
+			visibility <- s.visibility,
+			viewpoint <- s.viewpoint,
+			eAnnotations <- s.eAnnotations,
+			ownedComment <- s.ownedComment,
+			clientDependency <- s.clientDependency,
+			nameExpression <- s.nameExpression,
+			elementImport <- s.elementImport,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			templateParameter <- s.templateParameter,
+			templateBinding <- s.templateBinding,
+			ownedTemplateSignature <- s.ownedTemplateSignature,
+			packageMerge <- s.packageMerge,
+			packagedElement<-s.packagedElement.union(UML2!Model.allInstancesFrom('PDM').first().packagedElement)
+		)
+	do {
+--		--- We apply the profiles
+		for (prof in s.getAllAppliedProfiles()){
+			t.applyProfile(prof);
+		}
+	}
+}
+
+--- mapping the packages
+rule Package {
+    from s : UML2!"uml::Package" in IN, PDM (s.oclIsTypeOf(UML2!"uml::Package"))
+    to t : UML2!"uml::Package" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+}
+
+--- Mapping classes from IN model
+rule ClassFromIN {
+    from s : UML2!"uml::Class" in IN (s.oclIsTypeOf(UML2!"uml::Class"))
+    to t : UML2!"uml::Class" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+--        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception)
+		do{
+			if (s.getAppliedStereotypes().notEmpty()){ 
+				if (s.hasStereotypesInCommonWithPDM()){
+					t.generalization <- Sequence{thisModule.createGeneralization(s)};
+				}
+			}
+		}
+}
+
+--- Mapping classes from PDM model
+rule ClassFromPDM {
+    from s : UML2!"uml::Class" in PDM (s.oclIsTypeOf(UML2!"uml::Class"))
+    to t : UML2!"uml::Class" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isAbstract <- s.isAbstract,
+        isFinalSpecialization <- s.isFinalSpecialization,
+        isActive <- s.isActive,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        collaborationUse <- s.collaborationUse,
+        generalization <- s.generalization,
+        powertypeExtent <- s.powertypeExtent,
+        ownedUseCase <- s.ownedUseCase,
+        useCase <- s.useCase,
+        redefinedClassifier <- s.redefinedClassifier,
+        representation <- s.representation,
+        substitution <- s.substitution,
+        ownedAttribute <- s.ownedAttribute,
+        ownedConnector <- s.ownedConnector,
+        classifierBehavior <- s.classifierBehavior,
+        interfaceRealization <- s.interfaceRealization,
+        ownedBehavior <- s.ownedBehavior,
+        ownedOperation <- s.ownedOperation,
+        nestedClassifier <- s.nestedClassifier,
+        ownedReception <- s.ownedReception)
+}
+
+
+--- Map Class properties whose types are stereotyped
+rule PropertyFromIN {
+    from s : UML2!"uml::Property" in IN (s.oclIsTypeOf(UML2!"uml::Property"))
+    to t : UML2!"uml::Property" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        isReadOnly <- s.isReadOnly,
+        aggregation <- s.aggregation,
+        isDerived <- s.isDerived,
+        isDerivedUnion <- s.isDerivedUnion,
+        isID <- s.isID,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        type <- s.getFirstStereotypedApplicationMappingInPDM(),
+        lowerValue <- s.lowerValue,
+        upperValue <- s.upperValue,
+        templateParameter <- s.templateParameter,
+        deployment <- s.deployment,
+        qualifier <- s.qualifier,
+        defaultValue <- s.defaultValue,
+        redefinedProperty <- s.redefinedProperty,
+        subsettedProperty <- s.subsettedProperty,
+        association <- s.association)
+}
+
+--- Map Class operations 
+rule OperationFromIN {
+    from s : UML2!"uml::Operation" in IN 
+    to t : UML2!"uml::Operation" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isLeaf <- s.isLeaf,
+        isStatic <- s.isStatic,
+        concurrency <- s.concurrency,
+        isAbstract <- s.isAbstract,
+        isQuery <- s.isQuery,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        method <- s.method,
+        ownedParameter <- s.ownedParameter,
+        ownedParameterSet <- s.ownedParameterSet,
+        raisedException <- s.raisedException,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        bodyCondition <- s.bodyCondition,
+        postcondition <- s.postcondition,
+        precondition <- s.precondition,
+        redefinedOperation <- s.redefinedOperation)
+}
+
+--- Map Class operation parameters 
+rule ParameterFromIN {
+    from s : UML2!"uml::Parameter" in IN 
+    to t : UML2!"uml::Parameter" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        isOrdered <- s.isOrdered,
+        isUnique <- s.isUnique,
+        direction <- s.direction,
+        effect <- s.effect,
+        isException <- s.isException,
+        isStream <- s.isStream,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        type <- s.getFirstStereotypedApplicationMappingInPDM(),
+        templateParameter <- s.templateParameter,
+        lowerValue <- s.lowerValue,
+        upperValue <- s.upperValue,
+        defaultValue <- s.defaultValue,
+        parameterSet <- s.parameterSet)
+}
+
+
+---*******************************************************************************************---
+---************************************* LAZY RULES ******************************************---
+---*******************************************************************************************---
+
+---Creates a generalization with @s as the attribute @general
+lazy rule createGeneralization {
+	from
+		s: UML2!Class in IN
+	to
+		t: UML2!Generalization (general <- s.getFirstStereotypedApplicationMappingInPDM())
+	do{
+		t;	
+	}
+}
+
+---**********************************************************************************************---
+---************************************* ENDPOINT RULE ******************************************---
+---**********************************************************************************************---
+
+
+lazy rule ApplyStereotypes {
+	from s : UML2!"uml::Element" in IN
+	using {
+		t : UML2!"uml::Element" = s.resolve();
+	}
+	do {
+		for (st in s.getAppliedStereotypes()) {
+			t.applyStereotype(st);
+			for (a in st.getAllAttributes()) {
+				if (not a.name.startsWith('base_') and s.hasValue(st, a.name)) {
+					t.setValue(st, a.name, s.getValue(st, a.name));
+				}
+			}
+		}
+	}
+}
+
+endpoint rule ApplyAllStereotypes() {
+	do {
+		for (element in thisModule.traces.defaultSourceElements
+				->collect(e|e.object)
+				->select(o|o.oclIsKindOf(UML2!"uml::Element"))) {
+			thisModule.ApplyStereotypes(element);
+		}
+	}
+}
