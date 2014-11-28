@@ -37,4 +37,4 @@ Link to the deliverable
 
 Business and technical modernization assessment tool
 
-http://www.artist-project.eu/sites/default/files/D5.2.1%20Business%20and%20Technical%20Modernization%20asessment%20tool_M12_30092013.pdf 
+http://www.artist-project.eu/sites/default/files/D5.2.2%20Business%20and%20Technical%20Modernization%20assessment%20tool_%20M24_30092014.pdf
