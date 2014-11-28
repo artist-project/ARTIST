@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:profile="http:///schemas/profile/_mwZ3ICIUEeSV3JJZyMh4lA/0" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/profile/_mwZ3ICIUEeSV3JJZyMh4lA/0 ../../eu.artist.migration.mut.cmg.profiles/profiles/J2EE6.profile.uml#_mwc6cCIUEeSV3JJZyMh4lA">
+  <uml:Model xmi:id="_nph7IAHhEeSmRfynB7x1AA" name="petstore_ee6">
+    <packagedElement xmi:type="uml:Package" xmi:id="_nph7IgHhEeSmRfynB7x1AA" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_nph7IwHhEeSmRfynB7x1AA" name="agoncal">
+        <packagedElement xmi:type="uml:Package" xmi:id="_nph7JAHhEeSmRfynB7x1AA" name="application">
+          <packagedElement xmi:type="uml:Package" xmi:id="_nph7JQHhEeSmRfynB7x1AA" name="petstore">
+            <packagedElement xmi:type="uml:Package" xmi:id="_nph7JwHhEeSmRfynB7x1AA" name="domain">
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpmyLlEeS9q4fTQ1lDVQ" name="EntityComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_nph7KAHhEeSmRfynB7x1AA" name="Product">
+                  <ownedAttribute xmi:id="_nph7KQHhEeSmRfynB7x1AA" name="id" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7LAHhEeSmRfynB7x1AA" name="name" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7LwHhEeSmRfynB7x1AA" name="description" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7MgHhEeSmRfynB7x1AA" name="category" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7NQHhEeSmRfynB7x1AA" name="items" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJkgHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7OAHhEeSmRfynB7x1AA" name="FIND_BY_CATEGORY_NAME" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7OwHhEeSmRfynB7x1AA" name="FIND_ALL" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_nph7PgHhEeSmRfynB7x1AA" name="Product" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7PwHhEeSmRfynB7x1AA" name="Product" visibility="public">
+                    <ownedParameter xmi:id="_nph7QAHhEeSmRfynB7x1AA" name="name" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7QQHhEeSmRfynB7x1AA" name="description" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7QgHhEeSmRfynB7x1AA" name="category" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7QwHhEeSmRfynB7x1AA" name="getId" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7RAHhEeSmRfynB7x1AA" name="getName" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7RQHhEeSmRfynB7x1AA" name="setName" visibility="public">
+                    <ownedParameter xmi:id="_nph7RgHhEeSmRfynB7x1AA" name="name" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7RwHhEeSmRfynB7x1AA" name="getDescription" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7SAHhEeSmRfynB7x1AA" name="setDescription" visibility="public">
+                    <ownedParameter xmi:id="_nph7SQHhEeSmRfynB7x1AA" name="description" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7SgHhEeSmRfynB7x1AA" name="getCategory" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7SwHhEeSmRfynB7x1AA" name="setCategory" visibility="public">
+                    <ownedParameter xmi:id="_nph7TAHhEeSmRfynB7x1AA" name="category" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7TQHhEeSmRfynB7x1AA" name="addItem" visibility="public">
+                    <ownedParameter xmi:id="_nph7TgHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7TwHhEeSmRfynB7x1AA" name="getItems" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7UAHhEeSmRfynB7x1AA" name="setItems" visibility="public">
+                    <ownedParameter xmi:id="_nph7UQHhEeSmRfynB7x1AA" name="items" visibility="public" effect="create">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_Rsh6QL4zEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7UgHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_nph7UwHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7VAHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7VQHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_nph7hQHhEeSmRfynB7x1AA" name="Customer">
+                  <ownedAttribute xmi:id="_nph7hgHhEeSmRfynB7x1AA" name="id" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7iQHhEeSmRfynB7x1AA" name="login" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7jAHhEeSmRfynB7x1AA" name="password" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7jwHhEeSmRfynB7x1AA" name="firstname" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7kgHhEeSmRfynB7x1AA" name="lastname" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7lQHhEeSmRfynB7x1AA" name="telephone" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7mAHhEeSmRfynB7x1AA" name="email" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7mwHhEeSmRfynB7x1AA" name="homeAddress" visibility="private" type="_jEQpnCLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_nph7ngHhEeSmRfynB7x1AA" name="dateOfBirth" visibility="private">
+                    <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_kNge8L4vEeOhf4L1rCPelg"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7oQHhEeSmRfynB7x1AA" name="age" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7pAHhEeSmRfynB7x1AA" name="FIND_BY_LOGIN" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7pwHhEeSmRfynB7x1AA" name="FIND_BY_LOGIN_PASSWORD" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7qgHhEeSmRfynB7x1AA" name="FIND_ALL" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_nph7rQHhEeSmRfynB7x1AA" name="Customer" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7rgHhEeSmRfynB7x1AA" name="Customer" visibility="public">
+                    <ownedParameter xmi:id="_nph7rwHhEeSmRfynB7x1AA" name="firstname" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7sAHhEeSmRfynB7x1AA" name="lastname" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7sQHhEeSmRfynB7x1AA" name="login" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7sgHhEeSmRfynB7x1AA" name="password" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7swHhEeSmRfynB7x1AA" name="email" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7tAHhEeSmRfynB7x1AA" name="address" visibility="public" type="_jEQpnCLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7tQHhEeSmRfynB7x1AA" name="calculateAge" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7tgHhEeSmRfynB7x1AA" name="matchPassword" visibility="public">
+                    <ownedParameter xmi:id="_nph7twHhEeSmRfynB7x1AA" name="pwd" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7uAHhEeSmRfynB7x1AA" name="getId" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7uQHhEeSmRfynB7x1AA" name="getLogin" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7ugHhEeSmRfynB7x1AA" name="setLogin" visibility="public">
+                    <ownedParameter xmi:id="_nph7uwHhEeSmRfynB7x1AA" name="login" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7vAHhEeSmRfynB7x1AA" name="getPassword" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7vQHhEeSmRfynB7x1AA" name="setPassword" visibility="public">
+                    <ownedParameter xmi:id="_nph7vgHhEeSmRfynB7x1AA" name="password" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7vwHhEeSmRfynB7x1AA" name="getFirstname" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7wAHhEeSmRfynB7x1AA" name="setFirstname" visibility="public">
+                    <ownedParameter xmi:id="_nph7wQHhEeSmRfynB7x1AA" name="firstname" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7wgHhEeSmRfynB7x1AA" name="getLastname" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7wwHhEeSmRfynB7x1AA" name="setLastname" visibility="public">
+                    <ownedParameter xmi:id="_nph7xAHhEeSmRfynB7x1AA" name="lastname" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7xQHhEeSmRfynB7x1AA" name="getTelephone" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7xgHhEeSmRfynB7x1AA" name="setTelephone" visibility="public">
+                    <ownedParameter xmi:id="_nph7xwHhEeSmRfynB7x1AA" name="telephone" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7yAHhEeSmRfynB7x1AA" name="getEmail" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7yQHhEeSmRfynB7x1AA" name="setEmail" visibility="public">
+                    <ownedParameter xmi:id="_nph7ygHhEeSmRfynB7x1AA" name="email" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7ywHhEeSmRfynB7x1AA" name="getHomeAddress" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7zAHhEeSmRfynB7x1AA" name="setHomeAddress" visibility="public">
+                    <ownedParameter xmi:id="_nph7zQHhEeSmRfynB7x1AA" name="homeAddress" visibility="public" type="_jEQpnCLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7zgHhEeSmRfynB7x1AA" name="getDateOfBirth" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7zwHhEeSmRfynB7x1AA" name="setDateOfBirth" visibility="public">
+                    <ownedParameter xmi:id="_nph70AHhEeSmRfynB7x1AA" name="dateOfBirth" visibility="public" effect="create">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_kNge8L4vEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph70QHhEeSmRfynB7x1AA" name="getAge" visibility="public"/>
+                  <ownedOperation xmi:id="_nph70gHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_nph70wHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph71AHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_nph71QHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npiiMAHhEeSmRfynB7x1AA" name="Category">
+                  <ownedAttribute xmi:id="_npiiMQHhEeSmRfynB7x1AA" name="id" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiNAHhEeSmRfynB7x1AA" name="name" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiNwHhEeSmRfynB7x1AA" name="description" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiOgHhEeSmRfynB7x1AA" name="products" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJlQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiPQHhEeSmRfynB7x1AA" name="FIND_BY_NAME" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiQAHhEeSmRfynB7x1AA" name="FIND_ALL" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npiiQwHhEeSmRfynB7x1AA" name="Category" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiRAHhEeSmRfynB7x1AA" name="Category" visibility="public">
+                    <ownedParameter xmi:id="_npiiRQHhEeSmRfynB7x1AA" name="name" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npiiRgHhEeSmRfynB7x1AA" name="description" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiRwHhEeSmRfynB7x1AA" name="getId" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiSAHhEeSmRfynB7x1AA" name="getName" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiSQHhEeSmRfynB7x1AA" name="setName" visibility="public">
+                    <ownedParameter xmi:id="_npiiSgHhEeSmRfynB7x1AA" name="name" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiSwHhEeSmRfynB7x1AA" name="getDescription" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiTAHhEeSmRfynB7x1AA" name="setDescription" visibility="public">
+                    <ownedParameter xmi:id="_npiiTQHhEeSmRfynB7x1AA" name="description" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiTgHhEeSmRfynB7x1AA" name="addProduct" visibility="public">
+                    <ownedParameter xmi:id="_npiiTwHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiUAHhEeSmRfynB7x1AA" name="getProducts" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiUQHhEeSmRfynB7x1AA" name="setProducts" visibility="public">
+                    <ownedParameter xmi:id="_npiiUgHhEeSmRfynB7x1AA" name="products" visibility="public" effect="create">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_Rsh6QL4zEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiUwHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_npiiVAHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiVQHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiVgHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npiibAHhEeSmRfynB7x1AA" name="Item">
+                  <ownedAttribute xmi:id="_npiibQHhEeSmRfynB7x1AA" name="id" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiicAHhEeSmRfynB7x1AA" name="name" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiicwHhEeSmRfynB7x1AA" name="description" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiidgHhEeSmRfynB7x1AA" name="unitCost" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiieQHhEeSmRfynB7x1AA" name="imagePath" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiifAHhEeSmRfynB7x1AA" name="product" visibility="private" type="_jEQpmyLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npiifwHhEeSmRfynB7x1AA" name="FIND_BY_PRODUCT_ID" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiggHhEeSmRfynB7x1AA" name="SEARCH" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiihQHhEeSmRfynB7x1AA" name="FIND_ALL" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npiiiAHhEeSmRfynB7x1AA" name="Item" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiiQHhEeSmRfynB7x1AA" name="Item" visibility="public">
+                    <ownedParameter xmi:id="_npiiigHhEeSmRfynB7x1AA" name="name" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npiiiwHhEeSmRfynB7x1AA" name="unitCost" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npiijAHhEeSmRfynB7x1AA" name="imagePath" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npiijQHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                    <ownedParameter xmi:id="_npiijgHhEeSmRfynB7x1AA" name="description" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiijwHhEeSmRfynB7x1AA" name="getId" visibility="public"/>
+                  <ownedOperation xmi:id="_npiikAHhEeSmRfynB7x1AA" name="getName" visibility="public"/>
+                  <ownedOperation xmi:id="_npiikQHhEeSmRfynB7x1AA" name="setName" visibility="public">
+                    <ownedParameter xmi:id="_npiikgHhEeSmRfynB7x1AA" name="name" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiikwHhEeSmRfynB7x1AA" name="getUnitCost" visibility="public"/>
+                  <ownedOperation xmi:id="_npiilAHhEeSmRfynB7x1AA" name="setUnitCost" visibility="public">
+                    <ownedParameter xmi:id="_npiilQHhEeSmRfynB7x1AA" name="unitCost" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiilgHhEeSmRfynB7x1AA" name="getImagePath" visibility="public"/>
+                  <ownedOperation xmi:id="_npiilwHhEeSmRfynB7x1AA" name="setImagePath" visibility="public">
+                    <ownedParameter xmi:id="_npiimAHhEeSmRfynB7x1AA" name="imagePath" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiimQHhEeSmRfynB7x1AA" name="getProduct" visibility="public"/>
+                  <ownedOperation xmi:id="_npiimgHhEeSmRfynB7x1AA" name="setProduct" visibility="public">
+                    <ownedParameter xmi:id="_npiimwHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiinAHhEeSmRfynB7x1AA" name="getDescription" visibility="public"/>
+                  <ownedOperation xmi:id="_npiinQHhEeSmRfynB7x1AA" name="setDescription" visibility="public">
+                    <ownedParameter xmi:id="_npiingHhEeSmRfynB7x1AA" name="description" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiinwHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_npiioAHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiioQHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiogHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npiiowHhEeSmRfynB7x1AA" name="Order">
+                  <ownedAttribute xmi:id="_npiipAHhEeSmRfynB7x1AA" name="id" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiipwHhEeSmRfynB7x1AA" name="orderDate" visibility="private">
+                    <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_kNge8L4vEeOhf4L1rCPelg"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiiqgHhEeSmRfynB7x1AA" name="customer" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiirQHhEeSmRfynB7x1AA" name="orderLines" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJmAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiisAHhEeSmRfynB7x1AA" name="deliveryAddress" visibility="private" type="_jEQpnCLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npiiswHhEeSmRfynB7x1AA" name="creditCard" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npii9QHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiitgHhEeSmRfynB7x1AA" name="FIND_ALL" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npiiuQHhEeSmRfynB7x1AA" name="Order" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiugHhEeSmRfynB7x1AA" name="Order" visibility="public">
+                    <ownedParameter xmi:id="_npiiuwHhEeSmRfynB7x1AA" name="customer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npiivAHhEeSmRfynB7x1AA" name="creditCard" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npii9QHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npiivQHhEeSmRfynB7x1AA" name="deliveryAddress" visibility="public" type="_jEQpnCLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiivgHhEeSmRfynB7x1AA" name="setDefaultData" visibility="public"/>
+                  <ownedOperation xmi:id="_npiivwHhEeSmRfynB7x1AA" name="getTotal" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiwAHhEeSmRfynB7x1AA" name="getId" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiwQHhEeSmRfynB7x1AA" name="getOrderDate" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiwgHhEeSmRfynB7x1AA" name="getCustomer" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiwwHhEeSmRfynB7x1AA" name="setCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npiixAHhEeSmRfynB7x1AA" name="customer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiixQHhEeSmRfynB7x1AA" name="getOrderLines" visibility="public"/>
+                  <ownedOperation xmi:id="_npiixgHhEeSmRfynB7x1AA" name="setOrderLines" visibility="public">
+                    <ownedParameter xmi:id="_npiixwHhEeSmRfynB7x1AA" name="orderLines" visibility="public" effect="create">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_Rsh6QL4zEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiyAHhEeSmRfynB7x1AA" name="getDeliveryAddress" visibility="public"/>
+                  <ownedOperation xmi:id="_npiiyQHhEeSmRfynB7x1AA" name="setDeliveryAddress" visibility="public">
+                    <ownedParameter xmi:id="_npiiygHhEeSmRfynB7x1AA" name="deliveryAddress" visibility="public" type="_jEQpnCLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiiywHhEeSmRfynB7x1AA" name="getCreditCard" visibility="public"/>
+                  <ownedOperation xmi:id="_npiizAHhEeSmRfynB7x1AA" name="setCreditCard" visibility="public">
+                    <ownedParameter xmi:id="_npiizQHhEeSmRfynB7x1AA" name="creditCard" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npii9QHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npiizgHhEeSmRfynB7x1AA" name="getCreditCardNumber" visibility="public"/>
+                  <ownedOperation xmi:id="_npiizwHhEeSmRfynB7x1AA" name="setCreditCardNumber" visibility="public">
+                    <ownedParameter xmi:id="_npii0AHhEeSmRfynB7x1AA" name="creditCardNumber" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii0QHhEeSmRfynB7x1AA" name="getCreditCardType" visibility="public"/>
+                  <ownedOperation xmi:id="_npii0gHhEeSmRfynB7x1AA" name="setCreditCardType" visibility="public">
+                    <ownedParameter xmi:id="_npii0wHhEeSmRfynB7x1AA" name="creditCardType" visibility="public" effect="create">
+                      <type xmi:type="uml:Enumeration" href="petstore_ee6.uml#_npijOAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii1AHhEeSmRfynB7x1AA" name="getCreditCardExpiryDate" visibility="public"/>
+                  <ownedOperation xmi:id="_npii1QHhEeSmRfynB7x1AA" name="setCreditCardExpiryDate" visibility="public">
+                    <ownedParameter xmi:id="_npii1gHhEeSmRfynB7x1AA" name="creditCardExpiryDate" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii1wHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_npii2AHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii2QHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_npii2gHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npii2wHhEeSmRfynB7x1AA" name="OrderLine">
+                  <ownedAttribute xmi:id="_npii3AHhEeSmRfynB7x1AA" name="id" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npii3wHhEeSmRfynB7x1AA" name="quantity" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npii4gHhEeSmRfynB7x1AA" name="item" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npii5QHhEeSmRfynB7x1AA" name="OrderLine" visibility="public"/>
+                  <ownedOperation xmi:id="_npii5gHhEeSmRfynB7x1AA" name="OrderLine" visibility="public">
+                    <ownedParameter xmi:id="_npii5wHhEeSmRfynB7x1AA" name="quantity" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npii6AHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii6QHhEeSmRfynB7x1AA" name="getSubTotal" visibility="public"/>
+                  <ownedOperation xmi:id="_npii6gHhEeSmRfynB7x1AA" name="getId" visibility="public"/>
+                  <ownedOperation xmi:id="_npii6wHhEeSmRfynB7x1AA" name="getQuantity" visibility="public"/>
+                  <ownedOperation xmi:id="_npii7AHhEeSmRfynB7x1AA" name="setQuantity" visibility="public">
+                    <ownedParameter xmi:id="_npii7QHhEeSmRfynB7x1AA" name="quantity" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii7gHhEeSmRfynB7x1AA" name="getItem" visibility="public"/>
+                  <ownedOperation xmi:id="_npii7wHhEeSmRfynB7x1AA" name="setItem" visibility="public">
+                    <ownedParameter xmi:id="_npii8AHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii8QHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_npii8gHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npii8wHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_npii9AHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpnCLlEeS9q4fTQ1lDVQ" name="EmbeddableComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_nph7VgHhEeSmRfynB7x1AA" name="Address">
+                  <ownedAttribute xmi:id="_nph7VwHhEeSmRfynB7x1AA" name="street1" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7WgHhEeSmRfynB7x1AA" name="street2" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7XQHhEeSmRfynB7x1AA" name="city" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7YAHhEeSmRfynB7x1AA" name="state" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7YwHhEeSmRfynB7x1AA" name="zipcode" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_nph7ZgHhEeSmRfynB7x1AA" name="country" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_nph7aQHhEeSmRfynB7x1AA" name="Address" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7agHhEeSmRfynB7x1AA" name="Address" visibility="public">
+                    <ownedParameter xmi:id="_nph7awHhEeSmRfynB7x1AA" name="street1" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7bAHhEeSmRfynB7x1AA" name="city" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7bQHhEeSmRfynB7x1AA" name="zipcode" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_nph7bgHhEeSmRfynB7x1AA" name="country" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7bwHhEeSmRfynB7x1AA" name="getStreet1" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7cAHhEeSmRfynB7x1AA" name="setStreet1" visibility="public">
+                    <ownedParameter xmi:id="_nph7cQHhEeSmRfynB7x1AA" name="street1" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7cgHhEeSmRfynB7x1AA" name="getStreet2" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7cwHhEeSmRfynB7x1AA" name="setStreet2" visibility="public">
+                    <ownedParameter xmi:id="_nph7dAHhEeSmRfynB7x1AA" name="street2" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7dQHhEeSmRfynB7x1AA" name="getCity" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7dgHhEeSmRfynB7x1AA" name="setCity" visibility="public">
+                    <ownedParameter xmi:id="_nph7dwHhEeSmRfynB7x1AA" name="city" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7eAHhEeSmRfynB7x1AA" name="getState" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7eQHhEeSmRfynB7x1AA" name="setState" visibility="public">
+                    <ownedParameter xmi:id="_nph7egHhEeSmRfynB7x1AA" name="state" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7ewHhEeSmRfynB7x1AA" name="getZipcode" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7fAHhEeSmRfynB7x1AA" name="setZipcode" visibility="public">
+                    <ownedParameter xmi:id="_nph7fQHhEeSmRfynB7x1AA" name="zipcode" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7fgHhEeSmRfynB7x1AA" name="getCountry" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7fwHhEeSmRfynB7x1AA" name="setCountry" visibility="public">
+                    <ownedParameter xmi:id="_nph7gAHhEeSmRfynB7x1AA" name="country" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7gQHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_nph7ggHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_nph7gwHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_nph7hAHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npii9QHhEeSmRfynB7x1AA" name="CreditCard">
+                  <ownedAttribute xmi:id="_npii9gHhEeSmRfynB7x1AA" name="creditCardNumber" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npii-QHhEeSmRfynB7x1AA" name="creditCardType" visibility="private">
+                    <type xmi:type="uml:Enumeration" href="petstore_ee6.uml#_npijOAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npii_AHhEeSmRfynB7x1AA" name="creditCardExpDate" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npii_wHhEeSmRfynB7x1AA" name="CreditCard" visibility="public"/>
+                  <ownedOperation xmi:id="_npijAAHhEeSmRfynB7x1AA" name="CreditCard" visibility="public">
+                    <ownedParameter xmi:id="_npijAQHhEeSmRfynB7x1AA" name="creditCardNumber" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npijAgHhEeSmRfynB7x1AA" name="creditCardType" visibility="public" effect="create">
+                      <type xmi:type="uml:Enumeration" href="petstore_ee6.uml#_npijOAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npijAwHhEeSmRfynB7x1AA" name="creditCardExpDate" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijBAHhEeSmRfynB7x1AA" name="getCreditCardNumber" visibility="public"/>
+                  <ownedOperation xmi:id="_npijBQHhEeSmRfynB7x1AA" name="setCreditCardNumber" visibility="public">
+                    <ownedParameter xmi:id="_npijBgHhEeSmRfynB7x1AA" name="creditCardNumber" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijBwHhEeSmRfynB7x1AA" name="getCreditCardType" visibility="public"/>
+                  <ownedOperation xmi:id="_npijCAHhEeSmRfynB7x1AA" name="setCreditCardType" visibility="public">
+                    <ownedParameter xmi:id="_npijCQHhEeSmRfynB7x1AA" name="creditCardType" visibility="public" effect="create">
+                      <type xmi:type="uml:Enumeration" href="petstore_ee6.uml#_npijOAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijCgHhEeSmRfynB7x1AA" name="getCreditCardExpDate" visibility="public"/>
+                  <ownedOperation xmi:id="_npijCwHhEeSmRfynB7x1AA" name="setCreditCardExpDate" visibility="public">
+                    <ownedParameter xmi:id="_npijDAHhEeSmRfynB7x1AA" name="creditCardExpDate" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijDQHhEeSmRfynB7x1AA" name="equals" visibility="public">
+                    <ownedParameter xmi:id="_npijDgHhEeSmRfynB7x1AA" name="o" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijDwHhEeSmRfynB7x1AA" name="hashCode" visibility="public"/>
+                  <ownedOperation xmi:id="_npijEAHhEeSmRfynB7x1AA" name="toString" visibility="public"/>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_npijeAHhEeSmRfynB7x1AA" name="rest">
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpnSLlEeS9q4fTQ1lDVQ" name="LoggableComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npijeQHhEeSmRfynB7x1AA" name="CatalogRestService">
+                  <ownedAttribute xmi:id="_npijegHhEeSmRfynB7x1AA" name="catalogService" visibility="private" type="_jEQpoCLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npijfQHhEeSmRfynB7x1AA" name="uriInfo" visibility="private"/>
+                  <ownedOperation xmi:id="_npijgAHhEeSmRfynB7x1AA" name="findAllCategories" visibility="public"/>
+                  <ownedOperation xmi:id="_npijgQHhEeSmRfynB7x1AA" name="findCategory" visibility="public">
+                    <ownedParameter xmi:id="_npijggHhEeSmRfynB7x1AA" name="categoryId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijgwHhEeSmRfynB7x1AA" name="createCategory" visibility="public">
+                    <ownedParameter xmi:id="_npijhAHhEeSmRfynB7x1AA" name="xmlCategory" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijhQHhEeSmRfynB7x1AA" name="updateCategory" visibility="public">
+                    <ownedParameter xmi:id="_npijhgHhEeSmRfynB7x1AA" name="xmlCategory" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijhwHhEeSmRfynB7x1AA" name="removeCategory" visibility="public">
+                    <ownedParameter xmi:id="_npijiAHhEeSmRfynB7x1AA" name="categoryId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijiQHhEeSmRfynB7x1AA" name="findAllProducts" visibility="public"/>
+                  <ownedOperation xmi:id="_npijigHhEeSmRfynB7x1AA" name="findProduct" visibility="public">
+                    <ownedParameter xmi:id="_npijiwHhEeSmRfynB7x1AA" name="productId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijjAHhEeSmRfynB7x1AA" name="createProduct" visibility="public">
+                    <ownedParameter xmi:id="_npijjQHhEeSmRfynB7x1AA" name="xmlProduct" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijjgHhEeSmRfynB7x1AA" name="updateProduct" visibility="public">
+                    <ownedParameter xmi:id="_npijjwHhEeSmRfynB7x1AA" name="xmlProduct" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijkAHhEeSmRfynB7x1AA" name="removeProduct" visibility="public">
+                    <ownedParameter xmi:id="_npijkQHhEeSmRfynB7x1AA" name="productId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijkgHhEeSmRfynB7x1AA" name="findAllItems" visibility="public"/>
+                  <ownedOperation xmi:id="_npijkwHhEeSmRfynB7x1AA" name="findItem" visibility="public">
+                    <ownedParameter xmi:id="_npijlAHhEeSmRfynB7x1AA" name="itemId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijlQHhEeSmRfynB7x1AA" name="createItem" visibility="public">
+                    <ownedParameter xmi:id="_npijlgHhEeSmRfynB7x1AA" name="xmlItem" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijlwHhEeSmRfynB7x1AA" name="updateItem" visibility="public">
+                    <ownedParameter xmi:id="_npijmAHhEeSmRfynB7x1AA" name="xmlItem" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npijmQHhEeSmRfynB7x1AA" name="removeItem" visibility="public">
+                    <ownedParameter xmi:id="_npijmgHhEeSmRfynB7x1AA" name="itemId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_npijpQHhEeSmRfynB7x1AA" name="security">
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpniLlEeS9q4fTQ1lDVQ" name="NamedQueriesComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npijpgHhEeSmRfynB7x1AA" name="SimpleCallbackHandler">
+                  <ownedAttribute xmi:id="_npijpwHhEeSmRfynB7x1AA" name="credentials" visibility="private" type="_jEQpoiLlEeS9q4fTQ1lDVQ"/>
+                  <ownedOperation xmi:id="_npijqgHhEeSmRfynB7x1AA" name="handle" visibility="public">
+                    <ownedParameter xmi:id="_npijqwHhEeSmRfynB7x1AA" name="callbacks" visibility="public" effect="create"/>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_npij9gHhEeSmRfynB7x1AA" name="service">
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpnyLlEeS9q4fTQ1lDVQ" name="LoggableComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npij9wHhEeSmRfynB7x1AA" name="DBPopulator">
+                  <ownedAttribute xmi:id="_npij-AHhEeSmRfynB7x1AA" name="fish" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npij-wHhEeSmRfynB7x1AA" name="dog" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npij_gHhEeSmRfynB7x1AA" name="reptile" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikAQHhEeSmRfynB7x1AA" name="cat" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikBAHhEeSmRfynB7x1AA" name="bird" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikBwHhEeSmRfynB7x1AA" name="marc" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikCgHhEeSmRfynB7x1AA" name="bill" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikDQHhEeSmRfynB7x1AA" name="steve" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikEAHhEeSmRfynB7x1AA" name="user" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikEwHhEeSmRfynB7x1AA" name="admin" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npikFgHhEeSmRfynB7x1AA" name="catalogService" visibility="private" type="_jEQpoCLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npikGQHhEeSmRfynB7x1AA" name="customerService" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npikWgHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npikHAHhEeSmRfynB7x1AA" name="populateDB" visibility="public"/>
+                  <ownedOperation xmi:id="_npikHQHhEeSmRfynB7x1AA" name="clearDB" visibility="public"/>
+                  <ownedOperation xmi:id="_npikHgHhEeSmRfynB7x1AA" name="initCatalog" visibility="public"/>
+                  <ownedOperation xmi:id="_npikHwHhEeSmRfynB7x1AA" name="initCustomers" visibility="public"/>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npikIAHhEeSmRfynB7x1AA" name="CatalogService"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npikTQHhEeSmRfynB7x1AA" name="OrderService"/>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npikWgHhEeSmRfynB7x1AA" name="CustomerService"/>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpoCLlEeS9q4fTQ1lDVQ" name="StatelessComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npikIAHhEeSmRfynB7x1AA" name="CatalogService">
+                  <ownedAttribute xmi:id="_npikIQHhEeSmRfynB7x1AA" name="em" visibility="private"/>
+                  <ownedOperation xmi:id="_npikJAHhEeSmRfynB7x1AA" name="findCategory" visibility="public">
+                    <ownedParameter xmi:id="_npikJQHhEeSmRfynB7x1AA" name="categoryId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikJgHhEeSmRfynB7x1AA" name="findCategory" visibility="public">
+                    <ownedParameter xmi:id="_npikJwHhEeSmRfynB7x1AA" name="categoryName" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikKAHhEeSmRfynB7x1AA" name="findAllCategories" visibility="public"/>
+                  <ownedOperation xmi:id="_npikKQHhEeSmRfynB7x1AA" name="createCategory" visibility="public">
+                    <ownedParameter xmi:id="_npikKgHhEeSmRfynB7x1AA" name="category" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikKwHhEeSmRfynB7x1AA" name="updateCategory" visibility="public">
+                    <ownedParameter xmi:id="_npikLAHhEeSmRfynB7x1AA" name="category" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikLQHhEeSmRfynB7x1AA" name="removeCategory" visibility="public">
+                    <ownedParameter xmi:id="_npikLgHhEeSmRfynB7x1AA" name="category" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiMAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikLwHhEeSmRfynB7x1AA" name="removeCategory" visibility="public">
+                    <ownedParameter xmi:id="_npikMAHhEeSmRfynB7x1AA" name="categoryId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikMQHhEeSmRfynB7x1AA" name="findProducts" visibility="public">
+                    <ownedParameter xmi:id="_npikMgHhEeSmRfynB7x1AA" name="categoryName" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikMwHhEeSmRfynB7x1AA" name="findProduct" visibility="public">
+                    <ownedParameter xmi:id="_npikNAHhEeSmRfynB7x1AA" name="productId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikNQHhEeSmRfynB7x1AA" name="findAllProducts" visibility="public"/>
+                  <ownedOperation xmi:id="_npikNgHhEeSmRfynB7x1AA" name="createProduct" visibility="public">
+                    <ownedParameter xmi:id="_npikNwHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikOAHhEeSmRfynB7x1AA" name="updateProduct" visibility="public">
+                    <ownedParameter xmi:id="_npikOQHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikOgHhEeSmRfynB7x1AA" name="removeProduct" visibility="public">
+                    <ownedParameter xmi:id="_npikOwHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikPAHhEeSmRfynB7x1AA" name="removeProduct" visibility="public">
+                    <ownedParameter xmi:id="_npikPQHhEeSmRfynB7x1AA" name="productId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikPgHhEeSmRfynB7x1AA" name="findItems" visibility="public">
+                    <ownedParameter xmi:id="_npikPwHhEeSmRfynB7x1AA" name="productId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikQAHhEeSmRfynB7x1AA" name="findItem" visibility="public">
+                    <ownedParameter xmi:id="_npikQQHhEeSmRfynB7x1AA" name="itemId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikQgHhEeSmRfynB7x1AA" name="searchItems" visibility="public">
+                    <ownedParameter xmi:id="_npikQwHhEeSmRfynB7x1AA" name="keyword" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikRAHhEeSmRfynB7x1AA" name="findAllItems" visibility="public"/>
+                  <ownedOperation xmi:id="_npikRQHhEeSmRfynB7x1AA" name="createItem" visibility="public">
+                    <ownedParameter xmi:id="_npikRgHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikRwHhEeSmRfynB7x1AA" name="updateItem" visibility="public">
+                    <ownedParameter xmi:id="_npikSAHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikSQHhEeSmRfynB7x1AA" name="removeItem" visibility="public">
+                    <ownedParameter xmi:id="_npikSgHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikSwHhEeSmRfynB7x1AA" name="removeItem" visibility="public">
+                    <ownedParameter xmi:id="_npikTAHhEeSmRfynB7x1AA" name="itemId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npikTQHhEeSmRfynB7x1AA" name="OrderService">
+                  <ownedAttribute xmi:id="_npikTgHhEeSmRfynB7x1AA" name="em" visibility="private"/>
+                  <ownedOperation xmi:id="_npikUQHhEeSmRfynB7x1AA" name="createOrder" visibility="public">
+                    <ownedParameter xmi:id="_npikUgHhEeSmRfynB7x1AA" name="customer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npikUwHhEeSmRfynB7x1AA" name="creditCard" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npii9QHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npikVAHhEeSmRfynB7x1AA" name="cartItems" visibility="public" effect="create">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_Rsh6QL4zEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikVQHhEeSmRfynB7x1AA" name="findOrder" visibility="public">
+                    <ownedParameter xmi:id="_npikVgHhEeSmRfynB7x1AA" name="orderId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikVwHhEeSmRfynB7x1AA" name="findAllOrders" visibility="public"/>
+                  <ownedOperation xmi:id="_npikWAHhEeSmRfynB7x1AA" name="removeOrder" visibility="public">
+                    <ownedParameter xmi:id="_npikWQHhEeSmRfynB7x1AA" name="order" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiowHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npikWgHhEeSmRfynB7x1AA" name="CustomerService">
+                  <ownedAttribute xmi:id="_npikWwHhEeSmRfynB7x1AA" name="em" visibility="private"/>
+                  <ownedOperation xmi:id="_npikXgHhEeSmRfynB7x1AA" name="doesLoginAlreadyExist" visibility="public">
+                    <ownedParameter xmi:id="_npikXwHhEeSmRfynB7x1AA" name="login" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikYAHhEeSmRfynB7x1AA" name="createCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npikYQHhEeSmRfynB7x1AA" name="customer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikYgHhEeSmRfynB7x1AA" name="findCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npikYwHhEeSmRfynB7x1AA" name="login" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikZAHhEeSmRfynB7x1AA" name="findCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npikZQHhEeSmRfynB7x1AA" name="login" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_npikZgHhEeSmRfynB7x1AA" name="password" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikZwHhEeSmRfynB7x1AA" name="findAllCustomers" visibility="public"/>
+                  <ownedOperation xmi:id="_npikaAHhEeSmRfynB7x1AA" name="updateCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npikaQHhEeSmRfynB7x1AA" name="customer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npikagHhEeSmRfynB7x1AA" name="removeCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npikawHhEeSmRfynB7x1AA" name="customer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_npikzwHhEeSmRfynB7x1AA" name="util">
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpoSLlEeS9q4fTQ1lDVQ" name="LoggableComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npik1wHhEeSmRfynB7x1AA" name="LoggingInterceptor">
+                  <ownedAttribute xmi:id="_npik2AHhEeSmRfynB7x1AA" name="logger" visibility="private"/>
+                  <ownedOperation xmi:id="_npik2wHhEeSmRfynB7x1AA" name="logMethod" visibility="public">
+                    <ownedParameter xmi:id="_npik3AHhEeSmRfynB7x1AA" name="ic" visibility="public" effect="create"/>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_npik7wHhEeSmRfynB7x1AA" name="web">
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpoiLlEeS9q4fTQ1lDVQ" name="NamedComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npik8AHhEeSmRfynB7x1AA" name="Credentials">
+                  <ownedAttribute xmi:id="_npik8QHhEeSmRfynB7x1AA" name="login" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npik9AHhEeSmRfynB7x1AA" name="password" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npik9wHhEeSmRfynB7x1AA" name="password2" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npik-gHhEeSmRfynB7x1AA" name="getLogin" visibility="public"/>
+                  <ownedOperation xmi:id="_npik-wHhEeSmRfynB7x1AA" name="setLogin" visibility="public">
+                    <ownedParameter xmi:id="_npik_AHhEeSmRfynB7x1AA" name="login" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npik_QHhEeSmRfynB7x1AA" name="getPassword" visibility="public"/>
+                  <ownedOperation xmi:id="_npik_gHhEeSmRfynB7x1AA" name="setPassword" visibility="public">
+                    <ownedParameter xmi:id="_npik_wHhEeSmRfynB7x1AA" name="password" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilAAHhEeSmRfynB7x1AA" name="getPassword2" visibility="public"/>
+                  <ownedOperation xmi:id="_npilAQHhEeSmRfynB7x1AA" name="setPassword2" visibility="public">
+                    <ownedParameter xmi:id="_npilAgHhEeSmRfynB7x1AA" name="password2" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npilCwHhEeSmRfynB7x1AA" name="CatalogController">
+                  <ownedAttribute xmi:id="_npilDAHhEeSmRfynB7x1AA" name="catalogService" visibility="private" type="_jEQpoCLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npilDwHhEeSmRfynB7x1AA" name="categoryName" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilEgHhEeSmRfynB7x1AA" name="productId" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilFQHhEeSmRfynB7x1AA" name="itemId" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilGAHhEeSmRfynB7x1AA" name="keyword" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilGwHhEeSmRfynB7x1AA" name="product" visibility="private" type="_jEQpmyLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npilHgHhEeSmRfynB7x1AA" name="item" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilIQHhEeSmRfynB7x1AA" name="products" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJlQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilJAHhEeSmRfynB7x1AA" name="items" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJkgHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npilJwHhEeSmRfynB7x1AA" name="doFindProducts" visibility="public"/>
+                  <ownedOperation xmi:id="_npilKAHhEeSmRfynB7x1AA" name="doFindItems" visibility="public"/>
+                  <ownedOperation xmi:id="_npilKQHhEeSmRfynB7x1AA" name="doFindItem" visibility="public"/>
+                  <ownedOperation xmi:id="_npilKgHhEeSmRfynB7x1AA" name="doSearch" visibility="public"/>
+                  <ownedOperation xmi:id="_npilKwHhEeSmRfynB7x1AA" name="getProduct" visibility="public"/>
+                  <ownedOperation xmi:id="_npilLAHhEeSmRfynB7x1AA" name="setProduct" visibility="public">
+                    <ownedParameter xmi:id="_npilLQHhEeSmRfynB7x1AA" name="product" visibility="public" type="_jEQpmyLlEeS9q4fTQ1lDVQ" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilLgHhEeSmRfynB7x1AA" name="getItem" visibility="public"/>
+                  <ownedOperation xmi:id="_npilLwHhEeSmRfynB7x1AA" name="setItem" visibility="public">
+                    <ownedParameter xmi:id="_npilMAHhEeSmRfynB7x1AA" name="item" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiibAHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilMQHhEeSmRfynB7x1AA" name="getProducts" visibility="public"/>
+                  <ownedOperation xmi:id="_npilMgHhEeSmRfynB7x1AA" name="getItems" visibility="public"/>
+                  <ownedOperation xmi:id="_npilMwHhEeSmRfynB7x1AA" name="getKeyword" visibility="public"/>
+                  <ownedOperation xmi:id="_npilNAHhEeSmRfynB7x1AA" name="setKeyword" visibility="public">
+                    <ownedParameter xmi:id="_npilNQHhEeSmRfynB7x1AA" name="keyword" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilNgHhEeSmRfynB7x1AA" name="getCategoryName" visibility="public"/>
+                  <ownedOperation xmi:id="_npilNwHhEeSmRfynB7x1AA" name="setCategoryName" visibility="public">
+                    <ownedParameter xmi:id="_npilOAHhEeSmRfynB7x1AA" name="categoryName" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilOQHhEeSmRfynB7x1AA" name="getProductId" visibility="public"/>
+                  <ownedOperation xmi:id="_npilOgHhEeSmRfynB7x1AA" name="setProductId" visibility="public">
+                    <ownedParameter xmi:id="_npilOwHhEeSmRfynB7x1AA" name="productId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilPAHhEeSmRfynB7x1AA" name="getItemId" visibility="public"/>
+                  <ownedOperation xmi:id="_npilPQHhEeSmRfynB7x1AA" name="setItemId" visibility="public">
+                    <ownedParameter xmi:id="_npilPgHhEeSmRfynB7x1AA" name="itemId" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npilVAHhEeSmRfynB7x1AA" name="LocaleBean">
+                  <ownedAttribute xmi:id="_npilVQHhEeSmRfynB7x1AA" name="locale" visibility="private"/>
+                  <ownedOperation xmi:id="_npilWAHhEeSmRfynB7x1AA" name="getLocale" visibility="public"/>
+                  <ownedOperation xmi:id="_npilWQHhEeSmRfynB7x1AA" name="getLanguage" visibility="public"/>
+                  <ownedOperation xmi:id="_npilWgHhEeSmRfynB7x1AA" name="setLanguage" visibility="public">
+                    <ownedParameter xmi:id="_npilWwHhEeSmRfynB7x1AA" name="language" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npilXAHhEeSmRfynB7x1AA" name="AccountController">
+                  <ownedAttribute xmi:id="_npilXQHhEeSmRfynB7x1AA" name="customerService" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npikWgHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilYAHhEeSmRfynB7x1AA" name="credentials" visibility="private" type="_jEQpoiLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npilYwHhEeSmRfynB7x1AA" name="conversation" visibility="private"/>
+                  <ownedAttribute xmi:id="_npilZgHhEeSmRfynB7x1AA" name="loggedinCustomer" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilaQHhEeSmRfynB7x1AA" name="loginContext" visibility="private"/>
+                  <ownedOperation xmi:id="_npilbAHhEeSmRfynB7x1AA" name="doLogin" visibility="public"/>
+                  <ownedOperation xmi:id="_npilbQHhEeSmRfynB7x1AA" name="doCreateNewAccount" visibility="public"/>
+                  <ownedOperation xmi:id="_npilbgHhEeSmRfynB7x1AA" name="doCreateCustomer" visibility="public"/>
+                  <ownedOperation xmi:id="_npilbwHhEeSmRfynB7x1AA" name="doLogout" visibility="public"/>
+                  <ownedOperation xmi:id="_npilcAHhEeSmRfynB7x1AA" name="doUpdateAccount" visibility="public"/>
+                  <ownedOperation xmi:id="_npilcQHhEeSmRfynB7x1AA" name="isLoggedIn" visibility="public"/>
+                  <ownedOperation xmi:id="_npilcgHhEeSmRfynB7x1AA" name="getLoggedinCustomer" visibility="public"/>
+                  <ownedOperation xmi:id="_npilcwHhEeSmRfynB7x1AA" name="setLoggedinCustomer" visibility="public">
+                    <ownedParameter xmi:id="_npildAHhEeSmRfynB7x1AA" name="loggedinCustomer" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_nph7hQHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Class" xmi:id="_npildQHhEeSmRfynB7x1AA" name="ShoppingCartController">
+                  <ownedAttribute xmi:id="_npildgHhEeSmRfynB7x1AA" name="loggedInCustomer" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJogHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npileQHhEeSmRfynB7x1AA" name="catalogBean" visibility="private" type="_jEQpoCLlEeS9q4fTQ1lDVQ"/>
+                  <ownedAttribute xmi:id="_npilfAHhEeSmRfynB7x1AA" name="orderBean" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npikTQHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilfwHhEeSmRfynB7x1AA" name="conversation" visibility="private"/>
+                  <ownedAttribute xmi:id="_npilggHhEeSmRfynB7x1AA" name="cartItems" visibility="private">
+                    <type xmi:type="uml:DataType" href="petstore_ee6.uml#_npjJmwHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npilhQHhEeSmRfynB7x1AA" name="creditCard" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npii9QHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_npiliAHhEeSmRfynB7x1AA" name="order" visibility="private">
+                    <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiowHhEeSmRfynB7x1AA"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_npjJQAHhEeSmRfynB7x1AA" name="addItemToCart" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJQQHhEeSmRfynB7x1AA" name="removeItemFromCart" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJQgHhEeSmRfynB7x1AA" name="updateQuantity" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJQwHhEeSmRfynB7x1AA" name="checkout" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJRAHhEeSmRfynB7x1AA" name="confirmOrder" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJRQHhEeSmRfynB7x1AA" name="getCartItems" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJRgHhEeSmRfynB7x1AA" name="shoppingCartIsEmpty" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJRwHhEeSmRfynB7x1AA" name="getTotal" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJSAHhEeSmRfynB7x1AA" name="getCustomer" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJSQHhEeSmRfynB7x1AA" name="getCreditCard" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJSgHhEeSmRfynB7x1AA" name="setCreditCard" visibility="public">
+                    <ownedParameter xmi:id="_npjJSwHhEeSmRfynB7x1AA" name="creditCard" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npii9QHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npjJTAHhEeSmRfynB7x1AA" name="getOrder" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJTQHhEeSmRfynB7x1AA" name="setOrder" visibility="public">
+                    <ownedParameter xmi:id="_npjJTgHhEeSmRfynB7x1AA" name="order" visibility="public" effect="create">
+                      <type xmi:type="uml:Class" href="petstore_ee6.uml#_npiiowHhEeSmRfynB7x1AA"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npjJTwHhEeSmRfynB7x1AA" name="getConversation" visibility="public"/>
+                  <ownedOperation xmi:id="_npjJUAHhEeSmRfynB7x1AA" name="getCreditCardTypes" visibility="public"/>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Component" xmi:id="_jEQpoyLlEeS9q4fTQ1lDVQ" name="InterceptorComponent">
+                <packagedElement xmi:type="uml:Class" xmi:id="_npilAwHhEeSmRfynB7x1AA" name="ExceptionInterceptor">
+                  <ownedAttribute xmi:id="_npilBAHhEeSmRfynB7x1AA" name="log" visibility="private"/>
+                  <ownedOperation xmi:id="_npilBwHhEeSmRfynB7x1AA" name="catchException" visibility="public">
+                    <ownedParameter xmi:id="_npilCAHhEeSmRfynB7x1AA" name="ic" visibility="public" effect="create"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_npilCQHhEeSmRfynB7x1AA" name="addErrorMessage" visibility="public">
+                    <ownedParameter xmi:id="_npilCgHhEeSmRfynB7x1AA" name="message" visibility="public" effect="create">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_jGL8MCLlEeS9q4fTQ1lDVQ">
+      <eAnnotations xmi:id="_jGL8MSLlEeS9q4fTQ1lDVQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../eu.artist.migration.mut.cmg.profiles/profiles/J2EE6.profile.uml#_mwc6cCIUEeSV3JJZyMh4lA"/>
+      </eAnnotations>
+      <appliedProfile href="../../eu.artist.migration.mut.cmg.profiles/profiles/J2EE6.profile.uml#_ZlRIACITEeSV3JJZyMh4lA"/>
+    </profileApplication>
+    <viewpoint xsi:nil="true"/>
+  </uml:Model>
+  <profile:Entity xmi:id="_jIJEACLlEeS9q4fTQ1lDVQ" base_Class="_jEQpmyLlEeS9q4fTQ1lDVQ"/>
+  <profile:Embeddable xmi:id="_jIJEASLlEeS9q4fTQ1lDVQ" base_Class="_jEQpnCLlEeS9q4fTQ1lDVQ"/>
+  <profile:Loggable xmi:id="_jIJEAiLlEeS9q4fTQ1lDVQ" base_Class="_jEQpnSLlEeS9q4fTQ1lDVQ"/>
+  <profile:NamedQueries xmi:id="_jIJEAyLlEeS9q4fTQ1lDVQ" base_Class="_jEQpniLlEeS9q4fTQ1lDVQ"/>
+  <profile:Loggable xmi:id="_jIJrECLlEeS9q4fTQ1lDVQ" base_Class="_jEQpnyLlEeS9q4fTQ1lDVQ"/>
+  <profile:Stateless xmi:id="_jIJrESLlEeS9q4fTQ1lDVQ" base_Class="_jEQpoCLlEeS9q4fTQ1lDVQ"/>
+  <profile:Loggable xmi:id="_jIJrEiLlEeS9q4fTQ1lDVQ" base_Class="_jEQpoSLlEeS9q4fTQ1lDVQ"/>
+  <profile:Named xmi:id="_jIJrEyLlEeS9q4fTQ1lDVQ" base_Class="_jEQpoiLlEeS9q4fTQ1lDVQ"/>
+  <profile:Interceptor xmi:id="_jIJrFCLlEeS9q4fTQ1lDVQ" base_Class="_jEQpoyLlEeS9q4fTQ1lDVQ"/>
+</xmi:XMI>

@@ -23,13 +23,136 @@ library "lib::PluginLib";
 
 ---Returns true if the class appears in plugin.xml with given role and classLabel
 helper context UML2!Class def: isInPluginWithRoleForClassLabel(role: String, classLabel:String): Boolean =
-	thisModule.getPluginElementsForName(role)->collect(e | e.getAttributeForName(classLabel))->flatten()->select (a| a.value = self.fullyQualifiedName())->notEmpty();
+	thisModule.getPluginElementsForName(role)->collect(e | e.getAttributesForName(classLabel))->flatten()->select (a| a.value = self.fullyQualifiedName())->notEmpty();
+
+---Returns the XML Element where the class appears in plugin.xml with given role and classLabel
+helper context UML2!Class def: getElementsInPluginWithRoleForClassLabel(role: String, classLabel:String): Sequence(XML!Element) =
+	thisModule.getPluginElementsForName(role)->collect(e | 
+		e.getAttributesForName(classLabel))->flatten()->select (a| 
+			a.value = self.fullyQualifiedName())->collect(a | 
+				a.refImmediateComposite());
+
+--- Returns the attributes, identified by name, where class is referenced in value 
+helper context UML2!Class def : getAttributesReferencingClassForName(attrName: String) : Sequence (XML!Attribute) = 
+	thisModule.allPluginAttributes->select(a | 
+		a.name = attrName and a.value = self.fullyQualifiedName());
+
+
+--- Returns where or not at least one of given elements are declared within a parent element
+helper context Sequence(XML!Element) def : areWithinParentElement(parent: String) : Boolean = 
+	if self.isEmpty() then
+		false
+	else
+		self->exists(e | e.isWithinParentElement(parent))
+	endif;
+
+--- Returns where or not the given elements is declared within a parent element
+helper context XML!Element def : isWithinParentElement(parent: String) : Boolean = 
+	self.refImmediateComposite().name = parent;
+
+
+--- Returns the parent elements identified by name of given elements
+helper context Sequence(XML!Element) def : getParentElements(parent: String) : XML!Element = 
+	if self.isEmpty() then
+		Sequence{}
+	else
+		self->collect(e | e.getParentElement(parent))
+	endif;
+
+--- Returns the parent element identified by name of given element
+helper context XML!Element def : getParentElement(parent: String) : Boolean = 
+	if (self.refImmediateComposite().name = parent) then
+		self.refImmediateComposite()
+	else
+		OclUndefined
+	endif;
+
+--- Returns whether or not at least one of the given elements in the sequence contains an attribute with given name
+helper context Sequence(XML!Element) def : containsAttribute(attr: String) : Boolean =
+	self->exists(e | not e.oclIsUndefined() and not e.getAttributesForName(attr)->isEmpty());
+
+
+----- Return where or not at least one of given elements are declared within a view contribution
+--helper context Sequence(XML!Element) def : areInViewContribution() : Boolean = 
+--	if self.isEmpty() then
+--		false
+--	else
+--		self->exists(e | e.isInViewContribution())
+--	endif;
+--
+----- Return where or not at least one of given elements are declared within a object contribution
+--helper context Sequence(XML!Element) def : areInObjectContribution() : Boolean = 
+--	if self.isEmpty() then
+--		false
+--	else
+--		self->exists(e | e.isInObjectContribution())
+--	endif;
+-- 
+----- Return where or not the given elements is declared within a view contribution
+--helper context XML!Element def : isInViewContribution() : Boolean = 
+--	self.refImmediateComposite().name = 'viewContribution';
+--
+----- Return where or not the given elements is declared within a object contribution
+--helper context XML!Element def : isInObjectContribution() : Boolean = 
+--	self.refImmediateComposite().name = 'objectContribution';
 
 ---Contains all the element included in the plugin XML model
 helper def: allPluginElements: Sequence(XML!Element) = (XML!Element.allInstancesFrom('Plugin'));
 
+---Contains all the element included in the plugin XML model
+helper def: allPluginAttributes: Sequence(XML!Attribute) = (XML!Attribute.allInstancesFrom('Plugin'));
+
 ---Returns the element of the XML model for given name
 helper def : getPluginElementsForName(name: String) : Sequence(XML!Element) = thisModule.allPluginElements->select(e | e.name = name);
 
----Returns the attribute for given name of XML model element 
-helper context XML!Element def : getAttributeForName(name: String) : Sequence(XML!Attribute) = self.children->select (a| a.name = name);
+---Returns the attributes for given name of XML model element 
+helper context XML!Element def : getAttributesForName(name: String) : 
+	Sequence(XML!Attribute) = self.children->select (a| a.name = name);
+
+---Returns the value of the attribute given by name for for the plugin.xml element with given role and classLabel
+helper context UML2!Class def: getAttributeForNameInRole(role: String, classLabel:String, attrName: String): String =
+	thisModule.getPluginElementsForName(role)->select(e | 
+		e.getAttributesForName(classLabel)->first().value = self.fullyQualifiedName())->first()->getAttributesForName(attrName)->first().value;
+
+--- Checks whether or not the class is declared in plugin model as View
+helper context UML2!Class def : isInPluginAsView() : Boolean = self.isInPluginWithRoleForClassLabel('view', 'class');
+
+--- Checks whether or not the class is declared in plugin model as Perspective
+helper context UML2!Class def : isInPluginAsPerspective() : Boolean = self.isInPluginWithRoleForClassLabel('perspective', 'class');
+
+--- Checks whether or not the class is declared in plugin model as Action
+helper context UML2!Class def : isInPluginAsAction() : Boolean = self.isInPluginWithRoleForClassLabel('action', 'class');
+
+--- Checks whether or not the class is declared in plugin model as View Action
+helper context UML2!Class def : isInPluginAsViewAction() : Boolean = 
+	self.getActionsInPlugin().areWithinParentElement('viewContribution');
+
+--- Checks whether or not the class is declared in plugin model as Object Action
+helper context UML2!Class def : isInPluginAsObjectAction() : Boolean = 
+	self.getActionsInPlugin().areWithinParentElement('objectContribution');
+
+--- Checks whether or not the class is declared in plugin model as ToolBar Action
+helper context UML2!Class def : isInPluginAsToolBarAction() : Boolean = 
+	self.getActionsInPlugin()->select (a | a.isWithinParentElement('actionSet')).containsAttribute('toolbarPath'); 
+
+--- Checks whether or not the class is declared in plugin model as MenuBar Action
+helper context UML2!Class def : isInPluginAsMenuAction() : Boolean = 
+	self.getActionsInPlugin()->select (a | a.isWithinParentElement('actionSet')).containsAttribute('menubarPath'); 
+
+--- Checks whether or not the class is declared in plugin model as Business Object
+helper context UML2!Class def : isInPluginAsBusinessObject() : Boolean = self.isInPluginWithRoleForClassLabel('objectContribution', 'objectClass');
+
+--- Returns the plugin model actions where the given class is declared.
+helper context UML2!Class def : getActionsInPlugin() : Sequence(XML!Element) = self.getElementsInPluginWithRoleForClassLabel('action', 'class');
+
+--- Returns whether or not the context class is defined in plugin.xml as an action for given view class
+helper context UML2!Class def : isActionForView (view: UML2!Class): Boolean =
+	self.getAttributesReferencingClassForName('class')->collect(a | 
+		a.refImmediateComposite().refImmediateComposite().getAttributesForName('targetID'))->flatten()->exists(a | 
+			a.value = view.fullyQualifiedName());
+
+--- Returns whether or not the context class is defined in plugin.xml as an action for given object class
+helper context UML2!Class def : isActionForObject (object: UML2!Class): Boolean =
+	self.getAttributesReferencingClassForName('class')->collect(a | 
+		a.refImmediateComposite().refImmediateComposite().getAttributesForName('objectClass'))->flatten()->exists(a | 
+			a.value = object.fullyQualifiedName());

@@ -8,6 +8,7 @@ import java.util.Collection;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -19,22 +20,20 @@ import org.eclipse.incquery.runtime.exception.IncQueryException;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Profile;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.UMLPackage;
 
-import eu.artist.migration.mut.cmg.lob.tagging.queries.ASPNETControlMatch;
-import eu.artist.migration.mut.cmg.lob.tagging.queries.ASPNETControlMatcher;
 import eu.artist.migration.mut.cmg.lob.tagging.queries.ServiceApplicationMatch;
 import eu.artist.migration.mut.cmg.lob.tagging.queries.ServiceApplicationMatcher;
 import eu.artist.migration.mut.cmg.lob.tagging.queries.UIMatch;
 import eu.artist.migration.mut.cmg.lob.tagging.queries.UIMatcher;
-import eu.artist.migration.mut.cmg.lob.tagging.queries.WebPartMatch;
-import eu.artist.migration.mut.cmg.lob.tagging.queries.WebPartMatcher;
-import eu.artist.migration.mut.cmg.lob.tagging.queries.util.ASPNETControlProcessor;
+import eu.artist.migration.mut.cmg.lob.tagging.queries.WCFServiceMatch;
+import eu.artist.migration.mut.cmg.lob.tagging.queries.WCFServiceMatcher;
 import eu.artist.migration.mut.cmg.lob.tagging.queries.util.ServiceApplicationProcessor;
 import eu.artist.migration.mut.cmg.lob.tagging.queries.util.UIProcessor;
-import eu.artist.migration.mut.cmg.lob.tagging.queries.util.WebPartProcessor;
+import eu.artist.migration.mut.cmg.lob.tagging.queries.util.WCFServiceProcessor;
 
 
 public class MSSharePointTagger {
@@ -47,8 +46,8 @@ public class MSSharePointTagger {
 	private static ResourceSet RESOURCE_SET = new ResourceSetImpl();
 	private static final String OUTPUT_FILE_SUFFIX = "_tagged.uml";
 	
-	private static final String GENERIC_PROFILE = "platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/Generic.profile.uml";
-	private static final String MS_SHAREPOINT_PROFILE = "platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/MicrosoftSharePoint.profile.uml";
+	private static final String GENERIC_PROFILE = "platform:/plugin/eu.artist.repository.artefacts/profiles/Generic.profile.uml";
+	private static final String MS_SHAREPOINT_PROFILE = "platform:/plugin/eu.artist.repository.artefacts/profiles/MicrosoftSharePoint.profile.uml";
 	
 	/**
 	 * Loads the resource from the passed file and returns this Resource object.
@@ -133,20 +132,20 @@ public class MSSharePointTagger {
 	}
 	
 	/**
-	 * This method matches all the classes that should be tagged with View stereotype
+	 * This method matches all the classes that should be tagged with WCFService stereotype
 	 * 
 	 * @param engine IncQueryEngine obtained on the resource
 	 * @param results A StringBuilder object collecting the results
 	 * @throws IncQueryException
 	 */
-	//TODO: might be further specialized as a ASPNETControl stereotype
-	private void tagASPNETControls (IncQueryEngine engine, final StringBuilder results) throws IncQueryException{
-		ASPNETControlMatcher matcher = ASPNETControlMatcher.on(engine);
+	//TODO: might be further specialized as a UI stereotype
+	private void tagWCFServices (IncQueryEngine engine, final StringBuilder results) throws IncQueryException{
+		WCFServiceMatcher matcher = WCFServiceMatcher.on(engine);
 		// get all matches of the pattern
-		Collection<ASPNETControlMatch> matches = matcher.getAllMatches();
+		Collection<WCFServiceMatch> matches = matcher.getAllMatches();
 		prettyPrintMatches(results, matches);
 		// using a match processor
-		matcher.forEachMatch(new ASPNETControlProcessor() {
+		matcher.forEachMatch(new WCFServiceProcessor() {
 			
 			@Override
 			public void process(Class pSub) {
@@ -155,44 +154,75 @@ public class MSSharePointTagger {
 				if ( rootPackage.getAppliedProfile(genericProfile.getQualifiedName()) == null) {
 					rootPackage.applyProfile(genericProfile);
 				}
-				Stereotype viewStereotype = genericProfile.getOwnedStereotype("View");
-				if (pSub.getAppliedStereotype(viewStereotype.getQualifiedName()) == null){
-					pSub.applyStereotype(viewStereotype);
+				Stereotype wcfServiceStereotype = genericProfile.getOwnedStereotype("WCFService");
+				if (pSub.getAppliedStereotype(wcfServiceStereotype.getQualifiedName()) == null){
+					pSub.applyStereotype(wcfServiceStereotype);
 				}
 			}
 		});
 	}
 	
-	/**
-	 * This method matches all the classes that should be tagged with View stereotype
-	 * 
-	 * @param engine IncQueryEngine obtained on the resource
-	 * @param results A StringBuilder object collecting the results
-	 * @throws IncQueryException
-	 */
-	//TODO: might be further specialized as a WebPart stereotype
-	private void tagWebParts (IncQueryEngine engine, final StringBuilder results) throws IncQueryException{
-		WebPartMatcher matcher = WebPartMatcher.on(engine);
-		// get all matches of the pattern
-		Collection<WebPartMatch> matches = matcher.getAllMatches();
-		prettyPrintMatches(results, matches);
-		// using a match processor
-		matcher.forEachMatch(new WebPartProcessor() {
-			
-			@Override
-			public void process(Class pSub) {
-				results.append("\tEObject: " + pSub.toString() + "\n");
-				
-				if ( rootPackage.getAppliedProfile(genericProfile.getQualifiedName()) == null) {
-					rootPackage.applyProfile(genericProfile);
-				}
-				Stereotype viewStereotype = genericProfile.getOwnedStereotype("View");
-				if (pSub.getAppliedStereotype(viewStereotype.getQualifiedName()) == null){
-					pSub.applyStereotype(viewStereotype);
-				}
-			}
-		});
-	}
+//	/**
+//	 * This method matches all the classes that should be tagged with View stereotype
+//	 * 
+//	 * @param engine IncQueryEngine obtained on the resource
+//	 * @param results A StringBuilder object collecting the results
+//	 * @throws IncQueryException
+//	 */
+//	//TODO: might be further specialized as a ASPNETControl stereotype
+//	private void tagASPNETControls (IncQueryEngine engine, final StringBuilder results) throws IncQueryException{
+//		ASPNETControlMatcher matcher = ASPNETControlMatcher.on(engine);
+//		// get all matches of the pattern
+//		Collection<ASPNETControlMatch> matches = matcher.getAllMatches();
+//		prettyPrintMatches(results, matches);
+//		// using a match processor
+//		matcher.forEachMatch(new ASPNETControlProcessor() {
+//			
+//			@Override
+//			public void process(Class pSub) {
+//				results.append("\tEObject: " + pSub.toString() + "\n");
+//				
+//				if ( rootPackage.getAppliedProfile(genericProfile.getQualifiedName()) == null) {
+//					rootPackage.applyProfile(genericProfile);
+//				}
+//				Stereotype viewStereotype = genericProfile.getOwnedStereotype("View");
+//				if (pSub.getAppliedStereotype(viewStereotype.getQualifiedName()) == null){
+//					pSub.applyStereotype(viewStereotype);
+//				}
+//			}
+//		});
+//	}
+//	
+//	/**
+//	 * This method matches all the classes that should be tagged with View stereotype
+//	 * 
+//	 * @param engine IncQueryEngine obtained on the resource
+//	 * @param results A StringBuilder object collecting the results
+//	 * @throws IncQueryException
+//	 */
+//	//TODO: might be further specialized as a WebPart stereotype
+//	private void tagWebParts (IncQueryEngine engine, final StringBuilder results) throws IncQueryException{
+//		WebPartMatcher matcher = WebPartMatcher.on(engine);
+//		// get all matches of the pattern
+//		Collection<WebPartMatch> matches = matcher.getAllMatches();
+//		prettyPrintMatches(results, matches);
+//		// using a match processor
+//		matcher.forEachMatch(new WebPartProcessor() {
+//			
+//			@Override
+//			public void process(Class pSub) {
+//				results.append("\tEObject: " + pSub.toString() + "\n");
+//				
+//				if ( rootPackage.getAppliedProfile(genericProfile.getQualifiedName()) == null) {
+//					rootPackage.applyProfile(genericProfile);
+//				}
+//				Stereotype viewStereotype = genericProfile.getOwnedStereotype("View");
+//				if (pSub.getAppliedStereotype(viewStereotype.getQualifiedName()) == null){
+//					pSub.applyStereotype(viewStereotype);
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Starts tagging the classes on the model 
@@ -213,8 +243,9 @@ public class MSSharePointTagger {
 				// phase 2: the matcher itself
 				tagServiceApplications(engine, results);
 				tagUIClasses(engine, results);
-				tagASPNETControls(engine, results);
-				tagWebParts(engine, results);
+				tagWCFServices(engine, results);
+//				tagASPNETControls(engine, results);
+//				tagWebParts(engine, results);
 				
 			} catch (IncQueryException e) {
 				e.printStackTrace();
@@ -283,7 +314,15 @@ public class MSSharePointTagger {
 		//Get the root package
 		Resource modelResource = loadResource(selectedFile);
 		Model model = (Model) modelResource.getContents().get(0);
-		rootPackage = (org.eclipse.uml2.uml.Package) model.getPackagedElements().get(0);
+		
+		EList<PackageableElement> packagedElements = model.getPackagedElements();
+		for(int i = 0; i < packagedElements.size(); i++){
+			
+			if (packagedElements.get(i) instanceof org.eclipse.uml2.uml.Package){
+				rootPackage = (org.eclipse.uml2.uml.Package) packagedElements.get(i);
+				break;
+			}
+		}
 		
 		//Tag the model
 		modelResource = tagModel(modelResource);

@@ -22,36 +22,13 @@ module DataManagementProfiling;
 create OUT: UML2 from IN: UML2, Profile: profile;
 uses "lib::UMLCopy";
 uses "lib::UMLLib";
+uses "lib::DM";
 
 ---***********************************HELPERS *************************************---
 ---********************************************************************************---
 ---**********************************ATTRIBUTES************************************---
 ---********************************************************************************---
 
----**********DataManagement (Observable pattern) profile Stereotypes***************---
-helper def: allStereotypes: Sequence(UML2!Stereotype) = profile!Stereotype.
-	allInstancesFrom('Profile')->debug('allStereotypes');
-helper def: concreteSubjectStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='ConcreteSubject').first();
-helper def: concreteObserverStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='ConcreteObserver').first();
-helper def: subjectStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='Subject').first();
-helper def: observerStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='Observer').first();
-helper def: updateStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='update').first();
-helper def: messageListenerStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='MessageListener').first();
-helper def: dataModelStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='DataModel').first();
-helper def: notifyObserversStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='notifyObservers').first();
-helper def: registerObserverStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='registerObserver').first();
-helper def: removeObserverStereotype: UML2!Stereotype = thisModule.allStereotypes
-	->select(e|e.name='removeObserver').first();
----*****************************End of Stereotypes*********************************---
 
 ---*******************DataManagement (Observable pattern) Queries********************---
 --- A sequence containing all the subjects 

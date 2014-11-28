@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="eu.artist.migration.mut.cmg.news.tagging.queries.NEWSQuery" point="org.eclipse.incquery.runtime.queryspecification">
+    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:eu.artist.migration.mut.cmg.news.tagging.queries.NEWSQuery" id="eu.artist.migration.mut.cmg.news.tagging.queries.NEWSQuery"/>
+  </extension>
+  <extension id="eu.artist.migration.mut.cmg.news.tagging.queries.NEWSQuery" point="org.eclipse.incquery.runtime.queryspecification">
+    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:eu.artist.migration.mut.cmg.news.tagging.queries.NEWSQuery" id="eu.artist.migration.mut.cmg.news.tagging.queries.NEWSQuery"/>
+  </extension>
+  <extension id="eu.artist.migration.mut.cmg.dotnet.tagging.queries.NEWSQuery" point="org.eclipse.incquery.runtime.queryspecification">
+    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:eu.artist.migration.mut.cmg.dotnet.tagging.queries.NEWSQuery" id="eu.artist.migration.mut.cmg.dotnet.tagging.queries.NEWSQuery"/>
+  </extension>
+</plugin>

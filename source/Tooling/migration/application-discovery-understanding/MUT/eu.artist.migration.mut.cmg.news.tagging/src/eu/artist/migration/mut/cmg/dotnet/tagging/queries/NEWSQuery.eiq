@@ -1,0 +1,51 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * 	Burak Karaboga (Atos) - main development
+ * 	Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+
+
+package eu.artist.migration.mut.cmg.dotnet.tagging.queries
+
+import "http://www.eclipse.org/uml2/4.0.0/UML"
+
+pattern superClass(sub : Class, sup : Class) {
+	Generalization.specific(Gen, sub);
+	Generalization(Gen);
+	Generalization.general(Gen, sup);
+}
+pattern RemoteObject(sub : Class, sup : Class){
+	
+	find superClass+(sub, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "MarshalByRefObject"
+	); 
+}
+
+pattern ServiceHost (cl : Class, pr : Property) {
+
+	StructuredClassifier.ownedAttribute(cl, pr);
+	Property.type(pr, typ);
+	Type.name(typ, nm);
+	check (
+		nm == "ServiceHost"
+	);
+}
+
+pattern SOLR (cls : Class, cmt: Comment){
+	
+	StructuredClassifier.ownedComment(cls, cmt);
+	Comment.body(cmt, bdy);
+	check (
+		bdy.contains("Namespace:") && bdy.contains("SOLR")
+	);
+	
+}
+

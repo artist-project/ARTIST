@@ -8,7 +8,7 @@
 <mapAttribute key="Input Model Options"/>
 <mapAttribute key="Input Models">
 <mapEntry key="IN" value="platform:/resource/eu.artist.migration.mut.cmg.dews/models/datamanagementprofiling.out.uml"/>
-<mapEntry key="Profile" value="platform:/resource/eu.artist.migration.mut.cmg.profiles/profiles/DataManagement.profile.uml"/>
+<mapEntry key="Profile" value="platform:/resource/eu.artist.repository.artefacts/profiles/DataManagement.profile.uml"/>
 </mapAttribute>
 <mapAttribute key="Metamodel Options"/>
 <mapAttribute key="Metamodels">
@@ -17,10 +17,11 @@
 <mapEntry key="profile" value="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L3"/>
 </mapAttribute>
 <stringAttribute key="Module Name" value="DataManagementComponentModelGenerator"/>
-<stringAttribute key="Module Path" value="/eu.artist.migration.mut.cmg.dews/transformations/,/eu.artist.migration.mut.cmg.lib/"/>
+<stringAttribute key="Module Path" value="/eu.artist.migration.mut.cmg.dews/transformations/,/eu.artist.repository.artefacts/"/>
 <mapAttribute key="Output Model Options">
 <mapEntry key="OUT" value="derivedFile allowIntermodelReferences"/>
 </mapAttribute>
-<mapAttribute key="Output cmg="OUT" value="platform:/resource/eu.artist.migration.mut.cmg.dews/models/dmcomponentmodel.out.uml"/>
+<mapAttribute key="Output Models">
+<mapEntry key="OUT" value="platform:/resource/eu.artist.migration.mut.cmg.dews/models/dmcomponentmodel.out.uml"/>
 </mapAttribute>
 </launchConfiguration>

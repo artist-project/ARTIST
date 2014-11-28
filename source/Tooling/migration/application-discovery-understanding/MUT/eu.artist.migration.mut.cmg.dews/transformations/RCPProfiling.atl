@@ -24,31 +24,14 @@ create OUT: UML2 from IN: UML2, Plugin: XML, Profile: profile;
 uses "lib::UMLCopy";
 uses "lib::UMLLib";
 uses "lib::PluginLib";
+uses "lib::RCP";
 
 ---***********************************HELPERS *************************************---
----***************************RCP profile Stereotypes******************************---
 
-helper def: perspectiveStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='Perspective').first();
-helper def: viewStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='View').first();
-helper def: actionStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='Action').first();
-helper def: workbenchStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='Workbench').first();
-helper def: workbenchActionStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='WorkbenchAction').first();
-helper def: businessObjectStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='BusinessObject').first();
-helper def: objectPopupMenuStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='ObjectPopupMenu').first();
-helper def: toolbarStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='ToolBar').first();
-helper def: viewActionStereotype: UML2!Stereotype = profile!Stereotype.
-	allInstancesFrom('Profile')->select(e|e.name='ViewAction').first();
----*****************************End of Stereotypes*********************************---
+-----********************************RCP  Queries************************************---
 
----********************************RCP  Queries************************************---
+--TODO Adapt this transformation, as RCPAbstractor.atl, to use Eclipse2RCPMapping
+
 --- detected view stereotyped classes
 helper def: viewStereotypedClasses: Sequence(UML2!Class) = 
 	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('view', 'class'))-> debug ('views');
@@ -69,7 +52,6 @@ helper def : queries() : Sequence (TupleType (results: Sequence(UML2!Element), s
 			  Tuple{results=thisModule.objectContributionStereotypedClasses, stereotype=thisModule.businessObjectStereotype}
 	};
 
----******************************END of RCP Queries********************************---
 
 ---****************************** END OF HELPERS **********************************---
 --- We overlap this Model rule from UMLCopy since we need the do block to apply profiles
@@ -127,22 +109,6 @@ lazy rule ApplyStereotypes {
 --- In this endpoint rule we apply the stereotypes values
 endpoint rule ApplyAllStereotypesValues() {
 	do {
-		--- Here we apply all the stereotypes in a series of "for" loops
---		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.perspectiveStereotypedClasses, thisModule.perspectiveStereotype)){
---			element.applyStereotype(thisModule.perspectiveStereotype);
---		}
---		
---		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.viewStereotypedClasses, thisModule.viewStereotype)){
---			element.applyStereotype(thisModule.viewStereotype);
---		}
---		
---		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.actionStereotypedClasses, thisModule.actionStereotype)){
---			element.applyStereotype(thisModule.actionStereotype);
---		}
---		
---		for (element in thisModule->getUnStereotypedMappedCollection(thisModule.objectContributionStereotypedClasses, thisModule.businessObjectStereotype)){
---			element.applyStereotype(thisModule.businessObjectStereotype);
---		}
 
 		for (tuple in thisModule.queries()){
 			for (element in thisModule->getUnStereotypedMappedCollection(tuple.get('results'), tuple.get('stereotype'))){

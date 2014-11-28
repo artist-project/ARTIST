@@ -1,14 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: eu.artist.migration.mut.componentmodelgenerator.lob.tagging
+Bundle-Name: SharePoint tagging
 Bundle-SymbolicName: eu.artist.migration.mut.cmg.lob.tagging;singleton:=true
 Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: ATOS Spain S.A.
 Export-Package: eu.artist.migration.mut.cmg.lob.tagging.queries,
  eu.artist.migration.mut.cmg.lob.tagging.queries.util,
  eu.artist.migration.mut.cmg.lob.tagging.taggers
 Require-Bundle: org.eclipse.uml2.uml,
  org.eclipse.emf.ecore,
- org.eclipse.emf.transaction,
  org.eclipse.incquery.runtime,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.core.runtime;bundle-version="3.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j

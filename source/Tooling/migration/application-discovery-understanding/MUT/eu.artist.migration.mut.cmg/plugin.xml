@@ -6,12 +6,12 @@
          point="org.eclipse.ui.commands">
       <category
             name="Model Understanding Tool"
-            id="eu.artist.migration.mut.modelcomponentgenerator.commands.mut.category">
+            id="eu.artist.migration.mut.category">
       </category>
       <command
             name="Generate a component model"
-            category="eu.artist.migration.mut.modelcomponentgenerator.commands.mut.category"
-            categoryId="eu.artist.migration.mut.modelcomponentgenerator.commands.category"
+            category="eu.artist.migration.mut.category"
+            categoryId="eu.artist.migration.mut.category"
             id="eu.artist.migration.mut.modelcomponentgenerator.commands.generateComponentModelCommand">
       </command>
    </extension>
@@ -21,15 +21,6 @@
             commandId="eu.artist.migration.mut.modelcomponentgenerator.commands.generateComponentModelCommand"
             class="eu.artist.migration.mut.cmg.handlers.GenerateComponentModelHandler">
       </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.bindings">
-      <key
-            commandId="eu.artist.migration.mut.modelcomponentgenerator.commands.generateComponentModelCommand"
-            contextId="org.eclipse.ui.contexts.window"
-            sequence="M1+G"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
-      </key>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -61,6 +52,7 @@
          </menu>
       </menuContribution>
    </extension>
+<!--
    <extension
          id="eu.artist.migration.mut.componentmodelgenerator.queries.ServiceApplication"
          point="org.eclipse.incquery.runtime.queryspecification">
@@ -125,5 +117,5 @@
             id="eu.artist.migration.mut.componentmodelgenerator.queries.WebPart_1_1">
       </evaluator>
    </extension>
-
+-->   
 </plugin>

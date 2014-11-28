@@ -30,6 +30,21 @@ pattern ServiceApplication(sub : Class, sup : Class){
 	); 
 }
 
+//Pattern for matching all classes implementing one of the interfaces with the names listed below.
+//IWorkflowService
+pattern WCFService(client : Class){
+	
+	InterfaceRealization.client(Int, client);
+	InterfaceRealization.supplier(Int, supp);
+	Interface.name(supp, suppName);
+	check (
+		suppName == "IWorkflowService" || suppName == "ITaskService" || 
+		suppName == "IDirectoryService" || suppName == "IWorkflowHostService" ||
+		suppName == "IExternalEntityService" 
+	);
+}
+
+
 //Pattern for matching all classes extending one of the classes with the names listed below.
 //LayoutsPageBase, UserControl, BasePage
 pattern UI(sub : Class){
@@ -38,31 +53,31 @@ pattern UI(sub : Class){
 	Generalization.general(Gen, sup);
 	Class.name(sup, supname);
 	check (
-		supname == "LayoutsPageBase" || supname == "UserControl" || 
+		supname == "WebPart" || supname == "BaseUserControl" || 
 		supname == "BasePage"
 	);
 }
 
 //Pattern for matching all classes extending one of the classes with the names listed below.
 //BaseUserControl
-pattern ASPNETControl(sub : Class){
-	
-	Generalization.specific(Gen, sub);
-	Generalization.general(Gen, sup);
-	Class.name(sup, supname);
-	check (
-		supname == "BaseUserControl"
-	);
-}
+//pattern ASPNETControl(sub : Class){
+//	
+//	Generalization.specific(Gen, sub);
+//	Generalization.general(Gen, sup);
+//	Class.name(sup, supname);
+//	check (
+//		supname == "BaseUserControl"
+//	);
+//}
 
 //Pattern for matching all classes extending one of the classes with the names listed below.
 //WebPart
-pattern WebPart(sub : Class){
-	
-	Generalization.specific(Gen, sub);
-	Generalization.general(Gen, sup);
-	Class.name(sup, supname);
-	check (
-		supname == "WebPart"
-	);
-}
+//pattern WebPart(sub : Class){
+//	
+//	Generalization.specific(Gen, sub);
+//	Generalization.general(Gen, sup);
+//	Class.name(sup, supname);
+//	check (
+//		supname == "WebPart"
+//	);
+//}

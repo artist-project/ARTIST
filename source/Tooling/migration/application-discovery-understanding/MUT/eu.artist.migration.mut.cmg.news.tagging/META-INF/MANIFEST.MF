@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eu.artist.migration.mut.cmg.news.tagging
+Bundle-SymbolicName: eu.artist.migration.mut.cmg.news.tagging;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Export-Package: eu.artist.migration.mut.cmg.dotnet.tagging.queries,
+ eu.artist.migration.mut.cmg.dotnet.tagging.queries.util,
+ eu.artist.migration.mut.cmg.dotnet.tagging.taggers
+Require-Bundle: org.eclipse.uml2.uml,
+ org.eclipse.emf.ecore,
+ org.eclipse.incquery.runtime,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.core.runtime;bundle-version="3.9.100"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j

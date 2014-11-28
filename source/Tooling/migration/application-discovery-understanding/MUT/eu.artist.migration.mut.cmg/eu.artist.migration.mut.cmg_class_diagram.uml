@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jdk7.java.lang="http:///jdk7/java/lang.ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///jdk7/java/lang.ecore platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jdk7_profile.profile.uml#_5qyj8RSlEeO3--m29CbC5A">
+  <uml:Model xmi:id="_JriOcAHCEeS4KoPv9tsTVg" name="eu.artist.migration.mut.cmg">
+    <packageImport xmi:id="_JriOcQHCEeS4KoPv9tsTVg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_JriOcgHCEeS4KoPv9tsTVg" name="eu">
+      <packagedElement xmi:type="uml:Package" xmi:id="_JriOcwHCEeS4KoPv9tsTVg" name="artist">
+        <packagedElement xmi:type="uml:Package" xmi:id="_JriOdAHCEeS4KoPv9tsTVg" name="migration">
+          <packagedElement xmi:type="uml:Package" xmi:id="_JriOdQHCEeS4KoPv9tsTVg" name="mut">
+            <packagedElement xmi:type="uml:Package" xmi:id="_JriOdgHCEeS4KoPv9tsTVg" name="cmg">
+              <packagedElement xmi:type="uml:Package" xmi:id="_JriOdwHCEeS4KoPv9tsTVg" name="dialog">
+                <packagedElement xmi:type="uml:Class" xmi:id="_JriOeAHCEeS4KoPv9tsTVg" name="ComponentModelGeneratorDialog">
+                  <ownedAttribute xmi:id="_JriOeQHCEeS4KoPv9tsTVg" name="lvCMSelector" visibility="private" association="_Jri1lgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOegHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOewHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOfAHCEeS4KoPv9tsTVg" name="cbMergeModels" visibility="private" association="_Jri1mgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOfQHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOfgHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOfwHCEeS4KoPv9tsTVg" name="btOpenPluginModel" visibility="private" association="_Jri1ngHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOgAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOgQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOggHCEeS4KoPv9tsTVg" name="tPluginModel" visibility="private" association="_Jri1ogHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOgwHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOhAHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOhQHCEeS4KoPv9tsTVg" name="mergeModelComposite" visibility="private" association="_Jri1pgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOhgHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOhwHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOiAHCEeS4KoPv9tsTVg" name="pluginModelComposite" visibility="private" association="_Jri1qgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOiQHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOigHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOiwHCEeS4KoPv9tsTVg" name="inputModel" visibility="private" association="_Jri1rgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOjAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOjQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOjgHCEeS4KoPv9tsTVg" name="pluginModel" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOjwHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOkAHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOkQHCEeS4KoPv9tsTVg" name="mergeModels" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOkgHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOkwHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOlAHCEeS4KoPv9tsTVg" name="RCPCMGeneratorEnabled" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOlQHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOlgHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_JriOlwHCEeS4KoPv9tsTVg" name="selectedCMGenerators" visibility="private" type="_Jri2CwHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JriOmAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JriOmQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_JriOmgHCEeS4KoPv9tsTVg" name="ComponentModelGeneratorDialog">
+                    <ownedParameter xmi:id="_JriOmwHCEeS4KoPv9tsTVg" name="parentShell"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_JriOnAHCEeS4KoPv9tsTVg" name="create"/>
+                  <ownedOperation xmi:id="_JriOnQHCEeS4KoPv9tsTVg" name="enableOKButton">
+                    <ownedParameter xmi:id="_JriOngHCEeS4KoPv9tsTVg" name="enable">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_JriOnwHCEeS4KoPv9tsTVg" name="createDialogArea">
+                    <ownedParameter xmi:id="_JriOoAHCEeS4KoPv9tsTVg" name="parent"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_JriOoQHCEeS4KoPv9tsTVg" name="createOpenPluginModelButton">
+                    <ownedParameter xmi:id="_JriOogHCEeS4KoPv9tsTVg" name="container"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_JriOowHCEeS4KoPv9tsTVg" name="createMergeModelCheckbox">
+                    <ownedParameter xmi:id="_JriOpAHCEeS4KoPv9tsTVg" name="container"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1gAHCEeS4KoPv9tsTVg" name="createComponentModelSelector">
+                    <ownedParameter xmi:id="_Jri1gQHCEeS4KoPv9tsTVg" name="container"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1ggHCEeS4KoPv9tsTVg" name="validate"/>
+                  <ownedOperation xmi:id="_Jri1gwHCEeS4KoPv9tsTVg" name="isValid">
+                    <ownedParameter xmi:id="_Jri1hAHCEeS4KoPv9tsTVg" name="pluginModel">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1hQHCEeS4KoPv9tsTVg" name="isResizable"/>
+                  <ownedOperation xmi:id="_Jri1hgHCEeS4KoPv9tsTVg" name="setInputModel">
+                    <ownedParameter xmi:id="_Jri1hwHCEeS4KoPv9tsTVg" name="model"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1iAHCEeS4KoPv9tsTVg" name="setPluginModel">
+                    <ownedParameter xmi:id="_Jri1iQHCEeS4KoPv9tsTVg" name="pluginModel">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1igHCEeS4KoPv9tsTVg" name="getPluginModel"/>
+                  <ownedOperation xmi:id="_Jri1iwHCEeS4KoPv9tsTVg" name="setMergeModel">
+                    <ownedParameter xmi:id="_Jri1jAHCEeS4KoPv9tsTVg" name="merge">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1jQHCEeS4KoPv9tsTVg" name="isMergeModel"/>
+                  <ownedOperation xmi:id="_Jri1jgHCEeS4KoPv9tsTVg" name="isRCPCMGeneratorEnabled"/>
+                  <ownedOperation xmi:id="_Jri1jwHCEeS4KoPv9tsTVg" name="getSelectedCMGenerators"/>
+                  <nestedClassifier xmi:type="uml:Class" xmi:id="_Jri1kAHCEeS4KoPv9tsTVg" name="PluginSelectionAdapter">
+                    <ownedAttribute xmi:id="_Jri1kQHCEeS4KoPv9tsTVg" name="rootDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1sgHCEeS4KoPv9tsTVg">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1kgHCEeS4KoPv9tsTVg"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1kwHCEeS4KoPv9tsTVg" value="1"/>
+                    </ownedAttribute>
+                    <ownedOperation xmi:id="_Jri1lAHCEeS4KoPv9tsTVg" name="PluginSelectionAdapter">
+                      <ownedParameter xmi:id="_Jri1lQHCEeS4KoPv9tsTVg" name="rootDialog" type="_JriOeAHCEeS4KoPv9tsTVg"/>
+                    </ownedOperation>
+                  </nestedClassifier>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1lgHCEeS4KoPv9tsTVg" name="lvCMSelector_ComponentModelGeneratorDialog_ListViewer" memberEnd="_JriOeQHCEeS4KoPv9tsTVg _Jri1lwHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1lwHCEeS4KoPv9tsTVg" name="lvCMSelector_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1lgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1mAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1mQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1mgHCEeS4KoPv9tsTVg" name="cbMergeModels_ComponentModelGeneratorDialog_Button" memberEnd="_JriOfAHCEeS4KoPv9tsTVg _Jri1mwHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1mwHCEeS4KoPv9tsTVg" name="cbMergeModels_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1mgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1nAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1nQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1ngHCEeS4KoPv9tsTVg" name="btOpenPluginModel_ComponentModelGeneratorDialog_Button" memberEnd="_JriOfwHCEeS4KoPv9tsTVg _Jri1nwHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1nwHCEeS4KoPv9tsTVg" name="btOpenPluginModel_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1ngHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1oAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1oQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1ogHCEeS4KoPv9tsTVg" name="tPluginModel_ComponentModelGeneratorDialog_Text" memberEnd="_JriOggHCEeS4KoPv9tsTVg _Jri1owHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1owHCEeS4KoPv9tsTVg" name="tPluginModel_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1ogHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1pAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1pQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1pgHCEeS4KoPv9tsTVg" name="mergeModelComposite_ComponentModelGeneratorDialog_Composite" memberEnd="_JriOhQHCEeS4KoPv9tsTVg _Jri1pwHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1pwHCEeS4KoPv9tsTVg" name="mergeModelComposite_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1pgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1qAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1qQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1qgHCEeS4KoPv9tsTVg" name="pluginModelComposite_ComponentModelGeneratorDialog_Composite" memberEnd="_JriOiAHCEeS4KoPv9tsTVg _Jri1qwHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1qwHCEeS4KoPv9tsTVg" name="pluginModelComposite_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1qgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1rAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1rQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1rgHCEeS4KoPv9tsTVg" name="inputModel_ComponentModelGeneratorDialog_IFile" memberEnd="_JriOiwHCEeS4KoPv9tsTVg _Jri1rwHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1rwHCEeS4KoPv9tsTVg" name="inputModel_ComponentModelGeneratorDialog" type="_JriOeAHCEeS4KoPv9tsTVg" association="_Jri1rgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1sAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1sQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri1sgHCEeS4KoPv9tsTVg" name="rootDialog_PluginSelectionAdapter_ComponentModelGeneratorDialog" memberEnd="_Jri1kQHCEeS4KoPv9tsTVg _Jri1swHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri1swHCEeS4KoPv9tsTVg" name="rootDialog_PluginSelectionAdapter" type="_Jri1kAHCEeS4KoPv9tsTVg" association="_Jri1sgHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1tAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1tQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <profileApplication xmi:id="_J49mcAHCEeS4KoPv9tsTVg">
+                  <eAnnotations xmi:id="_J49mcQHCEeS4KoPv9tsTVg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                    <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jdk7_profile.profile.uml#_5qyjwhSlEeO3--m29CbC5A"/>
+                  </eAnnotations>
+                  <appliedProfile href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jdk7_profile.profile.uml#_5qyjwBSlEeO3--m29CbC5A"/>
+                </profileApplication>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_Jri1tgHCEeS4KoPv9tsTVg" name="generators">
+                <packagedElement xmi:type="uml:Enumeration" xmi:id="_Jri1twHCEeS4KoPv9tsTVg" name="CMGenerators">
+                  <ownedAttribute xmi:id="_Jri1uAHCEeS4KoPv9tsTVg" name="label" visibility="private">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1uQHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1ugHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_Jri1uwHCEeS4KoPv9tsTVg" name="getLabel"/>
+                  <ownedLiteral xmi:id="_Jri1vAHCEeS4KoPv9tsTVg" name="Observer_pattern"/>
+                  <ownedLiteral xmi:id="_Jri1vQHCEeS4KoPv9tsTVg" name="RCP"/>
+                  <ownedLiteral xmi:id="_Jri1vgHCEeS4KoPv9tsTVg" name="MS_Sharepoint"/>
+                </packagedElement>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Package" xmi:id="_Jri1vwHCEeS4KoPv9tsTVg" name="handlers">
+                <packagedElement xmi:type="uml:Class" xmi:id="_Jri1wAHCEeS4KoPv9tsTVg" name="GenerateComponentModelHandler">
+                  <ownedAttribute xmi:id="_Jri1wQHCEeS4KoPv9tsTVg" name="UML_MM_URI" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1wgHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1wwHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_Jri1xAHCEeS4KoPv9tsTVg" name="PROFILE_MM_URI" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1xQHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1xgHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_Jri1xwHCEeS4KoPv9tsTVg" name="XML_MM_URI" visibility="public" isStatic="true">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1yAHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1yQHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedAttribute xmi:id="_Jri1ygHCEeS4KoPv9tsTVg" name="shell" visibility="private" association="_Jri18wHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1ywHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1zAHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedAttribute>
+                  <ownedOperation xmi:id="_Jri1zQHCEeS4KoPv9tsTVg" name="execute">
+                    <ownedParameter xmi:id="_Jri1zgHCEeS4KoPv9tsTVg" name="event"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri1zwHCEeS4KoPv9tsTVg" name="showComponentModelGeneratorDialog">
+                    <ownedParameter xmi:id="_Jri10AHCEeS4KoPv9tsTVg" name="selectedClassModel"/>
+                    <ownedParameter xmi:id="_Jri10QHCEeS4KoPv9tsTVg" name="event"/>
+                    <ownedParameter xmi:id="_Jri10gHCEeS4KoPv9tsTVg" name="targetProject"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri10wHCEeS4KoPv9tsTVg" name="getSelectedFile">
+                    <ownedParameter xmi:id="_Jri11AHCEeS4KoPv9tsTVg" name="event"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri11QHCEeS4KoPv9tsTVg" name="getTargetProject">
+                    <ownedParameter xmi:id="_Jri11gHCEeS4KoPv9tsTVg" name="event"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri11wHCEeS4KoPv9tsTVg" name="generateComponentModel">
+                    <ownedParameter xmi:id="_Jri12AHCEeS4KoPv9tsTVg" name="model"/>
+                    <ownedParameter xmi:id="_Jri12QHCEeS4KoPv9tsTVg" name="event"/>
+                    <ownedParameter xmi:id="_Jri12gHCEeS4KoPv9tsTVg" name="targetProject"/>
+                    <ownedParameter xmi:id="_Jri12wHCEeS4KoPv9tsTVg" name="cmGenerators"/>
+                    <ownedParameter xmi:id="_Jri13AHCEeS4KoPv9tsTVg" name="pluginModel">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_Jri13QHCEeS4KoPv9tsTVg" name="mergeModels">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri13gHCEeS4KoPv9tsTVg" name="showDialog">
+                    <ownedParameter xmi:id="_Jri13wHCEeS4KoPv9tsTVg" name="status"/>
+                    <ownedParameter xmi:id="_Jri14AHCEeS4KoPv9tsTVg" name="targetProject"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri14QHCEeS4KoPv9tsTVg" name="openFilesInEditor">
+                    <ownedParameter xmi:id="_Jri14gHCEeS4KoPv9tsTVg" name="files">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_Rsh6QL4zEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri14wHCEeS4KoPv9tsTVg" name="refreshTargetProject">
+                    <ownedParameter xmi:id="_Jri15AHCEeS4KoPv9tsTVg" name="targetProject"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri15QHCEeS4KoPv9tsTVg" name="loadMetamodels"/>
+                  <ownedOperation xmi:id="_Jri15gHCEeS4KoPv9tsTVg" name="performM2MTransformation">
+                    <ownedParameter xmi:id="_Jri15wHCEeS4KoPv9tsTVg" name="inModels"/>
+                    <ownedParameter xmi:id="_Jri16AHCEeS4KoPv9tsTVg" name="outModelUri"/>
+                    <ownedParameter xmi:id="_Jri16QHCEeS4KoPv9tsTVg" name="transformationPathURIs">
+                      <type xmi:type="uml:DataType" href="pathmap://JAVA_LIBRARY/ExtendedJavaTypes.library.uml#_Rsh6QL4zEeOhf4L1rCPelg"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_Jri16gHCEeS4KoPv9tsTVg" name="transformationModule">
+                      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    </ownedParameter>
+                    <ownedParameter xmi:id="_Jri16wHCEeS4KoPv9tsTVg" name="monitor"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri17AHCEeS4KoPv9tsTVg" name="mergeModels">
+                    <ownedParameter xmi:id="_Jri17QHCEeS4KoPv9tsTVg" name="firstUri"/>
+                    <ownedParameter xmi:id="_Jri17gHCEeS4KoPv9tsTVg" name="secondUri"/>
+                    <ownedParameter xmi:id="_Jri17wHCEeS4KoPv9tsTVg" name="outputUri"/>
+                    <ownedParameter xmi:id="_Jri18AHCEeS4KoPv9tsTVg" name="monitor"/>
+                  </ownedOperation>
+                  <ownedOperation xmi:id="_Jri18QHCEeS4KoPv9tsTVg" name="openFileInEditor">
+                    <ownedParameter xmi:id="_Jri18gHCEeS4KoPv9tsTVg" name="file"/>
+                  </ownedOperation>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Association" xmi:id="_Jri18wHCEeS4KoPv9tsTVg" name="shell_GenerateComponentModelHandler_Shell" memberEnd="_Jri1ygHCEeS4KoPv9tsTVg _Jri19AHCEeS4KoPv9tsTVg">
+                  <ownedEnd xmi:id="_Jri19AHCEeS4KoPv9tsTVg" name="shell_GenerateComponentModelHandler" type="_Jri1wAHCEeS4KoPv9tsTVg" association="_Jri18wHCEeS4KoPv9tsTVg">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri19QHCEeS4KoPv9tsTVg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri19gHCEeS4KoPv9tsTVg" value="1"/>
+                  </ownedEnd>
+                </packagedElement>
+                <profileApplication xmi:id="_J7GUcgHCEeS4KoPv9tsTVg">
+                  <eAnnotations xmi:id="_J7GUcwHCEeS4KoPv9tsTVg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+                    <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jdk7_profile.profile.uml#_5qyjwhSlEeO3--m29CbC5A"/>
+                  </eAnnotations>
+                  <appliedProfile href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/jdk7_profile.profile.uml#_5qyjwBSlEeO3--m29CbC5A"/>
+                </profileApplication>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_Jri19wHCEeS4KoPv9tsTVg" name="Activator">
+                <ownedAttribute xmi:id="_Jri1-AHCEeS4KoPv9tsTVg" name="PLUGIN_ID" visibility="public" isStatic="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1-QHCEeS4KoPv9tsTVg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1-gHCEeS4KoPv9tsTVg" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_Jri1-wHCEeS4KoPv9tsTVg" name="plugin" visibility="private" isStatic="true" type="_Jri19wHCEeS4KoPv9tsTVg" association="_Jri2BgHCEeS4KoPv9tsTVg">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri1_AHCEeS4KoPv9tsTVg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri1_QHCEeS4KoPv9tsTVg" value="1"/>
+                </ownedAttribute>
+                <ownedOperation xmi:id="_Jri1_gHCEeS4KoPv9tsTVg" name="Activator"/>
+                <ownedOperation xmi:id="_Jri1_wHCEeS4KoPv9tsTVg" name="start">
+                  <ownedParameter xmi:id="_Jri2AAHCEeS4KoPv9tsTVg" name="context"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_Jri2AQHCEeS4KoPv9tsTVg" name="stop">
+                  <ownedParameter xmi:id="_Jri2AgHCEeS4KoPv9tsTVg" name="context"/>
+                </ownedOperation>
+                <ownedOperation xmi:id="_Jri2AwHCEeS4KoPv9tsTVg" name="getDefault"/>
+                <ownedOperation xmi:id="_Jri2BAHCEeS4KoPv9tsTVg" name="getImageDescriptor">
+                  <ownedParameter xmi:id="_Jri2BQHCEeS4KoPv9tsTVg" name="path">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_Jri2BgHCEeS4KoPv9tsTVg" name="plugin_Activator_Activator" memberEnd="_Jri1-wHCEeS4KoPv9tsTVg _Jri2BwHCEeS4KoPv9tsTVg">
+                <ownedEnd xmi:id="_Jri2BwHCEeS4KoPv9tsTVg" name="plugin_Activator" type="_Jri19wHCEeS4KoPv9tsTVg" association="_Jri2BgHCEeS4KoPv9tsTVg">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jri2CAHCEeS4KoPv9tsTVg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jri2CQHCEeS4KoPv9tsTVg" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Jri2CgHCEeS4KoPv9tsTVg" name="parameterization">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Jri2CwHCEeS4KoPv9tsTVg" name="EnumSet&lt;CMGenerators>"/>
+      <packagedElement xmi:type="uml:DataType" xmi:id="_Jri2DAHCEeS4KoPv9tsTVg" name="Map&lt;String>"/>
+    </packagedElement>
+    <profileApplication xmi:id="_Jri2DQHCEeS4KoPv9tsTVg">
+      <eAnnotations xmi:id="_Jri2DgHCEeS4KoPv9tsTVg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://JAVA_PROFILE/javaProfile.uml#_wKnZMrxtEeKKDZg25Hwffg"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://JAVA_PROFILE/javaProfile.uml#_LICG-bmhEeKP6JNTocDZqQ"/>
+    </profileApplication>
+  </uml:Model>
+  <uml:PackageImport xmi:id="_Jri2DwHCEeS4KoPv9tsTVg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </uml:PackageImport>
+  <uml:Parameter xmi:id="_Jri2EAHCEeS4KoPv9tsTVg" name="label">
+    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </uml:Parameter>
+  <jdk7.java.lang:Override xmi:id="_J7FtYAHCEeS4KoPv9tsTVg" base_Operation="_JriOnAHCEeS4KoPv9tsTVg"/>
+  <jdk7.java.lang:Override xmi:id="_J7GUcAHCEeS4KoPv9tsTVg" base_Operation="_JriOnwHCEeS4KoPv9tsTVg"/>
+  <jdk7.java.lang:Override xmi:id="_J7GUcQHCEeS4KoPv9tsTVg" base_Operation="_Jri1hQHCEeS4KoPv9tsTVg"/>
+  <jdk7.java.lang:Override xmi:id="_J7G7gAHCEeS4KoPv9tsTVg" base_Operation="_Jri1zQHCEeS4KoPv9tsTVg"/>
+</xmi:XMI>

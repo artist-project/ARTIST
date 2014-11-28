@@ -7,9 +7,9 @@
 <mapAttribute key="Inout Models Output Locations"/>
 <mapAttribute key="Input Model Options"/>
 <mapAttribute key="Input Models">
-<mapEntry key="GenericProfile" value="platform:/resource/eu.artist.migration.mut.cmg.profiles/profiles/Generic.profile.uml"/>
-<mapEntry key="IN" value="platform:/resource/eu.artist.migration.mut.cmg.lob/models/Copy of export_original_tagged.uml"/>
-<mapEntry key="MicrosoftSharePointProfile" value="platform:/resource/eu.artist.migration.mut.cmg.profiles/profiles/MicrosoftSharePoint.profile.uml"/>
+<mapEntry key="GenericProfile" value="platform:/resource/eu.artist.repository.artefacts/profiles/Generic.profile.uml"/>
+<mapEntry key="IN" value="platform:/resource/eu.artist.migration.mut.cmg.lob/models/lob_class_model_tagged.uml"/>
+<mapEntry key="MicrosoftSharePointProfile" value="platform:/resource/eu.artist.repository.artefacts/profiles/MicrosoftSharePoint.profile.uml"/>
 </mapAttribute>
 <mapAttribute key="Metamodel Options">
 <mapEntry key="UML2" value=""/>
@@ -19,12 +19,12 @@
 <mapEntry key="XML" value="http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML"/>
 <mapEntry key="profile" value="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L3"/>
 </mapAttribute>
-<stringAttribute key="Module Name" value="ComponentModelGenerator"/>
-<stringAttribute key="Module Path" value="/eu.artist.migration.mut.cmg.lob/transformation/,/eu.artist.migration.mut.cmg.lib/"/>
+<stringAttribute key="Module Name" value="SharepointComponentModelGenerator"/>
+<stringAttribute key="Module Path" value="/eu.artist.migration.mut.cmg.lob/transformation/,/eu.artist.repository.artefacts/"/>
 <mapAttribute key="Output Model Options">
 <mapEntry key="OUT" value="allowIntermodelReferences derivedFile"/>
 </mapAttribute>
 <mapAttribute key="Output Models">
-<mapEntry key="OUT" value="platform:/resource/eu.artist.migration.mut.cmg.lob/models/componentmodel.out.uml"/>
+<mapEntry key="OUT" value="platform:/resource/eu.artist.migration.mut.cmg.lob/models/share_point_component_model.uml"/>
 </mapAttribute>
 </launchConfiguration>

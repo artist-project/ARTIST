@@ -11,7 +11,9 @@ package eu.artist.migration.mut.cmg.generators;
 public enum CMGenerators {
 		Observer_pattern ("Observer pattern"),
 		RCP ("Eclipse RCP"),
-		MS_Sharepoint ("Microsoft Share Point");
+		MS_Sharepoint ("Microsoft Share Point"),
+		J2EE ("J2EE"),
+		DOTNET(".NET");
 	
 		
 	private String label;

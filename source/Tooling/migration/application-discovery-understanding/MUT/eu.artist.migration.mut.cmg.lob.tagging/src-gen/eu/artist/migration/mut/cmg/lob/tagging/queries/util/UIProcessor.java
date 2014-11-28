@@ -13,7 +13,7 @@ import org.eclipse.incquery.runtime.api.IMatchProcessor;
 public abstract class UIProcessor implements IMatchProcessor<UIMatch> {
   /**
    * Defines the action that is to be executed on each match.
-   * @param pSub the value of pattern parameter sub in the currently processed match 
+   * @param pSub the value of pattern parameter sub in the currently processed match
    * 
    */
   public abstract void process(final org.eclipse.uml2.uml.Class pSub);

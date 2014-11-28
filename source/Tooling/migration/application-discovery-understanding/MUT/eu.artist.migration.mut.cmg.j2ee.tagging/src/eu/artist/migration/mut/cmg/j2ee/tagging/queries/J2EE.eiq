@@ -1,0 +1,13 @@
+package eu.artist.migration.mut.cmg.j2ee.tagging.queries
+
+import "http://www.eclipse.org/uml2/4.0.0/UML"
+
+pattern security (client : Class){
+	
+	InterfaceRealization.client(Int, client);
+	InterfaceRealization.supplier(Int, supp);
+	Interface.name(supp, suppName);
+	check (
+		suppName == "CallbackHandler" || suppName == "LoginModule"
+	);
+}

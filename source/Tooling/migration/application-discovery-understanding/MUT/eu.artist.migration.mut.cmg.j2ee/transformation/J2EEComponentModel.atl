@@ -1,0 +1,250 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+--- 	Burak Karaboga - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library J2EEComponentModel;
+uses "lib::J2EE";
+
+--- contains all profiles that describe components
+helper def : AllComponentStereotypes() : Set(UML2!Stereotype) = Set{
+	thisModule.entityManagerStereotype, 
+	thisModule.entityStereotype,
+	thisModule.queryStereotype,
+	thisModule.servletStereotype,
+	thisModule.servletResponseStereotype,
+	thisModule.servletRequestStereotype,
+	thisModule.jspPageStereotype,
+	thisModule.genericServletRequestStereotype,
+	thisModule.servletContextStereotype,
+	thisModule.httpJspPageStereotype,
+	thisModule.httpServletStereotype,
+	thisModule.httpServletRequestStereotype,
+	thisModule.httpServletResponseStereotype,
+	thisModule.webServiceStereotype,
+	thisModule.webMethodStereotype,
+	thisModule.webParamStereotype,
+	thisModule.webResultStereotype,
+	thisModule.enterpriseBeanStereotype,
+	thisModule.sessionBeanStereotype,
+	thisModule.messageDrivenStereotype,
+	thisModule.messageListenerStereotype,
+	thisModule.resourceStereotype,
+	thisModule.statefulStereotype,
+	thisModule.statelessStereotype,
+	thisModule.remoteStereotype,
+	thisModule.clientStereotype,
+	thisModule.jmsMessageListenerStereotype,
+	thisModule.messageDrivenBeanStereotype,
+	thisModule.sessionContextStereotype,
+	thisModule.ejbContextStereotype
+};
+
+---******************************** J2EE Queries ************************************---
+
+--- detected entityManagerStereotype stereotyped classes
+helper def: entityManagerStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.entityManagerStereotype))-> debug ('entityManagerStereotype');
+--- detected entityStereotype stereotyped classes
+helper def: entityStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.entityStereotype))-> debug ('entityStereotype');
+--- detected queryStereotype stereotyped classes
+helper def: queryStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.queryStereotype))-> debug ('queryStereotype');
+--- detected servletStereotype stereotyped classes
+helper def: servletStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.servletStereotype))-> debug ('servletStereotype');
+--- detected servletResponseStereotype stereotyped classes
+helper def: servletResponseStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.servletResponseStereotype))-> debug ('servletResponseStereotype');
+--- detected servletRequestStereotype stereotyped classes
+helper def: servletRequestStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.servletRequestStereotype))-> debug ('servletRequestStereotype');
+--- detected jspPageStereotype stereotyped classes
+helper def: jspPageStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.jspPageStereotype))-> debug ('jspPageStereotype');
+--- detected genericServletRequestStereotype stereotyped classes
+helper def: genericServletRequestStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.genericServletRequestStereotype))-> debug ('genericServletRequestStereotype');
+--- detected servletContextStereotype stereotyped classes
+helper def: servletContextStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.servletContextStereotype))-> debug ('servletContextStereotype');
+--- detected httpJspPageStereotype stereotyped classes
+helper def: httpJspPageStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.httpJspPageStereotype))-> debug ('httpJspPageStereotype');
+--- detected httpServletStereotype stereotyped classes
+helper def: httpServletStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.httpServletStereotype))-> debug ('httpServletStereotype');
+--- detected httpServletRequestStereotype stereotyped classes
+helper def: httpServletRequestStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.httpServletRequestStereotype))-> debug ('httpServletRequestStereotype');
+--- detected httpServletResponseStereotype stereotyped classes
+helper def: httpServletResponseStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.httpServletResponseStereotype))-> debug ('httpServletResponseStereotype');
+--- detected webServiceStereotype stereotyped classes
+helper def: webServiceStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.webServiceStereotype))-> debug ('webServiceStereotype');
+--- detected webMethodStereotype stereotyped classes
+helper def: webMethodStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.webMethodStereotype))-> debug ('webMethodStereotype');
+--- detected webParamStereotype stereotyped classes
+helper def: webParamStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.webParamStereotype))-> debug ('webParamStereotype');
+--- detected webResultStereotype stereotyped classes
+helper def: webResultStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.webResultStereotype))-> debug ('webResultStereotype');
+--- detected enterpriseBeanStereotype stereotyped classes
+helper def: enterpriseBeanStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.enterpriseBeanStereotype))-> debug ('enterpriseBeanStereotype');
+--- detected sessionBeanStereotype stereotyped classes
+helper def: sessionBeanStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.sessionBeanStereotype))-> debug ('sessionBeanStereotype');
+--- detected messageDrivenStereotype stereotyped classes
+helper def: messageDrivenStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.messageDrivenStereotype))-> debug ('messageDrivenStereotype');
+--- detected messageListenerStereotype stereotyped classes
+helper def: messageListenerStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.messageListenerStereotype))-> debug ('messageListenerStereotype');
+--- detected resourceStereotype stereotyped classes
+helper def: resourceStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.resourceStereotype))-> debug ('resourceStereotype');
+--- detected statefulStereotype stereotyped classes
+helper def: statefulStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.statefulStereotype))-> debug ('statefulStereotype');
+--- detected statelessStereotype stereotyped classes
+helper def: statelessStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.statelessStereotype))-> debug ('statelessStereotype');
+--- detected remoteStereotype stereotyped classes
+helper def: remoteStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.remoteStereotype))-> debug ('remoteStereotype');
+--- detected clientStereotype stereotyped classes
+helper def: clientStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.clientStereotype))-> debug ('clientStereotype');
+--- detected jmsMessageListenerStereotype stereotyped classes
+helper def: jmsMessageListenerStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.jmsMessageListenerStereotype))-> debug ('jmsMessageListenerStereotype');
+--- detected messageDrivenBeanStereotype stereotyped classes
+helper def: messageDrivenBeanStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.messageDrivenBeanStereotype))-> debug ('messageDrivenBeanStereotype');
+--- detected sessionContextStereotype stereotyped classes
+helper def: sessionContextStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.sessionContextStereotype))-> debug ('sessionContextStereotype');
+--- detected ejbContextStereotype stereotyped classes
+helper def: ejbContextStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.ejbContextStereotype))-> debug ('ejbContextStereotype');
+
+
+
+---*************************** J2EE Components ******************************---
+--- Collects components to be obtained by the transformation, described by:
+--- stereotype: that characterises the classes to be included within the component
+--- classes: classes to be added to the component, organized by package
+--- merge: whether or not to create a single component for all classes (true) or individual components for each class (false)
+--- subGroupStereotype: which characterises the components (within nested packages) to be included as aggregations of this component.
+helper def : components() : 
+	Map (UML2!Stereotype, TupleType (classes:Map (UML2!Package, Sequence (UML2!Class)), merge:Boolean, subGroupStereotype:UML2!Stereotype)) = 
+	Map {
+			(thisModule.entityManagerStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.entityManagerStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.entityStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.entityStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.queryStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.queryStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.servletStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.servletStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.servletResponseStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.servletResponseStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.servletRequestStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.servletRequestStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.jspPageStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.jspPageStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.genericServletRequestStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.genericServletRequestStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.servletContextStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.servletContextStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.httpJspPageStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.httpJspPageStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.httpServletStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.httpServletStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.httpServletRequestStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.httpServletRequestStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.httpServletResponseStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.httpServletResponseStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.webServiceStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.webServiceStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.webMethodStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.webMethodStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.webParamStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.webParamStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.webResultStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.webResultStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.enterpriseBeanStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.enterpriseBeanStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.sessionBeanStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.sessionBeanStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.messageDrivenStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.messageDrivenStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.messageListenerStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.messageListenerStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.resourceStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.resourceStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.statefulStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.statefulStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.statelessStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.statelessStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.remoteStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.remoteStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.clientStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.clientStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.jmsMessageListenerStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.jmsMessageListenerStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.messageDrivenBeanStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.messageDrivenBeanStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.sessionContextStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.sessionContextStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.ejbContextStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.ejbContextStereotypedClasses), merge=true, subGroupStereotype=OclUndefined})
+	};

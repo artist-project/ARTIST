@@ -1,4 +1,5 @@
 -- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
 -- $Id$
 
 -------------------------------------------------------------------------------
@@ -20,6 +21,8 @@
 library "lib::UMLLib";
 --- Library with methods to manage UML2 models
 
+--- Contains all packages from IN
+helper def: allINPackages:Sequence(UML2!Package) = UML2!Package.allInstancesFrom('IN');
 --- Contains all classes from IN
 helper def: allINClasses:Sequence(UML2!Class) = UML2!Class.allInstancesFrom('IN');
 --- Contains all Interfaces from IN
@@ -160,6 +163,19 @@ helper context OclAny def: belongsToPackage(packageName: String): Boolean =
 				self.refImmediateComposite().belongsToPackage(packageName)
 			endif
 	endif;
+
+--- Returns true if an element is contained inside a certain package or any of its
+--- subpackages.
+helper context OclAny def: belongsToPackage(package: UML2!Package): Boolean =
+	if self.oclIsUndefined() then
+		false
+	else
+			if self.getNearestPackage().name = package.name then
+				true
+			else
+				self.refImmediateComposite().belongsToPackage(package)
+			endif
+	endif;
 --- Sets the type from IN so that the property doesn't point to initial:
 helper context UML2!Property def: typeFromIn(): UML2!Type =
 	if UML2!Type.allInstancesFrom('IN')->select(e|not e.name.oclIsUndefined())->select(e|e.name=self.type.name).notEmpty() then
@@ -292,6 +308,11 @@ helper context UML2!Element def : belongsToMainModel() : Boolean =
 		endif
 	endif;
 
+helper def : getMainModel() : UML2!Model = UML2!Model.allInstancesFrom('IN')->select(m | m.oclIsTypeOf(UML2!Model) and
+	not (m.name = 'externals') and not (m.name = 'sourcesReferences') and not (m.name = 'root model'))->first();
+
+
+
 --- returns whether or not the given package (or nested classes) contains a class that has been stereotyped with given stereotype
 helper context UML2!Package def : containsStereotypedClass(ste:UML2!Stereotype) : Boolean = 
 	if (self.packagedElement->isEmpty()) then
@@ -302,7 +323,20 @@ helper context UML2!Package def : containsStereotypedClass(ste:UML2!Stereotype) 
 		else 
 			self.packagedElement-> exists(p | p.oclIsTypeOf(UML2!Package) and p.containsStereotypedClass(ste))
 		endif
-	endif;
+	endif;	
+
+--- returns whether or not the given package (or nested classes) contains a class
+helper context UML2!Package def : containsClass(class:UML2!Class) : Boolean = 
+	if (self.packagedElement->isEmpty()) then
+		 false
+	else
+		if (self.packagedElement-> exists(c | c.oclIsTypeOf(UML2!Class) and c = class)) then
+			true
+		else 
+			self.packagedElement-> exists(p | p.oclIsTypeOf(UML2!Package) and p.containsClass(class))
+		endif
+	endif;	
+
 
 --- returns a set of packages corresponding to the given sequence of classes
 helper context Sequence(UML2!Class) def : getPackagesForClasses () : Set(UML2!Package) =
@@ -317,3 +351,6 @@ helper context Sequence(UML2!Class) def : getClassesInPackage(p: UML2!Package) :
 helper context UML2!Class def : locatePackageWithComponentsOfType(ste: UML2!Stereotype) : Sequence (UML2!Package) = 
 	self.refImmediateComposite().packagedElement->select(p | 
 		p.oclIsTypeOf(UML2!Package) and p.containsStereotypedClass(ste));
+
+--- returns an OclUndefined 
+helper def : any() : OclAny = OclUndefined;

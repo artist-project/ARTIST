@@ -1,0 +1,84 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---    
+-------------------------------------------------------------------------------
+
+
+library DataManagementComponentModel;
+uses "lib::DM";
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- TODO: Add stereotypes to classes
+--- FIXME: Since classes are transformed into components, references to those classes (as Types in operations, for instance)
+--- are not pointing to the components (wrong behavior). Fix it by changing the other the component and inner classes are created,
+--- firstly the class, then the  component (if possible). If not, remove operations and attributes from classes in component model
+	
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- contains all profiles that describe components
+helper def : AllComponentStereotypes() : Set(UML2!Stereotype) = Set{
+	thisModule.concreteSubjectStereotype,
+	thisModule.concreteObserverStereotype,
+	thisModule.subjectStereotype,
+	thisModule.observerStereotype,
+	thisModule.dataModelStereotype
+};
+
+
+---******************DataManagement (Observable pattern)  Queries*******************---
+--- detected concrete subjects stereotyped classes
+helper def: concreteSubjectStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.concreteSubjectStereotype))-> debug ('concrete subjects');
+--- detected concrete observers stereotyped classes
+helper def: concreteObserverStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.concreteObserverStereotype))-> debug ('concrete observers');
+--- detected subjects stereotyped classes
+helper def: subjectStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.subjectStereotype))-> debug ('subjects');
+--- detected observers stereotyped classes
+helper def: observerStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.observerStereotype))-> debug ('observers');
+--- detected data model stereotyped classes
+helper def: dataModelStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.hasStereotype(thisModule.dataModelStereotype))-> debug ('data models');
+
+---*************************** DM Components ******************************---
+--- Collects components to be obtained by the transformation, described by:
+--- stereotype: that characterises the classes to be included within the component
+--- classes: classes to be added to the component, organized by package
+--- merge: whether or not to create a single component for all classes (true) or individual components for each class (false)
+--- subGroupStereotype: which characterises the components (within nested packages) to be included as aggregations of this component.
+helper def : components() : 
+	Map (UML2!Stereotype, TupleType (classes:Map (UML2!Package, Sequence (UML2!Class)), merge:Boolean, subGroupStereotype:UML2!Stereotype)) = 
+	Map {(thisModule.concreteSubjectStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.concreteSubjectStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.concreteObserverStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.concreteObserverStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.subjectStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.subjectStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.observerStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.observerStereotypedClasses), merge=false, subGroupStereotype=OclUndefined}),
+		 (thisModule.dataModelStereotype, 
+		 Tuple{classes=thisModule.organizedByPackage(thisModule.dataModelStereotypedClasses), merge=false, subGroupStereotype=OclUndefined})
+	};

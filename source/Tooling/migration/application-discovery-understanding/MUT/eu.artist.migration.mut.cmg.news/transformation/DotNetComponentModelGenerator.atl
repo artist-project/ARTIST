@@ -1,0 +1,79 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesus Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+ 
+module DotNetComponentModelGenerator;
+create OUT: UML2 from IN: UML2, DotNetProfile: profile;
+--uses "lib::UMLLib";
+uses "transformations::ComponentModelGenerator";
+uses DotNetComponentModel;
+
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+--- TODO: Add stereotypes to classes
+--- FIXME: Since classes are transformed into components, references to those classes (as Types in operations, for instance)
+--- are not pointing to the components (wrong behavior). Fix it by changing the other the component and inner classes are created,
+--- firstly the class, then the  component (if possible). If not, remove operations and attributes from classes in component model
+
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+---//////////////////////////////////////////////////////////////////////////////////////////////// ---
+
+
+---################################## GLOBAL VARIABLES ##################################### ---
+
+---################################## END OF GLOBAL VARIABLES ##################################### ---
+
+---***************************DotNet profile Stereotypes******************************---
+--- DotNet profile applied to the IN model
+helper def : DotNetProfile() : UML2!Profile = profile!Profile.allInstancesFrom('DotNetProfile').asSequence().first();
+
+
+--- ############################################# RULES ########################################### ---
+
+rule Model {
+    from s : UML2!"uml::Model" in IN (s.belongsToMainModel())
+    to t : UML2!"uml::Model" (
+        __xmiID__ <- s.__xmiID__,
+        name <- s.name,
+        visibility <- s.visibility,
+        URI <- s.URI,
+        viewpoint <- s.viewpoint,
+        eAnnotations <- s.eAnnotations,
+        ownedComment <- s.ownedComment,
+        clientDependency <- s.clientDependency,
+        nameExpression <- s.nameExpression,
+        elementImport <- s.elementImport,
+        packageImport <- s.packageImport,
+        ownedRule <- s.ownedRule,
+        templateParameter <- s.templateParameter,
+        ownedTemplateSignature <- s.ownedTemplateSignature,
+        templateBinding <- s.templateBinding,
+        packageMerge <- s.packageMerge,
+        packagedElement <- s.packagedElement,
+        profileApplication <- s.profileApplication)
+	do {
+		t.applyProfile(thisModule.DotNetProfile());
+	}
+}
+

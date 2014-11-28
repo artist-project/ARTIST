@@ -63,7 +63,9 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.ide.IDE;
 
 import eu.artist.migration.mut.cmg.dialog.ComponentModelGeneratorDialog;
+import eu.artist.migration.mut.cmg.dotnet.tagging.taggers.DotNetTagger;
 import eu.artist.migration.mut.cmg.generators.CMGenerators;
+import eu.artist.migration.mut.cmg.j2ee.tagging.taggers.J2EETagger;
 import eu.artist.migration.mut.cmg.lob.tagging.taggers.MSSharePointTagger;
 
 public class GenerateComponentModelHandler extends AbstractHandler {
@@ -176,7 +178,7 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 	public void generateComponentModel(final IFile model, final ExecutionEvent event, 
 			final IProject targetProject, final EnumSet<CMGenerators> cmGenerators, 
 			final String pluginModel, final boolean mergeModels) {
-			Job job = new Job("Merging UML models in progress") {
+			Job job = new Job("Generating component models in progress") {
 			@Override
 			protected IStatus run(final IProgressMonitor monitor) {
 				URI modelUri = model.getLocationURI();
@@ -192,8 +194,15 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 				URI spOutUri = URI.create(modelUri.toString().substring(0,
 						modelUri.toString().lastIndexOf("/") + 1)
 						+ "share_point_component_model.uml");
+				URI j2EEOutUri = URI.create(modelUri.toString().substring(0,
+						modelUri.toString().lastIndexOf("/") + 1)
+						+ "j2ee_component_model.uml");
+				URI dotNetOutUri = URI.create(modelUri.toString().substring(0,
+						modelUri.toString().lastIndexOf("/") + 1)
+						+ "dotnet_component_model.uml");
 
 				monitor.beginTask("Generating component models", 2*cmGenerators.size() + (mergeModels?1:0));
+				System.out.println ("Number of tasks " + (2*cmGenerators.size() + (mergeModels?1:0)));
 
 				if (monitor.isCanceled()) {
 					return Status.CANCEL_STATUS;
@@ -205,6 +214,7 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 					if (cmGenerators.contains(CMGenerators.Observer_pattern)){
 						generateObserverPatternComponentModel(modelUri, dmOutUri, monitor);
 						monitor.worked(1);
+						System.out.println ("Completed task");
 					}
 
 	
@@ -212,17 +222,33 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 					if (cmGenerators.contains(CMGenerators.RCP)){
 						generateEclipseRCPComponentModel(modelUri, pluginModel, rcpOutUri, monitor);
 						monitor.worked(1);
+						System.out.println ("Completed task");
 					}
 					
 					//Merging models
 					if (mergeModels){
 						mergeModels(dmOutUri, rcpOutUri, mergedOutUri, monitor);
 						monitor.worked(1);
+						System.out.println ("Completed task");
 					}
 					
+					//Generating MS SharePoint component model
 					if (cmGenerators.contains(CMGenerators.MS_Sharepoint)){
 						generateMSSharePointComponentModel(model, spOutUri, monitor);
 						monitor.worked(1);
+						System.out.println ("Completed task");
+					}
+					//Generating J2EE component model
+					if (cmGenerators.contains(CMGenerators.J2EE)){
+						generateJ2EEComponentModel(model, j2EEOutUri, monitor);
+						monitor.worked(1);
+						System.out.println ("Completed task");
+					}
+					//Generating DotNet component model
+					if (cmGenerators.contains(CMGenerators.DOTNET)){
+						generateDotNetComponentModel(model, dotNetOutUri, monitor);
+						monitor.worked(1);
+						System.out.println ("Completed task");
 					}
 
 					refreshTargetProject(targetProject);
@@ -237,7 +263,9 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 				}
 
 				showDialog(Status.OK_STATUS, targetProject);
-				openFilesInEditor(Arrays.asList(new URI[]{dmOutUri, rcpOutUri, mergedOutUri, spOutUri}));
+				System.out.println ("Completion dialog shown");
+				openFilesInEditor(Arrays.asList(new URI[]{dmOutUri, rcpOutUri, mergedOutUri, spOutUri, dotNetOutUri}));
+				System.out.println ("Generated Files opened");
 				return Status.OK_STATUS;
 			}
 
@@ -259,24 +287,25 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 				inModels.put("IN", org.eclipse.emf.common.util.URI.createURI(modelUri.toString()));
 				inModels.put("Plugin", org.eclipse.emf.common.util.URI.createURI("file://" + pluginModel));
 				inModels.put("Profile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/rcp-indigo.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/rcp-indigo.profile.uml"));
 				
 				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(rcpOutUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.dews/transformations/",
-						"platform:/plugin/eu.artist.migration.mut.cmg.lib/"}), 
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 					"RCPProfiling", monitor);
 				monitor.worked(1);
+				System.out.println ("Completed task");
 
 
 				//Generating RCP component model
 				inModels.clear();
 				inModels.put("IN", org.eclipse.emf.common.util.URI.createURI(rcpOutUri.toString()));
 				inModels.put("Profile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/rcp-indigo.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/rcp-indigo.profile.uml"));
 				
 				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(rcpOutUri.toString()),
-					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.componentmodelgeneratcmg/",
-						"platform:/plugin/eu.artist.migration.mut.cmg.lib/"}), 
+					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.dews/transformations/",
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 					"RCPComponentModelGenerator", monitor);
 			}
 
@@ -296,31 +325,31 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 				inModels.clear();
 				inModels.put("IN", org.eclipse.emf.common.util.URI.createURI(modelUri.toString()));
 				inModels.put("Profile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/DataManagement.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/DataManagement.profile.uml"));
 				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(dmOutUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.dews/transformations/",
-						"platform:/plugin/eu.artist.migration.mut.cmg.lib/"}), 
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 					"DataManagementProfiling", monitor);
 				monitor.worked(1);
+				System.out.println ("Completed task");
 				
 				//Generating Data Management (Observer pattern) component model
 				inModels.clear();
 				inModels.put("IN", org.eclipse.emf.common.util.URI.createURI(dmOutUri.toString()));
 				inModels.put("Profile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/DataManagement.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/DataManagement.profile.uml"));
 				
 				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(dmOutUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.dews/transformations/",
-						"platform:/plugin/eu.artist.migration.mut.cmg.lib/"}), 
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 					"DataManagementComponentModelGenerator", monitor);
 				
 			}
 			
 			/**
-			 * Specialized generator method to obtain an Observer pattern component model
-			 * @param modelUri The input class model
-			 * @param pluginModel The input plug-in model
-			 * @param rcpOutUri The output model
+			 * Specialized generator method to obtain a MS SharePoint component model
+			 * @param modelFile The input class model
+			 * @param spOutUri The output model
 			 * @param monitor An Eclipse Job execution monitor
 			 * @throws Exception
 			 */
@@ -337,18 +366,80 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 				inModels.clear();
 				inModels.put("IN", taggedModelURI); //org.eclipse.emf.common.util.URI.createURI(modelFile.getLocationURI().toString()));
 				inModels.put("GenericProfile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/Generic.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/Generic.profile.uml"));
 				inModels.put("MicrosoftSharePointProfile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.migration.mut.cmg.profiles/profiles/MicrosoftSharePoint.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/MicrosoftSharePoint.profile.uml"));
 				
 				//TODO: Module name should be changed
 				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(spOutUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.lob/transformation/",
-						"platform:/plugin/eu.artist.migration.mut.cmg.lib/"}), 
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
+					"SharepointComponentModelGenerator", monitor);
+				monitor.worked(1);
+				System.out.println ("Completed task");
+			}
+			
+			/**
+			 * Specialized generator method to obtain an Observer pattern component model
+			 * @param modelFile The input class model
+			 * @param j2eeOutUri The output model
+			 * @param monitor An Eclipse Job execution monitor
+			 * @throws Exception
+			 */
+			private void generateJ2EEComponentModel(IFile modelFile, URI j2EEOutUri, final IProgressMonitor monitor)
+					throws Exception {
+				Map<String, org.eclipse.emf.common.util.URI> inModels = new HashMap<>();
+				
+				//Tagging J2EE elements in model
+				J2EETagger j2eeTagger = new J2EETagger();
+				 org.eclipse.emf.common.util.URI taggedModelURI = j2eeTagger.tagModel(modelFile);
+				
+				//Generating the J2EE component model
+				inModels.clear();
+				inModels.put("IN", taggedModelURI); //org.eclipse.emf.common.util.URI.createURI(modelFile.getLocationURI().toString()));
+				inModels.put("J2EEProfile", org.eclipse.emf.common.util.URI.createURI(
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/J2EE6.profile.uml"));
+				
+				//TODO: Module name should be changed
+				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(j2EEOutUri.toString()),
+					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.j2ee/transformation/",
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
 					"ComponentModelGenerator", monitor);
 				monitor.worked(1);
+				System.out.println ("Completed task");
+			}
+			
+			/**
+			 * Specialized generator method to obtain an Observer pattern component model
+			 * @param modelFile The input class model
+			 * @param j2eeOutUri The output model
+			 * @param monitor An Eclipse Job execution monitor
+			 * @throws Exception
+			 */
+			private void generateDotNetComponentModel(IFile modelFile, URI dotNetOutUri, final IProgressMonitor monitor)
+					throws Exception {
+				Map<String, org.eclipse.emf.common.util.URI> inModels = new HashMap<>();
+				
+				//Tagging DotNet elements in model
+				DotNetTagger dotNetTagger = new DotNetTagger();
+				 org.eclipse.emf.common.util.URI taggedModelURI = dotNetTagger.tagModel(modelFile);
+				
+				//Generating the J2EE component model
+				inModels.clear();
+				inModels.put("IN", taggedModelURI); //org.eclipse.emf.common.util.URI.createURI(modelFile.getLocationURI().toString()));
+				inModels.put("DotNetProfile", org.eclipse.emf.common.util.URI.createURI(
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/dotnet.profile.uml"));
+				
+				//TODO: Module name should be changed
+				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(dotNetOutUri.toString()),
+					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.news/transformation/",
+						"platform:/plugin/eu.artist.repository.artefacts/"}), 
+					"DotNetComponentModelGenerator", monitor);
+				monitor.worked(1);
+				System.out.println ("Completed task");
 			}
 		};
+		
 		job.setPriority(Job.LONG);
 		job.setUser(true);
 		job.schedule();
