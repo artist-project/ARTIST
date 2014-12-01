@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_cfmVgCHvEeS4u6iANf5ItQ" name="Model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_cfmVgSHvEeS4u6iANf5ItQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_nIiqICHvEeS4u6iANf5ItQ" name="p1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_eLAHYCHvEeS4u6iANf5ItQ" name="c0"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_fB4FACHvEeS4u6iANf5ItQ" name="c1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eeVTECHvEeS4u6iANf5ItQ" name="c2">
+      <generalization xmi:type="uml:Generalization" xmi:id="_lI34cCHvEeS4u6iANf5ItQ" general="_eLAHYCHvEeS4u6iANf5ItQ"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_lqhM8CHvEeS4u6iANf5ItQ" general="_fB4FACHvEeS4u6iANf5ItQ"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

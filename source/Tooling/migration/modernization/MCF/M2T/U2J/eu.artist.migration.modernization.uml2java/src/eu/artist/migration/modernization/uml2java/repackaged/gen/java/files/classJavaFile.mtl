@@ -1,0 +1,222 @@
+[comment encoding = UTF-8 /]
+[module classJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::classifierJavaFile]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::documentation /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::declaration/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::attribute/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::behavior/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::request::request/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::classifierServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::commonServices/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::typesServices /]
+
+[comment TODO: import of stereotype service /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::stereotypeServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importServiceAnnotations /]
+
+
+[template public genImportStatements(aClassifier : Classifier) overrides genImportStatements ? (aClassifier.oclIsKindOf(Class))]
+[aClassifier.genImport()/]
+[/template]
+
+[comment TODO: Changed to public /]
+[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
+[let aClass : Class = aClassifier.oclAsType(Class)]
+[comment ADDED genAnnotation /]
+[aClass.genAnnotation()/]
+[aClass.declaration()/] {
+	[aClass.attributes()/]
+	[aClass.constructor()/]
+	[aClass.operations()/]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+	[aProperty.accessors()/]
+
+[/for]
+[/let]
+[/template]
+
+[comment TODO: Changed to public /]
+[template public declaration(aClass : Class)]
+[aClass.genVisibility()/][aClass.genAbstract()/][aClass.genFinal()/]class [aClass.genName()/][aClass.genInheritance()/][aClass.genInterfaceRealization()/]
+[/template]
+
+[comment TODO: Changed to public /]
+[template public attributes(aClass : Class)]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+[aProperty.genAttributeComment()/]
+[comment ADDED genAnnotation /]
+[aProperty.genAnnotation()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/] = [aProperty.reqDefaultValue()/];
+
+[/for]
+// [protected ('(user defined attributes for ' + aClass.name + ')')]
+
+// [/protected]
+
+[/template]
+
+[template private constructor(aClass : Class)]
+[comment creates default constructor /]
+[if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
+/**
+ * The default constructor.
+ */
+public [aClass.genName()/]() {
+
+}
+[comment "else" part was missing here !! /]
+[else]
+[for (aConstructor : Operation | ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name)))]
+/**
+ * The constructor.
+[for (aParameter : Parameter | aConstructor.ownedParameter)]
+ * @param [aParameter.genName()/][aParameter.genComment()/]
+[/for]
+ */
+[comment ADDED genAnnotation /]
+[aConstructor.genAnnotation()/]
+[aConstructor.genVisibility()/][aConstructor.genName()/]([aConstructor.genOperationParameters()/]) {
+	// [protected ('constructor with ' + aConstructor.ownedParameter.genName()->sep(', ') + ' for ' + aClass.name + ')')]
+	super();
+	// [/protected]
+}
+[/for]
+[/if]
+[/template]
+
+[template public operations(aClass : Class)]
+[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[anOperation.genOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genMethodPrototype()/];
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+ 
+[/for]
+[for (anOperation : Operation | aClass.reqGetAllInheritedOperations()->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[anOperation.genOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genInheritedMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+ 
+[/for]
+// [protected ('(user defined methods for ' + aClass.name + ')')]
+
+// [/protected]
+[/template]
+
+[template private accessors(aProperty : Property) post(trim())]
+
+[if (aProperty.reqShouldGenerateGettersAndSetters())][aProperty.getterAndSetter()/][/if]
+[if (not (aProperty.upper = 1) and aProperty.reqShouldGenerateGettersForCollections())][aProperty.collectionGetter()/][/if]
+[if (not (aProperty.upper = 1) and aProperty.reqShouldGenerateSettersForCollections())][aProperty.collectionSetter()/][/if]
+[if (not (aProperty.upper = 1) and aProperty.reqShouldGenerateAdvancedAccessorsForCollections())][aProperty.collectionAdvancedAccessors()/][/if]
+
+[/template]
+
+[comment: Changed to public /]
+[template public getterAndSetter(aProperty : Property) ? (aProperty.upper = 1)]
+/**
+ * Returns [aProperty.genName()/].
+ * @return [aProperty.genName()/] [aProperty.genComment()/]
+ */
+public [if(aProperty.isStatic)]static [/if][aProperty.reqTypeName()/] get[aProperty.genName().toUpperFirst()/]() {
+	return [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/];
+}
+[if (not aProperty.isLeaf)]
+
+/**
+ * Sets a value to attribute [aProperty.genName()/]. 
+ * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] new[aProperty.genName().toUpperFirst()/]) {
+[if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and aProperty.opposite.upper = 1)]
+	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
+		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
+	}
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](this);
+[else]
+    [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] = new[aProperty.genName().toUpperFirst()/];
+[/if]
+}
+[/if]
+[/template]
+
+[template private collectionGetter(aProperty : Property)]
+
+/**
+ * Returns [aProperty.genName()/].
+ * @return [aProperty.genName()/] [aProperty.genComment()/]
+ */
+public [if(aProperty.isStatic)]static [/if][aProperty.reqTypeName()/] get[aProperty.genName().toUpperFirst()/]() {
+	return [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/];
+}
+[/template]
+
+[template private collectionSetter(aProperty : Property) ? (not aProperty.isLeaf)]
+
+/**
+ * Sets a value to attribute [aProperty.genName()/]. 
+ * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void set[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] new[aProperty.genName().toUpperFirst()/]) {
+[if (not aProperty.opposite.oclIsUndefined() and aProperty.upper = 1 and aProperty.opposite.upper = 1)]
+	if([if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] != null) {
+		[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](null);
+	}
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].set[aProperty.genPropertyParent()/](this);
+[else]
+    [if(not aProperty.isStatic)]this.[/if][aProperty.genName()/] = new[aProperty.genName().toUpperFirst()/];
+[/if]
+}
+[/template]
+
+
+[template private collectionAdvancedAccessors(aProperty : Property)]
+
+/**
+ * Adds one attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToAdd in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void add[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.type.name.toUpperFirst()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToAdd) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].add([aProperty.type.name.toUpperFirst().toLowerFirst()/]ToAdd);
+}
+
+/**
+ * Removes an attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToRemove in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void remove[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.type.name.toUpperFirst()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]ToRemove) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].remove([aProperty.type.name.toUpperFirst().toLowerFirst()/]ToRemove);
+}
+
+/**
+ * Adds all the attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToAdd in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void addAll[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToAdd) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].addAll([aProperty.type.name.toUpperFirst().toLowerFirst()/]sToAdd);
+}
+
+/**
+ * Removes all the attribute (if [aProperty.genName()/] had a multiple cardinality)
+ * @param [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove in [aProperty.genName()/]
+ */
+public [if(aProperty.isStatic)]static [/if]void removeAll[aProperty.type.name.toUpperFirst()/]To[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] [aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove) {
+	[if(not aProperty.isStatic)]this.[/if][aProperty.genName()/].removeAll([aProperty.type.name.toUpperFirst().toLowerFirst()/]sToRemove);
+}
+[/template]

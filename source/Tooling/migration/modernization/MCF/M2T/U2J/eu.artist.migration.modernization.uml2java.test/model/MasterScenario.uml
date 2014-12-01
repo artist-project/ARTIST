@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:GoogleAppEngineProfile.InstancesPackage="http:///GoogleAppEngineProfile/InstancesPackage.ecore" xmlns:deployment.org.artist.profiles.deployment="http:///deployment/org/artist/profiles/deployment.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:objectify.com.googlecode.objectify.annotation="http:///objectify/com/googlecode/objectify/annotation.ecore" xmlns:platform.org.artist.profiles.platform="http:///platform/org/artist/profiles/platform.ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///GoogleAppEngineProfile/InstancesPackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_1JyaFOrlEeOPP6Ni2Il2Hw http:///deployment/org/artist/profiles/deployment.ecore platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/deployment_profile.profile.uml#_jHx2Z-GkEeO9doEpfZw2-A http:///objectify/com/googlecode/objectify/annotation.ecore platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml#_iBPRyQ4REeOw55r2XsEBlg http:///platform/org/artist/profiles/platform.ecore platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml#_nVo99-GkEeO9doEpfZw2-A">
+  <uml:Model xmi:id="_zDiH4L8HEeO1PYkvBb1AeQ" name="petstore-app">
+    <packageImport xmi:id="_zDiH4b8HEeO1PYkvBb1AeQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_zDiH4r8HEeO1PYkvBb1AeQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_AfQmYOGoEeO_ftnmml3HUQ">
+      <importedPackage xmi:type="uml:Model" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bE_3gEeKQb7onjNL6fQ"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Component" xmi:id="_3OB7UOGWEeOQnuqdpdIxcA" name="PetstoreDomain"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_5G13EOGWEeOQnuqdpdIxcA" clientDependency="_i1VP8OGuEeO_ftnmml3HUQ _SB248AKuEeSG_JkQVBOn0A" name="PetstoreWeb"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_5XrvcOGWEeOQnuqdpdIxcA" clientDependency="_iMixoOGuEeO_ftnmml3HUQ" name="PetstoreService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_iMixoOGuEeO_ftnmml3HUQ" name="" client="_5XrvcOGWEeOQnuqdpdIxcA" supplier="_3OB7UOGWEeOQnuqdpdIxcA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_i1VP8OGuEeO_ftnmml3HUQ" name="" client="_5G13EOGWEeOQnuqdpdIxcA" supplier="_3OB7UOGWEeOQnuqdpdIxcA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_SB248AKuEeSG_JkQVBOn0A" name="" client="_5G13EOGWEeOQnuqdpdIxcA" supplier="_5XrvcOGWEeOQnuqdpdIxcA"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_0CFGQOGiEeOQnuqdpdIxcA" clientDependency="_EQAtcOGjEeOQnuqdpdIxcA _r2Ym8AKuEeSG_JkQVBOn0A" name="PetstoreModel" fileName="/eu.artist.migration.reference.application">
+      <manifestation xmi:id="_EQAtcOGjEeOQnuqdpdIxcA" name="" client="_0CFGQOGiEeOQnuqdpdIxcA" supplier="_3OB7UOGWEeOQnuqdpdIxcA" utilizedElement="_3OB7UOGWEeOQnuqdpdIxcA"/>
+      <manifestation xmi:id="_r2Ym8AKuEeSG_JkQVBOn0A" name="" client="_0CFGQOGiEeOQnuqdpdIxcA" supplier="_5XrvcOGWEeOQnuqdpdIxcA _3OB7UOGWEeOQnuqdpdIxcA" utilizedElement="_5XrvcOGWEeOQnuqdpdIxcA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_ZKbKgOGmEeO_ftnmml3HUQ" clientDependency="_tWCvQOGmEeO_ftnmml3HUQ" name="PetstoreController" fileName="/eu.artist.migration.reference.application">
+      <manifestation xmi:id="_tWCvQOGmEeO_ftnmml3HUQ" name="" client="_ZKbKgOGmEeO_ftnmml3HUQ" supplier="_5G13EOGWEeOQnuqdpdIxcA" utilizedElement="_5G13EOGWEeOQnuqdpdIxcA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_BA5wUOGnEeO_ftnmml3HUQ" clientDependency="_PQUI8AKvEeSG_JkQVBOn0A _Q1Z3cAKvEeSG_JkQVBOn0A" name="PetstoreApp" fileName="/eu.artist.migration.reference.application">
+      <manifestation xmi:id="_PQUI8AKvEeSG_JkQVBOn0A" name="" client="_BA5wUOGnEeO_ftnmml3HUQ" supplier="_0CFGQOGiEeOQnuqdpdIxcA" utilizedElement="_0CFGQOGiEeOQnuqdpdIxcA"/>
+      <manifestation xmi:id="_Q1Z3cAKvEeSG_JkQVBOn0A" name="" client="_BA5wUOGnEeO_ftnmml3HUQ" supplier="_ZKbKgOGmEeO_ftnmml3HUQ" utilizedElement="_ZKbKgOGmEeO_ftnmml3HUQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_VIZNkOGoEeO_ftnmml3HUQ" clientDependency="_p8EekOGtEeO_ftnmml3HUQ" name="PM" classifier="_0CFGQOGiEeOQnuqdpdIxcA"/>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_iKdVsOGoEeO_ftnmml3HUQ" clientDependency="_q-2KMOGtEeO_ftnmml3HUQ" name="PC" classifier="_ZKbKgOGmEeO_ftnmml3HUQ"/>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_81MS8OGoEeO_ftnmml3HUQ" clientDependency="_u4GFYANnEeSYze57Hn1Kng" name="DomainInstance">
+      <deployment xmi:id="_u4GFYANnEeSYze57Hn1Kng" client="_81MS8OGoEeO_ftnmml3HUQ" supplier="_VIZNkOGoEeO_ftnmml3HUQ" deployedArtifact="_VIZNkOGoEeO_ftnmml3HUQ"/>
+      <classifier xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+      <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_KkVjgOGpEeO_ftnmml3HUQ" clientDependency="_56mJgANnEeSYze57Hn1Kng" name="WebInstance">
+      <deployment xmi:id="_56mJgANnEeSYze57Hn1Kng" client="_KkVjgOGpEeO_ftnmml3HUQ" supplier="_iKdVsOGoEeO_ftnmml3HUQ" deployedArtifact="_iKdVsOGoEeO_ftnmml3HUQ"/>
+      <classifier xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+      <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_p8EekOGtEeO_ftnmml3HUQ" name="" client="_VIZNkOGoEeO_ftnmml3HUQ" supplier="_81MS8OGoEeO_ftnmml3HUQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_q-2KMOGtEeO_ftnmml3HUQ" name="" client="_iKdVsOGoEeO_ftnmml3HUQ" supplier="_KkVjgOGpEeO_ftnmml3HUQ"/>
+    <profileApplication xmi:id="_Mu3Y0OGSEeO9doEpfZw2-A">
+      <eAnnotations xmi:id="_Mu51EOGSEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml#_iBPRwg4REeOw55r2XsEBlg"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml#_iBPRwA4REeOw55r2XsEBlg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_quHgMOGlEeO_ftnmml3HUQ">
+      <eAnnotations xmi:id="_queskOGlEeO_ftnmml3HUQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/deployment_profile.profile.uml#_jHx2YOGkEeO9doEpfZw2-A"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/deployment_profile.profile.uml#_p1EAAOGfEeO9doEpfZw2-A"/>
+    </profileApplication>
+    <profileApplication xmi:id="_cCn_UOGpEeO_ftnmml3HUQ">
+      <eAnnotations xmi:id="_cDHukOGpEeO_ftnmml3HUQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_1JyZ0OrlEeOPP6Ni2Il2Hw"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_8pyKYAQQEeOYP5GGYb_HuQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_oi7E4OGuEeO_ftnmml3HUQ">
+      <eAnnotations xmi:id="_ojJuYOGuEeO_ftnmml3HUQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml#_nVo98OGkEeO9doEpfZw2-A"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml#_oj6noODjEeOwY-fyt2GR9A"/>
+    </profileApplication>
+  </uml:Model>
+  <objectify.com.googlecode.objectify.annotation:Embed xmi:id="_MxDxMOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_MxE_UOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_MxM7IOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_MxNiMOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_Mxf2EOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_MxgdIOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_MxhrQOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Embed xmi:id="_MxiSUOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_MxiSUeGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_Mxi5YOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_Mxi5YeGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_Mxi5YuGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_MxjgcOGSEeO9doEpfZw2-A"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_MxjgceGSEeO9doEpfZw2-A"/>
+  <deployment.org.artist.profiles.deployment:DeploymentUnit xmi:id="_zT-iwOGlEeO_ftnmml3HUQ" base_Artifact="_0CFGQOGiEeOQnuqdpdIxcA"/>
+  <deployment.org.artist.profiles.deployment:DeploymentUnit xmi:id="_76geQOGmEeO_ftnmml3HUQ" base_Artifact="_ZKbKgOGmEeO_ftnmml3HUQ"/>
+  <deployment.org.artist.profiles.deployment:DeploymentUnit xmi:id="_e2oC4OGnEeO_ftnmml3HUQ" base_Artifact="_BA5wUOGnEeO_ftnmml3HUQ" packaging="EAR"/>
+  <GoogleAppEngineProfile.InstancesPackage:FrontendInstance xmi:id="_gcbRIOGpEeO_ftnmml3HUQ" base_InstanceSpecification="_81MS8OGoEeO_ftnmml3HUQ" instanceType="F3"/>
+  <GoogleAppEngineProfile.InstancesPackage:FrontendInstance xmi:id="_sMrMEOGpEeO_ftnmml3HUQ" base_InstanceSpecification="_KkVjgOGpEeO_ftnmml3HUQ" instanceType="F4"/>
+  <platform.org.artist.profiles.platform:Framework xmi:id="_qB3vIOGuEeO_ftnmml3HUQ" base_Component="_3OB7UOGWEeOQnuqdpdIxcA">
+    <dependencies>Objectify</dependencies>
+    <dependencies>EJB</dependencies>
+  </platform.org.artist.profiles.platform:Framework>
+  <platform.org.artist.profiles.platform:Language xmi:id="_5GVM0OGuEeO_ftnmml3HUQ" base_Component="_3OB7UOGWEeOQnuqdpdIxcA">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <platform.org.artist.profiles.platform:Language xmi:id="_EskQIOGvEeO_ftnmml3HUQ" base_Component="_5XrvcOGWEeOQnuqdpdIxcA">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <platform.org.artist.profiles.platform:Language xmi:id="_GpR0cOGvEeO_ftnmml3HUQ" base_Component="_5G13EOGWEeOQnuqdpdIxcA">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+</xmi:XMI>

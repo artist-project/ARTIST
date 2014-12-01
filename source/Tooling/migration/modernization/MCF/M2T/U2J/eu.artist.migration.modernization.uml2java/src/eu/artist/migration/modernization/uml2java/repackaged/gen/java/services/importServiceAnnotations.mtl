@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module importServiceAnnotations.
+ */]
+[module importServiceAnnotations('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService]
+
+
+[**
+ * The documentation of the template genImport.
+ * @param aClass
+ */]
+[template public genImport(aClassifier : Classifier) overrides genImport]
+[reqImport()/]
+[super/]
+[/template]
+
+[query private reqImport(aClassifier : Classifier) : String =
+	invoke('eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.ImportServicesAnnotations', 'reqImport(org.eclipse.uml2.uml.Classifier)', Sequence{aClassifier}).toString().trim()
+/]

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_7Dri4CHvEeS4u6iANf5ItQ" name="Model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_7Dri4SHvEeS4u6iANf5ItQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="__GGPcCHvEeS4u6iANf5ItQ" name="p1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_8YeyoCHvEeS4u6iANf5ItQ" name="c1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="__W99ACHvEeS4u6iANf5ItQ" name="a1" visibility="public" isUnique="false" isDerived="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ct5ckCHwEeS4u6iANf5ItQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ct6DoCHwEeS4u6iANf5ItQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_Ct9G8CHwEeS4u6iANf5ItQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

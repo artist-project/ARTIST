@@ -1,0 +1,1693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:objectify.com.googlecode.objectify.annotation="http:///objectify/com/googlecode/objectify/annotation.ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///objectify/com/googlecode/objectify/annotation.ecore platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml#_iBPRyQ4REeOw55r2XsEBlg">
+  <uml:Model xmi:id="_KuFB0E_oEeSmsZl-3YrQ-w" name="eu.artist.uc.dews">
+    <packageImport xmi:id="_KuFB0U_oEeSmsZl-3YrQ-w">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_KuFB0k_oEeSmsZl-3YrQ-w">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_KuFB00_oEeSmsZl-3YrQ-w" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_KuFB1E_oEeSmsZl-3YrQ-w" name="fosslab">
+        <packagedElement xmi:type="uml:Package" xmi:id="_KuFB1U_oEeSmsZl-3YrQ-w" name="ilc">
+          <packagedElement xmi:type="uml:Package" xmi:id="_KuFB1k_oEeSmsZl-3YrQ-w" name="db">
+            <packagedElement xmi:type="uml:Package" xmi:id="_KuFB10_oEeSmsZl-3YrQ-w" name="model">
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFB2E_oEeSmsZl-3YrQ-w" name="CapCertainty">
+                <ownedAttribute xmi:id="_KuFB2U_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB2k_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB20_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB3E_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB3U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB3k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB30_oEeSmsZl-3YrQ-w" name="numericencoding" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB4E_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB4U_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB4k_oEeSmsZl-3YrQ-w" name="messageTypes" visibility="private" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFpu0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB40_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB5E_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB5U_oEeSmsZl-3YrQ-w" name="categories" visibility="private" type="_KuFCnU_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFpv0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB5k_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB50_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFB6E_oEeSmsZl-3YrQ-w" name="CapSeverity">
+                <ownedAttribute xmi:id="_KuFB6U_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB6k_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB60_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB7E_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB7U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB7k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB70_oEeSmsZl-3YrQ-w" name="numericencoding" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB8E_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB8U_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB8k_oEeSmsZl-3YrQ-w" name="messageTypes" visibility="private" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFpw0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB80_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB9E_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB9U_oEeSmsZl-3YrQ-w" name="categories" visibility="private" type="_KuFCnU_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFpx0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB9k_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB90_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFB-E_oEeSmsZl-3YrQ-w" name="HazardType">
+                <ownedAttribute xmi:id="_KuFB-U_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB-k_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB-0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB_E_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFB_U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFB_k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFB_0_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCAE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCAU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCAk_oEeSmsZl-3YrQ-w" name="parameters" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCA0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCBE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCBU_oEeSmsZl-3YrQ-w" name="UserAccount">
+                <ownedAttribute xmi:id="_KuFCBk_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCB0_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCCE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCCU_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCCk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCC0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCDE_oEeSmsZl-3YrQ-w" name="defaultlanguage" visibility="private" type="_KuFo40_oEeSmsZl-3YrQ-w" association="_KuFp_0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCDU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCDk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCD0_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCEE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCEU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCEk_oEeSmsZl-3YrQ-w" name="password" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCE0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCFE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCFU_oEeSmsZl-3YrQ-w" name="username" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCFk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCF0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCGE_oEeSmsZl-3YrQ-w" name="mailaddress" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCGU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCGk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCG0_oEeSmsZl-3YrQ-w" name="messageConsumerProfiles" visibility="private" type="_KuFo80_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFpy0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCHE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCHU_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCHk_oEeSmsZl-3YrQ-w" name="MessageConsumerProfileArea">
+                <ownedAttribute xmi:id="_KuFCH0_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCIE_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCIU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCIk_oEeSmsZl-3YrQ-w" name="messageConsumerProfile" visibility="private" type="_KuFo80_oEeSmsZl-3YrQ-w" association="_KuFqB0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCI0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCJE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCJU_oEeSmsZl-3YrQ-w" name="geocodetype" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCJk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCJ0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCKE_oEeSmsZl-3YrQ-w" name="geocode" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCKU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCKk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCK0_oEeSmsZl-3YrQ-w" name="nosubregionaggregation" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCLE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCLU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCLk_oEeSmsZl-3YrQ-w" name="DisseminationProviderProfile">
+                <ownedAttribute xmi:id="_KuFCL0_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCME_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCMU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCMk_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCM0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCNE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCNU_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCNk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCN0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCOE_oEeSmsZl-3YrQ-w" name="contact" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCOU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCOk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCO0_oEeSmsZl-3YrQ-w" name="disseminationProviderProfileChannelConfigurations" visibility="private" type="_KuFpD0_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFpz0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCPE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCPU_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCPk_oEeSmsZl-3YrQ-w" name="Template">
+                <ownedAttribute xmi:id="_KuFCP0_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCQE_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCQU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCQk_oEeSmsZl-3YrQ-w" name="vocabulary" visibility="private" type="_KuFCc0_oEeSmsZl-3YrQ-w" association="_KuFp10_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCQ0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCRE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCRU_oEeSmsZl-3YrQ-w" name="messageType" visibility="private" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFp60_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCRk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCR0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCSE_oEeSmsZl-3YrQ-w" name="language" visibility="private" type="_KuFo40_oEeSmsZl-3YrQ-w" association="_KuFp90_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCSU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCSk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCS0_oEeSmsZl-3YrQ-w" name="disseminationChannel" visibility="private" type="_KuFpIk_oEeSmsZl-3YrQ-w" association="_KuFqC0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCTE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCTU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCTk_oEeSmsZl-3YrQ-w" name="capheadline" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCT0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCUE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCUU_oEeSmsZl-3YrQ-w" name="capdescription" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCUk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCU0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCVE_oEeSmsZl-3YrQ-w" name="capinstruction" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCVU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCVk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCV0_oEeSmsZl-3YrQ-w" name="MessageConsumerProfileChannelConfiguration">
+                <ownedAttribute xmi:id="_KuFCWE_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCWU_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCWk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCW0_oEeSmsZl-3YrQ-w" name="messageConsumerProfile" visibility="private" type="_KuFo80_oEeSmsZl-3YrQ-w" association="_KuFqA0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCXE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCXU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCXk_oEeSmsZl-3YrQ-w" name="disseminationChannel" visibility="private" type="_KuFpIk_oEeSmsZl-3YrQ-w" association="_KuFqD0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCX0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCYE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCYU_oEeSmsZl-3YrQ-w" name="language" visibility="private" type="_KuFo40_oEeSmsZl-3YrQ-w" association="_KuFp-0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCYk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCY0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCZE_oEeSmsZl-3YrQ-w" name="settings" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCZU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCZk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCZ0_oEeSmsZl-3YrQ-w" name="nomessageaggregation" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCaE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCaU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCak_oEeSmsZl-3YrQ-w" name="includecap" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCa0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCbE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCbU_oEeSmsZl-3YrQ-w" name="refertoattachments" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCbk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCb0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCcE_oEeSmsZl-3YrQ-w" name="noreviewrequired" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCcU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCck_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCc0_oEeSmsZl-3YrQ-w" name="Vocabulary">
+                <ownedAttribute xmi:id="_KuFCdE_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCdU_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCdk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCd0_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCeE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCeU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCek_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCe0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCfE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCfU_oEeSmsZl-3YrQ-w" name="categories" visibility="private" type="_KuFCnU_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp00_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCfk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCf0_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCgE_oEeSmsZl-3YrQ-w" name="templates" visibility="private" type="_KuFCPk_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp10_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCgU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCgk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCg0_oEeSmsZl-3YrQ-w" name="CapCertaintyTranslation">
+                <ownedAttribute xmi:id="_KuFChE_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFChU_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFChk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCh0_oEeSmsZl-3YrQ-w" name="capCertainty" visibility="private" type="_KuFB2E_oEeSmsZl-3YrQ-w" association="_KuFpf0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCiE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCiU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCik_oEeSmsZl-3YrQ-w" name="language" visibility="private" type="_KuFo40_oEeSmsZl-3YrQ-w" association="_KuFpg0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCi0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCjE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCjU_oEeSmsZl-3YrQ-w" name="translation" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCjk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCj0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCkE_oEeSmsZl-3YrQ-w" name="CapSeverityTranslation">
+                <ownedAttribute xmi:id="_KuFCkU_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCkk_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCk0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFClE_oEeSmsZl-3YrQ-w" name="language" visibility="private" type="_KuFo40_oEeSmsZl-3YrQ-w" association="_KuFph0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFClU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFClk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCl0_oEeSmsZl-3YrQ-w" name="capSeverity" visibility="private" type="_KuFB6E_oEeSmsZl-3YrQ-w" association="_KuFpi0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCmE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCmU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCmk_oEeSmsZl-3YrQ-w" name="translation" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCm0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCnE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCnU_oEeSmsZl-3YrQ-w" name="Category">
+                <ownedAttribute xmi:id="_KuFCnk_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCn0_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCoE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCoU_oEeSmsZl-3YrQ-w" name="capCertainty" visibility="private" type="_KuFB2E_oEeSmsZl-3YrQ-w" association="_KuFpv0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCok_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCo0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCpE_oEeSmsZl-3YrQ-w" name="capUrgency" visibility="private" type="_KuFpPk_oEeSmsZl-3YrQ-w" association="_KuFqF0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCpU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCpk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCp0_oEeSmsZl-3YrQ-w" name="vocabulary" visibility="private" type="_KuFCc0_oEeSmsZl-3YrQ-w" association="_KuFp00_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCqE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCqU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCqk_oEeSmsZl-3YrQ-w" name="capSeverity" visibility="private" type="_KuFB6E_oEeSmsZl-3YrQ-w" association="_KuFpx0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCq0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCrE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCrU_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCrk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCr0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCsE_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCsU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCsk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCs0_oEeSmsZl-3YrQ-w" name="subscriptionallowed" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCtE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCtU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCtk_oEeSmsZl-3YrQ-w" name="messageConsumerProfiles" visibility="private" type="_KuFo80_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp20_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCt0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCuE_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCuU_oEeSmsZl-3YrQ-w" name="messageTypes" visibility="private" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFp30_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCuk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCu0_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFCvE_oEeSmsZl-3YrQ-w" name="MessageType">
+                <ownedAttribute xmi:id="_KuFCvU_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCvk_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCv0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCwE_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCwU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCwk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCw0_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCxE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCxU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCxk_oEeSmsZl-3YrQ-w" name="category" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCx0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCyE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCyU_oEeSmsZl-3YrQ-w" name="capstatus" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCyk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCy0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCzE_oEeSmsZl-3YrQ-w" name="capmsgtype" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFCzU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFCzk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFCz0_oEeSmsZl-3YrQ-w" name="capcategory" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC0E_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC0U_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFC0k_oEeSmsZl-3YrQ-w" name="capresponsetype" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC00_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC1E_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFC1U_oEeSmsZl-3YrQ-w" name="capUrgencies" visibility="private" type="_KuFpPk_oEeSmsZl-3YrQ-w" association="_KuFp40_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC1k_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC10_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFC2E_oEeSmsZl-3YrQ-w" name="categories" visibility="private" type="_KuFCnU_oEeSmsZl-3YrQ-w" association="_KuFp50_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC2U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC2k_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFC20_oEeSmsZl-3YrQ-w" name="templates" visibility="private" type="_KuFCPk_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp60_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC3E_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC3U_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFC3k_oEeSmsZl-3YrQ-w" name="capCertainties" visibility="private" type="_KuFB2E_oEeSmsZl-3YrQ-w" association="_KuFp70_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC30_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC4E_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFC4U_oEeSmsZl-3YrQ-w" name="capSeverities" visibility="private" type="_KuFB6E_oEeSmsZl-3YrQ-w" association="_KuFp80_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFC4k_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFC40_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo4E_oEeSmsZl-3YrQ-w" name="hazardType" visibility="private" type="_KuFB-E_oEeSmsZl-3YrQ-w" association="_KuFpn0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo4U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo4k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFo40_oEeSmsZl-3YrQ-w" name="Language">
+                <ownedAttribute xmi:id="_KuFo5E_oEeSmsZl-3YrQ-w" name="languagecode" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo5U_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo5k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo50_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo6E_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo6U_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo6k_oEeSmsZl-3YrQ-w" name="templates" visibility="private" type="_KuFCPk_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp90_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo60_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo7E_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo7U_oEeSmsZl-3YrQ-w" name="messageConsumerProfileChannelConfigurations" visibility="private" type="_KuFCV0_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp-0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo7k_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo70_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo8E_oEeSmsZl-3YrQ-w" name="userAccounts" visibility="private" type="_KuFCBU_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFp_0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo8U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo8k_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFo80_oEeSmsZl-3YrQ-w" name="MessageConsumerProfile">
+                <ownedAttribute xmi:id="_KuFo9E_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo9U_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo9k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo90_oEeSmsZl-3YrQ-w" name="userAccount" visibility="private" type="_KuFCBU_oEeSmsZl-3YrQ-w" association="_KuFpy0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo-E_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo-U_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo-k_oEeSmsZl-3YrQ-w" name="category" visibility="private" type="_KuFCnU_oEeSmsZl-3YrQ-w" association="_KuFp20_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo-0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo_E_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFo_U_oEeSmsZl-3YrQ-w" name="activefrom" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFo_k_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFo_0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpAE_oEeSmsZl-3YrQ-w" name="activeto" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpAU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpAk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpA0_oEeSmsZl-3YrQ-w" name="pauseactivity" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpBE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpBU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpBk_oEeSmsZl-3YrQ-w" name="filters" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpB0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpCE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpCU_oEeSmsZl-3YrQ-w" name="messageConsumerProfileChannelConfigurations" visibility="private" type="_KuFCV0_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFqA0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpCk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpC0_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpDE_oEeSmsZl-3YrQ-w" name="messageConsumerProfileAreas" visibility="private" type="_KuFCHk_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFqB0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpDU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpDk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFpD0_oEeSmsZl-3YrQ-w" name="DisseminationProviderProfileChannelConfiguration">
+                <ownedAttribute xmi:id="_KuFpEE_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpEU_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpEk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpE0_oEeSmsZl-3YrQ-w" name="disseminationProviderProfile" visibility="private" type="_KuFCLk_oEeSmsZl-3YrQ-w" association="_KuFpz0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpFE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpFU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpFk_oEeSmsZl-3YrQ-w" name="disseminationChannel" visibility="private" type="_KuFpIk_oEeSmsZl-3YrQ-w" association="_KuFqE0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpF0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpGE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpGU_oEeSmsZl-3YrQ-w" name="priority" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpGk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpG0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpHE_oEeSmsZl-3YrQ-w" name="pauseactivity" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpHU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpHk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpH0_oEeSmsZl-3YrQ-w" name="settings" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpIE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpIU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFpIk_oEeSmsZl-3YrQ-w" name="DisseminationChannel">
+                <ownedAttribute xmi:id="_KuFpI0_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpJE_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpJU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpJk_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpJ0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpKE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpKU_oEeSmsZl-3YrQ-w" name="addressscheme" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpKk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpK0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpLE_oEeSmsZl-3YrQ-w" name="addressvalidation" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpLU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpLk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpL0_oEeSmsZl-3YrQ-w" name="description" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpME_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpMU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpMk_oEeSmsZl-3YrQ-w" name="defaultsettings" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpM0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpNE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpNU_oEeSmsZl-3YrQ-w" name="templates" visibility="private" type="_KuFCPk_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFqC0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpNk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpN0_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpOE_oEeSmsZl-3YrQ-w" name="messageConsumerProfileChannelConfigurations" visibility="private" type="_KuFCV0_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFqD0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpOU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpOk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpO0_oEeSmsZl-3YrQ-w" name="disseminationProviderProfileChannelConfigurations" visibility="private" type="_KuFpD0_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFqE0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpPE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpPU_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFpPk_oEeSmsZl-3YrQ-w" name="CapUrgency">
+                <ownedAttribute xmi:id="_KuFpP0_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpQE_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpQU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpQk_oEeSmsZl-3YrQ-w" name="name" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpQ0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpRE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpRU_oEeSmsZl-3YrQ-w" name="numericencoding" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpRk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpR0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpSE_oEeSmsZl-3YrQ-w" name="categories" visibility="private" type="_KuFCnU_oEeSmsZl-3YrQ-w" aggregation="composite" association="_KuFqF0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpSU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpSk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpS0_oEeSmsZl-3YrQ-w" name="messageTypes" visibility="private" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFqG0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpTE_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpTU_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_KuFpTk_oEeSmsZl-3YrQ-w" name="CapUrgencyTranslation">
+                <ownedAttribute xmi:id="_KuFpT0_oEeSmsZl-3YrQ-w" name="id" visibility="private" isID="true">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpUE_oEeSmsZl-3YrQ-w" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpUU_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpUk_oEeSmsZl-3YrQ-w" name="capUrgency" visibility="private" type="_KuFpPk_oEeSmsZl-3YrQ-w" association="_KuFps0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpU0_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpVE_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpVU_oEeSmsZl-3YrQ-w" name="language" visibility="private" type="_KuFo40_oEeSmsZl-3YrQ-w" association="_KuFpt0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpVk_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpV0_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+                <ownedAttribute xmi:id="_KuFpWE_oEeSmsZl-3YrQ-w" name="translation" visibility="private">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpWU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpWk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedAttribute>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpf0_oEeSmsZl-3YrQ-w" name="capCertainty_CapCertaintyTranslation_CapCertainty" memberEnd="_KuFCh0_oEeSmsZl-3YrQ-w _KuFpgE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpgE_oEeSmsZl-3YrQ-w" name="capCertainty_CapCertaintyTranslation" visibility="public" type="_KuFCg0_oEeSmsZl-3YrQ-w" association="_KuFpf0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpgU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpgk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpg0_oEeSmsZl-3YrQ-w" name="language_CapCertaintyTranslation_Language" memberEnd="_KuFCik_oEeSmsZl-3YrQ-w _KuFphE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFphE_oEeSmsZl-3YrQ-w" name="language_CapCertaintyTranslation" visibility="public" type="_KuFCg0_oEeSmsZl-3YrQ-w" association="_KuFpg0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFphU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFphk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFph0_oEeSmsZl-3YrQ-w" name="language_CapSeverityTranslation_Language" memberEnd="_KuFClE_oEeSmsZl-3YrQ-w _KuFpiE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpiE_oEeSmsZl-3YrQ-w" name="language_CapSeverityTranslation" visibility="public" type="_KuFCkE_oEeSmsZl-3YrQ-w" association="_KuFph0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpiU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpik_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpi0_oEeSmsZl-3YrQ-w" name="capSeverity_CapSeverityTranslation_CapSeverity" memberEnd="_KuFCl0_oEeSmsZl-3YrQ-w _KuFpjE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpjE_oEeSmsZl-3YrQ-w" name="capSeverity_CapSeverityTranslation" visibility="public" type="_KuFCkE_oEeSmsZl-3YrQ-w" association="_KuFpi0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpjU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpjk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpn0_oEeSmsZl-3YrQ-w" name="hazardType_MessageType_HazardType" memberEnd="_KuFo4E_oEeSmsZl-3YrQ-w _KuFpoE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpoE_oEeSmsZl-3YrQ-w" name="hazardType_MessageType" visibility="public" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFpn0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpoU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpok_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFps0_oEeSmsZl-3YrQ-w" name="capUrgency_CapUrgencyTranslation_CapUrgency" memberEnd="_KuFpUk_oEeSmsZl-3YrQ-w _KuFptE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFptE_oEeSmsZl-3YrQ-w" name="capUrgency_CapUrgencyTranslation" visibility="public" type="_KuFpTk_oEeSmsZl-3YrQ-w" association="_KuFps0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFptU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFptk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpt0_oEeSmsZl-3YrQ-w" name="language_CapUrgencyTranslation_Language" memberEnd="_KuFpVU_oEeSmsZl-3YrQ-w _KuFpuE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpuE_oEeSmsZl-3YrQ-w" name="language_CapUrgencyTranslation" visibility="public" type="_KuFpTk_oEeSmsZl-3YrQ-w" association="_KuFpt0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpuU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpuk_oEeSmsZl-3YrQ-w" value="*"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpu0_oEeSmsZl-3YrQ-w" name="messageTypes_CapCertainty_MessageType" memberEnd="_KuFB4k_oEeSmsZl-3YrQ-w _KuFpvE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpvE_oEeSmsZl-3YrQ-w" name="messageTypes_MessageType" type="_KuFB2E_oEeSmsZl-3YrQ-w" association="_KuFpu0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpvU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpvk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpv0_oEeSmsZl-3YrQ-w" name="categories_CapCertainty_Category" memberEnd="_KuFB5U_oEeSmsZl-3YrQ-w _KuFCoU_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpw0_oEeSmsZl-3YrQ-w" name="messageTypes_CapSeverity_MessageType" memberEnd="_KuFB8k_oEeSmsZl-3YrQ-w _KuFpxE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFpxE_oEeSmsZl-3YrQ-w" name="messageTypes_MessageType" type="_KuFB6E_oEeSmsZl-3YrQ-w" association="_KuFpw0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFpxU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFpxk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpx0_oEeSmsZl-3YrQ-w" name="categories_CapSeverity_Category" memberEnd="_KuFB9U_oEeSmsZl-3YrQ-w _KuFCqk_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpy0_oEeSmsZl-3YrQ-w" name="messageConsumerProfiles_UserAccount_MessageConsumerProfile" memberEnd="_KuFCG0_oEeSmsZl-3YrQ-w _KuFo90_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFpz0_oEeSmsZl-3YrQ-w" name="disseminationProviderProfileChannelConfigurations_DisseminationProviderProfile_DisseminationProviderProfileChannelConfiguration" memberEnd="_KuFCO0_oEeSmsZl-3YrQ-w _KuFpE0_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp00_oEeSmsZl-3YrQ-w" name="categories_Vocabulary_Category" memberEnd="_KuFCfU_oEeSmsZl-3YrQ-w _KuFCp0_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp10_oEeSmsZl-3YrQ-w" name="templates_Vocabulary_Template" memberEnd="_KuFCgE_oEeSmsZl-3YrQ-w _KuFCQk_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp20_oEeSmsZl-3YrQ-w" name="messageConsumerProfiles_Category_MessageConsumerProfile" memberEnd="_KuFCtk_oEeSmsZl-3YrQ-w _KuFo-k_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp30_oEeSmsZl-3YrQ-w" name="messageTypes_Category_MessageType" memberEnd="_KuFCuU_oEeSmsZl-3YrQ-w _KuFp4E_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFp4E_oEeSmsZl-3YrQ-w" name="messageTypes_MessageType" type="_KuFCnU_oEeSmsZl-3YrQ-w" association="_KuFp30_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFp4U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFp4k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp40_oEeSmsZl-3YrQ-w" name="capUrgencies_MessageType_CapUrgency" memberEnd="_KuFC1U_oEeSmsZl-3YrQ-w _KuFp5E_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFp5E_oEeSmsZl-3YrQ-w" name="capUrgencies_CapUrgency" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFp40_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFp5U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFp5k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp50_oEeSmsZl-3YrQ-w" name="categories_MessageType_Category" memberEnd="_KuFC2E_oEeSmsZl-3YrQ-w _KuFp6E_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFp6E_oEeSmsZl-3YrQ-w" name="categories_Category" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFp50_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFp6U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFp6k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp60_oEeSmsZl-3YrQ-w" name="templates_MessageType_Template" memberEnd="_KuFC20_oEeSmsZl-3YrQ-w _KuFCRU_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp70_oEeSmsZl-3YrQ-w" name="capCertainties_MessageType_CapCertainty" memberEnd="_KuFC3k_oEeSmsZl-3YrQ-w _KuFp8E_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFp8E_oEeSmsZl-3YrQ-w" name="capCertainties_CapCertainty" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFp70_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFp8U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFp8k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp80_oEeSmsZl-3YrQ-w" name="capSeverities_MessageType_CapSeverity" memberEnd="_KuFC4U_oEeSmsZl-3YrQ-w _KuFp9E_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFp9E_oEeSmsZl-3YrQ-w" name="capSeverities_CapSeverity" type="_KuFCvE_oEeSmsZl-3YrQ-w" association="_KuFp80_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFp9U_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFp9k_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp90_oEeSmsZl-3YrQ-w" name="templates_Language_Template" memberEnd="_KuFo6k_oEeSmsZl-3YrQ-w _KuFCSE_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp-0_oEeSmsZl-3YrQ-w" name="messageConsumerProfileChannelConfigurations_Language_MessageConsumerProfileChannelConfiguration" memberEnd="_KuFo7U_oEeSmsZl-3YrQ-w _KuFCYU_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFp_0_oEeSmsZl-3YrQ-w" name="userAccounts_Language_UserAccount" memberEnd="_KuFo8E_oEeSmsZl-3YrQ-w _KuFCDE_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqA0_oEeSmsZl-3YrQ-w" name="messageConsumerProfileChannelConfigurations_MessageConsumerProfile_MessageConsumerProfileChannelConfiguration" memberEnd="_KuFpCU_oEeSmsZl-3YrQ-w _KuFCW0_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqB0_oEeSmsZl-3YrQ-w" name="messageConsumerProfileAreas_MessageConsumerProfile_MessageConsumerProfileArea" memberEnd="_KuFpDE_oEeSmsZl-3YrQ-w _KuFCIk_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqC0_oEeSmsZl-3YrQ-w" name="templates_DisseminationChannel_Template" memberEnd="_KuFpNU_oEeSmsZl-3YrQ-w _KuFCS0_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqD0_oEeSmsZl-3YrQ-w" name="messageConsumerProfileChannelConfigurations_DisseminationChannel_MessageConsumerProfileChannelConfiguration" memberEnd="_KuFpOE_oEeSmsZl-3YrQ-w _KuFCXk_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqE0_oEeSmsZl-3YrQ-w" name="disseminationProviderProfileChannelConfigurations_DisseminationChannel_DisseminationProviderProfileChannelConfiguration" memberEnd="_KuFpO0_oEeSmsZl-3YrQ-w _KuFpFk_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqF0_oEeSmsZl-3YrQ-w" name="categories_CapUrgency_Category" memberEnd="_KuFpSE_oEeSmsZl-3YrQ-w _KuFCpE_oEeSmsZl-3YrQ-w"/>
+              <packagedElement xmi:type="uml:Association" xmi:id="_KuFqG0_oEeSmsZl-3YrQ-w" name="messageTypes_CapUrgency_MessageType" memberEnd="_KuFpS0_oEeSmsZl-3YrQ-w _KuFqHE_oEeSmsZl-3YrQ-w">
+                <ownedEnd xmi:id="_KuFqHE_oEeSmsZl-3YrQ-w" name="messageTypes_MessageType" type="_KuFpPk_oEeSmsZl-3YrQ-w" association="_KuFqG0_oEeSmsZl-3YrQ-w">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KuFqHU_oEeSmsZl-3YrQ-w"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KuFqHk_oEeSmsZl-3YrQ-w" value="1"/>
+                </ownedEnd>
+              </packagedElement>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Package" xmi:id="_FHmfEFLpEeSqh-lGDlKjmg" name="service">
+              <packagedElement xmi:type="uml:Class" xmi:id="_FHw3IFLpEeSqh-lGDlKjmg" name="CapCertaintyService">
+                <ownedAttribute xmi:id="_FIQmYFLpEeSqh-lGDlKjmg" name="categoryService" type="_FH2WvFLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FHw3IVLpEeSqh-lGDlKjmg" name="createCapCertainty">
+                  <ownedParameter xmi:id="_FHxeMFLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFB2E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIM8AFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIM8AVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHxeMVLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFB2E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIM8AlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIM8A1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHxeMlLpEeSqh-lGDlKjmg" name="findCapCertainty">
+                  <ownedParameter xmi:id="_FHyFQFLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIM8BFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIM8BVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHyFQVLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFB2E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIM8BlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIM8B1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHyFQlLpEeSqh-lGDlKjmg" name="findAllCapCertainty">
+                  <ownedParameter xmi:id="_FHyFQ1LpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFB2E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FINjEFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FINjEVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHyFRFLpEeSqh-lGDlKjmg" name="updateCapCertainty">
+                  <ownedParameter xmi:id="_FHysUFLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFB2E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FINjElLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FINjE1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHysUVLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFB2E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FINjFFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FINjFVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHysUlLpEeSqh-lGDlKjmg" name="removeCapCertainty">
+                  <ownedParameter xmi:id="_FHysU1LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFB2E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FINjFlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FINjF1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FHysVFLpEeSqh-lGDlKjmg" name="CapSeverityService">
+                <ownedAttribute xmi:id="_FIR0gFLpEeSqh-lGDlKjmg" name="categoryService" type="_FH2WvFLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FHysVVLpEeSqh-lGDlKjmg" name="createCapSeverity">
+                  <ownedParameter xmi:id="_FHysVlLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFB6E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNcFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNcVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHysV1LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFB6E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNclLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNc1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHysWFLpEeSqh-lGDlKjmg" name="findCapSeverity">
+                  <ownedParameter xmi:id="_FHysWVLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNdFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNdVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHysWlLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFB6E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNdlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNd1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHysW1LpEeSqh-lGDlKjmg" name="findAllCapSeverity">
+                  <ownedParameter xmi:id="_FHysXFLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFB6E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNeFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNeVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHysXVLpEeSqh-lGDlKjmg" name="updateCapSeverity">
+                  <ownedParameter xmi:id="_FHysXlLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFB6E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNelLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNe1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHysX1LpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFB6E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNfFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNfVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHysYFLpEeSqh-lGDlKjmg" name="removeCapSeverity">
+                  <ownedParameter xmi:id="_FHysYVLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFB6E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIRNflLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIRNf1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FHysYlLpEeSqh-lGDlKjmg" name="HazardTypeService">
+                <ownedOperation xmi:id="_FHysY1LpEeSqh-lGDlKjmg" name="createHazardType">
+                  <ownedParameter xmi:id="_FHzTYFLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFB-E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIR0gVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIR0glLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHzTYVLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFB-E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISbkFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISbkVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTYlLpEeSqh-lGDlKjmg" name="findHazardType">
+                  <ownedParameter xmi:id="_FHzTY1LpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISbklLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISbk1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHzTZFLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFB-E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISblFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISblVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTZVLpEeSqh-lGDlKjmg" name="findAllHazardType">
+                  <ownedParameter xmi:id="_FHzTZlLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFB-E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISbllLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISbl1LpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTZ1LpEeSqh-lGDlKjmg" name="updateHazardType">
+                  <ownedParameter xmi:id="_FHzTaFLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFB-E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISbmFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISbmVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHzTaVLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFB-E_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISbmlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISbm1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTalLpEeSqh-lGDlKjmg" name="removeHazardType">
+                  <ownedParameter xmi:id="_FHzTa1LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFB-E_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FISbnFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FISbnVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FHzTbFLpEeSqh-lGDlKjmg" name="UserAccountService">
+                <ownedAttribute xmi:id="_FIWtAFLpEeSqh-lGDlKjmg" name="messageConsumerProfileService" type="_FIKfx1LpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FHzTbVLpEeSqh-lGDlKjmg" name="createUserAccount">
+                  <ownedParameter xmi:id="_FHzTblLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCBU_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITCoFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCoVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHzTb1LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCBU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITColLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCo1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTcFLpEeSqh-lGDlKjmg" name="findUserAccount">
+                  <ownedParameter xmi:id="_FHzTcVLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITCpFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCpVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHzTclLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCBU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITCplLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCp1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTc1LpEeSqh-lGDlKjmg" name="findAllUserAccount">
+                  <ownedParameter xmi:id="_FHzTdFLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCBU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITCqFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCqVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHzTdVLpEeSqh-lGDlKjmg" name="updateUserAccount">
+                  <ownedParameter xmi:id="_FHz6cFLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCBU_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITCqlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCq1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHz6cVLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCBU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITCrFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITCrVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHz6clLpEeSqh-lGDlKjmg" name="removeUserAccount">
+                  <ownedParameter xmi:id="_FHz6c1LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCBU_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FITpsFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FITpsVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FHz6dFLpEeSqh-lGDlKjmg" name="MessageConsumerProfileAreaService">
+                <ownedOperation xmi:id="_FHz6dVLpEeSqh-lGDlKjmg" name="createMessageConsumerProfileArea">
+                  <ownedParameter xmi:id="_FHz6dlLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCHk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIWtAVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIWtAlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHz6d1LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCHk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIWtA1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIWtBFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHz6eFLpEeSqh-lGDlKjmg" name="findMessageConsumerProfileArea">
+                  <ownedParameter xmi:id="_FHz6eVLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUEFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIXUEVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHz6elLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCHk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUElLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIXUE1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHz6e1LpEeSqh-lGDlKjmg" name="findAllMessageConsumerProfileArea">
+                  <ownedParameter xmi:id="_FHz6fFLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCHk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUFFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIXUFVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHz6fVLpEeSqh-lGDlKjmg" name="updateMessageConsumerProfileArea">
+                  <ownedParameter xmi:id="_FHz6flLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCHk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUFlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIXUF1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHz6f1LpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCHk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUGFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIXUGVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FHz6gFLpEeSqh-lGDlKjmg" name="removeMessageConsumerProfileArea">
+                  <ownedParameter xmi:id="_FHz6gVLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCHk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUGlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIXUG1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FHz6glLpEeSqh-lGDlKjmg" name="DisseminationProviderProfileService">
+                <ownedAttribute xmi:id="_FIblgFLpEeSqh-lGDlKjmg" name="disseminationProviderProfileChannelConfigurationService" type="_FILG0lLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FHz6g1LpEeSqh-lGDlKjmg" name="createDisseminationProviderProfile">
+                  <ownedParameter xmi:id="_FHz6hFLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCLk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIXUHFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7IFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FHz6hVLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCLk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7IVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7IlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hgFLpEeSqh-lGDlKjmg" name="findDisseminationProviderProfile">
+                  <ownedParameter xmi:id="_FH0hgVLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7I1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7JFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH0hglLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCLk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7JVLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7JlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hg1LpEeSqh-lGDlKjmg" name="findAllDisseminationProviderProfile">
+                  <ownedParameter xmi:id="_FH0hhFLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCLk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7J1LpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7KFLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hhVLpEeSqh-lGDlKjmg" name="updateDisseminationProviderProfile">
+                  <ownedParameter xmi:id="_FH0hhlLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCLk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7KVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7KlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH0hh1LpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCLk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7K1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7LFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hiFLpEeSqh-lGDlKjmg" name="removeDisseminationProviderProfile">
+                  <ownedParameter xmi:id="_FH0hiVLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCLk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIX7LVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIX7LlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH0hilLpEeSqh-lGDlKjmg" name="TemplateService">
+                <ownedOperation xmi:id="_FH0hi1LpEeSqh-lGDlKjmg" name="createTemplate">
+                  <ownedParameter xmi:id="_FH0hjFLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCPk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIblgVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIblglLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH0hjVLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIblg1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIblhFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hjlLpEeSqh-lGDlKjmg" name="findTemplate">
+                  <ownedParameter xmi:id="_FH0hj1LpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIblhVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIblhlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH0hkFLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIblh1LpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIbliFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hkVLpEeSqh-lGDlKjmg" name="findAllTemplate">
+                  <ownedParameter xmi:id="_FH0hklLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIcMkFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIcMkVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH0hk1LpEeSqh-lGDlKjmg" name="updateTemplate">
+                  <ownedParameter xmi:id="_FH0hlFLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCPk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIcMklLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIcMk1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH0hlVLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIcMlFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIcMlVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1IkFLpEeSqh-lGDlKjmg" name="removeTemplate">
+                  <ownedParameter xmi:id="_FH1IkVLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCPk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIcMllLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIcMl1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH1IklLpEeSqh-lGDlKjmg" name="MessageConsumerProfileChannelConfigurationService">
+                <ownedOperation xmi:id="_FH1Ik1LpEeSqh-lGDlKjmg" name="createMessageConsumerProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FH1IlFLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCV0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIcMmFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIcMmVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1IlVLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCV0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIcMmlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIcMm1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1IllLpEeSqh-lGDlKjmg" name="findMessageConsumerProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FH1Il1LpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIczoFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIczoVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1ImFLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCV0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIczolLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIczo1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1ImVLpEeSqh-lGDlKjmg" name="findAllMessageConsumerProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FH1ImlLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCV0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIczpFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIczpVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1Im1LpEeSqh-lGDlKjmg" name="updateMessageConsumerProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FH1InFLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCV0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIczplLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIczp1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1InVLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCV0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIczqFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIczqVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1InlLpEeSqh-lGDlKjmg" name="removeMessageConsumerProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FH1In1LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCV0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIczqlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIczq1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH1IoFLpEeSqh-lGDlKjmg" name="VocabularyService">
+                <ownedAttribute xmi:id="_FIeBwlLpEeSqh-lGDlKjmg" name="categoryService" type="_FH2WvFLpEeSqh-lGDlKjmg"/>
+                <ownedAttribute xmi:id="_FIeo0FLpEeSqh-lGDlKjmg" name="templateService" type="_FH0hilLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FH1IoVLpEeSqh-lGDlKjmg" name="createVocabulary">
+                  <ownedParameter xmi:id="_FH1IolLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCc0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdasFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdasVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1Io1LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCc0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdaslLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdas1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1IpFLpEeSqh-lGDlKjmg" name="findVocabulary">
+                  <ownedParameter xmi:id="_FH1IpVLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdatFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdatVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1IplLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCc0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdatlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdat1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1voFLpEeSqh-lGDlKjmg" name="findAllVocabulary">
+                  <ownedParameter xmi:id="_FH1voVLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCc0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdauFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdauVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1volLpEeSqh-lGDlKjmg" name="updateVocabulary">
+                  <ownedParameter xmi:id="_FH1vo1LpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCc0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdaulLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdau1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1vpFLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCc0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIdavFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIdavVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1vpVLpEeSqh-lGDlKjmg" name="removeVocabulary">
+                  <ownedParameter xmi:id="_FH1vplLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCc0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeBwFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeBwVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH1vp1LpEeSqh-lGDlKjmg" name="CapCertaintyTranslationService">
+                <ownedOperation xmi:id="_FH1vqFLpEeSqh-lGDlKjmg" name="createCapCertaintyTranslation">
+                  <ownedParameter xmi:id="_FH1vqVLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCg0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo0VLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo0lLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1vqlLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCg0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo01LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo1FLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1vq1LpEeSqh-lGDlKjmg" name="findCapCertaintyTranslation">
+                  <ownedParameter xmi:id="_FH1vrFLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo1VLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo1lLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1vrVLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCg0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo11LpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo2FLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1vrlLpEeSqh-lGDlKjmg" name="findAllCapCertaintyTranslation">
+                  <ownedParameter xmi:id="_FH1vr1LpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCg0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo2VLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo2lLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1vsFLpEeSqh-lGDlKjmg" name="updateCapCertaintyTranslation">
+                  <ownedParameter xmi:id="_FH1vsVLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCg0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo21LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo3FLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH1vslLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCg0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo3VLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo3lLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH1vs1LpEeSqh-lGDlKjmg" name="removeCapCertaintyTranslation">
+                  <ownedParameter xmi:id="_FH1vtFLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCg0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIeo31LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIeo4FLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH1vtVLpEeSqh-lGDlKjmg" name="CapSeverityTranslationService">
+                <ownedOperation xmi:id="_FH1vtlLpEeSqh-lGDlKjmg" name="createCapSeverityTranslation">
+                  <ownedParameter xmi:id="_FH2WsFLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCkE_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIfP4FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIfP4VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH2WsVLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCkE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIfP4lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIfP41LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2WslLpEeSqh-lGDlKjmg" name="findCapSeverityTranslation">
+                  <ownedParameter xmi:id="_FH2Ws1LpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIfP5FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIfP5VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH2WtFLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCkE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIfP5lLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIfP51LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2WtVLpEeSqh-lGDlKjmg" name="findAllCapSeverityTranslation">
+                  <ownedParameter xmi:id="_FH2WtlLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCkE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIfP6FLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIfP6VLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2Wt1LpEeSqh-lGDlKjmg" name="updateCapSeverityTranslation">
+                  <ownedParameter xmi:id="_FH2WuFLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCkE_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIfP6lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIfP61LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH2WuVLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCkE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIf28FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIf28VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2WulLpEeSqh-lGDlKjmg" name="removeCapSeverityTranslation">
+                  <ownedParameter xmi:id="_FH2Wu1LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCkE_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIf28lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIf281LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH2WvFLpEeSqh-lGDlKjmg" name="CategoryService">
+                <ownedAttribute xmi:id="_FIhFEFLpEeSqh-lGDlKjmg" name="messageConsumerProfileService" type="_FIKfx1LpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FH2WvVLpEeSqh-lGDlKjmg" name="createCategory">
+                  <ownedParameter xmi:id="_FH2WvlLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCnU_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIf29FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIf29VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH2Wv1LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCnU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIf29lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIf291LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2WwFLpEeSqh-lGDlKjmg" name="findCategory">
+                  <ownedParameter xmi:id="_FH2WwVLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIf2-FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIf2-VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH2WwlLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCnU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIgeAFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIgeAVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2Ww1LpEeSqh-lGDlKjmg" name="findAllCategory">
+                  <ownedParameter xmi:id="_FH2WxFLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCnU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIgeAlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIgeA1LpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH2WxVLpEeSqh-lGDlKjmg" name="updateCategory">
+                  <ownedParameter xmi:id="_FH2WxlLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCnU_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIgeBFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIgeBVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH29wFLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCnU_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIgeBlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIgeB1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH29wVLpEeSqh-lGDlKjmg" name="removeCategory">
+                  <ownedParameter xmi:id="_FH29wlLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCnU_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIgeCFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIgeCVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH29w1LpEeSqh-lGDlKjmg" name="MessageTypeService">
+                <ownedAttribute xmi:id="_FIhsJVLpEeSqh-lGDlKjmg" name="templateService" type="_FH0hilLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FH29xFLpEeSqh-lGDlKjmg" name="createMessageType">
+                  <ownedParameter xmi:id="_FH29xVLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFCvE_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhFEVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhFElLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH29xlLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFCvE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhFE1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhFFFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH29x1LpEeSqh-lGDlKjmg" name="findMessageType">
+                  <ownedParameter xmi:id="_FH29yFLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhFFVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhFFlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH29yVLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFCvE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhFF1LpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhFGFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH29ylLpEeSqh-lGDlKjmg" name="findAllMessageType">
+                  <ownedParameter xmi:id="_FH29y1LpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFCvE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhFGVLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhFGlLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH4L4FLpEeSqh-lGDlKjmg" name="updateMessageType">
+                  <ownedParameter xmi:id="_FH4L4VLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFCvE_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhFG1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhsIFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH4y8FLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFCvE_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhsIVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhsIlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH4y8VLpEeSqh-lGDlKjmg" name="removeMessageType">
+                  <ownedParameter xmi:id="_FH4y8lLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFCvE_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIhsI1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIhsJFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FH4y81LpEeSqh-lGDlKjmg" name="LanguageService">
+                <ownedAttribute xmi:id="_FIi6QFLpEeSqh-lGDlKjmg" name="templateService" type="_FH0hilLpEeSqh-lGDlKjmg"/>
+                <ownedAttribute xmi:id="_FIjhUFLpEeSqh-lGDlKjmg" name="messageConsumerProfileChannelConfigurationService" type="_FH1IklLpEeSqh-lGDlKjmg"/>
+                <ownedAttribute xmi:id="_FIjhUVLpEeSqh-lGDlKjmg" name="userAccountService" type="_FHzTbFLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FH4y9FLpEeSqh-lGDlKjmg" name="createLanguage">
+                  <ownedParameter xmi:id="_FH4y9VLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFo40_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTMFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTMVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FH4y9lLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFo40_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTMlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTM1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FH4y91LpEeSqh-lGDlKjmg" name="findLanguage">
+                  <ownedParameter xmi:id="_FIJ4sFLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTNFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTNVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIJ4sVLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFo40_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTNlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTN1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIKfwFLpEeSqh-lGDlKjmg" name="findAllLanguage">
+                  <ownedParameter xmi:id="_FIKfwVLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFo40_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTOFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTOVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIKfwlLpEeSqh-lGDlKjmg" name="updateLanguage">
+                  <ownedParameter xmi:id="_FIKfw1LpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFo40_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTOlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTO1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIKfxFLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFo40_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTPFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTPVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIKfxVLpEeSqh-lGDlKjmg" name="removeLanguage">
+                  <ownedParameter xmi:id="_FIKfxlLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFo40_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIiTPlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIiTP1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FIKfx1LpEeSqh-lGDlKjmg" name="MessageConsumerProfileService">
+                <ownedAttribute xmi:id="_FIkvcFLpEeSqh-lGDlKjmg" name="messageConsumerProfileChannelConfigurationService" type="_FH1IklLpEeSqh-lGDlKjmg"/>
+                <ownedAttribute xmi:id="_FIkvcVLpEeSqh-lGDlKjmg" name="messageConsumerProfileAreaService" type="_FHz6dFLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FIKfyFLpEeSqh-lGDlKjmg" name="createMessageConsumerProfile">
+                  <ownedParameter xmi:id="_FIKfyVLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFo80_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIYFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIYVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIKfylLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFo80_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIYlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIY1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIKfy1LpEeSqh-lGDlKjmg" name="findMessageConsumerProfile">
+                  <ownedParameter xmi:id="_FIKfzFLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIZFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIZVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIKfzVLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFo80_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIZlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIZ1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIKfzlLpEeSqh-lGDlKjmg" name="findAllMessageConsumerProfile">
+                  <ownedParameter xmi:id="_FIKfz1LpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFo80_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIaFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIaVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIKf0FLpEeSqh-lGDlKjmg" name="updateMessageConsumerProfile">
+                  <ownedParameter xmi:id="_FIKf0VLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFo80_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIalLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIa1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIKf0lLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFo80_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIbFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIbVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILG0FLpEeSqh-lGDlKjmg" name="removeMessageConsumerProfile">
+                  <ownedParameter xmi:id="_FILG0VLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFo80_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkIblLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkIb1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FILG0lLpEeSqh-lGDlKjmg" name="DisseminationProviderProfileChannelConfigurationService">
+                <ownedOperation xmi:id="_FILG01LpEeSqh-lGDlKjmg" name="createDisseminationProviderProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FILG1FLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFpD0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkvclLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkvc1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILG1VLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFpD0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIkvdFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIkvdVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILG1lLpEeSqh-lGDlKjmg" name="findDisseminationProviderProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FILG11LpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIlWgFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIlWgVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILG2FLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFpD0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIlWglLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIlWg1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILG2VLpEeSqh-lGDlKjmg" name="findAllDisseminationProviderProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FILG2lLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFpD0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIlWhFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIlWhVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILG21LpEeSqh-lGDlKjmg" name="updateDisseminationProviderProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FILG3FLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFpD0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIlWhlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIlWh1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILG3VLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFpD0_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIlWiFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIlWiVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILG3lLpEeSqh-lGDlKjmg" name="removeDisseminationProviderProfileChannelConfiguration">
+                  <ownedParameter xmi:id="_FILG31LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFpD0_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIlWilLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIlWi1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FILG4FLpEeSqh-lGDlKjmg" name="DisseminationChannelService">
+                <ownedAttribute xmi:id="_FIoZ0FLpEeSqh-lGDlKjmg" name="templateService" type="_FH0hilLpEeSqh-lGDlKjmg"/>
+                <ownedAttribute xmi:id="_FIoZ0VLpEeSqh-lGDlKjmg" name="messageConsumerProfileChannelConfigurationService" type="_FH1IklLpEeSqh-lGDlKjmg"/>
+                <ownedAttribute xmi:id="_FIoZ0lLpEeSqh-lGDlKjmg" name="disseminationProviderProfileChannelConfigurationService" type="_FILG0lLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FILG4VLpEeSqh-lGDlKjmg" name="createDisseminationChannel">
+                  <ownedParameter xmi:id="_FILG4lLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFpIk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInLsFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInLsVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILG41LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFpIk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInLslLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInLs1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt4FLpEeSqh-lGDlKjmg" name="findDisseminationChannel">
+                  <ownedParameter xmi:id="_FILt4VLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInLtFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInLtVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILt4lLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFpIk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInLtlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInLt1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt41LpEeSqh-lGDlKjmg" name="findAllDisseminationChannel">
+                  <ownedParameter xmi:id="_FILt5FLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFpIk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInLuFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInLuVLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt5VLpEeSqh-lGDlKjmg" name="updateDisseminationChannel">
+                  <ownedParameter xmi:id="_FILt5lLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFpIk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInLulLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInywFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILt51LpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFpIk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInywVLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInywlLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt6FLpEeSqh-lGDlKjmg" name="removeDisseminationChannel">
+                  <ownedParameter xmi:id="_FILt6VLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFpIk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FInyw1LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FInyxFLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FILt6lLpEeSqh-lGDlKjmg" name="CapUrgencyService">
+                <ownedAttribute xmi:id="_FIpn8FLpEeSqh-lGDlKjmg" name="categoryService" type="_FH2WvFLpEeSqh-lGDlKjmg"/>
+                <ownedOperation xmi:id="_FILt61LpEeSqh-lGDlKjmg" name="createCapUrgency">
+                  <ownedParameter xmi:id="_FILt7FLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFpPk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA4FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA4VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILt7VLpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFpPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA4lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA41LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt7lLpEeSqh-lGDlKjmg" name="findCapUrgency">
+                  <ownedParameter xmi:id="_FILt71LpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA5FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA5VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FILt8FLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFpPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA5lLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA51LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt8VLpEeSqh-lGDlKjmg" name="findAllCapUrgency">
+                  <ownedParameter xmi:id="_FILt8lLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFpPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA6FLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA6VLpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FILt81LpEeSqh-lGDlKjmg" name="updateCapUrgency">
+                  <ownedParameter xmi:id="_FIMU8FLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFpPk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA6lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA61LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIMU8VLpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFpPk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA7FLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA7VLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIMU8lLpEeSqh-lGDlKjmg" name="removeCapUrgency">
+                  <ownedParameter xmi:id="_FIMU81LpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFpPk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpA7lLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpA71LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+              <packagedElement xmi:type="uml:Class" xmi:id="_FIMU9FLpEeSqh-lGDlKjmg" name="CapUrgencyTranslationService">
+                <ownedOperation xmi:id="_FIMU9VLpEeSqh-lGDlKjmg" name="createCapUrgencyTranslation">
+                  <ownedParameter xmi:id="_FIMU9lLpEeSqh-lGDlKjmg" name="entityToCreate" type="_KuFpTk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpn8VLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpn8lLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIMU91LpEeSqh-lGDlKjmg" name="createdEntity" type="_KuFpTk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpn81LpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpn9FLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIMU-FLpEeSqh-lGDlKjmg" name="findCapUrgencyTranslation">
+                  <ownedParameter xmi:id="_FIMU-VLpEeSqh-lGDlKjmg" name="entityId">
+                    <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIpn9VLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIpn9lLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIMU-lLpEeSqh-lGDlKjmg" name="retrievedEntity" type="_KuFpTk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIqPAFLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIqPAVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIMU-1LpEeSqh-lGDlKjmg" name="findAllCapUrgencyTranslation">
+                  <ownedParameter xmi:id="_FIMU_FLpEeSqh-lGDlKjmg" name="retrievedEntities" type="_KuFpTk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIqPAlLpEeSqh-lGDlKjmg"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIqPA1LpEeSqh-lGDlKjmg" value="*"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIMU_VLpEeSqh-lGDlKjmg" name="updateCapUrgencyTranslation">
+                  <ownedParameter xmi:id="_FIMU_lLpEeSqh-lGDlKjmg" name="entityToUpdate" type="_KuFpTk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIqPBFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIqPBVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                  <ownedParameter xmi:id="_FIMU_1LpEeSqh-lGDlKjmg" name="updatedEntity" type="_KuFpTk_oEeSmsZl-3YrQ-w" direction="return">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIqPBlLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIqPB1LpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+                <ownedOperation xmi:id="_FIMVAFLpEeSqh-lGDlKjmg" name="removeCapUrgencyTranslation">
+                  <ownedParameter xmi:id="_FIMVAVLpEeSqh-lGDlKjmg" name="entityToRemove" type="_KuFpTk_oEeSmsZl-3YrQ-w">
+                    <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FIqPCFLpEeSqh-lGDlKjmg" value="1"/>
+                    <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FIqPCVLpEeSqh-lGDlKjmg" value="1"/>
+                  </ownedParameter>
+                </ownedOperation>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_hxXwIFBdEeSDHqTOa2nMSA">
+      <eAnnotations xmi:id="_hxXwIVBdEeSDHqTOa2nMSA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml#_iBPRwg4REeOw55r2XsEBlg"/>
+      </eAnnotations>
+      <appliedProfile href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml#_iBPRwA4REeOw55r2XsEBlg"/>
+    </profileApplication>
+  </uml:Model>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzAH0FBdEeSDHqTOa2nMSA" base_Type="_KuFB2E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzB9AFBdEeSDHqTOa2nMSA" base_Type="_KuFB6E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzDyMFBdEeSDHqTOa2nMSA" base_Type="_KuFB-E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzFAUFBdEeSDHqTOa2nMSA" base_Type="_KuFCBU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzFnYFBdEeSDHqTOa2nMSA" base_Type="_KuFCHk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzGOcFBdEeSDHqTOa2nMSA" base_Type="_KuFCLk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzG1gFBdEeSDHqTOa2nMSA" base_Type="_KuFCPk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzHckFBdEeSDHqTOa2nMSA" base_Type="_KuFCV0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzJRwFBdEeSDHqTOa2nMSA" base_Type="_KuFCc0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzKf4FBdEeSDHqTOa2nMSA" base_Type="_KuFCg0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzLuAFBdEeSDHqTOa2nMSA" base_Type="_KuFCkE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzLuAVBdEeSDHqTOa2nMSA" base_Type="_KuFCnU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzM8IFBdEeSDHqTOa2nMSA" base_Type="_KuFCvE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzOKQFBdEeSDHqTOa2nMSA" base_Type="_KuFo40_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzOxUFBdEeSDHqTOa2nMSA" base_Type="_KuFo80_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzOxUVBdEeSDHqTOa2nMSA" base_Type="_KuFpD0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzP_cFBdEeSDHqTOa2nMSA" base_Type="_KuFpIk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzRNkFBdEeSDHqTOa2nMSA" base_Type="_KuFpPk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_hzR0oFBdEeSDHqTOa2nMSA" base_Type="_KuFpTk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzSbsFBdEeSDHqTOa2nMSA" base_Property="_KuFB2U_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzSbsVBdEeSDHqTOa2nMSA" base_Property="_KuFB6U_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzTCwFBdEeSDHqTOa2nMSA" base_Property="_KuFB-U_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzTCwVBdEeSDHqTOa2nMSA" base_Property="_KuFCBk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzTp0FBdEeSDHqTOa2nMSA" base_Property="_KuFCH0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzTp0VBdEeSDHqTOa2nMSA" base_Property="_KuFCL0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzUQ4FBdEeSDHqTOa2nMSA" base_Property="_KuFCP0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzU38FBdEeSDHqTOa2nMSA" base_Property="_KuFCWE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzU38VBdEeSDHqTOa2nMSA" base_Property="_KuFCdE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzVfAFBdEeSDHqTOa2nMSA" base_Property="_KuFChE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzVfAVBdEeSDHqTOa2nMSA" base_Property="_KuFCkU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzWGEFBdEeSDHqTOa2nMSA" base_Property="_KuFCnk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzXUMFBdEeSDHqTOa2nMSA" base_Property="_KuFCvU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzX7QFBdEeSDHqTOa2nMSA" base_Property="_KuFo5E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzX7QVBdEeSDHqTOa2nMSA" base_Property="_KuFo9E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzYiUFBdEeSDHqTOa2nMSA" base_Property="_KuFpEE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzZJYFBdEeSDHqTOa2nMSA" base_Property="_KuFpI0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzZJYVBdEeSDHqTOa2nMSA" base_Property="_KuFpP0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_hzZwcFBdEeSDHqTOa2nMSA" base_Property="_KuFpT0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nTvMgFBdEeSDHqTOa2nMSA" base_Type="_KuFB2E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nTxBsFBdEeSDHqTOa2nMSA" base_Type="_KuFB6E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nTyP0FBdEeSDHqTOa2nMSA" base_Type="_KuFB-E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nTzd8FBdEeSDHqTOa2nMSA" base_Type="_KuFCBU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT0FAFBdEeSDHqTOa2nMSA" base_Type="_KuFCHk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT1TIFBdEeSDHqTOa2nMSA" base_Type="_KuFCLk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT16MFBdEeSDHqTOa2nMSA" base_Type="_KuFCPk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT2hQFBdEeSDHqTOa2nMSA" base_Type="_KuFCV0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT4WcFBdEeSDHqTOa2nMSA" base_Type="_KuFCc0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT49gFBdEeSDHqTOa2nMSA" base_Type="_KuFCg0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT6LoFBdEeSDHqTOa2nMSA" base_Type="_KuFCkE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT6ysFBdEeSDHqTOa2nMSA" base_Type="_KuFCnU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT7ZwFBdEeSDHqTOa2nMSA" base_Type="_KuFCvE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT8n4FBdEeSDHqTOa2nMSA" base_Type="_KuFo40_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT8n4VBdEeSDHqTOa2nMSA" base_Type="_KuFo80_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT9O8FBdEeSDHqTOa2nMSA" base_Type="_KuFpD0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT-dEFBdEeSDHqTOa2nMSA" base_Type="_KuFpIk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nT_EIFBdEeSDHqTOa2nMSA" base_Type="_KuFpPk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Entity xmi:id="_nUASQFBdEeSDHqTOa2nMSA" base_Type="_KuFpTk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUASQVBdEeSDHqTOa2nMSA" base_Property="_KuFB2U_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUA5UFBdEeSDHqTOa2nMSA" base_Property="_KuFB6U_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUA5UVBdEeSDHqTOa2nMSA" base_Property="_KuFB-U_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUBgYFBdEeSDHqTOa2nMSA" base_Property="_KuFCBk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUBgYVBdEeSDHqTOa2nMSA" base_Property="_KuFCH0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUCHcFBdEeSDHqTOa2nMSA" base_Property="_KuFCL0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUCHcVBdEeSDHqTOa2nMSA" base_Property="_KuFCP0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUCugFBdEeSDHqTOa2nMSA" base_Property="_KuFCWE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUDVkFBdEeSDHqTOa2nMSA" base_Property="_KuFCdE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUDVkVBdEeSDHqTOa2nMSA" base_Property="_KuFChE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUD8oFBdEeSDHqTOa2nMSA" base_Property="_KuFCkU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUD8oVBdEeSDHqTOa2nMSA" base_Property="_KuFCnk_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUFx0FBdEeSDHqTOa2nMSA" base_Property="_KuFCvU_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUFx0VBdEeSDHqTOa2nMSA" base_Property="_KuFo5E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUGY4FBdEeSDHqTOa2nMSA" base_Property="_KuFo9E_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUGY4VBdEeSDHqTOa2nMSA" base_Property="_KuFpEE_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUG_8FBdEeSDHqTOa2nMSA" base_Property="_KuFpI0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUG_8VBdEeSDHqTOa2nMSA" base_Property="_KuFpP0_oEeSmsZl-3YrQ-w"/>
+  <objectify.com.googlecode.objectify.annotation:Id xmi:id="_nUHnAFBdEeSDHqTOa2nMSA" base_Property="_KuFpT0_oEeSmsZl-3YrQ-w"/>
+</xmi:XMI>
