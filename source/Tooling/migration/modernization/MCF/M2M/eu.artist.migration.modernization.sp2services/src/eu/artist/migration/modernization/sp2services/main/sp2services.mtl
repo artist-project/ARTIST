@@ -1,0 +1,34 @@
+[**
+ * Copyright (c) 2014 Spikes N.V.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Spikes - Initial implementation
+ */]
+
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module generate.
+ */]
+[module sp2services('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::sp2services::modules::generateService /]
+[import eu::artist::migration::modernization::sp2services::modules::generateGenericCode /]
+
+[**
+ * The documentation of the template generateElement.
+ * @param aModel
+ */]
+[template public generateElement(aModel : Model)]
+[comment @main/]
+
+[aModel.generateGenericCode()/]
+
+[for (aClass : Class | aModel.packagedElement->filter(Class))]
+	[aClass.generateService()/]
+[/for]
+
+[/template]
