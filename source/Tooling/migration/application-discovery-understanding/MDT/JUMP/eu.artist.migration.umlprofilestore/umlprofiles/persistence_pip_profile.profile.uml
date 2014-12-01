@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="__KOHIODYEeOLAquU3BvTHw" name="persistence" metaclassReference="_dKRaYODZEeOLAquU3BvTHw _cgbWsODaEeOLAquU3BvTHw" metamodelReference="__KOHIeDYEeOLAquU3BvTHw">
+  <eAnnotations xmi:id="_Q4OdIODdEeOLAquU3BvTHw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_fIl8sODjEeOwY-fyt2GR9A" name="persistence" nsURI="http:///schemas/persistence/_fIjgcODjEeOwY-fyt2GR9A/0" nsPrefix="persistence">
+      <eAnnotations xmi:id="_fImjwODjEeOwY-fyt2GR9A" source="PapyrusVersion">
+        <details xmi:id="_fInK0ODjEeOwY-fyt2GR9A" key="Version" value="0.0.1"/>
+        <details xmi:id="_fInK0eDjEeOwY-fyt2GR9A" key="Comment" value=""/>
+        <details xmi:id="_fInK0uDjEeOwY-fyt2GR9A" key="Copyright" value=""/>
+        <details xmi:id="_fInK0-DjEeOwY-fyt2GR9A" key="Date" value="2014-05-21"/>
+        <details xmi:id="_fInK1ODjEeOwY-fyt2GR9A" key="Author" value=""/>
+      </eAnnotations>
+      <eSubpackages xmi:id="_fIl8seDjEeOwY-fyt2GR9A" name="org" nsURI="http:///persistence/org.ecore" nsPrefix="persistence.org">
+        <eAnnotations xmi:id="_fIl8suDjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_2Wm_oODcEeOLAquU3BvTHw"/>
+        <eSubpackages xmi:id="_fIl8s-DjEeOwY-fyt2GR9A" name="artist" nsURI="http:///persistence/org/artist.ecore" nsPrefix="persistence.org.artist">
+          <eAnnotations xmi:id="_fIl8tODjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="__a_KMODcEeOLAquU3BvTHw"/>
+          <eSubpackages xmi:id="_fIl8teDjEeOwY-fyt2GR9A" name="profiles" nsURI="http:///persistence/org/artist/profiles.ecore" nsPrefix="persistence.org.artist.profiles">
+            <eAnnotations xmi:id="_fIl8tuDjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Aqg4YODdEeOLAquU3BvTHw"/>
+            <eSubpackages xmi:id="_fIl8t-DjEeOwY-fyt2GR9A" name="pim" nsURI="http:///persistence/org/artist/profiles/pim.ecore" nsPrefix="persistence.org.artist.profiles.pim">
+              <eAnnotations xmi:id="_fIl8uODjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_Aqg4YeDdEeOLAquU3BvTHw"/>
+              <eSubpackages xmi:id="_fIl8ueDjEeOwY-fyt2GR9A" name="persistence" nsURI="http:///persistence/org/artist/profiles/pim/persistence.ecore" nsPrefix="persistence.org.artist.profiles.pim.persistence">
+                <eAnnotations xmi:id="_fIl8uuDjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_EcII0ODdEeOLAquU3BvTHw"/>
+                <eClassifiers xmi:type="ecore:EClass" xmi:id="_fIl8u-DjEeOwY-fyt2GR9A" name="PersistentElement">
+                  <eAnnotations xmi:id="_fIl8vODjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_BlB8sODZEeOLAquU3BvTHw"/>
+                  <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_fIl8veDjEeOwY-fyt2GR9A" name="base_Class" ordered="false" lowerBound="1">
+                    <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+                  </eStructuralFeatures>
+                  <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_fIl8v-DjEeOwY-fyt2GR9A" name="base_Package" ordered="false" lowerBound="1">
+                    <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Package"/>
+                  </eStructuralFeatures>
+                  <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_fIl8weDjEeOwY-fyt2GR9A" name="storageStrategy" ordered="false" lowerBound="1" eType="_fIl8xeDjEeOwY-fyt2GR9A"/>
+                  <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_fIl8w-DjEeOwY-fyt2GR9A" name="consistencyLevel" ordered="false" lowerBound="1" eType="_fIl8yuDjEeOwY-fyt2GR9A"/>
+                </eClassifiers>
+                <eClassifiers xmi:type="ecore:EEnum" xmi:id="_fIl8xeDjEeOwY-fyt2GR9A" name="StorageStrategyKind">
+                  <eAnnotations xmi:id="_fIl8xuDjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_qBr_cODeEeOLAquU3BvTHw"/>
+                  <eLiterals xmi:id="_fIl8x-DjEeOwY-fyt2GR9A" name="blob"/>
+                  <eLiterals xmi:id="_fIl8yODjEeOwY-fyt2GR9A" name="keyValue" value="1"/>
+                  <eLiterals xmi:id="_fIl8yeDjEeOwY-fyt2GR9A" name="relational" value="2"/>
+                </eClassifiers>
+                <eClassifiers xmi:type="ecore:EEnum" xmi:id="_fIl8yuDjEeOwY-fyt2GR9A" name="ConsistencyLevelKind">
+                  <eAnnotations xmi:id="_fIl8y-DjEeOwY-fyt2GR9A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_c1LagODhEeOLAquU3BvTHw"/>
+                  <eLiterals xmi:id="_fIl8zODjEeOwY-fyt2GR9A" name="strict"/>
+                  <eLiterals xmi:id="_fIl8zeDjEeOwY-fyt2GR9A" name="eventual" value="1"/>
+                </eClassifiers>
+              </eSubpackages>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:id="_dKRaYODZEeOLAquU3BvTHw" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:id="_cgbWsODaEeOLAquU3BvTHw" alias="Package">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+  </elementImport>
+  <packageImport xmi:id="__KOHIeDYEeOLAquU3BvTHw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="__KOHIuDYEeOLAquU3BvTHw">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_2Wm_oODcEeOLAquU3BvTHw" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="__a_KMODcEeOLAquU3BvTHw" name="artist">
+      <packagedElement xmi:type="uml:Package" xmi:id="_Aqg4YODdEeOLAquU3BvTHw" name="profiles">
+        <packagedElement xmi:type="uml:Package" xmi:id="_Aqg4YeDdEeOLAquU3BvTHw" name="pim">
+          <packagedElement xmi:type="uml:Package" xmi:id="_EcII0ODdEeOLAquU3BvTHw" name="persistence">
+            <packagedElement xmi:type="uml:Stereotype" xmi:id="_BlB8sODZEeOLAquU3BvTHw" name="PersistentElement">
+              <ownedAttribute xmi:id="_dwVU0ODZEeOLAquU3BvTHw" name="base_Class" association="_dwWi8ODZEeOLAquU3BvTHw">
+                <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_SF3isODiEeOLAquU3BvTHw" name="base_Package" association="_SF3iseDiEeOLAquU3BvTHw">
+                <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_2aKbMODiEeOLAquU3BvTHw" name="storageStrategy" type="_qBr_cODeEeOLAquU3BvTHw"/>
+              <ownedAttribute xmi:id="_KsGqYODjEeOwY-fyt2GR9A" name="consistencyLevel" type="_c1LagODhEeOLAquU3BvTHw"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Extension" xmi:id="_dwWi8ODZEeOLAquU3BvTHw" name="E_PersistentElement_Class" memberEnd="_dwWi8eDZEeOLAquU3BvTHw _dwVU0ODZEeOLAquU3BvTHw">
+              <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_dwWi8eDZEeOLAquU3BvTHw" name="extension_PersistentElement" type="_BlB8sODZEeOLAquU3BvTHw" aggregation="composite" association="_dwWi8ODZEeOLAquU3BvTHw"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Extension" xmi:id="_SF3iseDiEeOLAquU3BvTHw" name="E_PersistentElement_Package" memberEnd="_SF3isuDiEeOLAquU3BvTHw _SF3isODiEeOLAquU3BvTHw">
+              <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_SF3isuDiEeOLAquU3BvTHw" name="extension_PersistentElement" type="_BlB8sODZEeOLAquU3BvTHw" aggregation="composite" association="_SF3iseDiEeOLAquU3BvTHw"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration" xmi:id="_qBr_cODeEeOLAquU3BvTHw" name="StorageStrategyKind">
+              <ownedLiteral xmi:id="_eFrD8ODfEeOLAquU3BvTHw" name="blob"/>
+              <ownedLiteral xmi:id="_iLRAUODfEeOLAquU3BvTHw" name="keyValue"/>
+              <ownedLiteral xmi:id="_kd1f4ODfEeOLAquU3BvTHw" name="relational"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration" xmi:id="_c1LagODhEeOLAquU3BvTHw" name="ConsistencyLevelKind">
+              <ownedLiteral xmi:id="_hhKogODhEeOLAquU3BvTHw" name="strict"/>
+              <ownedLiteral xmi:id="_lutnAODhEeOLAquU3BvTHw" name="eventual"/>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Profile>

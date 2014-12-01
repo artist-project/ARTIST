@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UML-Profile-Store Code2CodeModel
+Bundle-SymbolicName: eu.artist.migration.mdt.jump.code2cm
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.jdt.core,
+ org.eclipse.modisco.java.discoverer,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.modisco.infra.discovery.core;visibility:=reexport
+Export-Package: eu.artist.migration.mdt.umlprofilediscovery.code2codemodel,
+ eu.artist.migration.mdt.umlprofilediscovery.code2codemodel.impl
+Bundle-Vendor: TUWien
+Bundle-ActivationPolicy: lazy

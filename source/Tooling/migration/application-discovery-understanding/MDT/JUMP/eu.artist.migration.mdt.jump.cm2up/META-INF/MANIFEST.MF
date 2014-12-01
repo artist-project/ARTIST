@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UML-Profile-Store CodeModel2UMLProfile
+Bundle-SymbolicName: eu.artist.migration.mdt.jump.cm2up
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.migration.mdt.umlprofilediscovery.codemodel2umlprofile.Activator
+Bundle-Vendor: TUWien
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.uml2.uml,
+ org.eclipse.m2m.atl.engine.emfvm;visibility:=reexport,
+ org.eclipse.gmt.modisco.java,
+ org.eclipse.uml2.uml.resources,
+ eu.artist.migration.model.trace,
+ org.apache.commons.lang;bundle-version="2.6.0",
+ eu.artist.migration.umlprofilestore;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: eu.artist.migration.mdt.umlprofilediscovery.codemodel2umlprofile.files

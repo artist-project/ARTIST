@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UML-Profile-Store Java2ProfiledUML
+Bundle-SymbolicName: eu.artist.migration.mut.jump.java2puml
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.gmt.modisco.java,
+ org.eclipse.uml2.uml,
+ org.eclipse.core.runtime,
+ org.eclipse.m2m.atl,
+ org.eclipse.m2m.atl.common,
+ org.eclipse.m2m.atl.engine,
+ org.eclipse.m2m.atl.engine.emfvm,
+ org.eclipse.m2m.atl.engine.emfvm.launch,
+ org.eclipse.uml2.uml.resources,
+ eu.artist.migration.mdt.jump.cm2up,
+ eu.artist.migration.mut.jump.cm2ucd,
+ eu.artist.migration.mut.jump.uml2puml
+Export-Package: eu.artist.migration.mut.umlprofiler.java2profileduml,
+ eu.artist.migration.mut.umlprofiler.java2profileduml.impl
+Bundle-Vendor: TUWien
+Bundle-ActivationPolicy: lazy

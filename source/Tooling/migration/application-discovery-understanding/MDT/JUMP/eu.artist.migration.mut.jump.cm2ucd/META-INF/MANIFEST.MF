@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: UML-Profile-Store CodeModel2UMLClassDiagram
+Bundle-SymbolicName: eu.artist.migration.mut.jump.cm2ucd
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.migration.mut.umlprofiler.codemodel2umlclassesdiagram.Activator
+Bundle-Vendor: TUWien
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.uml2.uml,
+ org.eclipse.m2m.atl.engine.emfvm,
+ org.eclipse.gmt.modisco.java,
+ eu.artist.migration.model.trace,
+ org.eclipse.uml2.uml.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: eu.artist.migration.mut.umlprofiler.codemodel2umlclassesdiagram,
+ eu.artist.migration.mut.umlprofiler.codemodel2umlclassesdiagram.files
