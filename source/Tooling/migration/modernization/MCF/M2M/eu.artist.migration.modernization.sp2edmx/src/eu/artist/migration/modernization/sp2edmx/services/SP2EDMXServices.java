@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Spikes - Initial implementation
+ * 	Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
 
 package eu.artist.migration.modernization.sp2edmx.services;
