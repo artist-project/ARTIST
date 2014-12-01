@@ -12,9 +12,8 @@ Functionality included in this version
 Components that address different concerns in the transformation of PSMs into code
 
 1) Maintanability of Metric Calculator
-2) Reusability Trace Tool
 3) EA_Tool_Suite
-4) UML2Java
+4) U2J (UML2Java)
 
 Functionality expected in next versions
 ---------------------------------------
