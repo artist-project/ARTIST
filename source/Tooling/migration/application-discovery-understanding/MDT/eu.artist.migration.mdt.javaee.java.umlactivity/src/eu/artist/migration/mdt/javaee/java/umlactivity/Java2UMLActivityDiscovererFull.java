@@ -74,12 +74,12 @@ public class Java2UMLActivityDiscovererFull extends AbstractModelDiscoverer<IFil
 			transformationLauncher.initialize(new HashMap<String,Object>());
 			transformationLauncher.addInModel(javaModel, "IN", "JAVA");
 			transformationLauncher.addOutModel(umlModel, "OUT", "UML");
-			transformationLauncher.addLibrary("java2UMLActivityHelpers", Java2UMLActivityDiscovererFull.class.getResource("resources/java2UMLActivityHelpers.asm").openStream());
+			transformationLauncher.addLibrary("java2UMLActivityHelpers", Java2UMLActivityDiscovererFull.class.getResource("/resources/java2UMLActivityHelpers.asm").openStream());
 			
 			HashMap<String, Object> options = new HashMap<String, Object>();
 			options.put("allowInterModelReferences", true);
 			transformationLauncher.launch(ILauncher.RUN_MODE, monitor, options,
-				Java2UMLActivityDiscovererFull.class.getResource("resources/JavaMethods2UMLActivityDiagram.asm").openStream());
+				Java2UMLActivityDiscovererFull.class.getResource("/resources/JavaMethods2UMLActivityDiagram.asm").openStream());
 						
 			Resource umlOutput = UMLResourceFactoryImpl.INSTANCE.createResource(getTargetURI());
 			EMFModel umlEMFModel = (EMFModel) umlModel;

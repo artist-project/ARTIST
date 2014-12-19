@@ -867,7 +867,13 @@ helper context JAVA!Expression def : getVarOrElemName : String =
 							else
 								if (self.leftHandSide.array.oclIsTypeOf(JAVA!MethodInvocation)) then
 									self.leftHandSide.array.method.name
-								else self.leftHandSide.array.element.name endif
+								else
+									if (self.oclIsTypeOf(JAVA!ParenthesizedExpression)) then
+										self.type.name
+									else 
+										OclUndefined
+									endif
+								endif
 							endif	
 						endif
 					endif

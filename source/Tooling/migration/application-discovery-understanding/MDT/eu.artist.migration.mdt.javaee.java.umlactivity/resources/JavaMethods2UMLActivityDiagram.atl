@@ -89,20 +89,26 @@ rule createDependency{
 		jImportDec : JAVA!ImportDeclaration
 	to 
 		umlDependency : UML!Dependency (		
-			name <- jImportDec.importedElement.name + '_OF_' + jImportDec.refImmediateComposite().name,
-			supplier <- if jImportDec.importedElement.oclIsKindOf(JAVA!VariableDeclarationFragment) then 
-							jImportDec.importedElement.originalCompilationUnit.types
-						else 
-							if jImportDec.importedElement.oclIsKindOf(JAVA!AnnotationTypeDeclaration) then
-								jImportDec.importedElement.usagesInImports
-									-> collect(usImport | usImport.originalCompilationUnit.types)	
-							else 
-								if (jImportDec.importedElement.oclIsKindOf(JAVA!EnumConstantDeclaration))then
-									jImportDec.importedElement.refImmediateComposite()
-								else jImportDec.importedElement endif
-							endif
-						endif
+			name <- jImportDec.importedElement.name + '_OF_' + jImportDec.refImmediateComposite().name
+--MODIF
+--			supplier <- if jImportDec.importedElement.oclIsKindOf(JAVA!VariableDeclarationFragment) then 
+--							jImportDec.importedElement.originalCompilationUnit.types
+--						else 
+--							if jImportDec.importedElement.oclIsKindOf(JAVA!AnnotationTypeDeclaration) then
+--								jImportDec.importedElement.usagesInImports
+--									-> collect(usImport | usImport.originalCompilationUnit.types)	
+--							else 
+--								if (jImportDec.importedElement.oclIsKindOf(JAVA!EnumConstantDeclaration))then
+--									jImportDec.importedElement.refImmediateComposite()
+--								else jImportDec.importedElement endif
+--							endif
+--						endif
 		)
+	do{
+		--'isVariableDeclarationFragment: '.concat(jImportDec.importedElement.oclIsKindOf(JAVA!VariableDeclarationFragment).toString()).println();
+		--'isAnnotationTypeDeclaration: '.concat(jImportDec.importedElement.oclIsKindOf(JAVA!AnnotationTypeDeclaration).toString()).println();
+		--'isEnumConstantDeclaration: '.concat(jImportDec.importedElement.oclIsKindOf(JAVA!EnumConstantDeclaration).toString()).println();
+	}
 }
 
 ---Block
@@ -2802,8 +2808,8 @@ rule ifStatement {
 		td	:	UML!ObjectFlow(
 			name <- '<<decisionInputFlow>> - Test expression to DecisionNode',
 			inStructuredNode <- t,
-			source <- s.expression.getActivityNode(),
-			target <- decNode			
+			source <- s.expression.getActivityNode(), --COMMENTED
+			target <- decNode			--COMMENTED
 		),
 		decNode	:	UML!DecisionNode(
 			name <- 'DecisionNode - IfStatement',
@@ -4386,7 +4392,12 @@ rule infixOperatorExpression {
 	to
 		cb	:	UML!CallBehaviorAction(	
 			behavior <- ioe.getBehavior,
-			name <- ioe.operator.toString(),
+			name <- ioe.operator.toString(), --MODIF
+--			name <- if (ioe.operator.toString() = '&&') then --to avoid serialization problem. &amp;&amp; was converted to &&
+--							''
+--						else 	
+--							ioe.operator.toString()
+--						endif,	
 			inStructuredNode <- ioe.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			argument <- Sequence{inputPinFirstLeft, inputPinSecondRight},
@@ -4418,6 +4429,9 @@ rule infixOperatorExpression {
 		op	:	UML!OutputPin (
 			name <- 'resultCallBehaviorActionOutput'
 		)
+		do{
+			
+		}
 }
 
 rule equalOperatorExpression{
@@ -5474,5 +5488,6 @@ rule JUnresolvedMethodDecToActivity{
 			activity <- act,
 			target <- final,
 			source <- opaqueAction
-		)	
+		)
+		
 }
