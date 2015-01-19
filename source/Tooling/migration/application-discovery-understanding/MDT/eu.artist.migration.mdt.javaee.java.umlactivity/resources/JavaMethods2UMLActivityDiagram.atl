@@ -25,10 +25,12 @@ uses java2UMLActivityHelpers;
 
 rule JModelRootToUmlModelRoot {
 	from 
-		jModelRoot : JAVA!Model
+		jModelRoot : JAVA!Model(
+			jModelRoot.notInClassInstanceCreation --MODIF	
+		)
 	to 
 		umlModelRoot : UML!Model (
-			name <- 'root model', 			
+			name <- 'root model',			
 			packagedElement <- jModelRoot.allAbstractMethodDeclaration
 								->including(cd)
 								-> append(thisModule.createExternalsModel(jModelRoot))	
@@ -43,7 +45,9 @@ rule JModelRootToUmlModelRoot {
 ---Create 'external' model
 unique lazy rule createExternalsModel{
 	from 
-		jModel : JAVA!Model
+		jModel : JAVA!Model(
+			jModel.notInClassInstanceCreation --MODIF	
+		)
 	to 
 		umlModel : UML!Package(
 			name <- 'externals',
@@ -58,6 +62,7 @@ rule JPackageToUmlPackage {
 	from 
 		jPackage : JAVA!Package(
 			jPackage.isAnExternalPackage
+			and jPackage.notInClassInstanceCreation --MODIF
 		)
 	to 
 		umlPackage : UML!Package (
@@ -81,12 +86,15 @@ rule JPackageToUmlPackage {
 										jPackage.getPackage
 								  	else OclUndefined endif	
 								  else OclUndefined endif		
-		)		
+		)
+		
 }
 
 rule createDependency{
 	from 
-		jImportDec : JAVA!ImportDeclaration
+		jImportDec : JAVA!ImportDeclaration(
+			jImportDec.notInClassInstanceCreation --MODIF	
+		)
 	to 
 		umlDependency : UML!Dependency (		
 			name <- jImportDec.importedElement.name + '_OF_' + jImportDec.refImmediateComposite().name
@@ -111,11 +119,11 @@ rule createDependency{
 	}
 }
 
----Block
 abstract rule abstractBlock2StructuredActivity{
 	from
 		block	:	JAVA!Block(
-			block.getReturnStateGeneratingSAN		
+			block.getReturnStateGeneratingSAN
+			and block.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -132,41 +140,75 @@ abstract rule abstractBlock2StructuredActivity{
 							init
 						else 
 							block.statements.last().getSourceTargetOrOwnerSAN
-						endif
-		)	
+						endif,
+			guard <- gu, --MODIF
+			weight <- we --MODIF
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
 
 rule Block2StructuredActivity extends abstractBlock2StructuredActivity{
 	from
 		block	:	JAVA!Block	((not block.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)) 
-									and block.notInInitializerOrFieldOrEnum 
+									and block.notInInitializerOrFieldOrEnum
 								 	and block.notInAnnotation
 									and not block.hasOnlyReturnInstanceCreateNoParam
+									and block.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'Block - ' + block.refImmediateComposite().oclType().toString(),
 			inStructuredNode <- block.refImmediateComposite()
-		)	
+		)
+	do{
+		
+			
+	}
 }
-
+--original
+--rule Block2StructuredActivityForM extends abstractBlock2StructuredActivity{
+--	from
+--		block	:	JAVA!Block	(block.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) 
+--									and	block.notInAnnotation			
+--									and not block.hasOnlyReturnInstanceCreateNoParam
+--		)
+--	to
+--		t	:	UML!StructuredActivityNode(
+--			name <- 'structured_'+block.refImmediateComposite(),
+--			activity <- block.getOwningMethod--getOwningMethod returns MethodDeclaration, activity:Activity
+--		)
+--}
+--MODIF
 rule Block2StructuredActivityForM extends abstractBlock2StructuredActivity{
 	from
 		block	:	JAVA!Block	(block.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration) 
 									and	block.notInAnnotation			
 									and not block.hasOnlyReturnInstanceCreateNoParam
+									and block.notInClassInstanceCreation --MODIF
+									and block.notInEnumDeclaration --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'structured_'+block.refImmediateComposite(),
-			activity <- block.getOwningMethod
+			activity <- block.getOwningMethod--getOwningMethod returns MethodDeclaration, activity:Activity
 		)
+	do{
+--		if(block.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)){
+--			'MethodDeclaration name2: '.concat(block.refImmediateComposite().name).println();
+--		}
+	}
 }
-
 ---(Anonymous)Class
 abstract rule abstratASTNodeToClass{
 	from
-		s : JAVA!ASTNode
+		s : JAVA!ASTNode (
+			s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t : UML!Classifier(
 			ownedOperation <- s.bodyDeclarations 
@@ -177,7 +219,9 @@ abstract rule abstratASTNodeToClass{
 
 rule AnonymousClass extends abstratASTNodeToClass {
 	from
-		s	:	JAVA!AnonymousClassDeclaration
+		s	:	JAVA!AnonymousClassDeclaration(
+				s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- if (not s.refImmediateComposite().oclIsKindOf(JAVA!EnumConstantDeclaration)) then
@@ -188,13 +232,15 @@ rule AnonymousClass extends abstratASTNodeToClass {
 								else OclUndefined endif
 		)		
 	do{
-		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);	
+		thisModule.getTypeDec <- thisModule.getTypeDec -> including(s, t);
 	}	
 }
 
 rule Class extends abstratASTNodeToClass {
 	from
-		s	:	JAVA!ClassDeclaration
+		s	:	JAVA!ClassDeclaration(
+			s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- s.name,
@@ -209,7 +255,9 @@ rule Class extends abstratASTNodeToClass {
 
 rule enumDeclaration extends abstratASTNodeToClass {
 	from
-		s	:	JAVA!EnumDeclaration
+		s	:	JAVA!EnumDeclaration(
+			s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- s.name + '-unsupported',
@@ -224,7 +272,9 @@ rule enumDeclaration extends abstratASTNodeToClass {
 
 rule JInterfaceToUmlInterface extends abstratASTNodeToClass {
 	from 
-		s : JAVA!InterfaceDeclaration
+		s : JAVA!InterfaceDeclaration(
+			s.notInClassInstanceCreation --MODIF	
+		)
 	to 
 		t : UML!Interface (
 			name <- s.name,
@@ -241,7 +291,8 @@ rule JInterfaceToUmlInterface extends abstratASTNodeToClass {
 abstract rule abstractExpressStatement{
 	from
 		s : JAVA!Statement(
-			s.notInInitializerOrFieldOrEnum 
+			s.notInInitializerOrFieldOrEnum
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -255,7 +306,15 @@ abstract rule abstractExpressStatement{
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- t
+			target <- t,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		),
 		
 		initialNode : UML!InitialNode(
@@ -267,14 +326,29 @@ abstract rule abstractExpressStatement{
 			source <- initialNode,
 			target <- 	if (s.getPreceding().getSourceTargetOrOwnerSAN.oclIsUndefined())then
 							initialNode
-						else s.getPreceding().getSourceTargetOrOwnerSAN endif
+						else s.getPreceding().getSourceTargetOrOwnerSAN endif,
+			guard <- gu2,
+			weight <- we2
 		),			
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		finalControlFlow: UML!ControlFlow(
 			name <- 'fromLastStructuredActivityNodeToFinalNode',
 			inStructuredNode <- t,
 			source <- s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		final : UML!ActivityFinalNode(
 			inStructuredNode <- t
@@ -284,7 +358,8 @@ abstract rule abstractExpressStatement{
 abstract rule abstractSpecificExpressStatement{
 	from
 		s : JAVA!Statement(
-			s.notInInitializerOrFieldOrEnum 
+			s.notInInitializerOrFieldOrEnum
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -301,14 +376,29 @@ abstract rule abstractSpecificExpressStatement{
 			source <- initialNode,
 			target <- 	if (s.getPreceding().getSourceTargetOrOwnerSAN.oclIsUndefined())then
 							initialNode
-						else s.getPreceding().getSourceTargetOrOwnerSAN endif
+						else s.getPreceding().getSourceTargetOrOwnerSAN endif,
+			guard <- gu,
+			weight <- we
 		),			
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		finalControlFlow: UML!ControlFlow(
 			name <- 'fromLastStructuredActivityNodeToFinalNode',
 			inStructuredNode <- t,
 			source <- s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		final : UML!ActivityFinalNode(
 			inStructuredNode <- t
@@ -324,6 +414,7 @@ rule instanceVariableUseNotSettNullExpressState extends abstractExpressStatement
 			and not s.isClearingList
 			and not s.isAddingInList
 			and not s.isRemovingInList
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to		
 		t	:	UML!StructuredActivityNode(
@@ -337,13 +428,24 @@ rule instanceVariableUseNotSettNullExpressState extends abstractExpressStatement
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
 		),
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,
@@ -369,12 +471,24 @@ rule instanceVariableUseNotSettNullExpressState extends abstractExpressStatement
 												and not state.isReturnStateGeneratingObjectFlow
 							) 
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 						
-		),		
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op : UML!OutputPin(
 			name <- 'readStructuralFeatureActionOutput',
-			outgoing <- outControlFlow
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -384,6 +498,7 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			s.isInstanceVarUse
 			and not s.isImplicitThisExpression
 			and s.isSettingNull
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to		
 		t	:	UML!StructuredActivityNode(
@@ -397,13 +512,24 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
 		),
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			inStructuredNode <-  s.getStatement.getSourceTargetOrOwnerSAN,
@@ -422,24 +548,47 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			inStructuredNode <-  s.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- readStruct,
-			target <- initialNodeCFA
-		),		
+			target <- initialNodeCFA,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op : UML!OutputPin(
 			name <- 'readStructuralFeatureActionOutput',
-			outgoing <- outControlFlow
+			outgoing <- outControlFlow,
+			upperBound <- up
 		),		
-		
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
 		initialNodeCFA : UML!InitialNode(),	
 		initialControlFlow : UML!ControlFlow(
 			name <- 'fromInitNodeToClearStructuralFeatureActionInit',
 			inStructuredNode <- t,
 			source <- initialNodeCFA,
-			target <- clearStructuralFeature
+			target <- clearStructuralFeature,
+			guard <- gu6,
+			weight <- we6
+		),
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputCFA : UML!InputPin (
 			name <- 'clearStructuralFeatureActionInput',
-			incoming <- initialControlFlow
-		),	
+			incoming <- initialControlFlow,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
 			name <- 'clear',
 			inStructuredNode <- t,			
@@ -467,7 +616,15 @@ rule instanceVariableUseSettNullExpressState extends abstractExpressStatement{
 			name <- 'fromClearStructuralFeatureActionToFinalNode',
 			inStructuredNode <- t,
 			source <- clearStructuralFeature,
-			target <- final
+			target <- final,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
 		),
 		final : UML!ActivityFinalNode()
 }
@@ -476,6 +633,7 @@ rule implicitThis2IntanceVarUsereadSelf extends abstractExpressStatement{
 	from
 		s	:	JAVA!ExpressionStatement (
 			s.isImplicitThisExpression
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -495,11 +653,23 @@ rule implicitThis2IntanceVarUsereadSelf extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
@@ -525,11 +695,23 @@ rule implicitThis2IntanceVarUsereadSelf extends abstractExpressStatement{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
-		),		
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op : UML!OutputPin(
 			name <- 'readStructuralFeatureActionOutput',
-			outgoing <- outControlFlow
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -543,6 +725,8 @@ rule expressionStatement extends abstractSpecificExpressStatement{
 			and not s.isClearingList			
 			and not s.isAddingInList
 			and not s.isRemovingInList
+			and s.notInClassInstanceCreation --MODIF
+			and s.notInEnumDeclaration --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -552,11 +736,20 @@ rule expressionStatement extends abstractSpecificExpressStatement{
 		),
 		fcf : UML!ControlFlow(
 			name <- 'fromInitialNodeToInitLastStatement',
-			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
+			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,--returns self, inStructureNode: StructuredActivityNode
 			source <- thisModule.resolveTemp(s.refImmediateComposite().getSourceTargetOrOwnerSAN, 'init'),
-			target <- s.refImmediateComposite().getSourceTargetOrOwnerSAN
-		)	
+			target <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
+
 
 ---Clearing list
 rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
@@ -566,7 +759,8 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 			and s.notInAnnotation 
 			and s.isClearingList			
 			and not s.isImplicitThisExpression
-			and s.isInstanceVarUse			
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -580,11 +774,23 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		--Getter used
 		readStruct : UML!ReadStructuralFeatureAction(
@@ -602,7 +808,11 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 		),	
 		op : UML!OutputPin(
 			name <- 'readStructuralFeatureActionOutput',
-			outgoing <- outControlFlow
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		),
 		outControlFlow	:	UML!ControlFlow(
 			name <- 'fromReadStructuralFeatureActionToReturn',
@@ -615,13 +825,24 @@ rule expressionStatementClearListThisInstanVar extends abstractExpressStatement{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),		
-		
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		inputCFA : UML!InputPin (
 			name <- 'clearStructuralFeatureActionInputPin',
-			incoming <- outControlFlow
-		),			
+			incoming <- outControlFlow,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		--Clear coll.
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
 			name <- 'clear',
@@ -655,7 +876,8 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 			and s.notInAnnotation 
 			and s.isClearingList			
 			and s.isImplicitThisExpression
-			and s.isInstanceVarUse		
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -675,11 +897,23 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
@@ -705,17 +939,32 @@ rule expressionStatementClearListInstanVar extends abstractExpressStatement{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
-		),		
-		op : UML!OutputPin(
-			name <- 'readStructuralFeatureActioOutput'
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),
-		
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'readStructuralFeatureActioOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
 		--Clear coll.
 		inputCFA : UML!InputPin (
 			name <- 'fromOutControlFlowToClearStructuralFeatureAction',
-			incoming <- outControlFlow
-		),			
+			incoming <- outControlFlow,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
 			name <- 'clear',
 			inStructuredNode <- t,			
@@ -748,7 +997,8 @@ rule expressionStatementClearListImpThisInstanVar extends abstractExpressStateme
 			and s.notInAnnotation 
 			and s.isClearingList			
 			and s.isImplicitThisExpression
-			and not s.isInstanceVarUse	
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -769,13 +1019,24 @@ rule expressionStatementClearListImpThisInstanVar extends abstractExpressStateme
 			target <- inputCFA,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputCFA : UML!InputPin (
 			name <- 'objectInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
 		),	
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		--Clear coll.
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
 			name <- 'clear',
@@ -801,14 +1062,26 @@ rule expressionStatementClearListImpThisInstanVar extends abstractExpressStateme
 			result <- op			
 		),		
 		op	:	UML!OutputPin (
-			name <- 'clearStructuralFeatureActionOutput'	
+			name <- 'clearStructuralFeatureActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		),
 		fcf : UML!ControlFlow(
 			name <- 'fromInitialNodeToInitLastStatement',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,
 			source <- thisModule.resolveTemp(s.getStatement.getSourceTargetOrOwnerSAN, 'init'),
-			target <- s.getSourceTargetOrOwnerSAN
-		)	
+			target <- s.getSourceTargetOrOwnerSAN,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
 
 rule expressionStatementClearList extends abstractSpecificExpressStatement{
@@ -818,7 +1091,8 @@ rule expressionStatementClearList extends abstractSpecificExpressStatement{
 			and s.notInAnnotation 
 			and s.isClearingList			
 			and not s.isImplicitThisExpression
-			and not s.isInstanceVarUse			
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -829,8 +1103,16 @@ rule expressionStatementClearList extends abstractSpecificExpressStatement{
 			name <- 'fromInitialNodeToInitLastStatement',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,
 			source <- thisModule.resolveTemp(s.getStatement.getSourceTargetOrOwnerSAN, 'init'),
-			target <- s.getSourceTargetOrOwnerSAN
-		)	
+			target <- s.getSourceTargetOrOwnerSAN,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
 
 ---Addition of an element in a list
@@ -841,7 +1123,8 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 			and s.notInAnnotation 
 			and s.isAddingInList			
 			and not s.isImplicitThisExpression
-			and s.isInstanceVarUse				
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -856,11 +1139,23 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
@@ -886,11 +1181,15 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),		
-		op : UML!OutputPin(
-			name <- 'readStructuralFeatureActioOutput',
-			outgoing <- outControlFlow
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		
 		--Add in coll.
@@ -905,19 +1204,42 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 		
 		objectIP : UML!InputPin(
 			name <- 'object',
-			incoming <- objectInput
+			incoming <- objectInput,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		objectInput : UML!ObjectFlow(
 			name <- 'fromObjectToObjectIP',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			target <- objectIP,
-			source <- op
+			source <- op,
+			guard <- gu6,
+			weight <- we6
 		),
-		
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'readStructuralFeatureActioOutput',
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
 		valueIP : UML!InputPin(
 			name <- 'value',
-			incoming <- valueInput
+			incoming <- valueInput,
+			upperBound <- li3
+		),
+		li3	:	UML!LiteralInteger(
+			value <- 1
 		),
 		valueInput : UML!ObjectFlow(
 			name <- 'fromValueToValueIP',
@@ -926,9 +1248,16 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 			target <- valueIP,
 			source <- if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getLastListMethodArgument
-					  else OclUndefined endif
+					  else OclUndefined endif,
+			guard <- gu7,
+			weight <- we7
 		),
-		
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
+		),
 		insertAtIP : UML!InputPin(
 			name <- 'insertAt',
 			lower <-	if (s.isAnEmptyCollection) then
@@ -939,7 +1268,11 @@ rule expressionStatementAddListThisInstanVar extends abstractExpressStatement{
 					 else -1 endif,
 			incoming <- if (s.expression.arguments -> size() = 2 and not s.isAnEmptyCollection) then
 							thisModule.createObjectFlowToNode(s)
-						 else thisModule.createObjectFlowToVSA(s) endif 
+						 else thisModule.createObjectFlowToVSA(s) endif,
+			upperBound <- li4
+		),
+		li4	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -950,7 +1283,8 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 			and s.notInAnnotation 
 			and s.isAddingInList			
 			and s.isImplicitThisExpression
-			and s.isInstanceVarUse	
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -970,11 +1304,23 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'readStructuralFeatureActioInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
@@ -1000,11 +1346,15 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),		
-		op : UML!OutputPin(
-			name <- 'readStructuralFeatureActioOutput',
-			outgoing <- outControlFlow
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		
 		--Add in coll.
@@ -1019,19 +1369,42 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 		
 		objectIP : UML!InputPin(
 			name <- 'object',
-			incoming <- objectInput
+			incoming <- objectInput,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		objectInput : UML!ObjectFlow(
 			name <- 'fromObjectToObjectIP',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,	
 			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			target <- objectIP,
-			source <- op
+			source <- op,
+			guard <- gu6,
+			weight <- we6
 		),
-		
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'readStructuralFeatureActioOutput',
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
 		valueIP : UML!InputPin(
 			name <- 'value',
-			incoming <- valueInput
+			incoming <- valueInput,
+			upperBound <- li3
+		),
+		li3	:	UML!LiteralInteger(
+			value <- 1
 		),
 		valueInput : UML!ObjectFlow(
 			name <- 'fromValueToValueIP',
@@ -1040,9 +1413,16 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 			target <- valueIP,
 			source <- 	if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getLastListMethodArgument
-					  else OclUndefined endif
+					  else OclUndefined endif,
+			guard <- gu7,
+			weight <- we7
 		),
-		
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
+		),
 		insertAtIP : UML!InputPin(
 			name <- 'insertAt',
 			lower <-	if (s.isAnEmptyCollection) then
@@ -1053,7 +1433,11 @@ rule expressionStatementAddListInstanVar extends abstractExpressStatement{
 					 else -1 endif,
 			incoming <- if (s.expression.arguments -> size() = 2 and not s.isAnEmptyCollection) then
 							thisModule.createObjectFlowToNode(s)
-						 else thisModule.createObjectFlowToVSA(s) endif 
+						 else thisModule.createObjectFlowToVSA(s) endif,
+			upperBound <- li4
+		),
+		li4	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -1064,7 +1448,8 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 			and s.notInAnnotation 
 			and s.isAddingInList			
 			and s.isImplicitThisExpression
-			and not s.isInstanceVarUse	
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -1090,7 +1475,11 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 		
 		objectIP : UML!InputPin(
 			name <- 'object',
-			incoming <- objectInput
+			incoming <- objectInput,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		objectInput : UML!ObjectFlow(
 			name <- 'fromObjectToObjectIP',
@@ -1099,12 +1488,23 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 			target <- objectIP,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
 		),
-		
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		valueIP : UML!InputPin(
 			name <- 'value',
-			incoming <- valueInput
+			incoming <- valueInput,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		valueInput : UML!ObjectFlow(
 			name <- 'fromValueToValueIP',
@@ -1113,9 +1513,16 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 			target <- valueIP,
 			source <- if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getLastListMethodArgument
-					  else OclUndefined endif
+					  else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),
-		
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		insertAtIP : UML!InputPin(
 			name <- 'insertAt',
 			lower <-	if (s.isAnEmptyCollection) then
@@ -1126,7 +1533,11 @@ rule expressionStatementAddListImpThisInstanVar extends abstractExpressStatement
 					 else -1 endif,
 			incoming <- if (s.expression.arguments -> size() = 2 and not s.isAnEmptyCollection) then
 							thisModule.createObjectFlowToNode(s)
-						 else thisModule.createObjectFlowToVSA(s) endif 
+						 else thisModule.createObjectFlowToVSA(s) endif,
+			upperBound <- li3
+		),
+		li3	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -1137,7 +1548,8 @@ rule expressionStatementAddList extends abstractSpecificExpressStatement{
 			and s.notInAnnotation 
 			and s.isAddingInList			
 			and not s.isImplicitThisExpression
-			and not s.isInstanceVarUse	
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -1156,7 +1568,11 @@ rule expressionStatementAddList extends abstractSpecificExpressStatement{
 		
 		objectIP : UML!InputPin(
 			name <- 'object',
-			incoming <- objectInput
+			incoming <- objectInput,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		objectInput : UML!ObjectFlow(
 			name <- 'fromObjectToObjectIP',
@@ -1165,12 +1581,23 @@ rule expressionStatementAddList extends abstractSpecificExpressStatement{
 			target <- objectIP,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu3,
+			weight <- we3
 		),
-		
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
 		valueIP : UML!InputPin(
 			name <- 'value',
-			incoming <- valueInput
+			incoming <- valueInput,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		valueInput : UML!ObjectFlow(
 			name <- 'fromValueToValueIP',
@@ -1179,9 +1606,16 @@ rule expressionStatementAddList extends abstractSpecificExpressStatement{
 			target <- valueIP,
 			source <- if (not s.expression.getLastListMethodArgument.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getLastListMethodArgument
-					  else OclUndefined endif
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
 		),
-		
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		insertAtIP : UML!InputPin(
 			name <- 'insertAt',
 			lower <-	if (s.isAnEmptyCollection) then
@@ -1192,7 +1626,11 @@ rule expressionStatementAddList extends abstractSpecificExpressStatement{
 					 else -1 endif,
 			incoming <- if (s.expression.arguments -> size() = 2 and not s.isAnEmptyCollection) then
 							thisModule.createObjectFlowToNode(s)
-						 else thisModule.createObjectFlowToVSA(s) endif 
+						 else thisModule.createObjectFlowToVSA(s) endif,
+			upperBound <- li3
+		),
+		li3	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -1204,7 +1642,8 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			and s.notInAnnotation 
 			and s.isRemovingInList		
 			and not s.isImplicitThisExpression
-			and s.isInstanceVarUse				
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -1219,13 +1658,24 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
-			incoming <- objectflow
-		),		
-		
+			incoming <- objectflow,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,	
@@ -1251,11 +1701,15 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 												and not state.isReturnStateGeneratingObjectFlow
 							) 
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),		
-		op : UML!OutputPin(
-			name <- 'controlOutput',
-			outgoing <- outControlFlow
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		
 		--Removing an element in coll.
@@ -1263,25 +1717,45 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			name <- 'fromReadStructuralFeatureActionOutputToForkNode',
 			source <- op,
 			target <- forkNode,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu6,
+			weight <- we6
 		),
-		
-		forkNode : UML!ForkNode(
-			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
-			incoming <- inObjflowExpress,			
-			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
-			inStructuredNode <- t
+		gu6	:	UML!LiteralBoolean(
+			value <- false
 		),
-		
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'controlOutput',
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
 		outObjRemSFVA : UML!ObjectFlow(
 			name <- 'fromForkNodeToRemoveStructuralFeatureValueActionInput',
 			source <- forkNode,
 			target <- inPinRemSFVAObject,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAObject : UML!InputPin(
 			name <- 'objectInputOfRemoveStructuralFeatureValueAction',
-			incoming <- outObjRemSFVA
+			incoming <- outObjRemSFVA,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		remSFVA : UML!RemoveStructuralFeatureValueAction(
 			object <- inPinRemSFVAObject,
@@ -1295,13 +1769,30 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			name <- 'fromForkNodeToReadStructuralFeatureActionInput',
 			source <- forkNode,
 			target <- inPinReadSF,
+			inStructuredNode <- t,
+			guard <- gu8,
+			weight <- we8
+		),
+		gu8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		forkNode : UML!ForkNode(
+			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
+			incoming <- inObjflowExpress,			
+			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
 			inStructuredNode <- t
 		),
 		inPinReadSF : UML!InputPin(
 			name <- 'objectInputOfReadStructuralFeatureAction',
-			incoming <- inObjReadSF
+			incoming <- inObjReadSF,
+			upperBound <- li3
 		),
-		
+		li3	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readSF : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			object <- inPinReadSF,			
@@ -1312,18 +1803,37 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			name <- 'fromReadStructuralFeatureActiontoCallBehavior',
 			source <- thisModule.createOutputPin('readStructuralFeatureActionOutput'),
 			target <- inPinReadSFCBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu9,
+			weight <- we9
+		),
+		gu9	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we9	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinReadSFCBCollGet : UML!InputPin(
-			name <- 'listInputOfCallBehavior'
+			name <- 'listInputOfCallBehavior',
+			upperBound <- li4
+		),
+		li4	:	UML!LiteralInteger(
+			value <- 1
 		),
 		contFlowRSFCBCollGet : UML!ControlFlow(
 			name <- 'fromReadStructuralFeatureActionToCallBehavior',
 			source <- readSF,
 			target <- callBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu10,
+			weight <- we10
 		),
-		
+		gu10	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we10	:	UML!LiteralBoolean(
+			value <- false
+		),
 		callBCollGet : UML!CallBehaviorAction(
 			argument <- Sequence{inPinReadSFCBCollGet,inPinIndCBCollGet},			
 			result <- 	if (s.expression.isIndexLessOne) then
@@ -1338,19 +1848,75 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 							OclUndefined
 						else thisModule.createOutputPin(s, 'resultOutputOfCallBehavior') endif,
 			target <- inPinRemSFVAValue,
-			inStructuredNode <- t	
+			inStructuredNode <- t,
+			guard <- gu11,
+			weight <- we11
+		),
+		gu11	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we11	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAValue : UML!InputPin(
-			name <- 'valueInputOfRemoveStructuralFeatureValueAction'
+			name <- 'valueInputOfRemoveStructuralFeatureValueAction',
+			upperBound <- li5
 		),
-		
+		li5	:	UML!LiteralInteger(
+			value <- 1
+		),
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
 			source <- if (not s.expression.getRemoveCollectionArgument.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getRemoveCollectionArgument
 					  else OclUndefined endif,						
 			target <- forkNodeIndex,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu12,
+			weight <- we12
+		),
+		gu12	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we12	:	UML!LiteralBoolean(
+			value <- false
+		),
+		outObjIndCBCollGet : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToCallBehavior',
+			source <- forkNodeIndex,
+			target <- callBCollGet,
+			inStructuredNode <- t,
+			guard <- gu13,
+			weight <- we13
+		),
+		gu13	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we13	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inPinIndCBCollGet : UML!InputPin(
+			name <- 'indexInputOfCallBehavior',
+			incoming <- outObjIndCBCollGet,
+			lower <- 1,
+			upperBound <- li6
+		),
+		li6	:	UML!LiteralInteger(
+			value <- 1
+		),
+		outObjIndRemSFVA : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
+			source <- forkNodeIndex,
+			target <- remSFVA,
+			inStructuredNode <- t,
+			guard <- gu14,
+			weight <- we14
+		),
+		gu14	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we14	:	UML!LiteralBoolean(
+			value <- false
 		),
 		forkNodeIndex : UML!ForkNode(
 			name <- 'fromIndexToCallBehaviorOrRemoveStructuralFeatureValueAction',
@@ -1358,29 +1924,14 @@ rule expressionStatementRemoveListThisInstanVar extends abstractExpressStatement
 			outgoing <- Sequence{outObjIndCBCollGet, outObjIndRemSFVA},
 			inStructuredNode <- t
 		),
-		
-		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToCallBehavior',
-			source <- forkNodeIndex,
-			target <- callBCollGet,
-			inStructuredNode <- t	
-		),
-		inPinIndCBCollGet : UML!InputPin(
-			name <- 'indexInputOfCallBehavior',
-			incoming <- outObjIndCBCollGet,
-			lower <- 1
-		),
-		
-		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
-			source <- forkNodeIndex,
-			target <- remSFVA,
-			inStructuredNode <- t	
-		),
 		inPinRemSFVARemoveAt : UML!InputPin(
 			name <- 'removeAtInputOfRemoveStructuralFeatureValueAction',
 			incoming <- outObjIndRemSFVA,
-			lower <- 1
+			lower <- 1,
+			upperBound <- li7
+		),
+		li7	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -1391,7 +1942,8 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			and s.notInAnnotation 
 			and s.isRemovingInList			
 			and s.isImplicitThisExpression
-			and s.isInstanceVarUse	
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -1413,13 +1965,24 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inputPin : UML!InputPin(
 			name <- 'objectInput',
-			incoming <- objectflow
+			incoming <- objectflow,
+			upperBound <- li
 		),		
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,	
@@ -1445,11 +2008,15 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu5,
+			weight <- we5
 		),		
-		op : UML!OutputPin(
-			name <- 'controlOutput',
-			outgoing <- outControlFlow
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		
 		--Removing an element in coll.
@@ -1457,25 +2024,37 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			name <- 'fromReadStructuralFeatureActionOutputToForkNode',
 			source <- op,
 			target <- forkNode,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu6,
+			weight <- we6
 		),
-		
-		forkNode : UML!ForkNode(
-			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
-			incoming <- inObjflowExpress,			
-			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
-			inStructuredNode <- t
+		gu6	:	UML!LiteralBoolean(
+			value <- false
 		),
-		
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
 		outObjRemSFVA : UML!ObjectFlow(
 			name <- 'fromForkNodeToRemoveStructuralFeatureValueActionInput',
 			source <- forkNode,
 			target <- inPinRemSFVAObject,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAObject : UML!InputPin(
 			name <- 'objectInputOfRemoveStructuralFeatureValueAction',
-			incoming <- outObjRemSFVA
+			incoming <- outObjRemSFVA,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		remSFVA : UML!RemoveStructuralFeatureValueAction(
 			object <- inPinRemSFVAObject,
@@ -1489,13 +2068,30 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			name <- 'fromForkNodeToReadStructuralFeatureActionInput',
 			source <- forkNode,
 			target <- inPinReadSF,
+			inStructuredNode <- t,
+			guard <- gu8,
+			weight <- we8
+		),
+		gu8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		forkNode : UML!ForkNode(
+			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
+			incoming <- inObjflowExpress,			
+			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
 			inStructuredNode <- t
 		),
 		inPinReadSF : UML!InputPin(
 			name <- 'objectInputOfReadStructuralFeatureAction',
-			incoming <- inObjReadSF
+			incoming <- inObjReadSF,
+			upperBound <- li3
 		),
-		
+		li3	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readSF : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			object <- inPinReadSF,			
@@ -1506,18 +2102,37 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			name <- 'fromReadStructuralFeatureActiontoCallBehavior',
 			source <- thisModule.createOutputPin(s, 'readStructuralFeatureActionOutput'),
 			target <- inPinReadSFCBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu9,
+			weight <- we9
+		),
+		gu9	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we9	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinReadSFCBCollGet : UML!InputPin(
-			name <- 'listInputOfCallBehavior'
+			name <- 'listInputOfCallBehavior',
+			upperBound <- li4
+		),
+		li4	:	UML!LiteralInteger(
+			value <- 1
 		),
 		contFlowRSFCBCollGet : UML!ControlFlow(
 			name <- 'fromReadStructuralFeatureActionToCallBehavior',
 			source <- readSF,
 			target <- callBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu10,
+			weight <- we10
 		),
-		
+		gu10	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we10	:	UML!LiteralBoolean(
+			value <- false
+		),
 		callBCollGet : UML!CallBehaviorAction(
 			argument <- Sequence{inPinReadSFCBCollGet,inPinIndCBCollGet},
 			result <- 	if (s.expression.isIndexLessOne) then
@@ -1532,19 +2147,83 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 							OclUndefined
 						else thisModule.createOutputPin(s, 'resultOutputOfCallBehavior') endif,
 			target <- inPinRemSFVAValue,
-			inStructuredNode <- t	
+			inStructuredNode <- t,
+			guard <- gu11,
+			weight <- we11
+		),
+		gu11	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we11	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAValue : UML!InputPin(
-			name <- 'valueInputOfRemoveStructuralFeatureValueAction'
+			name <- 'valueInputOfRemoveStructuralFeatureValueAction',
+			upperBound <- li5
 		),
-		
+		li5	:	UML!LiteralInteger(
+			value <- 1
+		),
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
 			source <- if (not s.getRemoveCollectionArgument.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getRemoveCollectionArgument
 					  else OclUndefined endif,					
 			target <- forkNodeIndex,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu12,
+			weight <- we12
+		),
+		gu12	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we12	:	UML!LiteralBoolean(
+			value <- false
+		),
+		outObjIndCBCollGet : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToCallBehavior',
+			source <- forkNodeIndex,
+			target <- callBCollGet,
+			inStructuredNode <- t,
+			guard <- gu13,
+			weight <- we13
+		),
+		gu13	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we13	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inPinIndCBCollGet : UML!InputPin(
+			name <- 'indexInputOfCallBehavior',
+			incoming <- outObjIndCBCollGet,
+			lower <- 1,
+			upperBound <- li6
+		),
+		li6	:	UML!LiteralInteger(
+			value <- 1
+		),
+		outObjIndRemSFVA : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
+			source <- forkNodeIndex,
+			target <- remSFVA,
+			inStructuredNode <- t,
+			guard <- gu14,
+			weight <- we14
+		),
+		gu14	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we14	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'controlOutput',
+			outgoing <- outControlFlow,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		),
 		forkNodeIndex : UML!ForkNode(
 			name <- 'fromIndexToCallBehaviorOrRemoveStructuralFeatureValueAction',
@@ -1552,29 +2231,17 @@ rule expressionStatementRemoveListInstanVar extends abstractExpressStatement{
 			outgoing <- Sequence{outObjIndCBCollGet, outObjIndRemSFVA},
 			inStructuredNode <- t
 		),
-		
-		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToCallBehavior',
-			source <- forkNodeIndex,
-			target <- callBCollGet,
-			inStructuredNode <- t	
-		),
-		inPinIndCBCollGet : UML!InputPin(
-			name <- 'indexInputOfCallBehavior',
-			incoming <- outObjIndCBCollGet,
-			lower <- 1
-		),
-		
-		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
-			source <- forkNodeIndex,
-			target <- remSFVA,
-			inStructuredNode <- t	
-		),
+--		uvf	:	UML!LiteralBoolean(
+--			value <- false
+--		),
 		inPinRemSFVARemoveAt : UML!InputPin(
 			name <- 'removeAtInputOfRemoveStructuralFeatureValueAction',
 			incoming <- outObjIndRemSFVA,
-			lower <- 1
+			lower <- 1,
+			upperBound <- li7
+		),
+		li7	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -1585,7 +2252,8 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			and s.notInAnnotation 
 			and s.isRemovingInList			
 			and s.isImplicitThisExpression
-			and not s.isInstanceVarUse	
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -1606,25 +2274,37 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 						s.expression
 					  else OclUndefined endif,
 			target <- forkNode,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu4,
+			weight <- we4
 		),
-		
-		forkNode : UML!ForkNode(
-			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
-			incoming <- inObjflowExpress,			
-			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
-			inStructuredNode <- t
+		gu4	:	UML!LiteralBoolean(
+			value <- false
 		),
-		
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		outObjRemSFVA : UML!ObjectFlow(
 			name <- 'fromForkNodeToRemoveStructuralFeatureValueActionInput',
 			source <- forkNode,
 			target <- inPinRemSFVAObject,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAObject : UML!InputPin(
 			name <- 'objectInputOfRemoveStructuralFeatureValueAction',
-			incoming <- outObjRemSFVA
+			incoming <- outObjRemSFVA,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		remSFVA : UML!RemoveStructuralFeatureValueAction(
 			object <- inPinRemSFVAObject,
@@ -1638,13 +2318,30 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			name <- 'fromForkNodeToReadStructuralFeatureActionInput',
 			source <- forkNode,
 			target <- inPinReadSF,
+			inStructuredNode <- t,
+			guard <- gu6,
+			weight <- we6
+		),
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		forkNode : UML!ForkNode(
+			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
+			incoming <- inObjflowExpress,			
+			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
 			inStructuredNode <- t
 		),
 		inPinReadSF : UML!InputPin(
 			name <- 'objectInputOfReadStructuralFeatureAction',
-			incoming <- inObjReadSF
+			incoming <- inObjReadSF,
+			upperBound <- li2
 		),
-		
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readSF : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			object <- inPinReadSF,			
@@ -1655,18 +2352,37 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			name <- 'fromReadStructuralFeatureActiontoCallBehavior',
 			source <- thisModule.createOutputPin(s, 'readStructuralFeatureActionOutput'),
 			target <- inPinReadSFCBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinReadSFCBCollGet : UML!InputPin(
-			name <- 'listInputOfCallBehavior'
+			name <- 'listInputOfCallBehavior',
+			upperBound <- li3
+		),
+		li3	:	UML!LiteralInteger(
+			value <- 1
 		),
 		contFlowRSFCBCollGet : UML!ControlFlow(
 			name <- 'fromReadStructuralFeatureActionToCallBehavior',
 			source <- readSF,
 			target <- callBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu8,
+			weight <- we8
 		),
-		
+		gu8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we8	:	UML!LiteralBoolean(
+			value <- false
+		),
 		callBCollGet : UML!CallBehaviorAction(
 			argument <- Sequence{inPinReadSFCBCollGet,inPinIndCBCollGet},
 			result <- 	if (s.expression.isIndexLessOne) then
@@ -1681,19 +2397,75 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 							OclUndefined
 						else thisModule.createOutputPin(s, 'resultOutputOfCallBehavior') endif,
 			target <- inPinRemSFVAValue,
-			inStructuredNode <- t	
+			inStructuredNode <- t,
+			guard <- gu9,
+			weight <- we9
+		),
+		gu9	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we9	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAValue : UML!InputPin(
-			name <- 'valueInputOfRemoveStructuralFeatureValueAction'
+			name <- 'valueInputOfRemoveStructuralFeatureValueAction',
+			upperBound <- li4
 		),
-		
+		li4	:	UML!LiteralInteger(
+			value <- 1
+		),
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getRemoveCollectionArgument
 					  else OclUndefined endif,
 			target <- forkNodeIndex,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu10,
+			weight <- we10
+		),
+		gu10	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we10	:	UML!LiteralBoolean(
+			value <- false
+		),
+		outObjIndCBCollGet : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToCallBehavior',
+			source <- forkNodeIndex,
+			target <- callBCollGet,
+			inStructuredNode <- t,
+			guard <- gu11,
+			weight <- we11
+		),
+		gu11	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we11	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inPinIndCBCollGet : UML!InputPin(
+			name <- 'indexInputOfCallBehavior',
+			incoming <- outObjIndCBCollGet,
+			lower <- 1,
+			upperBound <- li5
+		),
+		li5	:	UML!LiteralInteger(
+			value <- 1
+		),
+		outObjIndRemSFVA : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
+			source <- forkNodeIndex,
+			target <- remSFVA,
+			inStructuredNode <- t,
+			guard <- gu12,
+			weight <- we12
+		),
+		gu12	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we12	:	UML!LiteralBoolean(
+			value <- false
 		),
 		forkNodeIndex : UML!ForkNode(
 			name <- 'fromIndexToCallBehaviorOrRemoveStructuralFeatureValueAction',
@@ -1701,29 +2473,14 @@ rule expressionStatementRemoveListImpThisInstanVar extends abstractExpressStatem
 			outgoing <- Sequence{outObjIndCBCollGet, outObjIndRemSFVA},
 			inStructuredNode <- t
 		),
-		
-		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToCallBehavior',
-			source <- forkNodeIndex,
-			target <- callBCollGet,
-			inStructuredNode <- t	
-		),
-		inPinIndCBCollGet : UML!InputPin(
-			name <- 'indexInputOfCallBehavior',
-			incoming <- outObjIndCBCollGet,
-			lower <- 1
-		),
-		
-		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
-			source <- forkNodeIndex,
-			target <- remSFVA,
-			inStructuredNode <- t	
-		),
 		inPinRemSFVARemoveAt : UML!InputPin(
 			name <- 'removeAtInputOfRemoveStructuralFeatureValueAction',
 			incoming <- outObjIndRemSFVA,
-			lower <- 1
+			lower <- 1,
+			upperBound <- li6
+		),
+		li6	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -1734,13 +2491,13 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			and s.notInAnnotation 
 			and s.isRemovingInList			
 			and not s.isImplicitThisExpression
-			and not s.isInstanceVarUse	
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'Removing an element in a collection - no Method invocation'
 		),
-		
 		--Removing an element in coll.
 		inObjflowExpress : UML!ObjectFlow(
 			name <- 'fromReadStructuralFeatureActionOutputToForkNode',
@@ -1748,25 +2505,37 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 						s.expression
 					  else OclUndefined endif,
 			target <- forkNode,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu4,
+			weight <- we4
 		),
-		
-		forkNode : UML!ForkNode(
-			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
-			incoming <- inObjflowExpress,			
-			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
-			inStructuredNode <- t
+		gu4	:	UML!LiteralBoolean(
+			value <- false
 		),
-		
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		outObjRemSFVA : UML!ObjectFlow(
 			name <- 'fromForkNodeToRemoveStructuralFeatureValueActionInput',
 			source <- forkNode,
 			target <- inPinRemSFVAObject,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAObject : UML!InputPin(
 			name <- 'objectInputOfRemoveStructuralFeatureValueAction',
-			incoming <- outObjRemSFVA
+			incoming <- outObjRemSFVA,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		remSFVA : UML!RemoveStructuralFeatureValueAction(
 			object <- inPinRemSFVAObject,
@@ -1775,43 +2544,82 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			isRemoveDuplicates <- false,
 			inStructuredNode <- t
 		),
-		
 		inObjReadSF : UML!ObjectFlow(
 			name <- 'fromForkNodeToReadStructuralFeatureActionInput',
 			source <- forkNode,
 			target <- inPinReadSF,
+			inStructuredNode <- t,
+			guard <- gu6,
+			weight <- we6
+		),
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		forkNode : UML!ForkNode(
+			name <- 'ReadStructuralFeatureActionOrRemoveStructuralFeatureValueAction',
+			incoming <- inObjflowExpress,			
+			outgoing <- Sequence{outObjRemSFVA, outObjReadSF},
 			inStructuredNode <- t
 		),
 		inPinReadSF : UML!InputPin(
 			name <- 'objectInputOfReadStructuralFeatureAction',
-			incoming <- inObjReadSF
+			incoming <- inObjReadSF,
+			upperBound <- li2
 		),
-		
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		readSF : UML!ReadStructuralFeatureAction(
 			name <- 'read',
 			object <- inPinReadSF,			
 			result <- op,
 			inStructuredNode <- t
 		),
-		op : UML!OutputPin(
-			name <- 'ReadStructuralFeatureActionOutput'
-		),
 		outObjReadSF : UML!ObjectFlow(
 			name <- 'fromReadStructuralFeatureActiontoCallBehavior',
 			source <- op,
 			target <- inPinReadSFCBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'ReadStructuralFeatureActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		),
 		inPinReadSFCBCollGet : UML!InputPin(
-			name <- 'listInputOfCallBehavior'
+			name <- 'listInputOfCallBehavior',
+			upperBound <- li6
+		),
+		li6	:	UML!LiteralInteger(
+			value <- 1
 		),
 		contFlowRSFCBCollGet : UML!ControlFlow(
 			name <- 'fromReadStructuralFeatureActionToCallBehavior',
 			source <- readSF,
 			target <- callBCollGet,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu8,
+			weight <- we8
 		),
-		
+		gu8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we8	:	UML!LiteralBoolean(
+			value <- false
+		),
 		callBCollGet : UML!CallBehaviorAction(
 			argument <- Sequence{inPinReadSFCBCollGet,inPinIndCBCollGet},
 			result <- 	if (s.expression.isIndexLessOne) then
@@ -1826,19 +2634,75 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 							OclUndefined
 						else thisModule.createOutputPin(s, 'resultOutputOfCallBehavior') endif,
 			target <- inPinRemSFVAValue,
-			inStructuredNode <- t	
+			inStructuredNode <- t,
+			guard <- gu9,
+			weight <- we9
+		),
+		gu9	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we9	:	UML!LiteralBoolean(
+			value <- false
 		),
 		inPinRemSFVAValue : UML!InputPin(
-			name <- 'valueInputOfRemoveStructuralFeatureValueAction'
+			name <- 'valueInputOfRemoveStructuralFeatureValueAction',
+			upperBound <- li3
 		),
-		
+		li3	:	UML!LiteralInteger(
+			value <- 1
+		),
 		inObjflowIndexExpress : UML!ObjectFlow(
 			name <- 'fromExpressionToForkNodeIndex',
 			source <- if (not s.expression.getRemoveCollectionArgument.oclIsKindOf(JAVA!TypeLiteral)) then
 						s.expression.getRemoveCollectionArgument
 					  else OclUndefined endif,
 			target <- forkNodeIndex,
-			inStructuredNode <- t
+			inStructuredNode <- t,
+			guard <- gu10,
+			weight <- we10
+		),
+		gu10	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we10	:	UML!LiteralBoolean(
+			value <- false
+		),
+		outObjIndCBCollGet : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToCallBehavior',
+			source <- forkNodeIndex,
+			target <- callBCollGet,
+			inStructuredNode <- t,
+			guard <- gu11,
+			weight <- we11
+		),
+		gu11	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we11	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inPinIndCBCollGet : UML!InputPin(
+			name <- 'indexInputOfCallBehavior',
+			incoming <- outObjIndCBCollGet,
+			lower <- 1,
+			upperBound <- li4
+		),
+		li4	:	UML!LiteralInteger(
+			value <- 1
+		),
+		outObjIndRemSFVA : UML!ObjectFlow(
+			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
+			source <- forkNodeIndex,
+			target <- remSFVA,
+			inStructuredNode <- t,
+			guard <- gu12,
+			weight <- we12
+		),
+		gu12	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we12	:	UML!LiteralBoolean(
+			value <- false
 		),
 		forkNodeIndex : UML!ForkNode(
 			name <- 'fromIndexToCallBehaviorOrRemoveStructuralFeatureValueAction',
@@ -1846,35 +2710,23 @@ rule expressionStatementRemoveList extends abstractExpressStatement{
 			outgoing <- Sequence{outObjIndCBCollGet, outObjIndRemSFVA},
 			inStructuredNode <- t
 		),
-		
-		outObjIndCBCollGet : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToCallBehavior',
-			source <- forkNodeIndex,
-			target <- callBCollGet,
-			inStructuredNode <- t	
-		),
-		inPinIndCBCollGet : UML!InputPin(
-			name <- 'indexInputOfCallBehavior',
-			incoming <- outObjIndCBCollGet,
-			lower <- 1
-		),
-		
-		outObjIndRemSFVA : UML!ObjectFlow(
-			name <- 'objectfromForkNodeIndexToRemoveStructuralFeatureValueAction',
-			source <- forkNodeIndex,
-			target <- remSFVA,
-			inStructuredNode <- t	
-		),
 		inPinRemSFVARemoveAt : UML!InputPin(
 			name <- 'removeAtInputOfRemoveStructuralFeatureValueAction',
 			incoming <- outObjIndRemSFVA,
-			lower <- 1
+			lower <- 1,
+			upperBound <- li5
+		),
+		li5	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
 abstract rule returnStatementGlobal{
 	from
-		s	:	JAVA!ReturnStatement
+		s	:	JAVA!ReturnStatement(
+				s.notInClassInstanceCreation --MODIF
+				and s.notInEnumDeclaration --MODIF
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,	
@@ -1884,18 +2736,23 @@ abstract rule returnStatementGlobal{
 		ob : UML!ObjectFlow(
 			name <- 'fromExpressionToActivityParameterNode',
 			activity <- s.getOwningMethod,
-			source <- s.getSourceForObjectFlow(),
---						if (thisModule.resolveTemp(s.expression, 'forkNode').oclIsUndefined())then
---							if (thisModule.resolveTemp(s.expression, 'op').oclIsUndefined())then
---								if (thisModule.resolveTemp(s.getVarDecStatement, 'forkNode').oclIsUndefined())then
---									if (s.expression.oclIsTypeOf(JAVA!SingleVariableAccess)) then 
---										thisModule.resolveTemp(s.expression.variable, 'apn')
---									else OclUndefined endif	
---								else thisModule.resolveTemp(s.getVarDecStatement, 'forkNode') endif
---							else thisModule.resolveTemp(s.expression, 'op') endif
---						else thisModule.resolveTemp(s.expression, 'forkNode') endif,
-			target <- apn
+			--MODIF
+			--source <- s.getSourceForObjectFlow(),
+			source <- if (s.getSourceForObjectFlow().oclIsUndefined()) then 
+							apn --source is filled to avoid error when validating UML
+					  else 
+					  		s.getSourceForObjectFlow() 
+					  endif,
+			target <- apn,
+			guard <- gu,
+			weight <- we --ValueSpecification
 		),	
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 				
 		apn	:	UML!ActivityParameterNode(
 			name <- 'return',
@@ -1909,7 +2766,11 @@ abstract rule returnStatementGlobal{
 						endif
 					endif,
 			parameter <- paramAct,
-			incoming <- ob
+			incoming <- ob,
+			upperBound <- li--ValueSpecification
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		paramAct	:	UML!Parameter(
 			name <- 'return',
@@ -1925,6 +2786,7 @@ abstract rule returnStatementGlobal{
 					endif
 					
 		)
+	
 }	
 
 rule returnStatementNoMethodCall extends returnStatementGlobal{
@@ -1932,11 +2794,15 @@ rule returnStatementNoMethodCall extends returnStatementGlobal{
 		s	:	JAVA!ReturnStatement (
 			not s.isReturnStateGeneratingObjectFlow
 			and not s.isImplicitThisExpression
-			and not s.isInstanceVarUse	
+			and not s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- s.getOwningMethod.name +' return'
+		),
+		ob : UML!ObjectFlow( --MODIF
+			name <- 'fromExpressionToActivityParameterNode 1.1'
 		)
 	do{
 		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
@@ -1947,6 +2813,7 @@ rule returnStatementNoMethodCall extends returnStatementGlobal{
 			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
 					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
 				else OclUndefined endif;
+		
 	}	
 }	
 
@@ -1954,10 +2821,11 @@ rule returnStatementConstructCall{
 	from
 		s	:	JAVA!ReturnStatement (
 			s.isReturnStateGeneratingObjectFlow
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		ob : UML!ObjectFlow(
-			name <- 'fromExpressionToActivityParameterNode',
+			name <- 'fromExpressionToActivityParameterNode2', --MODIF
 			activity <- s.getOwningMethod,
 			source <- s.getSourceForObjectFlow(),
 --			source <- if (thisModule.resolveTemp(s.expression, 'forkNode').oclIsUndefined())then
@@ -1969,9 +2837,16 @@ rule returnStatementConstructCall{
 --								else thisModule.resolveTemp(s.getVarDecStatement, 'forkNode') endif
 --							else thisModule.resolveTemp(s.expression, 'op') endif
 --						else thisModule.resolveTemp(s.expression, 'forkNode') endif,
-			target <- apn
-		),	
-				
+			target <- apn,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		apn	:	UML!ActivityParameterNode(
 			name <- 'return',
 			type <- if (s.getOwningMethod.returnType.type.oclIsKindOf(JAVA!ParameterizedType)) then
@@ -1984,7 +2859,11 @@ rule returnStatementConstructCall{
 						endif
 					endif,
 			parameter <- paramAct,
-			incoming <- ob
+			incoming <- ob,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		paramAct	:	UML!Parameter(
 			name <- 'return',
@@ -2009,6 +2888,7 @@ rule returnStatementConstructCall{
 			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
 					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
 				else OclUndefined endif;
+		
 	}	
 }	
 
@@ -2018,6 +2898,7 @@ rule returnStatementNoMethodCallAndInstanceVarImplcitThis extends returnStatemen
 			not s.expression.oclIsKindOf(JAVA!MethodInvocation)	
 			and s.isImplicitThisExpression
 			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(),		
@@ -2029,9 +2910,16 @@ rule returnStatementNoMethodCallAndInstanceVarImplcitThis extends returnStatemen
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 --						s.expression
 						s.getSourceForObjectFlow()
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu2,
+			weight <- we2
 		),
-
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		--(Implicit)This
 		read	:	UML!ReadSelfAction (			
 			result <- thisModule.resolveTemp(s.expression, 'op'),
@@ -2040,7 +2928,11 @@ rule returnStatementNoMethodCallAndInstanceVarImplcitThis extends returnStatemen
 		),
 		
 		inputPin : UML!InputPin(
-			name <- 'readInput'
+			name <- 'readInput',
+			upperBound <- ub --MODIF
+		),
+		ub	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <-'read',
@@ -2067,10 +2959,22 @@ rule returnStatementNoMethodCallAndInstanceVarImplcitThis extends returnStatemen
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 	    op : UML!OutputPin (
-			name <- 'resultOutput'	
+			name <- 'resultOutput',
+			upperBound <- ub2 --MODIF
+		),
+		ub2	:	UML!LiteralInteger(
+			value <- 1
 		)
 	do{
 		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
@@ -2081,6 +2985,7 @@ rule returnStatementNoMethodCallAndInstanceVarImplcitThis extends returnStatemen
 			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
 					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
 				else OclUndefined endif;
+		
 	}	
 }
 
@@ -2089,7 +2994,8 @@ rule returnStatementNoMethodCallAndInstanceVar extends returnStatementGlobal{
 		s	:	JAVA!ReturnStatement (
 			not s.expression.oclIsKindOf(JAVA!MethodInvocation)	
 			and not s.isImplicitThisExpression
-			and s.isInstanceVarUse	
+			and s.isInstanceVarUse
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -2097,18 +3003,29 @@ rule returnStatementNoMethodCallAndInstanceVar extends returnStatementGlobal{
 		),
 				
 		obToReadStruct : UML!ObjectFlow(
-			name <- 'fromExpressionToReadStructuralFeatureActionInput',
+			name <- 'fromExpressionToReadStructuralFeatureActionInput2', --MODIF
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,	
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			target <- inputPin,
 			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
 --						s.expression
 						s.getSourceForObjectFlow()
-					  else OclUndefined endif	
+					  else OclUndefined endif,
+			guard <- gu2,
+			weight <- we2
 		),
-
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		inputPin : UML!InputPin(
-			name <- 'readInput'
+			name <- 'readInput',
+			upperBound <- ub
+		),
+		ub	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <-'read',
@@ -2135,10 +3052,22 @@ rule returnStatementNoMethodCallAndInstanceVar extends returnStatementGlobal{
 												and not state.isReturnStateGeneratingObjectFlow
 							)
 							-> first()
-						else OclUndefined endif
+						else OclUndefined endif,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 	    op : UML!OutputPin (
-			name <- 'resultOutput'	
+			name <- 'resultOutput',
+			upperBound <- ub2 --MODIF
+		),
+		ub2	:	UML!LiteralInteger(
+			value <- 1
 		)
 	do{
 		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
@@ -2149,32 +3078,30 @@ rule returnStatementNoMethodCallAndInstanceVar extends returnStatementGlobal{
 			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
 					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
 				else OclUndefined endif;
+		
 	}	
 }	
 		
 rule returnStatementNoMethodCallAndImplicit extends returnStatementGlobal{
 	from
 		s	:	JAVA!ReturnStatement (
-			not s.expression.oclIsKindOf(JAVA!MethodInvocation)	
+--			not s.expression.oclIsKindOf(JAVA!MethodInvocation)	--MODIF
 --			and s.isImplicitThisExpression
 --			and not s.isInstanceVarUse
-			and s.isReturnSimpleImplicitThis
+			s.isReturnSimpleImplicitThis
+			and s.notInClassInstanceCreation --MODIF
+			and s.notInEnumDeclaration --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
 				name <- s.getOwningMethod.name +' return'
 		),
-						
-		obToReadStruct : UML!ObjectFlow(
-			name <- 'fromExpressionToReadStructuralFeatureActionInput',
-			inStructuredNode <- t,
-			target <- inputPin,
-			source <- if (not s.expression.oclIsKindOf(JAVA!TypeLiteral)) then
---						s.expression
-						s.getSourceForObjectFlow()
-					  else OclUndefined endif	
+					
+		ob : UML!ObjectFlow( --MODIF
+			name <- 'fromExpressionToReadStructuralFeatureActionInput3', --MODIF
+			inStructuredNode <- t
+			
 		),
-
 		--(Implicit)This
 		read	:	UML!ReadSelfAction (			
 			result <- thisModule.resolveTemp(s.expression, 'op'),
@@ -2182,7 +3109,11 @@ rule returnStatementNoMethodCallAndImplicit extends returnStatementGlobal{
 		),
 		
 		inputPin : UML!InputPin(
-			name <- 'readInput'
+			name <- 'readInput',
+			upperBound <- ub
+		),
+		ub	:	UML!LiteralInteger(
+			value <- 1
 		),
 		readStruct : UML!ReadStructuralFeatureAction(
 			name <-'read',
@@ -2194,10 +3125,14 @@ rule returnStatementNoMethodCallAndImplicit extends returnStatementGlobal{
 									else OclUndefined endif	
 								  else OclUndefined endif,
 			result <- op,
-			incoming <- obToReadStruct
+			incoming <- ob --MODIF
 		),		
 	    op : UML!OutputPin (
-			name <- 'resultOutput'	
+			name <- 'resultOutput',
+			upperBound <- ub2 --MODIF
+		),
+		ub2	:	UML!LiteralInteger(
+			value <- 1
 		)
 		
 	do{
@@ -2209,6 +3144,7 @@ rule returnStatementNoMethodCallAndImplicit extends returnStatementGlobal{
 			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
 					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
 				else OclUndefined endif;
+		
 	}	
 }
 
@@ -2216,6 +3152,7 @@ rule returnStatementMethodInvocation extends returnStatementGlobal{
 	from
 		s	:	JAVA!ReturnStatement (
 			s.expression.oclIsKindOf(JAVA!MethodInvocation)	
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -2224,14 +3161,26 @@ rule returnStatementMethodInvocation extends returnStatementGlobal{
 		
 		--Calling method
 		inputPin	:	UML!InputPin (
-			name <- 'targetInput'
+			name <- 'targetInput',
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2CallOperAct : UML!ObjectFlow (
 			name <- 'fromMethodInvocationOutPut',
 			source <- thisModule.resolveTemp(s.expression.expression, 'op'),
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,	
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- inputPin
+			target <- inputPin,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		co	:	UML!CallOperationAction(
 			name <- if (not s.expression.method.oclIsUndefined()) then
@@ -2251,7 +3200,11 @@ rule returnStatementMethodInvocation extends returnStatementGlobal{
 			target <- inputPin
 		),
 	    op : UML!OutputPin (
-			name <- 'resultOutput'	
+			name <- 'resultOutput',
+			upperBound <- ub --MODIF
+		),
+		ub	:	UML!LiteralInteger(
+			value <- 1
 		)
 	do{
 		thisModule.resolveTemp(s.getOwningMethod, 'act').ownedNode 
@@ -2262,6 +3215,7 @@ rule returnStatementMethodInvocation extends returnStatementGlobal{
 			<-  if (not thisModule.resolveTemp(s.getOwningMethod, 'act').oclIsUndefined()) then
 					thisModule.resolveTemp(s.getOwningMethod, 'act').ownedParameter -> append(paramAct)
 				else OclUndefined endif;
+		
 	}	
 }
 
@@ -2274,7 +3228,8 @@ abstract rule abstractConditionnalAndBranchingStatement{
 							or s.oclIsTypeOf(JAVA!SynchronizedStatement)	
 							or s.oclIsTypeOf(JAVA!ThrowStatement)	
 							or s.oclIsTypeOf(JAVA!BreakStatement)	
-							or s.oclIsTypeOf(JAVA!SwitchCase)	
+							or s.oclIsTypeOf(JAVA!SwitchCase)
+							and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -2287,13 +3242,23 @@ abstract rule abstractConditionnalAndBranchingStatement{
 			inStructuredNode <- s.getContainerStructuredNode.getSourceTargetOrOwnerSAN,	
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- t
+			target <- t,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule assertStatement extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!AssertStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!AssertStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(		
 			name <- 'AssertStatement-Incomplete'
@@ -2303,7 +3268,9 @@ rule assertStatement extends abstractConditionnalAndBranchingStatement{
 
 rule switchStatement extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!SwitchStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!SwitchStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'SwitchStatement-Incomplete'
@@ -2312,7 +3279,9 @@ rule switchStatement extends abstractConditionnalAndBranchingStatement{
 
 rule continue extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!ContinueStatement (s.notInInitializerOrFieldOrEnum and	s.notInAnnotation)
+		s	:	JAVA!ContinueStatement (s.notInInitializerOrFieldOrEnum and	s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'continue'
@@ -2321,7 +3290,9 @@ rule continue extends abstractConditionnalAndBranchingStatement{
 
 rule empty extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!EmptyStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!EmptyStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'empty'
@@ -2330,7 +3301,9 @@ rule empty extends abstractConditionnalAndBranchingStatement{
 
 rule synchro extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!SynchronizedStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!SynchronizedStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'Synchronized-incomplete'
@@ -2339,7 +3312,9 @@ rule synchro extends abstractConditionnalAndBranchingStatement{
 
 rule throw extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!ThrowStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!ThrowStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'throw'
@@ -2350,9 +3325,16 @@ rule throw extends abstractConditionnalAndBranchingStatement{
 			inStructuredNode <- s.getContainerStructuredNode.getSourceTargetOrOwnerSAN,
 			activity <- s.getContainerStructuredNode.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- t,
-			target <- thisModule.resolveTemp(s.getOwningMethod.body, 'final')
+			target <- thisModule.resolveTemp(s.getOwningMethod.body, 'final'),
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		initialNode : UML!InitialNode(
 			inStructuredNode <- t
 		),
@@ -2360,14 +3342,29 @@ rule throw extends abstractConditionnalAndBranchingStatement{
 			name <- 'fromPrecedingNodeToInitialNode',
 			inStructuredNode <- t,
 			source <- s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- initialNode
+			target <- initialNode,
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		finalControlFlow: UML!ControlFlow(
 			name <- 'fromPrecedingNodeToFinalNode',
 			inStructuredNode <- t,
 			source <- 	s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		final : UML!ActivityFinalNode(
 			inStructuredNode <- t
@@ -2376,7 +3373,9 @@ rule throw extends abstractConditionnalAndBranchingStatement{
 
 rule break extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!BreakStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!BreakStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+			and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!OpaqueAction(
 			name <- 'break'
@@ -2387,13 +3386,23 @@ rule break extends abstractConditionnalAndBranchingStatement{
 			inStructuredNode <- s.getContainerStructuredNode.getSourceTargetOrOwnerSAN,
 			activity <- s.getContainerStructuredNode.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- t,
-			target <- thisModule.resolveTemp(s.refImmediateComposite(), 'fin')
+			target <- thisModule.resolveTemp(s.refImmediateComposite(), 'fin'),
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule switchCase extends abstractConditionnalAndBranchingStatement{
 	from
-		s	:	JAVA!SwitchCase (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!SwitchCase (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'SwitchCase-Incomplete'
@@ -2407,6 +3416,7 @@ abstract rule abstractLoopAndTryStatement{
 							or s.oclIsTypeOf(JAVA!EnhancedForStatement)
 							or s.oclIsTypeOf(JAVA!WhileStatement)
 							or s.oclIsTypeOf(JAVA!DoStatement)
+							and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -2420,18 +3430,28 @@ abstract rule abstractLoopAndTryStatement{
 			inStructuredNode <- s.getContainerStructuredNode.getSourceTargetOrOwnerSAN,
 			activity <- s.getContainerStructuredNode.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- 	s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- t
+			target <- t,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
+
 rule forStatement extends abstractLoopAndTryStatement{
 	from
-		s	:	JAVA!ForStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!ForStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'for'
 		),
-		
 		td	:	UML!ObjectFlow(
 			name <- 'fromExpressionToDecisionNode',
 			inStructuredNode <- t,
@@ -2439,9 +3459,16 @@ rule forStatement extends abstractLoopAndTryStatement{
 						s.expression
 					  else OclUndefined endif,
 			target <- dec,
-			name <- '<<decisionInputFlow>>'
+			name <- '<<decisionInputFlow>>',
+			guard <- gu2,
+			weight <- we2
 		),
-				
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		ini	:	UML!InitialNode(
 			inStructuredNode <- t
 		),
@@ -2449,9 +3476,16 @@ rule forStatement extends abstractLoopAndTryStatement{
 			name <- 'fromInitNodeToInitializer',
 			inStructuredNode <- t,
 			source <- ini,
-			target <- s.initializers->first()						
+			target <- s.initializers->first(),
+			guard <- gu3,
+			weight <- we3
 		),
-		
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
 		jn	:	UML!JoinNode(
 			inStructuredNode <- t
 		),
@@ -2465,30 +3499,52 @@ rule forStatement extends abstractLoopAndTryStatement{
 			source <- if (not s.initializers->first().oclIsKindOf(JAVA!TypeLiteral)) then
 						s.initializers->first()
 					  else OclUndefined endif,
-			target <- jn
-		),		
+			target <- jn,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		id3	:	UML!ControlFlow(
 			name <- 'fromJoinNodeToDecisionNode',
 			inStructuredNode <- t,
 			source <- jn,
-			target <- dec
-		),		
-		
+			target <- dec,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		fc	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToBody',
 			inStructuredNode <- t,
 			source <- dec,
 			target <- s.body.getSourceTargetOrOwnerSAN,
-			guard <- uvt
+			guard <- uvt,
+			weight <- we6
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
 		),
 		ef	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToFinalNode',
 			inStructuredNode <- t,
 			source <- dec,
 			target <- final,
-			guard <- uvf
+			guard <- uvf,
+			weight <- we7
 		),
-		
+		we7	:	UML!LiteralBoolean(
+			value <- false
+		),
 		uvt	:	UML!LiteralBoolean(
 			value <- true
 		),
@@ -2503,7 +3559,15 @@ rule forStatement extends abstractLoopAndTryStatement{
 			name <- 'fromBodyToUpdater',
 			inStructuredNode <- t,
 			source <- 	s.body.getSourceTargetOrOwnerSAN,			
-			target <- s.updaters->first()						
+			target <- s.updaters->first(),
+			guard <- gu8,
+			weight <- we8
+		),
+		gu8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we8	:	UML!LiteralBoolean(
+			value <- false
 		),
 		id5	:	UML!ControlFlow(
 			name <- 'fromUpdaterToJoinNode',
@@ -2511,13 +3575,23 @@ rule forStatement extends abstractLoopAndTryStatement{
 			source <- if (not s.updaters->first().oclIsKindOf(JAVA!TypeLiteral)) then
 						s.updaters->first()
 					  else OclUndefined endif,
-			target <- jn
+			target <- jn,
+			guard <- gu9,
+			weight <- we9
+		),
+		gu9	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we9	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule enhancedForStatement extends abstractLoopAndTryStatement{
 	from
-		s	:	JAVA!EnhancedForStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!EnhancedForStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to		
 		t	:	UML!StructuredActivityNode(
 			name <- 'foreach'
@@ -2530,19 +3604,33 @@ rule enhancedForStatement extends abstractLoopAndTryStatement{
 			name <- 'fromInitNodeToActivityNode', 
 			inStructuredNode <- t,
 			source <- ini,
-			target <- s.expression.getActivityNode()						
+			target <- s.expression.getActivityNode(),
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		of	:	UML!ObjectFlow(
 			name <- 'fromActivityNodeToExpansionRegion',
 			inStructuredNode <- t,
 			source <- s.expression.getActivityNode(),
-			target <- er
+			target <- er,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		er	:	UML!ExpansionRegion(
 			inStructuredNode <- t
 		),
-		
 		ier	:	UML!InitialNode(
 			inStructuredNode <- er
 		),
@@ -2550,30 +3638,54 @@ rule enhancedForStatement extends abstractLoopAndTryStatement{
 			name <- 'fromInitNodeToBody',
 			inStructuredNode <- er,
 			source <- ier,
-			target <- s.body.getSourceTargetOrOwnerSAN
+			target <- s.body.getSourceTargetOrOwnerSAN,
+			guard <- gu4,
+			weight <- we4
 		),
-		
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		fe2	:	UML!ControlFlow(
 			name <- 'fromBodyToFinalNode',
 			inStructuredNode <- er,
 			source <-   s.body.getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		final	:	UML!ActivityFinalNode(
 			inStructuredNode <- er
 		),
-		
 		id2	:	UML!ControlFlow(
 			name <- 'fromExpansionRegionToFinalNode',
 			inStructuredNode <- t,
 			source <- er,
-			target <- thisModule.createActivityFinalNode(t)
+			target <- thisModule.createActivityFinalNode(t),
+			guard <- gu6,
+			weight <- we6
+		),
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule whileStatement extends abstractLoopAndTryStatement{
 	from
-		s	:	JAVA!WhileStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!WhileStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'while'
@@ -2593,15 +3705,30 @@ rule whileStatement extends abstractLoopAndTryStatement{
 			name <- 'fromInitialNodeToJoinNode',
 			inStructuredNode <- t,
 			source <- ini,
-			target <- jn
+			target <- jn,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		id2	:	UML!ControlFlow(
 			name <- 'fromJoinNodeToDecisionNode',
 			inStructuredNode <- t,
 			source <- jn,
-			target <- dec
+			target <- dec,
+			guard <- gu3,
+			weight <- we3
 		),
-		
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
 		td	:	UML!ObjectFlow(
 			name <- 'fromExpressionToDecisionNode',
 			inStructuredNode <- t,
@@ -2609,45 +3736,68 @@ rule whileStatement extends abstractLoopAndTryStatement{
 						s.expression
 					  else OclUndefined endif,
 			target <- dec,
-			name <- '<<decisionInputFlow>>'
+			name <- '<<decisionInputFlow>>',
+			guard <- gu4,
+			weight <- we4
 		),
-		
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		fc	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToBody',
 			inStructuredNode <- t,
 			source <- dec,
 			target <- s.body.getSourceTargetOrOwnerSAN,
-			guard <- uvt
+			guard <- uvt,
+			weight <- we5
 		),
-		
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
 		ef	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToFinalNode',
 			inStructuredNode <- t,
 			source <- dec,
 			target <- final,
-			guard <- uvf
+			guard <- uvf,
+			weight <- we6
 		),
-		uvt	:	UML!LiteralBoolean(
-			value <- true
+		we6	:	UML!LiteralBoolean(
+			value <- false
 		),
 		uvf	:	UML!LiteralBoolean(
+			value <- false
+		),
+		uvt	:	UML!LiteralBoolean(
 			value <- false
 		),
 		final : UML!ActivityFinalNode(
 			inStructuredNode <- t
 		),
-		
 		id3	:	UML!ControlFlow(
 			name <- 'fromBodyToJoinNode',
 			inStructuredNode <- t,
 			source <-   s.body.getSourceTargetOrOwnerSAN,
-			target <- jn
+			target <- jn,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule doWhileStatement extends abstractLoopAndTryStatement{
 	from
-		s	:	JAVA!DoStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!DoStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'doWhile'
@@ -2667,13 +3817,29 @@ rule doWhileStatement extends abstractLoopAndTryStatement{
 			name <- 'fromInitialNodeToJoinNode', 
 			inStructuredNode <- t,
 			source <- ini,
-			target <- jn
+			target <- jn,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		id2	:	UML!ControlFlow(
 			name <- 'fromJoinNodeToBody',
 			inStructuredNode <- t,
 			source <- jn,
-			target <- s.body.getSourceTargetOrOwnerSAN
+			target <- s.body.getSourceTargetOrOwnerSAN,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		td	:	UML!ObjectFlow(
 			name <- 'fromExpressionToDecisionNode',
@@ -2682,21 +3848,37 @@ rule doWhileStatement extends abstractLoopAndTryStatement{
 						s.expression
 					  else OclUndefined endif,
 			target <- dec,
-			name <- '<<decisionInputFlow>>'
+			name <- '<<decisionInputFlow>>',
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		),
 		fc	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToJoinNode', 
 			inStructuredNode <- t,
 			source <- dec,
 			target <- jn,
-			guard <- uvt
+			guard <- uvt,
+			weight <- we5
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		ef	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToFinalNode', 
 			inStructuredNode <- t,
 			source <- dec,
 			target <- final,
-			guard <- uvf
+			guard <- uvf,
+			weight <- we6
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
 		),
 		uvt	:	UML!LiteralBoolean(
 			value <- true
@@ -2707,18 +3889,27 @@ rule doWhileStatement extends abstractLoopAndTryStatement{
 		final	:	UML!ActivityFinalNode(
 			inStructuredNode <- t
 		),
-		
 		id3	:	UML!ControlFlow(
 			name <- 'fromBodyToDecisionNode', 
 			inStructuredNode <- t,
 			source <-   s.body.getSourceTargetOrOwnerSAN,
-			target <- dec
+			target <- dec,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule tryStatement extends abstractLoopAndTryStatement{
 	from
-		s	:	JAVA!TryStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!TryStatement (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'try'
@@ -2731,14 +3922,33 @@ rule tryStatement extends abstractLoopAndTryStatement{
 			name <- 'fromInitialNodeToBody', 
 			inStructuredNode <- t,
 			source <- ini,
-			target <- s.body.getSourceTargetOrOwnerSAN
+			target <- s.body.getSourceTargetOrOwnerSAN,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		bf	:	UML!ControlFlow(
 			name <- 'fromBodyToFinalNode',
 			inStructuredNode <- t,
 			source <-   s.body.getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu3,
+			weight <- we3
 		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
+--		uvf	:	UML!LiteralBoolean(
+--			value <- false
+--		),
 		final	:	UML!ActivityFinalNode(
 			inStructuredNode <- t
 		)
@@ -2749,6 +3959,8 @@ rule VariableDeclaration {
 		s	:	JAVA!VariableDeclarationStatement (	s.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
 													and s.notInInitializerOrFieldOrEnum 
 													and s.notInAnnotation
+													and s.notInClassInstanceCreation --MODIF
+												
 		)
 	to
 		t :	UML!StructuredActivityNode(
@@ -2761,33 +3973,58 @@ rule VariableDeclaration {
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,	
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- thisModule.resolveTemp(s.fragments -> first().initializer,'op'),
-			target <- forkNode
-		),	
+			target <- forkNode,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		forkNode : UML!ForkNode(
 			name <- 'declare_'+s.fragments->first().name+'_fork_node',
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),
-		
 		icf	: UML!ControlFlow(
 			name <- 'to_declare_'+s.fragments->first().name,
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- s.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- t
+			target <- t,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		ocf	: UML!ControlFlow(
 			name <- 'from_declare_'+s.fragments->first().name,
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- t,
-			target <- s.getNext().getSourceTargetOrOwnerSAN
-		)		
+			target <- s.getNext().getSourceTargetOrOwnerSAN,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
 
 rule ifStatement {
 	from
-		s	:	JAVA!IfStatement (s.notInInitializerOrFieldOrEnum)
+		s	:	JAVA!IfStatement (s.notInInitializerOrFieldOrEnum
+				and s.notInClassInstanceCreation --MODIF
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
@@ -2803,31 +4040,49 @@ rule ifStatement {
 			name <- 'InitialNode to decisionNode',
 			inStructuredNode <- t,
 			source <- ini,
-			target <- decNode
+			target <- decNode,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		),
 		td	:	UML!ObjectFlow(
 			name <- '<<decisionInputFlow>> - Test expression to DecisionNode',
 			inStructuredNode <- t,
-			source <- s.expression.getActivityNode(), --COMMENTED
-			target <- decNode			--COMMENTED
+			source <- s.expression.getActivityNode(),
+			target <- decNode,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		decNode	:	UML!DecisionNode(
 			name <- 'DecisionNode - IfStatement',
 			decisionInputFlow <- td, 
 			inStructuredNode <- t			
 		),		
-		
 		truThen	: UML!ControlFlow(
 			name <- 'Then(true) - DecisionNode to ThenStatement',
 			inStructuredNode <- t,
 			source <- decNode,
 			target <- s.thenStatement.getSourceTargetOrOwnerSAN,
-			guard <- trueGuard
+			guard <- trueGuard,
+			weight <- we3
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		trueGuard :	UML!LiteralBoolean(
 			value <- true
 		),
-		
 		falElse	: UML!ControlFlow(
 			name <- 'Else(false) - DecisionNode to ElseStatement',
 			inStructuredNode <- t,
@@ -2837,8 +4092,12 @@ rule ifStatement {
 						else
 							s.elseStatement.getSourceTargetOrOwnerSAN
 						endif,	
-			guard <- falseGuard
-		),		
+			guard <- falseGuard,
+			weight <- we4
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		falseGuard : UML!LiteralBoolean(
 			value <- false
 		),
@@ -2851,7 +4110,15 @@ rule ifStatement {
 			name <- 'Then statement to MergeNdoe',
 			inStructuredNode <- t,
 			source <- 	s.thenStatement.getSourceTargetOrOwnerSAN,
-			target <- merNode
+			target <- merNode,
+			guard <- gu5,
+			weight <- we5
+		),
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
 		),
 		e2j	:	UML!ControlFlow(
 			name <- 'Else statement to MergeNdoe',
@@ -2861,9 +4128,16 @@ rule ifStatement {
 						else 
 							s.elseStatement.getSourceTargetOrOwnerSAN
 						endif,
-			target <- merNode
+			target <- merNode,
+			guard <- gu6,
+			weight <- we6
 		),
-		
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
 		forkNode	:	UML!ForkNode(
 			name <- 'External and End ForkNode',
 			inStructuredNode <- s.refImmediateComposite().getSourceTargetOrOwnerSAN,
@@ -2873,11 +4147,17 @@ rule ifStatement {
 			name <- 'MergeNode to End ForkNode',
 			inStructuredNode <- t,
 			source <- merNode,
-			target <- forkNode
-		)		
+			target <- forkNode,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
-
-
 
 rule labelStatement2StructuredActivity {
 	from
@@ -2885,6 +4165,7 @@ rule labelStatement2StructuredActivity {
 			(not s.refImmediateComposite().oclIsKindOf(JAVA!AbstractMethodDeclaration)) 
 			and s.notInInitializerOrFieldOrEnum 
 			and s.notInAnnotation
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -2915,13 +4196,23 @@ rule labelStatement2StructuredActivity {
 								else 
 									s.body.getSourceTargetOrOwnerSAN
 								endif
-						endif
+						endif,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule catchClause {
 	from
-		s	:	JAVA!CatchClause (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!CatchClause (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+				and s.notInClassInstanceCreation --MODIF
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'catch ' + if s.exception.type.type.oclIsUndefined() 
@@ -2939,15 +4230,33 @@ rule catchClause {
 			name <- 'fromInitialNodeToBody',
 			inStructuredNode <- t,
 			source <- ini,
-			target <- s.body.getSourceTargetOrOwnerSAN
+			target <- s.body.getSourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		bf	:	UML!ControlFlow(
 			name <- 'fromBodyToFinalNode',
 			inStructuredNode <- t,
 			source <- 	s.body.getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu2,
+			weight <- we2
 		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
+--		uvf	:	UML!LiteralBoolean(
+--			value <- false
+--		),
 		final	:	UML!ActivityFinalNode(
 			inStructuredNode <- t
 		),
@@ -2961,7 +4270,11 @@ rule catchClause {
 			activity <- s.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- 	s.refImmediateComposite().body.getSourceTargetOrOwnerSAN,
 			target <- t,
-			guard <- ivs
+			guard <- ivs,
+			weight <- we3
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		ivs	:	UML!InstanceValue(
 			name <- if s.exception.type.type.oclIsUndefined() 
@@ -2978,6 +4291,7 @@ abstract rule classInstanceCreation2CreateObject {
 		ci	:	JAVA!ClassInstanceCreation (	ci.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
 												and ci.notInInitializerOrFieldOrEnum 
 												and ci.notInAnnotation
+												and ci.notInClassInstanceCreation --MODIF
 		)
 	to 		
 		createObjectAction : UML!CreateObjectAction(
@@ -2989,34 +4303,54 @@ abstract rule classInstanceCreation2CreateObject {
 			inStructuredNode <-	ci.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ci.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),		
+		
+		
+		outObjCreateOA : UML!ObjectFlow(
+			name <- 'fromOutputConstrucotrInvocationToForkNode', --OK
+			--activity <- ci.getOwningMethod,--ERROR MODIF
+			source <- op,
+			target <- forkNode,
+			inStructuredNode <-	ci.getStatement.getSourceTargetOrOwnerSAN,
+			activity <- ci.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op : UML!OutputPin(
 			name <- 'Result of constructor invocation of ' + ci.originalCompilationUnit.name,
 			type <- if(ci.type.type.oclIsKindOf(JAVA!ParameterizedType))then
 						ci.method.abstractTypeDeclaration.excludeUnresolvedMethodDec
 					else ci.type.type.excludeUnresolvedTypeDec endif,
-			outgoing <- outObjCreateOA
+			outgoing <- outObjCreateOA,
+			upperBound <- up
 		),
-		
-		outObjCreateOA : UML!ObjectFlow(
-			name <- 'fromOutputConstrucotrInvocationToForkNode', --OK
-			activity <- ci.getOwningMethod,
-			source <- op,
-			target <- forkNode,
-			inStructuredNode <-	ci.getStatement.getSourceTargetOrOwnerSAN,
-			activity <- ci.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
+		inObjCallOA : UML!ObjectFlow(
+			name <- 'fromforkNodeToCallOperationAction', --OK
+			source <- forkNode,
+			target <- inputPin,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		forkNode : UML!ForkNode(
 			incoming <- outObjCreateOA,
 			outgoing <- Sequence{inObjCallOA},
 			inStructuredNode <-	ci.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ci.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
-		),
-		inObjCallOA : UML!ObjectFlow(
-			name <- 'fromforkNodeToCallOperationAction', --OK
-			source <- forkNode,
-			target <- inputPin
-		),
-				
+		),	
 		co	:	UML!CallOperationAction(
 			name <- ci.method.name,
 			operation <- thisModule.resolveTemp(ci.method, 'operation'),
@@ -3024,7 +4358,11 @@ abstract rule classInstanceCreation2CreateObject {
 			argument <- inputPin
 		),
 		inputPin : UML!InputPin (
-			name <- 'target'
+			name <- 'target',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -3032,11 +4370,15 @@ rule classInstanceCreation2CreateObjectNoArgument extends classInstanceCreation2
 	from
 		ci	:	JAVA!ClassInstanceCreation (
 			ci.arguments -> isEmpty()
+			and ci.notInClassInstanceCreation --MODIF
 		)
 	to 		
 		createObjectAction : UML!CreateObjectAction(),
 		co	:	UML!CallOperationAction(),
-		inObjCallOA : UML!ObjectFlow()
+		inObjCallOA : UML!ObjectFlow(
+			--source <- apn
+		)
+		--apn : UML!ActivityParameterNode()
 	do{
 		thisModule.resolveTemp(ci.getOwningMethod, 'act').ownedNode
 			<- thisModule.resolveTemp(ci.getOwningMethod, 'act').ownedNode 
@@ -3051,6 +4393,7 @@ rule classInstanceCreation2CreateObjectArgument extends classInstanceCreation2Cr
 	from
 		ci	:	JAVA!ClassInstanceCreation (	
 			ci.arguments -> notEmpty()
+			and ci.notInClassInstanceCreation --MODIF
 		)
 	to 		
 		createObjectAction : UML!CreateObjectAction(),
@@ -3060,14 +4403,30 @@ rule classInstanceCreation2CreateObjectArgument extends classInstanceCreation2Cr
 		objFlow : UML!ObjectFlow(
 			name <- 'fromArgumentToCallOperationAction',
 			source <- thisModule.resolveTemp(ci.arguments->first(), 'op'),
-			target <- inputPin
+			target <- inputPin,
+			guard <- gu3,
+			weight <- we3
+		),
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
 		),
 		controlFlow : UML!ControlFlow(
 			name <- 'fromIntialNodeToLastStatement',
 			inStructuredNode <- ci.getStatement.getStatement.getSourceTargetOrOwnerSAN,
 			source <- thisModule.resolveTemp(ci.getStatement.getStatement.getSourceTargetOrOwnerSAN, 'init'),
-			target <- ci.getStatement.getStatement.getSourceTargetOrOwnerSAN
-		)	
+			target <- ci.getStatement.getStatement.getSourceTargetOrOwnerSAN,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		)
 	do{
 		thisModule.resolveTemp(ci.getOwningMethod, 'act').ownedNode
 			<- thisModule.resolveTemp(ci.getOwningMethod, 'act').ownedNode 
@@ -3081,7 +4440,8 @@ rule classInstanceCreation2CreateObjectArgument extends classInstanceCreation2Cr
 abstract rule constructorAndMethod2Activity{
 	from
 		construcOrMethodDec : JAVA!AbstractMethodDeclaration(
-			not construcOrMethodDec.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)	
+			not construcOrMethodDec.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
 		)
 	to
 		act	:	UML!Activity(),
@@ -3095,13 +4455,45 @@ abstract rule constructorAndMethod2Activity{
 		)
 }
 
+
+--original
+--rule constructor extends constructorAndMethod2Activity {
+--	from
+--		construcOrMethodDec : JAVA!ConstructorDeclaration(construcOrMethodDec.notInAnnotation)
+--	to
+--		act	:	UML!Activity(
+--			name <- construcOrMethodDec.getConstructorName,
+--			visibility <- construcOrMethodDec.getAbsMethDecVisibility
+--		)
+--	do{
+--		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
+--			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+--				thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation -> append(operation)
+--			else OclUndefined endif;
+--		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior <-
+--			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+--				if (construcOrMethodDec.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)) then
+--					thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior -> append(act)
+--				else OclUndefined endif
+--			else OclUndefined endif;
+--	}	
+--}
+--MODIF
 rule constructor extends constructorAndMethod2Activity {
 	from
-		construcOrMethodDec : JAVA!ConstructorDeclaration(construcOrMethodDec.notInAnnotation)
+		construcOrMethodDec : JAVA!ConstructorDeclaration(construcOrMethodDec.notInAnnotation
+			--the constructor declaration does not belong to a ClassInstanceCreation
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
+			and construcOrMethodDec.notInEnumDeclaration --MODIF
+			)
 	to
 		act	:	UML!Activity(
-			name <- construcOrMethodDec.getConstructorName,
+			--name <- construcOrMethodDec.getConstructorName,
+			--name <- '3098'.concat(construcOrMethodDec.getConstructorName).concat(construcOrMethodDec.refImmediateComposite().bodyDeclarations->first().name),
+			name <- '3098'.concat(construcOrMethodDec.getConstructorName),
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility
+			
+			
 		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
@@ -3122,6 +4514,7 @@ abstract rule abstractConstructorCall2CreateObject {
 		ci	:	JAVA!AbstractMethodDeclaration(
 			ci.oclIsTypeOf(JAVA!SuperConstructorInvocation)
 			or ci.oclIsTypeOf(JAVA!ConstructorInvocation)
+			and ci.notInClassInstanceCreation --MODIF
 		)
 	to 
 		t	:	UML!StructuredActivityNode(
@@ -3133,8 +4526,16 @@ abstract rule abstractConstructorCall2CreateObject {
 			inStructuredNode <- ci.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- ci.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- ci.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- t
-		)	
+			target <- t,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
 
 rule superConstructorCall2CreateObject {
@@ -3143,6 +4544,7 @@ rule superConstructorCall2CreateObject {
 			ci.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
 			and ci.notInInitializerOrFieldOrEnum 
 			and ci.notInAnnotation
+			and ci.notInClassInstanceCreation --MODIF
 		)
 	to 
 		t	:	UML!StructuredActivityNode(
@@ -3158,6 +4560,7 @@ rule constructorCall2CreateObject {
 			ci.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
 			and ci.notInInitializerOrFieldOrEnum 
 			and ci.notInAnnotation
+			and ci.notInClassInstanceCreation --MODIF
 		)
 	to 
 		t	:	UML!StructuredActivityNode(
@@ -3177,10 +4580,13 @@ rule Methods2Activity extends constructorAndMethod2Activity {
 		 	not construcOrMethodDec.isBuggedModiscoMethod
 				and
 		 	construcOrMethodDec.notInAnnotation	
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
+			and construcOrMethodDec.notInEnumDeclaration --MODIF
 		)
 	to
 		act	:	UML!Activity(
-			name <- construcOrMethodDec.getMethodName,
+			--name <- construcOrMethodDec.getMethodName,
+			name <- '3170'.concat(construcOrMethodDec.getMethodName),
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
 			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
 		),
@@ -3192,7 +4598,9 @@ rule Methods2Activity extends constructorAndMethod2Activity {
 			name <- 'fromIntialNodeToBody',
 			activity <- act,
 			target <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
-			source <- init 
+			source <- init,
+			guard <- gu,
+			weight <- we
 		),
 		
 		final	:	UML!ActivityFinalNode(
@@ -3202,8 +4610,22 @@ rule Methods2Activity extends constructorAndMethod2Activity {
 			name <- 'fromBodyToFinalNode',
 			activity <- act,
 			target <- final,
-			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN
-		)		
+			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
 			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
@@ -3226,21 +4648,26 @@ rule Methods2ActivityBugModisco extends constructorAndMethod2Activity {
 			construcOrMethodDec.isBuggedModiscoMethod
 				and
 			construcOrMethodDec.notInAnnotation
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
 		)
 	to
 		act	:	UML!Activity(
-			name <-construcOrMethodDec.getMethodName,
+			--name <-construcOrMethodDec.getMethodName,
+			name <- '3221'.concat(construcOrMethodDec.getMethodName),
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
 			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
 		),
+		
 		init	:	UML!InitialNode(
 			activity <- act
 		),
 		icf : UML!ControlFlow(
-			name <- 'fromIntialNodeToBody',
+			name <- 'fromIntialNodeToBody2',
 			activity <- act,
 			target <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
-			source <- init 
+			source <- init,
+			guard <- gu,
+			weight <- we
 		),
 		
 		final	:	UML!ActivityFinalNode(
@@ -3250,8 +4677,22 @@ rule Methods2ActivityBugModisco extends constructorAndMethod2Activity {
 			name <- 'fromBodyToFinalNode',
 			activity <- act,
 			target <- final,
-			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN
-		)		
+			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
 			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
@@ -3266,6 +4707,56 @@ rule Methods2ActivityBugModisco extends constructorAndMethod2Activity {
 	}		
 }
 
+--original
+--rule VoidMethod2Activity extends constructorAndMethod2Activity {
+--	from
+--		construcOrMethodDec	:	JAVA!MethodDeclaration	(
+--			(not construcOrMethodDec.body.oclIsUndefined()) 
+--				and
+--			construcOrMethodDec.isVoidMethod
+--				and
+--			construcOrMethodDec.notInAnnotation	
+--		)
+--	to
+--		act	:	UML!Activity(
+--			name <- construcOrMethodDec.getMethodName,
+--			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
+--			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
+--		),
+--		
+--		init	:	UML!InitialNode(
+--			activity <- act
+--		),
+--		icf : UML!ControlFlow(
+--			name <- 'fromIntialNodeToBody',
+--			activity <- act,
+--			target <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
+--			source <- init 
+--		),
+--		
+--		final	:	UML!ActivityFinalNode(
+--			activity <- act
+--		),
+--		fcf : UML!ControlFlow(
+--			name <- 'fromBodyToFinalNode',
+--			activity <- act,
+--			target <- final,
+--			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN
+--		)
+--	do{
+--		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
+--			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+--				thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation -> append(operation)
+--			else OclUndefined endif;
+--		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior <-
+--			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
+--				if (construcOrMethodDec.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)) then
+--					thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedBehavior -> append(act)
+--				else OclUndefined endif
+--			else OclUndefined endif;
+--	}		
+--}
+--MODIF
 rule VoidMethod2Activity extends constructorAndMethod2Activity {
 	from
 		construcOrMethodDec	:	JAVA!MethodDeclaration	(
@@ -3274,10 +4765,13 @@ rule VoidMethod2Activity extends constructorAndMethod2Activity {
 			construcOrMethodDec.isVoidMethod
 				and
 			construcOrMethodDec.notInAnnotation	
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
+			
 		)
 	to
 		act	:	UML!Activity(
-			name <- construcOrMethodDec.getMethodName,
+			--name <- construcOrMethodDec.getMethodName,
+			name <- '3269'.concat(construcOrMethodDec.getMethodName), --MODIF
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
 			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
 		),
@@ -3286,10 +4780,12 @@ rule VoidMethod2Activity extends constructorAndMethod2Activity {
 			activity <- act
 		),
 		icf : UML!ControlFlow(
-			name <- 'fromIntialNodeToBody',
+			name <- 'fromIntialNodeToBody3',
 			activity <- act,
 			target <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
-			source <- init 
+			source <- init,
+			guard <- gu,
+			weight <- we
 		),
 		
 		final	:	UML!ActivityFinalNode(
@@ -3299,7 +4795,21 @@ rule VoidMethod2Activity extends constructorAndMethod2Activity {
 			name <- 'fromBodyToFinalNode',
 			activity <- act,
 			target <- final,
-			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN
+			source <- construcOrMethodDec.body.getSourceTargetOrOwnerSAN,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
@@ -3324,14 +4834,18 @@ rule Methods2ActivityEmptyBody extends constructorAndMethod2Activity {
 				and
 		 	not construcOrMethodDec.isBuggedModiscoMethod
 				and
-		 	construcOrMethodDec.notInAnnotation	
+		 	construcOrMethodDec.notInAnnotation
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
+			and construcOrMethodDec.notInInterfaceDeclaration --MODIF
 		)
 	to
 		act	:	UML!Activity(
-			name <- construcOrMethodDec.getMethodName,
+			--name <- construcOrMethodDec.getMethodName,
+			name <- '3318'.concat(construcOrMethodDec.getMethodName),
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
 			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
 		),
+		
 		init	:	UML!InitialNode(
 			activity <- act
 		),
@@ -3342,8 +4856,16 @@ rule Methods2ActivityEmptyBody extends constructorAndMethod2Activity {
 			name <- 'fromInitialNodeToFinalNode',
 			activity <- act,
 			target <- final,
-			source <- init 
-		)		
+			source <- init,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
 			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
@@ -3366,13 +4888,16 @@ rule Methods2ActivityBugModiscoEmptyBody extends constructorAndMethod2Activity {
 			construcOrMethodDec.isBuggedModiscoMethod
 				and
 			construcOrMethodDec.notInAnnotation
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
 		)
 	to
 		act	:	UML!Activity(
-			name <-construcOrMethodDec.getMethodName,
+			--name <-construcOrMethodDec.getMethodName,
+			name <- '3361'.concat(construcOrMethodDec.getMethodName),
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
 			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
 		),
+		
 		init	:	UML!InitialNode(
 			activity <- act
 		),
@@ -3383,8 +4908,16 @@ rule Methods2ActivityBugModiscoEmptyBody extends constructorAndMethod2Activity {
 			name <- 'fromInitialNodeToFinalNode',
 			activity <- act,
 			target <- final,
-			source <- init 
-		)	
+			source <- init,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').ownedOperation <-
 			if (not thisModule.resolveTemp(construcOrMethodDec.refImmediateComposite(), 't').oclIsUndefined()) then
@@ -3398,7 +4931,50 @@ rule Methods2ActivityBugModiscoEmptyBody extends constructorAndMethod2Activity {
 			else OclUndefined endif;
 	}		
 }
-
+--original
+--rule VoidMethod2ActivityEmptyBody extends constructorAndMethod2Activity {
+--	from
+--		construcOrMethodDec	:	JAVA!MethodDeclaration	(
+--			(construcOrMethodDec.body.oclIsUndefined()) 
+--				and
+--			construcOrMethodDec.isVoidMethod
+--				and
+--			construcOrMethodDec.notInAnnotation
+--		)
+--	to
+--		act	:	UML!Activity(
+--			--name <- construcOrMethodDec.getMethodName,
+--			name <- '3402',
+--			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
+--			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
+--		),
+--		
+--		init	:	UML!InitialNode(
+--			activity <- act
+--		),
+--		final	:	UML!ActivityFinalNode(
+--			activity <- act
+--		),
+--		icf : UML!ControlFlow(
+--			name <- 'fromInitialNodeToFinalNode',
+--			activity <- act,
+--			target <- final,
+--			source <- init
+--		)		
+--	do{
+--		thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').ownedOperation <-
+--			if (not thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').oclIsUndefined()) then
+--				thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').ownedOperation -> append(operation)
+--			else OclUndefined endif;
+--		thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').ownedBehavior <-
+--			if (not thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').oclIsUndefined()) then
+--				if (construcOrMethodDec.getInstanciedClass.oclIsTypeOf(JAVA!ClassDeclaration)) then
+--					thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').ownedBehavior -> append(act)
+--				else OclUndefined endif
+--			else OclUndefined endif;
+--	}		
+--}
+--MODIF
 rule VoidMethod2ActivityEmptyBody extends constructorAndMethod2Activity {
 	from
 		construcOrMethodDec	:	JAVA!MethodDeclaration	(
@@ -3407,13 +4983,17 @@ rule VoidMethod2ActivityEmptyBody extends constructorAndMethod2Activity {
 			construcOrMethodDec.isVoidMethod
 				and
 			construcOrMethodDec.notInAnnotation
+			and construcOrMethodDec.notInClassInstanceCreation --MODIF
+			and construcOrMethodDec.notInInterfaceDeclaration --MODIF
 		)
 	to
 		act	:	UML!Activity(
-			name <- construcOrMethodDec.getMethodName,
+			--name <- construcOrMethodDec.getMethodName,
+			name <- '3402'.concat(construcOrMethodDec.getMethodName), --MODIF,
 			visibility <- construcOrMethodDec.getAbsMethDecVisibility,
 			redefinedBehavior <- construcOrMethodDec.redefinedMethodDeclaration
 		),
+		
 		init	:	UML!InitialNode(
 			activity <- act
 		),
@@ -3424,8 +5004,16 @@ rule VoidMethod2ActivityEmptyBody extends constructorAndMethod2Activity {
 			name <- 'fromInitialNodeToFinalNode',
 			activity <- act,
 			target <- final,
-			source <- init
-		)		
+			source <- init,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		)
 	do{
 		thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').ownedOperation <-
 			if (not thisModule.resolveTemp(construcOrMethodDec.getInstanciedClass, 't').oclIsUndefined()) then
@@ -3448,6 +5036,7 @@ rule methodCallExpressionNullArgument {
 			and mi.arguments
 					-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
 					-> notEmpty()
+			and mi.notInClassInstanceCreation --MODIF
 		)
 	to
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
@@ -3506,6 +5095,7 @@ abstract rule methodCallExpressionNotNullArgument{
 						-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
 						-> isEmpty()
 				else true endif	
+			and mi.notInClassInstanceCreation --MODIF
 		)
 	to
 			co	:	UML!CallOperationAction(
@@ -3516,22 +5106,36 @@ abstract rule methodCallExpressionNotNullArgument{
 				target <- inputPin,
 				result <- op
 			),
-			
 			of1	:	UML!ObjectFlow (
 				name <- 'fromExpressionOutputToCallOperationAction'.concat('_'+mi.method.name),
 				inStructuredNode <- mi.getStatement.getSourceTargetOrOwnerSAN,
 				activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 				target <- inputPin,
-				source <- thisModule.resolveTemp(mi.expression, 'op')
+				source <- thisModule.resolveTemp(mi.expression, 'op'),
+				guard <- gu,
+				weight <- we
+			),
+			gu	:	UML!LiteralBoolean(
+				value <- false
+			),
+			we	:	UML!LiteralBoolean(
+				value <- false
 			),
 			inputPin	:	UML!InputPin (
 				name <- 'objectInput',
-				incoming <- of1
+				incoming <- of1,
+				upperBound <- li
 			),
-		
+			li	:	UML!LiteralInteger(
+				value <- 1
+			),
 			op	:	UML!OutputPin (
-				name <- 'callOperationActionOutput'
-			)	
+				name <- 'callOperationActionOutput',
+				upperBound <- up
+			),
+			up	:	UML!LiteralInteger(
+				value <- 1
+			)
 }
 
 rule methodCallExpressionNotNullArgumentNotNullExpress extends methodCallExpressionNotNullArgument{
@@ -3539,6 +5143,7 @@ rule methodCallExpressionNotNullArgumentNotNullExpress extends methodCallExpress
 		mi	:	JAVA!MethodInvocation (
 			not mi.method.oclIsUndefined()	
 			and mi.notInInitializerOrFieldOrEnum
+			and mi.notInClassInstanceCreation --MODIF
 			and if not mi.arguments.oclIsUndefined() then
 					mi.arguments
 						-> select(argue | argue.oclIsKindOf(JAVA!NullLiteral))
@@ -3557,10 +5162,14 @@ rule methodCallExpressionNotNullArgumentNotNullExpress extends methodCallExpress
 			activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),		
 		inputPinArgue : UML!InputPin (
-			name <- 'target',
+			name <- 'target1',--MODIF
 			incoming <- if (mi.getOwningMethodInvocation.oclIsUndefined())then
 							thisModule.createFlowsForMethodInvocation(co, mi)
-						else OclUndefined endif
+						else OclUndefined endif,
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -3570,14 +5179,29 @@ rule createFlowsForMethodInvocation(co : UML!CallOperationAction, mi : JAVA!Meth
 			name <- 'fromArgumentToCallOperationAction',
 			inStructuredNode <- mi.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			source <- thisModule.resolveTemp(mi.expression, 'op')
+			source <- thisModule.resolveTemp(mi.expression, 'op'),
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		controlFlow : UML!ControlFlow(
 			name <- 'ToCallOperationAction',
 			inStructuredNode <- mi.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- mi.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- co
+			target <- co,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		)
 	do{
 		ofArgue;
@@ -3587,7 +5211,8 @@ rule createFlowsForMethodInvocation(co : UML!CallOperationAction, mi : JAVA!Meth
 rule methodCallExpressionNotNullArgumentNotNullExpressClear extends methodCallExpressionNotNullArgument{
 	from
 		mi	:	JAVA!MethodInvocation (
-			not mi.method.oclIsUndefined()	
+			not mi.method.oclIsUndefined()
+			and mi.notInClassInstanceCreation --MODIF
 			and mi.notInInitializerOrFieldOrEnum
 			and if not mi.arguments.oclIsUndefined() then
 					mi.arguments
@@ -3612,7 +5237,8 @@ rule methodCallExpressionNotNullArgumentNotNullExpressClear extends methodCallEx
 rule methodCallExpressionNotNullArgumentNullExpress extends methodCallExpressionNotNullArgument{
 	from
 		mi	:	JAVA!MethodInvocation (
-			not mi.method.oclIsUndefined()	
+			not mi.method.oclIsUndefined()
+			and mi.notInClassInstanceCreation --MODIF
 			and mi.notInInitializerOrFieldOrEnum
 			and if not mi.arguments.oclIsUndefined() then
 					mi.arguments
@@ -3643,13 +5269,19 @@ rule methodCallExpressionNotNullArgumentNullExpress extends methodCallExpression
 		),
 		selfResult	:	UML!OutputPin (
 			name <- 'resultReadSelfActionOutput',
-			outgoing <- of1
+			outgoing <- of1,
+			upperBound <- up2
+		),
+		up2	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
 rule superMethodCallExpression {
 	from
-		mi	:	JAVA!SuperMethodInvocation (mi.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
+		mi	:	JAVA!SuperMethodInvocation (mi.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
+				and mi.notInClassInstanceCreation --MODIF	
+		)
 	to
 		cba	:	UML!CallBehaviorAction(
 			name <- mi.method.name,
@@ -3664,14 +5296,19 @@ rule superMethodCallExpression {
 			result <- op
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultOutput'	
+			name <- 'resultOutput',
+			upperBound <- ub --MODIF
+		),
+		ub	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
 abstract rule Parameters2ActivityParameterAndParamNode{
 	from
 		param	:	JAVA!SingleVariableDeclaration(
-			param.notInInitializerOrFieldOrEnum	
+			param.notInInitializerOrFieldOrEnum
+			and param.notInClassInstanceCreation --MODIF
 		)
 	to
 		apn	:	UML!ActivityParameterNode(
@@ -3685,9 +5322,12 @@ abstract rule Parameters2ActivityParameterAndParamNode{
 							param.type.type.excludeUnresolvedTypeDec 
 						endif
 					endif,
-			parameter <- paramAct		
+			parameter <- paramAct,
+			upperBound <- li
 		),
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		paramAct	:	UML!Parameter(
 			name <- param.name,
 			type <- if (param.type.type.oclIsKindOf(JAVA!ParameterizedType)) then
@@ -3719,16 +5359,30 @@ rule Parameters2ActivityParameterAndParamNodeNotMethInvoc extends Parameters2Act
 						else true endif
 					)
 				else true endif	
+				and param.notInClassInstanceCreation --MODIF
+				and param.notInInterfaceDeclaration --MODIF
+				and param.notInEnumDeclaration --MODIF
+				
 		) 
 	to	
-		apn	:	UML!ActivityParameterNode(),
+		
 		paramAct	:	UML!Parameter(),
 		ob : UML!ObjectFlow(
-			name <- 'fromExpressionToActivityParameterNode',
+			name <- 'fromExpressionToActivityParameterNode3', --MODIF
 			activity <- param.getOwningMethod,
 			target <- thisModule.resolveTemp(param.getExpressionOfSingleVarDec, 'ip'),
-			source <- apn
-		)
+			source <- apn,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
+		apn	:	UML!ActivityParameterNode()
+		
 	do{
 		thisModule.resolveTemp(param.getOwningMethod, 'act').ownedNode 
 			<- 	if (not thisModule.resolveTemp(param.getOwningMethod, 'act').oclIsUndefined()) then
@@ -3758,6 +5412,7 @@ rule Parameters2ActivityParameterAndParamNodeMethInvoc extends Parameters2Activi
 						else false endif
 					)
 				else false endif
+				and param.notInClassInstanceCreation --MODIF
 		) 
 	to	
 		apn	:	UML!ActivityParameterNode(),		
@@ -3776,7 +5431,9 @@ rule Parameters2ActivityParameterAndParamNodeMethInvoc extends Parameters2Activi
 
 rule parameterizedType {
 	from
-		s	:	JAVA!ParameterizedType
+		s	:	JAVA!ParameterizedType(
+				s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- s.typeArguments -> first().type.name
@@ -3791,6 +5448,8 @@ rule VariableAssignmentNoList {
 		as : JAVA!Assignment (	as.isVariableAssignmentNoList
 								and as.notInInitializerOrFieldOrEnum 
 								and as.notInAnnotation
+								and as.notInClassInstanceCreation --MODIF
+								and as.notInEnumDeclaration --MODIF
 		)
 	to
 		t :	UML!StructuredActivityNode(
@@ -3805,9 +5464,12 @@ rule VariableAssignmentNoList {
 			name <- 'valueInput',
 			incoming <- if (as.rightHandSide.oclIsKindOf(JAVA!SingleVariableAccess))then
 							thisModule.resolveTemp(as.rightHandSide.variable, 'ob')
-						else OclUndefined endif
+						else OclUndefined endif,
+			upperBound <- li
 		),
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		objectFlowForObject : UML!ObjectFlow(
 			name <- 'fromLeftHandSideStatementToInputObject',
 			inStructuredNode <- as.getStatement.refImmediateComposite().getSourceTargetOrOwnerSAN,
@@ -3815,12 +5477,23 @@ rule VariableAssignmentNoList {
 			source <- if (not as.leftHandSide.oclIsKindOf(JAVA!UnresolvedItemAccess))then
 						thisModule.resolveTemp(as.leftHandSide.expression, 'op')
 					  else OclUndefined endif,
-			target <- ip
-		),	
-		ip	:	UML!InputPin(
-			name <- 'objectInput'
+			target <- ip,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
+		ip	:	UML!InputPin(
+			name <- 'objectInput',
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		initial : UML!InitialNode(
 			inStructuredNode <- t
 		),
@@ -3828,16 +5501,30 @@ rule VariableAssignmentNoList {
 			name <- 'fromInitialNodeToStructuredActivityNode',
 			inStructuredNode <- t,
 			source <- initial,
-			target <- t
+			target <- t,
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		contFlow : UML!ControlFlow(
 			name <- 'fromStructuredActivityNodeToAddStructuralFeatureValueAction',
 			inStructuredNode <- t,
 			source <- t,
-			target <- strucFeatAction
+			target <- strucFeatAction,
+			guard <- gu3,
+			weight <- we3
 		),
-		
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
 		strucFeatAction : UML!AddStructuralFeatureValueAction(
 			name <- 'add',
 			isReplaceAll <- true,
@@ -3850,7 +5537,6 @@ rule VariableAssignmentNoList {
 								 else OclUndefined endif,
 			inStructuredNode <- t
 		),		
-		
 		final : UML!ActivityFinalNode(
 			inStructuredNode <- t
 		),
@@ -3858,7 +5544,15 @@ rule VariableAssignmentNoList {
 			name <- 'fromAddStructuralFeatureValueActionToFinalNode',
 			inStructuredNode <- t,
 			source <- strucFeatAction,
-			target <- final
+			target <- final,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
 		)
 	do{
 		thisModule.resolveTemp(as.getStatement, 'initialControlFlow').name 
@@ -3893,6 +5587,7 @@ rule localVariableAssignmentNoList {
 		as	:	JAVA!Assignment  (	as.isLocaleVariableAssignmentNoList
 									and as.notInInitializerOrFieldOrEnum 
 									and as.notInAnnotation
+									and as.notInClassInstanceCreation --MODIF
 		)
 	to
 		t :	UML!StructuredActivityNode(
@@ -3905,8 +5600,16 @@ rule localVariableAssignmentNoList {
 			activity <- as.getStatement.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			name <- 'declare_' + as.leftHandSide.variable.name,
 			source <- 	as.rightHandSide.getStatement.getSourceTargetOrOwnerSAN,
-			target <- forkNode
-		),	
+			target <- forkNode,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		forkNode : UML!ForkNode(
 			name <- 'fromRightHandSide',
 			inStructuredNode <- as.getStatement.refImmediateComposite().getSourceTargetOrOwnerSAN,
@@ -3917,8 +5620,16 @@ rule localVariableAssignmentNoList {
 			inStructuredNode <- as.getStatement.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- as.getStatement.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <-	as.getStatement.getPreceding().getSourceTargetOrOwnerSAN,
-			target <- t
-		)			
+			target <- t,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		)
 }
 
 rule variableAssignementListOrArray {
@@ -3930,6 +5641,7 @@ rule variableAssignementListOrArray {
 									)	
 									and iva.notInInitializerOrFieldOrEnum 
 									and iva.notInAnnotation
+									and iva.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!StructuredActivityNode(
@@ -3938,11 +5650,7 @@ rule variableAssignementListOrArray {
 			activity <- iva.refImmediateComposite().refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),
 		
-		forkNode : UML!ForkNode(
-			name <- 'fromLeftHandSide',
-			inStructuredNode <- iva.refImmediateComposite().refImmediateComposite().getSourceTargetOrOwnerSAN,
-			activity <- iva.refImmediateComposite().refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
-		),
+		
 		
 		--Object to fork
 		objFlowForObjInFork : UML!ObjectFlow(
@@ -3956,36 +5664,53 @@ rule variableAssignementListOrArray {
 						endif,
 			target <- forkNode,
 			inStructuredNode <- iva.refImmediateComposite().getSourceTargetOrOwnerSAN,
-			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		--Fork to ClearStruc.Feature
 		objFlowForObjCFS : UML!ObjectFlow(
 			name <- 'fromForkToClearStructuralFeatureInput',
 			source <- forkNode,
 			target <- inputClearStrucFeat,
 			inStructuredNode <- iva.refImmediateComposite().getSourceTargetOrOwnerSAN,
-			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
-		),		
-		inputClearStrucFeat : UML!InputPin(
-			name <- 'objectInputOfClearStructuralFeature'
+			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		--Fork to Exp.Region
 		objFlowForObjExpReg	: UML!ObjectFlow(
 			name <- 'fromForkToExpansionRegionInput',
 			source <- forkNode,
 			target <- inputExpReg,
 			inStructuredNode <- iva.refImmediateComposite().getSourceTargetOrOwnerSAN,
-			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu3,
+			weight <- we3
 		),
-		inputExpReg : UML!InputPin(
-			name <- 'objectInputOfExpansionRegion',
-			inStructuredNode <- expReg,
-			lower <- 1,
-			upper <- 1
+		gu3	:	UML!LiteralBoolean(
+			value <- false
 		),
-		
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		forkNode : UML!ForkNode(
+			name <- 'fromLeftHandSide',
+			inStructuredNode <- iva.refImmediateComposite().refImmediateComposite().getSourceTargetOrOwnerSAN,
+			activity <- iva.refImmediateComposite().refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+		),
 		--ClearStruc.Feature 
 		clearStructuralFeature : UML!ClearStructuralFeatureAction(
 			name <- 'clear',
@@ -4018,9 +5743,16 @@ rule variableAssignementListOrArray {
 			source <- clearStructuralFeature,
 			target <- expReg,
 			inStructuredNode <- iva.refImmediateComposite().getSourceTargetOrOwnerSAN,
-			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu4,
+			weight <- we4
 		),
-				
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		--ValueSpecAction to 'insertAt' object flow
 		valueSpecAction	:	UML!ValueSpecificationAction(
 			result <- op,
@@ -4031,25 +5763,29 @@ rule variableAssignementListOrArray {
 		literUnlimNatur : UML!LiteralUnlimitedNatural(
 			value <- -1
 		),
-		op : UML!OutputPin(
-			name <- 'outputValueSpecAction'
-		),
-		
 		--Output of ValueSpecAction to input of Exp.Region 'insertAt'
 		objFlowForObjInsertAt : UML!ObjectFlow(
 			name <- 'fromValueSpecificationActionOutputToExpansionRegionInput',
 			source <- op,
 			target <- inputExpRegInsertAt,
 			inStructuredNode <- iva.refImmediateComposite().getSourceTargetOrOwnerSAN,
-			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
-		),		
-		inputExpRegInsertAt : UML!InputPin(	
-			name <- 'insertAtInput',
-			inStructuredNode <- expReg,
-			lower <- 1,
-			upper <- 1
+			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu5,
+			weight <- we5
 		),
-		
+		gu5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we5	:	UML!LiteralBoolean(
+			value <- false
+		),
+		op : UML!OutputPin(
+			name <- 'outputValueSpecAction',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		),
 		--Exp.Region to AddStruct.FeatureValue
 		expReg : UML!ExpansionRegion(
 			incoming <- contFlowCSFExpReg,
@@ -4057,7 +5793,6 @@ rule variableAssignementListOrArray {
 			inStructuredNode <- iva.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- iva.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),
-		
 		addStructuralFeatureAction : UML!AddStructuralFeatureValueAction(
 			name <- 'add',
 			isReplaceAll <- false,
@@ -4083,74 +5818,144 @@ rule variableAssignementListOrArray {
 										endif	
 									endif
 		),
-		
 		expNode	:	UML!ExpansionNode(
 			name <- 'inputElementOfExpansionRegion',
 			inStructuredNode <- expReg
 		),
-		
 		objFlowExpRegToAddStruct : UML!ObjectFlow(
 			name <- 'fromInputExpRegToInputAddStruct',
 			inStructuredNode <- expReg,
 			source <- inputExpReg,
-			target <- inputObjectAddStrucFeat			
+			target <- inputObjectAddStrucFeat,
+			guard <- gu6,
+			weight <- we6
+		),
+		gu6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we6	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inputExpReg : UML!InputPin(
+			name <- 'objectInputOfExpansionRegion',
+			inStructuredNode <- expReg,
+			lower <- 1,
+			upper <- 1,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		inputObjectAddStrucFeat : UML!InputPin(
-			name <- 'objectInputAddStructuralFeatureValueAction'
-		),		
-		
+			name <- 'objectInputAddStructuralFeatureValueAction',
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
+		),
 		objFlowValueToAddStruct	: UML!ObjectFlow(
 			name <- 'fromInputExpRegValueToInputAddStruct',
 			inStructuredNode <- expReg,
 			source <- inputClearStrucFeat,
-			target <- valueExpression
+			target <- valueExpression,
+			guard <- gu7,
+			weight <- we7
+		),
+		gu7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we7	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inputClearStrucFeat : UML!InputPin(
+			name <- 'objectInputOfClearStructuralFeature',
+			upperBound <- li3
+		),
+		li3	:	UML!LiteralInteger(
+			value <- 1
 		),
 		valueExpression	: UML!InputPin(
-			name <- 'valueInputAddStructuralFeatureValueAction'
+			name <- 'valueInputAddStructuralFeatureValueAction',
+			upperBound <- li4
 		),
-		
+		li4	:	UML!LiteralInteger(
+			value <- 1
+		),
 		objFlowInsertAtToAddStruct : UML!ObjectFlow(
 			name <- 'fromInputExpRegInsertAtToInputAddStruct',
 			inStructuredNode <- expReg,
 			source <- inputExpRegInsertAt,
-			target <- insertAtValueSpecAction
+			target <- insertAtValueSpecAction,
+			guard <- gu8,
+			weight <- we8
+		),
+		gu8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we8	:	UML!LiteralBoolean(
+			value <- false
+		),
+		inputExpRegInsertAt : UML!InputPin(	
+			name <- 'insertAtInput',
+			inStructuredNode <- expReg,
+			lower <- 1,
+			upper <- 1,
+			upperBound <- li5
+		),
+		li5	:	UML!LiteralInteger(
+			value <- 1
 		),
 		insertAtValueSpecAction	: UML!InputPin(
-			name <- 'insertAtInputAddStructuralFeatureValueAction'
-		)		
+			name <- 'insertAtInputAddStructuralFeatureValueAction',
+			upperBound <- li6
+		),
+		li6	:	UML!LiteralInteger(
+			value <- 1
+		)
 }
 
 rule conditionalExpression { --simplifed mapping in case of empty else branch
 	from
-		ifs	:	JAVA!ConditionalExpression (ifs.notInInitializerOrFieldOrEnum and ifs.notInAnnotation)
+		ifs	:	JAVA!ConditionalExpression (ifs.notInInitializerOrFieldOrEnum and ifs.notInAnnotation
+				and ifs.notInClassInstanceCreation --MODIF
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			inStructuredNode <- ifs.getStatement.getSourceTargetOrOwnerSAN,	
 			activity <- ifs.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			name <- 'Conditionnal'
-		),
-				
+		),		
 		td	:	UML!ObjectFlow(
 			name <- 'fromActivityNodeToDecisionNode',
 			inStructuredNode <- t,
 			source <- ifs.expression.getActivityNode(),
 			target <- dec,
-			name <- '<<decisionInputFlow>>'
+			name <- '<<decisionInputFlow>>',
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		),
 		dec	:	UML!DecisionNode(
 			decisionInputFlow <- td, 
 			inStructuredNode <- t			
 		),
-		
 		tru	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToThenStatement',
 			inStructuredNode <- t,
 			source <- dec,
 			target <- ifs.thenExpression.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ifs.thenExpression.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			guard <- uvt
+			guard <- uvt,
+			weight <- we2
 		),
-		
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		fal	:	UML!ControlFlow(
 			name <- 'fromDecisionNodeToElseStatement',
 			inStructuredNode <- t,
@@ -4160,16 +5965,18 @@ rule conditionalExpression { --simplifed mapping in case of empty else branch
 						else 
 							ifs.elseExpression.getStatement.getSourceTargetOrOwnerSAN								
 						endif,
-			guard <- uvf
+			guard <- uvf,
+			weight <- we3
 		),
-		
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
 		uvt	:	UML!LiteralBoolean(
 			value <- true
 		),
 		uvf	:	UML!LiteralBoolean(
 			value <- false
 		),
-		
 		jn	:	UML!JoinNode(
 			inStructuredNode <- t
 		),		
@@ -4177,8 +5984,16 @@ rule conditionalExpression { --simplifed mapping in case of empty else branch
 			name <- 'fromJoinNodeToFinalNode',
 			inStructuredNode <- t,
 			source <- jn,
-			target <- final
-		),	
+			target <- final,
+			guard <- gu4,
+			weight <- we4
+		),
+		gu4	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we4	:	UML!LiteralBoolean(
+			value <- false
+		),
 		final	:	UML!ActivityFinalNode(
 			inStructuredNode <- t
 		)
@@ -4204,6 +6019,7 @@ rule expression{
 					s.notInAnnotation 
 						and
 					s.alreadyManage
+					and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t : UML!StructuredActivityNode(
@@ -4226,6 +6042,7 @@ rule expressionForVarDeclaration{
 					s.notInAnnotation 
 						and 
 					s.alreadyManage
+					and s.notInClassInstanceCreation --MODIF
 				)					 
 	to
 		t : UML!StructuredActivityNode(
@@ -4237,7 +6054,10 @@ rule expressionForVarDeclaration{
 
 abstract rule explicitThis2readSelf {
 	from
-		this	:	JAVA!ThisExpression (this.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
+		this	:	JAVA!ThisExpression (this.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
+				and this.notInClassInstanceCreation --MODIF
+				and this.notInEnumDeclaration --MODIF
+		)
 	to
 		read	:	UML!ReadSelfAction (
 			result <- op,
@@ -4245,7 +6065,11 @@ abstract rule explicitThis2readSelf {
 			activity <- this.getStatement.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultReadSelfActionOutput'	
+			name <- 'resultReadSelfActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4254,7 +6078,8 @@ abstract rule explicitThis2readSelf {
 rule explicitThis2readSelfNotInReturn extends explicitThis2readSelf{
 	from
 		this	:	JAVA!ThisExpression (
-			not this.refImmediateComposite().oclIsKindOf(JAVA!ReturnStatement)	
+			not this.refImmediateComposite().oclIsKindOf(JAVA!ReturnStatement)
+			and this.notInClassInstanceCreation --MODIF
 		)
 	to		
 		read	:	UML!ReadSelfAction (),
@@ -4263,7 +6088,15 @@ rule explicitThis2readSelfNotInReturn extends explicitThis2readSelf{
 			inStructuredNode <- this.getStatement.refImmediateComposite().getSourceTargetOrOwnerSAN,
 			activity <- this.getStatement.refImmediateComposite().getOwningMethodOnEmptySourceTargetOrOwnerSAN,
 			source <- thisModule.resolveTemp(this.getStatement.refImmediateComposite(), 'init'),
-			target <- read
+			target <- read,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		)
 	do{
 		thisModule.resolveTemp(this.getStatement.refImmediateComposite(), 'fcf').name
@@ -4282,7 +6115,8 @@ rule explicitThis2readSelfNotInReturn extends explicitThis2readSelf{
 rule explicitThis2readSelfInReturn extends explicitThis2readSelf{
 	from
 		this	:	JAVA!ThisExpression (
-			this.refImmediateComposite().oclIsKindOf(JAVA!ReturnStatement)	
+			this.refImmediateComposite().oclIsKindOf(JAVA!ReturnStatement)
+			and this.notInClassInstanceCreation --MODIF
 		)
 	to		
 		read	:	UML!ReadSelfAction (),
@@ -4307,7 +6141,9 @@ rule explicitThis2readSelfInReturn extends explicitThis2readSelf{
 
 rule parenthesizedExpression {
 	from
-		s	:	JAVA!ParenthesizedExpression (s.notInInitializerOrFieldOrEnum and s.notInAnnotation)
+		s	:	JAVA!ParenthesizedExpression (s.notInInitializerOrFieldOrEnum and s.notInAnnotation
+			and s.notInClassInstanceCreation --MODIF
+		)
 	to
 		t	:	UML!StructuredActivityNode(
 			name <- 'Parenthesized',
@@ -4322,14 +6158,23 @@ rule parenthesizedExpression {
 			name <- 'fromInitialNodeToStatement',
 			inStructuredNode <- t,
 			source <- initialNode,
-			target <- 	s.expression.getStatement.getSourceTargetOrOwnerSAN
+			target <- 	s.expression.getStatement.getSourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		finalControlFlow: UML!ControlFlow(
 			name <- 'fromStatementToFinalNode',
 			inStructuredNode <- t,
 			source <- 	s.expression.getStatement.getSourceTargetOrOwnerSAN,
-			target <- final
+			target <- final,
+			guard <- gu,
+			weight <- we
 		),
 		final : UML!ActivityFinalNode(
 			inStructuredNode <- t
@@ -4338,7 +6183,9 @@ rule parenthesizedExpression {
 
 abstract rule operatorexpression {
 	from
-		ioe	:	JAVA!Expression
+		ioe	:	JAVA!Expression(
+			ioe.notInClassInstanceCreation --MODIF	
+		)
 	to
 		cb	:	UML!CallBehaviorAction(
 			behavior <- ioe.getBehavior,
@@ -4348,27 +6195,42 @@ abstract rule operatorexpression {
 			argument <- Sequence{inputPinOperand},
 			result <- op
 		),		
-		
 		inputPinOperand : UML!InputPin (
-			name <- 'objectInput'
+			name <- 'objectInput',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromOperandToCallBehaviorInput',
 			source <- thisModule.resolveTemp(ioe.operand, 'op'),
 			inStructuredNode <- ioe.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- inputPinOperand
+			target <- inputPinOperand,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op	:	UML!OutputPin (
-			name <- 'resultCallBehaviorOutput'	
-		)	
+			name <- 'resultCallBehaviorOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		)
 }
 
 rule postfixOperatorExpression extends operatorexpression{
 	from
 		ioe	:	JAVA!PostfixExpression  (ioe.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
 				and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)	
+				and ioe.notInClassInstanceCreation --MODIF
 		)
 	to
 		cb	:	UML!CallBehaviorAction()	
@@ -4378,6 +6240,7 @@ rule prefixOperatorExpression extends operatorexpression{
 	from
 		ioe	:	JAVA!PrefixExpression  (ioe.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)	
 				and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)	
+				and ioe.notInClassInstanceCreation --MODIF
 		)
 	to
 		cb	:	UML!CallBehaviorAction()
@@ -4387,12 +6250,14 @@ rule infixOperatorExpression {
 	from
 		ioe	:	JAVA!InfixExpression ((Sequence{'==','!='}->excludes(ioe.operator.toString()))  
 										and (ioe.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))	
-										and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)	
+										and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation
+										and ioe.notInClassInstanceCreation --MODIF	
+										)	
 		)
 	to
 		cb	:	UML!CallBehaviorAction(	
 			behavior <- ioe.getBehavior,
-			name <- ioe.operator.toString(), --MODIF
+			name <- ioe.operator.toString(),
 --			name <- if (ioe.operator.toString() = '&&') then --to avoid serialization problem. &amp;&amp; was converted to &&
 --							''
 --						else 	
@@ -4405,33 +6270,56 @@ rule infixOperatorExpression {
 		),
 		
 		inputPinFirstLeft : UML!InputPin (
-			name <- 'first'
+			name <- 'first',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of1	:	UML!ObjectFlow (
 			name <- 'fromLeftOperandToCallBehaviorAction',
 			source <- thisModule.resolveTemp(ioe.leftOperand, 'op'),
 			inStructuredNode <- ioe.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- inputPinFirstLeft
+			target <- inputPinFirstLeft,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		inputPinSecondRight	: UML!InputPin (
-			name <- 'second'
+			name <- 'second',
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromRightOperandToCallBehaviorAction',
 			source <- thisModule.resolveTemp(ioe.rightOperand, 'op'),
 			inStructuredNode <- ioe.getStatement.getSourceTargetOrOwnerSAN,
 			activity <- ioe.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- inputPinSecondRight
+			target <- inputPinSecondRight,
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op	:	UML!OutputPin (
-			name <- 'resultCallBehaviorActionOutput'
-		)
-		do{
-			
-		}
+			name <- 'resultCallBehaviorActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
+		)		
 }
 
 rule equalOperatorExpression{
@@ -4439,6 +6327,7 @@ rule equalOperatorExpression{
 		ioe	:	JAVA!InfixExpression ((Sequence{'=='}->includes(ioe.operator.toString())) 
 			and (ioe.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))	
 			and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)	
+			and ioe.notInClassInstanceCreation --MODIF
 		)
 	to
 		ti	:	UML!TestIdentityAction(
@@ -4451,7 +6340,11 @@ rule equalOperatorExpression{
 		),
 		ipl	:	UML!InputPin (
 			incoming <- of1,
-			name <- 'first'
+			name <- 'first',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of1	:	UML!ObjectFlow (
 			name <- 'fromLeftOperandToTestIdentityAction',
@@ -4461,11 +6354,23 @@ rule equalOperatorExpression{
 							ioe.leftOperand.getStatement.getSourceTargetOrOwnerSAN
 						endif,	
 			target <- ipl,
-			activity <- ioe.getOwningMethod
+			activity <- ioe.getOwningMethod,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		),
 		ipr	:	UML!InputPin (
 			incoming <- of2,
-			name <- 'second'
+			name <- 'second',
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromRightOperandToTestIdentityAction',
@@ -4475,10 +6380,22 @@ rule equalOperatorExpression{
 							ioe.rightOperand.getStatement.getSourceTargetOrOwnerSAN
 						endif,	
 			target <- ipr,
-			activity <- ioe.getOwningMethod
+			activity <- ioe.getOwningMethod,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultTestIdentityActionOutput'	
+			name <- 'resultTestIdentityActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4486,7 +6403,8 @@ rule notEqualOperatorExpression {
 	from
 		ioe	:	JAVA!InfixExpression ((Sequence{'!='}->includes(ioe.operator.toString())) 
 			and (ioe.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
-			and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)	
+			and (ioe.notInInitializerOrFieldOrEnum and ioe.notInAnnotation)
+			and ioe.notInClassInstanceCreation --MODIF
 		)
 	to
 		cb	:	UML!TestIdentityAction(
@@ -4508,7 +6426,11 @@ rule notEqualOperatorExpression {
 		
 		ipl	:	UML!InputPin (
 			incoming <- of1,
-			name <- 'first'
+			name <- 'first',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of1	:	UML!ObjectFlow (
 			name <- 'fromLeftOperandToTestIdentityAction',
@@ -4518,12 +6440,23 @@ rule notEqualOperatorExpression {
 							ioe.leftOperand.getStatement.getSourceTargetOrOwnerSAN
 						endif,		
 			target <- ipl,
-			activity <- ioe.getOwningMethod
+			activity <- ioe.getOwningMethod,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		ipr	:	UML!InputPin (
 			incoming <- of2,
-			name <- 'second'
+			name <- 'second',
+			upperBound <- li2
+		),
+		li2	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromRightOperandToTestIdentityAction',
@@ -4533,11 +6466,22 @@ rule notEqualOperatorExpression {
 							ioe.rightOperand.getStatement.getSourceTargetOrOwnerSAN
 						endif,	
 			target <- ipr,
-			activity <- ioe.getOwningMethod
+			activity <- ioe.getOwningMethod,
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op	:	UML!OutputPin (
-			name <- 'resultTestIdentityActionOutput'	
+			name <- 'resultTestIdentityActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4546,7 +6490,8 @@ rule typeCastExpression {
 	from 
 		tce	:	JAVA!CastExpression (not tce.type.type.oclIsKindOf(JAVA!PrimitiveType)
 			and (tce.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
-			and (tce.notInInitializerOrFieldOrEnum and tce.notInAnnotation)	
+			and (tce.notInInitializerOrFieldOrEnum and tce.notInAnnotation)
+			and tce.notInClassInstanceCreation --MODIF
 		)
 	to
 		t :	UML!StructuredActivityNode (
@@ -4563,7 +6508,11 @@ rule typeCastExpression {
 		),
 		
 		inputPin : UML!InputPin (
-			name <- 'structuredNodeInput'
+			name <- 'structuredNodeInput',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of	:	UML!ObjectFlow (
 			name <- 'fromActivityNodeToPrecedingStructuredActivityNode',
@@ -4574,9 +6523,16 @@ rule typeCastExpression {
 									tce.getStatement.getSourceTargetOrOwnerSAN
 								endif,	
 			activity <- tce.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- inputPin
+			target <- inputPin,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		cf	:	UML!ControlFlow (
 			name <- 'fromActivityNodeToStructuredActivityNode',
 			source <- tce,
@@ -4586,25 +6542,42 @@ rule typeCastExpression {
 								else
 									tce.getStatement.getSourceTargetOrOwnerSAN
 								endif,
-			activity <- tce.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- tce.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu2,
+			weight <- we2
 		),
-		
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
+		),
 		of2	:	UML!ObjectFlow (
 			name <- 'InternalStructuredActivityNodeObjectFlow',
 			source <- inputPin,
-			target <- op
+			target <- op,
+			guard <- gu3,
+			weight <- we3
 		),
-		
+		gu3	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we3	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op	:	UML!OutputPin (
 			name <- 'internalStructuredActivityNodeOutput',
 			type <- if (not tce.type.type.oclIsKindOf(JAVA!ArrayType))then
 						tce.type.type.excludeUnresolvedTypeDec
 					else 
 						tce.type.type.elementType.type.excludeUnresolvedTypeDec 
-					endif
+					endif,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
-
 
 rule numericCastExpression {
 	from 
@@ -4612,6 +6585,7 @@ rule numericCastExpression {
 				tce.isANumericCast
 				and (tce.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration))
 				and (tce.notInInitializerOrFieldOrEnum and tce.notInAnnotation)
+				and tce.notInClassInstanceCreation --MODIF
 		)
 	to
 		san :	UML!CallBehaviorAction (
@@ -4627,7 +6601,11 @@ rule numericCastExpression {
 		),
 		
 		ip	:	UML!InputPin (
-			name <- 'CallBehaviorActionInput'
+			name <- 'CallBehaviorActionInput',
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of	:	UML!ObjectFlow (
 			name <- 'fromExpressionOutputToCallBehaviorAction',
@@ -4638,19 +6616,32 @@ rule numericCastExpression {
 									tce.getStatement.getSourceTargetOrOwnerSAN
 								endif,
 			activity <- tce.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
-			target <- ip				
+			target <- ip,
+			guard <- gu,
+			weight <- we
 		),
-		
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
+		),
 		op	:	UML!OutputPin (
 			name <- 'resultCallBehaviorActionOutput',
-			type <- tce.type.type.excludeUnresolvedTypeDec
+			type <- tce.type.type.excludeUnresolvedTypeDec,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
 rule instanceOf {
 	from 
 		tce	:	JAVA!InstanceofExpression(	tce.notInInitializerOrFieldOrEnum 
-											and tce.notInAnnotation)
+											and tce.notInAnnotation
+											and tce.notInClassInstanceCreation --MODIF
+									)
 	to
 		san :	UML!ReadIsClassifiedObjectAction (
 			name <- 'instanceOf ' + tce.rightOperand.type.name,
@@ -4667,11 +6658,18 @@ rule instanceOf {
 		,
 		
 		ip	:	UML!InputPin (
-			name <- 'instanceOf ' + tce.rightOperand.type.name + '_object'
+			name <- 'instanceOf ' + tce.rightOperand.type.name + '_object',
+			upperBound <- li
 		),
-		
+		li	:	UML!LiteralInteger(
+			value <- 1
+		),
 		op : UML!OutputPin (
-			name <- 'instanceOf ' + tce.rightOperand.type.name + '_result'
+			name <- 'instanceOf ' + tce.rightOperand.type.name + '_result',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 	do{
 		thisModule.resolveTemp(tce.getOwningMethod, 'ob').name
@@ -4689,6 +6687,7 @@ rule unresolvedItemAccess {
 	from
 		s	:	JAVA!UnresolvedItemAccess(
 			not s.getStatement.oclIsUndefined()	
+			and s.notInClassInstanceCreation --MODIF
 		)
 	to
 		t	:	UML!OpaqueAction(
@@ -4700,7 +6699,9 @@ rule unresolvedItemAccess {
 
 rule unresolvedAnnotationDeclaration{
 	from
-		s	:	JAVA!UnresolvedAnnotationDeclaration
+		s	:	JAVA!UnresolvedAnnotationDeclaration(
+				s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- s.name + '-unsupported'	
@@ -4712,7 +6713,9 @@ rule unresolvedAnnotationDeclaration{
 
 rule wildCardType{
 	from
-		s	:	JAVA!WildCardType
+		s	:	JAVA!WildCardType(
+				s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- s.name + '-unsupported'	
@@ -4724,7 +6727,9 @@ rule wildCardType{
 
 rule PrimitiveType {
 	from
-		s	:	JAVA!PrimitiveType
+		s	:	JAVA!PrimitiveType(
+				s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!PrimitiveType(
 			name <- s.name	
@@ -4733,7 +6738,9 @@ rule PrimitiveType {
 
 rule annotationTypeDeclaration{
 	from
-		s	:	JAVA!AnnotationTypeDeclaration
+		s	:	JAVA!AnnotationTypeDeclaration(
+				s.notInClassInstanceCreation --MODIF	
+		)
 	to
 		t	:	UML!Class(
 			name <- s.name + '-unsupported'	
@@ -4748,6 +6755,7 @@ rule stringLiteral2ValueSpecification {
 		sl	:	JAVA!StringLiteral (if (sl.notInAnnotation) then 
 									sl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration) 
 									else false endif
+									and sl.notInClassInstanceCreation --MODIF
 		)
 	to
 		vsa	:	UML!ValueSpecificationAction (
@@ -4760,7 +6768,11 @@ rule stringLiteral2ValueSpecification {
 			value <- sl.escapedValue.regexReplaceAll('"', '')
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultValueSpecificationActionOutput'
+			name <- 'resultValueSpecificationActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4769,6 +6781,7 @@ rule charLiteral2ValueSpecification {
 		cl	:	JAVA!CharacterLiteral ( if (cl.notInAnnotation) then 
 										cl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
 										else false endif
+										and cl.notInClassInstanceCreation --MODIF
 			)
 	to
 		vsa	:	UML!ValueSpecificationAction (
@@ -4781,7 +6794,11 @@ rule charLiteral2ValueSpecification {
 			value <- cl.escapedValue.regexReplaceAll('"', '')
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultValueSpecificationActionOutput'
+			name <- 'resultValueSpecificationActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4790,6 +6807,7 @@ rule Booleanliteral2ValueSpecification {
 		bl	:	JAVA!BooleanLiteral (
 			bl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
 			and bl.notInAnnotation
+			and bl.notInClassInstanceCreation --MODIF
 		)
 	to
 		vsa	:	UML!ValueSpecificationAction (
@@ -4802,7 +6820,11 @@ rule Booleanliteral2ValueSpecification {
 			value <- bl.value
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultValueSpecificationActionOutput'	
+			name <- 'resultValueSpecificationActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4812,6 +6834,7 @@ rule numberLiteral2ValueSpecification {
 			(nl.tokenValue.indexOf('.')=-1) 
 			and nl.notInInitializerOrFieldOrEnum				
 			and nl.notInAnnotation
+			and nl.notInClassInstanceCreation --MODIF
 		)
 	to 
 		vsa	:	UML!ValueSpecificationAction (
@@ -4825,7 +6848,11 @@ rule numberLiteral2ValueSpecification {
 			value <- nl.tokenValue.regexReplaceAll('[A-Za-z]', '').toInteger()
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultValueSpecificationActionOutput'	
+			name <- 'resultValueSpecificationActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4835,6 +6862,7 @@ rule realNumberLiteral2ValueSpecification {
 			(not (nl.tokenValue.indexOf('.')=-1)  
 			and	nl.notInInitializerOrFieldOrEnum)
 			and nl.notInAnnotation
+			and nl.notInClassInstanceCreation --MODIF
 		)
 	to 
 		vsa	:	UML!ValueSpecificationAction (
@@ -4848,7 +6876,11 @@ rule realNumberLiteral2ValueSpecification {
 			value <- nl.tokenValue.regexReplaceAll('[A-Za-z]', '').toReal()
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultValueSpecificationActionOutput'	
+			name <- 'resultValueSpecificationActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4858,6 +6890,7 @@ rule nullLiteral2ValueSpecification {
 			nl.getOwningMethod.oclIsKindOf(JAVA!AbstractMethodDeclaration)
 			and not nl.refImmediateComposite().oclIsKindOf(JAVA!MethodInvocation)
 			and nl.notInAnnotation
+			and nl.notInClassInstanceCreation --MODIF
 		)
 	to 
 		vsa	:	UML!ValueSpecificationAction (
@@ -4868,7 +6901,11 @@ rule nullLiteral2ValueSpecification {
 			activity <- nl.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
 		),
 		op	:	UML!OutputPin (
-			name <- 'resultValueSpecificationActionOutput'
+			name <- 'resultValueSpecificationActionOutput',
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -4879,32 +6916,56 @@ unique lazy rule createArgumentNotPrimitiv {
 	to
 		inputPin : UML!InputPin (
 			name <- 'objectInput',
-			incoming <- of2
+			incoming <- of2,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromExpressionOutput',
 			source <- thisModule.resolveTemp(a, 'op'),
-			activity <- if a.refImmediateComposite().method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
-							if  a.refImmediateComposite().method.getCorrespondingDec.oclIsTypeOf(JAVA!MethodDeclaration)then
-								a.refImmediateComposite().method.getCorrespondingDec
-							else a.refImmediateComposite().method									
-							endif
-						else a.getOwningMethod						
-						endif 
+			--MODIF
+			activity <- a.getOwningMethod,
+--			activity <- if a.refImmediateComposite().method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+--							if  a.refImmediateComposite().method.getCorrespondingDec.oclIsTypeOf(JAVA!MethodDeclaration)then
+--								a.refImmediateComposite().method.getCorrespondingDec
+--							else a.refImmediateComposite().method									
+--							endif
+--						else a.getOwningMethod						
+--						endif 
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		),
 		cf	:	UML!ControlFlow (
 			name <- 'fromExpressionOutputToStatement',
 			source <- thisModule.resolveTemp(a, 'op'),
-			activity <- if a.refImmediateComposite().method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
-							if  not a.refImmediateComposite().method.getCorrespondingDec.oclIsTypeOf(JAVA!MethodDeclaration)then
-								a.refImmediateComposite().method
-							else a.refImmediateComposite().method.getCorrespondingDec endif
-						else a.getOwningMethod endif,
+			--MODIF
+			activity <- a.getOwningMethod,
+--			activity <- if a.refImmediateComposite().method.oclIsKindOf(JAVA!UnresolvedMethodDeclaration)then
+--							if  not a.refImmediateComposite().method.getCorrespondingDec.oclIsTypeOf(JAVA!MethodDeclaration)then
+--								a.refImmediateComposite().method
+--							else a.refImmediateComposite().method.getCorrespondingDec endif
+--						else a.getOwningMethod endif,
 			target <- 	if (a.refImmediateComposite().getStatement.oclIsKindOf(JAVA!ReturnStatement))then
 							if (not a.refImmediateComposite().getStatement.isReturnStateGeneratingObjectFlow)then
 								thisModule.resolveTemp(a.refImmediateComposite().getStatement, 'co')
 							else OclUndefined endif	
-						else a.refImmediateComposite() endif
+						else a.refImmediateComposite() endif,
+			guard <- gu2,
+			weight <- we2
+		),
+		gu2	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we2	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
@@ -4914,13 +6975,25 @@ unique lazy rule createArgument {
 	to
 		inputPin : UML!InputPin (
 			name <- 'objectInput',
-			incoming <- of2
+			incoming <- of2,
+			upperBound <- li
+		),
+		li	:	UML!LiteralInteger(
+			value <- 1
 		),
 		of2	:	UML!ObjectFlow (
 			name <- 'fromExpressionOutputToStatement',
 			source <- thisModule.resolveTemp(a, 'op'),
 			inStructuredNode <- a.getStatement.getSourceTargetOrOwnerSAN,
-			activity <- a.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- a.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
@@ -4945,7 +7018,9 @@ unique lazy rule Parameters2ActivityParameter{
 
 rule arrayToClass {
 	from
-		arrayType	:	JAVA!ArrayType
+		arrayType	:	JAVA!ArrayType(
+				arrayType.notInClassInstanceCreation --MODIF	
+		)
 	to
 		umlClass	:	UML!Class(
 			name <- arrayType.elementType.type.name+'[]',
@@ -4963,7 +7038,9 @@ rule arrayToClass {
 
 rule typeParameterToClass {
 	from 
-		jBodyDec : JAVA!TypeParameter
+		jBodyDec : JAVA!TypeParameter(
+				jBodyDec.notInClassInstanceCreation --MODIF	
+		)
 	to 
 		umlElement : UML!Class( 
 				name <- jBodyDec.name
@@ -5196,7 +7273,15 @@ unique lazy rule createObjectFlowToVSA{
 			name <- 'objectFlowFromValueSpecificationAction',
 			source <- valueSpecAction,
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,
-			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		),
 		valueSpecAction	: UML!ValueSpecificationAction(
 			value <- literUnlimNatur,
@@ -5221,13 +7306,23 @@ unique lazy rule createObjectFlowToNode{
 							-> flatten()
 							-> first(),
 			inStructuredNode <- s.getStatement.getSourceTargetOrOwnerSAN,
-			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN
+			activity <- s.getStatement.getOwningMethodOnEmptySourceTargetOrOwnerSAN,
+			guard <- gu,
+			weight <- we
+		),
+		gu	:	UML!LiteralBoolean(
+			value <- false
+		),
+		we	:	UML!LiteralBoolean(
+			value <- false
 		)
 }
 
 rule fieldDeclarationToProperty{
 	from
-		fieldDec : JAVA!FieldDeclaration
+		fieldDec : JAVA!FieldDeclaration(
+				fieldDec.notInClassInstanceCreation --MODIF	
+		)
 	to
 		struct : UML!Property(
 			name <- fieldDec.getFieldName,
@@ -5383,7 +7478,11 @@ unique lazy rule createOutputPin{
 		s	:	JAVA!ExpressionStatement, outputPinName : String
 	to
 		op : UML!OutputPin (
-			name <- outputPinName
+			name <- outputPinName,
+			upperBound <- up
+		),
+		up	:	UML!LiteralInteger(
+			value <- 1
 		)
 }
 
@@ -5418,6 +7517,7 @@ rule JUnresolvedItemToUmlClass {
 				or
 				jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!ImportDeclaration)
 			)
+			and jUnresItem.notInClassInstanceCreation --MODIF
 		)
 	to 
 		umlNamedElement : UML!Class(
@@ -5432,6 +7532,7 @@ rule JUnresolvedItemToUmlInterface {
 			not jUnresItem.oclIsTypeOf(JAVA!UnresolvedMethodDeclaration)
 			and not jUnresItem.oclIsTypeOf(JAVA!UnresolvedLabeledStatement)
 			and (jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!InterfaceDeclaration))
+			and jUnresItem.notInClassInstanceCreation --MODIF
 		)
 	to 
 		umlNamedElement : UML!Interface(
@@ -5446,6 +7547,7 @@ rule JUnresolvedItemToUmlEnum {
 			not jUnresItem.oclIsTypeOf(JAVA!UnresolvedMethodDeclaration)
 			and not jUnresItem.oclIsTypeOf(JAVA!UnresolvedLabeledStatement)
 			and (jUnresItem.getCorrespondingDec.oclIsTypeOf(JAVA!EnumDeclaration))
+			and jUnresItem.notInClassInstanceCreation --MODIF
 		)
 	to 
 		umlNamedElement : UML!Enumeration(
@@ -5453,41 +7555,43 @@ rule JUnresolvedItemToUmlEnum {
 			package <- thisModule.createExternalsModel(thisModule.jModelRoot)
 		)
 }
-
-rule JUnresolvedMethodDecToActivity{
-	from 
-		construcOrMethodDec : JAVA!UnresolvedMethodDeclaration(
-			not construcOrMethodDec.getCorrespondingDec.oclIsKindOf(JAVA!MethodDeclaration)
-		)
-	to 
-		act	:	UML!Activity(
-			name <- construcOrMethodDec.name,
-			visibility <- construcOrMethodDec.getAbsMethDecVisibility
-		),
-		
-		init	:	UML!InitialNode(
-			activity <- act
-		),
-		icf : UML!ControlFlow(
-			name <- 'fromIntialNodeToOpaqueAction',
-			activity <- act,
-			target <- opaqueAction,
-			source <- init 
-		),
-		
-		opaqueAction : UML!OpaqueAction(
-			name <- 'OpaqueAction_UnresolvedMethodDelaration',
-			activity <- act
-		),
-		
-		final	:	UML!ActivityFinalNode(
-			activity <- act
-		),
-		fcf : UML!ControlFlow(
-			name <- 'fromOpaqueActionToFinalNode',
-			activity <- act,
-			target <- final,
-			source <- opaqueAction
-		)
-		
-}
+--MODIF: commented
+--rule JUnresolvedMethodDecToActivity{
+--	from 
+--		construcOrMethodDec : JAVA!UnresolvedMethodDeclaration(
+--			not construcOrMethodDec.getCorrespondingDec.oclIsKindOf(JAVA!MethodDeclaration)
+--			and construcOrMethodDec.notInClassInstanceCreation --MODIF
+--		)
+--	to 
+--		act	:	UML!Activity(
+--			--name <- construcOrMethodDec.name,
+--			name <- '5457'.concat(construcOrMethodDec.name),
+--			visibility <- construcOrMethodDec.getAbsMethDecVisibility
+--		),
+--		
+--		init	:	UML!InitialNode(
+--			activity <- act
+--		),
+--		icf : UML!ControlFlow(
+--			name <- 'fromIntialNodeToOpaqueAction',
+--			activity <- act,
+--			target <- opaqueAction,
+--			source <- init 
+--		),
+--		
+--		opaqueAction : UML!OpaqueAction(
+--			name <- 'OpaqueAction_UnresolvedMethodDelaration',
+--			activity <- act
+--		),
+--		
+--		final	:	UML!ActivityFinalNode(
+--			activity <- act
+--		),
+--		fcf : UML!ControlFlow(
+--			name <- 'fromOpaqueActionToFinalNode',
+--			activity <- act,
+--			target <- final,
+--			source <- opaqueAction
+--		)
+--		
+--}

@@ -924,6 +924,44 @@ helper context JAVA!PackageAccess def : getVarAccessExpression : JAVA!Package =
 --------------------------
 ---Elements categorization
 --------------------------
+--new
+helper context OclAny def : notInClassInstanceCreation : Boolean =
+	if self.refImmediateComposite().oclIsTypeOf(JAVA!ClassInstanceCreation) then
+		false
+	else
+		if self.refImmediateComposite().oclIsUndefined() then
+			true
+		else
+			self.refImmediateComposite().notInClassInstanceCreation
+		endif
+	endif
+;
+--new
+helper context OclAny def : notInInterfaceDeclaration : Boolean =
+	if self.refImmediateComposite().oclIsTypeOf(JAVA!InterfaceDeclaration) then
+		false
+	else
+		if self.refImmediateComposite().oclIsUndefined() then
+			true
+		else
+			self.refImmediateComposite().notInInterfaceDeclaration
+		endif
+	endif
+;
+
+--new
+helper context OclAny def : notInEnumDeclaration : Boolean =
+	if self.refImmediateComposite().oclIsTypeOf(JAVA!EnumDeclaration) then
+		false
+	else
+		if self.refImmediateComposite().oclIsUndefined() then
+			true
+		else
+			self.refImmediateComposite().notInEnumDeclaration
+		endif
+	endif
+;
+
 helper context JAVA!ASTNode def : notInInitializerOrFieldOrEnum : Boolean = 
 	if self.refImmediateComposite().oclIsKindOf(JAVA!ClassDeclaration) then
 		true
@@ -1463,6 +1501,23 @@ helper context JAVA!Model def: getOwningMethod : JAVA!MethodDeclaration = OclUnd
 helper context JAVA!FieldDeclaration def: getOwningMethod : JAVA!MethodDeclaration = OclUndefined;
 
 helper context JAVA!Statement def: getOwningMethod : JAVA!MethodDeclaration =
+	if self.refImmediateComposite().oclIsUndefined() then
+		OclUndefined
+	else 
+		if (self.refImmediateComposite().oclIsTypeOf(JAVA!MethodDeclaration)
+			or self.refImmediateComposite().oclIsKindOf(JAVA!ConstructorDeclaration)) then
+			self.refImmediateComposite()
+		else 
+			if self.oclIsKindOf(JAVA!ClassDeclaration) then
+				OclUndefined
+			else 
+				self.refImmediateComposite().getOwningMethod
+			endif
+		endif
+	endif
+;
+--new
+helper context JAVA!Block def: getOwningMethod : JAVA!MethodDeclaration =
 	if self.refImmediateComposite().oclIsUndefined() then
 		OclUndefined
 	else 
