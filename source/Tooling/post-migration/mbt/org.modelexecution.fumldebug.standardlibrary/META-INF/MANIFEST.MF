@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Standardlibrary
+Bundle-SymbolicName: org.modelexecution.fumldebug.standardlibrary;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.modelexecution.fumldebug.standardlibrary.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ eu.artist.postmigration.mbt.modelexecution.fumldebug,
+ eu.artist.postmigration.mbt.modelexecution.fumldebug.uml;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
