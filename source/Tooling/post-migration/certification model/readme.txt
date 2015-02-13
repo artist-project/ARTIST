@@ -23,4 +23,4 @@ Lack of detail in the technical dimension of the ceification model.
 
 Link to access the application
 
-http://54.196.142.179:8080/ArtistCer
+http://54.158.226.57:8080/ArtistCer/
