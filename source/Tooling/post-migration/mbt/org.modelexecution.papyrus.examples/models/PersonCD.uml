@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_hwJlEaDIEeGjMPXsbOQh9Q" name="PersonModel">
+  <packagedElement xmi:type="uml:Class" xmi:id="_dkEJsKDJEeGjMPXsbOQh9Q" name="Person">
+    <ownedAttribute xmi:id="_wncUAKDJEeGjMPXsbOQh9Q" name="name" type="_UR9JwNjIEeKIw-aDbf41nw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_30yEcKDJEeGjMPXsbOQh9Q"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_30zSkKDJEeGjMPXsbOQh9Q" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_vV-kwKDMEeGjMPXsbOQh9Q" name="PersonAddNameAD" node="_AJoWYNgUEeKAmq_vhEXtPQ">
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_jLg9kKDNEeGjMPXsbOQh9Q" name="value" source="_N9Yy8KDNEeGjMPXsbOQh9Q" target="_Rp2doKDNEeGjMPXsbOQh9Q"/>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_lbI20KDNEeGjMPXsbOQh9Q" name="object" source="_WZDXsKDNEeGjMPXsbOQh9Q" target="_Rp3EsKDNEeGjMPXsbOQh9Q"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_qz2n8KDNEeGjMPXsbOQh9Q" name="" source="_K1l7kKDNEeGjMPXsbOQh9Q" target="_WZCwoKDNEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_qz3PAKDNEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_BYU-INgUEeKAmq_vhEXtPQ" name="ControlFlow1" source="_Rp12kKDNEeGjMPXsbOQh9Q" target="_AJoWYNgUEeKAmq_vhEXtPQ">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_BYU-IdgUEeKAmq_vhEXtPQ" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_BYU-ItgUEeKAmq_vhEXtPQ"/>
+    </edge>
+    <node xmi:type="uml:ValueSpecificationAction" xmi:id="_K1l7kKDNEeGjMPXsbOQh9Q" name="Specify String Tanja" outgoing="_qz2n8KDNEeGjMPXsbOQh9Q">
+      <result xmi:id="_N9Yy8KDNEeGjMPXsbOQh9Q" name="result" outgoing="_jLg9kKDNEeGjMPXsbOQh9Q"/>
+      <value xmi:type="uml:LiteralString" xmi:id="_QPFIwKDNEeGjMPXsbOQh9Q" name="Literal String Tanja" value="Tanja"/>
+    </node>
+    <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_Rp12kKDNEeGjMPXsbOQh9Q" name="Add Name To Person" outgoing="_BYU-INgUEeKAmq_vhEXtPQ" structuralFeature="_wncUAKDJEeGjMPXsbOQh9Q">
+      <object xmi:id="_Rp3EsKDNEeGjMPXsbOQh9Q" name="object" incoming="_lbI20KDNEeGjMPXsbOQh9Q" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+      <result xmi:id="_Rp3EsaDNEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+      <value xmi:id="_Rp2doKDNEeGjMPXsbOQh9Q" name="value" incoming="_jLg9kKDNEeGjMPXsbOQh9Q">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </value>
+    </node>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_WZCwoKDNEeGjMPXsbOQh9Q" name="Create Object Person" incoming="_qz2n8KDNEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_WZDXsKDNEeGjMPXsbOQh9Q" name="result" outgoing="_lbI20KDNEeGjMPXsbOQh9Q" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_AJoWYNgUEeKAmq_vhEXtPQ" name="ActivityFinalNode1" incoming="_BYU-INgUEeKAmq_vhEXtPQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_68ffcKDNEeGjMPXsbOQh9Q" name="CreateSeveralPersonsAD">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_FmhZMKDOEeGjMPXsbOQh9Q" name="" source="_AHx4kKDOEeGjMPXsbOQh9Q" target="_C5o8MKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_FmhZMqDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Krl1kKDOEeGjMPXsbOQh9Q" name="ControlFlow1" source="_C5o8MKDOEeGjMPXsbOQh9Q" target="_IVZaQKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_Krl1kqDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_UHkn0KDOEeGjMPXsbOQh9Q" name="ControlFlow2" source="_IVZaQKDOEeGjMPXsbOQh9Q" target="_Qa1QUKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_UHkn0qDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_V4d9sKDOEeGjMPXsbOQh9Q" name="ControlFlow3" source="_IVZaQKDOEeGjMPXsbOQh9Q" target="_RpSngKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_V4d9sqDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_crkCIKDOEeGjMPXsbOQh9Q" name="ControlFlow4" source="_Qa1QUKDOEeGjMPXsbOQh9Q" target="_bqxTgKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_crkpMaDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_d5cKgKDOEeGjMPXsbOQh9Q" name="ControlFlow5" source="_RpSngKDOEeGjMPXsbOQh9Q" target="_bqxTgKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_d5cxkaDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_e221AKDOEeGjMPXsbOQh9Q" name="ControlFlow6" source="_bqxTgKDOEeGjMPXsbOQh9Q" target="_S21YsKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_e23cEKDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ftZbcKDOEeGjMPXsbOQh9Q" name="ControlFlow7" source="_S21YsKDOEeGjMPXsbOQh9Q" target="_aydLcKDOEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ftaCgaDOEeGjMPXsbOQh9Q"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_AHx4kKDOEeGjMPXsbOQh9Q" name="Initial Node" outgoing="_FmhZMKDOEeGjMPXsbOQh9Q"/>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_C5o8MKDOEeGjMPXsbOQh9Q" name="Create Person 1" outgoing="_Krl1kKDOEeGjMPXsbOQh9Q" incoming="_FmhZMKDOEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_C5pjQKDOEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:ForkNode" xmi:id="_IVZaQKDOEeGjMPXsbOQh9Q" name="ForkNode1" outgoing="_UHkn0KDOEeGjMPXsbOQh9Q _V4d9sKDOEeGjMPXsbOQh9Q" incoming="_Krl1kKDOEeGjMPXsbOQh9Q"/>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_Qa1QUKDOEeGjMPXsbOQh9Q" name="Create Person 2" outgoing="_crkCIKDOEeGjMPXsbOQh9Q" incoming="_UHkn0KDOEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_Qa13YKDOEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_RpSngKDOEeGjMPXsbOQh9Q" name="Create Person 3" outgoing="_d5cKgKDOEeGjMPXsbOQh9Q" incoming="_V4d9sKDOEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_RpTOkKDOEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_S21YsKDOEeGjMPXsbOQh9Q" name="Create Person 4" outgoing="_ftZbcKDOEeGjMPXsbOQh9Q" incoming="_e221AKDOEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_S21_wKDOEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_aydLcKDOEeGjMPXsbOQh9Q" name="ActivityFinalNode1" incoming="_ftZbcKDOEeGjMPXsbOQh9Q"/>
+    <node xmi:type="uml:JoinNode" xmi:id="_bqxTgKDOEeGjMPXsbOQh9Q" name="JoinNode1" outgoing="_e221AKDOEeGjMPXsbOQh9Q" incoming="_crkCIKDOEeGjMPXsbOQh9Q _d5cKgKDOEeGjMPXsbOQh9Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_rf6AMKDOEeGjMPXsbOQh9Q" name="CallBehaviorAD">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_cGl3YKDPEeGjMPXsbOQh9Q" name="ControlFlow1" source="_ZXZtQKDPEeGjMPXsbOQh9Q" target="_bngHoKDPEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_cGmecaDPEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_dmBp0KDPEeGjMPXsbOQh9Q" name="ControlFlow2" source="_RVba4KDPEeGjMPXsbOQh9Q" target="_ZXZtQKDPEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_dmCQ4aDPEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_fBilkKDPEeGjMPXsbOQh9Q" name="ControlFlow3" source="_W1JL4KDPEeGjMPXsbOQh9Q" target="_RVba4KDPEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_fBjMoaDPEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ggFAIKDPEeGjMPXsbOQh9Q" name="ControlFlow4" source="_FUKBYKDPEeGjMPXsbOQh9Q" target="_W1JL4KDPEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ggFnMaDPEeGjMPXsbOQh9Q"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_FUKBYKDPEeGjMPXsbOQh9Q" name="InitialNode1" outgoing="_ggFAIKDPEeGjMPXsbOQh9Q"/>
+    <node xmi:type="uml:CallBehaviorAction" xmi:id="_RVba4KDPEeGjMPXsbOQh9Q" name="Call Activity" outgoing="_dmBp0KDPEeGjMPXsbOQh9Q" incoming="_fBilkKDPEeGjMPXsbOQh9Q" behavior="_RVGqwKDPEeGjMPXsbOQh9Q"/>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_W1JL4KDPEeGjMPXsbOQh9Q" name="Create  Person 1" outgoing="_fBilkKDPEeGjMPXsbOQh9Q" incoming="_ggFAIKDPEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_W1Jy8KDPEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_ZXZtQKDPEeGjMPXsbOQh9Q" name="Create Person 2" outgoing="_cGl3YKDPEeGjMPXsbOQh9Q" incoming="_dmBp0KDPEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_ZXaUUKDPEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_bngHoKDPEeGjMPXsbOQh9Q" name="ActivityFinalNode1" incoming="_cGl3YKDPEeGjMPXsbOQh9Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_RVGqwKDPEeGjMPXsbOQh9Q" name="CreateAPersonAD">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ro2HgKDTEeGjMPXsbOQh9Q" name="ControlFlow1" source="_nLytYKDTEeGjMPXsbOQh9Q" target="_puVioKDTEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ro2ukaDTEeGjMPXsbOQh9Q"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_s5UQ4KDTEeGjMPXsbOQh9Q" name="ControlFlow2" source="_puVioKDTEeGjMPXsbOQh9Q" target="_rC3FkKDTEeGjMPXsbOQh9Q">
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_s5U38aDTEeGjMPXsbOQh9Q"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_nLytYKDTEeGjMPXsbOQh9Q" name="InitialNode1" outgoing="_ro2HgKDTEeGjMPXsbOQh9Q"/>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_puVioKDTEeGjMPXsbOQh9Q" name="Create Person" outgoing="_s5UQ4KDTEeGjMPXsbOQh9Q" incoming="_ro2HgKDTEeGjMPXsbOQh9Q" classifier="_dkEJsKDJEeGjMPXsbOQh9Q">
+      <result xmi:id="_puVioaDTEeGjMPXsbOQh9Q" name="result" type="_dkEJsKDJEeGjMPXsbOQh9Q"/>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_rC3FkKDTEeGjMPXsbOQh9Q" name="ActivityFinalNode1" incoming="_s5UQ4KDTEeGjMPXsbOQh9Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_UR9JwNjIEeKIw-aDbf41nw" name="String"/>
+</uml:Model>
