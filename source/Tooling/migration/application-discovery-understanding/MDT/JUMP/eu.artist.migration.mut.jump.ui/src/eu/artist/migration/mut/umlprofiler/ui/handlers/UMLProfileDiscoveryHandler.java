@@ -1,0 +1,113 @@
+package eu.artist.migration.mut.umlprofiler.ui.handlers;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.IHandler;
+import org.eclipse.core.commands.IHandlerListener;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.m2m.atl.core.ATLCoreException;
+import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.handlers.HandlerUtil;
+
+import eu.artist.migration.mdt.umlprofilediscovery.code2codemodel.JavaDiscoverer;
+import eu.artist.migration.mdt.umlprofilediscovery.codemodel2umlprofile.files.CodeModel2UMLProfileWithResourceInjection;
+import eu.artist.migration.mut.umlprofiler.ui.util.J2PUMLLaunchUtil;
+
+public class UMLProfileDiscoveryHandler implements IHandler {
+
+	@Override
+	public void addHandlerListener(IHandlerListener handlerListener) {
+	}
+
+	@Override
+	public void dispose() {
+	}
+
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		
+		IProject selectedProject = getSelectedProject(event);
+		IJavaProject selectedJavaProject = JavaCore.create(selectedProject);
+		
+		try {
+			Resource javaCodeModelResource = JavaDiscoverer.INSTANCE.runDiscovery(selectedJavaProject);
+			javaCodeModelResource.setURI(URI.createURI(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.CODE_MODEL_PATH)));
+			
+			// once we have the Java Code Model we can run the transformation that produces the UML Profile
+			CodeModel2UMLProfileWithResourceInjection runner = new CodeModel2UMLProfileWithResourceInjection();
+			runner.setUmlProfilePath(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.UML_PROFILE_PATH));
+			runner.setTraceModelPath(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.TRACE_MODEL_PATH));
+			runner.loadModels(javaCodeModelResource, J2PUMLLaunchUtil.JP_MODEL_PATH, J2PUMLLaunchUtil.JPT_MODEL_PATH,
+					J2PUMLLaunchUtil.MC_MODEL_PATH, J2PUMLLaunchUtil.UPT_MODEL_PATH, J2PUMLLaunchUtil.EPT_MODEL_PATH);
+			runner.doCodeModel2UMLProfile(new NullProgressMonitor());
+			
+			// store the produced UML Profile
+			File upsl = new File(selectedProject.getFullPath().toString());
+			runner.saveUMLProfileModel(URI.createPlatformResourceURI(upsl.getAbsolutePath(), true).
+					appendSegment(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.UML_PROFILE_PATH)).toString());
+			
+		} catch (DiscoveryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ATLCoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JavaModelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	/**
+	 * Helper method to obtain the selected input java project from the event triggered by the workbench
+	 * @param event Event triggered by the action managed by this handler.
+	 * @return The selected project.
+	 */
+	private IProject getSelectedProject(ExecutionEvent event) {
+		
+		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
+		IProject selectedProject = null;
+		
+		 IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+	        Object firstElement = selection.getFirstElement();
+	        if (firstElement instanceof IAdaptable)
+	        {
+	        	selectedProject = (IProject)((IAdaptable)firstElement).getAdapter(IProject.class);
+	            
+	        }
+		
+		return selectedProject;
+	}
+	
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
+	@Override
+	public boolean isHandled() {
+		return true;
+	}
+
+	@Override
+	public void removeHandlerListener(IHandlerListener handlerListener) {
+	}
+
+}
