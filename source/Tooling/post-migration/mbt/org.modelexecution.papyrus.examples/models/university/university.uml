@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_88wvsNteEeK7j_BoGlU0eg" name="model">
+  <packagedElement xmi:type="uml:Class" xmi:id="__Y1JgNteEeK7j_BoGlU0eg" name="Student">
+    <ownedAttribute xmi:id="_hVnioNtgEeKK2p_J92ROrQ" name="name" type="_-MbLUNtfEeKK2p_J92ROrQ"/>
+    <ownedAttribute xmi:id="_Qm338NthEeKeur0eu6uffA" name="matriculationNumber" type="_-MbLUNtfEeKK2p_J92ROrQ"/>
+    <ownedAttribute xmi:id="_WDnNcNthEeKeur0eu6uffA" name="attendedLecture" type="_B_0H8NthEeKeur0eu6uffA" association="_WDnNc9thEeKeur0eu6uffA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WDnNcdthEeKeur0eu6uffA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WDnNctthEeKeur0eu6uffA" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_kbLv8NthEeKeur0eu6uffA" name="semesters" type="_FIp9oNtgEeKK2p_J92ROrQ"/>
+    <ownedOperation xmi:id="_p3njcNthEeKeur0eu6uffA" name="setName">
+      <ownedParameter xmi:id="_wS1TYNthEeKeur0eu6uffA" name="name" type="_-MbLUNtfEeKK2p_J92ROrQ" isUnique="false"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_y15GANthEeKeur0eu6uffA" name="setMatriculationNumber">
+      <ownedParameter xmi:id="_2_c8YNthEeKeur0eu6uffA" name="matriculationNumber" type="_-MbLUNtfEeKK2p_J92ROrQ" isUnique="false"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_9FiJ0NthEeKeur0eu6uffA" name="addSemester"/>
+    <ownedOperation xmi:id="_Vdt1oNtiEeKeur0eu6uffA" name="addLecture" method="_k-yW0NtiEeKeur0eu6uffA">
+      <ownedParameter xmi:id="_apCrANtiEeKeur0eu6uffA" name="lecture" type="_B_0H8NthEeKeur0eu6uffA"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_-MbLUNtfEeKK2p_J92ROrQ" name="String"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_FIp9oNtgEeKK2p_J92ROrQ" name="Integer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_B_0H8NthEeKeur0eu6uffA" name="Lecture">
+    <ownedAttribute xmi:id="_ImVI8NthEeKeur0eu6uffA" name="title" type="_-MbLUNtfEeKK2p_J92ROrQ"/>
+    <ownedAttribute xmi:id="_MsoP8NthEeKeur0eu6uffA" name="ects" type="_FIp9oNtgEeKK2p_J92ROrQ"/>
+    <ownedOperation xmi:id="_L3I88NtiEeKeur0eu6uffA" name="setTitle">
+      <ownedParameter xmi:id="_OzCGUNtiEeKeur0eu6uffA" name="title" type="_-MbLUNtfEeKK2p_J92ROrQ" isUnique="false"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_PiM5cNtiEeKeur0eu6uffA" name="setEcts">
+      <ownedParameter xmi:id="_UfiWINtiEeKeur0eu6uffA" name="ects" type="_FIp9oNtgEeKK2p_J92ROrQ" isUnique="false"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_WDnNc9thEeKeur0eu6uffA" name="student_lecture" memberEnd="_WDnNdNthEeKeur0eu6uffA _WDnNcNthEeKeur0eu6uffA">
+    <ownedEnd xmi:id="_WDnNdNthEeKeur0eu6uffA" name="student" type="__Y1JgNteEeK7j_BoGlU0eg" association="_WDnNc9thEeKeur0eu6uffA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WDnNddthEeKeur0eu6uffA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WDnNdtthEeKeur0eu6uffA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_k-yW0NtiEeKeur0eu6uffA" name="addLecture" specification="_Vdt1oNtiEeKeur0eu6uffA" node="_3YCmENtiEeKeur0eu6uffA _Am0CwNtjEeKeur0eu6uffA _s-dpgNtqEeKeur0eu6uffA _h4w0gNt3EeKrWroD6PNaow">
+    <ownedParameter xmi:id="_3Xl6INtiEeKeur0eu6uffA" name="lecture" type="_B_0H8NthEeKeur0eu6uffA"/>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_1gn30NtqEeKeur0eu6uffA" name="ObjectFlow1" source="_3YCmENtiEeKeur0eu6uffA" target="_s-dpgdtqEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_1gn30dtqEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_1gn30ttqEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_Dn-NANtrEeKeur0eu6uffA" name="ObjectFlow2" source="_m7UbUNtqEeKeur0eu6uffA" target="_s-dpg9tqEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_Dn-NAdtrEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_Dn-NAttrEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_i56vgNt3EeKrWroD6PNaow" name="ControlFlow1" source="_s-dpgNtqEeKeur0eu6uffA" target="_h4w0gNt3EeKrWroD6PNaow">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_i56vgdt3EeKrWroD6PNaow" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_i56vgtt3EeKrWroD6PNaow"/>
+    </edge>
+    <node xmi:type="uml:ActivityParameterNode" xmi:id="_3YCmENtiEeKeur0eu6uffA" name="lecture" outgoing="_1gn30NtqEeKeur0eu6uffA" isControlType="true" parameter="_3Xl6INtiEeKeur0eu6uffA">
+      <upperBound xmi:type="uml:LiteralInteger" xmi:id="_3YLwANtiEeKeur0eu6uffA" value="1"/>
+    </node>
+    <node xmi:type="uml:ReadSelfAction" xmi:id="_Am0CwNtjEeKeur0eu6uffA" name="self">
+      <result xmi:id="_m7UbUNtqEeKeur0eu6uffA" name="result" outgoing="_Dn-NANtrEeKeur0eu6uffA" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7QF8ENtqEeKeur0eu6uffA" value="1"/>
+      </result>
+    </node>
+    <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_s-dpgNtqEeKeur0eu6uffA" name="add lecture" outgoing="_i56vgNt3EeKrWroD6PNaow" structuralFeature="_WDnNcNthEeKeur0eu6uffA">
+      <object xmi:id="_s-dpg9tqEeKeur0eu6uffA" name="object" incoming="_Dn-NANtrEeKeur0eu6uffA" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CkR7YNtrEeKeur0eu6uffA" value="1"/>
+      </object>
+      <result xmi:id="_s-dphdtqEeKeur0eu6uffA" name="result" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s-dphttqEeKeur0eu6uffA" value="1"/>
+      </result>
+      <value xmi:id="_s-dpgdtqEeKeur0eu6uffA" name="value" incoming="_1gn30NtqEeKeur0eu6uffA" type="_B_0H8NthEeKeur0eu6uffA">
+        <upperBound xmi:type="uml:LiteralInteger" xmi:id="_s-dpgttqEeKeur0eu6uffA" value="1"/>
+      </value>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_h4w0gNt3EeKrWroD6PNaow" name="ActivityFinalNode1" incoming="_i56vgNt3EeKrWroD6PNaow"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_GBgQMNtrEeKeur0eu6uffA" name="activity1" node="_KtSC0NtrEeKeur0eu6uffA _TvaxsNtrEeKeur0eu6uffA _bhXEANtrEeKeur0eu6uffA _pxMm0NtrEeKeur0eu6uffA _xpFwINtrEeKeur0eu6uffA _3lp1MNtrEeKeur0eu6uffA _QLFS0NtsEeKeur0eu6uffA _luPRQNt3EeKrWroD6PNaow">
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_mW8tgNtrEeKeur0eu6uffA" name="ObjectFlow1" source="_Vit7UNtrEeKeur0eu6uffA" target="_bhXEAdtrEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_mW8tgdtrEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_mW8tgttrEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_nJrK8NtrEeKeur0eu6uffA" name="ObjectFlow2" source="_Ktbz0NtrEeKeur0eu6uffA" target="_bhXEA9trEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_nJrK8dtrEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_nJrK8ttrEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_G4lMsNtsEeKeur0eu6uffA" name="ObjectFlow3" source="_xpFwIdtrEeKeur0eu6uffA" target="_3lp1M9trEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_G4lMsdtsEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_G4lMsttsEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_H1SFgNtsEeKeur0eu6uffA" name="ObjectFlow4" source="_rJIDENtrEeKeur0eu6uffA" target="_3lp1MdtrEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_H1SFgdtsEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_H1SFgttsEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_XA7JQNtsEeKeur0eu6uffA" name="ObjectFlow5" source="_3lp1NdtrEeKeur0eu6uffA" target="_QLPD0NtsEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_XA7JQdtsEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_XA7JQttsEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ObjectFlow" xmi:id="_ZJf_UNtsEeKeur0eu6uffA" name="ObjectFlow6" source="_bhXEBdtrEeKeur0eu6uffA" target="_QLPD1ttsEeKeur0eu6uffA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_ZJf_UdtsEeKeur0eu6uffA" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ZJpJQNtsEeKeur0eu6uffA" value="1"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_moG4gNt3EeKrWroD6PNaow" name="ControlFlow1" source="_QLFS0NtsEeKeur0eu6uffA" target="_luPRQNt3EeKrWroD6PNaow">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_moG4gdt3EeKrWroD6PNaow" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_moG4gtt3EeKrWroD6PNaow"/>
+    </edge>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_KtSC0NtrEeKeur0eu6uffA" name="create Student" classifier="__Y1JgNteEeK7j_BoGlU0eg">
+      <result xmi:id="_Ktbz0NtrEeKeur0eu6uffA" name="result" outgoing="_nJrK8NtrEeKeur0eu6uffA" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OLjggNtrEeKeur0eu6uffA" value="1"/>
+      </result>
+    </node>
+    <node xmi:type="uml:ValueSpecificationAction" xmi:id="_TvaxsNtrEeKeur0eu6uffA" name="specify &quot;Tanja&quot;">
+      <result xmi:id="_Vit7UNtrEeKeur0eu6uffA" name="result" outgoing="_mW8tgNtrEeKeur0eu6uffA">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XtOrENtrEeKeur0eu6uffA" value="1"/>
+      </result>
+      <value xmi:type="uml:LiteralString" xmi:id="_aEh5oNtrEeKeur0eu6uffA" value="Tanja"/>
+    </node>
+    <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_bhXEANtrEeKeur0eu6uffA" name="set name" structuralFeature="_hVnioNtgEeKK2p_J92ROrQ">
+      <object xmi:id="_bhXEA9trEeKeur0eu6uffA" name="object" incoming="_nJrK8NtrEeKeur0eu6uffA" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_j-TbINtrEeKeur0eu6uffA" value="1"/>
+      </object>
+      <result xmi:id="_bhXEBdtrEeKeur0eu6uffA" name="result" outgoing="_ZJf_UNtsEeKeur0eu6uffA" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yhx4ANtsEeKeur0eu6uffA" value="1"/>
+      </result>
+      <value xmi:id="_bhXEAdtrEeKeur0eu6uffA" name="value" incoming="_mW8tgNtrEeKeur0eu6uffA" type="_-MbLUNtfEeKK2p_J92ROrQ">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lvhhINtrEeKeur0eu6uffA" value="1"/>
+      </value>
+    </node>
+    <node xmi:type="uml:ValueSpecificationAction" xmi:id="_pxMm0NtrEeKeur0eu6uffA" name="specify &quot;Model Engineering&quot;">
+      <result xmi:id="_rJIDENtrEeKeur0eu6uffA" name="result" outgoing="_H1SFgNtsEeKeur0eu6uffA">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_s6oc8NtrEeKeur0eu6uffA" value="1"/>
+      </result>
+      <value xmi:type="uml:LiteralString" xmi:id="_voGv0NtrEeKeur0eu6uffA" value="Model Engineering"/>
+    </node>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_xpFwINtrEeKeur0eu6uffA" name="create Lecture" classifier="_B_0H8NthEeKeur0eu6uffA">
+      <result xmi:id="_xpFwIdtrEeKeur0eu6uffA" name="result" outgoing="_G4lMsNtsEeKeur0eu6uffA" type="_B_0H8NthEeKeur0eu6uffA">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_21mRQNtrEeKeur0eu6uffA" value="1"/>
+      </result>
+    </node>
+    <node xmi:type="uml:AddStructuralFeatureValueAction" xmi:id="_3lp1MNtrEeKeur0eu6uffA" name="set title" structuralFeature="_ImVI8NthEeKeur0eu6uffA">
+      <object xmi:id="_3lp1M9trEeKeur0eu6uffA" name="object" incoming="_G4lMsNtsEeKeur0eu6uffA" type="_B_0H8NthEeKeur0eu6uffA">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BxIxwNtsEeKeur0eu6uffA" value="1"/>
+      </object>
+      <result xmi:id="_3lp1NdtrEeKeur0eu6uffA" name="result" outgoing="_XA7JQNtsEeKeur0eu6uffA" type="_B_0H8NthEeKeur0eu6uffA">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GB-74NtsEeKeur0eu6uffA" value="1"/>
+      </result>
+      <value xmi:id="_3lp1MdtrEeKeur0eu6uffA" name="value" incoming="_H1SFgNtsEeKeur0eu6uffA" type="_-MbLUNtfEeKK2p_J92ROrQ">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EWRoANtsEeKeur0eu6uffA" value="1"/>
+      </value>
+    </node>
+    <node xmi:type="uml:CallOperationAction" xmi:id="_QLFS0NtsEeKeur0eu6uffA" name="addLecture()" outgoing="_moG4gNt3EeKrWroD6PNaow" operation="_Vdt1oNtiEeKeur0eu6uffA">
+      <argument xmi:id="_QLPD0NtsEeKeur0eu6uffA" name="lecture" incoming="_XA7JQNtsEeKeur0eu6uffA" type="_B_0H8NthEeKeur0eu6uffA">
+        <eAnnotations xmi:id="_QLPD0ttsEeKeur0eu6uffA" source="PinToParameterLink">
+          <details xmi:id="_QLPD09tsEeKeur0eu6uffA" key="PinToParameterLink" value="_apCrANtiEeKeur0eu6uffA"/>
+        </eAnnotations>
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VCd4gNtsEeKeur0eu6uffA" value="1"/>
+      </argument>
+      <target xmi:id="_QLPD1ttsEeKeur0eu6uffA" name="target" incoming="_ZJf_UNtsEeKeur0eu6uffA" type="__Y1JgNteEeK7j_BoGlU0eg">
+        <upperBound xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TwpEQNtsEeKeur0eu6uffA" value="1"/>
+      </target>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_luPRQNt3EeKrWroD6PNaow" name="ActivityFinalNode1" incoming="_moG4gNt3EeKrWroD6PNaow"/>
+  </packagedElement>
+</uml:Model>

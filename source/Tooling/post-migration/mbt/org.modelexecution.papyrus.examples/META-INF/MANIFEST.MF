@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Moliz Papyrus Examples
+Bundle-SymbolicName: org.modelexecution.papyrus.examples
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: modelexecution.org
+Require-Bundle: 
+ eu.artist.postmigration.mbt.modelexecution.fumldebug;bundle-version="1.0.0",
+ org.eclipse.papyrus.infra.core;bundle-version="0.9.0",
+ org.eclipse.papyrus.infra.core.sasheditor.di;bundle-version="0.9.0",
+ org.modelexecution.fuml.convert;bundle-version="1.0.0",
+ org.eclipse.uml2.uml;bundle-version="4.0.0",
+ org.junit,
+ eu.artist.postmigration.mbt.modelexecution.fumldebug.papyrus;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.modelexecution.papyrus.examples

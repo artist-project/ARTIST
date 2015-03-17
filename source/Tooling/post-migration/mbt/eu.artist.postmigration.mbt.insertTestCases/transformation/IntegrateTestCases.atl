@@ -1,0 +1,859 @@
+---------------------------------------------------------------------------------------
+--- Copyright (c) 2014 Vienna University of Technology.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+--- Javier Troya (Vienna University of Technology) - implementation
+---
+---------------------------------------------------------------------------------------
+
+-- @atlcompiler emftvm
+-- @nsURI UML_L=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI UML_M=http://www.eclipse.org/uml2/4.0.0/UML
+
+module IntegrateTestCases;
+create OUT_L : UML_L, OUT_M : UML_M refining IN_L : UML_L, IN_M : UML_M, IN_CMM : CMM;
+
+--Helper to retrieve a PrimitiveType in the Legacy Model
+helper def : primitiveTypeLeg (typeName : String) : UML_L!PrimitiveType =
+	UML_L!PrimitiveType.allInstancesFrom('IN_L') -> select(p|p.name=typeName)->first()	
+;
+--Helper to retrieve a PrimitiveType in the Migrated Model
+helper def : primitiveTypeMig (typeName : String) : UML_M!PrimitiveType =
+	UML_M!PrimitiveType.allInstancesFrom('IN_L') -> select(p|p.name=typeName)->first()	
+;
+--Helper to retrieve the type of a Parameter in the Legacy model
+helper def : getTypeParameterLeg(testCase : String, paramName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().parameterCorrespondences 
+		-> select(p|p.genParameter=paramName) -> first().legType
+;
+--Helper to retrieve the type of a Parameter in the Migrated model
+helper def : getTypeParameterMig(testCase : String, paramName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().parameterCorrespondences 
+		-> select(p|p.genParameter=paramName) -> first().migType
+;
+--Helper to retrieve the type of a Value in the Legacy model
+helper def : getTypeValueLeg (testCase : String, valueName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().valueCorrespondences
+		-> select(v|v.genValue=valueName) ->first().typeCorrespondences->first().legType
+;
+--Helper to retrieve the type of a Value in the Migrated model
+helper def : getTypeValueMig (testCase : String, valueName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().valueCorrespondences
+		-> select(v|v.genValue=valueName) ->first().typeCorrespondences->first().migType
+;
+--Helper to retrieve the value of a Value in the Legacy model
+helper def : getValueLeg (testCase : String, valueName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().valueCorrespondences
+		-> select(v|v.genValue=valueName) ->first().legValue
+;
+--Helper to retrieve the value of a Value in the Migrated model
+helper def : getValueMig (testCase : String, valueName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().valueCorrespondences
+		-> select(v|v.genValue=valueName) ->first().migValue
+;
+--Helper to retrieve the type of an Activity in the Legacy model
+helper def : getTypeActivityLeg (testCase : String, activityName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().activityCorrespondences
+		-> select(v|v.genActivity=activityName) ->first().typeCorrespondences->first().legType
+;
+--Helper to retrieve the type of an Activity in the Migrated model
+helper def : getTypeActivityMig (testCase : String, activityName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().activityCorrespondences
+		-> select(v|v.genActivity=activityName) ->first().typeCorrespondences->first().migType
+;
+--Helper to retrieve the name of an Activity in the Legacy model
+helper def : getNameActivityLeg (testCase : String, activityName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().activityCorrespondences 
+		-> select(c|c.genActivity=activityName) -> first().legActivity
+;
+--Helper to retrieve the name of an Activity in the Migrated model
+helper def : getNameActivityMig (testCase : String, activityName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().activityCorrespondences 
+		-> select(c|c.genActivity=activityName) -> first().migActivity
+;
+--Helper to retrieve the type of a Class, in the Legacy model, given the name of the Test Case, 
+--the name of the Property, and the name of the input port
+helper def : getNameTypeFromPropertyLeg(testCase : String, propertyName : String, portName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().propertyCorrespondences
+		-> select(p|p.genProperty=propertyName) ->first().typeCorrespondences -> select(t|t.genNode=portName)
+			->first().legType
+;
+--Helper to retrieve the type of a Class, in the Migrated model, given the name of the Test Case, 
+--the name of the Property, and the name of the input port
+helper def : getNameTypeFromPropertyMig(testCase : String, propertyName : String, portName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().propertyCorrespondences
+		-> select(p|p.genProperty=propertyName) ->first().typeCorrespondences -> select(t|t.genNode=portName)
+			->first().migType
+;
+--Helper to retrieve the name of a property, in the Legacy model, given the name of the Test Case and 
+--the name of the Property
+helper def : getNamePropertyLeg(testCase : String, propertyName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().propertyCorrespondences
+		-> select(p|p.genProperty=propertyName) ->first().legProperty
+;
+--Helper to retrieve the name of a property, in the Migrated model, given the name of the Test Case and 
+--the name of the Property
+helper def : getNamePropertyMig(testCase : String, propertyName : String) : String =
+	CMM!TestCase.allInstances() -> select(tc|tc.name.substring(1,9)=testCase) -> first().propertyCorrespondences
+		-> select(p|p.genProperty=propertyName) ->first().migProperty
+;
+--Helper to retrieve a property in the Legacy model, given its name and the name of the containing class
+helper def : getPropertyLeg (className : String, propName : String) : UML_L!Property =
+	UML_L!Property.allInstancesFrom('IN_L') -> select (p|p.class.name = className and p.name = propName) -> first()	
+;
+--Helper to retrieve a property in the Migrated model, given its name and the name of the containing class
+helper def : getPropertyMig (className : String, propName : String) : UML_M!Property =
+	UML_M!Property.allInstancesFrom('IN_M') -> select (p|p.class.name = className and p.name = propName) -> first()	
+;
+
+--Helper to store the testCases that are created for the legacy model
+helper def : testCasesCreatedLeg : Sequence(UML_L!Activity) = Sequence{};
+--Helper to store the testCases that are created for the migrated model
+helper def : testCasesCreatedMig : Sequence(UML_M!Activity) = Sequence{};
+
+---------------Rule to insert the test cases in the model of the legacy application---------------------
+rule CreateTestCasesActivitiesLegacy{
+	from
+		--If we do not add the filter, there is an error regarding the traces
+		umlModelRool_S : UML_L!Model (UML_L!Model.allInstancesFrom('IN_L') ->first() = umlModelRool_S)
+	using {
+		tc : Sequence(CMM!TestCase) = CMM!TestCase.allInstances();
+	}
+	to
+		umlModelRoot_T : UML_L!Model(
+			--packagedElement <- umlModelRool_S.packagedElement -> append(thisModule.CreateTestLoginActivityLegacy(umlModelRool_S))	
+		)
+	do{
+		--- The imperative part adds activities containing test cases if the correspondences between the activities of the
+		--- concrete test case with those of the model are specified in the CMM model
+		for (testCase in tc){
+			if (testCase.name.substring(1,9) = 'TestCase1'){
+				thisModule.testCasesCreatedLeg <- thisModule.testCasesCreatedLeg -> 
+					append(thisModule.CreateTestCase1ActivityLegacy(umlModelRool_S, testCase.name));	
+			} else if (testCase.name.substring(1,9) = 'TestCase2'){
+				thisModule.testCasesCreatedLeg <- thisModule.testCasesCreatedLeg -> 
+					append(thisModule.CreateTestCase2ActivityLegacy(umlModelRool_S, testCase.name));
+			} else if (testCase.name.substring(1,9) = 'TestCase3'){
+				thisModule.testCasesCreatedLeg <- thisModule.testCasesCreatedLeg ->
+					append(thisModule.CreateTestCase3ActivityLegacy(umlModelRool_S, testCase.name));
+			}
+		}
+		umlModelRoot_T.packagedElement <- umlModelRoot_T.packagedElement -> union(thisModule.testCasesCreatedLeg);
+	}
+}
+
+lazy rule CreateTestCase1ActivityLegacy{
+	from 
+	 m : UML_L!Model,
+	 nameActivity : String
+	using{
+		result1Type : String = thisModule.getTypeParameterLeg('TestCase1','result1');
+		value1Type : String = thisModule.getTypeValueLeg('TestCase1','value1');
+		activity1Type : String = thisModule.getTypeActivityLeg('TestCase1','activity1');
+		activity2Type : String = thisModule.getTypeActivityLeg('TestCase1','activity2');
+	}
+	to 
+		TestLoginActivity : UML_L!Activity(
+			name <- nameActivity,
+			ownedParameter <- Sequence{result1Parameter},
+			ownedNode <- Sequence{value1,result1ParameterNode,activity1,activity2},
+			edge <- Sequence{of1,of2,of3}
+		),
+		result1Parameter : UML_L!Parameter(
+			name <- 'result1',
+			direction <- #return,
+			--effect <- #create,
+			--type <- thisModule.primitiveBooleanLeg
+			type <- if result1Type = 'String' or result1Type = 'Integer' or result1Type = 'Boolean' 
+						then thisModule.primitiveTypeLeg(result1Type)
+						else UML_L!Class.allInstancesFrom('IN_L')->select(c|c.name = result1Type) -> first()
+					endif
+		),
+		value1 : UML_L!ValueSpecificationAction(
+			name <- 'value1',
+			--value <- thisModule.CreateLiteralIntegerLeg(1),
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringLeg(thisModule.getValueLeg('TestCase1','value1'))
+						else thisModule.CreateLiteralIntegerLeg(thisModule.getValueLeg('TestCase1','value1').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinLeg('output_value1',of2)
+		),
+		result1ParameterNode : UML_L!ActivityParameterNode(
+			name <- 'result1',
+			parameter <- result1Parameter,
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			incoming <- Sequence{of3}
+		),
+		activity1 : UML_L!CallBehaviorAction(
+			name <- 'activity1',
+			behavior <- UML_L!Activity.allInstancesFrom('IN_L') -> select(a|a.name=thisModule.getNameActivityLeg('TestCase1', 'activity1'))->first(), --Link to Activity,
+			--result <- Sequence{thisModule.CreateOutputPinWithPrimitiveTypeLeg('sessionId',thisModule.primitiveStringLeg,of1)}
+			result <- if activity1Type = 'String' or activity1Type = 'Integer' or activity1Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeLeg('output_activity1',thisModule.primitiveTypeLeg(activity1Type),of1)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeLeg('output_activity1',activity1Type,of1)}
+					  endif
+		),
+		activity2 : UML_L!CallBehaviorAction(
+			name <- 'activity2',
+			behavior <- UML_L!Activity.allInstancesFrom('IN_L') -> select(a|a.name=thisModule.getNameActivityLeg('TestCase1', 'activity2'))->first(), --Link to Activity,
+			result <- if activity2Type = 'String' or activity2Type = 'Integer' or activity2Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeLeg('output_activity2',thisModule.primitiveTypeLeg(activity2Type),of3)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeLeg('output_activity2',activity2Type,of3)}
+					  endif,
+			argument <- Sequence{thisModule.CreateInputPinLeg('input1_activity2',of1),thisModule.CreateInputPinLeg('input2_activity2',of2)}			
+		),
+		of1 : UML_L!ObjectFlow(
+			name <- 'of1',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)			
+		),
+		of2 : UML_L!ObjectFlow(
+			name <- 'of2',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		),
+		of3 : UML_L!ObjectFlow(
+			name <- 'of3',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		)
+}
+
+lazy rule CreateTestCase2ActivityLegacy{
+	from
+		m : UML_L!Model,
+		nameActivity : String
+	using{
+		result1Type : String = thisModule.getTypeParameterLeg('TestCase2','result1');
+		value1Type : String = thisModule.getTypeValueLeg('TestCase2','value1');
+		activity1Type : String = thisModule.getTypeActivityLeg('TestCase2','activity1');
+		activity2Type : String = thisModule.getTypeActivityLeg('TestCase2','activity2');
+		getProperty1Type : String = thisModule.getNameTypeFromPropertyLeg('TestCase2', 'getProperty1', 'output_getProperty1');
+	}
+	to
+		TestFindItemActivity : UML_L!Activity(
+			name <- nameActivity,
+			ownedParameter <- Sequence{result1Parameter},
+			ownedNode <- Sequence{value1,result1ParameterNode,activity2,activity1,getProperty1},
+			edge <- Sequence{of1,of2,of3,of4}
+		),
+		result1Parameter : UML_L!Parameter(
+			name <- 'result1',
+			direction <- #return,
+			--effect <- #create,
+			type <- if result1Type = 'String' or result1Type = 'Integer' or result1Type = 'Boolean' 
+						then thisModule.primitiveTypeLeg(result1Type)
+						else UML_L!Class.allInstancesFrom('IN_L')->select(c|c.name = result1Type) -> first()
+					endif
+		),		
+		value1 : UML_L!ValueSpecificationAction(
+			name <- 'value1',
+			--value <- thisModule.CreateLiteralIntegerLeg(1),
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringLeg(thisModule.getValueLeg('TestCase2','value1'))
+						else thisModule.CreateLiteralIntegerLeg(thisModule.getValueLeg('TestCase2','value1').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinLeg('output_value1',of2)
+		),
+		result1ParameterNode : UML_L!ActivityParameterNode(
+			name <- 'result1',
+			parameter <- result1Parameter,
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			incoming <- Sequence{of4}
+		),		
+		activity1 : UML_L!CallBehaviorAction(
+			name <- 'activity1',
+			behavior <- UML_L!Activity.allInstancesFrom('IN_L') -> select(a|a.name=thisModule.getNameActivityLeg('TestCase2', 'activity1'))->first(), --Link to Activity,
+			result <- if activity1Type = 'String' or activity1Type = 'Integer' or activity1Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeLeg('output_activity1',thisModule.primitiveTypeLeg(activity1Type), of1)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeLeg('output_activity1',activity1Type, of1)}
+					  endif
+		),
+		activity2 : UML_L!CallBehaviorAction(
+			name <- 'activity2',
+			behavior <- UML_L!Activity.allInstancesFrom('IN_L') -> select(a|a.name=thisModule.getNameActivityLeg('TestCase2', 'activity2'))->first(), --Link to Activity,
+			result <- if activity2Type = 'String' or activity2Type = 'Integer' or activity2Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeLeg('output_activity2',thisModule.primitiveTypeLeg(activity2Type), of4)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeLeg('output_activity2',activity2Type,of4)}
+					  endif,
+			argument <- Sequence{thisModule.CreateInputPinLeg('input1_activity2',of3),thisModule.CreateInputPinLeg('input2_activity2', of2)}			
+		),
+
+		getProperty1 : UML_L!ReadStructuralFeatureAction(
+			name <- 'getProperty',
+			structuralFeature <- thisModule.getPropertyLeg(thisModule.getNameTypeFromPropertyLeg('TestCase2', 'getProperty1', 'input_getProperty1'), 
+															thisModule.getNamePropertyLeg('TestCase2', 'getProperty1')),
+			object <- thisModule.CreateInputPinWithComplexTypeLeg('input_getProperty1',thisModule.getNameTypeFromPropertyLeg('TestCase2', 'getProperty1', 'input_getProperty1'), of1),
+			result <- if getProperty1Type = 'String' or getProperty1Type = 'Integer' or getProperty1Type = 'Boolean'
+					  	then thisModule.CreateOutputPinWithPrimitiveTypeLeg('output_getProperty1', thisModule.primitiveTypeLeg(getProperty1Type), of3)
+						else thisModule.CreateOutputPinWithComplexTypeLeg('output_getProperty1', activity2Type, of3)
+					  endif
+		),		
+		of1 : UML_L!ObjectFlow(
+			name <- 'of1',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)			
+		),
+		of2 : UML_L!ObjectFlow(
+			name <- 'of2',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		),
+		of3 : UML_L!ObjectFlow(
+			name <- 'of3',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		),
+		of4 : UML_L!ObjectFlow(
+			name <- 'of4',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		)		
+}
+
+lazy rule CreateTestCase3ActivityLegacy{
+	from 
+	 m : UML_L!Model,
+	 nameActivity : String
+	using{
+		result1Type : String = thisModule.getTypeParameterLeg('TestCase3','result1');
+		value1Type : String = thisModule.getTypeValueLeg('TestCase3','value1');
+		value2Type : String = thisModule.getTypeValueLeg('TestCase3','value2');
+		activity1Type : String = thisModule.getTypeActivityLeg('TestCase3','activity1');
+	}
+	to 
+		TestLoginActivity : UML_L!Activity(
+			name <- nameActivity,
+			ownedParameter <- Sequence{result1Parameter},
+			ownedNode <- Sequence{value1,value2,result1ParameterNode,activity1},
+			edge <- Sequence{of1,of2,of3}
+		),
+		result1Parameter : UML_L!Parameter(
+			name <- 'result1',
+			direction <- #return,
+			--effect <- #create,
+			type <- if result1Type = 'String' or result1Type = 'Integer' or result1Type = 'Boolean' 
+						then thisModule.primitiveTypeLeg(result1Type)
+						else UML_L!Class.allInstancesFrom('IN_L')->select(c|c.name = result1Type) -> first()
+					endif
+		),
+		value1 : UML_L!ValueSpecificationAction(
+			name <- 'value1',
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringLeg(thisModule.getValueLeg('TestCase3','value1'))
+						else thisModule.CreateLiteralIntegerLeg(thisModule.getValueLeg('TestCase3','value1').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinLeg('output_value1',of1)
+		),
+		value2 : UML_L!ValueSpecificationAction(
+			name <- 'value2',
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringLeg(thisModule.getValueLeg('TestCase3','value2'))
+						else thisModule.CreateLiteralIntegerLeg(thisModule.getValueLeg('TestCase3','value2').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinLeg('output_value2',of2)
+		),
+		result1ParameterNode : UML_L!ActivityParameterNode(
+			name <- 'result1',
+			parameter <- result1Parameter,
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			incoming <- Sequence{of3}
+		),
+		activity1 : UML_L!CallBehaviorAction(
+			name <- 'activity1',
+			behavior <- UML_L!Activity.allInstancesFrom('IN_L') -> select(a|a.name=thisModule.getNameActivityLeg('TestCase3', 'activity1'))->first(), --Link to Activity,
+			result <- if activity1Type = 'String' or activity1Type = 'Integer' or activity1Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeLeg('output_activity1',thisModule.primitiveTypeLeg(activity1Type),of3)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeLeg('output_activity1',activity1Type,of3)}
+					  endif,
+			argument <- Sequence{thisModule.CreateInputPinLeg('input1_activity1',of1),thisModule.CreateInputPinLeg('input2_activity1',of2)}
+		),
+		of1 : UML_L!ObjectFlow(
+			name <- 'of1',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)			
+		),
+		of2 : UML_L!ObjectFlow(
+			name <- 'of2',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		),
+		of3 : UML_L!ObjectFlow(
+			name <- 'of3',
+			weight <- thisModule.CreateLiteralIntegerLeg(1),
+			guard <- thisModule.CreateLiteralBooleanLeg(true)		
+		)
+}
+
+
+
+
+
+
+-------------Rule to insert the test cases in the model of the migrated application------------------
+rule CreateTestCasesActivitiesMigrated{
+	from
+		--If we do not add the filter, there is an error regarding the traces
+		umlModelRool_S : UML_M!Model (UML_M!Model.allInstancesFrom('IN_M') -> first() = umlModelRool_S)
+	using {
+		tc : Sequence(CMM!TestCase) = CMM!TestCase.allInstances();
+	}
+	to
+		umlModelRool_T : UML_M!Model(
+			--packagedElement <- umlModelRool_S.packagedElement -> append(thisModule.CreateTestLoginActivityMigrated(umlModelRool_S ))	
+		)
+	do{
+		--- The imperative part adds activities containing test cases if the correspondences between the activities of the
+		--- concrete test case with those of the model are specified in the CMM model
+		for (testCase in tc){
+			if (testCase.name.substring(1,9) = 'TestCase1'){
+				thisModule.testCasesCreatedMig <- thisModule.testCasesCreatedMig -> 
+					append(thisModule.CreateTestCase1ActivityMigrated(umlModelRool_S, testCase.name));	
+			} else if (testCase.name.substring(1,9) = 'TestCase2'){
+				thisModule.testCasesCreatedMig <- thisModule.testCasesCreatedMig -> 
+					append(thisModule.CreateTestCase2ActivityMigrated(umlModelRool_S, testCase.name));
+			} else if (testCase.name.substring(1,9) = 'TestCase3'){
+				thisModule.testCasesCreatedMig <- thisModule.testCasesCreatedMig ->
+					append(thisModule.CreateTestCase3ActivityMigrated(umlModelRool_S, testCase.name));
+			}
+		}
+		umlModelRool_T.packagedElement <- umlModelRool_T.packagedElement -> union(thisModule.testCasesCreatedMig);
+	}
+}
+
+lazy rule CreateTestCase1ActivityMigrated{
+	from 
+	 m : UML_M!Model,
+	 nameActivity : String
+	using{
+		result1Type : String = thisModule.getTypeParameterMig('TestCase1','result1');
+		value1Type : String = thisModule.getTypeValueMig('TestCase1','value1');
+		activity1Type : String = thisModule.getTypeActivityMig('TestCase1','activity1');
+		activity2Type : String = thisModule.getTypeActivityMig('TestCase1','activity2');
+	}
+	to 
+		TestLoginActivity : UML_M!Activity(
+			name <- nameActivity,
+			ownedParameter <- Sequence{result1Parameter},
+			ownedNode <- Sequence{value1,result1ParameterNode,activity1,activity2},
+			edge <- Sequence{of1,of2,of3}
+		),
+		result1Parameter : UML_M!Parameter(
+			name <- 'result1',
+			direction <- #return,
+			--effect <- #create,
+			type <- if result1Type = 'String' or result1Type = 'Integer' or result1Type = 'Boolean' 
+						then thisModule.primitiveTypeMig(result1Type)
+						else UML_M!Class.allInstancesFrom('IN_M')->select(c|c.name = result1Type) -> first()
+					endif
+		),
+		value1 : UML_M!ValueSpecificationAction(
+			name <- 'value1',
+			--value <- thisModule.CreateLiteralIntegerMig(1),
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringMig(thisModule.getValueMig('TestCase1','value1'))
+						else thisModule.CreateLiteralIntegerMig(thisModule.getValueMig('TestCase1','value1').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinMig('output_value1',of2)
+		),
+		result1ParameterNode : UML_M!ActivityParameterNode(
+			name <- 'result1',
+			parameter <- result1Parameter,
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			incoming <- Sequence{of3}
+		),
+		activity1 : UML_M!CallBehaviorAction(
+			name <- 'activity1',
+			behavior <- UML_M!Activity.allInstancesFrom('IN_M') -> select(a|a.name=thisModule.getNameActivityMig('TestCase1', 'activity1'))->first(), --Link to Activity,
+			--result <- Sequence{thisModule.CreateOutputPinWithPrimitiveTypeMig('sessionId',thisModule.primitiveStringMig,of1)}
+			result <- if activity1Type = 'String' or activity1Type = 'Integer' or activity1Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeMig('output_activity1',thisModule.primitiveTypeMig(activity1Type),of1)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeMig('output_activity1',activity1Type,of1)}
+					  endif
+		),
+		activity2 : UML_M!CallBehaviorAction(
+			name <- 'activity2',
+			behavior <- UML_M!Activity.allInstancesFrom('IN_M') -> select(a|a.name=thisModule.getNameActivityMig('TestCase1', 'activity2'))->first(), --Link to Activity,
+			result <- if activity2Type = 'String' or activity2Type = 'Integer' or activity2Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeMig('output_activity2',thisModule.primitiveTypeMig(activity2Type),of3)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeMig('output_activity2',activity2Type,of3)}
+					  endif,
+			argument <- Sequence{thisModule.CreateInputPinMig('input1_activity2',of1),thisModule.CreateInputPinMig('input2_activity2',of2)}			
+		),
+		of1 : UML_M!ObjectFlow(
+			name <- 'of1',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)			
+		),
+		of2 : UML_M!ObjectFlow(
+			name <- 'of2',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		),
+		of3 : UML_M!ObjectFlow(
+			name <- 'of3',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		)
+}
+
+lazy rule CreateTestCase2ActivityMigrated{
+	from
+		m : UML_M!Model,
+		nameActivity : String
+	using{
+		result1Type : String = thisModule.getTypeParameterMig('TestCase2','result1');
+		value1Type : String = thisModule.getTypeValueMig('TestCase2','value1');
+		activity1Type : String = thisModule.getTypeActivityMig('TestCase2','activity1');
+		activity2Type : String = thisModule.getTypeActivityMig('TestCase2','activity2');
+		getProperty1Type : String = thisModule.getNameTypeFromPropertyMig('TestCase2', 'getProperty1', 'output_getProperty1');
+	}
+	to
+		TestFindItemActivity : UML_M!Activity(
+			name <- nameActivity,
+			ownedParameter <- Sequence{result1Parameter},
+			ownedNode <- Sequence{value1,result1ParameterNode,activity2,activity1,getProperty1},
+			edge <- Sequence{of1,of2,of3,of4}
+		),
+		result1Parameter : UML_M!Parameter(
+			name <- 'result1',
+			direction <- #return,
+			--effect <- #create,
+			type <- if result1Type = 'String' or result1Type = 'Integer' or result1Type = 'Boolean' 
+						then thisModule.primitiveTypeMig(result1Type)
+						else UML_M!Class.allInstancesFrom('IN_M')->select(c|c.name = result1Type) -> first()
+					endif
+		),		
+		value1 : UML_M!ValueSpecificationAction(
+			name <- 'value1',
+			--value <- thisModule.CreateLiteralIntegerMig(1),
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringMig(thisModule.getValueMig('TestCase2','value1'))
+						else thisModule.CreateLiteralIntegerMig(thisModule.getValueMig('TestCase2','value1').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinMig('output_value1',of2)
+		),
+		result1ParameterNode : UML_M!ActivityParameterNode(
+			name <- 'result1',
+			parameter <- result1Parameter,
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			incoming <- Sequence{of4}
+		),		
+		activity1 : UML_M!CallBehaviorAction(
+			name <- 'activity1',
+			behavior <- UML_M!Activity.allInstancesFrom('IN_M') -> select(a|a.name=thisModule.getNameActivityMig('TestCase2', 'activity1'))->first(), --Link to Activity,
+			result <- if activity1Type = 'String' or activity1Type = 'Integer' or activity1Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeMig('output_activity1',thisModule.primitiveTypeMig(activity1Type), of1)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeMig('output_activity1',activity1Type, of1)}
+					  endif
+		),
+		activity2 : UML_M!CallBehaviorAction(
+			name <- 'activity2',
+			behavior <- UML_M!Activity.allInstancesFrom('IN_M') -> select(a|a.name=thisModule.getNameActivityMig('TestCase2', 'activity2'))->first(), --Link to Activity,
+			result <- if activity2Type = 'String' or activity2Type = 'Integer' or activity2Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeMig('output_activity2',thisModule.primitiveTypeMig(activity2Type), of4)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeMig('output_activity2',activity2Type,of4)}
+					  endif,
+			argument <- Sequence{thisModule.CreateInputPinMig('input1_activity2',of3),thisModule.CreateInputPinMig('input2_activity2', of2)}			
+		),
+		getProperty1 : UML_M!ReadStructuralFeatureAction(
+			name <- 'getProperty',
+			structuralFeature <- thisModule.getPropertyMig(thisModule.getNameTypeFromPropertyMig('TestCase2', 'getProperty1', 'input_getProperty1'), 
+															thisModule.getNamePropertyMig('TestCase2', 'getProperty1')),
+			object <- thisModule.CreateInputPinWithComplexTypeMig('input_getProperty1',thisModule.getNameTypeFromPropertyMig('TestCase2', 'getProperty1', 'input_getProperty1'), of1),
+			result <- if getProperty1Type = 'String' or getProperty1Type = 'Integer' or getProperty1Type = 'Boolean'
+					  	then thisModule.CreateOutputPinWithPrimitiveTypeMig('output_getProperty1', thisModule.primitiveTypeMig(getProperty1Type), of3)
+						else thisModule.CreateOutputPinWithComplexTypeMig('output_getProperty1', activity2Type, of3)
+					  endif
+		),		
+		of1 : UML_M!ObjectFlow(
+			name <- 'of1',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)			
+		),
+		of2 : UML_M!ObjectFlow(
+			name <- 'of2',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		),
+		of3 : UML_M!ObjectFlow(
+			name <- 'of3',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		),
+		of4 : UML_M!ObjectFlow(
+			name <- 'of4',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		)		
+}
+
+
+lazy rule CreateTestCase3ActivityMigrated{
+	from 
+	 m : UML_M!Model,
+	 nameActivity : String
+	using{
+		result1Type : String = thisModule.getTypeParameterMig('TestCase3','result1');
+		value1Type : String = thisModule.getTypeValueMig('TestCase3','value1');
+		value2Type : String = thisModule.getTypeValueMig('TestCase3','value2');
+		activity1Type : String = thisModule.getTypeActivityMig('TestCase3','activity1');
+	}
+	to 
+		TestLoginActivity : UML_M!Activity(
+			name <- nameActivity,
+			ownedParameter <- Sequence{result1Parameter},
+			ownedNode <- Sequence{value1,value2,result1ParameterNode,activity1},
+			edge <- Sequence{of1,of2,of3}
+		),
+		result1Parameter : UML_M!Parameter(
+			name <- 'result1',
+			direction <- #return,
+			--effect <- #create,
+			type <- if result1Type = 'String' or result1Type = 'Integer' or result1Type = 'Boolean' 
+						then thisModule.primitiveTypeMig(result1Type)
+						else UML_M!Class.allInstancesFrom('IN_M')->select(c|c.name = result1Type) -> first()
+					endif
+		),
+		value1 : UML_M!ValueSpecificationAction(
+			name <- 'value1',
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringMig(thisModule.getValueMig('TestCase3','value1'))
+						else thisModule.CreateLiteralIntegerMig(thisModule.getValueMig('TestCase3','value1').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinMig('output_value1',of1)
+		),
+		value2 : UML_M!ValueSpecificationAction(
+			name <- 'value2',
+			value <- if value1Type = 'String'  -- For now, we only consider String and Integer for the values of a ValueSpecificationAction
+						then thisModule.CreateLiteralStringMig(thisModule.getValueMig('TestCase3','value2'))
+						else thisModule.CreateLiteralIntegerMig(thisModule.getValueMig('TestCase3','value2').toInteger())
+					 endif,
+			result <- thisModule.CreateOutputPinMig('output_value2',of2)
+		),
+		result1ParameterNode : UML_M!ActivityParameterNode(
+			name <- 'result1',
+			parameter <- result1Parameter,
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			incoming <- Sequence{of3}
+		),
+		activity1 : UML_M!CallBehaviorAction(
+			name <- 'activity1',
+			behavior <- UML_M!Activity.allInstancesFrom('IN_M') -> select(a|a.name=thisModule.getNameActivityMig('TestCase3', 'activity1'))->first(), --Link to Activity,
+			result <- if activity1Type = 'String' or activity1Type = 'Integer' or activity1Type = 'Boolean'
+						then Sequence{thisModule.CreateOutputPinWithPrimitiveTypeMig('output_activity1',thisModule.primitiveTypeMig(activity1Type),of3)}
+						else Sequence{thisModule.CreateOutputPinWithComplexTypeMig('output_activity1',activity1Type,of3)}
+					  endif,
+			argument <- Sequence{thisModule.CreateInputPinMig('input1_activity1',of1),thisModule.CreateInputPinMig('input2_activity1',of2)}
+		),
+		of1 : UML_M!ObjectFlow(
+			name <- 'of1',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)			
+		),
+		of2 : UML_M!ObjectFlow(
+			name <- 'of2',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		),
+		of3 : UML_M!ObjectFlow(
+			name <- 'of3',
+			weight <- thisModule.CreateLiteralIntegerMig(1),
+			guard <- thisModule.CreateLiteralBooleanMig(true)		
+		)
+}
+
+
+
+
+------Lazy rules for creating certain elements that are created several times in the rules------
+lazy rule CreateInputPinLeg{
+	from 
+		n: String,
+		of : UML_L!ObjectFlow
+	to 
+		op : UML_L!InputPin(
+			name <- n,
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			incoming <- Sequence{of}
+		)
+}
+
+lazy rule CreateInputPinWithComplexTypeLeg{
+	from 
+		n: String,
+		t: String,
+		of : UML_L!ObjectFlow
+	to 
+		op : UML_L!InputPin(
+			name <- n,
+			type <- UML_L!Class.allInstancesFrom('IN_L')->select(c|c.name = t) -> first(),
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			incoming <- Sequence{of}
+		)
+}
+
+lazy rule CreateOutputPinLeg{
+	from 
+		n: String,
+		of : UML_L!ObjectFlow
+	to 
+		op : UML_L!OutputPin(
+			name <- n,
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			outgoing <- Sequence{of}
+		)
+}
+
+lazy rule CreateOutputPinWithPrimitiveTypeLeg{
+	from 
+		n: String,
+		t: UML_L!PrimitiveType,
+		of : UML_L!ObjectFlow
+	to 
+		op : UML_L!OutputPin(
+			name <- n,
+			type <- t,
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			outgoing <- Sequence{of}
+		)
+}
+
+lazy rule CreateOutputPinWithComplexTypeLeg{
+	from 
+		n: String,
+		t: String,
+		of : UML_L!ObjectFlow
+	to 
+		op : UML_L!OutputPin(
+			name <- n,
+			type <- UML_L!Class.allInstancesFrom('IN_L')->select(c|c.name = t) -> first(),
+			upperBound <- thisModule.CreateLiteralIntegerLeg(1),
+			outgoing <- Sequence{of}
+		)
+}
+
+lazy rule CreateLiteralIntegerLeg{
+	from
+		i : Integer
+	to
+		li : UML_L!LiteralInteger(
+			value <- i	
+		)
+}
+
+lazy rule CreateLiteralStringLeg{
+	from
+		s : String
+	to
+		ls : UML_L!LiteralString(
+			value <- s	
+		)
+}
+
+lazy rule CreateLiteralBooleanLeg{
+	from
+		b : Boolean
+	to
+		li : UML_L!LiteralBoolean(
+			value <- b	
+		)
+}
+
+---Same lazy rules but for the Migrated Application---
+lazy rule CreateInputPinMig{
+	from 
+		n: String,
+		of : UML_M!ObjectFlow
+	to 
+		op : UML_M!InputPin(
+			name <- n,
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			incoming <- Sequence{of}
+		)
+}
+
+lazy rule CreateInputPinWithComplexTypeMig{
+	from 
+		n: String,
+		t: String,
+		of : UML_M!ObjectFlow
+	to 
+		op : UML_M!InputPin(
+			name <- n,
+			type <- UML_M!Class.allInstancesFrom('IN_M')->select(c|c.name = t) -> first(),
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			incoming <- Sequence{of}
+		)
+}
+
+lazy rule CreateOutputPinMig{
+	from 
+		n: String,
+		of : UML_M!ObjectFlow
+	to 
+		op : UML_M!OutputPin(
+			name <- n,
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			outgoing <- Sequence{of}
+		)
+}
+
+lazy rule CreateOutputPinWithPrimitiveTypeMig{
+	from 
+		n: String,
+		t: UML_M!PrimitiveType,
+		of : UML_M!ObjectFlow
+	to 
+		op : UML_M!OutputPin(
+			name <- n,
+			type <- t,
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			outgoing <- Sequence{of}
+		)
+}
+
+lazy rule CreateOutputPinWithComplexTypeMig{
+	from 
+		n: String,
+		t: String,
+		of : UML_M!ObjectFlow
+	to 
+		op : UML_M!OutputPin(
+			name <- n,
+			type <- UML_M!Class.allInstancesFrom('IN_M')->select(c|c.name = t) -> first(),
+			upperBound <- thisModule.CreateLiteralIntegerMig(1),
+			outgoing <- Sequence{of}
+		)
+}
+
+lazy rule CreateLiteralIntegerMig{
+	from
+		i : Integer
+	to
+		li : UML_M!LiteralInteger(
+			value <- i	
+		)
+}
+
+lazy rule CreateLiteralStringMig{
+	from
+		s : String
+	to
+		ls : UML_M!LiteralString(
+			value <- s	
+		)
+}
+
+lazy rule CreateLiteralBooleanMig{
+	from
+		b : Boolean
+	to
+		li : UML_M!LiteralBoolean(
+			value <- b	
+		)
+}
