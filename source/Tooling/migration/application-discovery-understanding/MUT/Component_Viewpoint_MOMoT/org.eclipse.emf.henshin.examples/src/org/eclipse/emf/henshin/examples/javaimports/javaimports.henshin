@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_dXEckDeGEeSK9qk0Cph73g">
+  <imports href="javaimports.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_ou53gDeGEeSK9qk0Cph73g" name="simple">
+    <parameters xmi:id="_De2E4DeHEeSK9qk0Cph73g" name="x">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_pAWM0DeGEeSK9qk0Cph73g" name="Lhs"/>
+    <rhs xmi:id="_pAWM0TeGEeSK9qk0Cph73g" name="Rhs">
+      <nodes xmi:id="_z08X0DeGEeSK9qk0Cph73g">
+        <type href="javaimports.ecore#//Element"/>
+        <attributes xmi:id="_2H-KYDeGEeSK9qk0Cph73g" value="ElementHelper.toUpperCase(x)">
+          <type href="javaimports.ecore#//Element/stringValue"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <javaImports>org.eclipse.emf.henshin.examples.javaimports.util</javaImports>
+  </units>
+</henshin:Module>

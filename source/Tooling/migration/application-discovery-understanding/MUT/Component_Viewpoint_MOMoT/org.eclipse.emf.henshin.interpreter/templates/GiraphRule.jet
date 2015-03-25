@@ -1,0 +1,881 @@
+<%@ jet package="org.eclipse.emf.henshin.interpreter.giraph" class="GiraphRuleTemplate" 
+imports="java.util.* org.eclipse.emf.henshin.model.* org.eclipse.emf.henshin.model.staticanalysis.* org.eclipse.emf.henshin.interpreter.info.* org.eclipse.emf.ecore.*" %>
+<%
+
+@SuppressWarnings("unchecked")
+Map<String,Object> args = (Map<String,Object>) argument;
+
+@SuppressWarnings("unchecked")
+Map<Rule,GiraphRuleData> ruleData = (Map<Rule,GiraphRuleData>) args.get("ruleData");
+
+Unit mainUnit = (Unit) args.get("mainUnit");
+String className = (String) args.get("className");
+String packageName = (String) args.get("packageName");
+boolean masterLogging = (Boolean) args.get("masterLogging");
+boolean vertexLogging = (Boolean) args.get("vertexLogging");
+boolean useUUIDs = (Boolean) args.get("useUUIDs");
+int segmentCount = (Integer) args.get("segmentCount");
+
+List<Unit> allUnits = new ArrayList<Unit>();
+allUnits.add(mainUnit);
+allUnits.addAll(mainUnit.getSubUnits(true));
+
+List<Rule> rules = new ArrayList<Rule>(ruleData.keySet());
+
+boolean needsEdgeFactory = false;
+boolean needsVertexIdFactory = false;
+int maxCreatedNodes = 0;
+for (GiraphRuleData data : ruleData.values()) {
+  if (!data.changeInfo.getCreatedEdges().isEmpty()) {
+    needsEdgeFactory = true;
+  }
+  if (!data.changeInfo.getCreatedNodes().isEmpty()) {
+    needsVertexIdFactory = true;
+  }
+  maxCreatedNodes = Math.max(maxCreatedNodes, data.changeInfo.getCreatedNodes().size());
+}
+
+boolean needsCollections = false;
+for (Unit unit : allUnits) {
+  if (unit instanceof IndependentUnit) {
+    needsCollections = true;
+    break;
+  }
+}
+
+boolean needsEdgeClass = false;
+for (Rule rule : rules) {
+  if (!rule.getLhs().getEdges().isEmpty() || !rule.getRhs().getEdges().isEmpty()) {
+    needsEdgeClass = true;
+    break;
+  }
+}
+
+%>
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package <%= packageName %>;
+
+import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+<% if (needsCollections) { %>
+import java.util.Collections;
+<% } %>
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.giraph.aggregators.LongSumAggregator;
+<% if (needsEdgeClass) { %>
+import org.apache.giraph.edge.Edge;
+<% }
+if (needsEdgeFactory) { %>
+import org.apache.giraph.edge.EdgeFactory;
+<% } %>
+import org.apache.giraph.graph.BasicComputation;
+import org.apache.giraph.graph.Vertex;
+import org.apache.giraph.master.DefaultMasterCompute;
+import org.apache.hadoop.io.ByteWritable;
+import org.apache.hadoop.io.LongWritable;
+<%if (masterLogging || vertexLogging) { %>
+import org.apache.log4j.Logger;
+<%} %>
+import static <%= packageName %>.HenshinUtil
+  .ApplicationStack;
+import static <%= packageName %>.HenshinUtil
+  .ApplicationStackAggregator;
+import static <%= packageName %>.HenshinUtil
+  .Match;
+import static <%= packageName %>.HenshinUtil
+  .VertexId;
+
+/**
+ * Generated implementation of the Henshin unit "<%= mainUnit.getName() %>".
+ */
+@Algorithm(
+    name = "<%= mainUnit.getName() %>"
+)
+public class <%= className %> extends
+  BasicComputation<VertexId, ByteWritable, ByteWritable, Match> {
+
+  /**
+   * Name of the match count aggregator.
+   */
+  public static final String AGGREGATOR_MATCHES = "matches";
+
+  /**
+   * Name of the rule application count aggregator.
+   */
+  public static final String AGGREGATOR_RULE_APPLICATIONS = "ruleApps";
+
+  /**
+   * Name of the node generation aggregator.
+   */
+  public static final String AGGREGATOR_NODE_GENERATION = "nodeGen";
+
+  /**
+   * Name of the application stack aggregator.
+   */
+  public static final String AGGREGATOR_APPLICATION_STACK = "appStack";
+<%
+
+Map<ENamedElement,String> typeConstants = GiraphUtil.getTypeConstants(mainUnit.getModule());
+int value = 0;
+for (ENamedElement type : typeConstants.keySet()) {
+  %>
+
+  /**
+   * Type constant for "<%= type.getName() %>".
+   */
+  public static final byte <%= typeConstants.get(type) %> = <%= value++ %>;
+<%
+}
+
+Map<Unit,String> unitConstants = GiraphUtil.getUnitConstants(mainUnit);
+value = 0;
+for (Unit unit : unitConstants.keySet()) {
+  %>
+
+  /**
+   * <%= (unit instanceof Rule) ? "Rule" : "Unit" %> constant for "<%= unit.getName() %>".
+   */
+  public static final int <%= unitConstants.get(unit) %> = <%= value++ %>;
+<%
+}
+
+if (masterLogging || vertexLogging) {
+%>
+
+  /**
+   * Logging support.
+   */
+  protected static final Logger LOG = Logger.getLogger(<%= className %>.class);
+<% } %>
+
+  /**
+   * Default segment count.
+   */
+  private static int SEGMENT_COUNT = <%= segmentCount %>;
+
+  /**
+   * Currently active rule.
+   */
+  private int rule;
+
+  /**
+   * Current segment.
+   */
+  private int segment;
+
+  /**
+   * Current microstep.
+   */
+  private int microstep;
+
+  /**
+   * Finished flag.
+   */
+  private boolean finished;
+
+  /*
+   * (non-Javadoc)
+   * @see org.apache.giraph.graph.Computation#preSuperstep()
+   */
+  @Override
+  public void preSuperstep() {
+    ApplicationStack stack =
+      getAggregatedValue(AGGREGATOR_APPLICATION_STACK);
+    if (stack.getStackSize() == 0) {
+      long ruleApps = ((LongWritable)
+        getAggregatedValue(AGGREGATOR_RULE_APPLICATIONS)).get();
+      finished = ruleApps == 0;
+      rule = -1;
+    } else {
+      finished = false;
+      rule = stack.getLastUnit();
+      segment = stack.getLastSegment();
+      microstep = stack.getLastMicrostep();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * @see org.apache.giraph.graph.Computation#compute(
+   *        org.apache.giraph.graph.Vertex, java.lang.Iterable)
+   */
+  @Override
+  public void compute(
+      Vertex<VertexId, ByteWritable, ByteWritable> vertex,
+      Iterable<Match> matches) throws IOException {
+    if (finished) {
+      vertex.voteToHalt();
+      return;
+    }
+    switch (rule) {
+<% for (Rule rule : rules) { %>
+    case <%= unitConstants.get(rule) %>:
+      match<%= ruleData.get(rule).rule.getName() %>(
+        vertex, matches, segment, microstep);
+      break;
+<% } %>
+    default:
+      break;
+    }
+  }
+<%
+
+// Generate the code for all rules: 
+for (GiraphRuleData data : ruleData.values()) {
+  Rule rule = data.rule;
+  RuleChangeInfo changeInfo = data.changeInfo;
+
+  // Sort indexes of nodes to be removed from the match:
+  List<Integer> required = new ArrayList<Integer>();
+  for (Node node : data.requiredNodes) {
+    required.add(data.orderedLhsNodes.indexOf(node));
+  }
+  Collections.sort(required);
+  Collections.reverse(required);
+
+%>
+
+  /**
+   * Match (and apply) the rule "<%= data.rule.getName() %>".
+   * This takes <%= data.matchingSteps.size() %> microsteps.
+   * @param vertex The current vertex.
+   * @param matches The current matches.
+   * @param segment The current segment.
+   * @param microstep The current microstep.
+   */
+  protected void match<%= rule.getName() %>(
+    Vertex<VertexId, ByteWritable, ByteWritable> vertex,
+    Iterable<Match> matches, int segment, int microstep)
+    throws IOException {
+
+<%
+  /* START LOGGING */
+  if (vertexLogging) { %>
+    LOG.info("Vertex " + vertex.getId() + " in superstep " + getSuperstep() +
+      " matching rule <%= rule.getName() %> on segment " + segment +
+      " in microstep " + microstep);
+    for (Match match : matches) {
+      LOG.info("Vertex " + vertex.getId() +
+        " in superstep " + getSuperstep() +
+        " received (partial) match " + match);
+    }
+<% } 
+  /* END LOGGING */
+%>
+    Set<Match> finalMatches = new HashSet<Match>();
+    <%= data.matchingSteps.size() > 1 ? "matches = " : "" %>filter<%= rule.getName() %>(
+      vertex, matches, segment, microstep, finalMatches);
+    long matchCount = 0;
+    long appCount = 0;
+
+<%  for (int i=0; i<data.matchingSteps.size(); i++) {
+
+      /* START STEP LOOP */
+      GiraphRuleData.MatchingStep step = data.matchingSteps.get(i);
+%><%= i>0 ? " else" : "   " %> if (microstep == <%= i %>) {
+<%    if (step.isJoin) {
+        /* START JOIN */        
+        %>
+      // Joining matches at node <%= GiraphUtil.getNodeName(step.node) %>:
+      List<Match> matches1 = new ArrayList<Match>();
+      List<Match> matches2 = new ArrayList<Match>();
+      VertexId id = vertex.getId();
+      for (Match match : matches) {
+        if (id.equals(match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.node) %>))) {
+          matches1.add(match.copy());
+        } else {
+          matches2.add(match.copy());
+        }
+      }
+<%      if (vertexLogging) { %>
+      LOG.info("Vertex " + id + " in superstep " + getSuperstep() +
+        " joining " + matches1.size() + " x " + matches2.size() +
+        " partial matches of rule <%= rule.getName() %>");
+<%      } %>
+      for (Match m1 : matches1) {
+        for (Match m2 : matches2) {
+          Match match = m1.append(m2);
+<%    if (rule.isInjectiveMatching()) {%>
+          if (!match.isInjective()) {
+            continue;
+          }
+<%    }
+      if (step.sendBackTo != null) {
+        /* START SEND BACK TO */        
+%>
+          matchCount++;
+<%      if (vertexLogging) { %>
+          LOG.info("Vertex " + vertex.getId() +
+            " sending (partial) match " + match +
+            " back to vertex " + match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.sendBackTo) %>));
+<%      } %>
+          sendMessage(match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.sendBackTo) %>), match);
+<%        /* END SEND BACK TO */
+      } else if (i == data.matchingSteps.size()-1) {
+        for (Integer req : required) { %>
+          match = match.remove(<%= req %>);
+     <% } %>
+          if (!finalMatches.add(match)) {
+            continue;
+          }
+          matchCount++;
+          if (segment == SEGMENT_COUNT - 1) {
+            apply<%= data.rule.getName() %>(
+              vertex, match, appCount++);
+          } else {
+            sendMessage(vertex.getId(), match);
+          }
+<%    } %>
+        }
+      }
+<%
+        /* END JOIN */        
+      } else {
+        /* START CHECKING */        
+        String xx = "";
+        if (step.isMatching) {
+          /* START MATCHING */
+          xx = "  ";
+          List<EClass> validTypes = GiraphUtil.getValidTypes(step.node, mainUnit.getModule());
+%>
+      // Matching node <%= GiraphUtil.getNodeName(step.node) %>:
+<%    for (int j=0; j<validTypes.size(); j++) { %>
+      <%= (j==0) ? "boolean ok = " : "  " %>vertex.getValue().get() == <%= typeConstants.get(validTypes.get(j)) %><%= (j==validTypes.size()-1) ? ";" : " ||" %>
+<%    }
+      if (rule.isInjectiveMatching() && !step.node.getOutgoing().isEmpty()) { %>
+      ok = ok && vertex.getNumEdges() >= <%= step.node.getOutgoing().size() %>;
+<%    } 
+      if (i==0) { %>
+      ok = ok && (SEGMENT_COUNT == 1 || getSegment(vertex.getId()) == segment);
+<%    } %>
+      if (ok) {
+<%
+          /* END MATCHING */
+        }
+        if (step.isStart) {
+          /* START IS START */        
+%>
+        Match match = new Match(segment).append(vertex.getId());
+<%
+          /* END IS START */        
+        } else {
+          /* START IS NOT START*/        
+%>
+<%=xx%>      for (Match match : matches) {
+<%        if (step.isMatching) { %>
+<%=xx%>        match = match.append(vertex.getId());
+<%          if (rule.isInjectiveMatching()) {%>
+<%=xx%>        if (!match.isInjective()) {
+<%=xx%>          continue;
+<%=xx%>        }
+<%          }
+            NodeEquivalence equi = data.requiredNodesEquivalences.get(step.node);
+            if (equi!=null && equi.indexOf(step.node)>0) { 
+              Node compareTo = equi.get(equi.indexOf(step.node)-1); %>
+<%=xx%>        if (vertex.getId().compareTo(match.getVertexId(<%= data.orderedLhsNodes.indexOf(compareTo) %>)) < 0) {
+<%=xx%>          continue;
+<%=xx%>        }
+<%          }
+          } 
+          /* END IS NOT START*/
+        }
+        if (step.edge != null) {
+          /* START EDGE */
+          if (step.verifyEdgeTo != null) {
+            /* START VERIFY EDGE */
+            xx = xx + "    ";
+%>
+<%=xx%>    // Node <%= GiraphUtil.getNodeName(step.edge.getSource()) %>: check for edge to match of <%= GiraphUtil.getNodeName(step.edge.getTarget()) %> of type "<%= step.edge.getType().getName() %>":
+<%=xx%>    VertexId targetId = match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.verifyEdgeTo) %>);
+<%=xx%>    for (Edge<VertexId, ByteWritable> edge :
+<%=xx%>      vertex.getEdges()) {
+<%=xx%>      if (edge.getValue().get() ==
+<%=xx%>        <%= typeConstants.get(step.edge.getType()) %> &&
+<%=xx%>        edge.getTargetVertexId().equals(targetId)) {
+<%
+            /* END VERIFY EDGE */        
+          }
+          /* END EDGE */
+        } %>
+<%      if (step.sendBackTo != null) {
+          /* START SEND BACK TO */        
+%>
+<%=xx%>        matchCount++;
+<%        if (vertexLogging) { %>
+<%=xx%>        LOG.info("Vertex " + vertex.getId() +
+<%=xx%>          " sending (partial) match " + match +
+<%=xx%>          " back to vertex " + match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.sendBackTo) %>));
+<%        } %>
+<%=xx%>        sendMessage(match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.sendBackTo) %>), match);
+<%        /* END SEND BACK TO */        
+        } else if (i == data.matchingSteps.size()-1) {
+          /* START LAST STEP */ 
+          if (step.isStart) {
+            xx = "";
+          }
+          for (Integer req : required) { %>
+<%=xx%>        match = match.remove(<%= req %>);
+<%        } %>
+<%=xx%>        if (finalMatches.add(match)) {
+<%=xx%>          matchCount++;
+<%=xx%>          if (segment == SEGMENT_COUNT - 1) {
+<%=xx%>            apply<%= data.rule.getName() %>(
+<%=xx%>              vertex, match, appCount++);
+<%=xx%>          } else {
+<%=xx%>            sendMessage(vertex.getId(), match);
+<%=xx%>          }
+<%=xx%>        }
+<%        /* END LAST STEP */        
+        }
+        if (step.verifyEdgeTo != null) {
+          /* START VERIFY EDGE */
+%>
+<%=xx%>        break;
+<%=xx%>      }
+<%=xx%>    }
+<%
+          xx = xx.substring(0, xx.length() - 4);
+          /* END VERIFY EDGE */
+        }
+        if (step.edge!=null && step.verifyEdgeTo==null) {
+          /* START NOT VERIFY EDGE */
+          String yy = !step.isStart && step.isMatching ? "  " : "";
+%>
+<%=yy%>        matchCount++;
+<%=yy%>        Set<VertexId> targets = new HashSet<VertexId>();
+<%=yy%>        for (Edge<VertexId, ByteWritable> edge : vertex.getEdges()) {
+<%=yy%>          if (edge.getValue().get() ==
+<%=yy%>            <%= typeConstants.get(step.edge.getType()) %> &&
+<%=yy%>            targets.add(edge.getTargetVertexId())) {
+<%          if (vertexLogging) { %>
+<%=yy%>            LOG.info("Vertex " + vertex.getId() +
+<%=yy%>              " sending (partial) match " + match +
+<%=yy%>              " forward to vertex " + edge.getTargetVertexId());
+<%          } %>
+<%=yy%>            sendMessage(edge.getTargetVertexId(), match);
+<%=yy%>          }
+<%=yy%>        }
+<%
+          /* END NOT VERIFY EDGE */        
+        }
+        if (!step.isStart) {%>
+<%=xx%>      }
+<%      }
+        if (step.isMatching) { %>
+      }
+<%      }
+        if (step.keepMatchesOf != null) {
+%>
+      for (Match match : matches) {
+        VertexId id = match.getVertexId(<%= data.orderedLhsNodes.indexOf(step.keepMatchesOf) %>);
+        if (vertex.getId().equals(id)) {
+          matchCount++;
+<%        if (vertexLogging) { %>
+          LOG.info("Vertex " + id + " in superstep " + getSuperstep() +
+            " sending (partial) match " + match + " to myself");
+<%        } %>
+          sendMessage(id, match);
+        }
+      }
+<%        }
+     } %>
+    }<%
+    } // end for
+%> else {
+      throw new RuntimeException("Illegal microstep for rule " +
+        "<%= rule.getName() %>: " + microstep);
+    }
+    if (matchCount > 0) {
+      aggregate(AGGREGATOR_MATCHES,
+        new LongWritable(matchCount));
+    }
+    if (appCount > 0) {
+      aggregate(AGGREGATOR_RULE_APPLICATIONS,
+        new LongWritable(appCount));
+    }
+  }
+
+  /**
+   * Filter matches per segment for the rule "<%= data.rule.getName() %>".
+   * @param vertex The current vertex.
+   * @param matches The current matches.
+   * @param segment The current segment.
+   * @param microstep The current microstep.
+   * @param finalMatches Set of final matches.
+   * @return The filtered matches.
+   */
+  protected Iterable<Match> filter<%= rule.getName() %>(
+    Vertex<VertexId, ByteWritable, ByteWritable> vertex,
+    Iterable<Match> matches, int segment, int microstep,
+    Set<Match> finalMatches)
+    throws IOException {
+    if (segment > 0) {
+      List<Match> filtered = new ArrayList<Match>();
+      long matchCount = 0;
+      long appCount = 0;
+      for (Match match : matches) {
+        int matchSegment = match.getSegment();
+        if (matchSegment < segment) {
+          if (!finalMatches.add(match)) {
+            continue;
+          }
+          matchCount++;
+          if (segment == SEGMENT_COUNT - 1 && microstep == <%= data.matchingSteps.size()-1 %>) {
+            apply<%= data.rule.getName() %>(
+              vertex, match, appCount++);
+          } else {
+            sendMessage(vertex.getId(), match);
+          }
+        } else if (matchSegment > segment) {
+          throw new RuntimeException("Received match " + match +
+            " of rule <%= rule.getName() %> of segment " +
+            matchSegment + ", but current segment is only " + segment);
+        } else {
+          filtered.add(match.copy());
+        }
+      }
+      if (matchCount > 0) {
+        aggregate(AGGREGATOR_MATCHES,
+          new LongWritable(matchCount));
+      }
+      if (appCount > 0) {
+        aggregate(AGGREGATOR_RULE_APPLICATIONS,
+          new LongWritable(appCount));
+      }
+      return filtered;
+    }
+    return matches;
+  }
+
+  /**
+   * Apply the rule "<%= rule.getName() %>" to a given match.
+   * @param vertex The base vertex.
+   * @param match The match object.
+   * @param matchIndex Match index.
+   * @return true if the rule was applied.
+   * @throws IOException On I/O errors.
+   */
+  protected boolean apply<%= data.rule.getName() %>(
+    Vertex<VertexId, ByteWritable, ByteWritable> vertex,
+    Match match, long matchIndex) throws IOException {
+<%
+  List<Node> matchNodes = new ArrayList<Node>();
+  matchNodes.addAll(data.orderedLhsNodes);
+  matchNodes.removeAll(data.requiredNodes);
+  for (int j = 0; j < matchNodes.size(); j++) {
+    Node lhsNode = matchNodes.get(j);
+    Node rhsNode = data.rule.getMappings().getImage(lhsNode, data.rule.getRhs());
+    boolean needed = changeInfo.getDeletedNodes().contains(lhsNode);
+    for (Edge edge : lhsNode.getAllEdges()) {
+      needed = needed || changeInfo.getDeletedEdges().contains(edge);
+    }
+    if (rhsNode!=null) {
+      for (Edge edge : rhsNode.getAllEdges()) {
+        needed = needed || changeInfo.getCreatedEdges().contains(edge);
+      }
+    }
+    if (needed) { %>
+    VertexId cur<%= j %> = match.getVertexId(<%= j %>);
+<%  }
+  }
+  if (vertexLogging) { %>
+    LOG.info("Vertex " + vertex.getId() +
+      " applying rule <%= data.rule.getName() %> with match " + match);
+<% } %>
+<%
+  for (Edge edge : changeInfo.getDeletedEdges()) {%>
+    removeEdgesRequest(cur<%= matchNodes.indexOf(edge.getSource()) %>, cur<%= matchNodes.indexOf(edge.getTarget()) %>);
+<%  }
+    for (Node node : changeInfo.getDeletedNodes()) {%>
+    removeVertexRequest(cur<%= matchNodes.indexOf(node) %>);
+<%  }
+
+    int n = 0;
+    for (Node node : changeInfo.getCreatedNodes()) {%>
+    VertexId new<%= n %> =
+<% if (useUUIDs) { %>
+      VertexId.randomVertexId();
+<% } else { %>
+      deriveVertexId(vertex.getId(), (int) matchIndex, <%= n %>);
+<% } %>
+    addVertexRequest(new<%= n++ %>,
+      new ByteWritable(<%= typeConstants.get(node.getType()) %>));
+<%  }
+
+    int e = 0;
+    for (Edge edge : changeInfo.getCreatedEdges()) { %>
+<%	// THE SOURCE OF THE NEW EDGE:
+   	if (changeInfo.getCreatedNodes().contains(edge.getSource())) { %>
+    VertexId src<%= e %> = new<%= changeInfo.getCreatedNodes().indexOf(edge.getSource()) %>;
+<%	} else { %>
+    VertexId src<%= e %> = cur<%= matchNodes.indexOf(data.rule.getMappings().getOrigin(edge.getSource())) %>;
+<%	}
+	// THE TARGET OF THE NEW EDGE:
+   	if (changeInfo.getCreatedNodes().contains(edge.getTarget())) { %>
+    VertexId trg<%= e %> = new<%= changeInfo.getCreatedNodes().indexOf(edge.getTarget()) %>;
+<%	} else { %>
+    VertexId trg<%= e %> = cur<%= matchNodes.indexOf(data.rule.getMappings().getOrigin(edge.getTarget())) %>;
+<%	} %>
+    Edge<VertexId, ByteWritable> edge<%= e %> =
+      EdgeFactory.create(trg<%= e %>,
+        new ByteWritable(<%= typeConstants.get(edge.getType()) %>));
+    addEdgeRequest(src<%= e %>, edge<%= e %>);
+<%  e++;
+    } %>
+    return true;
+  }
+<%
+} // end of for all rules
+%>
+
+<% if (needsVertexIdFactory && !useUUIDs) { %>
+  /**
+   * Derive a new vertex Id from an exiting one.
+   * @param baseId The base vertex Id.
+   * @param matchIndex The index of the match.
+   * @param vertexIndex The index of the new vertex.
+   * @return The derived vertex Id.
+   */
+  private VertexId deriveVertexId(VertexId baseId, int matchIndex,
+    int vertexIndex) {
+    long generation = ((LongWritable) getAggregatedValue(
+        AGGREGATOR_NODE_GENERATION)).get();
+    return baseId
+      .append((byte) generation)
+      .append((byte) matchIndex)
+      .append((byte) vertexIndex);
+  }
+
+<% } %>
+  /**
+   * Get the segment that a vertex belongs to.
+   * @param vertexId The ID of the vertex.
+   * @return The segment of the vertex.
+   */
+  private int getSegment(VertexId vertexId) {
+    return Math.abs(vertexId.hashCode()) % SEGMENT_COUNT;
+  }
+
+  /**
+   * Master compute which registers and updates the required aggregators.
+   */
+  public static class MasterCompute extends DefaultMasterCompute {
+
+    /**
+     * Stack for storing unit success flags.
+     */
+    private final Deque<Boolean> unitSuccesses =
+      new ArrayDeque<Boolean>();
+
+    /**
+     * Stack for storing the execution orders of independent units.
+     */
+    private final Deque<List<Integer>> unitOrders =
+      new ArrayDeque<List<Integer>>();
+
+    /*
+     * (non-Javadoc)
+     * @see org.apache.giraph.master.DefaultMasterCompute#compute()
+     */
+    @Override
+    public void compute() {
+      long ruleApps = ((LongWritable)
+        getAggregatedValue(AGGREGATOR_RULE_APPLICATIONS)).get();
+<% if (masterLogging) { %>
+      long matches = ((LongWritable)
+        getAggregatedValue(AGGREGATOR_MATCHES)).get();
+      if (getSuperstep() > 0) {
+        LOG.info(matches + " (partial) matches computed and " +
+          ruleApps + " rule applications conducted in superstep " +
+          (getSuperstep() - 1));
+      }
+<% } %>
+      if (ruleApps > 0) {
+        long nodeGen = ((LongWritable)
+          getAggregatedValue(AGGREGATOR_NODE_GENERATION)).get();
+        setAggregatedValue(AGGREGATOR_NODE_GENERATION,
+          new LongWritable(nodeGen + 1));
+      }
+      ApplicationStack stack;
+      if (getSuperstep() == 0) {
+        stack = new ApplicationStack();
+        stack = stack.append(<%= unitConstants.get(mainUnit) %>, 0, 0);
+<% if (!(mainUnit instanceof Rule)) { %>
+        stack = nextRuleStep(stack, ruleApps);
+<% } %>
+      } else {
+        stack = getAggregatedValue(AGGREGATOR_APPLICATION_STACK);
+        stack = nextRuleStep(stack, ruleApps);
+      }
+      setAggregatedValue(AGGREGATOR_APPLICATION_STACK, stack);
+    }
+
+    /**
+     * Compute the next rule application stack.
+     * @param stack The current application stack.
+     * @param ruleApps Number of rule applications in last superstep.
+     * @return The new application stack.
+     */
+    private ApplicationStack nextRuleStep(
+      ApplicationStack stack, long ruleApps) {
+      while (stack.getStackSize() > 0) {
+        int unit = stack.getLastUnit();
+        int segment = stack.getLastSegment();
+        int microstep = stack.getLastMicrostep();
+        stack = stack.removeLast();
+        switch (unit) {
+<% for (Unit unit : allUnits) { %>
+        case <%= unitConstants.get(unit) %>:
+          stack = process<%= unit.getName() %>(
+            stack<%= (unit instanceof Rule) ? ", segment" : "" %>, microstep<%= (unit instanceof Rule) ? ", ruleApps" : "" %>);
+          break;
+<% } // end for %>
+        default:
+          throw new RuntimeException("Unknown unit " + unit);
+        }
+        if (stack.getStackSize() > 0) {
+          unit = stack.getLastUnit();
+<% for (int i=0; i<rules.size(); i++) { %>
+          <%= i==0 ? "if (" : "  " %>unit == <%= unitConstants.get(rules.get(i)) + (i<rules.size()-1 ? " ||" : ") {" ) %>
+<% } %>
+            break;
+          }
+        }
+      }
+      return stack;
+    }
+<%
+
+for (Unit unit : allUnits) { %>
+
+   /**
+     * Process <%= unit.eClass().getName() %> "<%= unit.getName() %>".
+     * @param stack The current application stack.
+<% if (unit instanceof Rule) { %>
+     * @param segment The current segment.
+<% } %>
+     * @param microstep The current microstep.
+<% if (unit instanceof Rule) { %>
+     * @param ruleApps Number of rule applications in last superstep.
+<% } %>
+     * @return The new application stack.
+     */
+    private ApplicationStack process<%= unit.getName() %>(
+      ApplicationStack stack<%= (unit instanceof Rule) ? ", int segment" : "" %>, int microstep<%= (unit instanceof Rule) ? ", long ruleApps" : "" %>) {
+<% if (unit instanceof IteratedUnit) {
+   int iters = Integer.parseInt(((IteratedUnit) unit).getIterations()); %>
+      if (microstep > 0 && !unitSuccesses.pop()) {
+        unitSuccesses.push(false);
+      } else if (microstep == <%= iters %>) {
+        unitSuccesses.push(true);
+      } else if (microstep < <%= iters %>) {
+        stack = stack.append(<%= unitConstants.get(unit) %>, 0, microstep + 1);
+        stack = stack.append(<%= unitConstants.get(((IteratedUnit) unit).getSubUnit()) %>, 0, 0);
+      }
+<% } else if (unit instanceof SequentialUnit) {
+     SequentialUnit seq = (SequentialUnit) unit; %>
+      if (microstep > 0 && !unitSuccesses.pop()) {
+        unitSuccesses.push(false);
+      } else if (microstep == <%= seq.getSubUnits().size() %>) {
+        unitSuccesses.push(true);
+      } else {
+        switch (microstep) {
+<% for (int i=0; i<seq.getSubUnits().size(); i++) { %>
+        case <%= i%>:
+          stack = stack.append(<%= unitConstants.get(unit) %>, 0, <%= i+1 %>);
+          stack = stack.append(<%= unitConstants.get(seq.getSubUnits().get(i)) %>, 0, 0);
+          break;
+<% } %>
+        default:
+          break;
+        }
+      }
+<% } else if (unit instanceof IndependentUnit) { 
+     IndependentUnit indi = (IndependentUnit) unit; %>
+      if (microstep == 0) {
+        List<Integer> order = new ArrayList<Integer>();
+        for (int i = 0; i < <%= indi.getSubUnits().size() %>; i++) {
+          order.add(i);
+        }
+        Collections.shuffle(order);
+        unitOrders.push(order);
+      }
+      if (microstep > 0 && unitSuccesses.pop()) {
+        unitOrders.pop();
+        unitSuccesses.push(true);
+      } else if (microstep == <%= indi.getSubUnits().size() %>) {
+        unitOrders.pop();
+        unitSuccesses.push(false);
+      } else {
+        int next = unitOrders.peek().get(microstep);
+        switch (next) {
+<% for (int i=0; i<indi.getSubUnits().size(); i++) { %>
+        case <%= i%>:
+          stack = stack.append(<%= unitConstants.get(unit) %>, 0, microstep + 1);
+          stack = stack.append(<%= unitConstants.get(indi.getSubUnits().get(i)) %>, 0, 0);
+          break;
+<% } %>
+        default:
+          break;
+        }
+      }
+<% } else if (unit instanceof LoopUnit) { %>
+      if (microstep == 0 || unitSuccesses.pop()) {
+        stack = stack.append(<%= unitConstants.get(unit) %>, 0, 1);
+        stack = stack.append(<%= unitConstants.get(((LoopUnit) unit).getSubUnit()) %>, 0, 0);
+      } else {
+        unitSuccesses.push(true);
+      }
+<% } else if (unit instanceof Rule) { %>
+      if (microstep < <%= ruleData.get(unit).matchingSteps.size()-1 %>) {
+        stack = stack.append(<%= unitConstants.get(unit) %>, segment, microstep + 1);
+      } else if (segment < SEGMENT_COUNT - 1) {
+        stack = stack.append(<%= unitConstants.get(unit) %>, segment + 1, 0);
+      } else {
+        unitSuccesses.push(ruleApps > 0);
+      }
+<% } %>
+      return stack;
+    }
+<% } // end for %>
+
+    /*
+     * (non-Javadoc)
+     * @see org.apache.giraph.master.DefaultMasterCompute#initialize()
+     */
+    @Override
+    public void initialize() throws InstantiationException,
+        IllegalAccessException {
+      registerAggregator(AGGREGATOR_MATCHES,
+        LongSumAggregator.class);
+      registerAggregator(AGGREGATOR_RULE_APPLICATIONS,
+        LongSumAggregator.class);
+      registerPersistentAggregator(AGGREGATOR_NODE_GENERATION,
+        LongSumAggregator.class);
+      registerPersistentAggregator(AGGREGATOR_APPLICATION_STACK,
+        ApplicationStackAggregator.class);
+    }
+
+  }
+}

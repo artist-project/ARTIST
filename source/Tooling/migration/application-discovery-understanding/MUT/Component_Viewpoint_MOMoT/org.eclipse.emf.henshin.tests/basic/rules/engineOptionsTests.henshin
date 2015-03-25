@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="CP1252"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_jcrzMPkLEeG8L_O0_HQfRg" name="engineOptionsTests">
+  <rules xmi:id="_jcrzMfkLEeG8L_O0_HQfRg" name="non-injectiveMatching">
+    <parameters xmi:id="_jcsaQvkLEeG8L_O0_HQfRg" name="p_nd"/>
+    <lhs xmi:id="_jctBUPkLEeG8L_O0_HQfRg" name="LHS">
+      <nodes xmi:id="_jctoYPkLEeG8L_O0_HQfRg" name="p_nd" incoming="_jcvdkPkLEeG8L_O0_HQfRg _jcwEoPkLEeG8L_O0_HQfRg" outgoing="_jcu2gPkLEeG8L_O0_HQfRg _jcu2gfkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node"/>
+      </nodes>
+      <nodes xmi:id="_jctoYfkLEeG8L_O0_HQfRg" name="ch_nd_1" incoming="_jcu2gPkLEeG8L_O0_HQfRg" outgoing="_jcvdkPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node"/>
+      </nodes>
+      <nodes xmi:id="_jcuPcPkLEeG8L_O0_HQfRg" name="ch_nd_2" incoming="_jcu2gfkLEeG8L_O0_HQfRg" outgoing="_jcwEoPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node"/>
+      </nodes>
+      <edges xmi:id="_jcu2gPkLEeG8L_O0_HQfRg" source="_jctoYPkLEeG8L_O0_HQfRg" target="_jctoYfkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/childNodes"/>
+      </edges>
+      <edges xmi:id="_jcu2gfkLEeG8L_O0_HQfRg" source="_jctoYPkLEeG8L_O0_HQfRg" target="_jcuPcPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/childNodes"/>
+      </edges>
+      <edges xmi:id="_jcvdkPkLEeG8L_O0_HQfRg" source="_jctoYfkLEeG8L_O0_HQfRg" target="_jctoYPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/parentNode"/>
+      </edges>
+      <edges xmi:id="_jcwEoPkLEeG8L_O0_HQfRg" source="_jcuPcPkLEeG8L_O0_HQfRg" target="_jctoYPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/parentNode"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_jcwEofkLEeG8L_O0_HQfRg" name="RHS">
+      <nodes xmi:id="_jcwrsPkLEeG8L_O0_HQfRg" name="p_nd" incoming="_jczH8PkLEeG8L_O0_HQfRg _jczH8fkLEeG8L_O0_HQfRg" outgoing="_jcx50PkLEeG8L_O0_HQfRg _jcx50fkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node"/>
+      </nodes>
+      <nodes xmi:id="_jcxSwPkLEeG8L_O0_HQfRg" name="ch_nd_1" incoming="_jcx50PkLEeG8L_O0_HQfRg" outgoing="_jczH8PkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node"/>
+      </nodes>
+      <nodes xmi:id="_jcxSwfkLEeG8L_O0_HQfRg" name="ch_nd_2" incoming="_jcx50fkLEeG8L_O0_HQfRg" outgoing="_jczH8fkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node"/>
+      </nodes>
+      <edges xmi:id="_jcx50PkLEeG8L_O0_HQfRg" source="_jcwrsPkLEeG8L_O0_HQfRg" target="_jcxSwPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/childNodes"/>
+      </edges>
+      <edges xmi:id="_jcx50fkLEeG8L_O0_HQfRg" source="_jcwrsPkLEeG8L_O0_HQfRg" target="_jcxSwfkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/childNodes"/>
+      </edges>
+      <edges xmi:id="_jczH8PkLEeG8L_O0_HQfRg" source="_jcxSwPkLEeG8L_O0_HQfRg" target="_jcwrsPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/parentNode"/>
+      </edges>
+      <edges xmi:id="_jczH8fkLEeG8L_O0_HQfRg" source="_jcxSwfkLEeG8L_O0_HQfRg" target="_jcwrsPkLEeG8L_O0_HQfRg">
+        <type href="http://www.eclipse.org/emf/2010/Henshin/Tests#//Node/parentNode"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_jczvAPkLEeG8L_O0_HQfRg" origin="_jctoYfkLEeG8L_O0_HQfRg" image="_jcxSwPkLEeG8L_O0_HQfRg"/>
+    <mappings xmi:id="_jc0WEPkLEeG8L_O0_HQfRg" origin="_jctoYPkLEeG8L_O0_HQfRg" image="_jcwrsPkLEeG8L_O0_HQfRg"/>
+    <mappings xmi:id="_jc0WEfkLEeG8L_O0_HQfRg" origin="_jcuPcPkLEeG8L_O0_HQfRg" image="_jcxSwfkLEeG8L_O0_HQfRg"/>
+  </rules>
+  <imports href="http://www.eclipse.org/emf/2010/Henshin/Tests#/"/>
+</henshin:TransformationSystem>

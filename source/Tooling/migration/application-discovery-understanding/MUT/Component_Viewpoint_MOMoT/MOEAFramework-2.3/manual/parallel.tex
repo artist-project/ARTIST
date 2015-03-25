@@ -1,0 +1,66 @@
+% Copyright 2011-2013 David Hadka.  All Rights Reserved.
+%
+% This file is part of the MOEA Framework User Manual.
+%
+% Permission is granted to copy, distribute and/or modify this document under
+% the terms of the GNU Free Documentation License, Version 1.3 or any later
+% version published by the Free Software Foundation; with the Invariant Section
+% being the section entitled "Preface", no Front-Cover Texts, and no Back-Cover
+% Texts.  A copy of the license is included in the section entitled "GNU Free
+% Documentation License".
+
+\chapter{Parallelization}
+\label{chpt:parallelization}
+When we first introduced the \java{Executor} class in \chptref{chpt:executor}, we demonstrated the \java{distributeOnAllCores()} method as a way to automatically and seamlessly distribute the evaluation across all cores in your local computer.  This section shows how to expand this simple distributed computing methods to large-scale cloud and high-performance computing systems.
+
+\section{JPPF}
+\begin{wrapfigure}{l}{4cm}
+  \includegraphics[width=4cm]{jppf.png}
+\end{wrapfigure}
+JPPF is a Java framework for parallel processing.  JPPF is licensed under the Apache license, version 2, which is a free and open-source license.  This section walks demonstrates distributing the problem evaluations across multiple machines using JPPF.
+
+To begin, first download the Server/Driver, Node, and Application Template distributions from \webpage{http://www.jppf.org/}.  
+
+JPPF introduces an overhead of approximately 0.00068 seconds on DTLZ2, which consists of 11 real-valued decision variables and two objectives.  This was run locally on a single machine, so running across a network will incur additional overhead.
+
+\begin{lstlisting}[language=Java]
+JPPFClient jppfClient = null;
+JPPFExecutorService jppfExecutor = null;
+
+try {
+	jppfClient = new JPPFClient();
+	jppfExecutor = new JPPFExecutorService(jppfClient);
+		
+	// setting the batch size is important, as JPPF will only
+	// run one job at a time from a client; the batch size lets
+	// us group multiple evaluations (tasks) into a single job
+	jppfExecutor.setBatchSize(100);
+	jppfExecutor.setBatchTimeout(1000);
+	
+	NondominatedPopulation result = new Executor()
+			.withProblemClass(GAA.class)
+			.withAlgorithm("NSGAII")
+			.withMaxEvaluations(10000)
+			.distributeWith(jppfExecutor)
+			.run();
+} catch(Exception e) {
+	e.printStackTrace();
+} finally {
+	if (jppfExecutor != null) {
+		jppfExecutor.shutdown();
+	}
+		
+	if (jppfClient != null) {
+		jppfClient.close();
+	}
+}
+\end{lstlisting}
+
+
+Serial: 1664
+4 Core Local: 549
+4 Core JPPF: 552 seconds
+
+
+Speedup = Ts / Tp
+        = 3.01

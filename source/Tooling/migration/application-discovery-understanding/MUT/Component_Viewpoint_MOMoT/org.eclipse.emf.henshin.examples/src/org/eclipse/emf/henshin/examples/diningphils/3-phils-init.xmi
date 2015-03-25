@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diningphils:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diningphils="http://www.eclipse.org/emf/2010/Henshin/Examples/DiningPhilosophers" xsi:schemaLocation="http://www.eclipse.org/emf/2010/Henshin/Examples/DiningPhilosophers diningphils.ecore">
+  <plates left="//@forks.0" right="//@forks.1"/>
+  <plates left="//@forks.1" right="//@forks.2" id="1"/>
+  <plates left="//@forks.2" right="//@forks.0" id="2"/>
+  <philosophers plate="//@plates.0"/>
+  <philosophers plate="//@plates.1" id="1"/>
+  <philosophers plate="//@plates.2" id="2"/>
+  <forks/>
+  <forks id="1"/>
+  <forks id="2"/>
+</diningphils:Table>

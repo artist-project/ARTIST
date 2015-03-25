@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_P9O4QFzIEeGEopoMZa7xEA" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_P9rkMFzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9sLQFzIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9sLQVzIEeGEopoMZa7xEA" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9sLQlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9sLQ1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9sLRFzIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9sLRVzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9sLRlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9sLR1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9sLSFzIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9rkMVzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//CarRental"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9rkMlzIEeGEopoMZa7xEA" x="415" y="105"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9sLSVzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9syUFzIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9syUVzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9syWVzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Customer/identifier"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9syWlzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9syW1zIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Customer/lastname"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9syXFzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9syXVzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Customer/surname"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9syXlzIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9syUlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9syU1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9syVFzIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9syVVzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9syVlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9syV1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9syWFzIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9sLSlzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//Customer"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9sLS1zIEeGEopoMZa7xEA" x="105" y="105"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9tZYFzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9tZY1zIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9tZZFzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9tZbFzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Order/orderDate"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9tZbVzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9uAcFzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Order/price"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9uAcVzIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9tZZVzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9tZZlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9tZZ1zIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9tZaFzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9tZaVzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9tZalzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9tZa1zIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9tZYVzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//Order"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9tZYlzIEeGEopoMZa7xEA" x="195" y="250"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9uAclzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9ungFzIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9ungVzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9uniVzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Agency/street"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9unilzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9uni1zIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Agency/place"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9unjFzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9vOkFzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Agency/zip"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9vOkVzIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9unglzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9ung1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9unhFzIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9unhVzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9unhlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9unh1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9uniFzIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9uAc1zIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//Agency"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9uAdFzIEeGEopoMZa7xEA" x="620" y="90"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9vOklzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9vOlVzIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9vOllzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9vOnlzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//VipCustomer/discount"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9vOn1zIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9vOl1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9vOmFzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9vOmVzIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9vOmlzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9vOm1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9vOnFzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9vOnVzIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9vOk1zIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//VipCustomer"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9vOlFzIEeGEopoMZa7xEA" x="55" y="250"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9v1oFzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9v1o1zIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9v1pFzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9v1rFzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Craft/vin"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9v1rVzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9wcsFzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Craft/charge"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9wcsVzIEeGEopoMZa7xEA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_P9wcslzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Craft/licenseNo"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9wcs1zIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9v1pVzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9v1plzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9v1p1zIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9v1qFzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9v1qVzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9v1qlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9v1q1zIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9v1oVzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//Craft"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9v1olzIEeGEopoMZa7xEA" x="420" y="230"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9wctFzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9wct1zIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9wcuFzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9xDwFzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Motorcycle/cm3"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9xDwVzIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9wcuVzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9wculzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9wcu1zIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9wcvFzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9wcvVzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9wcvlzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9wcv1zIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9wctVzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//Motorcycle"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9wctlzIEeGEopoMZa7xEA" x="375" y="380"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P9xDwlzIEeGEopoMZa7xEA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_P9xDxVzIEeGEopoMZa7xEA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_P9xDxlzIEeGEopoMZa7xEA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_P9xq0FzIEeGEopoMZa7xEA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="CarRental.ecore#//Automobile/isCabrio"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_P9xq0VzIEeGEopoMZa7xEA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9xDx1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9xDyFzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9xDyVzIEeGEopoMZa7xEA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9xDylzIEeGEopoMZa7xEA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_P9xDy1zIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_P9xDzFzIEeGEopoMZa7xEA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_P9xDzVzIEeGEopoMZa7xEA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P9xDw1zIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="CarRental.ecore#//Automobile"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9xDxFzIEeGEopoMZa7xEA" x="490" y="380"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_P9O4QVzIEeGEopoMZa7xEA"/>
+  <element xmi:type="ecore:EPackage" href="CarRental.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_P9xq0lzIEeGEopoMZa7xEA" type="3002" source="_P9rkMFzIEeGEopoMZa7xEA" target="_P9sLSVzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P9xq1lzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9xq11zIEeGEopoMZa7xEA" x="-12" y="7"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9xq2FzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9xq2VzIEeGEopoMZa7xEA" x="1" y="-13"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9xq01zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9xq1FzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//CarRental/customer"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9xq1VzIEeGEopoMZa7xEA" points="[-24, 15, 211, -68]$[-201, 15, 34, -68]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-8vgFzIEeGEopoMZa7xEA" id="(0.24509803921568626,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-8vgVzIEeGEopoMZa7xEA" id="(0.7481481481481481,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9xq2lzIEeGEopoMZa7xEA" type="3002" source="_P9rkMFzIEeGEopoMZa7xEA" target="_P9uAclzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P9xq3lzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9xq31zIEeGEopoMZa7xEA" x="-39" y="13"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9yR4FzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9yR4VzIEeGEopoMZa7xEA" y="13"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9xq21zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9xq3FzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//CarRental/agencies"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9xq3VzIEeGEopoMZa7xEA" points="[50, 35, -162, -33]$[155, 35, -57, -33]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-8vglzIEeGEopoMZa7xEA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-9WkFzIEeGEopoMZa7xEA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9yR4lzIEeGEopoMZa7xEA" type="3002" source="_P9rkMFzIEeGEopoMZa7xEA" target="_P9v1oFzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P9yR5lzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9yR51zIEeGEopoMZa7xEA" x="1" y="-26"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9yR6FzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9yR6VzIEeGEopoMZa7xEA" x="1" y="21"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9yR41zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9yR5FzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//CarRental/crafts"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9yR5VzIEeGEopoMZa7xEA" points="[6, 41, -39, -167]$[6, 125, -39, -83]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P_AZ4VzIEeGEopoMZa7xEA" id="(0.7450980392156863,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P_AZ4lzIEeGEopoMZa7xEA" id="(0.8285714285714286,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9y48FzIEeGEopoMZa7xEA" type="3002" source="_P9rkMFzIEeGEopoMZa7xEA" target="_P9uAclzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P9y49FzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9y49VzIEeGEopoMZa7xEA" x="-34" y="13"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9y49lzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9y491zIEeGEopoMZa7xEA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9y48VzIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9y48lzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//CarRental/mainAgency"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9y481zIEeGEopoMZa7xEA" points="[50, 5, -162, -63]$[155, 5, -57, -63]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-9WkVzIEeGEopoMZa7xEA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-9WklzIEeGEopoMZa7xEA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9y4-FzIEeGEopoMZa7xEA" type="3002" source="_P9sLSVzIEeGEopoMZa7xEA" target="_P9tZYFzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P9y4_FzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9y4_VzIEeGEopoMZa7xEA" x="4" y="-41"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9y4_lzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9y4_1zIEeGEopoMZa7xEA" x="4" y="12"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9y4-VzIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9y4-lzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//Customer/bestellungen"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9y4-1zIEeGEopoMZa7xEA" points="[55, 83, -41, -173]$[55, 190, -41, -66]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qUDbAFzIEeGEopoMZa7xEA" id="(0.4962962962962963,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qUDbAVzIEeGEopoMZa7xEA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9zgAFzIEeGEopoMZa7xEA" type="3002" source="_P9tZYFzIEeGEopoMZa7xEA" target="_P9v1oFzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P9zgBFzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9zgBVzIEeGEopoMZa7xEA" x="-3" y="-12"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9zgBlzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9zgB1zIEeGEopoMZa7xEA" y="15"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9zgAVzIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9zgAlzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//Order/craft"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9zgA1zIEeGEopoMZa7xEA" points="[46, 15, -136, -48]$[137, 15, -45, -48]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8wResFzIEeGEopoMZa7xEA" id="(0.6617647058823529,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8wResVzIEeGEopoMZa7xEA" id="(0.32857142857142857,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9zgCFzIEeGEopoMZa7xEA" type="3002" source="_P9tZYFzIEeGEopoMZa7xEA" target="_P9sLSVzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P99RAFzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P99RAVzIEeGEopoMZa7xEA" x="1" y="36"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P994EFzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P994EVzIEeGEopoMZa7xEA" x="6" y="-12"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9zgCVzIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9zgClzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//Order/customer"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9zgC1zIEeGEopoMZa7xEA" points="[-41, -66, 55, 190]$[-41, -173, 55, 83]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_LwFzIEeGEopoMZa7xEA" id="(0.5,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_LwVzIEeGEopoMZa7xEA" id="(0.4962962962962963,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P994ElzIEeGEopoMZa7xEA" type="3003" source="_P9vOklzIEeGEopoMZa7xEA" target="_P9sLSVzIEeGEopoMZa7xEA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P994E1zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P994FFzIEeGEopoMZa7xEA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P994FVzIEeGEopoMZa7xEA" points="[28, 0, -26, 62]$[28, -62, -26, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_y1FzIEeGEopoMZa7xEA" id="(0.49606299212598426,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P_AZ4FzIEeGEopoMZa7xEA" id="(0.4962962962962963,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P994FlzIEeGEopoMZa7xEA" type="3002" source="_P9v1oFzIEeGEopoMZa7xEA" target="_P9tZYFzIEeGEopoMZa7xEA">
+    <children xmi:type="notation:Node" xmi:id="_P994GlzIEeGEopoMZa7xEA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P994G1zIEeGEopoMZa7xEA" x="-10" y="-13"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_P9-fIFzIEeGEopoMZa7xEA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_P9-fIVzIEeGEopoMZa7xEA" y="15"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P994F1zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P994GFzIEeGEopoMZa7xEA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="CarRental.ecore#//Craft/rentBy"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P994GVzIEeGEopoMZa7xEA" points="[-45, -48, 137, 15]$[-136, -48, 46, 15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-99oFzIEeGEopoMZa7xEA" id="(0.32857142857142857,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-99oVzIEeGEopoMZa7xEA" id="(0.6617647058823529,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9-fIlzIEeGEopoMZa7xEA" type="3003" source="_P9wctFzIEeGEopoMZa7xEA" target="_P9v1oFzIEeGEopoMZa7xEA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9-fI1zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9-fJFzIEeGEopoMZa7xEA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9-fJVzIEeGEopoMZa7xEA" points="[-7, 0, -71, 67]$[-7, -33, -71, 34]$[20, -33, -44, 34]$[20, -67, -44, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_y0FzIEeGEopoMZa7xEA" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_y0VzIEeGEopoMZa7xEA" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_P9-fJlzIEeGEopoMZa7xEA" type="3003" source="_P9xDwlzIEeGEopoMZa7xEA" target="_P9v1oFzIEeGEopoMZa7xEA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_P9-fJ1zIEeGEopoMZa7xEA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_P9-fKFzIEeGEopoMZa7xEA" fontName="Segoe UI"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9-fKVzIEeGEopoMZa7xEA" points="[-31, 0, 19, 67]$[-31, -33, 19, 34]$[-59, -33, -9, 34]$[-59, -67, -9, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_y0lzIEeGEopoMZa7xEA" id="(0.496551724137931,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P-_y01zIEeGEopoMZa7xEA" id="(0.6642857142857143,1.0)"/>
+  </edges>
+</notation:Diagram>

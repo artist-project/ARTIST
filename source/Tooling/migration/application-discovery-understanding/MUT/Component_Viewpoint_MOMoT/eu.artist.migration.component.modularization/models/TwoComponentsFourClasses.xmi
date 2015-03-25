@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architecture:ArchitectureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:architecture="http://momot.big.tuwien.ac.at/architecture/1.0" xsi:schemaLocation="http://momot.big.tuwien.ac.at/architecture/1.0 architecture.ecore">
+  <components name="ComponentA"/>
+  <components name="ComponentB"/>
+  <classes dependsOn="//@classes.2 //@classes.3" name="D"/>
+  <classes dependsOn="//@classes.2" name="A"/>
+  <classes dependsOn="//@classes.1" name="B"/>
+  <classes dependsOn="//@classes.0" name="C"/>
+</architecture:ArchitectureModel>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?><!--
+  Copyright (c) 2010-2012 Henshin developers. All rights reserved. 
+  This program and the accompanying materials are made available 
+  under the terms of the Eclipse Public License v1.0 which 
+  accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+ -->
+ <plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.eclipse.org/emf/2010/Henshin/Tests"
+            class="org.eclipse.emf.henshin.tests.testmodel.TestmodelPackage"
+            genModel="model/testmodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated uml -->
+      <package
+            uri="http://is.cs.upb.de/uml"
+            class="org.eclipse.emf.henshin.tests.uml.UmlPackage"
+            genModel="model/languagedefinition/uml.genmodel"/>
+   </extension>
+
+</plugin>

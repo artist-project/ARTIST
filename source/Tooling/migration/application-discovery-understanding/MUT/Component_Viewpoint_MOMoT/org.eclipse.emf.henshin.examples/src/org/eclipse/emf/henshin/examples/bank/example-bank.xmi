@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bank:Bank xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bank="http://www.bank.com" xsi:schemaLocation="http://www.bank.com bank.ecore">
+  <managers name="John" clients="//@clients.0 //@clients.1 //@clients.2"/>
+  <accounts id="1" owner="//@clients.0" credit="517.93"/>
+  <accounts id="2" owner="//@clients.1" credit="200.0"/>
+  <accounts id="3" owner="//@clients.2" credit="1012.63"/>
+  <accounts id="4" owner="//@clients.2" credit="17.45"/>
+  <clients name="Alice" manager="//@managers.0" accounts="//@accounts.0"/>
+  <clients name="Bob" manager="//@managers.0" accounts="//@accounts.1"/>
+  <clients name="Charles" manager="//@managers.0" accounts="//@accounts.2 //@accounts.3"/>
+</bank:Bank>

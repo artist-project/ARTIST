@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="henshin" nsURI="http://www.eclipse.org/emf/2011/Henshin" nsPrefix="henshin">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" interface="true">
+    <eOperations name="getGraph" eType="#//Graph"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="#//Action"
+        volatile="true" transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//NamedElement">
+    <eOperations name="getUnit" eType="#//Unit">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getSubModule" eType="#//Module">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subModules" upperBound="-1"
+        eType="#//Module" containment="true" eOpposite="#//Module/superModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superModule" eType="#//Module"
+        eOpposite="#//Module/subModules"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+        eType="#//Unit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instances" upperBound="-1"
+        eType="#//Graph" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unit" abstract="true" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="parameterNamesUnique parameterMappingsPointToDirectSubUnit"/>
+    </eAnnotations>
+    <eOperations name="getModule" eType="#//Module"/>
+    <eOperations name="getSubUnits" ordered="false" upperBound="-1" eType="#//Unit">
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getParameter" eType="#//Parameter">
+      <eParameters name="parameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true" eOpposite="#//Parameter/unit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterMappings" upperBound="-1"
+        eType="#//ParameterMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="activated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" eSuperTypes="#//Unit">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="mappingsFromLeft2Right createdNodesNotAbstract createdEdgesNotDerived deletedEdgesNotDerived"/>
+    </eAnnotations>
+    <eOperations name="getKernelRule" eType="#//Rule"/>
+    <eOperations name="getRootRule" eType="#//Rule"/>
+    <eOperations name="getMultiRule" eType="#//Rule">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getMultiRulePath" upperBound="-1" eType="#//Rule">
+      <eParameters name="multiRule" eType="#//Rule"/>
+    </eOperations>
+    <eOperations name="getAllMultiRules" upperBound="-1" eType="#//Rule"/>
+    <eOperations name="getAllMappings" upperBound="-1" eType="#//Mapping"/>
+    <eOperations name="getActionNodes" upperBound="-1" eType="#//Node">
+      <eParameters name="action" eType="#//Action"/>
+    </eOperations>
+    <eOperations name="getActionEdges" upperBound="-1" eType="#//Edge">
+      <eParameters name="action" eType="#//Action"/>
+    </eOperations>
+    <eOperations name="getParameterNodes" upperBound="-1" eType="#//Node"/>
+    <eOperations name="isMultiRule" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="createNode" eType="#//Node">
+      <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    </eOperations>
+    <eOperations name="createEdge" eType="#//Edge">
+      <eParameters name="source" eType="#//Node"/>
+      <eParameters name="target" eType="#//Node"/>
+      <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    </eOperations>
+    <eOperations name="canCreateEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="source" eType="#//Node"/>
+      <eParameters name="target" eType="#//Node"/>
+      <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    </eOperations>
+    <eOperations name="removeEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="edge" eType="#//Edge"/>
+      <eParameters name="removeMapped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="removeNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="node" eType="#//Node"/>
+      <eParameters name="removeMapped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="removeAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="attribute" eType="#//Attribute"/>
+      <eParameters name="removeMapped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" lowerBound="1" eType="#//Graph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" lowerBound="1" eType="#//Graph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributeConditions" upperBound="-1"
+        eType="#//AttributeCondition" containment="true" eOpposite="#//AttributeCondition/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
+        eType="#//Mapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkDangling" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="injectiveMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiRules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multiMappings" upperBound="-1"
+        eType="#//Mapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="javaImports" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="nameNotEmpty nameNotTypeName"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//Unit" eOpposite="#//Unit/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterMapping" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueNodeNames"/>
+    </eAnnotations>
+    <eOperations name="getRule" eType="#//Rule"/>
+    <eOperations name="getNode" eType="#//Node">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getNodes" ordered="false" upperBound="-1" eType="#//Node">
+      <eParameters name="nodeType" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    </eOperations>
+    <eOperations name="getEdges" ordered="false" upperBound="-1" eType="#//Edge">
+      <eParameters name="edgeType" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    </eOperations>
+    <eOperations name="getNestedConditions" upperBound="-1" eType="#//NestedCondition"/>
+    <eOperations name="getPAC" eType="#//NestedCondition">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getNAC" eType="#//NestedCondition">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getPACs" upperBound="-1" eType="#//NestedCondition"/>
+    <eOperations name="getNACs" upperBound="-1" eType="#//NestedCondition"/>
+    <eOperations name="isLhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isRhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isNestedCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="createPAC" eType="#//NestedCondition">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="createNAC" eType="#//NestedCondition">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="removeNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="node" eType="#//Node"/>
+    </eOperations>
+    <eOperations name="removeEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="edge" lowerBound="1" eType="#//Edge"/>
+    </eOperations>
+    <eOperations name="removeNestedCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="nestedCondition" eType="#//NestedCondition"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true" eOpposite="#//Node/graph"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" upperBound="-1"
+        eType="#//Edge" containment="true" eOpposite="#//Edge/graph"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//NamedElement #//GraphElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="uniqueAttributeTypes"/>
+    </eAnnotations>
+    <eOperations name="getAllEdges" upperBound="-1" eType="#//Edge"/>
+    <eOperations name="getOutgoing" ordered="false" upperBound="-1" eType="#//Edge">
+      <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    </eOperations>
+    <eOperations name="getIncoming" ordered="false" upperBound="-1" eType="#//Edge">
+      <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    </eOperations>
+    <eOperations name="getOutgoing" eType="#//Edge">
+      <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      <eParameters name="target" lowerBound="1" eType="#//Node"/>
+    </eOperations>
+    <eOperations name="getIncoming" eType="#//Edge">
+      <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      <eParameters name="source" lowerBound="1" eType="#//Node"/>
+    </eOperations>
+    <eOperations name="getAttribute" eType="#//Attribute">
+      <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+    </eOperations>
+    <eOperations name="getActionAttributes" upperBound="-1" eType="#//Attribute">
+      <eParameters name="action" eType="#//Action"/>
+    </eOperations>
+    <eOperations name="getActionNode" eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true" eOpposite="#//Attribute/node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//Graph"
+        eOpposite="#//Graph/nodes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
+        eType="#//Edge" eOpposite="#//Edge/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+        eType="#//Edge" eOpposite="#//Edge/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Edge" eSuperTypes="#//ModelElement #//GraphElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="equalParentGraphs"/>
+    </eAnnotations>
+    <eOperations name="getActionEdge" eType="#//Edge"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Node" eOpposite="#//Node/outgoing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Node" eOpposite="#//Node/incoming"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//Graph"
+        eOpposite="#//Graph/edges"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indexConstant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        changeable="false" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//ModelElement #//GraphElement">
+    <eOperations name="getActionAttribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Node" eOpposite="#//Node/attributes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        changeable="false" transient="true" defaultValueLiteral="ACED0005740000" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="null" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" transient="true" defaultValueLiteral="false" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeCondition" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" lowerBound="1" eType="#//Rule"
+        eOpposite="#//Rule/attributeConditions"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="conditionText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapping" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" lowerBound="1"
+        eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" lowerBound="1" eType="#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryUnit" abstract="true" eSuperTypes="#//Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subUnit" lowerBound="1"
+        eType="#//Unit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiUnit" abstract="true" eSuperTypes="#//Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subUnits" unique="false"
+        upperBound="-1" eType="#//Unit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndependentUnit" eSuperTypes="#//MultiUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequentialUnit" eSuperTypes="#//MultiUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="strict" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rollback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalUnit" eSuperTypes="#//Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" lowerBound="1" eType="#//Unit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then" lowerBound="1" eType="#//Unit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="#//Unit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PriorityUnit" eSuperTypes="#//MultiUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IteratedUnit" eSuperTypes="#//UnaryUnit">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="iterationsNotEmpty"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterations" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LoopUnit" eSuperTypes="#//UnaryUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Formula" abstract="true" interface="true">
+    <eOperations name="isTrue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isFalse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedCondition" eSuperTypes="#//ModelElement #//Formula">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="mappingOriginContainedInParentCondition mappingImageContainedInCurrent"/>
+    </eAnnotations>
+    <eOperations name="getHost" eType="#//Graph"/>
+    <eOperations name="isPAC" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isNAC" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conclusion" eType="#//Graph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
+        eType="#//Mapping" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryFormula" abstract="true" eSuperTypes="#//ModelElement #//Formula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryFormula" abstract="true" eSuperTypes="#//ModelElement #//Formula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Formula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//BinaryFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//BinaryFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Xor" eSuperTypes="#//BinaryFormula"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//UnaryFormula"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Action" instanceClassName="org.eclipse.emf.henshin.model.Action"/>
+</ecore:EPackage>

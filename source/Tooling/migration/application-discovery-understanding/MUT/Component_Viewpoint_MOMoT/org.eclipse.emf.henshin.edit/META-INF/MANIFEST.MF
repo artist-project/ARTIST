@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Vendor: %providerName
+Bundle-SymbolicName: org.eclipse.emf.henshin.edit;singleton:=true
+Bundle-Version: 1.1.0.qualifier
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.emf.henshin.provider.HenshinEditPlugin$Implementation
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.6.0",
+ org.eclipse.emf.edit;visibility:=reexport;bundle-version="2.6.0",
+ org.eclipse.emf.henshin.model;bundle-version="0.9.0"
+Export-Package: org.eclipse.emf.henshin.commands,
+ org.eclipse.emf.henshin.provider,
+ org.eclipse.emf.henshin.provider.filter,
+ org.eclipse.emf.henshin.provider.trans,
+ org.eclipse.emf.henshin.provider.util
+

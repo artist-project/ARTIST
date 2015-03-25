@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Qql58MePEeKE5P5x88_Sag">
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_SGdbAMePEeKE5P5x88_Sag" name="swap">
+    <parameters xmi:id="_VZU58MePEeKE5P5x88_Sag" name="x">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_VZU58cePEeKE5P5x88_Sag" name="y">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_gx9wsMeQEeKlGqkssSuc-g" name="i">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_gx9wsceQEeKlGqkssSuc-g" name="j">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_SKV1cMePEeKE5P5x88_Sag" name="Lhs">
+      <nodes xmi:id="_V_0SMMePEeKE5P5x88_Sag" incoming="_odxbQMePEeKE5P5x88_Sag">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        <attributes xmi:id="_jKkm0MeQEeKlGqkssSuc-g" value="x">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hYL4oMePEeKE5P5x88_Sag" incoming="_qkLuIMePEeKE5P5x88_Sag">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        <attributes xmi:id="_jnWCYMeQEeKlGqkssSuc-g" value="y">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nsPQoMePEeKE5P5x88_Sag" outgoing="_odxbQMePEeKE5P5x88_Sag _qkLuIMePEeKE5P5x88_Sag">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <edges xmi:id="_odxbQMePEeKE5P5x88_Sag" source="_nsPQoMePEeKE5P5x88_Sag" target="_V_0SMMePEeKE5P5x88_Sag" index="i">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+      <edges xmi:id="_qkLuIMePEeKE5P5x88_Sag" source="_nsPQoMePEeKE5P5x88_Sag" target="_hYL4oMePEeKE5P5x88_Sag" index="j">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_SKWcgMePEeKE5P5x88_Sag" name="Rhs">
+      <nodes xmi:id="_V_05QMePEeKE5P5x88_Sag" incoming="_odypYMePEeKE5P5x88_Sag">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        <attributes xmi:id="_jKlN4MeQEeKlGqkssSuc-g" value="x">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_hYMfsMePEeKE5P5x88_Sag" incoming="_qkQmoMePEeKE5P5x88_Sag">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        <attributes xmi:id="_jnWCYceQEeKlGqkssSuc-g" value="y">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_nsP3sMePEeKE5P5x88_Sag" outgoing="_odypYMePEeKE5P5x88_Sag _qkQmoMePEeKE5P5x88_Sag">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+      </nodes>
+      <edges xmi:id="_odypYMePEeKE5P5x88_Sag" source="_nsP3sMePEeKE5P5x88_Sag" target="_V_05QMePEeKE5P5x88_Sag" index="j">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+      <edges xmi:id="_qkQmoMePEeKE5P5x88_Sag" source="_nsP3sMePEeKE5P5x88_Sag" target="_hYMfsMePEeKE5P5x88_Sag" index="i">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_2jrCIMeTEeKlGqkssSuc-g" name="Compare" conditionText="(i&lt;j) &amp;&amp; (x&gt;y)"/>
+    <mappings xmi:id="_V_2HYMePEeKE5P5x88_Sag" origin="_V_0SMMePEeKE5P5x88_Sag" image="_V_05QMePEeKE5P5x88_Sag"/>
+    <mappings xmi:id="_hYNGwMePEeKE5P5x88_Sag" origin="_hYL4oMePEeKE5P5x88_Sag" image="_hYMfsMePEeKE5P5x88_Sag"/>
+    <mappings xmi:id="_nsQewMePEeKE5P5x88_Sag" origin="_nsPQoMePEeKE5P5x88_Sag" image="_nsP3sMePEeKE5P5x88_Sag"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_CFOkUMeVEeKlGqkssSuc-g" name="sort" subUnit="_SGdbAMePEeKE5P5x88_Sag"/>
+</henshin:Module>

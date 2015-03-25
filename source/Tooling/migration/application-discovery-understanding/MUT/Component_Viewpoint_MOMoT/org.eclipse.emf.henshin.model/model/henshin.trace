@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Rule') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Module') and _containmentMF_.name = 'units')">
+    <nodeLabelTraces
+        visualID="5001"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7001"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Unit') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Module') and _containmentMF_.name = 'units')">
+    <nodeLabelTraces
+        visualID="5004"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
+        queryText="true"/>
+  </nodeTraces>
+  <childNodeTraces
+      visualID="3001"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Node') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Graph') and _containmentMF_.name = 'nodes')">
+    <nodeLabelTraces
+        visualID="5002"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5003"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7002"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Attribute') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Node') and _containmentMF_.name = 'attributes')"/>
+  <childNodeTraces
+      visualID="3003"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Unit') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Module') and _containmentMF_.name = 'units')">
+    <nodeLabelTraces
+        visualID="5005"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3004"
+      queryText="modelFacet = null"/>
+  <linkTraces
+      visualID="4001"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://www.eclipse.org/emf/2011/Henshin' and _eClass_.name = 'Edge')">
+    <linkLabelTraces
+        visualID="6001"
+        queryText="true"/>
+    <linkLabelTraces
+        visualID="6002"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4002"
+      queryText="modelFacet = null"/>
+</trace:TraceModel>

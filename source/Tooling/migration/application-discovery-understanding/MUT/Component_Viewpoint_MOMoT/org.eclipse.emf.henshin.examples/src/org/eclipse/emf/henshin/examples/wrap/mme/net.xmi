@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petri:Net xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petri="petri"
+    xsi:schemaLocation="petri petri.ecore">
+  <places name="p1"/>
+  <places name="p2"
+      capacity="2"/>
+  <places name="p3"
+      capacity="-1"/>
+  <transitions
+      name="t1"
+      src="//@places.0"
+      trg="//@places.1"/>
+  <transitions
+      name="t2"
+      src="//@places.1"
+      trg="//@places.2"/>
+  <transitions
+      name="t3"
+      src="//@places.2"
+      trg="//@places.0"/>
+</petri:Net>

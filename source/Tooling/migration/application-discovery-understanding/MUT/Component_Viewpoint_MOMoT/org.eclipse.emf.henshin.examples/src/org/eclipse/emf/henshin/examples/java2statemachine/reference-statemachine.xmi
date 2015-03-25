@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<statemachine:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:statemachine="http://planet-mde.org/ttc2011/statemachine" xsi:schemaLocation="http://planet-mde.org/ttc2011/statemachine statemachine.ecore">
+  <states name="TimeWait" out="//@transitions.10" in="//@transitions.6 //@transitions.9 //@transitions.20"/>
+  <states name="Closed" out="//@transitions.15 //@transitions.16" in="//@transitions.0 //@transitions.10 //@transitions.14 //@transitions.17"/>
+  <states name="CloseWait" out="//@transitions.5" in="//@transitions.4"/>
+  <states name="FinWait2" out="//@transitions.20" in="//@transitions.7"/>
+  <states name="SynSent" out="//@transitions.17 //@transitions.18 //@transitions.19" in="//@transitions.1 //@transitions.16"/>
+  <states name="Established" out="//@transitions.3 //@transitions.4" in="//@transitions.12 //@transitions.19"/>
+  <states name="FinWait1" out="//@transitions.7 //@transitions.8 //@transitions.9" in="//@transitions.3 //@transitions.11"/>
+  <states name="LastAck" out="//@transitions.14" in="//@transitions.5"/>
+  <states name="SynReceived" out="//@transitions.11 //@transitions.12 //@transitions.13" in="//@transitions.2 //@transitions.18"/>
+  <states name="Listen" out="//@transitions.0 //@transitions.1 //@transitions.2" in="//@transitions.13 //@transitions.15"/>
+  <states name="Closing" out="//@transitions.6" in="//@transitions.8"/>
+  <transitions action="--" trigger="close" src="//@states.9" dst="//@states.1"/>
+  <transitions action="SYN" trigger="send" src="//@states.9" dst="//@states.4"/>
+  <transitions action="SYN_ACK" trigger="SYN" src="//@states.9" dst="//@states.8"/>
+  <transitions action="FIN" trigger="close" src="//@states.5" dst="//@states.6"/>
+  <transitions action="ACK" trigger="FIN" src="//@states.5" dst="//@states.2"/>
+  <transitions action="FIN" trigger="close" src="//@states.2" dst="//@states.7"/>
+  <transitions action="--" trigger="ACK" src="//@states.10" dst="//@states.0"/>
+  <transitions action="--" trigger="ACK" src="//@states.6" dst="//@states.3"/>
+  <transitions action="ACK" trigger="FIN" src="//@states.6" dst="//@states.10"/>
+  <transitions action="ACK" trigger="FIN_ACK" src="//@states.6" dst="//@states.0"/>
+  <transitions action="--" trigger="TimeoutException" src="//@states.0" dst="//@states.1"/>
+  <transitions action="FIN" trigger="close" src="//@states.8" dst="//@states.6"/>
+  <transitions action="--" trigger="ACK" src="//@states.8" dst="//@states.5"/>
+  <transitions action="--" trigger="RST" src="//@states.8" dst="//@states.9"/>
+  <transitions action="--" trigger="ACK" src="//@states.7" dst="//@states.1"/>
+  <transitions action="--" trigger="listen" src="//@states.1" dst="//@states.9"/>
+  <transitions action="SYN" trigger="connect" src="//@states.1" dst="//@states.4"/>
+  <transitions action="--" trigger="close" src="//@states.4" dst="//@states.1"/>
+  <transitions action="SYN_ACK" trigger="SYN" src="//@states.4" dst="//@states.8"/>
+  <transitions action="ACK" trigger="SYN_ACK" src="//@states.4" dst="//@states.5"/>
+  <transitions action="ACK" trigger="FIN" src="//@states.3" dst="//@states.0"/>
+</statemachine:StateMachine>

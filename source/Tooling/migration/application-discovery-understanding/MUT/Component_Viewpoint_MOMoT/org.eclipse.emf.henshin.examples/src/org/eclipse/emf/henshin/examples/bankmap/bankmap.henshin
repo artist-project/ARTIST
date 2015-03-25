@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mEyzANA-EeOyV8rYnRtUGQ">
+  <imports href="bankmap.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_27-7gNCfEeOyV8rYnRtUGQ" name="transferMoney">
+    <parameters xmi:id="_6Niy4NCfEeOyV8rYnRtUGQ" name="fromID">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_6NjZ8NCfEeOyV8rYnRtUGQ" name="toID">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_6NjZ8dCfEeOyV8rYnRtUGQ" name="money">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </parameters>
+    <parameters xmi:id="_4eLcINChEeOyV8rYnRtUGQ" name="x">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <parameters xmi:id="_C3eLMNCiEeOyV8rYnRtUGQ" name="y">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+    <lhs xmi:id="_3InCQNCfEeOyV8rYnRtUGQ" name="Lhs">
+      <nodes xmi:id="_tA0dcNCgEeOyV8rYnRtUGQ" outgoing="_HrX0gNChEeOyV8rYnRtUGQ _ICvysNChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Bank"/>
+      </nodes>
+      <nodes xmi:id="_HrVYQNChEeOyV8rYnRtUGQ" incoming="_HrX0gNChEeOyV8rYnRtUGQ" outgoing="_Iq5X0NChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap"/>
+        <attributes xmi:id="_T7M8gNCjEeOyV8rYnRtUGQ" value="fromID">
+          <type href="bankmap.ecore#//EInt2AccountMap/key"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_ICvLoNChEeOyV8rYnRtUGQ" incoming="_ICvysNChEeOyV8rYnRtUGQ" outgoing="_IcYasNChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap"/>
+        <attributes xmi:id="_UWWncNCjEeOyV8rYnRtUGQ" value="toID">
+          <type href="bankmap.ecore#//EInt2AccountMap/key"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_uZYL0NCgEeOyV8rYnRtUGQ" name="from" incoming="_Iq5X0NChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Account"/>
+        <attributes xmi:id="_YQilENCjEeOyV8rYnRtUGQ" value="x">
+          <type href="bankmap.ecore#//Account/credit"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_vKopoNCgEeOyV8rYnRtUGQ" name="to" incoming="_IcYasNChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Account"/>
+        <attributes xmi:id="_acnbENCjEeOyV8rYnRtUGQ" value="y">
+          <type href="bankmap.ecore#//Account/credit"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_HrX0gNChEeOyV8rYnRtUGQ" source="_tA0dcNCgEeOyV8rYnRtUGQ" target="_HrVYQNChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Bank/accounts"/>
+      </edges>
+      <edges xmi:id="_ICvysNChEeOyV8rYnRtUGQ" source="_tA0dcNCgEeOyV8rYnRtUGQ" target="_ICvLoNChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Bank/accounts"/>
+      </edges>
+      <edges xmi:id="_IcYasNChEeOyV8rYnRtUGQ" source="_ICvLoNChEeOyV8rYnRtUGQ" target="_vKopoNCgEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap/value"/>
+      </edges>
+      <edges xmi:id="_Iq5X0NChEeOyV8rYnRtUGQ" source="_HrVYQNChEeOyV8rYnRtUGQ" target="_uZYL0NCgEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap/value"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_3InCQdCfEeOyV8rYnRtUGQ" name="Rhs">
+      <nodes xmi:id="_tA1rkNCgEeOyV8rYnRtUGQ" outgoing="_HrX0gdChEeOyV8rYnRtUGQ _ICvysdChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Bank"/>
+      </nodes>
+      <nodes xmi:id="_uZYL0dCgEeOyV8rYnRtUGQ" name="from" incoming="_Iq5X0dChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Account"/>
+        <attributes xmi:id="_YQilEdCjEeOyV8rYnRtUGQ" value="x-money">
+          <type href="bankmap.ecore#//Account/credit"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_vKopodCgEeOyV8rYnRtUGQ" name="to" incoming="_IcYasdChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Account"/>
+        <attributes xmi:id="_acoCINCjEeOyV8rYnRtUGQ" value="y+money">
+          <type href="bankmap.ecore#//Account/credit"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_HrXNcNChEeOyV8rYnRtUGQ" incoming="_HrX0gdChEeOyV8rYnRtUGQ" outgoing="_Iq5X0dChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap"/>
+        <attributes xmi:id="_T7OxsNCjEeOyV8rYnRtUGQ" value="fromID">
+          <type href="bankmap.ecore#//EInt2AccountMap/key"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_ICvLodChEeOyV8rYnRtUGQ" incoming="_ICvysdChEeOyV8rYnRtUGQ" outgoing="_IcYasdChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap"/>
+        <attributes xmi:id="_UWWncdCjEeOyV8rYnRtUGQ" value="toID">
+          <type href="bankmap.ecore#//EInt2AccountMap/key"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_HrX0gdChEeOyV8rYnRtUGQ" source="_tA1rkNCgEeOyV8rYnRtUGQ" target="_HrXNcNChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Bank/accounts"/>
+      </edges>
+      <edges xmi:id="_ICvysdChEeOyV8rYnRtUGQ" source="_tA1rkNCgEeOyV8rYnRtUGQ" target="_ICvLodChEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//Bank/accounts"/>
+      </edges>
+      <edges xmi:id="_IcYasdChEeOyV8rYnRtUGQ" source="_ICvLodChEeOyV8rYnRtUGQ" target="_vKopodCgEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap/value"/>
+      </edges>
+      <edges xmi:id="_Iq5X0dChEeOyV8rYnRtUGQ" source="_HrXNcNChEeOyV8rYnRtUGQ" target="_uZYL0dCgEeOyV8rYnRtUGQ">
+        <type href="bankmap.ecore#//EInt2AccountMap/value"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_tA3gwNCgEeOyV8rYnRtUGQ" origin="_tA0dcNCgEeOyV8rYnRtUGQ" image="_tA1rkNCgEeOyV8rYnRtUGQ"/>
+    <mappings xmi:id="_uZYL0tCgEeOyV8rYnRtUGQ" origin="_uZYL0NCgEeOyV8rYnRtUGQ" image="_uZYL0dCgEeOyV8rYnRtUGQ"/>
+    <mappings xmi:id="_vKopotCgEeOyV8rYnRtUGQ" origin="_vKopoNCgEeOyV8rYnRtUGQ" image="_vKopodCgEeOyV8rYnRtUGQ"/>
+    <mappings xmi:id="_HrXNcdChEeOyV8rYnRtUGQ" origin="_HrVYQNChEeOyV8rYnRtUGQ" image="_HrXNcNChEeOyV8rYnRtUGQ"/>
+    <mappings xmi:id="_ICvLotChEeOyV8rYnRtUGQ" origin="_ICvLoNChEeOyV8rYnRtUGQ" image="_ICvLodChEeOyV8rYnRtUGQ"/>
+  </units>
+</henshin:Module>

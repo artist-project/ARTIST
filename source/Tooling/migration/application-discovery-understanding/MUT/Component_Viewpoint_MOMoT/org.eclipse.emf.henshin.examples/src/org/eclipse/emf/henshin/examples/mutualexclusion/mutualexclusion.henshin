@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:TransformationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_WSiegJNwEeGo6JryyuuVRA" name="addProcesses">
+  <rules xmi:id="_FyO4cJNxEeGo6JryyuuVRA" name="newRule">
+    <lhs xmi:id="_FyO4cZNxEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_gJedcZQrEeGo6JryyuuVRA" name="root" outgoing="_gJ_a0JQrEeGo6JryyuuVRA _gKa4oJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net"/>
+      </nodes>
+      <nodes xmi:id="_M-bZYJNxEeGo6JryyuuVRA" incoming="_gJ_a0JQrEeGo6JryyuuVRA" outgoing="_bwr3UJNyEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_NSpV4JNxEeGo6JryyuuVRA" incoming="_bwr3UJNyEeGo6JryyuuVRA _gKa4oJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_bwr3UJNyEeGo6JryyuuVRA" source="_M-bZYJNxEeGo6JryyuuVRA" target="_NSpV4JNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_gJ_a0JQrEeGo6JryyuuVRA" source="_gJedcZQrEeGo6JryyuuVRA" target="_M-bZYJNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+      <edges xmi:id="_gKa4oJQrEeGo6JryyuuVRA" source="_gJedcZQrEeGo6JryyuuVRA" target="_NSpV4JNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_FyO4cpNxEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_M-cngJNxEeGo6JryyuuVRA" incoming="_gKM2MJQrEeGo6JryyuuVRA" outgoing="_Ql-SYJNyEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_NSqkAJNxEeGo6JryyuuVRA" incoming="_OuaT0JNyEeGo6JryyuuVRA _gKo7EJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_OSqocJNxEeGo6JryyuuVRA" incoming="_Ql-SYJNyEeGo6JryyuuVRA _gK29gJQrEeGo6JryyuuVRA" outgoing="_OuaT0JNyEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_gJj9AJQrEeGo6JryyuuVRA" name="root" outgoing="_gKM2MJQrEeGo6JryyuuVRA _gKo7EJQrEeGo6JryyuuVRA _gK29gJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net"/>
+      </nodes>
+      <edges xmi:id="_OuaT0JNyEeGo6JryyuuVRA" source="_OSqocJNxEeGo6JryyuuVRA" target="_NSqkAJNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_Ql-SYJNyEeGo6JryyuuVRA" source="_M-cngJNxEeGo6JryyuuVRA" target="_OSqocJNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_gKM2MJQrEeGo6JryyuuVRA" source="_gJj9AJQrEeGo6JryyuuVRA" target="_M-cngJNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+      <edges xmi:id="_gKo7EJQrEeGo6JryyuuVRA" source="_gJj9AJQrEeGo6JryyuuVRA" target="_NSqkAJNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+      <edges xmi:id="_gK29gJQrEeGo6JryyuuVRA" source="_gJj9AJQrEeGo6JryyuuVRA" target="_OSqocJNxEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_M-dOkJNxEeGo6JryyuuVRA" origin="_M-bZYJNxEeGo6JryyuuVRA" image="_M-cngJNxEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_NSryIJNxEeGo6JryyuuVRA" origin="_NSpV4JNxEeGo6JryyuuVRA" image="_NSqkAJNxEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_gJu8IJQrEeGo6JryyuuVRA" origin="_gJedcZQrEeGo6JryyuuVRA" image="_gJj9AJQrEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_UZccoJN1EeGo6JryyuuVRA" name="mountRule">
+    <lhs xmi:id="_UZccoZN1EeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_wnMNEJQrEeGo6JryyuuVRA" name="root" outgoing="_wnknkJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net"/>
+      </nodes>
+      <nodes xmi:id="_XMgaIJN1EeGo6JryyuuVRA" incoming="_wnknkJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_wnknkJQrEeGo6JryyuuVRA" source="_wnMNEJQrEeGo6JryyuuVRA" target="_XMgaIJN1EeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_UZccopN1EeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_XMhBMJN1EeGo6JryyuuVRA" incoming="_uF66gJN4EeGo6JryyuuVRA _wnyC8JQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_Xlb3gJN1EeGo6JryyuuVRA" incoming="_wn-3QJQrEeGo6JryyuuVRA" outgoing="_uF66gJN4EeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_wnRFkJQrEeGo6JryyuuVRA" name="root" outgoing="_wnyC8JQrEeGo6JryyuuVRA _wn-3QJQrEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net"/>
+      </nodes>
+      <edges xmi:id="_uF66gJN4EeGo6JryyuuVRA" source="_Xlb3gJN1EeGo6JryyuuVRA" target="_XMhBMJN1EeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/token"/>
+      </edges>
+      <edges xmi:id="_wnyC8JQrEeGo6JryyuuVRA" source="_wnRFkJQrEeGo6JryyuuVRA" target="_XMhBMJN1EeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/processes"/>
+      </edges>
+      <edges xmi:id="_wn-3QJQrEeGo6JryyuuVRA" source="_wnRFkJQrEeGo6JryyuuVRA" target="_Xlb3gJN1EeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Net/resources"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_XMhBMZN1EeGo6JryyuuVRA" origin="_XMgaIJN1EeGo6JryyuuVRA" image="_XMhBMJN1EeGo6JryyuuVRA"/>
+    <mappings xmi:id="_wna2kJQrEeGo6JryyuuVRA" origin="_wnMNEJQrEeGo6JryyuuVRA" image="_wnRFkJQrEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_gOn9cJPOEeGo6JryyuuVRA" name="requestRule">
+    <lhs xmi:id="_gOn9cZPOEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_x681QJPOEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_gOn9cpPOEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_x69cUJPOEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_x69cUZPOEeGo6JryyuuVRA" origin="_x681QJPOEeGo6JryyuuVRA" image="_x69cUJPOEeGo6JryyuuVRA"/>
+    <multiRules xmi:id="_2SMLkJQsEeGo6JryyuuVRA">
+      <lhs xmi:id="_2SMLkZQsEeGo6JryyuuVRA" name="LHS">
+        <nodes xmi:id="_2S1r0JQsEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_yYV74JPOEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <formula xsi:type="henshin:Not" xmi:id="_rbEbkJQtEeGo6JryyuuVRA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_tq4iEJQtEeGo6JryyuuVRA">
+            <conclusion xmi:id="_uXKZQJQtEeGo6JryyuuVRA">
+              <nodes xmi:id="_3YYiIJQtEeGo6JryyuuVRA" name="p" incoming="_a0KeQJQuEeGo6JryyuuVRA" outgoing="_fCpQ4JQuEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Process"/>
+              </nodes>
+              <nodes xmi:id="_6QZREJQtEeGo6JryyuuVRA" name="r" outgoing="_a0KeQJQuEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Resource"/>
+              </nodes>
+              <nodes xmi:id="_7dR68JQtEeGo6JryyuuVRA" name="m" incoming="_fCpQ4JQuEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Resource"/>
+              </nodes>
+              <edges xmi:id="_a0KeQJQuEeGo6JryyuuVRA" source="_6QZREJQtEeGo6JryyuuVRA" target="_3YYiIJQtEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Resource/held_by"/>
+              </edges>
+              <edges xmi:id="_fCpQ4JQuEeGo6JryyuuVRA" source="_3YYiIJQtEeGo6JryyuuVRA" target="_7dR68JQtEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Process/request"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_Lc-44JQuEeGo6JryyuuVRA" origin="_yYV74JPOEeGo6JryyuuVRA" image="_3YYiIJQtEeGo6JryyuuVRA"/>
+            <mappings xmi:id="_TIfMAJQuEeGo6JryyuuVRA" origin="_2S1r0JQsEeGo6JryyuuVRA" image="_6QZREJQtEeGo6JryyuuVRA"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_2SMLkpQsEeGo6JryyuuVRA" name="RHS">
+        <nodes xmi:id="_2SefcJQsEeGo6JryyuuVRA" incoming="_5lVuEJPOEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_yYWi8JPOEeGo6JryyuuVRA" outgoing="_5lVuEJPOEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_5lVuEJPOEeGo6JryyuuVRA" source="_yYWi8JPOEeGo6JryyuuVRA" target="_2SefcJQsEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process/request"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_2TAD4ZQsEeGo6JryyuuVRA" origin="_2S1r0JQsEeGo6JryyuuVRA" image="_2SefcJQsEeGo6JryyuuVRA"/>
+      <mappings xmi:id="_yYWi8ZPOEeGo6JryyuuVRA" origin="_yYV74JPOEeGo6JryyuuVRA" image="_yYWi8JPOEeGo6JryyuuVRA"/>
+      <multiMappings xmi:id="_2SefcZQsEeGo6JryyuuVRA" origin="_x69cUJPOEeGo6JryyuuVRA" image="_2SefcJQsEeGo6JryyuuVRA"/>
+      <multiMappings xmi:id="_2S1r0ZQsEeGo6JryyuuVRA" origin="_x681QJPOEeGo6JryyuuVRA" image="_2S1r0JQsEeGo6JryyuuVRA"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_ARAU0JPPEeGo6JryyuuVRA" name="takeRule">
+    <lhs xmi:id="_ARAU0ZPPEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_I4S6wJPPEeGo6JryyuuVRA" incoming="_UAGVoJPPEeGo6JryyuuVRA" outgoing="_MLcGgJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_JNu_QJPPEeGo6JryyuuVRA" incoming="_MLcGgJPPEeGo6JryyuuVRA" outgoing="_UAGVoJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <edges xmi:id="_MLcGgJPPEeGo6JryyuuVRA" source="_I4S6wJPPEeGo6JryyuuVRA" target="_JNu_QJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+      <edges xmi:id="_UAGVoJPPEeGo6JryyuuVRA" source="_JNu_QJPPEeGo6JryyuuVRA" target="_I4S6wJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/token"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_ARAU0pPPEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_I4Th0JPPEeGo6JryyuuVRA" incoming="_OSvxQJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_JNvmUJPPEeGo6JryyuuVRA" outgoing="_OSvxQJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <edges xmi:id="_OSvxQJPPEeGo6JryyuuVRA" source="_JNvmUJPPEeGo6JryyuuVRA" target="_I4Th0JPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_I4Th0ZPPEeGo6JryyuuVRA" origin="_I4S6wJPPEeGo6JryyuuVRA" image="_I4Th0JPPEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_JNwNYJPPEeGo6JryyuuVRA" origin="_JNu_QJPPEeGo6JryyuuVRA" image="_JNvmUJPPEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_e6MEoJPPEeGo6JryyuuVRA" name="releaseRule">
+    <lhs xmi:id="_e6MEoZPPEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_hiMBoJPPEeGo6JryyuuVRA" outgoing="_mSjZUJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_kp71sJPPEeGo6JryyuuVRA" incoming="_mSjZUJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_mSjZUJPPEeGo6JryyuuVRA" source="_hiMBoJPPEeGo6JryyuuVRA" target="_kp71sJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_t7CNoJPPEeGo6JryyuuVRA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_t7CNoZPPEeGo6JryyuuVRA">
+          <conclusion xmi:id="_t7CNopPPEeGo6JryyuuVRA" name="default">
+            <nodes xmi:id="_t7DbwJPPEeGo6JryyuuVRA" outgoing="_sG5WgJPPEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Process"/>
+            </nodes>
+            <nodes xmi:id="_qmVisJPPEeGo6JryyuuVRA" incoming="_sG5WgJPPEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Resource"/>
+            </nodes>
+            <nodes xmi:id="_zn-7MJREEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Resource"/>
+            </nodes>
+            <edges xmi:id="_sG5WgJPPEeGo6JryyuuVRA" source="_t7DbwJPPEeGo6JryyuuVRA" target="_qmVisJPPEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Process/request"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_t7DbwZPPEeGo6JryyuuVRA" origin="_kp71sJPPEeGo6JryyuuVRA" image="_t7DbwJPPEeGo6JryyuuVRA"/>
+          <mappings xmi:id="_zoDzsJREEeGo6JryyuuVRA" origin="_hiMBoJPPEeGo6JryyuuVRA" image="_zn-7MJREEeGo6JryyuuVRA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_e6MEopPPEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_hiMBoZPPEeGo6JryyuuVRA" outgoing="_o6H4gJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_kqAuMJPPEeGo6JryyuuVRA" incoming="_o6H4gJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_o6H4gJPPEeGo6JryyuuVRA" source="_hiMBoZPPEeGo6JryyuuVRA" target="_kqAuMJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/release"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_hiMBopPPEeGo6JryyuuVRA" origin="_hiMBoJPPEeGo6JryyuuVRA" image="_hiMBoZPPEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_kqBVQJPPEeGo6JryyuuVRA" origin="_kp71sJPPEeGo6JryyuuVRA" image="_kqAuMJPPEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_yUzDMJPPEeGo6JryyuuVRA" name="giveRule">
+    <lhs xmi:id="_yUzDMZPPEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_1tjHsJPPEeGo6JryyuuVRA" outgoing="_6WaJMJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_223gMJPPEeGo6JryyuuVRA" incoming="_6WaJMJPPEeGo6JryyuuVRA" outgoing="_4fHQYJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_38IfIJPPEeGo6JryyuuVRA" incoming="_4fHQYJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_4fHQYJPPEeGo6JryyuuVRA" source="_223gMJPPEeGo6JryyuuVRA" target="_38IfIJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_6WaJMJPPEeGo6JryyuuVRA" source="_1tjHsJPPEeGo6JryyuuVRA" target="_223gMJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/release"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_yUzDMpPPEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_1tjHsZPPEeGo6JryyuuVRA" outgoing="_8fk1IJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_223gMZPPEeGo6JryyuuVRA" outgoing="_4fIegJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_38JGMJPPEeGo6JryyuuVRA" incoming="_4fIegJPPEeGo6JryyuuVRA _8fk1IJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_4fIegJPPEeGo6JryyuuVRA" source="_223gMZPPEeGo6JryyuuVRA" target="_38JGMJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_8fk1IJPPEeGo6JryyuuVRA" source="_1tjHsZPPEeGo6JryyuuVRA" target="_38JGMJPPEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/token"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_1tjHspPPEeGo6JryyuuVRA" origin="_1tjHsJPPEeGo6JryyuuVRA" image="_1tjHsZPPEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_224HQJPPEeGo6JryyuuVRA" origin="_223gMJPPEeGo6JryyuuVRA" image="_223gMZPPEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_38JtQJPPEeGo6JryyuuVRA" origin="_38IfIJPPEeGo6JryyuuVRA" image="_38JGMJPPEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_kgnFIJPQEeGo6JryyuuVRA" name="requestStarRule">
+    <lhs xmi:id="_kgnFIZPQEeGo6JryyuuVRA" name="LHS"/>
+    <rhs xmi:id="_kgnFIpPQEeGo6JryyuuVRA" name="RHS"/>
+    <multiRules xmi:id="_KFg_gJUGEeGOraTCkW0kpg">
+      <lhs xmi:id="_KFg_gZUGEeGOraTCkW0kpg" name="LHS">
+        <nodes xmi:id="_nWaNkJPQEeGo6JryyuuVRA" name="" outgoing="_3PK2AJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_pJYAAJPQEeGo6JryyuuVRA" name="" incoming="_pl3HsJPQEeGo6JryyuuVRA _3PK2AJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_oAg6gJPQEeGo6JryyuuVRA" name="" outgoing="_7hPIIJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_os11AJPQEeGo6JryyuuVRA" name="" incoming="_7hPIIJPQEeGo6JryyuuVRA" outgoing="_pl3HsJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_pl3HsJPQEeGo6JryyuuVRA" source="_os11AJPQEeGo6JryyuuVRA" target="_pJYAAJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process/next"/>
+        </edges>
+        <edges xmi:id="_3PK2AJPQEeGo6JryyuuVRA" source="_nWaNkJPQEeGo6JryyuuVRA" target="_pJYAAJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+        <edges xmi:id="_7hPIIJPQEeGo6JryyuuVRA" source="_oAg6gJPQEeGo6JryyuuVRA" target="_os11AJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+        <formula xsi:type="henshin:Not" xmi:id="_CkjZ4JPREeGo6JryyuuVRA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_CkjZ4ZPREeGo6JryyuuVRA">
+            <conclusion xmi:id="_CkjZ4pPREeGo6JryyuuVRA" name="default">
+              <nodes xmi:id="_CkkoAJPREeGo6JryyuuVRA" outgoing="_A1l9sJPREeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Process"/>
+              </nodes>
+              <nodes xmi:id="_CklPEZPREeGo6JryyuuVRA" incoming="_A1l9sJPREeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Resource"/>
+              </nodes>
+              <edges xmi:id="_A1l9sJPREeGo6JryyuuVRA" source="_CkkoAJPREeGo6JryyuuVRA" target="_CklPEZPREeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Process/request"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_CklPEJPREeGo6JryyuuVRA" origin="_pJYAAJPQEeGo6JryyuuVRA" image="_CkkoAJPREeGo6JryyuuVRA"/>
+            <mappings xmi:id="_CklPEpPREeGo6JryyuuVRA" origin="_oAg6gJPQEeGo6JryyuuVRA" image="_CklPEZPREeGo6JryyuuVRA"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_KFg_gpUGEeGOraTCkW0kpg" name="RHS">
+        <nodes xmi:id="_nWaNkZPQEeGo6JryyuuVRA" outgoing="_3PN5UJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_pJYnEJPQEeGo6JryyuuVRA" incoming="_pl484JPQEeGo6JryyuuVRA _3PN5UJPQEeGo6JryyuuVRA" outgoing="_A1sEUJPREeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_oAhhkJPQEeGo6JryyuuVRA" incoming="_A1sEUJPREeGo6JryyuuVRA" outgoing="_7hUnsJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_os2cEJPQEeGo6JryyuuVRA" incoming="_7hUnsJPQEeGo6JryyuuVRA" outgoing="_pl484JPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_pl484JPQEeGo6JryyuuVRA" source="_os2cEJPQEeGo6JryyuuVRA" target="_pJYnEJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process/next"/>
+        </edges>
+        <edges xmi:id="_3PN5UJPQEeGo6JryyuuVRA" source="_nWaNkZPQEeGo6JryyuuVRA" target="_pJYnEJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+        <edges xmi:id="_A1sEUJPREeGo6JryyuuVRA" source="_pJYnEJPQEeGo6JryyuuVRA" target="_oAhhkJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process/request"/>
+        </edges>
+        <edges xmi:id="_7hUnsJPQEeGo6JryyuuVRA" source="_oAhhkJPQEeGo6JryyuuVRA" target="_os2cEJPQEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_pJZOIJPQEeGo6JryyuuVRA" origin="_pJYAAJPQEeGo6JryyuuVRA" image="_pJYnEJPQEeGo6JryyuuVRA"/>
+      <mappings xmi:id="_nWa0oJPQEeGo6JryyuuVRA" origin="_nWaNkJPQEeGo6JryyuuVRA" image="_nWaNkZPQEeGo6JryyuuVRA"/>
+      <mappings xmi:id="_os3DIJPQEeGo6JryyuuVRA" origin="_os11AJPQEeGo6JryyuuVRA" image="_os2cEJPQEeGo6JryyuuVRA"/>
+      <mappings xmi:id="_oAiIoJPQEeGo6JryyuuVRA" origin="_oAg6gJPQEeGo6JryyuuVRA" image="_oAhhkJPQEeGo6JryyuuVRA"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_PgCY4JPREeGo6JryyuuVRA" name="blockedRule">
+    <lhs xmi:id="_PgC_8JPREeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_UvzpYJPREeGo6JryyuuVRA" outgoing="_ZTSboJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_VQJ9YJPREeGo6JryyuuVRA" incoming="_ZTSboJPREeGo6JryyuuVRA" outgoing="_eeXZYJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_V9UlYJPREeGo6JryyuuVRA" incoming="_eeXZYJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_ZTSboJPREeGo6JryyuuVRA" source="_UvzpYJPREeGo6JryyuuVRA" target="_VQJ9YJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+      <edges xmi:id="_eeXZYJPREeGo6JryyuuVRA" source="_VQJ9YJPREeGo6JryyuuVRA" target="_V9UlYJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_PgC_8ZPREeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_Uv0QcJPREeGo6JryyuuVRA" incoming="_cTDYYJPREeGo6JryyuuVRA" outgoing="_ZTWGAJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_VQKkcJPREeGo6JryyuuVRA" incoming="_ZTWGAJPREeGo6JryyuuVRA" outgoing="_cTDYYJPREeGo6JryyuuVRA _eebq0JPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_V9VMcJPREeGo6JryyuuVRA" incoming="_eebq0JPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_ZTWGAJPREeGo6JryyuuVRA" source="_Uv0QcJPREeGo6JryyuuVRA" target="_VQKkcJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+      <edges xmi:id="_cTDYYJPREeGo6JryyuuVRA" source="_VQKkcJPREeGo6JryyuuVRA" target="_Uv0QcJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/blocked"/>
+      </edges>
+      <edges xmi:id="_eebq0JPREeGo6JryyuuVRA" source="_VQKkcJPREeGo6JryyuuVRA" target="_V9VMcJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Uv03gJPREeGo6JryyuuVRA" origin="_UvzpYJPREeGo6JryyuuVRA" image="_Uv0QcJPREeGo6JryyuuVRA"/>
+    <mappings xmi:id="_VQLLgJPREeGo6JryyuuVRA" origin="_VQJ9YJPREeGo6JryyuuVRA" image="_VQKkcJPREeGo6JryyuuVRA"/>
+    <mappings xmi:id="_V9VzgJPREeGo6JryyuuVRA" origin="_V9UlYJPREeGo6JryyuuVRA" image="_V9VMcJPREeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_lNuNUJPREeGo6JryyuuVRA" name="waitingRule">
+    <lhs xmi:id="_lNuNUZPREeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_oULA4JPREeGo6JryyuuVRA" name="" outgoing="_2BbbEJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_pEr30JPREeGo6JryyuuVRA" name="" incoming="_2BbbEJPREeGo6JryyuuVRA" outgoing="_tB-z0JPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_peF2UJPREeGo6JryyuuVRA" name="" incoming="_tB-z0JPREeGo6JryyuuVRA _u1kRUJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_p-6EYJPREeGo6JryyuuVRA" name="" outgoing="_u1kRUJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <edges xmi:id="_tB-z0JPREeGo6JryyuuVRA" source="_pEr30JPREeGo6JryyuuVRA" target="_peF2UJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+      <edges xmi:id="_u1kRUJPREeGo6JryyuuVRA" source="_p-6EYJPREeGo6JryyuuVRA" target="_peF2UJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/blocked"/>
+      </edges>
+      <edges xmi:id="_2BbbEJPREeGo6JryyuuVRA" source="_oULA4JPREeGo6JryyuuVRA" target="_pEr30JPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_lNuNUpPREeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_oULA4ZPREeGo6JryyuuVRA" incoming="_-x7nYJPREeGo6JryyuuVRA" outgoing="_2BfsgJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_pEse4JPREeGo6JryyuuVRA" incoming="_2BfsgJPREeGo6JryyuuVRA" outgoing="_tCApAJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_peF2UZPREeGo6JryyuuVRA" incoming="_tCApAJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_p-6rcJPREeGo6JryyuuVRA" outgoing="_-x7nYJPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <edges xmi:id="_tCApAJPREeGo6JryyuuVRA" source="_pEse4JPREeGo6JryyuuVRA" target="_peF2UZPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+      <edges xmi:id="_2BfsgJPREeGo6JryyuuVRA" source="_oULA4ZPREeGo6JryyuuVRA" target="_pEse4JPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+      <edges xmi:id="_-x7nYJPREeGo6JryyuuVRA" source="_p-6rcJPREeGo6JryyuuVRA" target="_oULA4ZPREeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/blocked"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_oULn8JPREeGo6JryyuuVRA" origin="_oULA4JPREeGo6JryyuuVRA" image="_oULA4ZPREeGo6JryyuuVRA"/>
+    <mappings xmi:id="_pEtF8JPREeGo6JryyuuVRA" origin="_pEr30JPREeGo6JryyuuVRA" image="_pEse4JPREeGo6JryyuuVRA"/>
+    <mappings xmi:id="_peGdYJPREeGo6JryyuuVRA" origin="_peF2UJPREeGo6JryyuuVRA" image="_peF2UZPREeGo6JryyuuVRA"/>
+    <mappings xmi:id="_p-7SgJPREeGo6JryyuuVRA" origin="_p-6EYJPREeGo6JryyuuVRA" image="_p-6rcJPREeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_H_HIoJPSEeGo6JryyuuVRA" name="unlockRule">
+    <lhs xmi:id="_H_HIoZPSEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_K-_aIJPSEeGo6JryyuuVRA" outgoing="_PTbq0JPSEeGo6JryyuuVRA _Uhm_4JPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_Lr7YoJPSEeGo6JryyuuVRA" incoming="_PTbq0JPSEeGo6JryyuuVRA _Uhm_4JPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_PTbq0JPSEeGo6JryyuuVRA" source="_K-_aIJPSEeGo6JryyuuVRA" target="_Lr7YoJPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/blocked"/>
+      </edges>
+      <edges xmi:id="_Uhm_4JPSEeGo6JryyuuVRA" source="_K-_aIJPSEeGo6JryyuuVRA" target="_Lr7YoJPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_H_HIopPSEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_K-_aIZPSEeGo6JryyuuVRA" outgoing="_SYy5QJPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_Lr7YoZPSEeGo6JryyuuVRA" incoming="_SYy5QJPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_SYy5QJPSEeGo6JryyuuVRA" source="_K-_aIZPSEeGo6JryyuuVRA" target="_Lr7YoZPSEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/release"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_K-_aIpPSEeGo6JryyuuVRA" origin="_K-_aIJPSEeGo6JryyuuVRA" image="_K-_aIZPSEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_Lr7YopPSEeGo6JryyuuVRA" origin="_Lr7YoJPSEeGo6JryyuuVRA" image="_Lr7YoZPSEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_L7tEkJPTEeGo6JryyuuVRA" name="ignoreRule">
+    <lhs xmi:id="_L7tEkZPTEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_Sgm8AJPTEeGo6JryyuuVRA" outgoing="_fYgbgJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_TdHnkJPTEeGo6JryyuuVRA" incoming="_fYgbgJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_fYgbgJPTEeGo6JryyuuVRA" source="_Sgm8AJPTEeGo6JryyuuVRA" target="_TdHnkJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/blocked"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_nwUbAJPTEeGo6JryyuuVRA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_nwUbAZPTEeGo6JryyuuVRA">
+          <conclusion xmi:id="_nwUbApPTEeGo6JryyuuVRA" name="default">
+            <nodes xmi:id="_nwVCEJPTEeGo6JryyuuVRA" incoming="_mIzDkJPTEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Process"/>
+            </nodes>
+            <nodes xmi:id="_kwvEcJPTEeGo6JryyuuVRA" outgoing="_mIzDkJPTEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Resource"/>
+            </nodes>
+            <nodes xmi:id="__QW3EJRFEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Resource"/>
+            </nodes>
+            <edges xmi:id="_mIzDkJPTEeGo6JryyuuVRA" source="_kwvEcJPTEeGo6JryyuuVRA" target="_nwVCEJPTEeGo6JryyuuVRA">
+              <type href="mutualexclusion.ecore#//Resource/held_by"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_nwVpIJPTEeGo6JryyuuVRA" origin="_TdHnkJPTEeGo6JryyuuVRA" image="_nwVCEJPTEeGo6JryyuuVRA"/>
+          <mappings xmi:id="__QZ6YJRFEeGo6JryyuuVRA" origin="_Sgm8AJPTEeGo6JryyuuVRA" image="__QW3EJRFEeGo6JryyuuVRA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_L7tEkpPTEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_Sgm8AZPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_TdHnkZPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_SgnjEJPTEeGo6JryyuuVRA" origin="_Sgm8AJPTEeGo6JryyuuVRA" image="_Sgm8AZPTEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_TdIOoJPTEeGo6JryyuuVRA" origin="_TdHnkJPTEeGo6JryyuuVRA" image="_TdHnkZPTEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_vcFz4JPTEeGo6JryyuuVRA" name="releaseStarRule">
+    <lhs xmi:id="_vcFz4ZPTEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_yg8E8JPTEeGo6JryyuuVRA" incoming="_6dTekJPTEeGo6JryyuuVRA _ACSKEJPUEeGo6JryyuuVRA" outgoing="_0YNIkJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_y0i9cJPTEeGo6JryyuuVRA" outgoing="_6dTekJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_zeR28JPTEeGo6JryyuuVRA" incoming="_4MNlsJPTEeGo6JryyuuVRA" outgoing="_ACSKEJPUEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_z8yX4JPTEeGo6JryyuuVRA" incoming="_0YNIkJPTEeGo6JryyuuVRA" outgoing="_4MNlsJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_0YNIkJPTEeGo6JryyuuVRA" source="_yg8E8JPTEeGo6JryyuuVRA" target="_z8yX4JPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_4MNlsJPTEeGo6JryyuuVRA" source="_z8yX4JPTEeGo6JryyuuVRA" target="_zeR28JPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+      <edges xmi:id="_6dTekJPTEeGo6JryyuuVRA" source="_y0i9cJPTEeGo6JryyuuVRA" target="_yg8E8JPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+      <edges xmi:id="_ACSKEJPUEeGo6JryyuuVRA" source="_zeR28JPTEeGo6JryyuuVRA" target="_yg8E8JPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_vcFz4pPTEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_yg8sAJPTEeGo6JryyuuVRA" incoming="_6dYXEJPTEeGo6JryyuuVRA _8KeLAJPTEeGo6JryyuuVRA" outgoing="_0YO9wJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <nodes xmi:id="_y0jkgJPTEeGo6JryyuuVRA" outgoing="_6dYXEJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_zeR28ZPTEeGo6JryyuuVRA" incoming="_4MRQEJPTEeGo6JryyuuVRA" outgoing="_8KeLAJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_z8y-8JPTEeGo6JryyuuVRA" incoming="_0YO9wJPTEeGo6JryyuuVRA" outgoing="_4MRQEJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_0YO9wJPTEeGo6JryyuuVRA" source="_yg8sAJPTEeGo6JryyuuVRA" target="_z8y-8JPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/next"/>
+      </edges>
+      <edges xmi:id="_4MRQEJPTEeGo6JryyuuVRA" source="_z8y-8JPTEeGo6JryyuuVRA" target="_zeR28ZPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+      <edges xmi:id="_6dYXEJPTEeGo6JryyuuVRA" source="_y0jkgJPTEeGo6JryyuuVRA" target="_yg8sAJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/held_by"/>
+      </edges>
+      <edges xmi:id="_8KeLAJPTEeGo6JryyuuVRA" source="_zeR28ZPTEeGo6JryyuuVRA" target="_yg8sAJPTEeGo6JryyuuVRA">
+        <type href="mutualexclusion.ecore#//Resource/release"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_yg8sAZPTEeGo6JryyuuVRA" origin="_yg8E8JPTEeGo6JryyuuVRA" image="_yg8sAJPTEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_y0jkgZPTEeGo6JryyuuVRA" origin="_y0i9cJPTEeGo6JryyuuVRA" image="_y0jkgJPTEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_zeSeAJPTEeGo6JryyuuVRA" origin="_zeR28JPTEeGo6JryyuuVRA" image="_zeR28ZPTEeGo6JryyuuVRA"/>
+    <mappings xmi:id="_z8zmAJPTEeGo6JryyuuVRA" origin="_z8yX4JPTEeGo6JryyuuVRA" image="_z8y-8JPTEeGo6JryyuuVRA"/>
+  </rules>
+  <rules xmi:id="_HS6poJPVEeGo6JryyuuVRA" name="requestSimpleRule">
+    <lhs xmi:id="_HS6poZPVEeGo6JryyuuVRA" name="LHS"/>
+    <rhs xmi:id="_HS6popPVEeGo6JryyuuVRA" name="RHS"/>
+    <multiRules xmi:id="_28NX4JT7EeGOraTCkW0kpg">
+      <lhs xmi:id="_28N-8JT7EeGOraTCkW0kpg" name="LHS">
+        <nodes xmi:id="_Ly2_sJPVEeGo6JryyuuVRA" outgoing="_ikwDIJPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_OgcnUJPVEeGo6JryyuuVRA" incoming="_ikwDIJPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_ikwDIJPVEeGo6JryyuuVRA" source="_Ly2_sJPVEeGo6JryyuuVRA" target="_OgcnUJPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/token"/>
+        </edges>
+        <formula xsi:type="henshin:Not" xmi:id="_uAOn8JPVEeGo6JryyuuVRA">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_uAOn8ZPVEeGo6JryyuuVRA">
+            <conclusion xmi:id="_uAOn8pPVEeGo6JryyuuVRA" name="default">
+              <nodes xmi:id="_uAP2EJPVEeGo6JryyuuVRA" outgoing="_kXXQQJPVEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Process"/>
+              </nodes>
+              <nodes xmi:id="_uAQdIZPVEeGo6JryyuuVRA" incoming="_kXXQQJPVEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Resource"/>
+              </nodes>
+              <edges xmi:id="_kXXQQJPVEeGo6JryyuuVRA" source="_uAP2EJPVEeGo6JryyuuVRA" target="_uAQdIZPVEeGo6JryyuuVRA">
+                <type href="mutualexclusion.ecore#//Process/request"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_uAQdIJPVEeGo6JryyuuVRA" origin="_OgcnUJPVEeGo6JryyuuVRA" image="_uAP2EJPVEeGo6JryyuuVRA"/>
+            <mappings xmi:id="_uAQdIpPVEeGo6JryyuuVRA" origin="_Ly2_sJPVEeGo6JryyuuVRA" image="_uAQdIZPVEeGo6JryyuuVRA"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_28N-8ZT7EeGOraTCkW0kpg" name="RHS">
+        <nodes xmi:id="_Ly2_sZPVEeGo6JryyuuVRA" incoming="_mrE_UJPVEeGo6JryyuuVRA" outgoing="_ikyfYJPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_OgdOYJPVEeGo6JryyuuVRA" incoming="_ikyfYJPVEeGo6JryyuuVRA" outgoing="_mrE_UJPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_mrE_UJPVEeGo6JryyuuVRA" source="_OgdOYJPVEeGo6JryyuuVRA" target="_Ly2_sZPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process/request"/>
+        </edges>
+        <edges xmi:id="_ikyfYJPVEeGo6JryyuuVRA" source="_Ly2_sZPVEeGo6JryyuuVRA" target="_OgdOYJPVEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/token"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_Ly3mwJPVEeGo6JryyuuVRA" origin="_Ly2_sJPVEeGo6JryyuuVRA" image="_Ly2_sZPVEeGo6JryyuuVRA"/>
+      <mappings xmi:id="_Ogd1cJPVEeGo6JryyuuVRA" origin="_OgcnUJPVEeGo6JryyuuVRA" image="_OgdOYJPVEeGo6JryyuuVRA"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_Pu-T4JRtEeGo6JryyuuVRA" name="mountAllRule">
+    <lhs xmi:id="_Pu-T4ZRtEeGo6JryyuuVRA" name="LHS">
+      <nodes xmi:id="_HFBFMZkzEeGdafX8-ffNcw" name="root">
+        <type href="mutualexclusion.ecore#//Net"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_Pu-T45RtEeGo6JryyuuVRA" name="RHS">
+      <nodes xmi:id="_HFHy4JkzEeGdafX8-ffNcw" name="root">
+        <type href="mutualexclusion.ecore#//Net"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_HFUAIJkzEeGdafX8-ffNcw" origin="_HFBFMZkzEeGdafX8-ffNcw" image="_HFHy4JkzEeGdafX8-ffNcw"/>
+    <multiRules xmi:id="_PZZWMJkzEeGdafX8-ffNcw">
+      <lhs xmi:id="_PZZWMZkzEeGdafX8-ffNcw" name="LHS">
+        <nodes xmi:id="_PZxJoJkzEeGdafX8-ffNcw" name="root" outgoing="_HFwsEJkzEeGdafX8-ffNcw">
+          <type href="mutualexclusion.ecore#//Net"/>
+        </nodes>
+        <nodes xmi:id="_k_Rf8JT1EeGOraTCkW0kpg" incoming="_HFwsEJkzEeGdafX8-ffNcw">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_HFwsEJkzEeGdafX8-ffNcw" source="_PZxJoJkzEeGdafX8-ffNcw" target="_k_Rf8JT1EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Net/processes"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_PZZWMpkzEeGdafX8-ffNcw" name="RHS">
+        <nodes xmi:id="_PZgq8JkzEeGdafX8-ffNcw" name="root" outgoing="_HGWh8JkzEeGdafX8-ffNcw _HG5UgJkzEeGdafX8-ffNcw">
+          <type href="mutualexclusion.ecore#//Net"/>
+        </nodes>
+        <nodes xmi:id="_k_TVIJT1EeGOraTCkW0kpg" incoming="_oPR4IJT1EeGOraTCkW0kpg _HGWh8JkzEeGdafX8-ffNcw">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_rfD10JkyEeGGkqY5ejM2WA" incoming="_HG5UgJkzEeGdafX8-ffNcw" outgoing="_oPR4IJT1EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <edges xmi:id="_oPR4IJT1EeGOraTCkW0kpg" source="_rfD10JkyEeGGkqY5ejM2WA" target="_k_TVIJT1EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+        <edges xmi:id="_HGWh8JkzEeGdafX8-ffNcw" source="_PZgq8JkzEeGdafX8-ffNcw" target="_k_TVIJT1EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Net/processes"/>
+        </edges>
+        <edges xmi:id="_HG5UgJkzEeGdafX8-ffNcw" source="_PZgq8JkzEeGdafX8-ffNcw" target="_rfD10JkyEeGGkqY5ejM2WA">
+          <type href="mutualexclusion.ecore#//Net/resources"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_PZ7hsZkzEeGdafX8-ffNcw" origin="_PZxJoJkzEeGdafX8-ffNcw" image="_PZgq8JkzEeGdafX8-ffNcw"/>
+      <mappings xmi:id="_k_UjQJT1EeGOraTCkW0kpg" origin="_k_Rf8JT1EeGOraTCkW0kpg" image="_k_TVIJT1EeGOraTCkW0kpg"/>
+      <multiMappings xmi:id="_PZgq8ZkzEeGdafX8-ffNcw" origin="_HFHy4JkzEeGdafX8-ffNcw" image="_PZgq8JkzEeGdafX8-ffNcw"/>
+      <multiMappings xmi:id="_PZxJoZkzEeGdafX8-ffNcw" origin="_HFBFMZkzEeGdafX8-ffNcw" image="_PZxJoJkzEeGdafX8-ffNcw"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_m1Q8MJR8EeGo6JryyuuVRA" name="releaseAllRule">
+    <lhs xmi:id="_m1Q8MZR8EeGo6JryyuuVRA" name="LHS"/>
+    <rhs xmi:id="_m1Q8MpR8EeGo6JryyuuVRA" name="RHS"/>
+    <multiRules xmi:id="_Vudy4JT2EeGOraTCkW0kpg">
+      <lhs xmi:id="_Vudy4ZT2EeGOraTCkW0kpg" name="LHS">
+        <nodes xmi:id="_tlAxsJR8EeGo6JryyuuVRA" name="r" outgoing="_0W0cQJT2EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_uxcvoJR8EeGo6JryyuuVRA" name="p" incoming="_0W0cQJT2EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_0W0cQJT2EeGOraTCkW0kpg" source="_tlAxsJR8EeGo6JryyuuVRA" target="_uxcvoJR8EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+        <formula xsi:type="henshin:Not" xmi:id="_Ual6wJT3EeGOraTCkW0kpg">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_VR0dsJT3EeGOraTCkW0kpg">
+            <conclusion xmi:id="_V7eesJT3EeGOraTCkW0kpg">
+              <nodes xmi:id="_W0_goJT3EeGOraTCkW0kpg" name="m" incoming="_JkooYJT4EeGOraTCkW0kpg">
+                <type href="mutualexclusion.ecore#//Resource"/>
+              </nodes>
+              <nodes xmi:id="_dlRhoJT3EeGOraTCkW0kpg" name="p" outgoing="_JkooYJT4EeGOraTCkW0kpg">
+                <type href="mutualexclusion.ecore#//Process"/>
+              </nodes>
+              <edges xmi:id="_JkooYJT4EeGOraTCkW0kpg" source="_dlRhoJT3EeGOraTCkW0kpg" target="_W0_goJT3EeGOraTCkW0kpg">
+                <type href="mutualexclusion.ecore#//Process/request"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_htVjMJT3EeGOraTCkW0kpg" origin="_uxcvoJR8EeGo6JryyuuVRA" image="_dlRhoJT3EeGOraTCkW0kpg"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_Vudy4pT2EeGOraTCkW0kpg" name="RHS">
+        <nodes xmi:id="_tlAxsZR8EeGo6JryyuuVRA" outgoing="_1-p8wJT2EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_uxcvoZR8EeGo6JryyuuVRA" incoming="_1-p8wJT2EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_1-p8wJT2EeGOraTCkW0kpg" source="_tlAxsZR8EeGo6JryyuuVRA" target="_uxcvoZR8EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/release"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_tlAxspR8EeGo6JryyuuVRA" origin="_tlAxsJR8EeGo6JryyuuVRA" image="_tlAxsZR8EeGo6JryyuuVRA"/>
+      <mappings xmi:id="_uxcvopR8EeGo6JryyuuVRA" origin="_uxcvoJR8EeGo6JryyuuVRA" image="_uxcvoZR8EeGo6JryyuuVRA"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_txBX8JR9EeGo6JryyuuVRA" name="giveAllRule">
+    <lhs xmi:id="_txBX8ZR9EeGo6JryyuuVRA" name="LHS"/>
+    <rhs xmi:id="_txBX8pR9EeGo6JryyuuVRA" name="RHS"/>
+    <multiRules xmi:id="_jbbx0JT5EeGOraTCkW0kpg">
+      <lhs xmi:id="_jbbx0ZT5EeGOraTCkW0kpg" name="LHS">
+        <nodes xmi:id="_jbuswZT5EeGOraTCkW0kpg" name="root" outgoing="_11BqoJR9EeGo6JryyuuVRA _y87cIJR9EeGo6JryyuuVRA _xSu40JT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Net"/>
+        </nodes>
+        <nodes xmi:id="_10_1cJR9EeGo6JryyuuVRA" incoming="_11BqoJR9EeGo6JryyuuVRA" outgoing="_2KhHIJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_y85m8JR9EeGo6JryyuuVRA" incoming="_y87cIJR9EeGo6JryyuuVRA _2KhHIJT5EeGOraTCkW0kpg" outgoing="_ytRkMJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_xSjSoJT5EeGOraTCkW0kpg" incoming="_xSu40JT5EeGOraTCkW0kpg _ytRkMJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_11BqoJR9EeGo6JryyuuVRA" source="_jbuswZT5EeGOraTCkW0kpg" target="_10_1cJR9EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Net/resources"/>
+        </edges>
+        <edges xmi:id="_y87cIJR9EeGo6JryyuuVRA" source="_jbuswZT5EeGOraTCkW0kpg" target="_y85m8JR9EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Net/processes"/>
+        </edges>
+        <edges xmi:id="_xSu40JT5EeGOraTCkW0kpg" source="_jbuswZT5EeGOraTCkW0kpg" target="_xSjSoJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Net/processes"/>
+        </edges>
+        <edges xmi:id="_ytRkMJT5EeGOraTCkW0kpg" source="_y85m8JR9EeGo6JryyuuVRA" target="_xSjSoJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process/next"/>
+        </edges>
+        <edges xmi:id="_2KhHIJT5EeGOraTCkW0kpg" source="_10_1cJR9EeGo6JryyuuVRA" target="_y85m8JR9EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/release"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_jbbx0pT5EeGOraTCkW0kpg" name="RHS">
+        <nodes xmi:id="_jbk7wJT5EeGOraTCkW0kpg" name="root" outgoing="_11BqoZR9EeGo6JryyuuVRA _y88DMJR9EeGo6JryyuuVRA _xSzKQJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Net"/>
+        </nodes>
+        <nodes xmi:id="_10_1cZR9EeGo6JryyuuVRA" incoming="_11BqoZR9EeGo6JryyuuVRA" outgoing="_3-dJ8JT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <nodes xmi:id="_y86OAJR9EeGo6JryyuuVRA" incoming="_y88DMJR9EeGo6JryyuuVRA" outgoing="_ytZgAJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_xSm9AJT5EeGOraTCkW0kpg" incoming="_xSzKQJT5EeGOraTCkW0kpg _ytZgAJT5EeGOraTCkW0kpg _3-dJ8JT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <edges xmi:id="_11BqoZR9EeGo6JryyuuVRA" source="_jbk7wJT5EeGOraTCkW0kpg" target="_10_1cZR9EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Net/resources"/>
+        </edges>
+        <edges xmi:id="_y88DMJR9EeGo6JryyuuVRA" source="_jbk7wJT5EeGOraTCkW0kpg" target="_y86OAJR9EeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Net/processes"/>
+        </edges>
+        <edges xmi:id="_xSzKQJT5EeGOraTCkW0kpg" source="_jbk7wJT5EeGOraTCkW0kpg" target="_xSm9AJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Net/processes"/>
+        </edges>
+        <edges xmi:id="_ytZgAJT5EeGOraTCkW0kpg" source="_y86OAJR9EeGo6JryyuuVRA" target="_xSm9AJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process/next"/>
+        </edges>
+        <edges xmi:id="_3-dJ8JT5EeGOraTCkW0kpg" source="_10_1cZR9EeGo6JryyuuVRA" target="_xSm9AJT5EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource/token"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_jbzlQZT5EeGOraTCkW0kpg" origin="_jbuswZT5EeGOraTCkW0kpg" image="_jbk7wJT5EeGOraTCkW0kpg"/>
+      <mappings xmi:id="_10_1cpR9EeGo6JryyuuVRA" origin="_10_1cJR9EeGo6JryyuuVRA" image="_10_1cZR9EeGo6JryyuuVRA"/>
+      <mappings xmi:id="_y86OAZR9EeGo6JryyuuVRA" origin="_y85m8JR9EeGo6JryyuuVRA" image="_y86OAJR9EeGo6JryyuuVRA"/>
+      <mappings xmi:id="_xSoLIJT5EeGOraTCkW0kpg" origin="_xSjSoJT5EeGOraTCkW0kpg" image="_xSm9AJT5EeGOraTCkW0kpg"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_EM3oAJSAEeGo6JryyuuVRA" name="takeAllRule">
+    <lhs xmi:id="_EM3oAZSAEeGo6JryyuuVRA" name="LHS"/>
+    <rhs xmi:id="_EM3oApSAEeGo6JryyuuVRA" name="RHS"/>
+    <multiRules xmi:id="_WG9PAJSAEeGo6JryyuuVRA">
+      <lhs xmi:id="_WG9PAZSAEeGo6JryyuuVRA" name="LHS">
+        <nodes xmi:id="_JJ3tgJSAEeGo6JryyuuVRA" incoming="_nUDh0JT8EeGOraTCkW0kpg" outgoing="_o83SsJT8EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_Jn_z8JSAEeGo6JryyuuVRA" incoming="_o83SsJT8EeGOraTCkW0kpg" outgoing="_nUDh0JT8EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <edges xmi:id="_nUDh0JT8EeGOraTCkW0kpg" source="_Jn_z8JSAEeGo6JryyuuVRA" target="_JJ3tgJSAEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/token"/>
+        </edges>
+        <edges xmi:id="_o83SsJT8EeGOraTCkW0kpg" source="_JJ3tgJSAEeGo6JryyuuVRA" target="_Jn_z8JSAEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Process/request"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_WG9PApSAEeGo6JryyuuVRA" name="RHS">
+        <nodes xmi:id="_JJ3tgZSAEeGo6JryyuuVRA" incoming="_rPZ9EJT8EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Process"/>
+        </nodes>
+        <nodes xmi:id="_XJVSAJSAEeGo6JryyuuVRA" outgoing="_rPZ9EJT8EeGOraTCkW0kpg">
+          <type href="mutualexclusion.ecore#//Resource"/>
+        </nodes>
+        <edges xmi:id="_rPZ9EJT8EeGOraTCkW0kpg" source="_XJVSAJSAEeGo6JryyuuVRA" target="_JJ3tgZSAEeGo6JryyuuVRA">
+          <type href="mutualexclusion.ecore#//Resource/held_by"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_XJVSAZSAEeGo6JryyuuVRA" origin="_Jn_z8JSAEeGo6JryyuuVRA" image="_XJVSAJSAEeGo6JryyuuVRA"/>
+      <mappings xmi:id="_JJ3tgpSAEeGo6JryyuuVRA" origin="_JJ3tgJSAEeGo6JryyuuVRA" image="_JJ3tgZSAEeGo6JryyuuVRA"/>
+    </multiRules>
+  </rules>
+  <rules xmi:id="_jKgV8JlDEeGdafX8-ffNcw" name="requestSimple2Rule">
+    <lhs xmi:id="_jKgV8ZlDEeGdafX8-ffNcw" name="LHS">
+      <nodes xmi:id="_mG8R4JlDEeGdafX8-ffNcw" outgoing="_rFt5AJlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_m9L9YJlDEeGdafX8-ffNcw" incoming="_rFt5AJlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_rFt5AJlDEeGdafX8-ffNcw" source="_mG8R4JlDEeGdafX8-ffNcw" target="_m9L9YJlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Resource/token"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_pwbhEJlDEeGdafX8-ffNcw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_pwbhEZlDEeGdafX8-ffNcw">
+          <conclusion xmi:id="_pwbhEplDEeGdafX8-ffNcw" name="default">
+            <nodes xmi:id="_pwbhE5lDEeGdafX8-ffNcw" outgoing="_nqgWYJlDEeGdafX8-ffNcw">
+              <type href="mutualexclusion.ecore#//Process"/>
+            </nodes>
+            <nodes xmi:id="_pwcIIJlDEeGdafX8-ffNcw" incoming="_nqgWYJlDEeGdafX8-ffNcw">
+              <type href="mutualexclusion.ecore#//Resource"/>
+            </nodes>
+            <edges xmi:id="_nqgWYJlDEeGdafX8-ffNcw" source="_pwbhE5lDEeGdafX8-ffNcw" target="_pwcIIJlDEeGdafX8-ffNcw">
+              <type href="mutualexclusion.ecore#//Process/request"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_pwbhFJlDEeGdafX8-ffNcw" origin="_m9L9YJlDEeGdafX8-ffNcw" image="_pwbhE5lDEeGdafX8-ffNcw"/>
+          <mappings xmi:id="_pwcIIZlDEeGdafX8-ffNcw" origin="_mG8R4JlDEeGdafX8-ffNcw" image="_pwcIIJlDEeGdafX8-ffNcw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_jKgV8plDEeGdafX8-ffNcw" name="RHS">
+      <nodes xmi:id="_mG8R4ZlDEeGdafX8-ffNcw" incoming="_x9oMAJlDEeGdafX8-ffNcw" outgoing="_rFugEJlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Resource"/>
+      </nodes>
+      <nodes xmi:id="_m9L9YZlDEeGdafX8-ffNcw" incoming="_rFugEJlDEeGdafX8-ffNcw" outgoing="_x9oMAJlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Process"/>
+      </nodes>
+      <edges xmi:id="_rFugEJlDEeGdafX8-ffNcw" source="_mG8R4ZlDEeGdafX8-ffNcw" target="_m9L9YZlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Resource/token"/>
+      </edges>
+      <edges xmi:id="_x9oMAJlDEeGdafX8-ffNcw" source="_m9L9YZlDEeGdafX8-ffNcw" target="_mG8R4ZlDEeGdafX8-ffNcw">
+        <type href="mutualexclusion.ecore#//Process/request"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_mG848JlDEeGdafX8-ffNcw" origin="_mG8R4JlDEeGdafX8-ffNcw" image="_mG8R4ZlDEeGdafX8-ffNcw"/>
+    <mappings xmi:id="_m9L9YplDEeGdafX8-ffNcw" origin="_m9L9YJlDEeGdafX8-ffNcw" image="_m9L9YZlDEeGdafX8-ffNcw"/>
+  </rules>
+  <imports href="mutualexclusion.ecore#/"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_Kxl54JQrEeGo6JryyuuVRA" name="sts" subUnits="_UZccoJN1EeGo6JryyuuVRA _gOn9cJPOEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_jxACIJRJEeGo6JryyuuVRA" name="loopSts" subUnits="_ARAU0JPPEeGo6JryyuuVRA _e6MEoJPPEeGo6JryyuuVRA _yUzDMJPPEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_cufo4JRuEeGo6JryyuuVRA" name="loopLts" subUnits="_yUzDMJPPEeGo6JryyuuVRA _ARAU0JPPEeGo6JryyuuVRA _vcFz4JPTEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_wncJQJRuEeGo6JryyuuVRA" name="finalLts" subUnits="_yUzDMJPPEeGo6JryyuuVRA _ARAU0JPPEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_WmwGMJR8EeGo6JryyuuVRA" name="alap" subUnits="_Pu-T4JRtEeGo6JryyuuVRA _m1Q8MJR8EeGo6JryyuuVRA _txBX8JR9EeGo6JryyuuVRA _HS6poJPVEeGo6JryyuuVRA _EM3oAJSAEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:LoopUnit" xmi:id="_zU8d0JUdEeGOraTCkW0kpg" name="waitingAllRule" subUnit="_lNuNUJPREeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_XoFHgJk2EeGdafX8-ffNcw" name="lts2" subUnits="_kgnFIJPQEeGo6JryyuuVRA _PgCY4JPREeGo6JryyuuVRA _zU8d0JUdEeGOraTCkW0kpg _H_HIoJPSEeGo6JryyuuVRA _PgCY4JPREeGo6JryyuuVRA _zU8d0JUdEeGOraTCkW0kpg _L7tEkJPTEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:SequentialUnit" xmi:id="_eCNjQJk_EeGdafX8-ffNcw" name="alap2" subUnits="_Pu-T4JRtEeGo6JryyuuVRA _mOA_sJlCEeGdafX8-ffNcw _txBX8JR9EeGo6JryyuuVRA _HS6poJPVEeGo6JryyuuVRA _EM3oAJSAEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:LoopUnit" xmi:id="_mOA_sJlCEeGdafX8-ffNcw" name="release2AllRule" subUnit="_e6MEoJPPEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:LoopUnit" xmi:id="_TFBgIJlDEeGdafX8-ffNcw" name="give2AllRule" subUnit="_yUzDMJPPEeGo6JryyuuVRA"/>
+  <transformationUnits xsi:type="henshin:LoopUnit" xmi:id="_12abcJlDEeGdafX8-ffNcw" name="requestSimpleAllRule" subUnit="_jKgV8JlDEeGdafX8-ffNcw"/>
+  <transformationUnits xsi:type="henshin:LoopUnit" xmi:id="_CM2XMJlFEeGdafX8-ffNcw" name="take2AllRule" subUnit="_ARAU0JPPEeGo6JryyuuVRA"/>
+</henshin:TransformationSystem>

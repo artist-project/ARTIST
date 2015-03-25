@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architecture:ArchitectureModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:architecture="http://momot.big.tuwien.ac.at/architecture/1.0"
+    xsi:schemaLocation="http://momot.big.tuwien.ac.at/architecture/1.0 architecture.ecore">
+  <classes dependsOn="//@classes.1 //@classes.0"
+      name="A"/>
+  <classes dependsOn="//@classes.0"
+      name="B"/>
+  <classes dependsOn="//@classes.3"
+      name="C"/>
+  <classes dependsOn="//@classes.2"
+      name="D"/>
+  <classes dependsOn="//@classes.2 //@classes.9 //@classes.6"
+      name="E"/>
+  <classes dependsOn="//@classes.1"
+      name="F"/>
+  <classes dependsOn="//@classes.0"
+      name="G"/>
+  <classes dependsOn="//@classes.3 //@classes.4 //@classes.0"
+      name="H"/>
+  <classes dependsOn="//@classes.2"
+      name="I"/>
+  <classes dependsOn="//@classes.2 //@classes.3 //@classes.5"
+      name="J"/>
+</architecture:ArchitectureModel>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?><!--
+  Copyright (c) 2010-2012 Henshin developers. All rights reserved. 
+  This program and the accompanying materials are made available 
+  under the terms of the Eclipse Public License v1.0 which 
+  accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+ -->
+ <plugin>
+
+     <extension point="org.eclipse.ui.editors">
+      <editor name="State Space Explorer"
+              extensions="henshin_statespace"
+              icon="icons/HenshinDiagramFile.gif"
+              default="true"
+              class="org.eclipse.emf.henshin.statespace.explorer.parts.StateSpaceExplorer"
+              contributorClass="org.eclipse.emf.henshin.statespace.explorer.parts.StateSpaceActionBarContributor"
+              id="org.eclipse.emf.henshin.statespace.explorer">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+         <category
+            id="org.eclipse.emf.henshin.wizards"
+            name="Henshin">
+      </category>
+      <wizard name="Henshin State Space"
+              icon="icons/HenshinDiagramFile.gif"
+              category="org.eclipse.emf.henshin.wizards"
+              class="org.eclipse.emf.henshin.statespace.explorer.actions.CreateStateSpaceWizard"
+              id="org.eclipse.emf.henshin.statespace.wizards.CreateStateSpace">
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.eclipse.emf.henshin.statespace.explorer.contributions.viewer"
+            targetID="org.eclipse.emf.henshin.statespace.explorer">
+         <menu
+               id="statespace"
+               label="State Space"
+               path="additions">
+            <separator
+                  name="main">
+            </separator>
+         </menu>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.CreateInitialStateAction"
+               enablesFor="*"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.initial"
+               label="New Initial State"
+               menubarPath="statespace/main"
+               style="push"
+               tooltip="Create a new initial state">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.ImportRulesAction"
+               enablesFor="*"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.rules"
+               label="Import Rules"
+               menubarPath="statespace/main"
+               style="push"
+               tooltip="Import rules into the state space">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.OpenStateModelAction"
+               enablesFor="1+"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.open"
+               label="Open State Model"
+               menubarPath="statespace/main"
+               style="push"
+               tooltip="Open state model">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.ResetStateSpaceAction"
+               enablesFor="*"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.reset"
+               label="Reset State Space"
+               menubarPath="statespace/main"
+               style="push"
+               tooltip="Reset the state space">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.ExportStateSpaceAction"
+               enablesFor="*"
+               id="statespace.export"
+               label="Export State Space"
+               menubarPath="statespace/main"
+               style="push"
+               tooltip="Export the current state space">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.EditPropertiesAction"
+               enablesFor="*"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.properties"
+               label="Edit Properties"
+               menubarPath="statespace/main"
+               style="push"
+               tooltip="Edit the state space properties">
+         </action>
+      </viewerContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.eclipse.emf.henshin.statespace.explorer.contributions.file"
+            nameFilter="*.henshin_statespace"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="statespaceFile"
+               label="State Space"
+               path="additions">
+            <separator
+                  name="main">
+            </separator>
+         </menu>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.ExploreStateSpaceFileAction"
+               enablesFor="1"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.explore"
+               label="Explore State Space"
+               menubarPath="statespaceFile/main"
+               tooltip="Explore open states">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.ResetStateSpaceFileAction"
+               enablesFor="*"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.reset.file"
+               label="Reset State Space"
+               menubarPath="statespaceFile/main"
+               style="push"
+               tooltip="Reset the state space">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.statespace.explorer.actions.ExportStateSpaceFileAction"
+               enablesFor="*"
+               id="org.eclipse.emf.henshin.statespace.explorer.actions.export.file"
+               label="Export State Space"
+               menubarPath="statespaceFile/main"
+               style="push"
+               tooltip="Export the state space">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="org.eclipse.emf.henshin.statespace.explorer.parts.StateSpacePropertyPage"
+            id="org.eclipse.emf.henshin.statespace.properties"
+            name="State Space"
+            nameFilter="*.henshin_statespace">
+         <enabledWhen>
+            <instanceof
+                  value="org.eclipse.core.resources.IFile">
+            </instanceof>
+         </enabledWhen>
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <category
+            id="org.eclipse.emf.henshin"
+            name="Henshin">
+      </category>
+      <wizard
+            category="org.eclipse.emf.henshin"
+            class="org.eclipse.emf.henshin.statespace.explorer.actions.ExportStateSpaceWizard"
+            icon="icons/HenshinDiagramFile.gif"
+            id="org.eclipse.emf.henshin.exsportStateSpace"
+            name="State Space">
+      </wizard>
+   </extension>
+</plugin>

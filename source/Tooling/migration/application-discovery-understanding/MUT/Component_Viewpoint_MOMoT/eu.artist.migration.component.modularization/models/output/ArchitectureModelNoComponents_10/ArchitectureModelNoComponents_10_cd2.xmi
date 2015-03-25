@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<architecture:ArchitectureModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:architecture="http://momot.big.tuwien.ac.at/architecture/1.0" xsi:schemaLocation="http://momot.big.tuwien.ac.at/architecture/1.0 architecture.ecore">
+  <components encapsulates="//@classes.0 //@classes.1 //@classes.2 //@classes.3 //@classes.6 //@classes.9" name="Component_B"/>
+  <components encapsulates="//@classes.4 //@classes.5 //@classes.7 //@classes.8" name="Component_C"/>
+  <classes isEncapsulatedBy="//@components.0" name="D"/>
+  <classes isEncapsulatedBy="//@components.0" name="E"/>
+  <classes isEncapsulatedBy="//@components.0" name="F"/>
+  <classes isEncapsulatedBy="//@components.0" name="G"/>
+  <classes isEncapsulatedBy="//@components.1" name="A"/>
+  <classes isEncapsulatedBy="//@components.1" name="B"/>
+  <classes isEncapsulatedBy="//@components.0" name="C"/>
+  <classes isEncapsulatedBy="//@components.1" name="H"/>
+  <classes isEncapsulatedBy="//@components.1" name="I"/>
+  <classes isEncapsulatedBy="//@components.0" name="J"/>
+</architecture:ArchitectureModel>

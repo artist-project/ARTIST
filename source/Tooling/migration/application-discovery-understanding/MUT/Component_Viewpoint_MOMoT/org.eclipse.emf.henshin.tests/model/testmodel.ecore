@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="testmodel" nsURI="http://www.eclipse.org/emf/2010/Henshin/Tests"
+    nsPrefix="testmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="cont">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsNode" upperBound="-1"
+        eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsVal" upperBound="-1"
+        eType="#//Val" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasVals" upperBound="-1"
+        eType="#//Val"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentNode" eType="#//Node"
+        eOpposite="#//Node/childNodes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childNodes" upperBound="-1"
+        eType="#//Node" eOpposite="#//Node/parentNode"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Val">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intvl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intlist" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

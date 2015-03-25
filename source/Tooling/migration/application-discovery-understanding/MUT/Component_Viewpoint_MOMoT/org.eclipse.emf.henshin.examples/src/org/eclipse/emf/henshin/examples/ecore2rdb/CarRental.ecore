@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="CarRentalModel"
+    nsURI="http://www.eclipse.org/emf/henshin/examples/oo2rdb/CarRentalModel" nsPrefix="CarRentalModel">
+  <eClassifiers xsi:type="ecore:EClass" name="CarRental">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" upperBound="-1"
+        eType="#//Customer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="agencies" lowerBound="1"
+        upperBound="-1" eType="#//Agency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crafts" lowerBound="1"
+        upperBound="-1" eType="#//Craft" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainAgency" lowerBound="1"
+        eType="#//Agency"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Customer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bestellungen" lowerBound="1"
+        upperBound="-1" eType="#//Order" containment="true" eOpposite="#//Order/customer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Order">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="craft" lowerBound="1" eType="#//Craft"
+        eOpposite="#//Craft/rentBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customer" lowerBound="1"
+        eType="#//Customer" eOpposite="#//Customer/bestellungen"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Agency">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="street" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="place" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VipCustomer" eSuperTypes="#//Customer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="discount" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Craft" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vin" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charge" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licenseNo" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rentBy" upperBound="-1"
+        eType="#//Order" eOpposite="#//Order/craft"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Motorcycle" eSuperTypes="#//Craft">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cm3" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Automobile" eSuperTypes="#//Craft">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCabrio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>

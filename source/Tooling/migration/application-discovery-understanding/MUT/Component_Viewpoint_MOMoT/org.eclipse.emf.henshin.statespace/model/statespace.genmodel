@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="&lt;copyright>&#xA;Copyright (c) 2010-2012 Henshin developers. All rights reserved. &#xA;This program and the accompanying materials are made available &#xA;under the terms of the Eclipse Public License v1.0 which &#xA;accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&lt;/copyright>"
+    modelDirectory="/org.eclipse.emf.henshin.statespace/src" modelPluginID="org.eclipse.emf.henshin.statespace"
+    modelName="StateSpace" modelPluginClass="StateSpacePlugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    publicConstructors="true" runtimeVersion="2.6" usedGenPackages="../../org.eclipse.emf.henshin.model/model/henshin.genmodel#//henshin">
+  <foreignModel>statespace.ecore</foreignModel>
+  <genPackages prefix="StateSpace" basePackage="org.eclipse.emf.henshin" disposableProviderFactory="true"
+      fileExtensions="henshin_statespace" ecorePackage="statespace.ecore#/">
+    <genDataTypes ecoreDataType="statespace.ecore#//IntegerArray"/>
+    <genDataTypes ecoreDataType="statespace.ecore#//StringArray"/>
+    <genDataTypes ecoreDataType="statespace.ecore#//Match"/>
+    <genDataTypes ecoreDataType="statespace.ecore#//EGraph"/>
+    <genClasses ecoreClass="statespace.ecore#//StateSpace">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statespace.ecore#//StateSpace/rules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statespace.ecore#//StateSpace/states"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statespace.ecore#//StateSpace/initialStates"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statespace.ecore#//StateSpace/openStates"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/stateCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/transitionCount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statespace.ecore#//StateSpace/equalityHelper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/layoutZoomLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/layoutStateRepulsion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/layoutTransitionAttraction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/layoutHideLabels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/layoutHideIndizes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/maxStateDistance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statespace.ecore#//StateSpace/properties"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//StateSpace/allParameterKeys"/>
+      <genOperations ecoreOperation="statespace.ecore#//StateSpace/removeState">
+        <genParameters ecoreParameter="statespace.ecore#//StateSpace/removeState/state"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//StateSpace/updateEqualityHelper"/>
+      <genOperations ecoreOperation="statespace.ecore#//StateSpace/incTransitionCount"/>
+    </genClasses>
+    <genClasses ecoreClass="statespace.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/index"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statespace.ecore#//State/incoming"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statespace.ecore#//State/outgoing"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statespace.ecore#//State/stateSpace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/hashCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/derivedFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/open"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/objectCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//State/objectKeys"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference statespace.ecore#//State/model"/>
+      <genOperations ecoreOperation="statespace.ecore#//State/isInitial"/>
+      <genOperations ecoreOperation="statespace.ecore#//State/isTerminal"/>
+      <genOperations ecoreOperation="statespace.ecore#//State/getOutgoing">
+        <genParameters ecoreParameter="statespace.ecore#//State/getOutgoing/target"/>
+        <genParameters ecoreParameter="statespace.ecore#//State/getOutgoing/rule"/>
+        <genParameters ecoreParameter="statespace.ecore#//State/getOutgoing/match"/>
+        <genParameters ecoreParameter="statespace.ecore#//State/getOutgoing/paramIDs"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="statespace.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Model/resource"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Model/eGraph"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statespace.ecore#//Model/objectHashCodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference statespace.ecore#//Model/objectKeysMap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Model/objectKeys"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Model/objectCount"/>
+      <genOperations ecoreOperation="statespace.ecore#//Model/getCopy">
+        <genParameters ecoreParameter="statespace.ecore#//Model/getCopy/match"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//Model/updateObjectKeys">
+        <genParameters ecoreParameter="statespace.ecore#//Model/updateObjectKeys/identityTypes"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//Model/collectMissingRootObjects"/>
+    </genClasses>
+    <genClasses ecoreClass="statespace.ecore#//Transition">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference statespace.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statespace.ecore#//Transition/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference statespace.ecore#//Transition/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Transition/match"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Transition/parameterCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Transition/parameterKeys"/>
+      <genOperations ecoreOperation="statespace.ecore#//Transition/getLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="statespace.ecore#//EqualityHelper">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//EqualityHelper/checkLinkOrder"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference statespace.ecore#//EqualityHelper/ignoredAttributes"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference statespace.ecore#//EqualityHelper/identityTypes"/>
+      <genOperations ecoreOperation="statespace.ecore#//EqualityHelper/equals">
+        <genParameters ecoreParameter="statespace.ecore#//EqualityHelper/equals/model1"/>
+        <genParameters ecoreParameter="statespace.ecore#//EqualityHelper/equals/model2"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//EqualityHelper/hashCode">
+        <genParameters ecoreParameter="statespace.ecore#//EqualityHelper/hashCode/model"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//EqualityHelper/setStateSpace">
+        <genParameters ecoreParameter="statespace.ecore#//EqualityHelper/setStateSpace/stateSpace"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="statespace.ecore#//Storage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//Storage/data"/>
+      <genOperations ecoreOperation="statespace.ecore#//Storage/getData">
+        <genParameters ecoreParameter="statespace.ecore#//Storage/getData/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//Storage/setData">
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData/index"/>
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//Storage/getData.1">
+        <genParameters ecoreParameter="statespace.ecore#//Storage/getData.1/beginIndex"/>
+        <genParameters ecoreParameter="statespace.ecore#//Storage/getData.1/endIndex"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//Storage/setData.1">
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData.1/beginIndex"/>
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="statespace.ecore#//Storage/setData.2">
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData.2/beginIndex"/>
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData.2/endIndex"/>
+        <genParameters ecoreParameter="statespace.ecore#//Storage/setData.2/value"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="statespace.ecore#//EObjectIntegerMapEntry">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference statespace.ecore#//EObjectIntegerMapEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute statespace.ecore#//EObjectIntegerMapEntry/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

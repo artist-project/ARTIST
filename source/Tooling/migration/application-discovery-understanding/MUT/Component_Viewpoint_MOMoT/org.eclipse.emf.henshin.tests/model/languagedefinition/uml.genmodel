@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.henshin.tests/src" modelPluginID="org.eclipse.emf.henshin.tests"
+    modelName="Uml" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressInterfaces="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" runtimeVersion="2.6" language="" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>uml.ecore</foreignModel>
+  <genPackages prefix="Uml" basePackage="org.eclipse.emf.henshin.tests" disposableProviderFactory="true"
+      utilityPackageSuffix="" ecorePackage="uml.ecore#/">
+    <genClasses ecoreClass="uml.ecore#//Association">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Association/src"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Association/dst"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Class">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Class/parent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//Class/attrs"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//Attribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference uml.ecore#//Attribute/type"/>
+    </genClasses>
+    <genClasses ecoreClass="uml.ecore#//UMLSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//UMLSpecification/classes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference uml.ecore#//UMLSpecification/associations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="uml.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute uml.ecore#//NamedElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

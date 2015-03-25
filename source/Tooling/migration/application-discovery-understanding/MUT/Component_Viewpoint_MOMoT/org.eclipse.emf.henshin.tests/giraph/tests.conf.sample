@@ -1,0 +1,12 @@
+
+SSH_ARGS="-i ~/.ssh/id_rsa_hadoop"
+HADOOP_MASTER=hadoop@myserver
+HADOOP_HOME=/home/xxx/hadoop-0.20.203.0
+WORKING_DIR=/tmp/giraph-tests
+
+GIRAPH_HOME=/home/hadoop/src/giraph-git
+GIRAPH_PROJECT=giraph-examples
+GIRAPH_TESTS_DIR=$GIRAPH_HOME/$GIRAPH_PROJECT/src/main/java/org/apache/giraph/examples
+GIRAPH_TESTS_JAR=$GIRAPH_HOME/$GIRAPH_PROJECT/target/giraph-*-jar-with-dependencies.jar
+GIRAPH_TESTS_PACKAGE=org.apache.giraph.examples
+GIRAPH_WORKERS=5

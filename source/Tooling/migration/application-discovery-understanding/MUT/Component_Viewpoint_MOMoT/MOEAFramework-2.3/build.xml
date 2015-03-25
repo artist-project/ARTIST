@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2009-2014 David Hadka
+
+This file is part of the MOEA Framework.
+
+The MOEA Framework is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by 
+the Free Software Foundation, either version 3 of the License, or (at your 
+option) any later version.
+
+The MOEA Framework is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public 
+License for more details.
+
+You should have received a copy of the GNU Lesser General Public License 
+along with the MOEA Framework.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+Use of these build scripts requires Apache Ant to be installed.  See
+<http://ant.apache.org/> for instructions on installing Apache Ant.
+-->
+<project name="MOEA Framework" basedir=".">
+
+	<!-- Loads properties from properties file and environment -->
+	<property file="META-INF/build.properties" />
+	<property environment="env" />
+	
+	<!-- Path to Java JDK source code (optional for inheriting javadoc comments) -->
+	<property name="jdk.source" value="../OpenJDK${java.major}/jdk/src/share/classes" />
+	
+	<!-- URL to Java API -->
+	<property name="jdk.api" value="http://download.oracle.com/javase/${java.major}/docs/api/" />
+	
+	<!-- The working folder for these Ant build targets -->
+	<property name="build" value="build" />
+	
+	<!-- The folder where compiled files ready for distribution are saved -->
+	<property name="dist" value="dist" />
+	
+	<!-- The folder where generated javadoc files are saved -->
+	<property name="javadoc" value="javadoc" />
+	
+	<!-- The base/root folder for organizing distributions -->
+	<property name="base" value="${build}/${shortname}-${version}" />
+
+	<!-- Classpath of third-party libraries used by the MOEA Framework -->
+	<path id="classpath">
+		<fileset dir="lib" includes="*.jar" />
+	</path>
+
+	<!-- List of files required in every distribution -->
+	<path id="requiredfiles">
+		<fileset file="README" />
+		<fileset file="LICENSE" />
+		<fileset file="NEWS" />
+		<fileset file="HELP" />
+	</path>
+
+	<!-- Generates the Javadoc webpages -->
+	<target name="build-javadoc">
+		<delete dir="${javadoc}" />
+		<mkdir dir="${javadoc}" />
+		
+		<javadoc sourcepath="src;${jdk.source}"
+				destdir="${javadoc}" notree="true"
+				packagenames="org.moeaframework.*"
+				maxmemory="256m" noindex="true" nohelp="true"
+				overview="src/overview.html"
+				windowtitle="${name} ${version} API">
+			<header><![CDATA[${javadoc.title}]]></header>
+			<doctitle><![CDATA[${javadoc.title}]]></doctitle>
+			<footer><![CDATA[${javadoc.title}]]></footer>
+			<bottom><![CDATA[${javadoc.bottom}]]></bottom>
+			<classpath>
+				<path refid="classpath" />
+			</classpath>
+			<link href="${jdk.api}" />
+		</javadoc>
+	</target>
+
+	<!-- Builds the MOEA Framework JAR file -->
+	<target name="build-binary">
+		<tstamp />
+
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+
+		<javac destdir="${build}" srcdir="src" debug="${java.debug}"
+				excludes="**/package-info.java"
+				includeantruntime="false"
+				encoding="UTF-8">
+			<classpath refid="classpath" />
+		</javac>
+
+		<copy todir="${build}/META-INF">
+			<fileset dir="META-INF" excludes="ZHANG-LICENSE" />
+			<path refid="requiredfiles" />
+		</copy>
+
+		<replace file="${build}/META-INF/README">
+			<replacefilter token="%VERSION%" value="${version}" />
+			<replacefilter token="%DATE%" value="${TODAY}" />
+		</replace>
+		
+		<property name="svn.version" value="Undefined" />
+
+		<exec executable="svnversion" outputproperty="svn.version"
+				errorproperty="svn.error" failifexecutionfails="false"/>
+		
+		<manifest file="${build}/META-INF/MANIFEST.MF">
+			<section name="org/moeaframework/">
+				<attribute name="Specification-Title" value="MOEA Framework" />
+				<attribute name="Specification-Version" value="${version}" />
+				<attribute name="Specification-Vendor" value="http://www.moeaframework.org" />
+				<attribute name="Implementation-Title" value="org.moeaframework" />
+				<attribute name="Implementation-Version" value="${svn.version}" />
+				<attribute name="Implementation-Vendor" value="http://www.moeaframework.org" />
+			</section>
+		</manifest>
+
+		<copy todir="${build}">
+			<fileset excludes="**/*.java,overview.html" dir="src" />
+		</copy>
+
+		<jar basedir="${build}" manifest="${build}/META-INF/MANIFEST.MF"
+				jarfile="${dist}/${shortname}-${version}.jar" />
+	</target>
+
+	<!-- Packages the MOEA Framework JAR file along with javadocs and required files -->
+	<target name="package-binary" 
+			depends="build-binary, build-javadoc"
+			description="Creates the binary distribution file">
+		<delete dir="${build}" />
+		<mkdir dir="${base}" />
+		<mkdir dir="${base}/lib" />
+		<mkdir dir="${base}/pf" />
+		<mkdir dir="${base}/licenses" />
+		<mkdir dir="${base}/examples" />
+
+		<copy todir="${base}">
+			<path refid="requiredfiles" />
+			<fileset file="global.properties" />
+			<fileset file="auxiliary/windows/launch-diagnostic-tool.bat" />
+			<fileset file="auxiliary/windows/launch-demos.bat" />
+		</copy>
+
+		<replace file="${base}/README">
+			<replacefilter token="%VERSION%" value="${version}" />
+			<replacefilter token="%DATE%" value="${TODAY}" />
+		</replace>
+
+		<copy todir="${base}/licenses">
+			<fileset dir="META-INF" includes="*-LICENSE" 
+					excludes="ZHANG-LICENSE" />
+		</copy>
+
+		<copy todir="${base}/lib">
+			<fileset file="${dist}/${shortname}-${version}.jar" />
+			<fileset dir="lib" excludes="junit-*.jar,checkstyle-*.jar" />
+		</copy>
+
+		<copy todir="${base}/pf">
+			<fileset dir="pf" excludes="referenceHypervolume" />
+		</copy>
+
+		<copy todir="${base}/javadoc">
+			<fileset dir="${javadoc}" />
+		</copy>
+		
+		<copy todir="${base}/examples">
+			<fileset dir="examples" excludes="*.exe,*.o,*.a" />
+		</copy>
+
+		<tar destfile="${dist}/${shortname}-${version}.tar.gz" 
+				basedir="${build}" compression="gzip" longfile="gnu" />
+	</target>
+
+	<!-- Packages the MOEA Framework source code, libraries and required files  -->
+	<target name="package-source" 
+			description="Creates the source code distribution file">
+		<delete dir="${build}" />
+		<mkdir dir="${base}" />
+
+		<copy todir="${base}">
+			<fileset dir=".">
+				<include name="auxiliary/**" />
+				<include name="examples/**" />
+				<exclude name="examples/*.exe" />
+				<exclude name="examples/*.o" />
+				<exclude name="examples/*.a" />
+				<include name="lib/**" />
+				<exclude name="lib/junit-*.jar" />
+				<include name="manual/**" />
+				<include name="META-INF/**" />
+				<include name="pf/**" />
+				<include name="src/**" />
+				<include name="test/**" />
+				<exclude name="test/org/moeaframework/problem/*.exe" />
+				<exclude name="test/org/moeaframework/problem/*.o" />
+				<exclude name="test/org/moeaframework/problem/*.a" />
+				<include name="website/**" />
+				<include name="global.properties" />
+				<include name="build.xml" />
+				<include name="test.xml" />
+				<include name="TODO" />
+			</fileset>
+			<path refid="requiredfiles" />
+		</copy>
+		
+		<copy todir="${base}">
+			<fileset dir="auxiliary/eclipse" includes=".*" />
+		</copy>
+		
+		<replace file="${base}/.project">
+			<replacefilter token="%VERSION%" value="${version}" />
+		</replace>
+
+		<tar destfile="${dist}/${shortname}-${version}-Source.tar.gz" 
+				basedir="${build}" compression="gzip" longfile="gnu" />
+	</target>
+
+	<!-- Builds the http://www.moeaframework.org website -->
+	<target name="package-website" depends="build-javadoc"
+			description="Creates the website">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+
+		<tstamp>
+			<format pattern="MMM dd, yyyy" property="today" />
+			<format pattern="yyyy-MM-dd" property="lastmod" />
+		</tstamp>
+
+		<copy todir="${build}">
+			<fileset dir="website" excludes="*.partial,xslt/**" />
+		</copy>
+
+		<copy todir="${build}/javadoc">
+			<fileset dir="${javadoc}" />
+		</copy>
+
+		<loadfile property="website.tracker" srcFile="website/tracker.partial" />
+
+		<loadfile property="website.docad" srcFile="website/docad.partial" />
+
+		<xslt basedir="website/xslt" destdir="${build}" 
+				style="website/xslt/stylesheet.xsl" 
+				includes="*.xml" filenameparameter="filename">
+			<param name="version" expression="${version}" />
+			<param name="today" expression="${today}" />
+			<param name="tracker" expression="${website.tracker}" />
+		</xslt>
+
+		<replace dir="${build}" includes="**/*.html">
+			<replacefilter token="%VERSION%" value="${version}" />
+			<replacefilter value="${website.tracker}">
+				<replacetoken><![CDATA[<!-- %TRACKER% -->]]></replacetoken>
+			</replacefilter>
+			<replacefilter value="${website.docad}">
+				<replacetoken><![CDATA[<!-- %DOCAD% -->]]></replacetoken>
+			</replacefilter>
+		</replace>
+
+		<replace file="${build}/sitemap.xml">
+			<replacefilter token="%LASTMOD%" value="${lastmod}" />
+		</replace>
+
+		<copy todir="${build}">
+			<fileset dir="examples" includes="*.java" excludes="Examples.java" />
+		</copy>
+		
+		<copy todir="${build}">
+			<fileset file="examples/dtlz2.c" />
+		</copy>
+	</target>
+
+	<!-- To generate the key store (valid for 10 years), run:
+	       keytool -genkeypair -alias moeaframework -validity 3653
+	     Signing the JAR is necessary for enabling all permissions, which is
+	     needed for save/load functionality. -->
+	<target name="package-jnlp" 
+			depends="package-executable"
+			description="Creates the JNLP Web Start distribution">
+		<delete dir="${build}" />
+		<mkdir dir="${base}" />
+
+		<copy todir="${base}">
+			<fileset dir="auxiliary/jnlp" />
+		</copy>
+
+		<replace dir="${base}" includes="DiagnosticTool.jnlp">
+			<replacefilter token="%VERSION%" value="${version}" />
+			<replacefilter token="%DATE%" value="${TODAY}" />
+		</replace>
+
+		<copy todir="${base}">
+			<fileset file="${dist}/${shortname}-${version}-Executable.jar" />
+		</copy>
+
+		<signjar alias="moeaframework" storepass="secret">
+			<path>
+				<fileset dir="${base}" includes="*.jar" />
+			</path>
+		</signjar>
+	</target>
+
+	<!-- Packages the all-in-one executable distribution -->
+	<target name="package-executable" depends="build-binary" description="Creates the executable JAR file">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+		
+		<unjar dest="${build}" src="lib/commons-cli-1.2.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-CLI-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/commons-codec-1.8.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-CODEC-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/commons-lang3-3.1.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-LANG3-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/commons-math3-3.1.1.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-MATH3-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/jcommon-1.0.20.jar" />
+		<unjar dest="${build}" src="lib/jfreechart-1.0.15.jar" />
+		<unjar dest="${build}" src="lib/JMetal-4.3.jar" />
+		
+		<delete dir="${build}/META-INF/maven" />
+		<delete file="${build}/META-INF/LICENSE.txt" />
+		<delete file="${build}/META-INF/MANIFEST.mf" />
+		<delete dir="${build}/templates" />
+		
+		<unjar dest="${build}" src="${dist}/${shortname}-${version}.jar" />
+		
+		<copy todir="${build}/pf">
+			<fileset dir="pf" />
+		</copy>
+		
+		<manifest mode="update" file="${build}/META-INF/MANIFEST.mf">
+			<attribute name="Main-Class" value="org.moeaframework.analysis.diagnostics.LaunchDiagnosticTool" />
+			<attribute name="Class-Path" value="." />
+		</manifest>
+		
+		<jar destfile="${dist}/${shortname}-${version}-Executable.jar"
+			basedir="${build}" manifest="${build}/META-INF/MANIFEST.mf" />
+	</target>
+	
+	<!-- Packages the demo distribution -->
+	<target name="package-demo" depends="build-binary" description="Creates the executable JAR file">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+		
+		<unjar dest="${build}" src="lib/commons-cli-1.2.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-CLI-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/commons-codec-1.8.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-CODEC-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/commons-lang3-3.1.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-LANG3-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/commons-math3-3.1.1.jar" />
+		<move file="${build}/META-INF/NOTICE.txt" tofile="${build}/META-INF/COMMONS-MATH3-NOTICE.txt" />
+		
+		<unjar dest="${build}" src="lib/rsyntaxtextarea.jar" />
+		<unjar dest="${build}" src="lib/jcommon-1.0.20.jar" />
+		<unjar dest="${build}" src="lib/jfreechart-1.0.15.jar" />
+		<unjar dest="${build}" src="lib/JMetal-4.3.jar" />
+		
+		<delete dir="${build}/META-INF/maven" />
+		<delete file="${build}/META-INF/LICENSE.txt" />
+		<delete file="${build}/META-INF/MANIFEST.mf" />
+		<delete dir="${build}/templates" />
+		
+		<unjar dest="${build}" src="${dist}/${shortname}-${version}.jar" />
+		
+		<javac destdir="${build}" srcdir="examples" debug="${java.debug}"
+				excludes="**/package-info.java"
+				includeantruntime="false"
+				encoding="UTF-8">
+			<classpath refid="classpath" />
+		</javac>
+		
+		<copy todir="${build}">
+			<fileset excludes="**/*.java,overview.html,*.exe,*.o,*.a" dir="examples" />
+		</copy>
+		
+		<!-- copy the examples source code so it can be seen in the demo GUI -->
+		<copy todir="${build}/examples">
+			<fileset dir="examples" excludes="*.exe,*.o,*.a" />
+		</copy>
+		
+		<copy todir="${build}/pf">
+			<fileset dir="pf" />
+		</copy>
+		
+		<manifest mode="update" file="${build}/META-INF/MANIFEST.mf">
+			<attribute name="Main-Class" value="Examples" />
+			<attribute name="Class-Path" value="." />
+		</manifest>
+		
+		<jar destfile="${dist}/${shortname}-${version}-Demo.jar"
+			basedir="${build}" manifest="${build}/META-INF/MANIFEST.mf" />
+	</target>
+
+	<!-- Downloads and extracts all PISA selectors for Windows -->
+	<target name="download-pisa-windows"
+			description="Downloads all PISA selectors for Windows">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+
+		<!-- download PISA binaries -->
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/spam/spam_win.zip" dest="${build}/spam_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/shv/shv_win.zip" dest="${build}/shv_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/sibea/sibea_binary.zip" dest="${build}/sibea_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/hype/hype_win.zip" dest="${build}/hype_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/lotz_semo/semo_win.zip" dest="${build}/semo_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/semo2/semo2_win.zip" dest="${build}/semo2_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/femo/femo_win.zip" dest="${build}/femo_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/spea2/spea2_win.zip" dest="${build}/spea2_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/nsga2/nsga2_win.zip" dest="${build}/nsga2_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/ecea/ecea_win.zip" dest="${build}/ecea_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/ibea/ibea_win.zip" dest="${build}/ibea_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/msops/msops_win.zip" dest="${build}/msops_win.zip" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/epsmoea/epsmoea_win.tar.gz" dest="${build}/epsmoea_win.tar.gz" />
+
+		<!-- extract PISA binaries -->
+		<unzip src="${build}/spam_win.zip" dest="${build}" />
+		<unzip src="${build}/shv_win.zip" dest="${build}/shv_win/" />
+		<unzip src="${build}/sibea_win.zip" dest="${build}/sibea_win/" />
+		<unzip src="${build}/hype_win.zip" dest="${build}/hype_win/" />
+		<unzip src="${build}/semo_win.zip" dest="${build}" />
+		<unzip src="${build}/semo2_win.zip" dest="${build}" />
+		<unzip src="${build}/femo_win.zip" dest="${build}" />
+		<unzip src="${build}/spea2_win.zip" dest="${build}" />
+		<unzip src="${build}/nsga2_win.zip" dest="${build}" />
+		<unzip src="${build}/ecea_win.zip" dest="${build}" />
+		<unzip src="${build}/ibea_win.zip" dest="${build}" />
+		<unzip src="${build}/msops_win.zip" dest="${build}" />
+		<untar src="${build}/epsmoea_win.tar.gz" compression="gzip" dest="${build}" />
+
+		<!-- delete compressed files -->
+		<delete>
+			<fileset includes="*.zip,*.tar.gz" dir="${build}" />
+		</delete>
+
+		<!-- move PISA binaries to pisa folder -->
+		<delete dir="pisa" />
+		<mkdir dir="pisa" />
+
+		<move todir="pisa">
+			<fileset includes="**/*" dir="${build}" />
+		</move>
+	</target>
+
+	<!-- Downloads and extracts all PISA selectors for Linux -->
+	<target name="download-pisa-linux" 
+			description="Downloads all PISA selectors for Linux">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+
+		<!-- download PISA binaries -->
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/spam/spam_linux_32.tar.gz" dest="${build}" />
+		<!--<get src="http://www.tik.ee.ethz.ch/pisa/selectors/shv/shv_linux32.rar" dest="${build}" />-->
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/sibea/sibea_binary.zip" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/hype/hype_linux_32.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/lotz_semo/semo_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/semo2/semo2_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/femo/femo_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/spea2/spea2_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/nsga2/nsga2_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/ecea/ecea_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/ibea/ibea_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/msops/msops_linux.tar.gz" dest="${build}" />
+		<get src="http://www.tik.ee.ethz.ch/pisa/selectors/epsmoea/epsmoea_linux.tar.gz" dest="${build}" />
+
+		<!-- extract PISA binaries -->
+		<untar src="${build}/spam_linux_32.tar.gz" compression="gzip" dest="${build}/spam_linux" />
+		<unzip src="${build}/sibea_binary.zip" dest="${build}/sibea_linux" />
+		<untar src="${build}/hype_linux_32.tar.gz" compression="gzip" dest="${build}/hype_linux" />
+		<untar src="${build}/semo_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/semo2_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/femo_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/spea2_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/nsga2_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/ecea_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/ibea_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/msops_linux.tar.gz" compression="gzip" dest="${build}" />
+		<untar src="${build}/epsmoea_linux.tar.gz" compression="gzip" dest="${build}" />
+
+		<echo message="Note: SHV must be manually extracted" />
+
+		<!--
+		<exec executable="unrar" failifexecutionfails="false">
+			<arg value="${build}/shv_linux32.rar" />
+			<arg value="${build}/shv_linux" />
+		</exec>
+		-->
+
+		<chmod perm="+x">
+			<fileset dir="${build}" includes="**/*.sh" />
+			<fileset file="${build}/spam_linux/spam" />
+			<fileset file="${build}/hype_linux/hype" />
+			<fileset file="${build}/semo_linux/semo" />
+			<fileset file="${build}/semo2_linux/semo2" />
+			<fileset file="${build}/femo_linux/femo" />
+			<fileset file="${build}/spea2_linux/spea2" />
+			<fileset file="${build}/nsga2_linux/nsga2" />
+			<fileset file="${build}/ecea_linux/ecea" />
+			<fileset file="${build}/ibea_linux/ibea" />
+			<fileset file="${build}/msops_linux/msops" />
+			<fileset file="${build}/epsmoea_linux/epsmoea" />
+			<!--<fileset file="${build}/shv_linux/shv" />-->
+		</chmod>
+
+		<!-- delete compressed files -->
+		<delete>
+			<fileset includes="*.zip,*.tar.gz" dir="${build}" />
+		</delete>
+
+		<!-- move PISA binaries to pisa folder -->
+		<delete dir="pisa" />
+		<mkdir dir="pisa" />
+
+		<move todir="pisa">
+			<fileset includes="**/*" dir="${build}" />
+		</move>
+	</target>
+	
+	<!-- Builds the user manual, converting from LaTeX to a PDF -->
+	<target name="package-manual" description="Builds the user manual">
+		<tstamp />
+		
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+
+		<copy todir="${build}">
+			<fileset dir="manual" />
+		</copy>
+		
+		<replace dir="${build}">
+			<replacefilter token="%VERSION%" value="${version}" />
+			<replacefilter token="%DATE%" value="${TODAY}" />
+		</replace>
+		
+		<exec executable="pdflatex" dir="${build}" failonerror="true">
+			<arg value="manual" />
+		</exec>
+		
+		<exec executable="makeindex" dir="${build}" failonerror="true">
+			<arg value="manual" />
+		</exec>
+		
+		<exec executable="pdflatex" dir="${build}" failonerror="true">
+			<arg value="manual" />
+		</exec>
+		
+		<move file="${build}/manual.pdf" 
+				tofile="${dist}/${shortname}-${version}-Manual.pdf" />
+	</target>
+	
+</project>

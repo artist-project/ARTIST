@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.emf.henshin.sdk"
+      label="%featureName"
+      version="1.1.0.qualifier"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2010-2014 Henshin developers. All rights reserved. 
+This program and the accompanying materials are made available 
+under the terms of the Eclipse Public License v1.0 which 
+accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://www.eclipse.org/modeling/emft/updates/"/>
+      <discovery label="%updateSiteName" url="http://www.eclipse.org/modeling/emft/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.editor" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.forms" version="3.5.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.ui.ide" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.navigator"/>
+      <import plugin="org.eclipse.ui.navigator.resources"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.core"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.commands.core"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.ui.properties"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.properties"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.providers.ide"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.render"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide"/>
+      <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
+      <import plugin="org.eclipse.draw2d" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gef" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation"/>
+      <import plugin="org.eclipse.emf.ecore.change" version="2.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.compare" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.compare" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common.ui" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.help" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.codegen.ecore" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.compare.edit" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.compare.ide" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.compare.ide.ui" version="3.0.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.emf.henshin.model"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.edit"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.editor"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.diagram"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.interpreter"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.interpreter.ui"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.examples"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.statespace"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.statespace.explorer"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.statespace.external"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.trace"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.henshin.wrap"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.qualifier"
+         unpack="false"/>
+
+</feature>

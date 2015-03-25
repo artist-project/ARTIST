@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<prob:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:prob="http://www.eclipse.org/emf/henshin/2012/probbroadcast" xsi:schemaLocation="http://www.eclipse.org/emf/henshin/2012/probbroadcast probbroadcast.ecore">
+  <nodes connected="//@nodes.1 //@nodes.4">
+    <messages/>
+  </nodes>
+  <nodes id="1" connected="//@nodes.0 //@nodes.2 //@nodes.5"/>
+  <nodes id="2" connected="//@nodes.1 //@nodes.3 //@nodes.6"/>
+  <nodes id="3" connected="//@nodes.2 //@nodes.7"/>
+  <nodes id="4" connected="//@nodes.5 //@nodes.0 //@nodes.8"/>
+  <nodes id="5" connected="//@nodes.4 //@nodes.6 //@nodes.1 //@nodes.9"/>
+  <nodes id="6" connected="//@nodes.5 //@nodes.7 //@nodes.2 //@nodes.10"/>
+  <nodes id="7" connected="//@nodes.6 //@nodes.3 //@nodes.11"/>
+  <nodes id="8" connected="//@nodes.9 //@nodes.4 //@nodes.12"/>
+  <nodes id="9" connected="//@nodes.8 //@nodes.10 //@nodes.5 //@nodes.13"/>
+  <nodes id="10" connected="//@nodes.9 //@nodes.11 //@nodes.6 //@nodes.14"/>
+  <nodes id="11" connected="//@nodes.10 //@nodes.7 //@nodes.15"/>
+  <nodes id="12" connected="//@nodes.13 //@nodes.8"/>
+  <nodes id="13" connected="//@nodes.12 //@nodes.14 //@nodes.9"/>
+  <nodes id="14" connected="//@nodes.13 //@nodes.15 //@nodes.10"/>
+  <nodes id="15" connected="//@nodes.14 //@nodes.11"/>
+</prob:Network>

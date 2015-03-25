@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_-Wb0MD_XEeSHs-zMvl09xw">
+  <imports href="architecture.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_CJz_MD_YEeSHs-zMvl09xw" name="createClass">
+    <parameters xmi:id="_3viQUD_lEeSHs-zMvl09xw" name="className">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_CKAMcz_YEeSHs-zMvl09xw" name="Lhs">
+      <nodes xmi:id="_F7rHQD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_OQfdID_YEeSHs-zMvl09xw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_OQfdIT_YEeSHs-zMvl09xw">
+          <conclusion xmi:id="_OQfdIj_YEeSHs-zMvl09xw">
+            <nodes xmi:id="_OQfdIz_YEeSHs-zMvl09xw" outgoing="_NqudoD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//ArchitectureModel"/>
+            </nodes>
+            <nodes xmi:id="_JlIhQD_YEeSHs-zMvl09xw" incoming="_NqudoD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//Class"/>
+              <attributes xmi:id="_Lc0boD_YEeSHs-zMvl09xw" value="className">
+                <type href="architecture.ecore#//Class/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_NqudoD_YEeSHs-zMvl09xw" source="_OQfdIz_YEeSHs-zMvl09xw" target="_JlIhQD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//ArchitectureModel/classes"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_OQfdJD_YEeSHs-zMvl09xw" origin="_F7rHQD_YEeSHs-zMvl09xw" image="_OQfdIz_YEeSHs-zMvl09xw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_CKAMdD_YEeSHs-zMvl09xw" name="Rhs">
+      <nodes xmi:id="_F7rHQT_YEeSHs-zMvl09xw" outgoing="_MITooD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_G9eigD_YEeSHs-zMvl09xw" incoming="_MITooD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_H6CRYD_YEeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_MITooD_YEeSHs-zMvl09xw" source="_F7rHQT_YEeSHs-zMvl09xw" target="_G9eigD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_F7rHQj_YEeSHs-zMvl09xw" origin="_F7rHQD_YEeSHs-zMvl09xw" image="_F7rHQT_YEeSHs-zMvl09xw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_f2fqgD_YEeSHs-zMvl09xw" name="assignClass">
+    <parameters xmi:id="_Ko6pwD_pEeSHs-zMvl09xw" name="className">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_Ko9tED_pEeSHs-zMvl09xw" name="componentName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_f2r3wD_YEeSHs-zMvl09xw" name="Lhs">
+      <nodes xmi:id="_oEu3Qz_YEeSHs-zMvl09xw" name="root" outgoing="_pfVNAz_YEeSHs-zMvl09xw _rlm9Az_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_pfVNAD_YEeSHs-zMvl09xw" name="clazz" incoming="_pfVNAz_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_LbhLYD_pEeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_rlm9AD_YEeSHs-zMvl09xw" name="component" incoming="_rlm9Az_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_MeoOMD_pEeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_pfVNAz_YEeSHs-zMvl09xw" source="_oEu3Qz_YEeSHs-zMvl09xw" target="_pfVNAD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_rlm9Az_YEeSHs-zMvl09xw" source="_oEu3Qz_YEeSHs-zMvl09xw" target="_rlm9AD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_cWndQE_REeSxYupahjqKOA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_cWndQU_REeSxYupahjqKOA">
+          <conclusion xmi:id="_cWndQk_REeSxYupahjqKOA">
+            <nodes xmi:id="_cWndQ0_REeSxYupahjqKOA" name="root" outgoing="_cWndSE_REeSxYupahjqKOA _cWndTE_REeSxYupahjqKOA _qyrrQj_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//ArchitectureModel"/>
+            </nodes>
+            <nodes xmi:id="_cWndRU_REeSxYupahjqKOA" name="clazz" incoming="_cWndSE_REeSxYupahjqKOA" outgoing="_wvMtAD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//Class"/>
+              <attributes xmi:id="_cWndRk_REeSxYupahjqKOA" value="className">
+                <type href="architecture.ecore#//Class/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_cWndSU_REeSxYupahjqKOA" name="component" incoming="_cWndTE_REeSxYupahjqKOA">
+              <type href="architecture.ecore#//Component"/>
+              <attributes xmi:id="_cWndSk_REeSxYupahjqKOA" value="componentName">
+                <type href="architecture.ecore#//Component/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_qylkoD_YEeSHs-zMvl09xw" name="assignedComponent" description="" incoming="_qyrrQj_YEeSHs-zMvl09xw _wvMtAD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//Component"/>
+            </nodes>
+            <edges xmi:id="_cWndSE_REeSxYupahjqKOA" source="_cWndQ0_REeSxYupahjqKOA" target="_cWndRU_REeSxYupahjqKOA">
+              <type href="architecture.ecore#//ArchitectureModel/classes"/>
+            </edges>
+            <edges xmi:id="_cWndTE_REeSxYupahjqKOA" source="_cWndQ0_REeSxYupahjqKOA" target="_cWndSU_REeSxYupahjqKOA">
+              <type href="architecture.ecore#//ArchitectureModel/components"/>
+            </edges>
+            <edges xmi:id="_qyrrQj_YEeSHs-zMvl09xw" source="_cWndQ0_REeSxYupahjqKOA" target="_qylkoD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//ArchitectureModel/components"/>
+            </edges>
+            <edges xmi:id="_wvMtAD_YEeSHs-zMvl09xw" source="_cWndRU_REeSxYupahjqKOA" target="_qylkoD_YEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//Class/isEncapsulatedBy"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_cWndRE_REeSxYupahjqKOA" origin="_oEu3Qz_YEeSHs-zMvl09xw" image="_cWndQ0_REeSxYupahjqKOA"/>
+          <mappings xmi:id="_cWndR0_REeSxYupahjqKOA" origin="_pfVNAD_YEeSHs-zMvl09xw" image="_cWndRU_REeSxYupahjqKOA"/>
+          <mappings xmi:id="_cWndS0_REeSxYupahjqKOA" origin="_rlm9AD_YEeSHs-zMvl09xw" image="_cWndSU_REeSxYupahjqKOA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_f2r3wT_YEeSHs-zMvl09xw" name="Rhs">
+      <nodes xmi:id="_oEu3RD_YEeSHs-zMvl09xw" name="root" outgoing="_pfVNBD_YEeSHs-zMvl09xw _rlm9BD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_pfVNAT_YEeSHs-zMvl09xw" name="clazz" incoming="_pfVNBD_YEeSHs-zMvl09xw" outgoing="_3NkeoD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_LbjnoD_pEeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_rlm9AT_YEeSHs-zMvl09xw" name="component" incoming="_rlm9BD_YEeSHs-zMvl09xw _3NkeoD_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_MeoOMT_pEeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_pfVNBD_YEeSHs-zMvl09xw" source="_oEu3RD_YEeSHs-zMvl09xw" target="_pfVNAT_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_rlm9BD_YEeSHs-zMvl09xw" source="_oEu3RD_YEeSHs-zMvl09xw" target="_rlm9AT_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+      <edges xmi:id="_3NkeoD_YEeSHs-zMvl09xw" source="_pfVNAT_YEeSHs-zMvl09xw" target="_rlm9AT_YEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class/isEncapsulatedBy"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_oEu3RT_YEeSHs-zMvl09xw" origin="_oEu3Qz_YEeSHs-zMvl09xw" image="_oEu3RD_YEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_pfVNAj_YEeSHs-zMvl09xw" origin="_pfVNAD_YEeSHs-zMvl09xw" image="_pfVNAT_YEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_rlm9Aj_YEeSHs-zMvl09xw" origin="_rlm9AD_YEeSHs-zMvl09xw" image="_rlm9AT_YEeSHs-zMvl09xw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_rITm4D_hEeSHs-zMvl09xw" name="createComponent">
+    <parameters xmi:id="_cACe4D_vEeSHs-zMvl09xw" name="componentName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_rIZGcD_hEeSHs-zMvl09xw" name="Lhs">
+      <nodes xmi:id="_uXm0cD_hEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_zyTikD_hEeSHs-zMvl09xw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_zyTikT_hEeSHs-zMvl09xw">
+          <conclusion xmi:id="_zyTikj_hEeSHs-zMvl09xw">
+            <nodes xmi:id="_zyUJoD_hEeSHs-zMvl09xw" outgoing="_wJfo0D_hEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//ArchitectureModel"/>
+            </nodes>
+            <nodes xmi:id="_ux3HgD_hEeSHs-zMvl09xw" incoming="_wJfo0D_hEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//Component"/>
+              <attributes xmi:id="_0TjOcD_hEeSHs-zMvl09xw" value="componentName">
+                <type href="architecture.ecore#//Component/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_wJfo0D_hEeSHs-zMvl09xw" source="_zyUJoD_hEeSHs-zMvl09xw" target="_ux3HgD_hEeSHs-zMvl09xw">
+              <type href="architecture.ecore#//ArchitectureModel/components"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_zyUJoT_hEeSHs-zMvl09xw" origin="_uXm0cD_hEeSHs-zMvl09xw" image="_zyUJoD_hEeSHs-zMvl09xw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_rIZGcT_hEeSHs-zMvl09xw" name="Rhs">
+      <nodes xmi:id="_uXm0cT_hEeSHs-zMvl09xw" outgoing="_vjkRQD_hEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_vCmSMD_hEeSHs-zMvl09xw" incoming="_vjkRQD_hEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_0iKSMD_hEeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_vjkRQD_hEeSHs-zMvl09xw" source="_uXm0cT_hEeSHs-zMvl09xw" target="_vCmSMD_hEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_uXm0cj_hEeSHs-zMvl09xw" origin="_uXm0cD_hEeSHs-zMvl09xw" image="_uXm0cT_hEeSHs-zMvl09xw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_JEdcID_jEeSHs-zMvl09xw" name="createClassDependency">
+    <parameters xmi:id="_N-QcoD_jEeSHs-zMvl09xw" name="fromClass">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_N-QcoT_jEeSHs-zMvl09xw" name="toClass">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_JEkw4D_jEeSHs-zMvl09xw" name="Lhs">
+      <nodes xmi:id="_N-RqwT_jEeSHs-zMvl09xw" name="root" outgoing="_PpeBQD_jEeSHs-zMvl09xw _QHJbwD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_PpdaMD_jEeSHs-zMvl09xw" incoming="_PpeBQD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_RTprID_jEeSHs-zMvl09xw" value="fromClass">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QHINoD_jEeSHs-zMvl09xw" incoming="_QHJbwD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_Rj6UsD_jEeSHs-zMvl09xw" value="toClass">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_PpeBQD_jEeSHs-zMvl09xw" source="_N-RqwT_jEeSHs-zMvl09xw" target="_PpdaMD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_QHJbwD_jEeSHs-zMvl09xw" source="_N-RqwT_jEeSHs-zMvl09xw" target="_QHINoD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_JEkw4T_jEeSHs-zMvl09xw" name="Rhs">
+      <nodes xmi:id="_N-Rqwj_jEeSHs-zMvl09xw" name="root" outgoing="_PpeBQT_jEeSHs-zMvl09xw _QHJbwT_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_PpdaMT_jEeSHs-zMvl09xw" incoming="_PpeBQT_jEeSHs-zMvl09xw" outgoing="_SU8wED_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_RTprIT_jEeSHs-zMvl09xw" value="fromClass">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_QHI0sD_jEeSHs-zMvl09xw" incoming="_QHJbwT_jEeSHs-zMvl09xw _SU8wED_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_Rj6UsT_jEeSHs-zMvl09xw" value="toClass">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_PpeBQT_jEeSHs-zMvl09xw" source="_N-Rqwj_jEeSHs-zMvl09xw" target="_PpdaMT_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_QHJbwT_jEeSHs-zMvl09xw" source="_N-Rqwj_jEeSHs-zMvl09xw" target="_QHI0sD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_SU8wED_jEeSHs-zMvl09xw" source="_PpdaMT_jEeSHs-zMvl09xw" target="_QHI0sD_jEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class/dependsOn"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_N-Rqwz_jEeSHs-zMvl09xw" origin="_N-RqwT_jEeSHs-zMvl09xw" image="_N-Rqwj_jEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_PpdaMj_jEeSHs-zMvl09xw" origin="_PpdaMD_jEeSHs-zMvl09xw" image="_PpdaMT_jEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_QHI0sT_jEeSHs-zMvl09xw" origin="_QHINoD_jEeSHs-zMvl09xw" image="_QHI0sD_jEeSHs-zMvl09xw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_RDQEYD_zEeSHs-zMvl09xw" name="reassignClass">
+    <parameters xmi:id="_TKDY0D_zEeSHs-zMvl09xw" name="className">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_TKDY0T_zEeSHs-zMvl09xw" name="componentName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_RDYAMD_zEeSHs-zMvl09xw" name="Lhs">
+      <nodes xmi:id="_TKFOAT_zEeSHs-zMvl09xw" name="root" outgoing="_VvX1QD_zEeSHs-zMvl09xw _WeMqID_zEeSHs-zMvl09xw _ItNCoD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_VvUx8D_zEeSHs-zMvl09xw" incoming="_VvX1QD_zEeSHs-zMvl09xw" outgoing="_eSDoAD_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_XC8V8D_zEeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_WeMDED_zEeSHs-zMvl09xw" name="oldComponent" incoming="_WeMqID_zEeSHs-zMvl09xw _eSDoAD_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_ItIxMD_3EeSHs-zMvl09xw" name="newComponent" incoming="_ItNCoD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_Lfnf4D_3EeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_VvX1QD_zEeSHs-zMvl09xw" source="_TKFOAT_zEeSHs-zMvl09xw" target="_VvUx8D_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_WeMqID_zEeSHs-zMvl09xw" source="_TKFOAT_zEeSHs-zMvl09xw" target="_WeMDED_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+      <edges xmi:id="_eSDoAD_zEeSHs-zMvl09xw" source="_VvUx8D_zEeSHs-zMvl09xw" target="_WeMDED_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class/isEncapsulatedBy"/>
+      </edges>
+      <edges xmi:id="_ItNCoD_3EeSHs-zMvl09xw" source="_TKFOAT_zEeSHs-zMvl09xw" target="_ItIxMD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_RDYAMT_zEeSHs-zMvl09xw" name="Rhs">
+      <nodes xmi:id="_TKFOAj_zEeSHs-zMvl09xw" name="root" outgoing="_VvX1QT_zEeSHs-zMvl09xw _WeMqIT_zEeSHs-zMvl09xw _ItNCoT_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_VvXOMD_zEeSHs-zMvl09xw" incoming="_VvX1QT_zEeSHs-zMvl09xw" outgoing="_JEorMD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_XC8V8T_zEeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_WeMDET_zEeSHs-zMvl09xw" name="oldComponent" incoming="_WeMqIT_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+      </nodes>
+      <nodes xmi:id="_ItMbkD_3EeSHs-zMvl09xw" name="newComponent" incoming="_ItNCoT_3EeSHs-zMvl09xw _JEorMD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_LfoG8D_3EeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_VvX1QT_zEeSHs-zMvl09xw" source="_TKFOAj_zEeSHs-zMvl09xw" target="_VvXOMD_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_WeMqIT_zEeSHs-zMvl09xw" source="_TKFOAj_zEeSHs-zMvl09xw" target="_WeMDET_zEeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+      <edges xmi:id="_ItNCoT_3EeSHs-zMvl09xw" source="_TKFOAj_zEeSHs-zMvl09xw" target="_ItMbkD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+      <edges xmi:id="_JEorMD_3EeSHs-zMvl09xw" source="_VvXOMD_zEeSHs-zMvl09xw" target="_ItMbkD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class/isEncapsulatedBy"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_TKFOAz_zEeSHs-zMvl09xw" origin="_TKFOAT_zEeSHs-zMvl09xw" image="_TKFOAj_zEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_VvXOMT_zEeSHs-zMvl09xw" origin="_VvUx8D_zEeSHs-zMvl09xw" image="_VvXOMD_zEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_WeMDEj_zEeSHs-zMvl09xw" origin="_WeMDED_zEeSHs-zMvl09xw" image="_WeMDET_zEeSHs-zMvl09xw"/>
+    <mappings xmi:id="_ItMbkT_3EeSHs-zMvl09xw" origin="_ItIxMD_3EeSHs-zMvl09xw" image="_ItMbkD_3EeSHs-zMvl09xw"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_b7rpsD_3EeSHs-zMvl09xw" name="removeAssignment">
+    <parameters xmi:id="_b7rpsT_3EeSHs-zMvl09xw" name="className">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_b7rpsj_3EeSHs-zMvl09xw" name="componentName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_b7rpsz_3EeSHs-zMvl09xw" name="Lhs">
+      <nodes xmi:id="_b7rptD_3EeSHs-zMvl09xw" name="root" outgoing="_b7rpuj_3EeSHs-zMvl09xw _b7rpuz_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_b7rptT_3EeSHs-zMvl09xw" incoming="_b7rpuj_3EeSHs-zMvl09xw" outgoing="_b7rpvD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_b7rptj_3EeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_b7rptz_3EeSHs-zMvl09xw" name="oldComponent" incoming="_b7rpuz_3EeSHs-zMvl09xw _b7rpvD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_h7wVwD_3EeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_b7rpuj_3EeSHs-zMvl09xw" source="_b7rptD_3EeSHs-zMvl09xw" target="_b7rptT_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_b7rpuz_3EeSHs-zMvl09xw" source="_b7rptD_3EeSHs-zMvl09xw" target="_b7rptz_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+      <edges xmi:id="_b7rpvD_3EeSHs-zMvl09xw" source="_b7rptT_3EeSHs-zMvl09xw" target="_b7rptz_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class/isEncapsulatedBy"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_b7rpvj_3EeSHs-zMvl09xw" name="Rhs">
+      <nodes xmi:id="_b7rpvz_3EeSHs-zMvl09xw" name="root" outgoing="_b7rpxT_3EeSHs-zMvl09xw _b7rpxj_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel"/>
+      </nodes>
+      <nodes xmi:id="_b7rpwD_3EeSHs-zMvl09xw" incoming="_b7rpxT_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Class"/>
+        <attributes xmi:id="_b7rpwT_3EeSHs-zMvl09xw" value="className">
+          <type href="architecture.ecore#//Class/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_b7rpwj_3EeSHs-zMvl09xw" name="oldComponent" incoming="_b7rpxj_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//Component"/>
+        <attributes xmi:id="_h7wVwT_3EeSHs-zMvl09xw" value="componentName">
+          <type href="architecture.ecore#//Component/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_b7rpxT_3EeSHs-zMvl09xw" source="_b7rpvz_3EeSHs-zMvl09xw" target="_b7rpwD_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/classes"/>
+      </edges>
+      <edges xmi:id="_b7rpxj_3EeSHs-zMvl09xw" source="_b7rpvz_3EeSHs-zMvl09xw" target="_b7rpwj_3EeSHs-zMvl09xw">
+        <type href="architecture.ecore#//ArchitectureModel/components"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_b7rpyT_3EeSHs-zMvl09xw" origin="_b7rptD_3EeSHs-zMvl09xw" image="_b7rpvz_3EeSHs-zMvl09xw"/>
+    <mappings xmi:id="_b7rpyj_3EeSHs-zMvl09xw" origin="_b7rptT_3EeSHs-zMvl09xw" image="_b7rpwD_3EeSHs-zMvl09xw"/>
+    <mappings xmi:id="_b7rpyz_3EeSHs-zMvl09xw" origin="_b7rptz_3EeSHs-zMvl09xw" image="_b7rpwj_3EeSHs-zMvl09xw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_r_94waMdEeGKmOPbc3bMpQ" name="transformation system">
+  <imports href="java.ecore#/0"/>
+  <imports href="java.ecore#/1"/>
+  <imports href="java.ecore#/2"/>
+  <imports href="java.ecore#/3"/>
+  <imports href="java.ecore#/4"/>
+  <imports href="java.ecore#/5"/>
+  <imports href="java.ecore#/6"/>
+  <imports href="java.ecore#/7"/>
+  <imports href="java.ecore#/8"/>
+  <imports href="java.ecore#/9"/>
+  <imports href="java.ecore#/10"/>
+  <imports href="java.ecore#/11"/>
+  <imports href="java.ecore#/12"/>
+  <imports href="java.ecore#/13"/>
+  <imports href="java.ecore#/14"/>
+  <imports href="java.ecore#/15"/>
+  <imports href="java.ecore#/16"/>
+  <imports href="java.ecore#/17"/>
+  <imports href="statemachine.ecore#/"/>
+  <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_sI9csKMdEeGKmOPbc3bMpQ" name="init">
+    <parameters xmi:id="_sI9csaMdEeGKmOPbc3bMpQ" name="sm"/>
+    <parameters xmi:id="_sI9csqMdEeGKmOPbc3bMpQ" name="class"/>
+    <lhs xmi:id="_sI9cs6MdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI9ctKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI9ctaMdEeGKmOPbc3bMpQ" value="&quot;State&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_sI9ctqMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI9ct6MdEeGKmOPbc3bMpQ" name="sm">
+        <type href="statemachine.ecore#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_sI9cuKMdEeGKmOPbc3bMpQ" name="class">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI9cuaMdEeGKmOPbc3bMpQ" value="&quot;State&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_sI9cuqMdEeGKmOPbc3bMpQ" origin="_sI9ctKMdEeGKmOPbc3bMpQ" image="_sI9cuKMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI9cu6MdEeGKmOPbc3bMpQ" name="createState">
+    <parameters xmi:id="_sI9cvKMdEeGKmOPbc3bMpQ" name="stateName"/>
+    <parameters xmi:id="_sI9cvaMdEeGKmOPbc3bMpQ" name="class"/>
+    <lhs xmi:id="_sI9cvqMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI9cv6MdEeGKmOPbc3bMpQ" name="class">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI9cwKMdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI9cwaMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//StateMachine"/>
+      </nodes>
+      <formula xsi:type="henshin:And" xmi:id="_sKcqcKMdEeGKmOPbc3bMpQ">
+        <left xsi:type="henshin:Not" xmi:id="_sKqs5KMdEeGKmOPbc3bMpQ">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_sKcqcaMdEeGKmOPbc3bMpQ">
+            <conclusion xmi:id="_sKdRgKMdEeGKmOPbc3bMpQ" name="DuplicateName">
+              <nodes xmi:id="_sKdRgaMdEeGKmOPbc3bMpQ">
+                <type href="statemachine.ecore#//State"/>
+                <attributes xmi:id="_sKdRgqMdEeGKmOPbc3bMpQ" value="stateName">
+                  <type href="statemachine.ecore#//State/name"/>
+                </attributes>
+              </nodes>
+            </conclusion>
+          </child>
+        </left>
+        <right xsi:type="henshin:Not" xmi:id="_sKqs5aMdEeGKmOPbc3bMpQ">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_sKcqcqMdEeGKmOPbc3bMpQ">
+            <conclusion xmi:id="_sKcqc6MdEeGKmOPbc3bMpQ" name="AbstractClass">
+              <nodes xmi:id="_sKcqdaMdEeGKmOPbc3bMpQ" name="stateClass" outgoing="_sKcqdqMdEeGKmOPbc3bMpQ">
+                <type href="java.ecore#/2/Class"/>
+              </nodes>
+              <nodes xmi:id="_sKcqdKMdEeGKmOPbc3bMpQ" incoming="_sKcqdqMdEeGKmOPbc3bMpQ">
+                <type href="java.ecore#/11/Abstract"/>
+              </nodes>
+              <edges xmi:id="_sKcqdqMdEeGKmOPbc3bMpQ" source="_sKcqdaMdEeGKmOPbc3bMpQ" target="_sKcqdKMdEeGKmOPbc3bMpQ">
+                <type href="java.ecore#/11/AnnotableAndModifiable/annotationsAndModifiers"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_sKcqd6MdEeGKmOPbc3bMpQ" origin="_sI9cv6MdEeGKmOPbc3bMpQ" image="_sKcqdaMdEeGKmOPbc3bMpQ"/>
+          </child>
+        </right>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI9cwqMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI9cw6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI9cxKMdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI9cxaMdEeGKmOPbc3bMpQ" outgoing="_sI9cyKMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_sI9cxqMdEeGKmOPbc3bMpQ" incoming="_sI9cyKMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sI9cx6MdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI9cyKMdEeGKmOPbc3bMpQ" source="_sI9cxaMdEeGKmOPbc3bMpQ" target="_sI9cxqMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//StateMachine/states"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI9cyaMdEeGKmOPbc3bMpQ" origin="_sI9cv6MdEeGKmOPbc3bMpQ" image="_sI9cw6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI9cyqMdEeGKmOPbc3bMpQ" origin="_sI9cwaMdEeGKmOPbc3bMpQ" image="_sI9cxaMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI9cy6MdEeGKmOPbc3bMpQ" name="checkClassHasChild">
+    <parameters xmi:id="_sI9czKMdEeGKmOPbc3bMpQ" name="class"/>
+    <parameters xmi:id="_sI9czaMdEeGKmOPbc3bMpQ" name="child"/>
+    <lhs xmi:id="_sI9czqMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI9cz6MdEeGKmOPbc3bMpQ" outgoing="_sI9c06MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+      </nodes>
+      <nodes xmi:id="_sI9c0KMdEeGKmOPbc3bMpQ" incoming="_sI9c06MdEeGKmOPbc3bMpQ" outgoing="_sI9c1KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI9c0aMdEeGKmOPbc3bMpQ" incoming="_sI9c1KMdEeGKmOPbc3bMpQ" outgoing="_sI9c1aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI9c0qMdEeGKmOPbc3bMpQ" name="class" incoming="_sI9c1aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+      </nodes>
+      <edges xmi:id="_sI9c06MdEeGKmOPbc3bMpQ" source="_sI9cz6MdEeGKmOPbc3bMpQ" target="_sI9c0KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class/extends"/>
+      </edges>
+      <edges xmi:id="_sI9c1KMdEeGKmOPbc3bMpQ" source="_sI9c0KMdEeGKmOPbc3bMpQ" target="_sI9c0aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference/classifierReferences"/>
+      </edges>
+      <edges xmi:id="_sI9c1aMdEeGKmOPbc3bMpQ" source="_sI9c0aMdEeGKmOPbc3bMpQ" target="_sI9c0qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference/target"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_sKqs46MdEeGKmOPbc3bMpQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_sI9c1qMdEeGKmOPbc3bMpQ">
+          <conclusion xmi:id="_sI9c16MdEeGKmOPbc3bMpQ" name="">
+            <nodes xmi:id="_sI9c2KMdEeGKmOPbc3bMpQ" incoming="_sI9c2qMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/2/Class"/>
+            </nodes>
+            <nodes xmi:id="_sI9c2aMdEeGKmOPbc3bMpQ" outgoing="_sI9c2qMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_sI9c2qMdEeGKmOPbc3bMpQ" source="_sI9c2aMdEeGKmOPbc3bMpQ" target="_sI9c2KMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_sI9c26MdEeGKmOPbc3bMpQ" origin="_sI9cz6MdEeGKmOPbc3bMpQ" image="_sI9c2KMdEeGKmOPbc3bMpQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI9c3KMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI9c3aMdEeGKmOPbc3bMpQ" name="child" incoming="_sI9c5aMdEeGKmOPbc3bMpQ" outgoing="_sI9c4qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+      </nodes>
+      <nodes xmi:id="_sI9c3qMdEeGKmOPbc3bMpQ" incoming="_sI9c4qMdEeGKmOPbc3bMpQ" outgoing="_sI9c46MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI9c36MdEeGKmOPbc3bMpQ" incoming="_sI9c46MdEeGKmOPbc3bMpQ" outgoing="_sI9c5KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI9c4KMdEeGKmOPbc3bMpQ" incoming="_sI9c5KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+      </nodes>
+      <nodes xmi:id="_sI9c4aMdEeGKmOPbc3bMpQ" outgoing="_sI9c5aMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI9c4qMdEeGKmOPbc3bMpQ" source="_sI9c3aMdEeGKmOPbc3bMpQ" target="_sI9c3qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class/extends"/>
+      </edges>
+      <edges xmi:id="_sI9c46MdEeGKmOPbc3bMpQ" source="_sI9c3qMdEeGKmOPbc3bMpQ" target="_sI9c36MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference/classifierReferences"/>
+      </edges>
+      <edges xmi:id="_sI9c5KMdEeGKmOPbc3bMpQ" source="_sI9c36MdEeGKmOPbc3bMpQ" target="_sI9c4KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference/target"/>
+      </edges>
+      <edges xmi:id="_sI9c5aMdEeGKmOPbc3bMpQ" source="_sI9c4aMdEeGKmOPbc3bMpQ" target="_sI9c3aMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI9c5qMdEeGKmOPbc3bMpQ" origin="_sI9cz6MdEeGKmOPbc3bMpQ" image="_sI9c3aMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI9c56MdEeGKmOPbc3bMpQ" origin="_sI9c0KMdEeGKmOPbc3bMpQ" image="_sI9c3qMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI9c6KMdEeGKmOPbc3bMpQ" origin="_sI9c0aMdEeGKmOPbc3bMpQ" image="_sI9c36MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI9c6aMdEeGKmOPbc3bMpQ" origin="_sI9c0qMdEeGKmOPbc3bMpQ" image="_sI9c4KMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI9c6qMdEeGKmOPbc3bMpQ" name="nextClass">
+    <parameters xmi:id="_sI9c66MdEeGKmOPbc3bMpQ" name="c"/>
+    <parameters xmi:id="_sI-DwKMdEeGKmOPbc3bMpQ" name="stateName"/>
+    <lhs xmi:id="_sI-DwaMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI-DwqMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sI-Dw6MdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-DxKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI-DxaMdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <formula xsi:type="henshin:Not" xmi:id="_sKqF0KMdEeGKmOPbc3bMpQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_sI-DxqMdEeGKmOPbc3bMpQ">
+          <conclusion xmi:id="_sI-Dx6MdEeGKmOPbc3bMpQ" name="default">
+            <nodes xmi:id="_sI-DyKMdEeGKmOPbc3bMpQ" incoming="_sI-DyqMdEeGKmOPbc3bMpQ">
+              <type href="statemachine.ecore#//State"/>
+            </nodes>
+            <nodes xmi:id="_sI-DyaMdEeGKmOPbc3bMpQ" outgoing="_sI-DyqMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_sI-DyqMdEeGKmOPbc3bMpQ" source="_sI-DyaMdEeGKmOPbc3bMpQ" target="_sI-DyKMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_sI-Dy6MdEeGKmOPbc3bMpQ" origin="_sI-DwqMdEeGKmOPbc3bMpQ" image="_sI-DyKMdEeGKmOPbc3bMpQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI-DzKMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI-DzaMdEeGKmOPbc3bMpQ" incoming="_sI-D0qMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sI-DzqMdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-Dz6MdEeGKmOPbc3bMpQ" name="c">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI-D0KMdEeGKmOPbc3bMpQ" value="stateName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-D0aMdEeGKmOPbc3bMpQ" outgoing="_sI-D0qMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI-D0qMdEeGKmOPbc3bMpQ" source="_sI-D0aMdEeGKmOPbc3bMpQ" target="_sI-DzaMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI-D06MdEeGKmOPbc3bMpQ" origin="_sI-DxKMdEeGKmOPbc3bMpQ" image="_sI-Dz6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-D1KMdEeGKmOPbc3bMpQ" origin="_sI-DwqMdEeGKmOPbc3bMpQ" image="_sI-DzaMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI-D1aMdEeGKmOPbc3bMpQ" name="nextClassMethod">
+    <parameters xmi:id="_sI-D1qMdEeGKmOPbc3bMpQ" name="cm"/>
+    <parameters xmi:id="_sI-D16MdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameters xmi:id="_sI-D2KMdEeGKmOPbc3bMpQ" name="cmName"/>
+    <lhs xmi:id="_sI-D2aMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI-D2qMdEeGKmOPbc3bMpQ" name="baseClass" outgoing="_sI-D3aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+      </nodes>
+      <nodes xmi:id="_sI-D26MdEeGKmOPbc3bMpQ" incoming="_sI-D3aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI-D3KMdEeGKmOPbc3bMpQ" value="cmName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI-D3aMdEeGKmOPbc3bMpQ" source="_sI-D2qMdEeGKmOPbc3bMpQ" target="_sI-D26MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/MemberContainer/members"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_sKqF06MdEeGKmOPbc3bMpQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_sI-D3qMdEeGKmOPbc3bMpQ">
+          <conclusion xmi:id="_sI-D36MdEeGKmOPbc3bMpQ" name="default">
+            <nodes xmi:id="_sI-D4KMdEeGKmOPbc3bMpQ" outgoing="_sI-D5KMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_sI-D4aMdEeGKmOPbc3bMpQ" incoming="_sI-D46MdEeGKmOPbc3bMpQ _sI-D5KMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/10/ClassMethod"/>
+            </nodes>
+            <nodes xmi:id="_sI-D4qMdEeGKmOPbc3bMpQ" outgoing="_sI-D46MdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/2/Class"/>
+            </nodes>
+            <edges xmi:id="_sI-D46MdEeGKmOPbc3bMpQ" source="_sI-D4qMdEeGKmOPbc3bMpQ" target="_sI-D4aMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/10/MemberContainer/members"/>
+            </edges>
+            <edges xmi:id="_sI-D5KMdEeGKmOPbc3bMpQ" source="_sI-D4KMdEeGKmOPbc3bMpQ" target="_sI-D4aMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_sI-D5aMdEeGKmOPbc3bMpQ" origin="_sI-D26MdEeGKmOPbc3bMpQ" image="_sI-D4aMdEeGKmOPbc3bMpQ"/>
+          <mappings xmi:id="_sI-D5qMdEeGKmOPbc3bMpQ" origin="_sI-D2qMdEeGKmOPbc3bMpQ" image="_sI-D4qMdEeGKmOPbc3bMpQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI-D56MdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI-D6KMdEeGKmOPbc3bMpQ" outgoing="_sI-D7KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+      </nodes>
+      <nodes xmi:id="_sI-D6aMdEeGKmOPbc3bMpQ" name="cm" incoming="_sI-D7KMdEeGKmOPbc3bMpQ _sI-D7aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI-D6qMdEeGKmOPbc3bMpQ" value="cmName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-D66MdEeGKmOPbc3bMpQ" outgoing="_sI-D7aMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI-D7KMdEeGKmOPbc3bMpQ" source="_sI-D6KMdEeGKmOPbc3bMpQ" target="_sI-D6aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/MemberContainer/members"/>
+      </edges>
+      <edges xmi:id="_sI-D7aMdEeGKmOPbc3bMpQ" source="_sI-D66MdEeGKmOPbc3bMpQ" target="_sI-D6aMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <attributeConditions xmi:id="_sI-D7qMdEeGKmOPbc3bMpQ" name="NoInstanceMethod" conditionText="cmName!=&quot;Instance&quot;"/>
+    <mappings xmi:id="_sI-D76MdEeGKmOPbc3bMpQ" origin="_sI-D2qMdEeGKmOPbc3bMpQ" image="_sI-D6KMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-D8KMdEeGKmOPbc3bMpQ" origin="_sI-D26MdEeGKmOPbc3bMpQ" image="_sI-D6aMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI-D8aMdEeGKmOPbc3bMpQ" name="createTransition">
+    <parameters xmi:id="_sI-D8qMdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameters xmi:id="_sI-D86MdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI-D9KMdEeGKmOPbc3bMpQ" name="trigger"/>
+    <parameters xmi:id="_sI-D9aMdEeGKmOPbc3bMpQ" name="srcName"/>
+    <parameters xmi:id="_sI-D9qMdEeGKmOPbc3bMpQ" name="trgName"/>
+    <lhs xmi:id="_sI-D96MdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI-D-KMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-ECaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement"/>
+      </nodes>
+      <nodes xmi:id="_sI-D-aMdEeGKmOPbc3bMpQ" incoming="_sI-ECaMdEeGKmOPbc3bMpQ" outgoing="_sI-ECqMdEeGKmOPbc3bMpQ _sI-EDKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI-D-qMdEeGKmOPbc3bMpQ" incoming="_sI-ECqMdEeGKmOPbc3bMpQ" outgoing="_sI-EC6MdEeGKmOPbc3bMpQ _sI-EDaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/MethodCall"/>
+      </nodes>
+      <nodes xmi:id="_sI-D-6MdEeGKmOPbc3bMpQ" incoming="_sI-EC6MdEeGKmOPbc3bMpQ" outgoing="_sI-EDqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/MethodCall"/>
+      </nodes>
+      <nodes xmi:id="_sI-D_KMdEeGKmOPbc3bMpQ" incoming="_sI-EDaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI-D_aMdEeGKmOPbc3bMpQ" value="&quot;Instance&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-D_qMdEeGKmOPbc3bMpQ" incoming="_sI-EDqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI-D_6MdEeGKmOPbc3bMpQ" value="&quot;activate&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EAKMdEeGKmOPbc3bMpQ" incoming="_sI-EDKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI-EAaMdEeGKmOPbc3bMpQ" value="trgName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EAqMdEeGKmOPbc3bMpQ" name="baseClass">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI-EA6MdEeGKmOPbc3bMpQ" value="srcName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EBKMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_sI-EBaMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sI-EBqMdEeGKmOPbc3bMpQ" value="srcName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EB6MdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sI-ECKMdEeGKmOPbc3bMpQ" value="trgName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI-ECaMdEeGKmOPbc3bMpQ" source="_sI-D-KMdEeGKmOPbc3bMpQ" target="_sI-D-aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement/expression"/>
+      </edges>
+      <edges xmi:id="_sI-ECqMdEeGKmOPbc3bMpQ" source="_sI-D-aMdEeGKmOPbc3bMpQ" target="_sI-D-qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Reference/next"/>
+      </edges>
+      <edges xmi:id="_sI-EC6MdEeGKmOPbc3bMpQ" source="_sI-D-qMdEeGKmOPbc3bMpQ" target="_sI-D-6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Reference/next"/>
+      </edges>
+      <edges xmi:id="_sI-EDKMdEeGKmOPbc3bMpQ" source="_sI-D-aMdEeGKmOPbc3bMpQ" target="_sI-EAKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI-EDaMdEeGKmOPbc3bMpQ" source="_sI-D-qMdEeGKmOPbc3bMpQ" target="_sI-D_KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI-EDqMdEeGKmOPbc3bMpQ" source="_sI-D-6MdEeGKmOPbc3bMpQ" target="_sI-D_qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_sKqF1KMdEeGKmOPbc3bMpQ">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_sI-ED6MdEeGKmOPbc3bMpQ">
+          <conclusion xmi:id="_sI-EEKMdEeGKmOPbc3bMpQ" name="default">
+            <nodes xmi:id="_sI-EEaMdEeGKmOPbc3bMpQ" outgoing="_sI-EFKMdEeGKmOPbc3bMpQ _sI-EFaMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_sI-EEqMdEeGKmOPbc3bMpQ" name="parent" incoming="_sI-EFKMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/15/ExpressionStatement"/>
+            </nodes>
+            <nodes xmi:id="_sI-EE6MdEeGKmOPbc3bMpQ" incoming="_sI-EFaMdEeGKmOPbc3bMpQ">
+              <type href="statemachine.ecore#//Transition"/>
+            </nodes>
+            <edges xmi:id="_sI-EFKMdEeGKmOPbc3bMpQ" source="_sI-EEaMdEeGKmOPbc3bMpQ" target="_sI-EEqMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_sI-EFaMdEeGKmOPbc3bMpQ" source="_sI-EEaMdEeGKmOPbc3bMpQ" target="_sI-EE6MdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_sI-EFqMdEeGKmOPbc3bMpQ" origin="_sI-D-KMdEeGKmOPbc3bMpQ" image="_sI-EEqMdEeGKmOPbc3bMpQ"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI-EF6MdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI-EIaMdEeGKmOPbc3bMpQ" incoming="_sI-q1aMdEeGKmOPbc3bMpQ" outgoing="_sI-q0qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement"/>
+      </nodes>
+      <nodes xmi:id="_sI-EHqMdEeGKmOPbc3bMpQ" incoming="_sI-q0qMdEeGKmOPbc3bMpQ" outgoing="_sI-q0aMdEeGKmOPbc3bMpQ _sI-EKaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI-EIqMdEeGKmOPbc3bMpQ" incoming="_sI-q0aMdEeGKmOPbc3bMpQ" outgoing="_sI-q06MdEeGKmOPbc3bMpQ _sI-EJ6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/MethodCall"/>
+      </nodes>
+      <nodes xmi:id="_sI-EJKMdEeGKmOPbc3bMpQ" incoming="_sI-q06MdEeGKmOPbc3bMpQ" outgoing="_sKcDYKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/MethodCall"/>
+      </nodes>
+      <nodes xmi:id="_sI-EGKMdEeGKmOPbc3bMpQ" incoming="_sI-EJ6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI-EGaMdEeGKmOPbc3bMpQ" value="&quot;Instance&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EH6MdEeGKmOPbc3bMpQ" incoming="_sKcDYKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI-EIKMdEeGKmOPbc3bMpQ" value="&quot;activate&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EHKMdEeGKmOPbc3bMpQ" incoming="_sI-EKaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI-EHaMdEeGKmOPbc3bMpQ" value="trgName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EI6MdEeGKmOPbc3bMpQ" outgoing="_sI-q1aMdEeGKmOPbc3bMpQ _sI-EKKMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_sKd4kKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sKd4kaMdEeGKmOPbc3bMpQ" value="srcName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EJaMdEeGKmOPbc3bMpQ" outgoing="_sI-q1KMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_sJLfIKMdEeGKmOPbc3bMpQ" incoming="_sI-q0KMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sJLfIaMdEeGKmOPbc3bMpQ" value="srcName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI-EGqMdEeGKmOPbc3bMpQ" incoming="_sI-EJqMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//State"/>
+        <attributes xmi:id="_sI-EG6MdEeGKmOPbc3bMpQ" value="trgName">
+          <type href="statemachine.ecore#//State/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sJJC4KMdEeGKmOPbc3bMpQ" incoming="_sI-q1KMdEeGKmOPbc3bMpQ _sI-EKKMdEeGKmOPbc3bMpQ" outgoing="_sI-q0KMdEeGKmOPbc3bMpQ _sI-EJqMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//Transition"/>
+        <attributes xmi:id="_sJJC4aMdEeGKmOPbc3bMpQ" value="(trigger==&quot;run&quot;)?&quot;--&quot;:trigger">
+          <type href="statemachine.ecore#//Transition/trigger"/>
+        </attributes>
+        <attributes xmi:id="_sJJC4qMdEeGKmOPbc3bMpQ" value="&quot;--&quot;">
+          <type href="statemachine.ecore#//Transition/action"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI-q0qMdEeGKmOPbc3bMpQ" source="_sI-EIaMdEeGKmOPbc3bMpQ" target="_sI-EHqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement/expression"/>
+      </edges>
+      <edges xmi:id="_sI-q0aMdEeGKmOPbc3bMpQ" source="_sI-EHqMdEeGKmOPbc3bMpQ" target="_sI-EIqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Reference/next"/>
+      </edges>
+      <edges xmi:id="_sI-q06MdEeGKmOPbc3bMpQ" source="_sI-EIqMdEeGKmOPbc3bMpQ" target="_sI-EJKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Reference/next"/>
+      </edges>
+      <edges xmi:id="_sI-EKaMdEeGKmOPbc3bMpQ" source="_sI-EHqMdEeGKmOPbc3bMpQ" target="_sI-EHKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI-EJ6MdEeGKmOPbc3bMpQ" source="_sI-EIqMdEeGKmOPbc3bMpQ" target="_sI-EGKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sKcDYKMdEeGKmOPbc3bMpQ" source="_sI-EJKMdEeGKmOPbc3bMpQ" target="_sI-EH6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI-q1aMdEeGKmOPbc3bMpQ" source="_sI-EI6MdEeGKmOPbc3bMpQ" target="_sI-EIaMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_sI-EKKMdEeGKmOPbc3bMpQ" source="_sI-EI6MdEeGKmOPbc3bMpQ" target="_sJJC4KMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_sI-q1KMdEeGKmOPbc3bMpQ" source="_sI-EJaMdEeGKmOPbc3bMpQ" target="_sJJC4KMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//StateMachine/transitions"/>
+      </edges>
+      <edges xmi:id="_sI-q0KMdEeGKmOPbc3bMpQ" source="_sJJC4KMdEeGKmOPbc3bMpQ" target="_sJLfIKMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//Transition/src"/>
+      </edges>
+      <edges xmi:id="_sI-EJqMdEeGKmOPbc3bMpQ" source="_sJJC4KMdEeGKmOPbc3bMpQ" target="_sI-EGqMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//Transition/dst"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI-q1qMdEeGKmOPbc3bMpQ" origin="_sI-D-KMdEeGKmOPbc3bMpQ" image="_sI-EIaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q16MdEeGKmOPbc3bMpQ" origin="_sI-D-aMdEeGKmOPbc3bMpQ" image="_sI-EHqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q2KMdEeGKmOPbc3bMpQ" origin="_sI-D-aMdEeGKmOPbc3bMpQ" image="_sI-EHqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q2aMdEeGKmOPbc3bMpQ" origin="_sI-D-KMdEeGKmOPbc3bMpQ" image="_sI-EIaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q2qMdEeGKmOPbc3bMpQ" origin="_sI-D-qMdEeGKmOPbc3bMpQ" image="_sI-EIqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q26MdEeGKmOPbc3bMpQ" origin="_sI-D-6MdEeGKmOPbc3bMpQ" image="_sI-EJKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q3KMdEeGKmOPbc3bMpQ" origin="_sI-EAKMdEeGKmOPbc3bMpQ" image="_sI-EHKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q3aMdEeGKmOPbc3bMpQ" origin="_sI-D_KMdEeGKmOPbc3bMpQ" image="_sI-EGKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q3qMdEeGKmOPbc3bMpQ" origin="_sI-D_qMdEeGKmOPbc3bMpQ" image="_sI-EH6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q36MdEeGKmOPbc3bMpQ" origin="_sI-EAqMdEeGKmOPbc3bMpQ" image="_sKd4kKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q4KMdEeGKmOPbc3bMpQ" origin="_sI-EBKMdEeGKmOPbc3bMpQ" image="_sI-EJaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q4aMdEeGKmOPbc3bMpQ" origin="_sI-EBaMdEeGKmOPbc3bMpQ" image="_sJLfIKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q4qMdEeGKmOPbc3bMpQ" origin="_sI-EB6MdEeGKmOPbc3bMpQ" image="_sI-EGqMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI-q46MdEeGKmOPbc3bMpQ" name="descendSLC">
+    <parameters xmi:id="_sI-q5KMdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI-q5aMdEeGKmOPbc3bMpQ" name="child"/>
+    <lhs xmi:id="_sI-q5qMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI-q56MdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-q6aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer"/>
+      </nodes>
+      <nodes xmi:id="_sI-q6KMdEeGKmOPbc3bMpQ" name="child" incoming="_sI-q6aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Statement"/>
+      </nodes>
+      <edges xmi:id="_sI-q6aMdEeGKmOPbc3bMpQ" source="_sI-q56MdEeGKmOPbc3bMpQ" target="_sI-q6KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer/statements"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_2rkfUZ1hEeKdv-vVCwrkmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_2rkfUp1hEeKdv-vVCwrkmw">
+          <conclusion xmi:id="_2rkfU51hEeKdv-vVCwrkmw">
+            <nodes xmi:id="_2scpEJ1hEeKdv-vVCwrkmw" name="parent" outgoing="_2sd3MJ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/StatementListContainer"/>
+            </nodes>
+            <nodes xmi:id="_2sdQIZ1hEeKdv-vVCwrkmw" name="child" incoming="_2sd3MJ1hEeKdv-vVCwrkmw _sI-q7qMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/15/Statement"/>
+            </nodes>
+            <nodes xmi:id="_sI-q7KMdEeGKmOPbc3bMpQ" outgoing="_sI-q7qMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_2sd3MJ1hEeKdv-vVCwrkmw" source="_2scpEJ1hEeKdv-vVCwrkmw" target="_2sdQIZ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/StatementListContainer/statements"/>
+            </edges>
+            <edges xmi:id="_sI-q7qMdEeGKmOPbc3bMpQ" source="_sI-q7KMdEeGKmOPbc3bMpQ" target="_2sdQIZ1hEeKdv-vVCwrkmw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_2sdQIJ1hEeKdv-vVCwrkmw" origin="_sI-q56MdEeGKmOPbc3bMpQ" image="_2scpEJ1hEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_2sdQIp1hEeKdv-vVCwrkmw" origin="_sI-q6KMdEeGKmOPbc3bMpQ" image="_2sdQIZ1hEeKdv-vVCwrkmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI-q8KMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI-q8aMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-q9KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer"/>
+      </nodes>
+      <nodes xmi:id="_sI-q8qMdEeGKmOPbc3bMpQ" name="child" incoming="_sI-q9KMdEeGKmOPbc3bMpQ _sI-q9aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Statement"/>
+      </nodes>
+      <nodes xmi:id="_sI-q86MdEeGKmOPbc3bMpQ" outgoing="_sI-q9aMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI-q9KMdEeGKmOPbc3bMpQ" source="_sI-q8aMdEeGKmOPbc3bMpQ" target="_sI-q8qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer/statements"/>
+      </edges>
+      <edges xmi:id="_sI-q9aMdEeGKmOPbc3bMpQ" source="_sI-q86MdEeGKmOPbc3bMpQ" target="_sI-q8qMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI-q9qMdEeGKmOPbc3bMpQ" origin="_sI-q56MdEeGKmOPbc3bMpQ" image="_sI-q8aMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-q96MdEeGKmOPbc3bMpQ" origin="_sI-q6KMdEeGKmOPbc3bMpQ" image="_sI-q8qMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI-q-KMdEeGKmOPbc3bMpQ" name="descendSC">
+    <parameters xmi:id="_sI-q-aMdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI-q-qMdEeGKmOPbc3bMpQ" name="child"/>
+    <lhs xmi:id="_sI-q-6MdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI-q_KMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-q_qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementContainer"/>
+      </nodes>
+      <nodes xmi:id="_sI-q_aMdEeGKmOPbc3bMpQ" name="child" incoming="_sI-q_qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Statement"/>
+      </nodes>
+      <edges xmi:id="_sI-q_qMdEeGKmOPbc3bMpQ" source="_sI-q_KMdEeGKmOPbc3bMpQ" target="_sI-q_aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementContainer/statement"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_4a2EkZ1hEeKdv-vVCwrkmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_4a2Ekp1hEeKdv-vVCwrkmw">
+          <conclusion xmi:id="_4a2Ek51hEeKdv-vVCwrkmw">
+            <nodes xmi:id="_4btAMJ1hEeKdv-vVCwrkmw" name="parent" outgoing="_4btnQp1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/StatementContainer"/>
+            </nodes>
+            <nodes xmi:id="_4btnQJ1hEeKdv-vVCwrkmw" incoming="_4btnQp1hEeKdv-vVCwrkmw _sI-rA6MdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/15/Statement"/>
+            </nodes>
+            <nodes xmi:id="_sI-rAaMdEeGKmOPbc3bMpQ" outgoing="_sI-rA6MdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_4btnQp1hEeKdv-vVCwrkmw" source="_4btAMJ1hEeKdv-vVCwrkmw" target="_4btnQJ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/StatementContainer/statement"/>
+            </edges>
+            <edges xmi:id="_sI-rA6MdEeGKmOPbc3bMpQ" source="_sI-rAaMdEeGKmOPbc3bMpQ" target="_4btnQJ1hEeKdv-vVCwrkmw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_4btAMZ1hEeKdv-vVCwrkmw" origin="_sI-q_KMdEeGKmOPbc3bMpQ" image="_4btAMJ1hEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_4btnQZ1hEeKdv-vVCwrkmw" origin="_sI-q_aMdEeGKmOPbc3bMpQ" image="_4btnQJ1hEeKdv-vVCwrkmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI-rBaMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI-rBqMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-rCaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementContainer"/>
+      </nodes>
+      <nodes xmi:id="_sI-rB6MdEeGKmOPbc3bMpQ" name="child" incoming="_sI-rCaMdEeGKmOPbc3bMpQ _sI-rCqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Statement"/>
+      </nodes>
+      <nodes xmi:id="_sI-rCKMdEeGKmOPbc3bMpQ" outgoing="_sI-rCqMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI-rCaMdEeGKmOPbc3bMpQ" source="_sI-rBqMdEeGKmOPbc3bMpQ" target="_sI-rB6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementContainer/statement"/>
+      </edges>
+      <edges xmi:id="_sI-rCqMdEeGKmOPbc3bMpQ" source="_sI-rCKMdEeGKmOPbc3bMpQ" target="_sI-rB6MdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI-rC6MdEeGKmOPbc3bMpQ" origin="_sI-q_KMdEeGKmOPbc3bMpQ" image="_sI-rBqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-rDKMdEeGKmOPbc3bMpQ" origin="_sI-q_aMdEeGKmOPbc3bMpQ" image="_sI-rB6MdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI-rDaMdEeGKmOPbc3bMpQ" name="descendCondition">
+    <parameters xmi:id="_sI-rDqMdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI-rD6MdEeGKmOPbc3bMpQ" name="child"/>
+    <lhs xmi:id="_sI-rEKMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI-rEaMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-rE6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Condition"/>
+      </nodes>
+      <nodes xmi:id="_sI-rEqMdEeGKmOPbc3bMpQ" name="child" incoming="_sI-rE6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Statement"/>
+      </nodes>
+      <edges xmi:id="_sI-rE6MdEeGKmOPbc3bMpQ" source="_sI-rEaMdEeGKmOPbc3bMpQ" target="_sI-rEqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Condition/elseStatement"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_BgBgYZ1iEeKdv-vVCwrkmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_BgBgYp1iEeKdv-vVCwrkmw">
+          <conclusion xmi:id="_BgBgY51iEeKdv-vVCwrkmw">
+            <nodes xmi:id="_Bg4cAJ1iEeKdv-vVCwrkmw" name="parent" outgoing="_Bg5DEJ1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/Condition"/>
+            </nodes>
+            <nodes xmi:id="_Bg4cAp1iEeKdv-vVCwrkmw" name="child" incoming="_Bg5DEJ1iEeKdv-vVCwrkmw _sI-rGKMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/15/Statement"/>
+            </nodes>
+            <nodes xmi:id="_sI-rFqMdEeGKmOPbc3bMpQ" outgoing="_sI-rGKMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_Bg5DEJ1iEeKdv-vVCwrkmw" source="_Bg4cAJ1iEeKdv-vVCwrkmw" target="_Bg4cAp1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/Condition/elseStatement"/>
+            </edges>
+            <edges xmi:id="_sI-rGKMdEeGKmOPbc3bMpQ" source="_sI-rFqMdEeGKmOPbc3bMpQ" target="_Bg4cAp1iEeKdv-vVCwrkmw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_Bg4cAZ1iEeKdv-vVCwrkmw" origin="_sI-rEaMdEeGKmOPbc3bMpQ" image="_Bg4cAJ1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_Bg4cA51iEeKdv-vVCwrkmw" origin="_sI-rEqMdEeGKmOPbc3bMpQ" image="_Bg4cAp1iEeKdv-vVCwrkmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI-rGqMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI-rG6MdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI-rHqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Condition"/>
+      </nodes>
+      <nodes xmi:id="_sI-rHKMdEeGKmOPbc3bMpQ" name="child" incoming="_sI-rHqMdEeGKmOPbc3bMpQ _sI-rH6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Statement"/>
+      </nodes>
+      <nodes xmi:id="_sI-rHaMdEeGKmOPbc3bMpQ" outgoing="_sI-rH6MdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI-rHqMdEeGKmOPbc3bMpQ" source="_sI-rG6MdEeGKmOPbc3bMpQ" target="_sI-rHKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Condition/elseStatement"/>
+      </edges>
+      <edges xmi:id="_sI-rH6MdEeGKmOPbc3bMpQ" source="_sI-rHaMdEeGKmOPbc3bMpQ" target="_sI-rHKMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI-rIKMdEeGKmOPbc3bMpQ" origin="_sI-rEaMdEeGKmOPbc3bMpQ" image="_sI-rG6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI-rIaMdEeGKmOPbc3bMpQ" origin="_sI-rEqMdEeGKmOPbc3bMpQ" image="_sI-rHKMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI-rIqMdEeGKmOPbc3bMpQ" name="descendTryFinally">
+    <parameters xmi:id="_sI_R4KMdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI_R4aMdEeGKmOPbc3bMpQ" name="child"/>
+    <lhs xmi:id="_sI_R4qMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI_R46MdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI_R5aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock"/>
+      </nodes>
+      <nodes xmi:id="_sI_R5KMdEeGKmOPbc3bMpQ" name="child" incoming="_sI_R5aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Block"/>
+      </nodes>
+      <edges xmi:id="_sI_R5aMdEeGKmOPbc3bMpQ" source="_sI_R46MdEeGKmOPbc3bMpQ" target="_sI_R5KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock/finallyBlock"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_DRoA4Z1iEeKdv-vVCwrkmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_DRoA4p1iEeKdv-vVCwrkmw">
+          <conclusion xmi:id="_DRoA451iEeKdv-vVCwrkmw">
+            <nodes xmi:id="_DSgxsJ1iEeKdv-vVCwrkmw" name="parent" outgoing="_DShYwp1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/TryBlock"/>
+            </nodes>
+            <nodes xmi:id="_DShYwJ1iEeKdv-vVCwrkmw" incoming="_DShYwp1iEeKdv-vVCwrkmw _sI_R6qMdEeGKmOPbc3bMpQ">
+              <type href="java.ecore#/15/Block"/>
+            </nodes>
+            <nodes xmi:id="_sI_R6KMdEeGKmOPbc3bMpQ" outgoing="_sI_R6qMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_DShYwp1iEeKdv-vVCwrkmw" source="_DSgxsJ1iEeKdv-vVCwrkmw" target="_DShYwJ1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/TryBlock/finallyBlock"/>
+            </edges>
+            <edges xmi:id="_sI_R6qMdEeGKmOPbc3bMpQ" source="_sI_R6KMdEeGKmOPbc3bMpQ" target="_DShYwJ1iEeKdv-vVCwrkmw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_DSgxsZ1iEeKdv-vVCwrkmw" origin="_sI_R46MdEeGKmOPbc3bMpQ" image="_DSgxsJ1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_DShYwZ1iEeKdv-vVCwrkmw" origin="_sI_R5KMdEeGKmOPbc3bMpQ" image="_DShYwJ1iEeKdv-vVCwrkmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI_R7KMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI_R7aMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI_R8KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock"/>
+      </nodes>
+      <nodes xmi:id="_sI_R7qMdEeGKmOPbc3bMpQ" name="child" incoming="_sI_R8KMdEeGKmOPbc3bMpQ _sI_R8aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Block"/>
+      </nodes>
+      <nodes xmi:id="_sI_R76MdEeGKmOPbc3bMpQ" outgoing="_sI_R8aMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <edges xmi:id="_sI_R8KMdEeGKmOPbc3bMpQ" source="_sI_R7aMdEeGKmOPbc3bMpQ" target="_sI_R7qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock/finallyBlock"/>
+      </edges>
+      <edges xmi:id="_sI_R8aMdEeGKmOPbc3bMpQ" source="_sI_R76MdEeGKmOPbc3bMpQ" target="_sI_R7qMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI_R8qMdEeGKmOPbc3bMpQ" origin="_sI_R46MdEeGKmOPbc3bMpQ" image="_sI_R7aMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_R86MdEeGKmOPbc3bMpQ" origin="_sI_R5KMdEeGKmOPbc3bMpQ" image="_sI_R7qMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI_R9KMdEeGKmOPbc3bMpQ" name="descendTryCatch">
+    <parameters xmi:id="_sI_R9aMdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI_R9qMdEeGKmOPbc3bMpQ" name="child"/>
+    <parameters xmi:id="_sI_R96MdEeGKmOPbc3bMpQ" name="trigger"/>
+    <lhs xmi:id="_sI_R-KMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI_R-aMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI_SAKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock"/>
+      </nodes>
+      <nodes xmi:id="_sI_R-qMdEeGKmOPbc3bMpQ" name="child" incoming="_sI_SAKMdEeGKmOPbc3bMpQ" outgoing="_sI_SAaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/CatchBlock"/>
+      </nodes>
+      <nodes xmi:id="_sI_R-6MdEeGKmOPbc3bMpQ" name="" incoming="_sI_SAaMdEeGKmOPbc3bMpQ" outgoing="_sI_SAqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/13/OrdinaryParameter"/>
+      </nodes>
+      <nodes xmi:id="_sI_R_KMdEeGKmOPbc3bMpQ" incoming="_sI_SAqMdEeGKmOPbc3bMpQ" outgoing="_sI_SA6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_R_aMdEeGKmOPbc3bMpQ" incoming="_sI_SA6MdEeGKmOPbc3bMpQ" outgoing="_sI_SBKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_R_qMdEeGKmOPbc3bMpQ" incoming="_sI_SBKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI_R_6MdEeGKmOPbc3bMpQ" value="trigger">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI_SAKMdEeGKmOPbc3bMpQ" source="_sI_R-aMdEeGKmOPbc3bMpQ" target="_sI_R-qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock/catcheBlocks"/>
+      </edges>
+      <edges xmi:id="_sI_SAaMdEeGKmOPbc3bMpQ" source="_sI_R-qMdEeGKmOPbc3bMpQ" target="_sI_R-6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/CatchBlock/parameter"/>
+      </edges>
+      <edges xmi:id="_sI_SAqMdEeGKmOPbc3bMpQ" source="_sI_R-6MdEeGKmOPbc3bMpQ" target="_sI_R_KMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/TypedElement/typeReference"/>
+      </edges>
+      <edges xmi:id="_sI_SA6MdEeGKmOPbc3bMpQ" source="_sI_R_KMdEeGKmOPbc3bMpQ" target="_sI_R_aMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference/classifierReferences"/>
+      </edges>
+      <edges xmi:id="_sI_SBKMdEeGKmOPbc3bMpQ" source="_sI_R_aMdEeGKmOPbc3bMpQ" target="_sI_R_qMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference/target"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_Hcqd8Z1iEeKdv-vVCwrkmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_Hcqd8p1iEeKdv-vVCwrkmw">
+          <conclusion xmi:id="_Hcqd851iEeKdv-vVCwrkmw">
+            <nodes xmi:id="_HdinsJ1iEeKdv-vVCwrkmw" name="parent" outgoing="_HdjOwJ1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/TryBlock"/>
+            </nodes>
+            <nodes xmi:id="_Hdinsp1iEeKdv-vVCwrkmw" incoming="_HdjOwJ1iEeKdv-vVCwrkmw _sI_SCaMdEeGKmOPbc3bMpQ" outgoing="_Hdkc4J1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/CatchBlock"/>
+            </nodes>
+            <nodes xmi:id="_sI_SB6MdEeGKmOPbc3bMpQ" outgoing="_sI_SCaMdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_Hdj10Z1iEeKdv-vVCwrkmw" name="" incoming="_Hdkc4J1iEeKdv-vVCwrkmw" outgoing="_Hdkc451iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/13/OrdinaryParameter"/>
+            </nodes>
+            <nodes xmi:id="_Hdkc4Z1iEeKdv-vVCwrkmw" incoming="_Hdkc451iEeKdv-vVCwrkmw" outgoing="_HdlD8p1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/16/NamespaceClassifierReference"/>
+            </nodes>
+            <nodes xmi:id="_HdlD8J1iEeKdv-vVCwrkmw" incoming="_HdlD8p1iEeKdv-vVCwrkmw" outgoing="_HdlrA51iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/16/ClassifierReference"/>
+            </nodes>
+            <nodes xmi:id="_HdlrAJ1iEeKdv-vVCwrkmw" incoming="_HdlrA51iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/2/Class"/>
+              <attributes xmi:id="_HdlrAZ1iEeKdv-vVCwrkmw" value="trigger">
+                <type href="java.ecore#/3/NamedElement/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_HdjOwJ1iEeKdv-vVCwrkmw" source="_HdinsJ1iEeKdv-vVCwrkmw" target="_Hdinsp1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/TryBlock/catcheBlocks"/>
+            </edges>
+            <edges xmi:id="_Hdkc4J1iEeKdv-vVCwrkmw" source="_Hdinsp1iEeKdv-vVCwrkmw" target="_Hdj10Z1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/CatchBlock/parameter"/>
+            </edges>
+            <edges xmi:id="_Hdkc451iEeKdv-vVCwrkmw" source="_Hdj10Z1iEeKdv-vVCwrkmw" target="_Hdkc4Z1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/16/TypedElement/typeReference"/>
+            </edges>
+            <edges xmi:id="_HdlD8p1iEeKdv-vVCwrkmw" source="_Hdkc4Z1iEeKdv-vVCwrkmw" target="_HdlD8J1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/16/NamespaceClassifierReference/classifierReferences"/>
+            </edges>
+            <edges xmi:id="_HdlrA51iEeKdv-vVCwrkmw" source="_HdlD8J1iEeKdv-vVCwrkmw" target="_HdlrAJ1iEeKdv-vVCwrkmw">
+              <type href="java.ecore#/16/ClassifierReference/target"/>
+            </edges>
+            <edges xmi:id="_sI_SCaMdEeGKmOPbc3bMpQ" source="_sI_SB6MdEeGKmOPbc3bMpQ" target="_Hdinsp1iEeKdv-vVCwrkmw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_HdinsZ1iEeKdv-vVCwrkmw" origin="_sI_R-aMdEeGKmOPbc3bMpQ" image="_HdinsJ1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_Hdins51iEeKdv-vVCwrkmw" origin="_sI_R-qMdEeGKmOPbc3bMpQ" image="_Hdinsp1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_Hdj10p1iEeKdv-vVCwrkmw" origin="_sI_R-6MdEeGKmOPbc3bMpQ" image="_Hdj10Z1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_Hdkc4p1iEeKdv-vVCwrkmw" origin="_sI_R_KMdEeGKmOPbc3bMpQ" image="_Hdkc4Z1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_HdlD8Z1iEeKdv-vVCwrkmw" origin="_sI_R_aMdEeGKmOPbc3bMpQ" image="_HdlD8J1iEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_HdlrAp1iEeKdv-vVCwrkmw" origin="_sI_R_qMdEeGKmOPbc3bMpQ" image="_HdlrAJ1iEeKdv-vVCwrkmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI_SC6MdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI_SEaMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI_SGKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock"/>
+      </nodes>
+      <nodes xmi:id="_sI_SE6MdEeGKmOPbc3bMpQ" name="child" incoming="_sI_SGKMdEeGKmOPbc3bMpQ _sI_SFaMdEeGKmOPbc3bMpQ" outgoing="_sI_SFKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/CatchBlock"/>
+      </nodes>
+      <nodes xmi:id="_sI_SDaMdEeGKmOPbc3bMpQ" outgoing="_sI_SFaMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_sI_SEqMdEeGKmOPbc3bMpQ" name="" incoming="_sI_SFKMdEeGKmOPbc3bMpQ" outgoing="_sI_SFqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/13/OrdinaryParameter"/>
+      </nodes>
+      <nodes xmi:id="_sI_SEKMdEeGKmOPbc3bMpQ" incoming="_sI_SFqMdEeGKmOPbc3bMpQ" outgoing="_sI_SF6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SDKMdEeGKmOPbc3bMpQ" incoming="_sI_SF6MdEeGKmOPbc3bMpQ" outgoing="_sJCVMKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SDqMdEeGKmOPbc3bMpQ" incoming="_sJCVMKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Class"/>
+        <attributes xmi:id="_sI_SD6MdEeGKmOPbc3bMpQ" value="trigger">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI_SGKMdEeGKmOPbc3bMpQ" source="_sI_SEaMdEeGKmOPbc3bMpQ" target="_sI_SE6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/TryBlock/catcheBlocks"/>
+      </edges>
+      <edges xmi:id="_sI_SFaMdEeGKmOPbc3bMpQ" source="_sI_SDaMdEeGKmOPbc3bMpQ" target="_sI_SE6MdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_sI_SFKMdEeGKmOPbc3bMpQ" source="_sI_SE6MdEeGKmOPbc3bMpQ" target="_sI_SEqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/CatchBlock/parameter"/>
+      </edges>
+      <edges xmi:id="_sI_SFqMdEeGKmOPbc3bMpQ" source="_sI_SEqMdEeGKmOPbc3bMpQ" target="_sI_SEKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/TypedElement/typeReference"/>
+      </edges>
+      <edges xmi:id="_sI_SF6MdEeGKmOPbc3bMpQ" source="_sI_SEKMdEeGKmOPbc3bMpQ" target="_sI_SDKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/NamespaceClassifierReference/classifierReferences"/>
+      </edges>
+      <edges xmi:id="_sJCVMKMdEeGKmOPbc3bMpQ" source="_sI_SDKMdEeGKmOPbc3bMpQ" target="_sI_SDqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/16/ClassifierReference/target"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI_SGaMdEeGKmOPbc3bMpQ" origin="_sI_R-aMdEeGKmOPbc3bMpQ" image="_sI_SEaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SGqMdEeGKmOPbc3bMpQ" origin="_sI_R-qMdEeGKmOPbc3bMpQ" image="_sI_SE6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SG6MdEeGKmOPbc3bMpQ" origin="_sI_R-6MdEeGKmOPbc3bMpQ" image="_sI_SEqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SHKMdEeGKmOPbc3bMpQ" origin="_sI_R_KMdEeGKmOPbc3bMpQ" image="_sI_SEKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SHaMdEeGKmOPbc3bMpQ" origin="_sI_R_aMdEeGKmOPbc3bMpQ" image="_sI_SDKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SHqMdEeGKmOPbc3bMpQ" origin="_sI_R_qMdEeGKmOPbc3bMpQ" image="_sI_SDqMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI_SH6MdEeGKmOPbc3bMpQ" name="descendSwitch">
+    <parameters xmi:id="_sI_SIKMdEeGKmOPbc3bMpQ" name="parent"/>
+    <parameters xmi:id="_sI_SIaMdEeGKmOPbc3bMpQ" name="child"/>
+    <parameters xmi:id="_sI_SIqMdEeGKmOPbc3bMpQ" name="trigger"/>
+    <lhs xmi:id="_sI_SI6MdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI_SJKMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI_SKaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Switch"/>
+      </nodes>
+      <nodes xmi:id="_sI_SJaMdEeGKmOPbc3bMpQ" name="child" incoming="_sI_SKaMdEeGKmOPbc3bMpQ" outgoing="_sI_SKqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/NormalSwitchCase"/>
+      </nodes>
+      <nodes xmi:id="_sI_SJqMdEeGKmOPbc3bMpQ" incoming="_sI_SKqMdEeGKmOPbc3bMpQ" outgoing="_sI_SK6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SJ6MdEeGKmOPbc3bMpQ" incoming="_sI_SK6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/EnumConstant"/>
+        <attributes xmi:id="_sI_SKKMdEeGKmOPbc3bMpQ" value="trigger">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI_SKaMdEeGKmOPbc3bMpQ" source="_sI_SJKMdEeGKmOPbc3bMpQ" target="_sI_SJaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Switch/cases"/>
+      </edges>
+      <edges xmi:id="_sI_SKqMdEeGKmOPbc3bMpQ" source="_sI_SJaMdEeGKmOPbc3bMpQ" target="_sI_SJqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Conditional/condition"/>
+      </edges>
+      <edges xmi:id="_sI_SK6MdEeGKmOPbc3bMpQ" source="_sI_SJqMdEeGKmOPbc3bMpQ" target="_sI_SJ6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_-VeP8Z1hEeKdv-vVCwrkmw">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_-VeP8p1hEeKdv-vVCwrkmw">
+          <conclusion xmi:id="_-VeP851hEeKdv-vVCwrkmw">
+            <nodes xmi:id="_-WVLkJ1hEeKdv-vVCwrkmw" name="parent" outgoing="_-WVyoZ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/Switch"/>
+            </nodes>
+            <nodes xmi:id="_-WVLkp1hEeKdv-vVCwrkmw" name="child" incoming="_-WVyoZ1hEeKdv-vVCwrkmw _sJBuI6MdEeGKmOPbc3bMpQ" outgoing="_-WXAwJ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/NormalSwitchCase"/>
+            </nodes>
+            <nodes xmi:id="_sJBuIqMdEeGKmOPbc3bMpQ" outgoing="_sJBuI6MdEeGKmOPbc3bMpQ">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_-WWZsZ1hEeKdv-vVCwrkmw" incoming="_-WXAwJ1hEeKdv-vVCwrkmw" outgoing="_-WXn0J1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/14/IdentifierReference"/>
+            </nodes>
+            <nodes xmi:id="_-WXAwZ1hEeKdv-vVCwrkmw" incoming="_-WXn0J1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/10/EnumConstant"/>
+              <attributes xmi:id="_-WXAwp1hEeKdv-vVCwrkmw" value="trigger">
+                <type href="java.ecore#/3/NamedElement/name"/>
+              </attributes>
+            </nodes>
+            <edges xmi:id="_-WVyoZ1hEeKdv-vVCwrkmw" source="_-WVLkJ1hEeKdv-vVCwrkmw" target="_-WVLkp1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/Switch/cases"/>
+            </edges>
+            <edges xmi:id="_-WXAwJ1hEeKdv-vVCwrkmw" source="_-WVLkp1hEeKdv-vVCwrkmw" target="_-WWZsZ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/15/Conditional/condition"/>
+            </edges>
+            <edges xmi:id="_-WXn0J1hEeKdv-vVCwrkmw" source="_-WWZsZ1hEeKdv-vVCwrkmw" target="_-WXAwZ1hEeKdv-vVCwrkmw">
+              <type href="java.ecore#/14/ElementReference/target"/>
+            </edges>
+            <edges xmi:id="_sJBuI6MdEeGKmOPbc3bMpQ" source="_sJBuIqMdEeGKmOPbc3bMpQ" target="_-WVLkp1hEeKdv-vVCwrkmw">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_-WVLkZ1hEeKdv-vVCwrkmw" origin="_sI_SJKMdEeGKmOPbc3bMpQ" image="_-WVLkJ1hEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_-WVyoJ1hEeKdv-vVCwrkmw" origin="_sI_SJaMdEeGKmOPbc3bMpQ" image="_-WVLkp1hEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_-WWZsp1hEeKdv-vVCwrkmw" origin="_sI_SJqMdEeGKmOPbc3bMpQ" image="_-WWZsZ1hEeKdv-vVCwrkmw"/>
+          <mappings xmi:id="_-WXAw51hEeKdv-vVCwrkmw" origin="_sI_SJ6MdEeGKmOPbc3bMpQ" image="_-WXAwZ1hEeKdv-vVCwrkmw"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_sI_SLaMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI_SLqMdEeGKmOPbc3bMpQ" name="parent" outgoing="_sI_SNKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Switch"/>
+      </nodes>
+      <nodes xmi:id="_sI_SL6MdEeGKmOPbc3bMpQ" name="child" incoming="_sI_SNKMdEeGKmOPbc3bMpQ _sI_SNaMdEeGKmOPbc3bMpQ" outgoing="_sI_SNqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/NormalSwitchCase"/>
+      </nodes>
+      <nodes xmi:id="_sI_SMKMdEeGKmOPbc3bMpQ" outgoing="_sI_SNaMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_sI_SMaMdEeGKmOPbc3bMpQ" incoming="_sI_SNqMdEeGKmOPbc3bMpQ" outgoing="_sI_SN6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SMqMdEeGKmOPbc3bMpQ" incoming="_sI_SN6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/EnumConstant"/>
+        <attributes xmi:id="_sI_SM6MdEeGKmOPbc3bMpQ" value="trigger">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI_SNKMdEeGKmOPbc3bMpQ" source="_sI_SLqMdEeGKmOPbc3bMpQ" target="_sI_SL6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Switch/cases"/>
+      </edges>
+      <edges xmi:id="_sI_SNaMdEeGKmOPbc3bMpQ" source="_sI_SMKMdEeGKmOPbc3bMpQ" target="_sI_SL6MdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_sI_SNqMdEeGKmOPbc3bMpQ" source="_sI_SL6MdEeGKmOPbc3bMpQ" target="_sI_SMaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/Conditional/condition"/>
+      </edges>
+      <edges xmi:id="_sI_SN6MdEeGKmOPbc3bMpQ" source="_sI_SMaMdEeGKmOPbc3bMpQ" target="_sI_SMqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI_SOKMdEeGKmOPbc3bMpQ" origin="_sI_SJKMdEeGKmOPbc3bMpQ" image="_sI_SLqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SOaMdEeGKmOPbc3bMpQ" origin="_sI_SJaMdEeGKmOPbc3bMpQ" image="_sI_SL6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SOqMdEeGKmOPbc3bMpQ" origin="_sI_SJqMdEeGKmOPbc3bMpQ" image="_sI_SMaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SO6MdEeGKmOPbc3bMpQ" origin="_sI_SJ6MdEeGKmOPbc3bMpQ" image="_sI_SMqMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_sI_SPKMdEeGKmOPbc3bMpQ" name="updateAction">
+    <parameters xmi:id="_sI_SPaMdEeGKmOPbc3bMpQ" name="actionName"/>
+    <lhs xmi:id="_sI_SPqMdEeGKmOPbc3bMpQ" name="LHS">
+      <nodes xmi:id="_sI_SP6MdEeGKmOPbc3bMpQ" incoming="_sI_STaMdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//Transition"/>
+      </nodes>
+      <nodes xmi:id="_sI_SQKMdEeGKmOPbc3bMpQ" outgoing="_sI_STKMdEeGKmOPbc3bMpQ _sI_STaMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+      </nodes>
+      <nodes xmi:id="_sI_SQaMdEeGKmOPbc3bMpQ" incoming="_sI_STKMdEeGKmOPbc3bMpQ _sI_STqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement"/>
+      </nodes>
+      <nodes xmi:id="_sI_SQqMdEeGKmOPbc3bMpQ" outgoing="_sI_STqMdEeGKmOPbc3bMpQ _sI_ST6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer"/>
+      </nodes>
+      <nodes xmi:id="_sI_SQ6MdEeGKmOPbc3bMpQ" incoming="_sI_ST6MdEeGKmOPbc3bMpQ" outgoing="_sI_SUKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement"/>
+      </nodes>
+      <nodes xmi:id="_sI_SRKMdEeGKmOPbc3bMpQ" incoming="_sI_SUKMdEeGKmOPbc3bMpQ" outgoing="_sI_SUaMdEeGKmOPbc3bMpQ _sI_SUqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/MethodCall"/>
+      </nodes>
+      <nodes xmi:id="_sI_SRaMdEeGKmOPbc3bMpQ" incoming="_sI_SUaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI_SRqMdEeGKmOPbc3bMpQ" value="&quot;send&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI_SR6MdEeGKmOPbc3bMpQ" incoming="_sI_SUqMdEeGKmOPbc3bMpQ" outgoing="_sI_SU6MdEeGKmOPbc3bMpQ _sI_SVKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SSKMdEeGKmOPbc3bMpQ" incoming="_sI_SU6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Enumeration"/>
+      </nodes>
+      <nodes xmi:id="_sI_SSaMdEeGKmOPbc3bMpQ" incoming="_sI_SVKMdEeGKmOPbc3bMpQ" outgoing="_sI_SVaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SSqMdEeGKmOPbc3bMpQ" incoming="_sI_SVaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/EnumConstant"/>
+        <attributes xmi:id="_sI_SS6MdEeGKmOPbc3bMpQ" value="actionName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI_STKMdEeGKmOPbc3bMpQ" source="_sI_SQKMdEeGKmOPbc3bMpQ" target="_sI_SQaMdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_sI_STaMdEeGKmOPbc3bMpQ" source="_sI_SQKMdEeGKmOPbc3bMpQ" target="_sI_SP6MdEeGKmOPbc3bMpQ">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+      <edges xmi:id="_sI_STqMdEeGKmOPbc3bMpQ" source="_sI_SQqMdEeGKmOPbc3bMpQ" target="_sI_SQaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer/statements"/>
+      </edges>
+      <edges xmi:id="_sI_ST6MdEeGKmOPbc3bMpQ" source="_sI_SQqMdEeGKmOPbc3bMpQ" target="_sI_SQ6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer/statements"/>
+      </edges>
+      <edges xmi:id="_sI_SUKMdEeGKmOPbc3bMpQ" source="_sI_SQ6MdEeGKmOPbc3bMpQ" target="_sI_SRKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement/expression"/>
+      </edges>
+      <edges xmi:id="_sI_SUaMdEeGKmOPbc3bMpQ" source="_sI_SRKMdEeGKmOPbc3bMpQ" target="_sI_SRaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI_SUqMdEeGKmOPbc3bMpQ" source="_sI_SRKMdEeGKmOPbc3bMpQ" target="_sI_SR6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Argumentable/arguments"/>
+      </edges>
+      <edges xmi:id="_sI_SU6MdEeGKmOPbc3bMpQ" source="_sI_SR6MdEeGKmOPbc3bMpQ" target="_sI_SSKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI_SVKMdEeGKmOPbc3bMpQ" source="_sI_SR6MdEeGKmOPbc3bMpQ" target="_sI_SSaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Reference/next"/>
+      </edges>
+      <edges xmi:id="_sI_SVaMdEeGKmOPbc3bMpQ" source="_sI_SSaMdEeGKmOPbc3bMpQ" target="_sI_SSqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_sI_SVqMdEeGKmOPbc3bMpQ" name="RHS">
+      <nodes xmi:id="_sI_SV6MdEeGKmOPbc3bMpQ">
+        <type href="statemachine.ecore#//Transition"/>
+        <attributes xmi:id="_sI_SWKMdEeGKmOPbc3bMpQ" value="actionName">
+          <type href="statemachine.ecore#//Transition/action"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI_SWaMdEeGKmOPbc3bMpQ" incoming="_sI_SZKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement"/>
+      </nodes>
+      <nodes xmi:id="_sI_SWqMdEeGKmOPbc3bMpQ" outgoing="_sI_SZKMdEeGKmOPbc3bMpQ _sI_SZaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer"/>
+      </nodes>
+      <nodes xmi:id="_sI_SW6MdEeGKmOPbc3bMpQ" incoming="_sI_SZaMdEeGKmOPbc3bMpQ" outgoing="_sI_SZqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement"/>
+      </nodes>
+      <nodes xmi:id="_sI_SXKMdEeGKmOPbc3bMpQ" incoming="_sI_SZqMdEeGKmOPbc3bMpQ" outgoing="_sI_SZ6MdEeGKmOPbc3bMpQ _sI_SaKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/MethodCall"/>
+      </nodes>
+      <nodes xmi:id="_sI_SXaMdEeGKmOPbc3bMpQ" incoming="_sI_SZ6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/ClassMethod"/>
+        <attributes xmi:id="_sI_SXqMdEeGKmOPbc3bMpQ" value="&quot;send&quot;">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_sI_SX6MdEeGKmOPbc3bMpQ" incoming="_sI_SaKMdEeGKmOPbc3bMpQ" outgoing="_sI_SaaMdEeGKmOPbc3bMpQ _sI_SaqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SYKMdEeGKmOPbc3bMpQ" incoming="_sI_SaaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/2/Enumeration"/>
+      </nodes>
+      <nodes xmi:id="_sI_SYaMdEeGKmOPbc3bMpQ" incoming="_sI_SaqMdEeGKmOPbc3bMpQ" outgoing="_sI_Sa6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/IdentifierReference"/>
+      </nodes>
+      <nodes xmi:id="_sI_SYqMdEeGKmOPbc3bMpQ" incoming="_sI_Sa6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/10/EnumConstant"/>
+        <attributes xmi:id="_sI_SY6MdEeGKmOPbc3bMpQ" value="actionName">
+          <type href="java.ecore#/3/NamedElement/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_sI_SZKMdEeGKmOPbc3bMpQ" source="_sI_SWqMdEeGKmOPbc3bMpQ" target="_sI_SWaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer/statements"/>
+      </edges>
+      <edges xmi:id="_sI_SZaMdEeGKmOPbc3bMpQ" source="_sI_SWqMdEeGKmOPbc3bMpQ" target="_sI_SW6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/StatementListContainer/statements"/>
+      </edges>
+      <edges xmi:id="_sI_SZqMdEeGKmOPbc3bMpQ" source="_sI_SW6MdEeGKmOPbc3bMpQ" target="_sI_SXKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/15/ExpressionStatement/expression"/>
+      </edges>
+      <edges xmi:id="_sI_SZ6MdEeGKmOPbc3bMpQ" source="_sI_SXKMdEeGKmOPbc3bMpQ" target="_sI_SXaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI_SaKMdEeGKmOPbc3bMpQ" source="_sI_SXKMdEeGKmOPbc3bMpQ" target="_sI_SX6MdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Argumentable/arguments"/>
+      </edges>
+      <edges xmi:id="_sI_SaaMdEeGKmOPbc3bMpQ" source="_sI_SX6MdEeGKmOPbc3bMpQ" target="_sI_SYKMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+      <edges xmi:id="_sI_SaqMdEeGKmOPbc3bMpQ" source="_sI_SX6MdEeGKmOPbc3bMpQ" target="_sI_SYaMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/Reference/next"/>
+      </edges>
+      <edges xmi:id="_sI_Sa6MdEeGKmOPbc3bMpQ" source="_sI_SYaMdEeGKmOPbc3bMpQ" target="_sI_SYqMdEeGKmOPbc3bMpQ">
+        <type href="java.ecore#/14/ElementReference/target"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_sI_SbKMdEeGKmOPbc3bMpQ" origin="_sI_SP6MdEeGKmOPbc3bMpQ" image="_sI_SV6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SbaMdEeGKmOPbc3bMpQ" origin="_sI_SQaMdEeGKmOPbc3bMpQ" image="_sI_SWaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SbqMdEeGKmOPbc3bMpQ" origin="_sI_SQqMdEeGKmOPbc3bMpQ" image="_sI_SWqMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_Sb6MdEeGKmOPbc3bMpQ" origin="_sI_SQ6MdEeGKmOPbc3bMpQ" image="_sI_SW6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_ScKMdEeGKmOPbc3bMpQ" origin="_sI_SRKMdEeGKmOPbc3bMpQ" image="_sI_SXKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_ScaMdEeGKmOPbc3bMpQ" origin="_sI_SRaMdEeGKmOPbc3bMpQ" image="_sI_SXaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_ScqMdEeGKmOPbc3bMpQ" origin="_sI_SR6MdEeGKmOPbc3bMpQ" image="_sI_SX6MdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_Sc6MdEeGKmOPbc3bMpQ" origin="_sI_SSKMdEeGKmOPbc3bMpQ" image="_sI_SYKMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SdKMdEeGKmOPbc3bMpQ" origin="_sI_SSaMdEeGKmOPbc3bMpQ" image="_sI_SYaMdEeGKmOPbc3bMpQ"/>
+    <mappings xmi:id="_sI_SdaMdEeGKmOPbc3bMpQ" origin="_sI_SSqMdEeGKmOPbc3bMpQ" image="_sI_SYqMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_sJAgAKMdEeGKmOPbc3bMpQ" name="Start" description="" subUnits="_sI9csKMdEeGKmOPbc3bMpQ _sJAgBqMdEeGKmOPbc3bMpQ _sJBHEqMdEeGKmOPbc3bMpQ _sJBHSaMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJAgAaMdEeGKmOPbc3bMpQ" name="sm"/>
+    <parameters xmi:id="_sJAgAqMdEeGKmOPbc3bMpQ" name="class"/>
+    <parameterMappings xmi:id="_sJAgA6MdEeGKmOPbc3bMpQ" source="_sI9csaMdEeGKmOPbc3bMpQ" target="_sJAgAaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJAgBKMdEeGKmOPbc3bMpQ" source="_sI9csqMdEeGKmOPbc3bMpQ" target="_sJAgAqMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJAgBaMdEeGKmOPbc3bMpQ" source="_sJAgAqMdEeGKmOPbc3bMpQ" target="_sJAgB6MdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_sJAgBqMdEeGKmOPbc3bMpQ" name="StatesLoop" description="" subUnit="_sJAgCaMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJAgB6MdEeGKmOPbc3bMpQ" name="class"/>
+    <parameterMappings xmi:id="_sJAgCKMdEeGKmOPbc3bMpQ" source="_sJAgB6MdEeGKmOPbc3bMpQ" target="_sJAgCqMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_sJAgCaMdEeGKmOPbc3bMpQ" name="CreateStateAndChildren" description="" subUnits="_sI9cu6MdEeGKmOPbc3bMpQ _sJBHEKMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJAgCqMdEeGKmOPbc3bMpQ" name="class"/>
+    <parameterMappings xmi:id="_sJAgC6MdEeGKmOPbc3bMpQ" source="_sJAgCqMdEeGKmOPbc3bMpQ" target="_sI9cvaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJAgDKMdEeGKmOPbc3bMpQ" source="_sJAgCqMdEeGKmOPbc3bMpQ" target="_sJBHEaMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:ConditionalUnit" xmi:id="_sJBHEKMdEeGKmOPbc3bMpQ" name="ProcessChildren" description="" if="_sI9cy6MdEeGKmOPbc3bMpQ" then="_sJAgBqMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBuJaMdEeGKmOPbc3bMpQ" name="child"/>
+    <parameters xmi:id="_sJBHEaMdEeGKmOPbc3bMpQ" name="class"/>
+    <parameterMappings xmi:id="_sJBuJqMdEeGKmOPbc3bMpQ" source="_sJBHEaMdEeGKmOPbc3bMpQ" target="_sI9czKMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBuJ6MdEeGKmOPbc3bMpQ" source="_sI9czaMdEeGKmOPbc3bMpQ" target="_sJBuJaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBuKKMdEeGKmOPbc3bMpQ" source="_sJBuJaMdEeGKmOPbc3bMpQ" target="_sJAgB6MdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_sJBHEqMdEeGKmOPbc3bMpQ" name="TransitionsLoop" description="" subUnit="_sJBHE6MdEeGKmOPbc3bMpQ"/>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_sJBHE6MdEeGKmOPbc3bMpQ" name="CreateTransitions" subUnits="_sI9c6qMdEeGKmOPbc3bMpQ _sJBHF6MdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHFKMdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameterMappings xmi:id="_sJBHFaMdEeGKmOPbc3bMpQ" source="_sJBHFKMdEeGKmOPbc3bMpQ" target="_sJBHGKMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHFqMdEeGKmOPbc3bMpQ" source="_sI9c66MdEeGKmOPbc3bMpQ" target="_sJBHFKMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_sJBHF6MdEeGKmOPbc3bMpQ" name="ClassMethodsLoop" subUnit="_sJBHGqMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHGKMdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameterMappings xmi:id="_sJBHGaMdEeGKmOPbc3bMpQ" source="_sJBHGKMdEeGKmOPbc3bMpQ" target="_sJBHG6MdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_sJBHGqMdEeGKmOPbc3bMpQ" name="ProcessClassMethod" subUnits="_sI-D1aMdEeGKmOPbc3bMpQ _sJBHJKMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHG6MdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameters xmi:id="_sJBHHKMdEeGKmOPbc3bMpQ" name="classMethod"/>
+    <parameters xmi:id="_sJBHHaMdEeGKmOPbc3bMpQ" name="trigger"/>
+    <parameterMappings xmi:id="_sJBHHqMdEeGKmOPbc3bMpQ" source="_sJBHG6MdEeGKmOPbc3bMpQ" target="_sI-D16MdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHH6MdEeGKmOPbc3bMpQ" source="_sI-D1qMdEeGKmOPbc3bMpQ" target="_sJBHHKMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHIKMdEeGKmOPbc3bMpQ" source="_sJBHHKMdEeGKmOPbc3bMpQ" target="_sJBHJaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHIaMdEeGKmOPbc3bMpQ" source="_sJBHG6MdEeGKmOPbc3bMpQ" target="_sJBHJqMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHIqMdEeGKmOPbc3bMpQ" source="_sJBHHaMdEeGKmOPbc3bMpQ" target="_sJBHJ6MdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHI6MdEeGKmOPbc3bMpQ" source="_sI-D2KMdEeGKmOPbc3bMpQ" target="_sJBHHaMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_sJBHJKMdEeGKmOPbc3bMpQ" name="DescendLoop" subUnit="_sJBHK6MdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHJaMdEeGKmOPbc3bMpQ" name="current"/>
+    <parameters xmi:id="_sJBHJqMdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameters xmi:id="_sJBHJ6MdEeGKmOPbc3bMpQ" name="trigger"/>
+    <parameterMappings xmi:id="_sJBHKKMdEeGKmOPbc3bMpQ" source="_sJBHJaMdEeGKmOPbc3bMpQ" target="_sJBHLaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHKaMdEeGKmOPbc3bMpQ" source="_sJBHJqMdEeGKmOPbc3bMpQ" target="_sKcDYaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHKqMdEeGKmOPbc3bMpQ" source="_sJBHJ6MdEeGKmOPbc3bMpQ" target="_sJBHLKMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_sJBHK6MdEeGKmOPbc3bMpQ" name="CreateOrDescend" subUnits="_sI-D8aMdEeGKmOPbc3bMpQ _sJBHLqMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHLaMdEeGKmOPbc3bMpQ" name="current"/>
+    <parameters xmi:id="_sKcDYaMdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameters xmi:id="_sJBHLKMdEeGKmOPbc3bMpQ" name="trigger"/>
+    <parameterMappings xmi:id="_sKcDYqMdEeGKmOPbc3bMpQ" source="_sJBHLaMdEeGKmOPbc3bMpQ" target="_sI-D86MdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sKcDY6MdEeGKmOPbc3bMpQ" source="_sJBHLaMdEeGKmOPbc3bMpQ" target="_sJBHL6MdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sKcDZKMdEeGKmOPbc3bMpQ" source="_sKcDYaMdEeGKmOPbc3bMpQ" target="_sI-D8qMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sKcDZaMdEeGKmOPbc3bMpQ" source="_sKcDYaMdEeGKmOPbc3bMpQ" target="_sJBHMKMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sKcDZqMdEeGKmOPbc3bMpQ" source="_sJBHLKMdEeGKmOPbc3bMpQ" target="_sI-D9KMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sKcDZ6MdEeGKmOPbc3bMpQ" source="_sJBHLKMdEeGKmOPbc3bMpQ" target="_sJBHMaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sKcDaKMdEeGKmOPbc3bMpQ" source="_sI-D9aMdEeGKmOPbc3bMpQ" target="_sJBHLaMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:ConditionalUnit" xmi:id="_sJBHLqMdEeGKmOPbc3bMpQ" name="Descend" if="_sJBHOKMdEeGKmOPbc3bMpQ" then="_sJBHJKMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHL6MdEeGKmOPbc3bMpQ" name="current"/>
+    <parameters xmi:id="_sJBHMKMdEeGKmOPbc3bMpQ" name="baseClass"/>
+    <parameters xmi:id="_sJBHMaMdEeGKmOPbc3bMpQ" name="trigger"/>
+    <parameterMappings xmi:id="_sJBHMqMdEeGKmOPbc3bMpQ" source="_sJBHL6MdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHM6MdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sJBHL6MdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHNKMdEeGKmOPbc3bMpQ" source="_sJBHOqMdEeGKmOPbc3bMpQ" target="_sJBHMaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHNaMdEeGKmOPbc3bMpQ" source="_sJBHL6MdEeGKmOPbc3bMpQ" target="_sJBHJaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHNqMdEeGKmOPbc3bMpQ" source="_sJBHMKMdEeGKmOPbc3bMpQ" target="_sJBHJqMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHN6MdEeGKmOPbc3bMpQ" source="_sJBHMaMdEeGKmOPbc3bMpQ" target="_sJBHJ6MdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:PriorityUnit" xmi:id="_sJBHOKMdEeGKmOPbc3bMpQ" name="TryDescending" subUnits="_sI-q46MdEeGKmOPbc3bMpQ _sI-q-KMdEeGKmOPbc3bMpQ _sI_SH6MdEeGKmOPbc3bMpQ _sI-rDaMdEeGKmOPbc3bMpQ _sI_R9KMdEeGKmOPbc3bMpQ _sI-rIqMdEeGKmOPbc3bMpQ">
+    <parameters xmi:id="_sJBHOaMdEeGKmOPbc3bMpQ" name="current"/>
+    <parameters xmi:id="_sJBHOqMdEeGKmOPbc3bMpQ" name="trigger"/>
+    <parameterMappings xmi:id="_sJBHO6MdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sI-q5KMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHPKMdEeGKmOPbc3bMpQ" source="_sI-q5aMdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHPaMdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sI-q-aMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHPqMdEeGKmOPbc3bMpQ" source="_sI-q-qMdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHP6MdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sI-rDqMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHQKMdEeGKmOPbc3bMpQ" source="_sI-rD6MdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHQaMdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sI_R9aMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHQqMdEeGKmOPbc3bMpQ" source="_sI_R9qMdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHQ6MdEeGKmOPbc3bMpQ" source="_sI_R96MdEeGKmOPbc3bMpQ" target="_sJBHOqMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHRKMdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sI_R4KMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHRaMdEeGKmOPbc3bMpQ" source="_sI_R4aMdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHRqMdEeGKmOPbc3bMpQ" source="_sJBHOaMdEeGKmOPbc3bMpQ" target="_sI_SIKMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHR6MdEeGKmOPbc3bMpQ" source="_sI_SIaMdEeGKmOPbc3bMpQ" target="_sJBHOaMdEeGKmOPbc3bMpQ"/>
+    <parameterMappings xmi:id="_sJBHSKMdEeGKmOPbc3bMpQ" source="_sI_SIqMdEeGKmOPbc3bMpQ" target="_sJBHOqMdEeGKmOPbc3bMpQ"/>
+  </units>
+  <units xsi:type="henshin:LoopUnit" xmi:id="_sJBHSaMdEeGKmOPbc3bMpQ" name="ActionsLoop" subUnit="_sI_SPKMdEeGKmOPbc3bMpQ"/>
+</henshin:Module>

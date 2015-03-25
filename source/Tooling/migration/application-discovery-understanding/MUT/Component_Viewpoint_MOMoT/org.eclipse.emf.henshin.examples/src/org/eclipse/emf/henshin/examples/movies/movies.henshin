@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_sZHVoGiUEeOaeph0C5BmPA">
+  <imports href="movies.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_tfVW0GiUEeOaeph0C5BmPA" name="findCouples">
+    <lhs xmi:id="_tffH0GiUEeOaeph0C5BmPA" name="Lhs"/>
+    <rhs xmi:id="_tffH0WiUEeOaeph0C5BmPA" name="Rhs"/>
+    <multiRules xmi:id="_w8xFAGiqEeOaeph0C5BmPA">
+      <lhs xmi:id="_w8xFAWiqEeOaeph0C5BmPA" name="Lhs">
+        <nodes xmi:id="_P7dnQGiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Person"/>
+        </nodes>
+        <nodes xmi:id="_ReoDIGiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Person"/>
+        </nodes>
+        <formula xsi:type="henshin:NestedCondition" xmi:id="_MC8oIGirEeOaeph0C5BmPA">
+          <conclusion xmi:id="_MC8oIWirEeOaeph0C5BmPA">
+            <nodes xmi:id="_MC8oImirEeOaeph0C5BmPA" outgoing="_J8HegGirEeOaeph0C5BmPA _4kmZEGiqEeOaeph0C5BmPA _39UWoGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person"/>
+            </nodes>
+            <nodes xmi:id="_OljkQGiqEeOaeph0C5BmPA" incoming="_39UWoGiqEeOaeph0C5BmPA _KfQAwGirEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Movie"/>
+            </nodes>
+            <nodes xmi:id="_OzG4EGiqEeOaeph0C5BmPA" incoming="_4kmZEGiqEeOaeph0C5BmPA _Ji9-sGirEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Movie"/>
+            </nodes>
+            <nodes xmi:id="_O8ongGiqEeOaeph0C5BmPA" incoming="_JPBvAGirEeOaeph0C5BmPA _J8HegGirEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Movie"/>
+            </nodes>
+            <nodes xmi:id="_MC8oLWirEeOaeph0C5BmPA" outgoing="_JPBvAGirEeOaeph0C5BmPA _Ji9-sGirEeOaeph0C5BmPA _KfQAwGirEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person"/>
+            </nodes>
+            <edges xmi:id="_JPBvAGirEeOaeph0C5BmPA" source="_MC8oLWirEeOaeph0C5BmPA" target="_O8ongGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person/movies"/>
+            </edges>
+            <edges xmi:id="_J8HegGirEeOaeph0C5BmPA" source="_MC8oImirEeOaeph0C5BmPA" target="_O8ongGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person/movies"/>
+            </edges>
+            <edges xmi:id="_4kmZEGiqEeOaeph0C5BmPA" source="_MC8oImirEeOaeph0C5BmPA" target="_OzG4EGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person/movies"/>
+            </edges>
+            <edges xmi:id="_Ji9-sGirEeOaeph0C5BmPA" source="_MC8oLWirEeOaeph0C5BmPA" target="_OzG4EGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person/movies"/>
+            </edges>
+            <edges xmi:id="_39UWoGiqEeOaeph0C5BmPA" source="_MC8oImirEeOaeph0C5BmPA" target="_OljkQGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person/movies"/>
+            </edges>
+            <edges xmi:id="_KfQAwGirEeOaeph0C5BmPA" source="_MC8oLWirEeOaeph0C5BmPA" target="_OljkQGiqEeOaeph0C5BmPA">
+              <type href="movies.ecore#//Person/movies"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_MC8oI2irEeOaeph0C5BmPA" origin="_P7dnQGiqEeOaeph0C5BmPA" image="_MC8oImirEeOaeph0C5BmPA"/>
+          <mappings xmi:id="_MC8oLmirEeOaeph0C5BmPA" origin="_ReoDIGiqEeOaeph0C5BmPA" image="_MC8oLWirEeOaeph0C5BmPA"/>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_w8xFAmiqEeOaeph0C5BmPA" name="Rhs">
+        <nodes xmi:id="_QuFXAGiqEeOaeph0C5BmPA" incoming="_Yub4wGiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Person"/>
+        </nodes>
+        <nodes xmi:id="_YHueEGiqEeOaeph0C5BmPA" outgoing="_Yub4wGiqEeOaeph0C5BmPA _ZATr4GiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Couple"/>
+        </nodes>
+        <nodes xmi:id="_ReoDIWiqEeOaeph0C5BmPA" incoming="_ZATr4GiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Person"/>
+        </nodes>
+        <edges xmi:id="_Yub4wGiqEeOaeph0C5BmPA" source="_YHueEGiqEeOaeph0C5BmPA" target="_QuFXAGiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Couple/p1"/>
+        </edges>
+        <edges xmi:id="_ZATr4GiqEeOaeph0C5BmPA" source="_YHueEGiqEeOaeph0C5BmPA" target="_ReoDIWiqEeOaeph0C5BmPA">
+          <type href="movies.ecore#//Couple/p2"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_QuFXAWiqEeOaeph0C5BmPA" origin="_P7dnQGiqEeOaeph0C5BmPA" image="_QuFXAGiqEeOaeph0C5BmPA"/>
+      <mappings xmi:id="_ReoDImiqEeOaeph0C5BmPA" origin="_ReoDIGiqEeOaeph0C5BmPA" image="_ReoDIWiqEeOaeph0C5BmPA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_gAkNIGirEeOaeph0C5BmPA" name="createPositive">
+    <lhs xmi:id="_gAtXEGirEeOaeph0C5BmPA" name="Lhs"/>
+    <rhs xmi:id="_gAtXEWirEeOaeph0C5BmPA" name="Rhs">
+      <nodes xmi:id="_xCSowGirEeOaeph0C5BmPA" outgoing="_7asnAGirEeOaeph0C5BmPA _-xzswGirEeOaeph0C5BmPA __JAr0GirEeOaeph0C5BmPA __nW0sGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actor"/>
+      </nodes>
+      <nodes xmi:id="_ykL5UGirEeOaeph0C5BmPA" outgoing="_AA8ZYGisEeOaeph0C5BmPA _AarvEGisEeOaeph0C5BmPA _A9MmQGisEeOaeph0C5BmPA _DI4asGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actress"/>
+      </nodes>
+      <nodes xmi:id="_zZSVUGirEeOaeph0C5BmPA" incoming="_-xzswGirEeOaeph0C5BmPA _AA8ZYGisEeOaeph0C5BmPA _GMXZ0GisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_zkmNcGirEeOaeph0C5BmPA" incoming="__JAr0GirEeOaeph0C5BmPA _AarvEGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_ztXu8GirEeOaeph0C5BmPA" incoming="__nW0sGirEeOaeph0C5BmPA _A9MmQGisEeOaeph0C5BmPA _Gvn34GisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_0Vs6QGirEeOaeph0C5BmPA" incoming="_6wS_IGirEeOaeph0C5BmPA _7asnAGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_0m9CUGirEeOaeph0C5BmPA" incoming="_DI4asGisEeOaeph0C5BmPA _Du-KUGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_1WtEQGirEeOaeph0C5BmPA" outgoing="_6wS_IGirEeOaeph0C5BmPA _GMXZ0GisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actor"/>
+      </nodes>
+      <nodes xmi:id="_16HTUGirEeOaeph0C5BmPA" outgoing="_Du-KUGisEeOaeph0C5BmPA _Gvn34GisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actress"/>
+      </nodes>
+      <edges xmi:id="_6wS_IGirEeOaeph0C5BmPA" source="_1WtEQGirEeOaeph0C5BmPA" target="_0Vs6QGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_7asnAGirEeOaeph0C5BmPA" source="_xCSowGirEeOaeph0C5BmPA" target="_0Vs6QGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_-xzswGirEeOaeph0C5BmPA" source="_xCSowGirEeOaeph0C5BmPA" target="_zZSVUGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="__JAr0GirEeOaeph0C5BmPA" source="_xCSowGirEeOaeph0C5BmPA" target="_zkmNcGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="__nW0sGirEeOaeph0C5BmPA" source="_xCSowGirEeOaeph0C5BmPA" target="_ztXu8GirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_AA8ZYGisEeOaeph0C5BmPA" source="_ykL5UGirEeOaeph0C5BmPA" target="_zZSVUGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_AarvEGisEeOaeph0C5BmPA" source="_ykL5UGirEeOaeph0C5BmPA" target="_zkmNcGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_A9MmQGisEeOaeph0C5BmPA" source="_ykL5UGirEeOaeph0C5BmPA" target="_ztXu8GirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_DI4asGisEeOaeph0C5BmPA" source="_ykL5UGirEeOaeph0C5BmPA" target="_0m9CUGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_Du-KUGisEeOaeph0C5BmPA" source="_16HTUGirEeOaeph0C5BmPA" target="_0m9CUGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_GMXZ0GisEeOaeph0C5BmPA" source="_1WtEQGirEeOaeph0C5BmPA" target="_zZSVUGirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_Gvn34GisEeOaeph0C5BmPA" source="_16HTUGirEeOaeph0C5BmPA" target="_ztXu8GirEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+    </rhs>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_vA7_kGisEeOaeph0C5BmPA" name="createNegative">
+    <lhs xmi:id="_vA7_kWisEeOaeph0C5BmPA" name="Lhs"/>
+    <rhs xmi:id="_vA7_kmisEeOaeph0C5BmPA" name="Rhs">
+      <nodes xmi:id="_vA7_k2isEeOaeph0C5BmPA" outgoing="_vA7_nWisEeOaeph0C5BmPA _vA7_nmisEeOaeph0C5BmPA _vA7_oGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actor"/>
+      </nodes>
+      <nodes xmi:id="_vA7_lGisEeOaeph0C5BmPA" outgoing="_vA7_oWisEeOaeph0C5BmPA _vA7_o2isEeOaeph0C5BmPA _vA7_pGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actress"/>
+      </nodes>
+      <nodes xmi:id="_vA7_lWisEeOaeph0C5BmPA" incoming="_vA7_nmisEeOaeph0C5BmPA _vA7_oWisEeOaeph0C5BmPA _vA7_pmisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_vA7_l2isEeOaeph0C5BmPA" incoming="_vA7_oGisEeOaeph0C5BmPA _vA7_o2isEeOaeph0C5BmPA _vA7_p2isEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_vA7_mGisEeOaeph0C5BmPA" incoming="_vA7_nGisEeOaeph0C5BmPA _vA7_nWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_vA7_mWisEeOaeph0C5BmPA" incoming="_vA7_pGisEeOaeph0C5BmPA _vA7_pWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Movie"/>
+      </nodes>
+      <nodes xmi:id="_vA7_mmisEeOaeph0C5BmPA" outgoing="_vA7_nGisEeOaeph0C5BmPA _vA7_pmisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actor"/>
+      </nodes>
+      <nodes xmi:id="_vA7_m2isEeOaeph0C5BmPA" outgoing="_vA7_pWisEeOaeph0C5BmPA _vA7_p2isEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Actress"/>
+      </nodes>
+      <edges xmi:id="_vA7_nGisEeOaeph0C5BmPA" source="_vA7_mmisEeOaeph0C5BmPA" target="_vA7_mGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_nWisEeOaeph0C5BmPA" source="_vA7_k2isEeOaeph0C5BmPA" target="_vA7_mGisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_nmisEeOaeph0C5BmPA" source="_vA7_k2isEeOaeph0C5BmPA" target="_vA7_lWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_oGisEeOaeph0C5BmPA" source="_vA7_k2isEeOaeph0C5BmPA" target="_vA7_l2isEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_oWisEeOaeph0C5BmPA" source="_vA7_lGisEeOaeph0C5BmPA" target="_vA7_lWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_o2isEeOaeph0C5BmPA" source="_vA7_lGisEeOaeph0C5BmPA" target="_vA7_l2isEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_pGisEeOaeph0C5BmPA" source="_vA7_lGisEeOaeph0C5BmPA" target="_vA7_mWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_pWisEeOaeph0C5BmPA" source="_vA7_m2isEeOaeph0C5BmPA" target="_vA7_mWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_pmisEeOaeph0C5BmPA" source="_vA7_mmisEeOaeph0C5BmPA" target="_vA7_lWisEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+      <edges xmi:id="_vA7_p2isEeOaeph0C5BmPA" source="_vA7_m2isEeOaeph0C5BmPA" target="_vA7_l2isEeOaeph0C5BmPA">
+        <type href="movies.ecore#//Person/movies"/>
+      </edges>
+    </rhs>
+  </units>
+  <units xsi:type="henshin:IteratedUnit" xmi:id="_EKLqMGitEeOaeph0C5BmPA" name="createExample" subUnit="_edTa4Gi8EeOaeph0C5BmPA" iterations="n">
+    <parameters xmi:id="_IlvPgGitEeOaeph0C5BmPA" name="n">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </parameters>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_edTa4Gi8EeOaeph0C5BmPA" name="createTest" subUnits="_gAkNIGirEeOaeph0C5BmPA _vA7_kGisEeOaeph0C5BmPA"/>
+</henshin:Module>

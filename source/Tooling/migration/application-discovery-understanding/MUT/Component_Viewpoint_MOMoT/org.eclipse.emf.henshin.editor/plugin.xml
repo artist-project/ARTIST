@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?><!--
+  Copyright (c) 2010-2012 Henshin developers. All rights reserved. 
+  This program and the accompanying materials are made available 
+  under the terms of the Eclipse Public License v1.0 which 
+  accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+ -->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.henshin.wizards"
+            name="Henshin">
+      </category>
+      <wizard
+            id="org.eclipse.emf.henshin.presentation.HenshinModelWizardID"
+            name="%_UI_HenshinModelWizard_label"
+            class="org.eclipse.emf.henshin.presentation.HenshinModelWizard"
+            category="org.eclipse.emf.henshin.wizards"
+            icon="icons/full/obj16/HenshinModelFile.gif">
+         <description>%_UI_HenshinModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.emf.henshin.presentation.HenshinEditorID"
+            name="%_UI_HenshinEditor_label"
+            icon="icons/full/obj16/HenshinModelFile.gif"
+            extensions="henshin"
+            class="org.eclipse.emf.henshin.presentation.HenshinEditor"
+            contributorClass="org.eclipse.emf.henshin.presentation.CustomizedHenshinActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="custom-popup-menues">
+      <objectContribution
+            id="org.eclipse.emf.henshin.editor.TransformationSystem"
+            objectClass="org.eclipse.emf.henshin.model.TransformationSystem">
+         <menu
+               icon="icons/full/ctool16/CreateEPackage.gif"
+               id="importPackageMenu"
+               label="%importPackageActionLabel"
+               path="additions">
+            <separator
+                  name="main">
+            </separator>
+         </menu>
+         <action
+               class="org.eclipse.emf.henshin.editor.actions.ImportPackageAction"
+               enablesFor="1"
+               id="importFromWorkspace"
+               label="%fromWorkspaceActionLabel"
+               menubarPath="importPackageMenu/main"
+               style="push">
+         </action>
+         <action
+               class="org.eclipse.emf.henshin.editor.actions.ImportPackageAction"
+               enablesFor="1"
+               id="importFromRegistry"
+               label="%fromRegistryActionLabel"
+               menubarPath="importPackageMenu/main"
+               style="push">
+         </action>
+      </objectContribution>
+	</extension>
+	
+</plugin>

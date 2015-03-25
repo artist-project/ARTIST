@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_RtaQEGRVEeGvhsE8A4EL5A"
+    name="ecore2gen" nsURI="http://ecore2gen" nsPrefix="ecore2gen">
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="_RtaQEWRVEeGvhsE8A4EL5A" name="Marker">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_RtaQEmRVEeGvhsE8A4EL5A"
+        name="mark" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" xmi:id="_RtaQFGRVEeGvhsE8A4EL5A" name="Rel">
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_RtaQFWRVEeGvhsE8A4EL5A"
+        name="ecore" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" xmi:id="_RtaQF2RVEeGvhsE8A4EL5A"
+        name="genModel" eType="ecore:EClass http://www.eclipse.org/emf/2002/GenModel#//GenBase"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="_RtaQGWRVEeGvhsE8A4EL5A"
+        name="uid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" xmi:id="_RtaQG2RVEeGvhsE8A4EL5A"
+        name="genType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

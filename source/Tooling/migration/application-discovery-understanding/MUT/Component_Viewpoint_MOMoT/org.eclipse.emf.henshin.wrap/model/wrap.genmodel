@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.emf.henshin.wrap/src" modelPluginID="org.eclipse.emf.henshin.wrap"
+    modelName="Wrap" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" runtimeVersion="2.6">
+  <foreignModel>wrap.ecore</foreignModel>
+  <genPackages prefix="Wrap" basePackage="org.eclipse.emf.henshin" disposableProviderFactory="true"
+      ecorePackage="wrap.ecore#/">
+    <genClasses ecoreClass="wrap.ecore#//WObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wrap.ecore#//WObject/eObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wrap.ecore#//WObject/eClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference wrap.ecore#//WObject/wMembers"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="wrap.ecore#//WMember">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wrap.ecore#//WMember/eStructuralFeature"/>
+      <genOperations ecoreOperation="wrap.ecore#//WMember/getEValue"/>
+    </genClasses>
+    <genClasses ecoreClass="wrap.ecore#//WLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference wrap.ecore#//WLink/wTarget"/>
+    </genClasses>
+    <genClasses ecoreClass="wrap.ecore#//WValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute wrap.ecore#//WValue/eValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

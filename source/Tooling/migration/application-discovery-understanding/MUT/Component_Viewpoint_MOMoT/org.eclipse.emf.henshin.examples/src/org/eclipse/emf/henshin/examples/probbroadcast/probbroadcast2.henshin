@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_JM7_UVSoEeGUbrZWeWd1QA">
+  <imports href="probbroadcast.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_VApBcFSpEeGUbrZWeWd1QA" name="send">
+    <parameters xmi:id="_BHtfYGkGEeGb_5KBsEqP-w" name="x"/>
+    <lhs xmi:id="_VApBcVSpEeGUbrZWeWd1QA" name="LHS">
+      <nodes xmi:id="_W-aVsFSpEeGUbrZWeWd1QA" name="x" outgoing="_dt_zIFSpEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_zZRMwFSpEeGUbrZWeWd1QA" value="true">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_dIM-cFSpEeGUbrZWeWd1QA" incoming="_dt_zIFSpEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_dt_zIFSpEeGUbrZWeWd1QA" source="_W-aVsFSpEeGUbrZWeWd1QA" target="_dIM-cFSpEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_lTZeQFSpEeGUbrZWeWd1QA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_lTZeQVSpEeGUbrZWeWd1QA">
+          <conclusion xmi:id="_lTaFUFSpEeGUbrZWeWd1QA" name="">
+            <nodes xmi:id="_lTdIoFSpEeGUbrZWeWd1QA" outgoing="_jRreIFSpEeGUbrZWeWd1QA">
+              <type href="probbroadcast.ecore#//Node"/>
+            </nodes>
+            <nodes xmi:id="_hDfIQFSpEeGUbrZWeWd1QA" incoming="_jRreIFSpEeGUbrZWeWd1QA">
+              <type href="probbroadcast.ecore#//Message"/>
+            </nodes>
+            <edges xmi:id="_jRreIFSpEeGUbrZWeWd1QA" source="_lTdIoFSpEeGUbrZWeWd1QA" target="_hDfIQFSpEeGUbrZWeWd1QA">
+              <type href="probbroadcast.ecore#//Node/messages"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_lTdIoVSpEeGUbrZWeWd1QA" origin="_W-aVsFSpEeGUbrZWeWd1QA" image="_lTdIoFSpEeGUbrZWeWd1QA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_VApBclSpEeGUbrZWeWd1QA" name="RHS">
+      <nodes xmi:id="_W-a8wFSpEeGUbrZWeWd1QA" name="x" outgoing="_duFSsFSpEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_zZWsUFSpEeGUbrZWeWd1QA" value="false">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_dIOzoFSpEeGUbrZWeWd1QA" incoming="_duFSsFSpEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_duFSsFSpEeGUbrZWeWd1QA" source="_W-a8wFSpEeGUbrZWeWd1QA" target="_dIOzoFSpEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_W-a8wVSpEeGUbrZWeWd1QA" origin="_W-aVsFSpEeGUbrZWeWd1QA" image="_W-a8wFSpEeGUbrZWeWd1QA"/>
+    <mappings xmi:id="_dIQBwFSpEeGUbrZWeWd1QA" origin="_dIM-cFSpEeGUbrZWeWd1QA" image="_dIOzoFSpEeGUbrZWeWd1QA"/>
+    <multiRules xmi:id="_xBMiIFSpEeGUbrZWeWd1QA">
+      <lhs xmi:id="_xBMiIVSpEeGUbrZWeWd1QA" name="LHS">
+        <nodes xmi:id="_xBk8oFSpEeGUbrZWeWd1QA" outgoing="_xBv7wFSpEeGUbrZWeWd1QA _oBnYAFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_xBp1IFSpEeGUbrZWeWd1QA" incoming="_xBv7wFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Message"/>
+        </nodes>
+        <nodes xmi:id="_YBRg4FSpEeGUbrZWeWd1QA" name="y" incoming="_oBnYAFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node"/>
+          <attributes xmi:id="_te3OYFSqEeGUbrZWeWd1QA" value="true">
+            <type href="probbroadcast.ecore#//Node/active"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_xBv7wFSpEeGUbrZWeWd1QA" source="_xBk8oFSpEeGUbrZWeWd1QA" target="_xBp1IFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node/messages"/>
+        </edges>
+        <edges xmi:id="_oBnYAFSpEeGUbrZWeWd1QA" source="_xBk8oFSpEeGUbrZWeWd1QA" target="_YBRg4FSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node/connected"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_xBMiIlSpEeGUbrZWeWd1QA" name="RHS">
+        <nodes xmi:id="_xBSowFSpEeGUbrZWeWd1QA" outgoing="_xBeO8FSpEeGUbrZWeWd1QA _oBxwEFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_xBYvYFSpEeGUbrZWeWd1QA" incoming="_xBeO8FSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Message"/>
+        </nodes>
+        <nodes xmi:id="_YBSvAFSpEeGUbrZWeWd1QA" name="y" incoming="_oBxwEFSpEeGUbrZWeWd1QA" outgoing="_ur7T4FSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node"/>
+          <attributes xmi:id="_tfAYUFSqEeGUbrZWeWd1QA" value="true">
+            <type href="probbroadcast.ecore#//Node/active"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_sXsncFSpEeGUbrZWeWd1QA" incoming="_ur7T4FSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Message"/>
+        </nodes>
+        <edges xmi:id="_xBeO8FSpEeGUbrZWeWd1QA" source="_xBSowFSpEeGUbrZWeWd1QA" target="_xBYvYFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node/messages"/>
+        </edges>
+        <edges xmi:id="_oBxwEFSpEeGUbrZWeWd1QA" source="_xBSowFSpEeGUbrZWeWd1QA" target="_YBSvAFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node/connected"/>
+        </edges>
+        <edges xmi:id="_ur7T4FSpEeGUbrZWeWd1QA" source="_YBSvAFSpEeGUbrZWeWd1QA" target="_sXsncFSpEeGUbrZWeWd1QA">
+          <type href="probbroadcast.ecore#//Node/messages"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_xB2pcFSpEeGUbrZWeWd1QA" origin="_xBk8oFSpEeGUbrZWeWd1QA" image="_xBSowFSpEeGUbrZWeWd1QA"/>
+      <mappings xmi:id="_xCHIIFSpEeGUbrZWeWd1QA" origin="_xBp1IFSpEeGUbrZWeWd1QA" image="_xBYvYFSpEeGUbrZWeWd1QA"/>
+      <mappings xmi:id="_YBT9IFSpEeGUbrZWeWd1QA" origin="_YBRg4FSpEeGUbrZWeWd1QA" image="_YBSvAFSpEeGUbrZWeWd1QA"/>
+      <multiMappings xmi:id="_xBTP0FSpEeGUbrZWeWd1QA" origin="_W-a8wFSpEeGUbrZWeWd1QA" image="_xBSowFSpEeGUbrZWeWd1QA"/>
+      <multiMappings xmi:id="_xBYvYVSpEeGUbrZWeWd1QA" origin="_dIOzoFSpEeGUbrZWeWd1QA" image="_xBYvYFSpEeGUbrZWeWd1QA"/>
+      <multiMappings xmi:id="_xBk8oVSpEeGUbrZWeWd1QA" origin="_W-aVsFSpEeGUbrZWeWd1QA" image="_xBk8oFSpEeGUbrZWeWd1QA"/>
+      <multiMappings xmi:id="_xBqcMFSpEeGUbrZWeWd1QA" origin="_dIM-cFSpEeGUbrZWeWd1QA" image="_xBp1IFSpEeGUbrZWeWd1QA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_G-jxUFSqEeGUbrZWeWd1QA" name="send">
+    <parameters xmi:id="__yagYGkFEeGb_5KBsEqP-w" name="x"/>
+    <lhs xmi:id="_G-jxUVSqEeGUbrZWeWd1QA" name="LHS">
+      <nodes xmi:id="_JAWC4FSqEeGUbrZWeWd1QA" name="x" outgoing="_MmaKoFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_Rjhk4FSqEeGUbrZWeWd1QA" value="true">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Jsbs0FSqEeGUbrZWeWd1QA" incoming="_MmaKoFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_MmaKoFSqEeGUbrZWeWd1QA" source="_JAWC4FSqEeGUbrZWeWd1QA" target="_Jsbs0FSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+      <formula xsi:type="henshin:Not" xmi:id="_PoXfwFSqEeGUbrZWeWd1QA">
+        <child xsi:type="henshin:NestedCondition" xmi:id="_PoXfwVSqEeGUbrZWeWd1QA">
+          <conclusion xmi:id="_PoXfwlSqEeGUbrZWeWd1QA" name="">
+            <nodes xmi:id="_PoZ8AFSqEeGUbrZWeWd1QA" outgoing="_NwVAEFSqEeGUbrZWeWd1QA">
+              <type href="probbroadcast.ecore#//Node"/>
+            </nodes>
+            <nodes xmi:id="_NNzh0FSqEeGUbrZWeWd1QA" incoming="_NwVAEFSqEeGUbrZWeWd1QA">
+              <type href="probbroadcast.ecore#//Message"/>
+            </nodes>
+            <edges xmi:id="_NwVAEFSqEeGUbrZWeWd1QA" source="_PoZ8AFSqEeGUbrZWeWd1QA" target="_NNzh0FSqEeGUbrZWeWd1QA">
+              <type href="probbroadcast.ecore#//Node/messages"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_PoajEFSqEeGUbrZWeWd1QA" origin="_JAWC4FSqEeGUbrZWeWd1QA" image="_PoZ8AFSqEeGUbrZWeWd1QA"/>
+        </child>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_G-kYYFSqEeGUbrZWeWd1QA" name="RHS">
+      <nodes xmi:id="_JAWp8FSqEeGUbrZWeWd1QA" name="x" outgoing="_MmfqMFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_RjlPQFSqEeGUbrZWeWd1QA" value="false">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_JscT4FSqEeGUbrZWeWd1QA" incoming="_MmfqMFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_MmfqMFSqEeGUbrZWeWd1QA" source="_JAWp8FSqEeGUbrZWeWd1QA" target="_JscT4FSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_JAXRAFSqEeGUbrZWeWd1QA" origin="_JAWC4FSqEeGUbrZWeWd1QA" image="_JAWp8FSqEeGUbrZWeWd1QA"/>
+    <mappings xmi:id="_JsdiAFSqEeGUbrZWeWd1QA" origin="_Jsbs0FSqEeGUbrZWeWd1QA" image="_JscT4FSqEeGUbrZWeWd1QA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_b6Xc4FSqEeGUbrZWeWd1QA" name="delete1">
+    <parameters xmi:id="_79h5gGkFEeGb_5KBsEqP-w" name="x"/>
+    <lhs xmi:id="_b6Xc4VSqEeGUbrZWeWd1QA" name="LHS">
+      <nodes xmi:id="_dhxfkFSqEeGUbrZWeWd1QA" name="x" outgoing="_gcBDIFSqEeGUbrZWeWd1QA _hKvKUFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_i-vu4FUIEeGgQ4bkGY3lmA" value="true">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_ewR6EFSqEeGUbrZWeWd1QA" incoming="_gcBDIFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <nodes xmi:id="_fRIkYFSqEeGUbrZWeWd1QA" incoming="_hKvKUFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_gcBDIFSqEeGUbrZWeWd1QA" source="_dhxfkFSqEeGUbrZWeWd1QA" target="_ewR6EFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+      <edges xmi:id="_hKvKUFSqEeGUbrZWeWd1QA" source="_dhxfkFSqEeGUbrZWeWd1QA" target="_fRIkYFSqEeGUbrZWeWd1QA">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_b6Xc4lSqEeGUbrZWeWd1QA" name="RHS">
+      <nodes xmi:id="_dhyGoFSqEeGUbrZWeWd1QA" name="x">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_i_CCwFUIEeGgQ4bkGY3lmA" value="true">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_dhytsFSqEeGUbrZWeWd1QA" origin="_dhxfkFSqEeGUbrZWeWd1QA" image="_dhyGoFSqEeGUbrZWeWd1QA"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_qbGq0CQhEeKRRN2an-mIwg" name="delete2">
+    <parameters xmi:id="_qbGq0SQhEeKRRN2an-mIwg" name="x"/>
+    <lhs xmi:id="_qbGq0iQhEeKRRN2an-mIwg" name="LHS">
+      <nodes xmi:id="_qbGq0yQhEeKRRN2an-mIwg" name="x" outgoing="_qbGq1yQhEeKRRN2an-mIwg _qbGq2CQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_qbGq1CQhEeKRRN2an-mIwg" value="true">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_qbGq1SQhEeKRRN2an-mIwg" incoming="_qbGq1yQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <nodes xmi:id="_qbGq1iQhEeKRRN2an-mIwg" incoming="_qbGq2CQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_qbGq1yQhEeKRRN2an-mIwg" source="_qbGq0yQhEeKRRN2an-mIwg" target="_qbGq1SQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+      <edges xmi:id="_qbGq2CQhEeKRRN2an-mIwg" source="_qbGq0yQhEeKRRN2an-mIwg" target="_qbGq1iQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_qbGq2SQhEeKRRN2an-mIwg" name="RHS">
+      <nodes xmi:id="_qbGq2iQhEeKRRN2an-mIwg" name="x" outgoing="_qbGq3SQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Node"/>
+        <attributes xmi:id="_qbGq2yQhEeKRRN2an-mIwg" value="true">
+          <type href="probbroadcast.ecore#//Node/active"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_qbGq3CQhEeKRRN2an-mIwg" incoming="_qbGq3SQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Message"/>
+      </nodes>
+      <edges xmi:id="_qbGq3SQhEeKRRN2an-mIwg" source="_qbGq2iQhEeKRRN2an-mIwg" target="_qbGq3CQhEeKRRN2an-mIwg">
+        <type href="probbroadcast.ecore#//Node/messages"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_qbGq3iQhEeKRRN2an-mIwg" origin="_qbGq0yQhEeKRRN2an-mIwg" image="_qbGq2iQhEeKRRN2an-mIwg"/>
+    <mappings xmi:id="_qbGq3yQhEeKRRN2an-mIwg" origin="_qbGq1SQhEeKRRN2an-mIwg" image="_qbGq3CQhEeKRRN2an-mIwg"/>
+  </units>
+</henshin:Module>

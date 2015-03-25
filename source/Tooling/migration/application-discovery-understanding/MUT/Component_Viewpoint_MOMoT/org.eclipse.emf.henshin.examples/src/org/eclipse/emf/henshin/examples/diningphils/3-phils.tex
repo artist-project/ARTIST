@@ -1,0 +1,104 @@
+\begin{tikzpicture}[scale=0.5]
+\definecolor{normfill}{rgb}{0.8627450980392157,0.8627450980392157,0.8627450980392157}
+\definecolor{initfill}{rgb}{0.1568627450980392,0.8627450980392157,0.1568627450980392}
+\definecolor{openfill}{rgb}{0.39215686274509803,0.39215686274509803,0.9803921568627451}
+\definecolor{termfill}{rgb}{0.9803921568627451,0.23529411764705882,0.23529411764705882}
+\tikzstyle{henstate}=[circle,draw,fill=normfill,inner sep=1pt,minimum size=4mm,font=\small]
+\tikzstyle{heninit}=[fill=initfill]
+\tikzstyle{henopen}=[fill=openfill]
+\tikzstyle{henterm}=[fill=termfill]
+\tikzstyle{hentrans}=[->,>=stealth',bend angle=15,font=\small]
+
+\node at(496pt,-324pt) [henstate,heninit] (s0) {0};
+\node at(737pt,-194pt) [henstate] (s1) {1};
+\node at(546pt,-431pt) [henstate] (s2) {2};
+\node at(632pt,-538pt) [henstate] (s3) {3};
+\node at(277pt,-475pt) [henstate] (s4) {4};
+\node at(443pt,-116pt) [henstate] (s5) {5};
+\node at(316pt,-181pt) [henstate] (s6) {6};
+\node at(887pt,-334pt) [henstate] (s7) {7};
+\node at(722pt,-614pt) [henstate] (s8) {8};
+\node at(412pt,-656pt) [henstate] (s9) {9};
+\node at(613pt,-362pt) [henstate] (s10) {10};
+\node at(413pt,-472pt) [henstate] (s11) {11};
+\node at(153pt,-408pt) [henstate] (s12) {12};
+\node at(150pt,-258pt) [henstate] (s13) {13};
+\node at(558pt,-661pt) [henstate] (s14) {14};
+\node at(280pt,-586pt) [henstate] (s15) {15};
+\node at(753pt,-360pt) [henstate] (s16) {16};
+\node at(683pt,-28pt) [henstate] (s17) {17};
+\node at(560pt,-134pt) [henstate] (s18) {18};
+\node at(393pt,-278pt) [henstate] (s19) {19};
+\node at(883pt,-491pt) [henstate,henterm] (s20) {20};
+\node at(600pt,-250pt) [henstate] (s21) {21};
+\node at(842pt,-170pt) [henstate] (s22) {22};
+\node at(497pt,18pt) [henstate] (s23) {23};
+\node at(267pt,-299pt) [henstate] (s24) {24};
+\node at(293pt,-27pt) [henstate] (s25) {25};
+\node at(78pt,-161pt) [henstate,henterm] (s26) {26};
+
+\draw (s0) edge[hentrans] node[auto] {left(a3)} (s1);
+\draw (s0) edge[hentrans] node[auto] {left(a2)} (s2);
+\draw (s0) edge[hentrans] node[auto] {left(a1)} (s3);
+\draw (s0) edge[hentrans] node[auto] {right(a2)} (s4);
+\draw (s0) edge[hentrans] node[auto] {right(a1)} (s5);
+\draw (s0) edge[hentrans] node[auto] {right(a3)} (s6);
+\draw (s1) edge[hentrans] node[auto] {left(a2)} (s16);
+\draw (s1) edge[hentrans] node[auto] {left(a1)} (s7);
+\draw (s1) edge[hentrans] node[auto] {right(a1)} (s17);
+\draw (s1) edge[hentrans] node[auto] {right(a3)} (s18);
+\draw (s2) edge[hentrans] node[auto] {left(a3)} (s16);
+\draw (s2) edge[hentrans] node[auto] {left(a1)} (s8);
+\draw (s2) edge[hentrans] node[auto] {right(a2)} (s11);
+\draw (s2) edge[hentrans] node[auto] {right(a3)} (s19);
+\draw (s3) edge[hentrans] node[auto] {left(a3)} (s7);
+\draw (s3) edge[hentrans] node[auto] {left(a2)} (s8);
+\draw (s3) edge[hentrans] node[auto] {right(a2)} (s9);
+\draw (s3) edge[hentrans] node[auto] {right(a1)} (s10);
+\draw (s4) edge[hentrans] node[auto] {left(a2)} (s11);
+\draw (s4) edge[hentrans] node[auto] {left(a1)} (s9);
+\draw (s4) edge[hentrans] node[auto] {right(a1)} (s12);
+\draw (s4) edge[hentrans] node[auto] {right(a3)} (s13);
+\draw (s5) edge[hentrans] node[auto] {left(a3)} (s17);
+\draw (s5) edge[hentrans] node[auto] {left(a1)} (s10);
+\draw (s5) edge[hentrans] node[auto] {right(a2)} (s12);
+\draw (s5) edge[hentrans] node[auto] {right(a3)} (s25);
+\draw (s6) edge[hentrans] node[auto] {left(a3)} (s18);
+\draw (s6) edge[hentrans] node[auto] {left(a2)} (s19);
+\draw (s6) edge[hentrans] node[auto] {right(a2)} (s13);
+\draw (s6) edge[hentrans] node[auto] {right(a1)} (s25);
+\draw (s7) edge[hentrans] node[auto] {left(a2)} (s20);
+\draw (s7) edge[hentrans] node[auto] {right(a1)} (s22);
+\draw (s8) edge[hentrans] node[auto] {left(a3)} (s20);
+\draw (s8) edge[hentrans] node[auto] {right(a2)} (s14);
+\draw (s9) edge[hentrans] node[auto] {left(a2)} (s14);
+\draw (s9) edge[hentrans] node[auto] {right(a1)} (s15);
+\draw (s10) edge[hentrans] node[auto] {left(a3)} (s22);
+\draw (s10) edge[hentrans] node[auto] {right(a2)} (s15);
+\draw (s10) edge[hentrans] node[auto] {release(a1)} (s0);
+\draw (s11) edge[hentrans] node[auto] {left(a1)} (s14);
+\draw (s11) edge[hentrans] node[auto] {right(a3)} (s24);
+\draw (s11) edge[hentrans] node[auto] {release(a2)} (s0);
+\draw (s12) edge[hentrans] node[auto] {left(a1)} (s15);
+\draw (s12) edge[hentrans] node[auto] {right(a3)} (s26);
+\draw (s13) edge[hentrans] node[auto] {left(a2)} (s24);
+\draw (s13) edge[hentrans] node[auto] {right(a1)} (s26);
+\draw (s14) edge[hentrans] node[auto] {release(a2)} (s3);
+\draw (s15) edge[hentrans] node[auto] {release(a1)} (s4);
+\draw (s16) edge[hentrans] node[auto] {left(a1)} (s20);
+\draw (s16) edge[hentrans] node[auto] {right(a3)} (s21);
+\draw (s17) edge[hentrans] node[auto] {left(a1)} (s22);
+\draw (s17) edge[hentrans] node[auto] {right(a3)} (s23);
+\draw (s18) edge[hentrans] node[auto] {left(a2)} (s21);
+\draw (s18) edge[hentrans] node[auto] {right(a1)} (s23);
+\draw (s18) edge[hentrans] node[auto] {release(a3)} (s0);
+\draw (s19) edge[hentrans] node[auto] {left(a3)} (s21);
+\draw (s19) edge[hentrans] node[auto] {right(a2)} (s24);
+\draw (s21) edge[hentrans] node[auto] {release(a3)} (s2);
+\draw (s22) edge[hentrans] node[auto] {release(a1)} (s1);
+\draw (s23) edge[hentrans] node[auto] {release(a3)} (s5);
+\draw (s24) edge[hentrans] node[auto] {release(a2)} (s6);
+\draw (s25) edge[hentrans] node[auto] {left(a3)} (s23);
+\draw (s25) edge[hentrans] node[auto] {right(a2)} (s26);
+
+\end{tikzpicture}

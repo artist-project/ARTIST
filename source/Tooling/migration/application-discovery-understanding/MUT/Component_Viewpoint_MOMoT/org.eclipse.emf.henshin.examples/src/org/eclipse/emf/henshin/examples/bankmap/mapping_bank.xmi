@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bank:Bank xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bank="http://www.bank.com"
+    xsi:schemaLocation="http://www.bank.com bankmap.ecore">
+  <managers
+      name="tom"
+      clients="//@clients.0"/>
+  <accounts
+      key="10">
+    <value owner="//@clients.0"
+        credit="1000.0"/>
+  </accounts>
+  <accounts
+      key="50">
+    <value owner="//@clients.1"
+        credit="-10.0"/>
+  </accounts>
+  <clients name="gustav"
+      manager="//@managers.0"
+      accounts="//@accounts.0/@value"/>
+  <clients name="Karl"
+      accounts="//@accounts.1/@value"/>
+</bank:Bank>

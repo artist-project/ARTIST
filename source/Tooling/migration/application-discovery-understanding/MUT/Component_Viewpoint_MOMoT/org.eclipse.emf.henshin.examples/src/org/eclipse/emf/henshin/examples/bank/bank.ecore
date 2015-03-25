@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bank" nsURI="http://www.bank.com" nsPrefix="bank">
+  <eClassifiers xsi:type="ecore:EClass" name="Bank">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managers" upperBound="-1"
+        eType="#//Manager" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accounts" upperBound="-1"
+        eType="#//Account" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clients" upperBound="-1"
+        eType="#//Client" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Client" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manager" eType="#//Manager"
+        eOpposite="#//Manager/clients"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accounts" upperBound="-1"
+        eType="#//Account" eOpposite="#//Account/owner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clients" upperBound="-1"
+        eType="#//Client" eOpposite="#//Client/manager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Account">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//Client"
+        eOpposite="#//Client/accounts"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="credit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+</ecore:EPackage>

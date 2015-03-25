@@ -1,0 +1,531 @@
+<?xml version="1.0"?>
+<!DOCTYPE some_name [ 
+<!ENTITY nbsp "&#160;">
+<!ENTITY copy "&#169;">
+<!ENTITY epsilon "&#949;">
+]>
+
+<page>
+  <title>Examples using the MOEA Framework</title>
+  <description>Walk through introductory examples using the MOEA Framework</description>
+  <header>
+  	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="scripts/shBrushPlain.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCoreEclipse.css" />
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+  </header>
+  <content>
+<h2>Examples</h2>
+
+<p>
+  The following examples demonstrate the basic functionality provided by the
+  MOEA Framework.  Links to the full source code are provided alongside each
+  code snippet.  You may also find these and more examples in the demo
+  application on the <a href="downloads.html">downloads</a> page.
+</p>
+
+<ul>
+  <li><a href="#setup">Setup</a></li>
+  <li><a href="#example1">Example 1: Simple Run</a></li>
+  <li><a href="#example2">Example 2: Statistical Comparison of Algorithms</a></li>
+  <li><a href="#example3">Example 3: Collecting Runtime Dynamics</a></li>
+  <li><a href="#example4">Example 4: Defining New Problems</a></li>
+  <li><a href="#example5">Example 5: Defining Problems in C/C++</a></li>
+</ul>
+
+<div class="section">
+<a name="setup" />
+<h3>Setup</h3>
+
+<p>
+  In order to run these examples or use the MOEA Framework, Java 6 (or a later
+  version) must be installed on your computer.  The Java 6 development kit (JDK)
+  for Windows and Linux can be downloaded 
+  <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk6u37-downloads-1859587.html">here</a>.
+</p>
+
+<p>
+  To run these examples, first download and extract the latest compiled 
+  binaries from the <a href="downloads.html">downloads</a> page.  Windows users
+  may extract the downloaded file using
+  <a href="http://www.7-zip.org/">7-zip</a>.  The files will extract to a 
+  folder called MOEAFramework-%VERSION%.  This folder will look similar to:
+</p>
+
+<div class="files">
+  <ul>
+    <li class="folder">MOEAFramework-%VERSION%/</li>
+    <li class="empty">
+      <ul>
+        <li class="folder">examples/</li>
+        <li class="folder">javadoc/</li>
+        <li class="folder">lib/</li>
+        <li class="folder">licenses/</li>
+        <li class="folder">pf/</li>
+        <li>global.properties</li>
+        <li>HELP</li>
+        <li>launch-diagnostic-tool.bat</li>
+        <li>LICENSE</li>
+        <li>NEWS</li>
+        <li>README</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+  
+<p>
+  All of the examples below are in the examples/ folder.  You may compile and
+  run an example using the following commands.  Run these commands in the
+  Command Prompt from the MOEAFramework-%VERSION% folder.
+</p>
+
+<pre>
+              javac -cp "examples;lib/*" examples/Example1.java
+              java -cp "examples;lib/*" Example1</pre>
+
+<p>
+  If you receive the message <i>'javac' is not recognized as an internal or
+  external command, operable program or batch file</i>, try the following steps
+  to setup your environment on 
+  <a href="http://vietpad.sourceforge.net/javaonwindows.html">Windows</a> or
+  <a href="http://vietpad.sourceforge.net/javaonlinux.html">Linux</a>.
+  Unix/Linux users should replace the semicolons (;) with colons (:).
+</p>
+</div>
+
+<div class="section">
+<a name="example1" />
+<h3>Example 1: Simple Run</h3>
+
+<div class="files">
+  <ul>
+    <li><a href="Example1.java">Example1.java</a></li>
+  </ul>
+</div>
+
+<p>
+  The Executor provides all the necessary features to execute an algorithm on
+  a specific problem.  For example, the following runs NSGA-II on the UF1 test
+  problem.  The executor provides many useful functions, such as enabling
+  distributed evaluations across multiple cores or computers, checkpoints,
+  instrumentation, etc.
+</p>
+
+<div class="code">
+  <pre class="brush: java; toolbar: false;">
+NondominatedPopulation result = new Executor()
+    .withProblem("UF1")
+    .withAlgorithm("NSGAII")
+    .withMaxEvaluations(10000)
+    .distributeOnAllCores()
+    .run();
+  </pre>
+</div>
+
+<p>
+  Since UF1 is a bi-objective problem, printing the results will list the two
+  objective function values for each non-dominated (Pareto optimal) solution
+  found by NSGA-II:
+</p>
+
+<div class="code">
+  <pre class="brush: plain; toolbar: false;">
+Objective1  Objective2
+0.9465      0.0466
+0.1355      2.0513
+0.1403      1.9960
+0.2520      0.5120
+...
+  </pre>
+</div>
+
+</div>
+
+<div class="section">
+<a name="example2" />
+<h3>Example 2: Statistical Comparison of Algorithms</h3>
+
+<div class="files">
+  <ul>
+    <li><a href="Example2.java">Example2.java</a></li>
+  </ul>
+</div>
+
+<p>
+  Statistical analyses are provided by the Analyzer.  The Analyzer can display
+  the min, median, max and aggregate values for multiple performance indicators,
+  including hypervolume, generational distance, inverted generational distance,
+  additive &epsilon;-indicator, spacing and contribution.  Additionally,
+  Kruskal-Wallis and Mann-Whitney U tests provide statistical significance
+  results.  In the example below, we compare the algorithms using the
+  hypervolume metric.
+</p>
+
+<div class="code">
+  <pre class="brush: java; toolbar: false;">
+<![CDATA[
+String problem = "UF1";
+String[] algorithms = { "NSGAII", "GDE3", "eMOEA" };
+		
+//setup the experiment
+Executor executor = new Executor()
+    .withProblem(problem)
+    .withMaxEvaluations(10000);
+		
+Analyzer analyzer = new Analyzer()
+    .withProblem(problem)
+    .includeHypervolume()
+    .showStatisticalSignificance();
+
+//run each algorithm for 50 seeds
+for (String algorithm : algorithms) {
+    analyzer.addAll(algorithm, 
+        executor.withAlgorithm(algorithm).runSeeds(50));
+}
+
+//print the results
+analyzer.printAnalysis();
+]]>
+  </pre>
+</div>
+
+<p>
+  Running this script produces the output shown below.  We can see that GDE3 and
+  NSGA-II produce the best (largest) hypervolume values.  Furthermore, we have
+  determined statistically that there is no significant difference in
+  performance between GDE3 and NSGA-II.
+</p>
+
+<div class="code">
+  <pre class="brush: plain; toolbar: false;">
+GDE3:
+    Hypervolume: 
+        Min: 0.4389785065649592
+        Median: 0.4974186560778636
+        Max: 0.535166930530847
+        Count: 50
+        Indifferent: [NSGAII]
+eMOEA:
+    Hypervolume: 
+        Min: 0.35003766343295073
+        Median: 0.47633216464734596
+        Max: 0.53311360537305
+        Count: 50
+        Indifferent: []
+NSGAII:
+    Hypervolume: 
+        Min: 0.38868701091987184
+        Median: 0.5040946740799506
+        Max: 0.5371138081508796
+        Count: 50
+        Indifferent: [GDE3]
+  </pre>
+</div>
+</div>
+
+<div class="section">
+<a name="example3" />
+<h3>Example 3: Collecting Runtime Dynamics</h3>
+
+<div class="files">
+  <ul>
+    <li><a href="Example3.java">Example3.java</a></li>
+  </ul>
+</div>
+
+<p>
+  Runtime dynamics provide insight into the behavior of an optimization
+  algorithm throughout a run.  For instance, one can observe how solution
+  quality changes with the number of function evaluations (NFE).  The 
+  Instrumenter class records the runtime dynamics.
+</p>
+
+<div class="code">
+  <pre class="brush: java; toolbar: false;">
+<![CDATA[
+Instrumenter instrumenter = new Instrumenter()
+    .withReferenceSet(new File("./pf/UF1.dat"))
+    .withFrequency(100)
+    .attachElapsedTimeCollector()
+    .attachGenerationalDistanceCollector();
+		
+new Executor()
+    .withProblem("UF1")
+    .withAlgorithm("NSGAII")
+    .withMaxEvaluations(10000)
+    .withInstrumenter(instrumenter)
+    .run();
+		
+Accumulator accumulator = instrumenter.getLastAccumulator();
+		
+for (int i=0; i<accumulator.size("NFE"); i++) {
+  System.out.println(accumulator.get("NFE", i) + "\t" + 
+      accumulator.get("Elapsed Time", i) + "\t" +
+      accumulator.get("GenerationalDistance", i));
+}
+]]>
+  </pre>
+</div>
+
+<p>
+  The output from this script, shown below, shows how the generational
+  distance metric changes over time.  We see that NSGA-II is rapidly converging
+  to the reference set (the optimal solutions) since its generational
+  distance is converging to 0.
+</p>
+
+<div class="code">
+  <pre class="brush: plain; toolbar: false">
+ NFE    Time      Generational Distance
+ 100    0.0256    0.7616  
+ 200    0.0421    0.6645  
+ 300    0.0543    0.4847  
+ 400    0.0636    0.4425  
+ 500    0.0713    0.4178  
+ ...
+  </pre>
+</div>
+</div>
+
+<div class="section">
+<a name="example4" />
+<h3>Example 4: Defining New Problems</h3>
+
+<div class="files">
+  <ul>
+    <li><a href="Example4.java">Example4.java</a></li>
+  </ul>
+</div>
+
+<p>
+  A number of methods are available to provide custom, user-defined problems
+  that cleanly integrate with all other components of the MOEA Framework.  The
+  following demonstrates the two-objective DTLZ2 problem.  Note that you only
+  need to define two methods: newSolution and evaluate.  The newSolution
+  method defines the problem representation (the number and types of its
+  decision variables).  The evaluate method takes a solution and computes its
+  objective function values.
+</p>
+
+<div class="code">
+  <pre class="brush: java; toolbar: false;">
+<![CDATA[
+public class DTLZ2 extends AbstractProblem {
+
+  public DTLZ2() {
+    super(11, 2);
+  }
+
+  public Solution newSolution() {
+    Solution solution = new Solution(getNumberOfVariables(), 
+        getNumberOfObjectives());
+
+    for (int i = 0; i < getNumberOfVariables(); i++) {
+      solution.setVariable(i, new RealVariable(0.0, 1.0));
+    }
+
+    return solution;
+  }
+
+  public void evaluate(Solution solution) {
+    double[] x = CoreUtils.castVariablesToDoubleArray(solution);
+    double[] f = new double[numberOfObjectives];
+
+    int k = numberOfVariables - numberOfObjectives + 1;
+
+    double g = 0.0;
+    for (int i = numberOfVariables - k; i < numberOfVariables; i++) {
+      g += Math.pow(x[i] - 0.5, 2.0);
+    }
+
+    for (int i = 0; i < numberOfObjectives; i++) {
+      f[i] = 1.0 + g;
+
+      for (int j = 0; j < numberOfObjectives - i - 1; j++) {
+        f[i] *= Math.cos(0.5 * Math.PI * x[j]);
+      }
+
+      if (i != 0) {
+        f[i] *= Math.sin(0.5 * Math.PI * x[numberOfObjectives - i - 1]);
+      }
+    }
+
+    solution.setObjectives(f);
+  }
+		
+}
+]]>
+  </pre>
+</div>
+
+<p>
+  This can subsequently be used with the Executor.
+</p>
+
+<div class="code">
+  <pre class="brush: java; toolbar: false;">
+<![CDATA[
+NondominatedPopulation result = new Executor()
+    .withProblemClass(DTLZ2.class)
+    .withAlgorithm("GDE3")
+    .withMaxEvaluations(10000)
+    .distributeOnAllCores()
+    .run();
+]]>
+  </pre>
+</div>
+</div>
+
+<div class="section">
+<a name="example5" />
+<h3>Example 5: Defining Problems in C/C++</h3>
+
+<div class="files">
+  <ul>
+    <li><a href="Example5.java">Example5.java</a></li>
+    <li><a href="dtlz2.c">dtlz2.c</a></li>
+  </ul>
+</div>
+
+<p>
+  The MOEA Framework also supports defining new problems in other programming
+  languages, such as C/C++.  First, a Java stub for the problem must be
+  created, as shown below.  Note how the C/C++ executable is defined in the
+  constructor. 
+</p>
+
+<div class="code">
+  <pre class="brush: java; toolbar: false;">
+<![CDATA[
+public static class DTLZ2 extends ExternalProblem {
+
+  public DTLZ2() throws IOException {
+    super("./auxiliary/c/dtlz2_stdio.exe");
+  }
+
+  @Override
+  public String getName() {
+    return "DTLZ2";
+  }
+
+  @Override
+  public int getNumberOfVariables() {
+    return 11;
+  }
+
+  @Override
+  public int getNumberOfObjectives() {
+    return 2;
+  }
+
+  @Override
+  public int getNumberOfConstraints() {
+    return 0;
+  }
+
+  @Override
+  public Solution newSolution() {
+    Solution solution = new Solution(getNumberOfVariables(), 
+        getNumberOfObjectives());
+
+    for (int i = 0; i < getNumberOfVariables(); i++) {
+      solution.setVariable(i, new RealVariable(0.0, 1.0));
+    }
+
+    return solution;
+  }
+		
+}
+]]>
+  </pre>
+</div>
+
+<p>
+  Next, we create the C/C++ program that defines the problem.  Note the use of
+  several methods with names beginning with the MOEA_ prefix.  These methods
+  are provided by the <code>moeaframework.h</code> library, which is
+  provided provided in the examples/ folder.
+</p>
+
+<div class="code">
+  <pre class="brush: cpp; toolbar: false;">
+<![CDATA[
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "moeaframework.h"
+
+#define PI 3.14159265358979323846
+
+int nvars = 11;
+int nobjs = 2;
+
+void evaluate(double* vars, double* objs) {
+	int i;
+	int j;
+	int k = nvars - nobjs + 1;
+	double g = 0.0;
+
+	for (i=nvars-k; i<nvars; i++) {
+		g += pow(vars[i] - 0.5, 2.0);
+	}
+
+	for (i=0; i<nobjs; i++) {
+		objs[i] = 1.0 + g;
+
+		for (j=0; j<nobjs-i-1; j++) {
+			objs[i] *= cos(0.5*PI*vars[j]);
+		}
+
+		if (i != 0) {
+			objs[i] *= sin(0.5*PI*vars[nobjs-i-1]);
+		}
+	}
+}
+
+int main(int argc, char* argv[]) {
+	double vars[nvars];
+	double objs[nobjs];
+
+	MOEA_Init(nobjs, 0);
+
+	while (MOEA_Next_solution() == MOEA_SUCCESS) {
+		MOEA_Read_doubles(nvars, vars);
+		evaluate(vars, objs);
+		MOEA_Write(objs, NULL);
+	}
+	
+	MOEA_Terminate();
+
+	return EXIT_SUCCESS;
+}
+]]>
+  </pre>
+</div>
+
+<p>
+  The MOEA_Init method establishes a communication channel with the MOEA
+  Framework.  This communication channel can use standard I/O streams or
+  sockets.  The MOEA_Next_solution and MOEA_Read_doubles methods are used to
+  read the next solution to be evaluated.  Once the solution is evaluated, the
+  computed objective function values are sent back to the MOEA Framework.
+  Finally, once all solutions are evaluated, we shutdown the communication
+  channel by calling MOEA_Terminate.
+</p>
+
+</div>
+
+<div class="section">
+<h3>Concluding Remarks</h3>
+
+<p>
+  We hope that you find the MOEA Framework useful.  We strive to make this
+  framework reliable and easy-to-use, and feedback from users like yourself
+  help us meet these goals.  If you encounter any issues using this software,
+  please <a href="support.html">notify us</a>.
+</p>
+</div>
+  </content>
+</page>

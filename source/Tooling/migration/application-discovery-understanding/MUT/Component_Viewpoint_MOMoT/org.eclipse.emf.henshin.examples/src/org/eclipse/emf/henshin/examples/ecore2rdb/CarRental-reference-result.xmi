@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rdb:Schema xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rdb="http://www.eclipse.org/emf/henshin/examples/oo2rdb/rdb" xsi:schemaLocation="http://www.eclipse.org/emf/henshin/examples/oo2rdb/rdb rdb.ecore#_wEs6IFv7EeG02funq3QXug" name="CarRentalModel">
+  <tables name="Automobile">
+    <columns type="boolean" name="isCabrio"/>
+    <columns type="java.lang.String" name="licenseNo"/>
+    <columns type="float" name="charge"/>
+    <columns type="int" name="vin"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.0/@columns.3"/>
+  </tables>
+  <tables name="Motorcycle">
+    <columns type="int" name="cm3"/>
+    <columns type="java.lang.String" name="licenseNo"/>
+    <columns type="float" name="charge"/>
+    <columns type="int" name="vin"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.1/@columns.3"/>
+  </tables>
+  <tables name="VipCustomer">
+    <columns type="float" name="discount"/>
+    <columns type="java.lang.String" name="surname"/>
+    <columns type="java.lang.String" name="lastname"/>
+    <columns type="java.lang.String" name="identifier"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.2/@columns.3"/>
+  </tables>
+  <tables name="Agency">
+    <columns type="int" name="zip"/>
+    <columns type="java.lang.String" name="place"/>
+    <columns type="java.lang.String" name="street"/>
+    <columns type="int" name="id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.3/@columns.3"/>
+  </tables>
+  <tables name="Order">
+    <columns type="float" name="price"/>
+    <columns type="java.util.Date" name="orderDate"/>
+    <columns type="int" name="id"/>
+    <columns type="java.lang.String" name="customer.identifier"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.4/@columns.2"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.4/@columns.3" ref="//@tables.5/@columns.2"/>
+  </tables>
+  <tables name="Customer">
+    <columns type="java.lang.String" name="surname"/>
+    <columns type="java.lang.String" name="lastname"/>
+    <columns type="java.lang.String" name="identifier"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.5/@columns.2"/>
+  </tables>
+  <tables name="CarRental">
+    <columns type="int" name="id"/>
+    <columns type="int" name="mainAgency.id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.6/@columns.0"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.6/@columns.1" ref="//@tables.3/@columns.3"/>
+  </tables>
+  <tables name="CarRental.customer.Customer">
+    <columns type="int" name="CarRental.id"/>
+    <columns type="java.lang.String" name="Customer.identifier"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.7/@columns.0 //@tables.7/@columns.1"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.7/@columns.0" ref="//@tables.6/@columns.0"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.7/@columns.1" ref="//@tables.5/@columns.2"/>
+  </tables>
+  <tables name="CarRental.agencies.Agency">
+    <columns type="int" name="CarRental.id"/>
+    <columns type="int" name="Agency.id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.8/@columns.0 //@tables.8/@columns.1"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.8/@columns.0" ref="//@tables.6/@columns.0"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.8/@columns.1" ref="//@tables.3/@columns.3"/>
+  </tables>
+  <tables name="Customer.bestellungen.Order">
+    <columns type="java.lang.String" name="Customer.identifier"/>
+    <columns type="int" name="Order.id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.9/@columns.0 //@tables.9/@columns.1"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.9/@columns.0" ref="//@tables.5/@columns.2"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.9/@columns.1" ref="//@tables.4/@columns.2"/>
+  </tables>
+  <tables name="VipCustomer.bestellungen.Order">
+    <columns type="java.lang.String" name="VipCustomer.identifier"/>
+    <columns type="int" name="Order.id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.10/@columns.0 //@tables.10/@columns.1"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.10/@columns.0" ref="//@tables.2/@columns.3"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.10/@columns.1" ref="//@tables.4/@columns.2"/>
+  </tables>
+  <tables name="Motorcycle.rentBy.Order">
+    <columns type="int" name="Motorcycle.vin"/>
+    <columns type="int" name="Order.id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.11/@columns.0 //@tables.11/@columns.1"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.11/@columns.0" ref="//@tables.1/@columns.3"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.11/@columns.1" ref="//@tables.4/@columns.2"/>
+  </tables>
+  <tables name="Automobile.rentBy.Order">
+    <columns type="int" name="Automobile.vin"/>
+    <columns type="int" name="Order.id"/>
+    <constraints xsi:type="rdb:PrimaryKey" keyColumn="//@tables.12/@columns.0 //@tables.12/@columns.1"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.12/@columns.0" ref="//@tables.0/@columns.3"/>
+    <constraints xsi:type="rdb:ForeignKey" keyColumn="//@tables.12/@columns.1" ref="//@tables.4/@columns.2"/>
+  </tables>
+</rdb:Schema>

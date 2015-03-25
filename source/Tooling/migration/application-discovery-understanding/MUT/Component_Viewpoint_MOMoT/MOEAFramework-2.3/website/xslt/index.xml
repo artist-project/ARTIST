@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE some_name [ 
+<!ENTITY nbsp "&#160;">
+<!ENTITY copy "&#169;">
+<!ENTITY epsilon "&#949;">
+]>
+
+<page>
+  <title>MOEA Framework, a Java library for multiobjective evolutionary algorithms</title>
+  <description>MOEA Framework, a Java library for multiobjective evolutionary algorithms</description>
+  <header>
+    <script type="text/javascript" src="scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.easing-1.4.pack.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("a.grouped_elements").fancybox({titlePosition:'inside'});
+      });
+    </script>
+  </header>
+  <content>
+<h2>A Framework for Innovation</h2>
+  
+<p itemprop="description">
+  The MOEA Framework is a free and open source Java library for developing and 
+  experimenting with multiobjective evolutionary algorithms (MOEAs) and
+  other general-purpose multiobjective optimization algorithms.  The MOEA
+  Framework supports genetic algorithms, differential evolution, particle
+  swarm optimization, genetic programming, grammatical evolution, and more.
+  A number of algorithms are provided out-of-the-box, including NSGA-II, NSGA-III,
+  &epsilon;-MOEA, GDE3 and MOEA/D.  In addition, the MOEA Framework provides the
+  tools necessary to rapidly design, develop, execute and statistically test
+  optimization algorithms.
+</p>
+
+<h3>Key Features</h3>
+  
+  <ul itemprop="featureList">
+    <li>Fast, reliable implementations of many state-of-the-art multiobjective evolutionary algorithms</li>
+    <li>Extensible with custom algorithms, problems and operators</li>
+    <li>Modular design for constructing new optimization algorithms from existing components</li>
+    <li>Permissive open source license</li>
+    <li>Fully documented source code</li>
+    <li>Over 1100 test cases to ensure validity</li>
+  </ul>
+  
+<h3>Gallery</h3>
+
+<p>
+  <a class="grouped_elements" href="images/screenshot-7.png" rel="gallery"
+      title="Explore the capabilities of the MOEA Framework with the demo application" itemprop="screenshot">
+    <img src="images/screenshot-7-small.png" class="float-left" width="98" height="70" alt="Explore the capabilities of the MOEA Framework with the demo application" />
+  </a>
+
+  <a class="grouped_elements" href="images/screenshot-5.png" rel="gallery"
+      title="Solve interesting and complex problems, such as the famous traveling salesman problem" itemprop="screenshot">
+    <img src="images/screenshot-5-small.png" class="float-left" width="70" height="70" alt="Solve interesting and complex problems, such as the famous traveling salesman problem" />
+  </a>
+  
+  <a class="grouped_elements" href="images/screenshot-6.png" rel="gallery"
+      title="Use genetic programming or grammatical evolution to evolve programs" itemprop="screenshot">
+    <img src="images/screenshot-6-small.png" class="float-left" width="70" height="70" alt="Use genetic programming or grammatical evolution to evolve programs" />
+  </a>
+  
+  <a class="grouped_elements" href="images/screenshot-1.png" rel="gallery"
+      title="Compare the performance of multiple MOEAs using the diagnostic tool" itemprop="screenshot">
+    <img src="images/screenshot-1-small.png" class="float-left" width="114" height="70" alt="Compare the performance of multiple MOEAs using the diagnostic tool" />
+  </a>
+  
+  <a class="grouped_elements" href="images/screenshot-3.png" rel="gallery"
+      title="Multiple plots can be shown side-by-side" itemprop="screenshot">
+    <img src="images/screenshot-3-small.png" class="float-left" width="114" height="70" alt="Multiple plots can be shown side-by-side" />
+  </a>
+  
+  <a class="grouped_elements" href="images/screenshot-2.png" rel="gallery"
+      title="Plot the convergence of the approximation set over time" itemprop="screenshot">
+    <img src="images/screenshot-2-small.png" class="float-left" width="93" height="70" alt="Plot the convergence of the approximation set over time" />
+  </a>
+  
+  <a class="grouped_elements" href="images/screenshot-4.png" rel="gallery"
+      title="Perform rigorous statistical studies with ease using our extensive API" itemprop="screenshot">
+    <img src="images/screenshot-4-small.png" class="float-left" width="167" height="70" alt="Perform rigorous statistical studies with ease using our extensive API" />
+  </a>
+</p>
+  </content>
+</page>

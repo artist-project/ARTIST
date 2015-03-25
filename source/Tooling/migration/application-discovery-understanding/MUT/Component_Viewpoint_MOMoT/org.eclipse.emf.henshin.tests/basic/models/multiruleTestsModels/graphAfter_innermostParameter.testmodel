@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="Cp1252"?>
+<testmodel:cont xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:testmodel="http://www.eclipse.org/emf/2010/Henshin/Tests">
+  <containsNode hasVals="//@containsVal.0" childNodes="//@containsNode.1 //@containsNode.2" nodename="n1"/>
+  <containsNode hasVals="//@containsVal.1 //@containsVal.2" parentNode="//@containsNode.0" nodename="n1-1"/>
+  <containsNode hasVals="//@containsVal.3 //@containsVal.4" parentNode="//@containsNode.0" nodename="n1-2"/>
+  <containsVal intvl="23" valname="v1-1"/>
+  <containsVal intvl="4" valname="v1-1-1"/>
+  <containsVal intvl="8" valname="v1-1-2"/>
+  <containsVal intvl="14" valname="v1-2-1"/>
+  <containsVal intvl="18" valname="v1-2-2"/>
+</testmodel:cont>

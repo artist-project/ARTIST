@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_DbhD8CTVEeKC19tMV_uCkA" name="Ecore2Rdb" description="This transformation systems performs the common transformation of an object oriented structure to a relational (database) structure. ">
+  <imports href="rdb.ecore#_wEs6IFv7EeG02funq3QXug"/>
+  <imports href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <imports href="http://www.eclipse.org/emf/2011/Henshin/Trace#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DbhD8STVEeKC19tMV_uCkA" name="CreateSchema" description="Creates the inital Schema object and returns it. Furthermore, contained rule perform the actual transformation of the table structure.">
+    <parameters xmi:id="_DbhD8iTVEeKC19tMV_uCkA" name="packageName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_DbhrACTVEeKC19tMV_uCkA" name="schema" description="This parameter is particularly used as &quot;output&quot; parameter, i.e., after the application of this rule this parameter refers to the root object, the Schema object. It may then be used, e.g., to persist the newly created model.">
+      <type xsi:type="ecore:EClass" href="rdb.ecore#//Schema"/>
+    </parameters>
+    <lhs xmi:id="_DbhrASTVEeKC19tMV_uCkA" name="LHS">
+      <nodes xmi:id="_DbhrAiTVEeKC19tMV_uCkA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+        <attributes xmi:id="_DbhrBiTVEeKC19tMV_uCkA" value="packageName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_DblVYSTVEeKC19tMV_uCkA" name="RHS">
+      <nodes xmi:id="_DblVYiTVEeKC19tMV_uCkA" name="schema" incoming="_Dbpm0yTVEeKC19tMV_uCkA">
+        <type href="rdb.ecore#//Schema"/>
+        <attributes xmi:id="_Dbl8cCTVEeKC19tMV_uCkA" value="packageName">
+          <type href="rdb.ecore#//Schema/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Dbo_wCTVEeKC19tMV_uCkA" incoming="_Dbpm0iTVEeKC19tMV_uCkA">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+        <attributes xmi:id="_ztLsYCTgEeKC19tMV_uCkA" value="packageName">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_Dbpm0CTVEeKC19tMV_uCkA" outgoing="_Dbpm0iTVEeKC19tMV_uCkA _Dbpm0yTVEeKC19tMV_uCkA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        <attributes xmi:id="_Dbpm0STVEeKC19tMV_uCkA" value="packageName">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+        </attributes>
+      </nodes>
+      <edges xmi:id="_Dbpm0iTVEeKC19tMV_uCkA" source="_Dbpm0CTVEeKC19tMV_uCkA" target="_Dbo_wCTVEeKC19tMV_uCkA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+      </edges>
+      <edges xmi:id="_Dbpm0yTVEeKC19tMV_uCkA" source="_Dbpm0CTVEeKC19tMV_uCkA" target="_DblVYiTVEeKC19tMV_uCkA">
+        <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_Dbpm1CTVEeKC19tMV_uCkA" origin="_DbhrAiTVEeKC19tMV_uCkA" image="_Dbo_wCTVEeKC19tMV_uCkA"/>
+    <multiRules xmi:id="_DbqN4CTVEeKC19tMV_uCkA" name="tab" description="Creates a table corresponding to a class. However, columns are processed in multi rules &quot;below&quot;.">
+      <parameters xmi:id="_DbqN4STVEeKC19tMV_uCkA" name="className" description="Receives the name of the current class which is then used as name of the created table.">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_DbqN4iTVEeKC19tMV_uCkA" name="LHS">
+        <nodes xmi:id="_DbqN4yTVEeKC19tMV_uCkA" incoming="_DbqN5STVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          <attributes xmi:id="_Dbq08iTVEeKC19tMV_uCkA" value="false">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/abstract"/>
+          </attributes>
+          <attributes xmi:id="_Dbq08STVEeKC19tMV_uCkA" value="className">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_DbqN5CTVEeKC19tMV_uCkA" outgoing="_DbqN5STVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+        </nodes>
+        <edges xmi:id="_DbqN5STVEeKC19tMV_uCkA" source="_DbqN5CTVEeKC19tMV_uCkA" target="_DbqN4yTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_Dbq09CTVEeKC19tMV_uCkA" name="RHS">
+        <nodes xmi:id="_Dbq09STVEeKC19tMV_uCkA" name="schema" outgoing="_DbsDFCTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//Schema"/>
+        </nodes>
+        <nodes xmi:id="_DbrcACTVEeKC19tMV_uCkA" incoming="_DbsqISTVEeKC19tMV_uCkA _DbsqIiTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          <attributes xmi:id="_H7mtgCThEeKC15glCy8KqA" value="false">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/abstract"/>
+          </attributes>
+          <attributes xmi:id="_JFmbcCThEeKC15glCy8KqA" value="className">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_DbrcASTVEeKC19tMV_uCkA" incoming="_DbsDFCTVEeKC19tMV_uCkA _DbsqIyTVEeKC19tMV_uCkA" outgoing="_DbsqICTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//Table"/>
+          <attributes xmi:id="_DbrcAiTVEeKC19tMV_uCkA" value="className">
+            <type href="rdb.ecore#//Table/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_DbrcAyTVEeKC19tMV_uCkA" incoming="_DbsqICTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//PrimaryKey"/>
+        </nodes>
+        <nodes xmi:id="_DbsDECTVEeKC19tMV_uCkA" incoming="_DbsqJCTVEeKC19tMV_uCkA" outgoing="_DbsqISTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+        </nodes>
+        <nodes xmi:id="_DbsDESTVEeKC19tMV_uCkA" incoming="_DbsqJSTVEeKC19tMV_uCkA" outgoing="_DbsqIiTVEeKC19tMV_uCkA _DbsqIyTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          <attributes xmi:id="_DbsDEiTVEeKC19tMV_uCkA" value="className">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_DbsDEyTVEeKC19tMV_uCkA" outgoing="_DbsqJCTVEeKC19tMV_uCkA _DbsqJSTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+        <edges xmi:id="_DbsDFCTVEeKC19tMV_uCkA" source="_Dbq09STVEeKC19tMV_uCkA" target="_DbrcASTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//Schema/tables"/>
+        </edges>
+        <edges xmi:id="_DbsqICTVEeKC19tMV_uCkA" source="_DbrcASTVEeKC19tMV_uCkA" target="_DbrcAyTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//Table/constraints"/>
+        </edges>
+        <edges xmi:id="_DbsqISTVEeKC19tMV_uCkA" source="_DbsDECTVEeKC19tMV_uCkA" target="_DbrcACTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+        </edges>
+        <edges xmi:id="_DbsqIiTVEeKC19tMV_uCkA" source="_DbsDESTVEeKC19tMV_uCkA" target="_DbrcACTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_DbsqIyTVEeKC19tMV_uCkA" source="_DbsDESTVEeKC19tMV_uCkA" target="_DbrcASTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        </edges>
+        <edges xmi:id="_DbsqJCTVEeKC19tMV_uCkA" source="_DbsDEyTVEeKC19tMV_uCkA" target="_DbsDECTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_DbsqJSTVEeKC19tMV_uCkA" source="_DbsDEyTVEeKC19tMV_uCkA" target="_DbsDESTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_DbtRMCTVEeKC19tMV_uCkA" origin="_DbqN4yTVEeKC19tMV_uCkA" image="_DbrcACTVEeKC19tMV_uCkA"/>
+      <mappings xmi:id="_DbtRMSTVEeKC19tMV_uCkA" origin="_DbqN5CTVEeKC19tMV_uCkA" image="_DbsDECTVEeKC19tMV_uCkA"/>
+      <multiRules xmi:id="_DbtRMiTVEeKC19tMV_uCkA" name="col" description="Translates attributes to table columns.">
+        <parameters xmi:id="_DbtRMyTVEeKC19tMV_uCkA" name="attrName">
+          <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </parameters>
+        <parameters xmi:id="_DbtRNCTVEeKC19tMV_uCkA" name="attrType" description="">
+          <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </parameters>
+        <lhs xmi:id="_DbtRNSTVEeKC19tMV_uCkA" name="LHS">
+          <nodes xmi:id="_DbtRNiTVEeKC19tMV_uCkA" incoming="_Dbt4RSTVEeKC19tMV_uCkA" outgoing="_Dbt4QyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Dbt4QCTVEeKC19tMV_uCkA" incoming="_Dbt4QyTVEeKC19tMV_uCkA" outgoing="_Dbt4RCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+            <attributes xmi:id="_DbufUyTVEeKC19tMV_uCkA" value="attrName">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_Dbt4QSTVEeKC19tMV_uCkA" incoming="_Dbt4RCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+            <attributes xmi:id="_DbufVSTVEeKC19tMV_uCkA" value="attrType">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier/instanceTypeName"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_Dbt4QiTVEeKC19tMV_uCkA" outgoing="_Dbt4RSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+          </nodes>
+          <edges xmi:id="_Dbt4QyTVEeKC19tMV_uCkA" source="_DbtRNiTVEeKC19tMV_uCkA" target="_Dbt4QCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllAttributes"/>
+          </edges>
+          <edges xmi:id="_Dbt4RCTVEeKC19tMV_uCkA" source="_Dbt4QCTVEeKC19tMV_uCkA" target="_Dbt4QSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+          </edges>
+          <edges xmi:id="_Dbt4RSTVEeKC19tMV_uCkA" source="_Dbt4QiTVEeKC19tMV_uCkA" target="_DbtRNiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+          </edges>
+        </lhs>
+        <rhs xmi:id="_DbvGYiTVEeKC19tMV_uCkA" name="RHS">
+          <nodes xmi:id="_DbvGYyTVEeKC19tMV_uCkA" incoming="_Dbw7lSTVEeKC19tMV_uCkA _DbxioCTVEeKC19tMV_uCkA" outgoing="_Dbw7kCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_DbvGZCTVEeKC19tMV_uCkA" incoming="_Dbw7kCTVEeKC19tMV_uCkA _Dbw7kyTVEeKC19tMV_uCkA" outgoing="_Dbw7kiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+            <attributes xmi:id="_K_6MACThEeKC15glCy8KqA" value="attrName">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_DbvGZSTVEeKC19tMV_uCkA" outgoing="_Dbw7kSTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table"/>
+          </nodes>
+          <nodes xmi:id="_DbvGZiTVEeKC19tMV_uCkA" incoming="_Dbw7kSTVEeKC19tMV_uCkA _Dbw7lCTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Column"/>
+            <attributes xmi:id="_DbvtcCTVEeKC19tMV_uCkA" value="attrName">
+              <type href="rdb.ecore#//Column/name"/>
+            </attributes>
+            <attributes xmi:id="_DbvtcSTVEeKC19tMV_uCkA" value="attrType">
+              <type href="rdb.ecore#//Column/type"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_DbvtciTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//PrimaryKey"/>
+          </nodes>
+          <nodes xmi:id="_DbvtcyTVEeKC19tMV_uCkA" incoming="_Dbw7kiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+            <attributes xmi:id="_MZWrMCThEeKC15glCy8KqA" value="attrType">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClassifier/instanceTypeName"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_DbwUgCTVEeKC19tMV_uCkA" incoming="_DbxioSTVEeKC19tMV_uCkA" outgoing="_Dbw7kyTVEeKC19tMV_uCkA _Dbw7lCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            <attributes xmi:id="_DbwUgSTVEeKC19tMV_uCkA" value="attrName">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_DbwUgiTVEeKC19tMV_uCkA" incoming="_DbxioiTVEeKC19tMV_uCkA" outgoing="_Dbw7lSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+          </nodes>
+          <nodes xmi:id="_DbwUgyTVEeKC19tMV_uCkA" outgoing="_DbxioCTVEeKC19tMV_uCkA _DbxioSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <nodes xmi:id="_DbwUhCTVEeKC19tMV_uCkA" outgoing="_DbxioiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <edges xmi:id="_Dbw7kCTVEeKC19tMV_uCkA" source="_DbvGYyTVEeKC19tMV_uCkA" target="_DbvGZCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllAttributes"/>
+          </edges>
+          <edges xmi:id="_Dbw7kSTVEeKC19tMV_uCkA" source="_DbvGZSTVEeKC19tMV_uCkA" target="_DbvGZiTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table/columns"/>
+          </edges>
+          <edges xmi:id="_Dbw7kiTVEeKC19tMV_uCkA" source="_DbvGZCTVEeKC19tMV_uCkA" target="_DbvtcyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+          </edges>
+          <edges xmi:id="_Dbw7kyTVEeKC19tMV_uCkA" source="_DbwUgCTVEeKC19tMV_uCkA" target="_DbvGZCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+          <edges xmi:id="_Dbw7lCTVEeKC19tMV_uCkA" source="_DbwUgCTVEeKC19tMV_uCkA" target="_DbvGZiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+          </edges>
+          <edges xmi:id="_Dbw7lSTVEeKC19tMV_uCkA" source="_DbwUgiTVEeKC19tMV_uCkA" target="_DbvGYyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+          </edges>
+          <edges xmi:id="_DbxioCTVEeKC19tMV_uCkA" source="_DbwUgyTVEeKC19tMV_uCkA" target="_DbvGYyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+          <edges xmi:id="_DbxioSTVEeKC19tMV_uCkA" source="_DbwUgyTVEeKC19tMV_uCkA" target="_DbwUgCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/subTraces"/>
+          </edges>
+          <edges xmi:id="_DbxioiTVEeKC19tMV_uCkA" source="_DbwUhCTVEeKC19tMV_uCkA" target="_DbwUgiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+        </rhs>
+        <mappings xmi:id="_DbxioyTVEeKC19tMV_uCkA" origin="_Dbt4QCTVEeKC19tMV_uCkA" image="_DbvGZCTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_DbxipCTVEeKC19tMV_uCkA" origin="_DbtRNiTVEeKC19tMV_uCkA" image="_DbvGYyTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_DbxipSTVEeKC19tMV_uCkA" origin="_Dbt4QSTVEeKC19tMV_uCkA" image="_DbvtcyTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_DbxipiTVEeKC19tMV_uCkA" origin="_Dbt4QiTVEeKC19tMV_uCkA" image="_DbwUgiTVEeKC19tMV_uCkA"/>
+        <multiRules xmi:id="_DbyJsCTVEeKC19tMV_uCkA" name="PKey" description="If an attribute is marked as &quot;id=true&quot;, it is used as primary key of the current table.">
+          <lhs xmi:id="_DbyJsSTVEeKC19tMV_uCkA" name="LHS">
+            <nodes xmi:id="_DbyJsiTVEeKC19tMV_uCkA" incoming="_DbywwSTVEeKC19tMV_uCkA" outgoing="_DbywwiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+            </nodes>
+            <nodes xmi:id="_DbyJsyTVEeKC19tMV_uCkA" incoming="_DbywwCTVEeKC19tMV_uCkA" outgoing="_DbywwSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DbyJtCTVEeKC19tMV_uCkA" outgoing="_DbywwCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+            </nodes>
+            <nodes xmi:id="_DbyJtSTVEeKC19tMV_uCkA" incoming="_DbywwiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+            </nodes>
+            <edges xmi:id="_DbywwCTVEeKC19tMV_uCkA" source="_DbyJtCTVEeKC19tMV_uCkA" target="_DbyJsyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+            </edges>
+            <edges xmi:id="_DbywwSTVEeKC19tMV_uCkA" source="_DbyJsyTVEeKC19tMV_uCkA" target="_DbyJsiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllAttributes"/>
+            </edges>
+            <edges xmi:id="_DbywwiTVEeKC19tMV_uCkA" source="_DbyJsiTVEeKC19tMV_uCkA" target="_DbyJtSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <formula xsi:type="henshin:NestedCondition" xmi:id="_DbywwyTVEeKC19tMV_uCkA">
+              <conclusion xmi:id="_DbywxCTVEeKC19tMV_uCkA">
+                <nodes xmi:id="_DbywxSTVEeKC19tMV_uCkA">
+                  <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+                  <attributes xmi:id="_DbywxiTVEeKC19tMV_uCkA" value="true">
+                    <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute/iD"/>
+                  </attributes>
+                </nodes>
+              </conclusion>
+              <mappings xmi:id="_DbzX0CTVEeKC19tMV_uCkA" origin="_DbyJsiTVEeKC19tMV_uCkA" image="_DbywxSTVEeKC19tMV_uCkA"/>
+            </formula>
+          </lhs>
+          <rhs xmi:id="_DbzX0STVEeKC19tMV_uCkA" name="RHS">
+            <nodes xmi:id="_DbzX0iTVEeKC19tMV_uCkA" incoming="_Db0l8yTVEeKC19tMV_uCkA _Db0l9CTVEeKC19tMV_uCkA" outgoing="_Db0l9STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+            </nodes>
+            <nodes xmi:id="_DbzX0yTVEeKC19tMV_uCkA" outgoing="_Db0l8CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DbzX1CTVEeKC19tMV_uCkA" incoming="_Db0l8CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_DbzX1STVEeKC19tMV_uCkA" incoming="_Db0l8STVEeKC19tMV_uCkA _Db0l8iTVEeKC19tMV_uCkA" outgoing="_Db0l8yTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_Dbz-4CTVEeKC19tMV_uCkA" incoming="_Db1NACTVEeKC19tMV_uCkA" outgoing="_Db0l8STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+            </nodes>
+            <nodes xmi:id="_Dbz-4STVEeKC19tMV_uCkA" outgoing="_Db0l8iTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_Dbz-4iTVEeKC19tMV_uCkA" outgoing="_Db0l9CTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_Dbz-4yTVEeKC19tMV_uCkA" incoming="_Db0l9STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EDataType"/>
+            </nodes>
+            <nodes xmi:id="_Dbz-5CTVEeKC19tMV_uCkA" outgoing="_Db1NACTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_Db0l8CTVEeKC19tMV_uCkA" source="_DbzX0yTVEeKC19tMV_uCkA" target="_DbzX1CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_Db0l8STVEeKC19tMV_uCkA" source="_Dbz-4CTVEeKC19tMV_uCkA" target="_DbzX1STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+            </edges>
+            <edges xmi:id="_Db0l8iTVEeKC19tMV_uCkA" source="_Dbz-4STVEeKC19tMV_uCkA" target="_DbzX1STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_Db0l8yTVEeKC19tMV_uCkA" source="_DbzX1STVEeKC19tMV_uCkA" target="_DbzX0iTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllAttributes"/>
+            </edges>
+            <edges xmi:id="_Db0l9CTVEeKC19tMV_uCkA" source="_Dbz-4iTVEeKC19tMV_uCkA" target="_DbzX0iTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_Db0l9STVEeKC19tMV_uCkA" source="_DbzX0iTVEeKC19tMV_uCkA" target="_Dbz-4yTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <edges xmi:id="_Db1NACTVEeKC19tMV_uCkA" source="_Dbz-5CTVEeKC19tMV_uCkA" target="_Dbz-4CTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </rhs>
+          <mappings xmi:id="_Db1NASTVEeKC19tMV_uCkA" origin="_DbyJsiTVEeKC19tMV_uCkA" image="_DbzX0iTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_Db1NAiTVEeKC19tMV_uCkA" origin="_DbyJsyTVEeKC19tMV_uCkA" image="_DbzX1STVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_Db1NAyTVEeKC19tMV_uCkA" origin="_DbyJtSTVEeKC19tMV_uCkA" image="_Dbz-4yTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_Db1NBCTVEeKC19tMV_uCkA" origin="_DbyJtCTVEeKC19tMV_uCkA" image="_Dbz-4CTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db1NBSTVEeKC19tMV_uCkA" origin="_Dbt4QCTVEeKC19tMV_uCkA" image="_DbyJsiTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db1NBiTVEeKC19tMV_uCkA" origin="_DbvGZCTVEeKC19tMV_uCkA" image="_DbzX0iTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db1NByTVEeKC19tMV_uCkA" origin="_DbvtciTVEeKC19tMV_uCkA" image="_DbzX0yTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db1NCCTVEeKC19tMV_uCkA" origin="_DbvGZiTVEeKC19tMV_uCkA" image="_DbzX1CTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10ECTVEeKC19tMV_uCkA" origin="_DbvGYyTVEeKC19tMV_uCkA" image="_DbzX1STVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10ESTVEeKC19tMV_uCkA" origin="_DbwUgiTVEeKC19tMV_uCkA" image="_Dbz-4CTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10EiTVEeKC19tMV_uCkA" origin="_DbwUgyTVEeKC19tMV_uCkA" image="_Dbz-4STVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10EyTVEeKC19tMV_uCkA" origin="_DbtRNiTVEeKC19tMV_uCkA" image="_DbyJsyTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10FCTVEeKC19tMV_uCkA" origin="_Dbt4QiTVEeKC19tMV_uCkA" image="_DbyJtCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10FSTVEeKC19tMV_uCkA" origin="_DbwUgCTVEeKC19tMV_uCkA" image="_Dbz-4iTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10FiTVEeKC19tMV_uCkA" origin="_DbvtcyTVEeKC19tMV_uCkA" image="_Dbz-4yTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10FyTVEeKC19tMV_uCkA" origin="_Dbt4QSTVEeKC19tMV_uCkA" image="_DbyJtSTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_Db10GCTVEeKC19tMV_uCkA" origin="_DbwUhCTVEeKC19tMV_uCkA" image="_Dbz-5CTVEeKC19tMV_uCkA"/>
+        </multiRules>
+        <multiMappings xmi:id="_Db10GSTVEeKC19tMV_uCkA" origin="_DbqN4yTVEeKC19tMV_uCkA" image="_DbtRNiTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db10GiTVEeKC19tMV_uCkA" origin="_DbrcACTVEeKC19tMV_uCkA" image="_DbvGYyTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db10GyTVEeKC19tMV_uCkA" origin="_DbrcASTVEeKC19tMV_uCkA" image="_DbvGZSTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db10HCTVEeKC19tMV_uCkA" origin="_DbrcAyTVEeKC19tMV_uCkA" image="_DbvtciTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db10HSTVEeKC19tMV_uCkA" origin="_DbsDECTVEeKC19tMV_uCkA" image="_DbwUgiTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db2bICTVEeKC19tMV_uCkA" origin="_DbsDESTVEeKC19tMV_uCkA" image="_DbwUgyTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db2bISTVEeKC19tMV_uCkA" origin="_DbqN5CTVEeKC19tMV_uCkA" image="_Dbt4QiTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db2bIiTVEeKC19tMV_uCkA" origin="_DbsDEyTVEeKC19tMV_uCkA" image="_DbwUhCTVEeKC19tMV_uCkA"/>
+      </multiRules>
+      <multiRules xmi:id="_Db2bIyTVEeKC19tMV_uCkA" name="newPKey" description="If no attribute of this class is marked with &quot;id=true&quot;, an artifical primary key is inserted in to the new table.">
+        <lhs xmi:id="_Db2bJCTVEeKC19tMV_uCkA" name="LHS">
+          <nodes xmi:id="_Db2bJSTVEeKC19tMV_uCkA" incoming="_Db2bJyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Db2bJiTVEeKC19tMV_uCkA" outgoing="_Db2bJyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+          </nodes>
+          <edges xmi:id="_Db2bJyTVEeKC19tMV_uCkA" source="_Db2bJiTVEeKC19tMV_uCkA" target="_Db2bJSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+          </edges>
+          <formula xsi:type="henshin:Not" xmi:id="_Db2bKCTVEeKC19tMV_uCkA">
+            <child xsi:type="henshin:NestedCondition" xmi:id="_Db3CMCTVEeKC19tMV_uCkA">
+              <conclusion xmi:id="_Db3CMSTVEeKC19tMV_uCkA" name="">
+                <nodes xmi:id="_Db3CMiTVEeKC19tMV_uCkA" outgoing="_Db3CNSTVEeKC19tMV_uCkA">
+                  <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+                </nodes>
+                <nodes xmi:id="_Db3CMyTVEeKC19tMV_uCkA" incoming="_Db3CNSTVEeKC19tMV_uCkA">
+                  <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+                  <attributes xmi:id="_Db3CNCTVEeKC19tMV_uCkA" value="true">
+                    <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute/iD"/>
+                  </attributes>
+                </nodes>
+                <edges xmi:id="_Db3CNSTVEeKC19tMV_uCkA" source="_Db3CMiTVEeKC19tMV_uCkA" target="_Db3CMyTVEeKC19tMV_uCkA">
+                  <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllAttributes"/>
+                </edges>
+              </conclusion>
+              <mappings xmi:id="_Db3CNiTVEeKC19tMV_uCkA" origin="_Db2bJSTVEeKC19tMV_uCkA" image="_Db3CMiTVEeKC19tMV_uCkA"/>
+            </child>
+          </formula>
+        </lhs>
+        <rhs xmi:id="_Db3CNyTVEeKC19tMV_uCkA" name="RHS">
+          <nodes xmi:id="_Db3pQCTVEeKC19tMV_uCkA" outgoing="_Db4QUyTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table"/>
+          </nodes>
+          <nodes xmi:id="_Db3pQSTVEeKC19tMV_uCkA" outgoing="_Db4QVCTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//PrimaryKey"/>
+          </nodes>
+          <nodes xmi:id="_Db3pQiTVEeKC19tMV_uCkA" incoming="_Db4QUyTVEeKC19tMV_uCkA _Db4QVCTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Column"/>
+            <attributes xmi:id="_Db3pQyTVEeKC19tMV_uCkA" value="&quot;id&quot;">
+              <type href="rdb.ecore#//Column/name"/>
+            </attributes>
+            <attributes xmi:id="_Db3pRCTVEeKC19tMV_uCkA" value="&quot;int&quot;">
+              <type href="rdb.ecore#//Column/type"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_Db3pRSTVEeKC19tMV_uCkA" incoming="_Db4QVSTVEeKC19tMV_uCkA _Db43YCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Db4QUCTVEeKC19tMV_uCkA" incoming="_Db43YSTVEeKC19tMV_uCkA" outgoing="_Db4QVSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage"/>
+          </nodes>
+          <nodes xmi:id="_Db4QUSTVEeKC19tMV_uCkA" outgoing="_Db43YCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <nodes xmi:id="_Db4QUiTVEeKC19tMV_uCkA" outgoing="_Db43YSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <edges xmi:id="_Db4QUyTVEeKC19tMV_uCkA" source="_Db3pQCTVEeKC19tMV_uCkA" target="_Db3pQiTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table/columns"/>
+          </edges>
+          <edges xmi:id="_Db4QVCTVEeKC19tMV_uCkA" source="_Db3pQSTVEeKC19tMV_uCkA" target="_Db3pQiTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Key/keyColumn"/>
+          </edges>
+          <edges xmi:id="_Db4QVSTVEeKC19tMV_uCkA" source="_Db4QUCTVEeKC19tMV_uCkA" target="_Db3pRSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EPackage/eClassifiers"/>
+          </edges>
+          <edges xmi:id="_Db43YCTVEeKC19tMV_uCkA" source="_Db4QUSTVEeKC19tMV_uCkA" target="_Db3pRSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+          <edges xmi:id="_Db43YSTVEeKC19tMV_uCkA" source="_Db4QUiTVEeKC19tMV_uCkA" target="_Db4QUCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+        </rhs>
+        <mappings xmi:id="_Db43YiTVEeKC19tMV_uCkA" origin="_Db2bJSTVEeKC19tMV_uCkA" image="_Db3pRSTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db43YyTVEeKC19tMV_uCkA" origin="_Db2bJiTVEeKC19tMV_uCkA" image="_Db4QUCTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db43ZCTVEeKC19tMV_uCkA" origin="_DbqN4yTVEeKC19tMV_uCkA" image="_Db2bJSTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db43ZSTVEeKC19tMV_uCkA" origin="_DbrcASTVEeKC19tMV_uCkA" image="_Db3pQCTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db43ZiTVEeKC19tMV_uCkA" origin="_DbrcAyTVEeKC19tMV_uCkA" image="_Db3pQSTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db43ZyTVEeKC19tMV_uCkA" origin="_DbrcACTVEeKC19tMV_uCkA" image="_Db3pRSTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db43aCTVEeKC19tMV_uCkA" origin="_DbsDECTVEeKC19tMV_uCkA" image="_Db4QUCTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db5ecCTVEeKC19tMV_uCkA" origin="_DbsDESTVEeKC19tMV_uCkA" image="_Db4QUSTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db5ecSTVEeKC19tMV_uCkA" origin="_DbqN5CTVEeKC19tMV_uCkA" image="_Db2bJiTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_Db5eciTVEeKC19tMV_uCkA" origin="_DbsDEyTVEeKC19tMV_uCkA" image="_Db4QUiTVEeKC19tMV_uCkA"/>
+      </multiRules>
+      <multiMappings xmi:id="_Db5ecyTVEeKC19tMV_uCkA" origin="_DblVYiTVEeKC19tMV_uCkA" image="_Dbq09STVEeKC19tMV_uCkA"/>
+      <multiMappings xmi:id="_Db5edCTVEeKC19tMV_uCkA" origin="_DbhrAiTVEeKC19tMV_uCkA" image="_DbqN5CTVEeKC19tMV_uCkA"/>
+      <multiMappings xmi:id="_Db5edSTVEeKC19tMV_uCkA" origin="_Dbo_wCTVEeKC19tMV_uCkA" image="_DbsDECTVEeKC19tMV_uCkA"/>
+      <multiMappings xmi:id="_Db5ediTVEeKC19tMV_uCkA" origin="_Dbpm0CTVEeKC19tMV_uCkA" image="_DbsDEyTVEeKC19tMV_uCkA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_Db5edyTVEeKC19tMV_uCkA" name="CreateTableInterrelations" description="Create the interrelations between the new tables, i.e., foreign keys are added (or if required additional mapping tables are created). Note that the kernel rule part actually does nothing due to empty left- and right-hand sides. However, the work is done by the enclosed rules.">
+    <lhs xmi:id="_Db5eeCTVEeKC19tMV_uCkA" name="LHS"/>
+    <rhs xmi:id="_Db5eeSTVEeKC19tMV_uCkA" name="RHS"/>
+    <multiRules xmi:id="_Db5eeiTVEeKC19tMV_uCkA" name="tab" description="Selects a table to be processed. Used as a multi rule, this rule iterates all available tables (exactly once) and translates outgoing references to appropriate foreign keys.">
+      <lhs xmi:id="_Db5eeyTVEeKC19tMV_uCkA" name="LHS">
+        <nodes xmi:id="_Db6FgCTVEeKC19tMV_uCkA" incoming="_Db6FhCTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//Table"/>
+        </nodes>
+        <nodes xmi:id="_Db6FgSTVEeKC19tMV_uCkA" incoming="_Db6FgyTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        </nodes>
+        <nodes xmi:id="_Db6FgiTVEeKC19tMV_uCkA" outgoing="_Db6FgyTVEeKC19tMV_uCkA _Db6FhCTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+        <edges xmi:id="_Db6FgyTVEeKC19tMV_uCkA" source="_Db6FgiTVEeKC19tMV_uCkA" target="_Db6FgSTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_Db6FhCTVEeKC19tMV_uCkA" source="_Db6FgiTVEeKC19tMV_uCkA" target="_Db6FgCTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        </edges>
+        <formula xsi:type="henshin:NestedCondition" xmi:id="_Db6FhSTVEeKC19tMV_uCkA">
+          <conclusion xmi:id="_Db6FhiTVEeKC19tMV_uCkA" name="">
+            <nodes xmi:id="_Db6FhyTVEeKC19tMV_uCkA" outgoing="_Db6skyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_Db6skCTVEeKC19tMV_uCkA" incoming="_Db6skyTVEeKC19tMV_uCkA" outgoing="_Db6slCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            </nodes>
+            <nodes xmi:id="_Db6skSTVEeKC19tMV_uCkA" incoming="_Db6slCTVEeKC19tMV_uCkA _Db6slSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_Db6skiTVEeKC19tMV_uCkA" name="" outgoing="_Db6slSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_Db6skyTVEeKC19tMV_uCkA" source="_Db6FhyTVEeKC19tMV_uCkA" target="_Db6skCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+            </edges>
+            <edges xmi:id="_Db6slCTVEeKC19tMV_uCkA" source="_Db6skCTVEeKC19tMV_uCkA" target="_Db6skSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <edges xmi:id="_Db6slSTVEeKC19tMV_uCkA" source="_Db6skiTVEeKC19tMV_uCkA" target="_Db6skSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+          </conclusion>
+          <mappings xmi:id="_Db7ToCTVEeKC19tMV_uCkA" origin="_Db6FgSTVEeKC19tMV_uCkA" image="_Db6FhyTVEeKC19tMV_uCkA"/>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_Db7ToSTVEeKC19tMV_uCkA" name="RHS">
+        <nodes xmi:id="_Db7ToiTVEeKC19tMV_uCkA" incoming="_Db7TpiTVEeKC19tMV_uCkA">
+          <type href="rdb.ecore#//Table"/>
+        </nodes>
+        <nodes xmi:id="_Db7ToyTVEeKC19tMV_uCkA" incoming="_Db7TpSTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+        </nodes>
+        <nodes xmi:id="_Db7TpCTVEeKC19tMV_uCkA" outgoing="_Db7TpSTVEeKC19tMV_uCkA _Db7TpiTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+        </nodes>
+        <edges xmi:id="_Db7TpSTVEeKC19tMV_uCkA" source="_Db7TpCTVEeKC19tMV_uCkA" target="_Db7ToyTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+        </edges>
+        <edges xmi:id="_Db7TpiTVEeKC19tMV_uCkA" source="_Db7TpCTVEeKC19tMV_uCkA" target="_Db7ToiTVEeKC19tMV_uCkA">
+          <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_Db76sCTVEeKC19tMV_uCkA" origin="_Db6FgCTVEeKC19tMV_uCkA" image="_Db7ToiTVEeKC19tMV_uCkA"/>
+      <mappings xmi:id="_Db76sSTVEeKC19tMV_uCkA" origin="_Db6FgSTVEeKC19tMV_uCkA" image="_Db7ToyTVEeKC19tMV_uCkA"/>
+      <mappings xmi:id="_Db76siTVEeKC19tMV_uCkA" origin="_Db6FgiTVEeKC19tMV_uCkA" image="_Db7TpCTVEeKC19tMV_uCkA"/>
+      <multiRules xmi:id="_Db76syTVEeKC19tMV_uCkA" name="ref" description="Select an outgoing reference to be translated into the target relational structure. Again, all references are iterated once.">
+        <parameters xmi:id="_Db--CSTVEeKC19tMV_uCkA" name="featureName"/>
+        <lhs xmi:id="_Db76tCTVEeKC19tMV_uCkA" name="LHS">
+          <nodes xmi:id="_Db76tSTVEeKC19tMV_uCkA" incoming="_Db9I0STVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table"/>
+          </nodes>
+          <nodes xmi:id="_Db76tiTVEeKC19tMV_uCkA" incoming="_Db9I0iTVEeKC19tMV_uCkA" outgoing="_Db8hwyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Db76tyTVEeKC19tMV_uCkA" incoming="_Db8hwyTVEeKC19tMV_uCkA" outgoing="_Db8hxCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            <attributes xmi:id="_hGs1QCTnEeKC15glCy8KqA" value="featureName">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_Db76uCTVEeKC19tMV_uCkA" incoming="_Db8hxCTVEeKC19tMV_uCkA _Db8hxSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Db8hwCTVEeKC19tMV_uCkA" incoming="_Db9I0CTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table"/>
+          </nodes>
+          <nodes xmi:id="_Db8hwSTVEeKC19tMV_uCkA" outgoing="_Db8hxSTVEeKC19tMV_uCkA _Db9I0CTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <nodes xmi:id="_Db8hwiTVEeKC19tMV_uCkA" outgoing="_Db9I0STVEeKC19tMV_uCkA _Db9I0iTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <edges xmi:id="_Db8hwyTVEeKC19tMV_uCkA" source="_Db76tiTVEeKC19tMV_uCkA" target="_Db76tyTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+          </edges>
+          <edges xmi:id="_Db8hxCTVEeKC19tMV_uCkA" source="_Db76tyTVEeKC19tMV_uCkA" target="_Db76uCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+          </edges>
+          <edges xmi:id="_Db8hxSTVEeKC19tMV_uCkA" source="_Db8hwSTVEeKC19tMV_uCkA" target="_Db76uCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+          <edges xmi:id="_Db9I0CTVEeKC19tMV_uCkA" source="_Db8hwSTVEeKC19tMV_uCkA" target="_Db8hwCTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+          </edges>
+          <edges xmi:id="_Db9I0STVEeKC19tMV_uCkA" source="_Db8hwiTVEeKC19tMV_uCkA" target="_Db76tSTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+          </edges>
+          <edges xmi:id="_Db9I0iTVEeKC19tMV_uCkA" source="_Db8hwiTVEeKC19tMV_uCkA" target="_Db76tiTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+        </lhs>
+        <rhs xmi:id="_Db9I0yTVEeKC19tMV_uCkA" name="RHS">
+          <nodes xmi:id="_Db9I1CTVEeKC19tMV_uCkA" incoming="_Db-W8yTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table"/>
+          </nodes>
+          <nodes xmi:id="_Db9I1STVEeKC19tMV_uCkA" incoming="_Db-W9CTVEeKC19tMV_uCkA" outgoing="_Db9v5STVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Db9v4CTVEeKC19tMV_uCkA" incoming="_Db9v5STVEeKC19tMV_uCkA" outgoing="_Db-W8CTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            <attributes xmi:id="_hGy74CTnEeKC15glCy8KqA" value="featureName">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+            </attributes>
+          </nodes>
+          <nodes xmi:id="_Db9v4STVEeKC19tMV_uCkA" incoming="_Db-W8CTVEeKC19tMV_uCkA _Db-W8STVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+          </nodes>
+          <nodes xmi:id="_Db9v4iTVEeKC19tMV_uCkA" incoming="_Db-W8iTVEeKC19tMV_uCkA">
+            <type href="rdb.ecore#//Table"/>
+          </nodes>
+          <nodes xmi:id="_Db9v4yTVEeKC19tMV_uCkA" outgoing="_Db-W8STVEeKC19tMV_uCkA _Db-W8iTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <nodes xmi:id="_Db9v5CTVEeKC19tMV_uCkA" outgoing="_Db-W8yTVEeKC19tMV_uCkA _Db-W9CTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+          </nodes>
+          <edges xmi:id="_Db9v5STVEeKC19tMV_uCkA" source="_Db9I1STVEeKC19tMV_uCkA" target="_Db9v4CTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+          </edges>
+          <edges xmi:id="_Db-W8CTVEeKC19tMV_uCkA" source="_Db9v4CTVEeKC19tMV_uCkA" target="_Db9v4STVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+          </edges>
+          <edges xmi:id="_Db-W8STVEeKC19tMV_uCkA" source="_Db9v4yTVEeKC19tMV_uCkA" target="_Db9v4STVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+          <edges xmi:id="_Db-W8iTVEeKC19tMV_uCkA" source="_Db9v4yTVEeKC19tMV_uCkA" target="_Db9v4iTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+          </edges>
+          <edges xmi:id="_Db-W8yTVEeKC19tMV_uCkA" source="_Db9v5CTVEeKC19tMV_uCkA" target="_Db9I1CTVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+          </edges>
+          <edges xmi:id="_Db-W9CTVEeKC19tMV_uCkA" source="_Db9v5CTVEeKC19tMV_uCkA" target="_Db9I1STVEeKC19tMV_uCkA">
+            <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+          </edges>
+        </rhs>
+        <mappings xmi:id="_Db--ACTVEeKC19tMV_uCkA" origin="_Db76tSTVEeKC19tMV_uCkA" image="_Db9I1CTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db--ASTVEeKC19tMV_uCkA" origin="_Db76tiTVEeKC19tMV_uCkA" image="_Db9I1STVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db--AiTVEeKC19tMV_uCkA" origin="_Db76tyTVEeKC19tMV_uCkA" image="_Db9v4CTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db--AyTVEeKC19tMV_uCkA" origin="_Db76uCTVEeKC19tMV_uCkA" image="_Db9v4STVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db--BCTVEeKC19tMV_uCkA" origin="_Db8hwCTVEeKC19tMV_uCkA" image="_Db9v4iTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db--BSTVEeKC19tMV_uCkA" origin="_Db8hwSTVEeKC19tMV_uCkA" image="_Db9v4yTVEeKC19tMV_uCkA"/>
+        <mappings xmi:id="_Db--BiTVEeKC19tMV_uCkA" origin="_Db8hwiTVEeKC19tMV_uCkA" image="_Db9v5CTVEeKC19tMV_uCkA"/>
+        <multiRules xmi:id="_Db--ByTVEeKC19tMV_uCkA" name="nTo1" description="This rule deals with references with a [?..1] multiplicity. A corresponding column is inserted in the current table and a foreign key is created.">
+          <parameters xmi:id="_Db--CCTVEeKC19tMV_uCkA" name="pkName" description=""/>
+          <parameters xmi:id="_Db--CiTVEeKC19tMV_uCkA" name="pkType"/>
+          <lhs xmi:id="_Db--CyTVEeKC19tMV_uCkA" name="LHS">
+            <nodes xmi:id="_Db_lECTVEeKC19tMV_uCkA" incoming="_DcAzNCTVEeKC19tMV_uCkA" outgoing="_DcAMIyTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_Db_lESTVEeKC19tMV_uCkA" incoming="_DcAMIyTVEeKC19tMV_uCkA" outgoing="_DcAMJCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_Db_lEiTVEeKC19tMV_uCkA" incoming="_DcAMJCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_Db_lEyTVEeKC19tMV_uCkA" incoming="_DcAMJSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_Db_lFCTVEeKC19tMV_uCkA" incoming="_DcAzMSTVEeKC19tMV_uCkA" outgoing="_DcAzMiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            </nodes>
+            <nodes xmi:id="_Db_lFSTVEeKC19tMV_uCkA" outgoing="_DcAMJSTVEeKC19tMV_uCkA _DcAzMCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_DcAMICTVEeKC19tMV_uCkA" incoming="_DcAzMCTVEeKC19tMV_uCkA" outgoing="_DcAzMSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcAMISTVEeKC19tMV_uCkA" incoming="_DcAzMiTVEeKC19tMV_uCkA _DcAzMyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcAMIiTVEeKC19tMV_uCkA" outgoing="_DcAzMyTVEeKC19tMV_uCkA _DcAzNCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_DcAMIyTVEeKC19tMV_uCkA" source="_Db_lECTVEeKC19tMV_uCkA" target="_Db_lESTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcAMJCTVEeKC19tMV_uCkA" source="_Db_lESTVEeKC19tMV_uCkA" target="_Db_lEiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcAMJSTVEeKC19tMV_uCkA" source="_Db_lFSTVEeKC19tMV_uCkA" target="_Db_lEyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <edges xmi:id="_DcAzMCTVEeKC19tMV_uCkA" source="_Db_lFSTVEeKC19tMV_uCkA" target="_DcAMICTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcAzMSTVEeKC19tMV_uCkA" source="_DcAMICTVEeKC19tMV_uCkA" target="_Db_lFCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+            </edges>
+            <edges xmi:id="_DcAzMiTVEeKC19tMV_uCkA" source="_Db_lFCTVEeKC19tMV_uCkA" target="_DcAMISTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <edges xmi:id="_DcAzMyTVEeKC19tMV_uCkA" source="_DcAMIiTVEeKC19tMV_uCkA" target="_DcAMISTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcAzNCTVEeKC19tMV_uCkA" source="_DcAMIiTVEeKC19tMV_uCkA" target="_Db_lECTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <formula xsi:type="henshin:NestedCondition" xmi:id="_DcAzNSTVEeKC19tMV_uCkA">
+              <conclusion xmi:id="_DcAzNiTVEeKC19tMV_uCkA">
+                <nodes xmi:id="_DcBaQCTVEeKC19tMV_uCkA">
+                  <type href="rdb.ecore#//Column"/>
+                  <attributes xmi:id="_DcBaQSTVEeKC19tMV_uCkA" value="pkName">
+                    <type href="rdb.ecore#//Column/name"/>
+                  </attributes>
+                  <attributes xmi:id="_DcBaQiTVEeKC19tMV_uCkA" value="pkType">
+                    <type href="rdb.ecore#//Column/type"/>
+                  </attributes>
+                </nodes>
+                <nodes xmi:id="_DcBaQyTVEeKC19tMV_uCkA">
+                  <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+                  <attributes xmi:id="_DcBaRSTVEeKC19tMV_uCkA" value="1">
+                    <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/upperBound"/>
+                  </attributes>
+                </nodes>
+              </conclusion>
+              <mappings xmi:id="_DcCBUCTVEeKC19tMV_uCkA" origin="_Db_lEiTVEeKC19tMV_uCkA" image="_DcBaQCTVEeKC19tMV_uCkA"/>
+              <mappings xmi:id="_DcCBUSTVEeKC19tMV_uCkA" origin="_Db_lFCTVEeKC19tMV_uCkA" image="_DcBaQyTVEeKC19tMV_uCkA"/>
+            </formula>
+          </lhs>
+          <rhs xmi:id="_DcCBUiTVEeKC19tMV_uCkA" name="RHS">
+            <nodes xmi:id="_DcCBUyTVEeKC19tMV_uCkA" incoming="_DcD2gyTVEeKC19tMV_uCkA" outgoing="_DcD2gSTVEeKC19tMV_uCkA _DcD2giTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//ForeignKey"/>
+            </nodes>
+            <nodes xmi:id="_DcCBVCTVEeKC19tMV_uCkA" incoming="_DcEdkyTVEeKC19tMV_uCkA" outgoing="_DcDPdCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_DcCBVSTVEeKC19tMV_uCkA" incoming="_DcDPdCTVEeKC19tMV_uCkA" outgoing="_DcDPdSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DcCBViTVEeKC19tMV_uCkA" incoming="_DcDPdSTVEeKC19tMV_uCkA _DcD2giTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_DcCoYCTVEeKC19tMV_uCkA" incoming="_DcD2hCTVEeKC19tMV_uCkA" outgoing="_DcD2gCTVEeKC19tMV_uCkA _DcD2gyTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_DcCoYSTVEeKC19tMV_uCkA" incoming="_DcD2gCTVEeKC19tMV_uCkA _DcD2gSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+              <attributes xmi:id="_DcCoYiTVEeKC19tMV_uCkA" value="featureName+&quot;.&quot;+pkName">
+                <type href="rdb.ecore#//Column/name"/>
+              </attributes>
+              <attributes xmi:id="_DcCoYyTVEeKC19tMV_uCkA" value="pkType">
+                <type href="rdb.ecore#//Column/type"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_DcCoZCTVEeKC19tMV_uCkA" incoming="_DcEdkCTVEeKC19tMV_uCkA" outgoing="_DcEdkSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            </nodes>
+            <nodes xmi:id="_DcDPcCTVEeKC19tMV_uCkA" outgoing="_DcD2hCTVEeKC19tMV_uCkA _DcD2hSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_DcDPcSTVEeKC19tMV_uCkA" incoming="_DcD2hSTVEeKC19tMV_uCkA" outgoing="_DcEdkCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcDPciTVEeKC19tMV_uCkA" incoming="_DcEdkSTVEeKC19tMV_uCkA _DcEdkiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcDPcyTVEeKC19tMV_uCkA" outgoing="_DcEdkiTVEeKC19tMV_uCkA _DcEdkyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_DcDPdCTVEeKC19tMV_uCkA" source="_DcCBVCTVEeKC19tMV_uCkA" target="_DcCBVSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcDPdSTVEeKC19tMV_uCkA" source="_DcCBVSTVEeKC19tMV_uCkA" target="_DcCBViTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcD2gCTVEeKC19tMV_uCkA" source="_DcCoYCTVEeKC19tMV_uCkA" target="_DcCoYSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/columns"/>
+            </edges>
+            <edges xmi:id="_DcD2gSTVEeKC19tMV_uCkA" source="_DcCBUyTVEeKC19tMV_uCkA" target="_DcCoYSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcD2giTVEeKC19tMV_uCkA" source="_DcCBUyTVEeKC19tMV_uCkA" target="_DcCBViTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//ForeignKey/ref"/>
+            </edges>
+            <edges xmi:id="_DcD2gyTVEeKC19tMV_uCkA" source="_DcCoYCTVEeKC19tMV_uCkA" target="_DcCBUyTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcD2hCTVEeKC19tMV_uCkA" source="_DcDPcCTVEeKC19tMV_uCkA" target="_DcCoYCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <edges xmi:id="_DcD2hSTVEeKC19tMV_uCkA" source="_DcDPcCTVEeKC19tMV_uCkA" target="_DcDPcSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcEdkCTVEeKC19tMV_uCkA" source="_DcDPcSTVEeKC19tMV_uCkA" target="_DcCoZCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+            </edges>
+            <edges xmi:id="_DcEdkSTVEeKC19tMV_uCkA" source="_DcCoZCTVEeKC19tMV_uCkA" target="_DcDPciTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <edges xmi:id="_DcEdkiTVEeKC19tMV_uCkA" source="_DcDPcyTVEeKC19tMV_uCkA" target="_DcDPciTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcEdkyTVEeKC19tMV_uCkA" source="_DcDPcyTVEeKC19tMV_uCkA" target="_DcCBVCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+          </rhs>
+          <mappings xmi:id="_DcEdlCTVEeKC19tMV_uCkA" origin="_Db_lECTVEeKC19tMV_uCkA" image="_DcCBVCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcEdlSTVEeKC19tMV_uCkA" origin="_Db_lESTVEeKC19tMV_uCkA" image="_DcCBVSTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcEdliTVEeKC19tMV_uCkA" origin="_Db_lEiTVEeKC19tMV_uCkA" image="_DcCBViTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcEdlyTVEeKC19tMV_uCkA" origin="_Db_lEyTVEeKC19tMV_uCkA" image="_DcCoYCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcFEoCTVEeKC19tMV_uCkA" origin="_Db_lFCTVEeKC19tMV_uCkA" image="_DcCoZCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcFEoSTVEeKC19tMV_uCkA" origin="_DcAMICTVEeKC19tMV_uCkA" image="_DcDPcSTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcFEoiTVEeKC19tMV_uCkA" origin="_DcAMISTVEeKC19tMV_uCkA" image="_DcDPciTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcFEoyTVEeKC19tMV_uCkA" origin="_DcAMIiTVEeKC19tMV_uCkA" image="_DcDPcyTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcFEpCTVEeKC19tMV_uCkA" origin="_Db_lFSTVEeKC19tMV_uCkA" image="_DcDPcCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEpSTVEeKC19tMV_uCkA" origin="_Db8hwCTVEeKC19tMV_uCkA" image="_Db_lECTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEpiTVEeKC19tMV_uCkA" origin="_Db9v4iTVEeKC19tMV_uCkA" image="_DcCBVCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEpyTVEeKC19tMV_uCkA" origin="_Db76tSTVEeKC19tMV_uCkA" image="_Db_lEyTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEqCTVEeKC19tMV_uCkA" origin="_Db9I1CTVEeKC19tMV_uCkA" image="_DcCoYCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEqSTVEeKC19tMV_uCkA" origin="_Db76tyTVEeKC19tMV_uCkA" image="_Db_lFCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEqiTVEeKC19tMV_uCkA" origin="_Db9v4CTVEeKC19tMV_uCkA" image="_DcCoZCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFEqyTVEeKC19tMV_uCkA" origin="_Db9v5CTVEeKC19tMV_uCkA" image="_DcDPcCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFErCTVEeKC19tMV_uCkA" origin="_Db8hwiTVEeKC19tMV_uCkA" image="_Db_lFSTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFrsCTVEeKC19tMV_uCkA" origin="_Db9I1STVEeKC19tMV_uCkA" image="_DcDPcSTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFrsSTVEeKC19tMV_uCkA" origin="_Db76tiTVEeKC19tMV_uCkA" image="_DcAMICTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFrsiTVEeKC19tMV_uCkA" origin="_Db9v4STVEeKC19tMV_uCkA" image="_DcDPciTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFrsyTVEeKC19tMV_uCkA" origin="_Db76uCTVEeKC19tMV_uCkA" image="_DcAMISTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFrtCTVEeKC19tMV_uCkA" origin="_Db9v4yTVEeKC19tMV_uCkA" image="_DcDPcyTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcFrtSTVEeKC19tMV_uCkA" origin="_Db8hwSTVEeKC19tMV_uCkA" image="_DcAMIiTVEeKC19tMV_uCkA"/>
+        </multiRules>
+        <multiRules xmi:id="_DcFrtiTVEeKC19tMV_uCkA" name="nToN" description="This rule deals with references with an upper bound not being 1. This leads to the creation of a mapping table which points to source and target tables by foreign keys.">
+          <parameters xmi:id="_DcFrtyTVEeKC19tMV_uCkA" name="ubound"/>
+          <parameters xmi:id="_DcFruSTVEeKC19tMV_uCkA" name="pkSrcName" description=""/>
+          <parameters xmi:id="_DcFruiTVEeKC19tMV_uCkA" name="pkSrcType"/>
+          <parameters xmi:id="_DcGSwCTVEeKC19tMV_uCkA" name="pkSrcTableName"/>
+          <parameters xmi:id="_DcGSwSTVEeKC19tMV_uCkA" name="pkTrgName" description=""/>
+          <parameters xmi:id="_DcGSwiTVEeKC19tMV_uCkA" name="pkTrgType"/>
+          <parameters xmi:id="_DcGSwyTVEeKC19tMV_uCkA" name="pkTrgTableName"/>
+          <lhs xmi:id="_DcGSxCTVEeKC19tMV_uCkA" name="LHS">
+            <nodes xmi:id="_DcGSxSTVEeKC19tMV_uCkA" incoming="_DcIH8yTVEeKC19tMV_uCkA" outgoing="_DcIH9CTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            </nodes>
+            <nodes xmi:id="_DcGSxiTVEeKC19tMV_uCkA" incoming="_DcIH8STVEeKC19tMV_uCkA" outgoing="_DcHg4yTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_DcGSxyTVEeKC19tMV_uCkA" incoming="_DcHg4yTVEeKC19tMV_uCkA" outgoing="_DcHg5CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DcG50CTVEeKC19tMV_uCkA" incoming="_DcHg5CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_DcG50STVEeKC19tMV_uCkA" incoming="_DcIvACTVEeKC19tMV_uCkA" outgoing="_DcHg5STVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_DcG50iTVEeKC19tMV_uCkA" incoming="_DcHg5STVEeKC19tMV_uCkA" outgoing="_DcIH8CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DcG50yTVEeKC19tMV_uCkA" incoming="_DcIH8CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_DcG51CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Schema"/>
+            </nodes>
+            <nodes xmi:id="_DcG51STVEeKC19tMV_uCkA" outgoing="_DcIH8STVEeKC19tMV_uCkA _DcIH8iTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_DcHg4CTVEeKC19tMV_uCkA" incoming="_DcIH8iTVEeKC19tMV_uCkA" outgoing="_DcIH8yTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcHg4STVEeKC19tMV_uCkA" incoming="_DcIH9CTVEeKC19tMV_uCkA _DcIH9STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcHg4iTVEeKC19tMV_uCkA" outgoing="_DcIH9STVEeKC19tMV_uCkA _DcIvACTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_DcHg4yTVEeKC19tMV_uCkA" source="_DcGSxiTVEeKC19tMV_uCkA" target="_DcGSxyTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcHg5CTVEeKC19tMV_uCkA" source="_DcGSxyTVEeKC19tMV_uCkA" target="_DcG50CTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcHg5STVEeKC19tMV_uCkA" source="_DcG50STVEeKC19tMV_uCkA" target="_DcG50iTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcIH8CTVEeKC19tMV_uCkA" source="_DcG50iTVEeKC19tMV_uCkA" target="_DcG50yTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcIH8STVEeKC19tMV_uCkA" source="_DcG51STVEeKC19tMV_uCkA" target="_DcGSxiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <edges xmi:id="_DcIH8iTVEeKC19tMV_uCkA" source="_DcG51STVEeKC19tMV_uCkA" target="_DcHg4CTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcIH8yTVEeKC19tMV_uCkA" source="_DcHg4CTVEeKC19tMV_uCkA" target="_DcGSxSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+            </edges>
+            <edges xmi:id="_DcIH9CTVEeKC19tMV_uCkA" source="_DcGSxSTVEeKC19tMV_uCkA" target="_DcHg4STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <edges xmi:id="_DcIH9STVEeKC19tMV_uCkA" source="_DcHg4iTVEeKC19tMV_uCkA" target="_DcHg4STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcIvACTVEeKC19tMV_uCkA" source="_DcHg4iTVEeKC19tMV_uCkA" target="_DcG50STVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <formula xsi:type="henshin:NestedCondition" xmi:id="_DcIvASTVEeKC19tMV_uCkA">
+              <conclusion xmi:id="_DcIvAiTVEeKC19tMV_uCkA">
+                <nodes xmi:id="_DcIvAyTVEeKC19tMV_uCkA">
+                  <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+                  <attributes xmi:id="_DcIvBCTVEeKC19tMV_uCkA" value="ubound">
+                    <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/upperBound"/>
+                  </attributes>
+                </nodes>
+                <nodes xmi:id="_DcJWECTVEeKC19tMV_uCkA">
+                  <type href="rdb.ecore#//Table"/>
+                  <attributes xmi:id="_DcJWESTVEeKC19tMV_uCkA" value="pkSrcTableName">
+                    <type href="rdb.ecore#//Table/name"/>
+                  </attributes>
+                </nodes>
+                <nodes xmi:id="_DcJWEiTVEeKC19tMV_uCkA">
+                  <type href="rdb.ecore#//Column"/>
+                  <attributes xmi:id="_DcJWEyTVEeKC19tMV_uCkA" value="pkSrcName">
+                    <type href="rdb.ecore#//Column/name"/>
+                  </attributes>
+                  <attributes xmi:id="_DcJWFCTVEeKC19tMV_uCkA" value="pkSrcType">
+                    <type href="rdb.ecore#//Column/type"/>
+                  </attributes>
+                </nodes>
+                <nodes xmi:id="_DcJ9ICTVEeKC19tMV_uCkA">
+                  <type href="rdb.ecore#//Table"/>
+                  <attributes xmi:id="_DcJ9ISTVEeKC19tMV_uCkA" value="pkTrgTableName">
+                    <type href="rdb.ecore#//Table/name"/>
+                  </attributes>
+                </nodes>
+                <nodes xmi:id="_DcJ9IiTVEeKC19tMV_uCkA">
+                  <type href="rdb.ecore#//Column"/>
+                  <attributes xmi:id="_DcJ9IyTVEeKC19tMV_uCkA" value="pkTrgName">
+                    <type href="rdb.ecore#//Column/name"/>
+                  </attributes>
+                  <attributes xmi:id="_DcKkMCTVEeKC19tMV_uCkA" value="pkTrgType">
+                    <type href="rdb.ecore#//Column/type"/>
+                  </attributes>
+                </nodes>
+              </conclusion>
+              <mappings xmi:id="_DcKkMSTVEeKC19tMV_uCkA" origin="_DcGSxSTVEeKC19tMV_uCkA" image="_DcIvAyTVEeKC19tMV_uCkA"/>
+              <mappings xmi:id="_DcKkMiTVEeKC19tMV_uCkA" origin="_DcGSxiTVEeKC19tMV_uCkA" image="_DcJWECTVEeKC19tMV_uCkA"/>
+              <mappings xmi:id="_DcKkMyTVEeKC19tMV_uCkA" origin="_DcG50CTVEeKC19tMV_uCkA" image="_DcJWEiTVEeKC19tMV_uCkA"/>
+              <mappings xmi:id="_DcKkNCTVEeKC19tMV_uCkA" origin="_DcG50STVEeKC19tMV_uCkA" image="_DcJ9ICTVEeKC19tMV_uCkA"/>
+              <mappings xmi:id="_DcKkNSTVEeKC19tMV_uCkA" origin="_DcG50yTVEeKC19tMV_uCkA" image="_DcJ9IiTVEeKC19tMV_uCkA"/>
+            </formula>
+          </lhs>
+          <rhs xmi:id="_DcKkNiTVEeKC19tMV_uCkA" name="RHS">
+            <nodes xmi:id="_DcKkNyTVEeKC19tMV_uCkA" incoming="_DcQDwCTVEeKC19tMV_uCkA" outgoing="_DcQDwSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+            </nodes>
+            <nodes xmi:id="_DcLLQCTVEeKC19tMV_uCkA" incoming="_DcPcsyTVEeKC19tMV_uCkA" outgoing="_DcNngyTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_DcLLQSTVEeKC19tMV_uCkA" incoming="_DcNngyTVEeKC19tMV_uCkA" outgoing="_DcNnhCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DcLLQiTVEeKC19tMV_uCkA" incoming="_DcNnhCTVEeKC19tMV_uCkA _DcO1pSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_DcLLQyTVEeKC19tMV_uCkA" incoming="_DcQDwyTVEeKC19tMV_uCkA" outgoing="_DcOOkCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+            </nodes>
+            <nodes xmi:id="_DcLLRCTVEeKC19tMV_uCkA" incoming="_DcOOkCTVEeKC19tMV_uCkA" outgoing="_DcOOkSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DcLyUCTVEeKC19tMV_uCkA" incoming="_DcOOkSTVEeKC19tMV_uCkA _DcPcsiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+            </nodes>
+            <nodes xmi:id="_DcLyUSTVEeKC19tMV_uCkA" outgoing="_DcOOkiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Schema"/>
+            </nodes>
+            <nodes xmi:id="_DcLyUiTVEeKC19tMV_uCkA" incoming="_DcOOkiTVEeKC19tMV_uCkA" outgoing="_DcOOkyTVEeKC19tMV_uCkA _DcOOlCTVEeKC19tMV_uCkA _DcO1oCTVEeKC19tMV_uCkA _DcO1oyTVEeKC19tMV_uCkA _DcPcsCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table"/>
+              <attributes xmi:id="_DcLyUyTVEeKC19tMV_uCkA" value="pkSrcTableName + &quot;.&quot; + featureName +&quot;.&quot;+ pkTrgTableName">
+                <type href="rdb.ecore#//Table/name"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_DcLyVCTVEeKC19tMV_uCkA" incoming="_DcOOkyTVEeKC19tMV_uCkA _DcO1oSTVEeKC19tMV_uCkA _DcO1pCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+              <attributes xmi:id="_DcMZYCTVEeKC19tMV_uCkA" value="pkSrcTableName+&quot;.&quot;+pkSrcName">
+                <type href="rdb.ecore#//Column/name"/>
+              </attributes>
+              <attributes xmi:id="_DcMZYSTVEeKC19tMV_uCkA" value="pkSrcType">
+                <type href="rdb.ecore#//Column/type"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_DcMZYiTVEeKC19tMV_uCkA" incoming="_DcOOlCTVEeKC19tMV_uCkA _DcO1oiTVEeKC19tMV_uCkA _DcPcsSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Column"/>
+              <attributes xmi:id="_DcMZYyTVEeKC19tMV_uCkA" value="pkTrgTableName+&quot;.&quot;+pkTrgName">
+                <type href="rdb.ecore#//Column/name"/>
+              </attributes>
+              <attributes xmi:id="_DcNAcCTVEeKC19tMV_uCkA" value="pkTrgType">
+                <type href="rdb.ecore#//Column/type"/>
+              </attributes>
+            </nodes>
+            <nodes xmi:id="_DcNAcSTVEeKC19tMV_uCkA" incoming="_DcO1oCTVEeKC19tMV_uCkA" outgoing="_DcO1oSTVEeKC19tMV_uCkA _DcO1oiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//PrimaryKey"/>
+            </nodes>
+            <nodes xmi:id="_DcNAciTVEeKC19tMV_uCkA" incoming="_DcO1oyTVEeKC19tMV_uCkA" outgoing="_DcO1pCTVEeKC19tMV_uCkA _DcO1pSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//ForeignKey"/>
+            </nodes>
+            <nodes xmi:id="_DcNAcyTVEeKC19tMV_uCkA" incoming="_DcPcsCTVEeKC19tMV_uCkA" outgoing="_DcPcsSTVEeKC19tMV_uCkA _DcPcsiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//ForeignKey"/>
+            </nodes>
+            <nodes xmi:id="_DcNAdCTVEeKC19tMV_uCkA" outgoing="_DcPcsyTVEeKC19tMV_uCkA _DcPctCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <nodes xmi:id="_DcNngCTVEeKC19tMV_uCkA" incoming="_DcPctCTVEeKC19tMV_uCkA" outgoing="_DcQDwCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcNngSTVEeKC19tMV_uCkA" incoming="_DcQDwSTVEeKC19tMV_uCkA _DcQDwiTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+            </nodes>
+            <nodes xmi:id="_DcNngiTVEeKC19tMV_uCkA" outgoing="_DcQDwiTVEeKC19tMV_uCkA _DcQDwyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace"/>
+            </nodes>
+            <edges xmi:id="_DcNngyTVEeKC19tMV_uCkA" source="_DcLLQCTVEeKC19tMV_uCkA" target="_DcLLQSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcNnhCTVEeKC19tMV_uCkA" source="_DcLLQSTVEeKC19tMV_uCkA" target="_DcLLQiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcOOkCTVEeKC19tMV_uCkA" source="_DcLLQyTVEeKC19tMV_uCkA" target="_DcLLRCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcOOkSTVEeKC19tMV_uCkA" source="_DcLLRCTVEeKC19tMV_uCkA" target="_DcLyUCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcOOkiTVEeKC19tMV_uCkA" source="_DcLyUSTVEeKC19tMV_uCkA" target="_DcLyUiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Schema/tables"/>
+            </edges>
+            <edges xmi:id="_DcOOkyTVEeKC19tMV_uCkA" source="_DcLyUiTVEeKC19tMV_uCkA" target="_DcLyVCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/columns"/>
+            </edges>
+            <edges xmi:id="_DcOOlCTVEeKC19tMV_uCkA" source="_DcLyUiTVEeKC19tMV_uCkA" target="_DcMZYiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/columns"/>
+            </edges>
+            <edges xmi:id="_DcO1oCTVEeKC19tMV_uCkA" source="_DcLyUiTVEeKC19tMV_uCkA" target="_DcNAcSTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcO1oSTVEeKC19tMV_uCkA" source="_DcNAcSTVEeKC19tMV_uCkA" target="_DcLyVCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcO1oiTVEeKC19tMV_uCkA" source="_DcNAcSTVEeKC19tMV_uCkA" target="_DcMZYiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcO1oyTVEeKC19tMV_uCkA" source="_DcLyUiTVEeKC19tMV_uCkA" target="_DcNAciTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcO1pCTVEeKC19tMV_uCkA" source="_DcNAciTVEeKC19tMV_uCkA" target="_DcLyVCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcO1pSTVEeKC19tMV_uCkA" source="_DcNAciTVEeKC19tMV_uCkA" target="_DcLLQiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//ForeignKey/ref"/>
+            </edges>
+            <edges xmi:id="_DcPcsCTVEeKC19tMV_uCkA" source="_DcLyUiTVEeKC19tMV_uCkA" target="_DcNAcyTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Table/constraints"/>
+            </edges>
+            <edges xmi:id="_DcPcsSTVEeKC19tMV_uCkA" source="_DcNAcyTVEeKC19tMV_uCkA" target="_DcMZYiTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//Key/keyColumn"/>
+            </edges>
+            <edges xmi:id="_DcPcsiTVEeKC19tMV_uCkA" source="_DcNAcyTVEeKC19tMV_uCkA" target="_DcLyUCTVEeKC19tMV_uCkA">
+              <type href="rdb.ecore#//ForeignKey/ref"/>
+            </edges>
+            <edges xmi:id="_DcPcsyTVEeKC19tMV_uCkA" source="_DcNAdCTVEeKC19tMV_uCkA" target="_DcLLQCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+            <edges xmi:id="_DcPctCTVEeKC19tMV_uCkA" source="_DcNAdCTVEeKC19tMV_uCkA" target="_DcNngCTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcQDwCTVEeKC19tMV_uCkA" source="_DcNngCTVEeKC19tMV_uCkA" target="_DcKkNyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//EClass/eAllReferences"/>
+            </edges>
+            <edges xmi:id="_DcQDwSTVEeKC19tMV_uCkA" source="_DcKkNyTVEeKC19tMV_uCkA" target="_DcNngSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2002/Ecore#//ETypedElement/eType"/>
+            </edges>
+            <edges xmi:id="_DcQDwiTVEeKC19tMV_uCkA" source="_DcNngiTVEeKC19tMV_uCkA" target="_DcNngSTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/source"/>
+            </edges>
+            <edges xmi:id="_DcQDwyTVEeKC19tMV_uCkA" source="_DcNngiTVEeKC19tMV_uCkA" target="_DcLLQyTVEeKC19tMV_uCkA">
+              <type href="http://www.eclipse.org/emf/2011/Henshin/Trace#//Trace/target"/>
+            </edges>
+          </rhs>
+          <attributeConditions xmi:id="_DcQDxCTVEeKC19tMV_uCkA" name="upperBound constraint" conditionText="ubound != 1"/>
+          <mappings xmi:id="_DcQq0CTVEeKC19tMV_uCkA" origin="_DcGSxSTVEeKC19tMV_uCkA" image="_DcKkNyTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq0STVEeKC19tMV_uCkA" origin="_DcGSxiTVEeKC19tMV_uCkA" image="_DcLLQCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq0iTVEeKC19tMV_uCkA" origin="_DcGSxyTVEeKC19tMV_uCkA" image="_DcLLQSTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq0yTVEeKC19tMV_uCkA" origin="_DcG50CTVEeKC19tMV_uCkA" image="_DcLLQiTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq1CTVEeKC19tMV_uCkA" origin="_DcG50STVEeKC19tMV_uCkA" image="_DcLLQyTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq1STVEeKC19tMV_uCkA" origin="_DcG50iTVEeKC19tMV_uCkA" image="_DcLLRCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq1iTVEeKC19tMV_uCkA" origin="_DcG50yTVEeKC19tMV_uCkA" image="_DcLyUCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq1yTVEeKC19tMV_uCkA" origin="_DcG51CTVEeKC19tMV_uCkA" image="_DcLyUSTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq2CTVEeKC19tMV_uCkA" origin="_DcHg4CTVEeKC19tMV_uCkA" image="_DcNngCTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq2STVEeKC19tMV_uCkA" origin="_DcHg4STVEeKC19tMV_uCkA" image="_DcNngSTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq2iTVEeKC19tMV_uCkA" origin="_DcHg4iTVEeKC19tMV_uCkA" image="_DcNngiTVEeKC19tMV_uCkA"/>
+          <mappings xmi:id="_DcQq2yTVEeKC19tMV_uCkA" origin="_DcG51STVEeKC19tMV_uCkA" image="_DcNAdCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR4CTVEeKC19tMV_uCkA" origin="_Db76tyTVEeKC19tMV_uCkA" image="_DcGSxSTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR4STVEeKC19tMV_uCkA" origin="_Db9v4CTVEeKC19tMV_uCkA" image="_DcKkNyTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR4iTVEeKC19tMV_uCkA" origin="_Db76tSTVEeKC19tMV_uCkA" image="_DcGSxiTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR4yTVEeKC19tMV_uCkA" origin="_Db9I1CTVEeKC19tMV_uCkA" image="_DcLLQCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR5CTVEeKC19tMV_uCkA" origin="_Db8hwCTVEeKC19tMV_uCkA" image="_DcG50STVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR5STVEeKC19tMV_uCkA" origin="_Db9v4iTVEeKC19tMV_uCkA" image="_DcLLQyTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR5iTVEeKC19tMV_uCkA" origin="_Db9v5CTVEeKC19tMV_uCkA" image="_DcNAdCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR5yTVEeKC19tMV_uCkA" origin="_Db8hwiTVEeKC19tMV_uCkA" image="_DcG51STVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR6CTVEeKC19tMV_uCkA" origin="_Db9I1STVEeKC19tMV_uCkA" image="_DcNngCTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcRR6STVEeKC19tMV_uCkA" origin="_Db76tiTVEeKC19tMV_uCkA" image="_DcHg4CTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcR48CTVEeKC19tMV_uCkA" origin="_Db9v4STVEeKC19tMV_uCkA" image="_DcNngSTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcR48STVEeKC19tMV_uCkA" origin="_Db76uCTVEeKC19tMV_uCkA" image="_DcHg4STVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcR48iTVEeKC19tMV_uCkA" origin="_Db9v4yTVEeKC19tMV_uCkA" image="_DcNngiTVEeKC19tMV_uCkA"/>
+          <multiMappings xmi:id="_DcR48yTVEeKC19tMV_uCkA" origin="_Db8hwSTVEeKC19tMV_uCkA" image="_DcHg4iTVEeKC19tMV_uCkA"/>
+        </multiRules>
+        <multiMappings xmi:id="_DcR49CTVEeKC19tMV_uCkA" origin="_Db6FgCTVEeKC19tMV_uCkA" image="_Db76tSTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_DcR49STVEeKC19tMV_uCkA" origin="_Db6FgSTVEeKC19tMV_uCkA" image="_Db76tiTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_DcR49iTVEeKC19tMV_uCkA" origin="_Db7ToiTVEeKC19tMV_uCkA" image="_Db9I1CTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_DcR49yTVEeKC19tMV_uCkA" origin="_Db7ToyTVEeKC19tMV_uCkA" image="_Db9I1STVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_DcR4-CTVEeKC19tMV_uCkA" origin="_Db7TpCTVEeKC19tMV_uCkA" image="_Db9v5CTVEeKC19tMV_uCkA"/>
+        <multiMappings xmi:id="_DcR4-STVEeKC19tMV_uCkA" origin="_Db6FgiTVEeKC19tMV_uCkA" image="_Db8hwiTVEeKC19tMV_uCkA"/>
+      </multiRules>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_DcR4-iTVEeKC19tMV_uCkA" name="main" description="Use this transformation unit to start the overall transformation process!" subUnits="_DbhD8STVEeKC19tMV_uCkA _Db5edyTVEeKC19tMV_uCkA">
+    <parameters xmi:id="_DcSgACTVEeKC19tMV_uCkA" name="packageName">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_DcSgASTVEeKC19tMV_uCkA" name="schema">
+      <type xsi:type="ecore:EClass" href="rdb.ecore#//Schema"/>
+    </parameters>
+    <parameterMappings xmi:id="_DcSgAiTVEeKC19tMV_uCkA" source="_DcSgACTVEeKC19tMV_uCkA" target="_DbhD8iTVEeKC19tMV_uCkA"/>
+    <parameterMappings xmi:id="_DcSgAyTVEeKC19tMV_uCkA" source="_DbhD8iTVEeKC19tMV_uCkA" target="_DcSgACTVEeKC19tMV_uCkA"/>
+    <parameterMappings xmi:id="_DcSgBCTVEeKC19tMV_uCkA" source="_DcSgASTVEeKC19tMV_uCkA" target="_DbhrACTVEeKC19tMV_uCkA"/>
+    <parameterMappings xmi:id="_DcSgBSTVEeKC19tMV_uCkA" source="_DbhrACTVEeKC19tMV_uCkA" target="_DcSgASTVEeKC19tMV_uCkA"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_0Q2AMNSpEeG9M9qn3DU1vA">
+  <imports href="gossipinggirls.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_WG1qQNSqEeG9M9qn3DU1vA" name="exchangeSecrets">
+    <parameters xmi:id="_Fdgg4NT0EeGUZu_gkNNb3Q" name="g1"/>
+    <parameters xmi:id="_Fd0p8NT0EeGUZu_gkNNb3Q" name="g2"/>
+    <lhs xmi:id="_WG2RUNSqEeG9M9qn3DU1vA" name="LHS">
+      <nodes xmi:id="_bCz1ANSqEeG9M9qn3DU1vA" name="g1">
+        <type href="gossipinggirls.ecore#//Girl"/>
+      </nodes>
+      <nodes xmi:id="_b23vMNSqEeG9M9qn3DU1vA" name="g2">
+        <type href="gossipinggirls.ecore#//Girl"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_WG2RUdSqEeG9M9qn3DU1vA" name="RHS">
+      <nodes xmi:id="_bC0cENSqEeG9M9qn3DU1vA" name="g1">
+        <type href="gossipinggirls.ecore#//Girl"/>
+      </nodes>
+      <nodes xmi:id="_b24WQNSqEeG9M9qn3DU1vA" name="g2">
+        <type href="gossipinggirls.ecore#//Girl"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_bC0cEdSqEeG9M9qn3DU1vA" origin="_bCz1ANSqEeG9M9qn3DU1vA" image="_bC0cENSqEeG9M9qn3DU1vA"/>
+    <mappings xmi:id="_b25kYNSqEeG9M9qn3DU1vA" origin="_b23vMNSqEeG9M9qn3DU1vA" image="_b24WQNSqEeG9M9qn3DU1vA"/>
+    <multiRules xmi:id="_Tkk28NSsEeGQhMvzqn4H7w">
+      <lhs xmi:id="_TkleANSsEeGQhMvzqn4H7w" name="LHS">
+        <nodes xmi:id="_Tk4Y8NSsEeGQhMvzqn4H7w" outgoing="_VWzpkNSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl"/>
+        </nodes>
+        <nodes xmi:id="_TlI3oNSsEeGQhMvzqn4H7w" outgoing="_W7IjENSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl"/>
+        </nodes>
+        <nodes xmi:id="_d7R28NSqEeG9M9qn3DU1vA" incoming="_W7IjENSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Secret"/>
+        </nodes>
+        <nodes xmi:id="_SMwvcNSsEeGQhMvzqn4H7w" incoming="_VWzpkNSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Secret"/>
+        </nodes>
+        <edges xmi:id="_VWzpkNSsEeGQhMvzqn4H7w" source="_Tk4Y8NSsEeGQhMvzqn4H7w" target="_SMwvcNSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl/secrets"/>
+        </edges>
+        <edges xmi:id="_W7IjENSsEeGQhMvzqn4H7w" source="_TlI3oNSsEeGQhMvzqn4H7w" target="_d7R28NSqEeG9M9qn3DU1vA">
+          <type href="gossipinggirls.ecore#//Girl/secrets"/>
+        </edges>
+        <formula xsi:type="henshin:Not" xmi:id="_j1sVANSsEeGQhMvzqn4H7w">
+          <child xsi:type="henshin:NestedCondition" xmi:id="_j1sVAdSsEeGQhMvzqn4H7w">
+            <conclusion xmi:id="_j1sVAtSsEeGQhMvzqn4H7w" name="">
+              <nodes xmi:id="_j1uKMNSsEeGQhMvzqn4H7w" outgoing="_h5K98NSsEeGQhMvzqn4H7w">
+                <type href="gossipinggirls.ecore#//Girl"/>
+              </nodes>
+              <nodes xmi:id="_j1vYUNSsEeGQhMvzqn4H7w" incoming="_h5K98NSsEeGQhMvzqn4H7w">
+                <type href="gossipinggirls.ecore#//Secret"/>
+              </nodes>
+              <nodes xmi:id="_nQBt4NSsEeGQhMvzqn4H7w" outgoing="_mcuBoNSsEeGQhMvzqn4H7w">
+                <type href="gossipinggirls.ecore#//Girl"/>
+              </nodes>
+              <nodes xmi:id="_nQDjENSsEeGQhMvzqn4H7w" incoming="_mcuBoNSsEeGQhMvzqn4H7w">
+                <type href="gossipinggirls.ecore#//Secret"/>
+              </nodes>
+              <edges xmi:id="_h5K98NSsEeGQhMvzqn4H7w" source="_j1uKMNSsEeGQhMvzqn4H7w" target="_j1vYUNSsEeGQhMvzqn4H7w">
+                <type href="gossipinggirls.ecore#//Girl/secrets"/>
+              </edges>
+              <edges xmi:id="_mcuBoNSsEeGQhMvzqn4H7w" source="_nQBt4NSsEeGQhMvzqn4H7w" target="_nQDjENSsEeGQhMvzqn4H7w">
+                <type href="gossipinggirls.ecore#//Girl/secrets"/>
+              </edges>
+            </conclusion>
+            <mappings xmi:id="_j1uxQNSsEeGQhMvzqn4H7w" origin="_Tk4Y8NSsEeGQhMvzqn4H7w" image="_j1uKMNSsEeGQhMvzqn4H7w"/>
+            <mappings xmi:id="_j1v_YNSsEeGQhMvzqn4H7w" origin="_d7R28NSqEeG9M9qn3DU1vA" image="_j1vYUNSsEeGQhMvzqn4H7w"/>
+            <mappings xmi:id="_nQC8ANSsEeGQhMvzqn4H7w" origin="_TlI3oNSsEeGQhMvzqn4H7w" image="_nQBt4NSsEeGQhMvzqn4H7w"/>
+            <mappings xmi:id="_nQExMNSsEeGQhMvzqn4H7w" origin="_SMwvcNSsEeGQhMvzqn4H7w" image="_nQDjENSsEeGQhMvzqn4H7w"/>
+          </child>
+        </formula>
+      </lhs>
+      <rhs xmi:id="_TkleAdSsEeGQhMvzqn4H7w" name="RHS">
+        <nodes xmi:id="_TkySUNSsEeGQhMvzqn4H7w" outgoing="_VW03sNSsEeGQhMvzqn4H7w _EpsrsNSvEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl"/>
+        </nodes>
+        <nodes xmi:id="_TlDYENSsEeGQhMvzqn4H7w" outgoing="_W7K_UNSsEeGQhMvzqn4H7w _AnBgcNSvEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl"/>
+        </nodes>
+        <nodes xmi:id="_d7TFENSqEeG9M9qn3DU1vA" incoming="_W7K_UNSsEeGQhMvzqn4H7w _EpsrsNSvEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Secret"/>
+        </nodes>
+        <nodes xmi:id="_SM7HgNSsEeGQhMvzqn4H7w" incoming="_VW03sNSsEeGQhMvzqn4H7w _AnBgcNSvEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Secret"/>
+        </nodes>
+        <edges xmi:id="_VW03sNSsEeGQhMvzqn4H7w" source="_TkySUNSsEeGQhMvzqn4H7w" target="_SM7HgNSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl/secrets"/>
+        </edges>
+        <edges xmi:id="_W7K_UNSsEeGQhMvzqn4H7w" source="_TlDYENSsEeGQhMvzqn4H7w" target="_d7TFENSqEeG9M9qn3DU1vA">
+          <type href="gossipinggirls.ecore#//Girl/secrets"/>
+        </edges>
+        <edges xmi:id="_AnBgcNSvEeGQhMvzqn4H7w" source="_TlDYENSsEeGQhMvzqn4H7w" target="_SM7HgNSsEeGQhMvzqn4H7w">
+          <type href="gossipinggirls.ecore#//Girl/secrets"/>
+        </edges>
+        <edges xmi:id="_EpsrsNSvEeGQhMvzqn4H7w" source="_TkySUNSsEeGQhMvzqn4H7w" target="_d7TFENSqEeG9M9qn3DU1vA">
+          <type href="gossipinggirls.ecore#//Girl/secrets"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_Tk-fkNSsEeGQhMvzqn4H7w" origin="_Tk4Y8NSsEeGQhMvzqn4H7w" image="_TkySUNSsEeGQhMvzqn4H7w"/>
+      <mappings xmi:id="_TlOXMNSsEeGQhMvzqn4H7w" origin="_TlI3oNSsEeGQhMvzqn4H7w" image="_TlDYENSsEeGQhMvzqn4H7w"/>
+      <mappings xmi:id="_SM-x4NSsEeGQhMvzqn4H7w" origin="_SMwvcNSsEeGQhMvzqn4H7w" image="_SM7HgNSsEeGQhMvzqn4H7w"/>
+      <mappings xmi:id="_d7U6QNSqEeG9M9qn3DU1vA" origin="_d7R28NSqEeG9M9qn3DU1vA" image="_d7TFENSqEeG9M9qn3DU1vA"/>
+      <multiMappings xmi:id="_Tky5YNSsEeGQhMvzqn4H7w" origin="_bC0cENSqEeG9M9qn3DU1vA" image="_TkySUNSsEeGQhMvzqn4H7w"/>
+      <multiMappings xmi:id="_Tk5AANSsEeGQhMvzqn4H7w" origin="_bCz1ANSqEeG9M9qn3DU1vA" image="_Tk4Y8NSsEeGQhMvzqn4H7w"/>
+      <multiMappings xmi:id="_TlD_INSsEeGQhMvzqn4H7w" origin="_b24WQNSqEeG9M9qn3DU1vA" image="_TlDYENSsEeGQhMvzqn4H7w"/>
+      <multiMappings xmi:id="_TlJesNSsEeGQhMvzqn4H7w" origin="_b23vMNSqEeG9M9qn3DU1vA" image="_TlI3oNSsEeGQhMvzqn4H7w"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_URk_gNSvEeGQhMvzqn4H7w" name="addGirl">
+    <lhs xmi:id="_URk_gdSvEeGQhMvzqn4H7w" name="LHS">
+      <nodes xmi:id="_VQ3SQNSvEeGQhMvzqn4H7w" name="root">
+        <type href="gossipinggirls.ecore#//Container"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_URk_gtSvEeGQhMvzqn4H7w" name="RHS">
+      <nodes xmi:id="_VQ35UNSvEeGQhMvzqn4H7w" name="root" outgoing="_WUYkwNSvEeGQhMvzqn4H7w _W81r4NSvEeGQhMvzqn4H7w">
+        <type href="gossipinggirls.ecore#//Container"/>
+      </nodes>
+      <nodes xmi:id="_V8Q_sNSvEeGQhMvzqn4H7w" incoming="_WUYkwNSvEeGQhMvzqn4H7w" outgoing="_XsJo8NSvEeGQhMvzqn4H7w">
+        <type href="gossipinggirls.ecore#//Girl"/>
+      </nodes>
+      <nodes xmi:id="_W8oQgNSvEeGQhMvzqn4H7w" incoming="_W81r4NSvEeGQhMvzqn4H7w _XsJo8NSvEeGQhMvzqn4H7w">
+        <type href="gossipinggirls.ecore#//Secret"/>
+      </nodes>
+      <edges xmi:id="_WUYkwNSvEeGQhMvzqn4H7w" source="_VQ35UNSvEeGQhMvzqn4H7w" target="_V8Q_sNSvEeGQhMvzqn4H7w">
+        <type href="gossipinggirls.ecore#//Container/girls"/>
+      </edges>
+      <edges xmi:id="_XsJo8NSvEeGQhMvzqn4H7w" source="_V8Q_sNSvEeGQhMvzqn4H7w" target="_W8oQgNSvEeGQhMvzqn4H7w">
+        <type href="gossipinggirls.ecore#//Girl/secrets"/>
+      </edges>
+      <edges xmi:id="_W81r4NSvEeGQhMvzqn4H7w" source="_VQ35UNSvEeGQhMvzqn4H7w" target="_W8oQgNSvEeGQhMvzqn4H7w">
+        <type href="gossipinggirls.ecore#//Container/secrets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_VQ35UdSvEeGQhMvzqn4H7w" origin="_VQ3SQNSvEeGQhMvzqn4H7w" image="_VQ35UNSvEeGQhMvzqn4H7w"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mutualexclusion"
+    nsURI="http://www.eclipse.org/emf/henshin/examples/mutualexclusion" nsPrefix="mutualexclusion">
+  <eClassifiers xsi:type="ecore:EClass" name="Process">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="request" eType="#//Resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocked" eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="held_by" eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="token" eType="#//Process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="release" eType="#//Process"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Net">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+        eType="#//Process" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
