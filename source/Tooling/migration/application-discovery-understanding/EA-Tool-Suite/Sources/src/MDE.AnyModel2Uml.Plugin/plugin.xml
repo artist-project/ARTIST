@@ -45,9 +45,12 @@
    <extension point="org.eclipse.ui.menus">
       <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               label="Artist"
-               mnemonic="A"
-               id="MDE.AnyModel2Uml.Plugin.menus.sampleMenu">
+               label="ARTIST"
+               id="eu.artist.menu.main">
+            <separator
+                  name="EABridgeActionsSeperator"
+                  visible="true">
+            </separator>
             <command
                   commandId="MDE.AnyModel2Uml.Plugin.commands.importCommand"
                   mnemonic="S"
