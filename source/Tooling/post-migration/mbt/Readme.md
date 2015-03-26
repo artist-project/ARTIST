@@ -28,4 +28,4 @@ This software is a research prototype.
 Copyright and license
 ---------------------
 
-All code of the Model Cloudification Framework is published under the EPL v1.0 license.
+All code of the Model-Based Tester is published under the EPL v1.0 license.
