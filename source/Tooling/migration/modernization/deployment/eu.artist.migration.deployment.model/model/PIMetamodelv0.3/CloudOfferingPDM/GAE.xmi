@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment-provider:CloudProvider xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment-provider="http://deployment-provider/1.0" name="Google">
+  <offerings xsi:type="deployment-provider:CloudPlatformOffering" name="Google App Engine">
+    <offeredServices xsi:type="deployment-provider:CloudDeploymentService" name="GAE Deployment Service">
+      <configuredBy xsi:type="deployment-provider:ApplicationDeploymentDescriptor" name="web.xml"/>
+      <configuredBy xsi:type="deployment-provider:ApplicationDeploymentDescriptor" name="appengine-web.xml">
+        <entries key="application" ref=""/>
+        <entries key="version" optional="true"/>
+        <entries key="threadsafe" optional="true"/>
+      </configuredBy>
+      <configuredBy xsi:type="deployment-provider:InfrastructureDeploymentDescriptor" name="backends.xml" optional="true">
+        <entries key="backend.name" optional="true"/>
+        <entries key="backend.class" optional="true"/>
+        <entries key="backend.instances" optional="true"/>
+        <entries key="backend.options.fail-fast" optional="true"/>
+        <entries key="backend.options.dynamic"/>
+      </configuredBy>
+      <configuredBy name="datastore-indexes.xml" optional="true"/>
+      <supportedClients name="Eclipse Google Plugin">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="GAE SDK">
+        <supportedInterfaces>CLI</supportedInterfaces>
+        <supportedInterfaces>API</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="App Identity"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Blogstore"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Google Cloud Storage"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Capabilities"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Channel"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Datstore"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Google Cloud Endpoints"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Images"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Logs"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Mail"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Memcache"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Multitenancy"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="OAuth"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Prospective Search"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Search"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Sockets"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Task Queues"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="URL Fetch"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Users"/>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="XMPP"/>
+    <supportedLanguages>Java</supportedLanguages>
+    <supportedLanguages>Go</supportedLanguages>
+    <supportedLanguages>Python</supportedLanguages>
+    <supportedLanguages>PHP</supportedLanguages>
+  </offerings>
+</deployment-provider:CloudProvider>

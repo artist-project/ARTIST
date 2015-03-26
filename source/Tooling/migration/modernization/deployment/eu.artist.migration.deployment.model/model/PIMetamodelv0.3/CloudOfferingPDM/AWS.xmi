@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment-provider:CloudProvider xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment-provider="http://deployment-provider/1.0" name="Amazon">
+  <offerings xsi:type="deployment-provider:CloudInfrastructureOffering" name="AWS compute and networking">
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="Elastic Compute Cloud">
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="API tools">
+        <supportedInterfaces>API</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="Auto Scaling">
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="Elastic Load Balancing">
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Route 53">
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="DirectConnect">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredFrameworks xsi:type="deployment-provider:ApplicationLanguageFramework" type="ASPNET"/>
+    <comprisedInstances/>
+  </offerings>
+  <offerings xsi:type="deployment-provider:CloudPlatformOffering" name="Database and Data Management">
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="ElastiCache">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Relational Database Service">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="RedShift">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="DynamoDB">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="SimpleDB">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="Elastic MapReduce">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredFrameworks xsi:type="deployment-provider:ApplicationLanguageFramework" version="" type="ASPNET"/>
+    <supportedLanguages>Java</supportedLanguages>
+    <supportedLanguages>Python</supportedLanguages>
+    <supportedLanguages>PHP</supportedLanguages>
+    <supportedLanguages>Ruby</supportedLanguages>
+  </offerings>
+  <offerings xsi:type="deployment-provider:CloudInfrastructureOffering" name="AWS Storage and Data Management">
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="Glacier">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="Elastic Block Storage">
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="Simple Storage Service">
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudHardwareService" name="CloudFront">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredFrameworks xsi:type="deployment-provider:ApplicationLanguageFramework" type="ASPNET"/>
+    <comprisedInstances/>
+  </offerings>
+  <offerings xsi:type="deployment-provider:CloudInfrastructureOffering" name="AWS Deployment and Management">
+    <offeredServices xsi:type="deployment-provider:CloudSoftwareService" name="CloudWatch">
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudDeploymentService" name="Elastic Beanstalk">
+      <configuredBy xsi:type="deployment-provider:DeploymentDescriptor" name=".ebextensions/a_name.config." optional="true">
+        <entries key="packages" optional="true"/>
+        <entries key="sources" optional="true"/>
+        <entries key="files" optional="true"/>
+        <entries key="users" optional="true"/>
+        <entries key="groups" optional="true"/>
+        <entries key="sources" optional="true"/>
+        <entries key="commands" optional="true"/>
+        <entries key="container_commands" value="" optional="true" ref=""/>
+        <entries key="services" optional="true"/>
+        <entries key="option_settings" optional="true"/>
+      </configuredBy>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <usesAccount/>
+      <requiredServices xsi:type="deployment-provider:CloudHardwareService" name="Elastic Compute Cloud">
+        <supportedClients name="Management Console">
+          <supportedInterfaces>Web</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="SDK">
+          <supportedInterfaces>API</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+          <supportedLanguages>PHP</supportedLanguages>
+          <supportedLanguages>Python</supportedLanguages>
+          <supportedLanguages>Ruby</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="Eclipse Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="API tools">
+          <supportedInterfaces>API</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="Microsoft Visual Studio Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="CLI tools">
+          <supportedInterfaces>CLI</supportedInterfaces>
+        </supportedClients>
+      </requiredServices>
+      <requiredServices xsi:type="deployment-provider:CloudHardwareService" name="Simple Storage Service">
+        <supportedClients name="Microsoft Visual Studio Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="Eclipse Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="CLI tools">
+          <supportedInterfaces>CLI</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="SDK">
+          <supportedInterfaces>API</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+          <supportedLanguages>PHP</supportedLanguages>
+          <supportedLanguages>Python</supportedLanguages>
+          <supportedLanguages>Ruby</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="Management Console">
+          <supportedInterfaces>Web</supportedInterfaces>
+        </supportedClients>
+      </requiredServices>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudDeploymentService" name="CloudFormation">
+      <configuredBy xsi:type="deployment-provider:DeploymentTemplate">
+        <entries key="parameters"/>
+        <entries key="mappings"/>
+        <entries key="conditions"/>
+        <entries key="resources"/>
+        <entries key="outputs"/>
+      </configuredBy>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Microsoft Visual Studio Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="Eclipse Toolkit">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <usesAccount/>
+      <requiredServices xsi:type="deployment-provider:CloudHardwareService" name="Elastic Compute Cloud">
+        <supportedClients name="Management Console">
+          <supportedInterfaces>Web</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="SDK">
+          <supportedInterfaces>API</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+          <supportedLanguages>PHP</supportedLanguages>
+          <supportedLanguages>Python</supportedLanguages>
+          <supportedLanguages>Ruby</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="Eclipse Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="API tools">
+          <supportedInterfaces>API</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="Microsoft Visual Studio Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="CLI tools">
+          <supportedInterfaces>CLI</supportedInterfaces>
+        </supportedClients>
+      </requiredServices>
+    </offeredServices>
+    <offeredServices xsi:type="deployment-provider:CloudDeploymentService" name="OpsWorks">
+      <configuredBy xsi:type="deployment-provider:DeploymentTemplate" name="configuration files templates"/>
+      <configuredBy xsi:type="deployment-provider:DeploymentDescriptor" name="ruby application">
+        <reliesOnRecipe/>
+      </configuredBy>
+      <supportedClients name="SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>Java</supportedLanguages>
+        <supportedLanguages>PHP</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+      </supportedClients>
+      <supportedClients name="Management Console">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients name="CLI tools">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <usesAccount/>
+      <requiredServices xsi:type="deployment-provider:CloudHardwareService" name="Elastic Compute Cloud">
+        <supportedClients name="Management Console">
+          <supportedInterfaces>Web</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="SDK">
+          <supportedInterfaces>API</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+          <supportedLanguages>PHP</supportedLanguages>
+          <supportedLanguages>Python</supportedLanguages>
+          <supportedLanguages>Ruby</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="Eclipse Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+          <supportedLanguages>Java</supportedLanguages>
+        </supportedClients>
+        <supportedClients name="API tools">
+          <supportedInterfaces>API</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="Microsoft Visual Studio Toolkit">
+          <supportedInterfaces>IDE</supportedInterfaces>
+        </supportedClients>
+        <supportedClients name="CLI tools">
+          <supportedInterfaces>CLI</supportedInterfaces>
+        </supportedClients>
+      </requiredServices>
+    </offeredServices>
+    <offeredFrameworks xsi:type="deployment-provider:ApplicationLanguageFramework" type="ASPNET"/>
+    <comprisedInstances/>
+  </offerings>
+</deployment-provider:CloudProvider>

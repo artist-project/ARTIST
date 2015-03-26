@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ARTIST Deployment Tool
+Bundle-SymbolicName: eu.artist.migration.deployment;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.migration.deployment.Activator
+Bundle-Vendor: ARTIST Consortium
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ eu.artist.migration.deployment.gae.appengine.web.app;bundle-version="1.0.0",
+ eu.artist.migration.deployment.gae.transformation;bundle-version="1.0.0",
+ org.eclipse.core.filesystem;bundle-version="1.4.0",
+ org.eclipse.core.resources;bundle-version="3.8.101",
+ org.eclipse.ui.ide;bundle-version="3.9.2",
+ org.eclipse.m2m.atl.core;bundle-version="3.6.0",
+ org.eclipse.m2m.atl.common;bundle-version="3.6.0",
+ eu.artist.migration.deployment.azure.service.configuration;bundle-version="1.0.0",
+ eu.artist.migration.deployment.azure.service.definition;bundle-version="1.0.0",
+ eu.artist.migration.deployment.azure.service.descriptor;bundle-version="1.0.0",
+ eu.artist.migration.deployment.azure.transformation;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

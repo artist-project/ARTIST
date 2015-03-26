@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.migration.deployment.azure.service.configuration/src"
+    modelPluginID="eu.artist.migration.deployment.azure.service.configuration" modelName="AzureCSCFG"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>AzureCSCFG.ecore</foreignModel>
+  <genPackages prefix="AzureCSCfg" basePackage="eu.artist.migration.deployment.azure"
+      resource="XML" disposableProviderFactory="true" ecorePackage="AzureCSCFG.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSCFG.ecore#//IPConfigurationAddressType">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSCFG.ecore#//IPConfigurationAddressType/private"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSCFG.ecore#//RuleAction">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSCFG.ecore#//RuleAction/permit"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSCFG.ecore#//RuleAction/deny"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSCFG.ecore#//SchemaVersion">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSCFG.ecore#//SchemaVersion/_20140624"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSCFG.ecore#//SchemaVersion/unspecified"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSCFG.ecore#//ThumbprintAlgorithmTypes">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSCFG.ecore#//ThumbprintAlgorithmTypes/sha1"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//BoundedLengthString"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//IpAddressString"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//IPConfigurationAddressTypeObject"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//NamedElementNameString"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//PositiveInt"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//PositiveIntObject"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//RuleActionObject"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//SchemaVersionObject"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//ThumbprintAlgorithmTypesObject"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//ThumbprintType"/>
+    <genDataTypes ecoreDataType="AzureCSCFG.ecore#//VmNameString"/>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//AccessControlElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//AccessControlElement/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//AccessControlElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//AccessControlsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//AccessControlsElement/accessControl"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//AddressAssignmentsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//AddressAssignmentsElement/instanceAddress"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//AddressAssignmentsElement/reservedIPs"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//Certificate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//Certificate/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//Certificate/thumbprint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//Certificate/thumbprintAlgorithm"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//CertificatesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//CertificatesType/certificate"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//ConfigurationSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ConfigurationSetting/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ConfigurationSetting/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//ConfigurationSettingsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//ConfigurationSettingsType/setting"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//DnsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//DnsElement/dnsServers"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//DnsServerElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//DnsServerElement/iPAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//DnsServerElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//DnsServersElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//DnsServersElement/dnsServer"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//DocumentRoot/serviceConfiguration"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//EndpointAclsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//EndpointAclsElement/endpointAcl"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//EndpointAclType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//EndpointAclType/accessControl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//EndpointAclType/endPoint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//EndpointAclType/role"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//FrontendIPConfigurationElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//FrontendIPConfigurationElement/staticVirtualNetworkIPAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//FrontendIPConfigurationElement/subnet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//FrontendIPConfigurationElement/type"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//GuestAgentSettingsElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//GuestAgentSettingsElement/allowRoleProcessLocalDumps"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//GuestAgentSettingsElement/cleanupFirewallOnRoleRestart"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//InstanceAddressElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//InstanceAddressElement/subnets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//InstanceAddressElement/publicIPs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//InstanceAddressElement/roleName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//LoadBalancerElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//LoadBalancerElement/frontendIPConfiguration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//LoadBalancerElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//LoadBalancersElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//LoadBalancersElement/loadBalancer"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//NetworkConfigurationElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/dns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/virtualNetworkSite"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/addressAssignments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/accessControls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/endpointAcls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/loadBalancers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkConfigurationElement/networkSecurityGroupRefs"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//NetworkSecurityGroupElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//NetworkSecurityGroupElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//NetworkSecurityGroupRefElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkSecurityGroupRefElement/networkSecurityGroup"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//NetworkSecurityGroupRefElement/roleName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//NetworkSecurityGroupRefsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//NetworkSecurityGroupRefsElement/networkSecurityGroupRef"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//OsImageSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//OsImageSetting/href"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//PublicIPElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//PublicIPElement/idleTimeoutInMinutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//PublicIPElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//PublicIPsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//PublicIPsElement/publicIP"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//ReservedIPElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ReservedIPElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//ReservedIPsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//ReservedIPsType/reservedIP"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//RoleSettings">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//RoleSettings/osImage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//RoleSettings/configurationSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//RoleSettings/instances"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//RoleSettings/certificates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//RoleSettings/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//RoleSettings/vmName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//RuleElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//RuleElement/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//RuleElement/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//RuleElement/order"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//RuleElement/remoteSubnet"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//ServiceConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//ServiceConfiguration/role"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//ServiceConfiguration/networkConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//ServiceConfiguration/guestAgentSettings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ServiceConfiguration/osFamily"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ServiceConfiguration/osVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ServiceConfiguration/schemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//ServiceConfiguration/serviceName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//SubnetElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//SubnetElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//SubnetsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSCFG.ecore#//SubnetsElement/subnet"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//TargetSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//TargetSetting/count"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSCFG.ecore#//VirtualNetworkSiteElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSCFG.ecore#//VirtualNetworkSiteElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

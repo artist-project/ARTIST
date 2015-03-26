@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:GoogleAppEngineProfile.InstancesPackage="http:///GoogleAppEngineProfile/InstancesPackage.ecore" xmlns:GoogleAppEngineProfile.ServicesPackage="http:///GoogleAppEngineProfile/ServicesPackage.ecore" xmlns:GoogleAppEngineProfile.StoragePackage="http:///GoogleAppEngineProfile/StoragePackage.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:platform.org.artist.profiles.platform="http:///platform/org/artist/profiles/platform.ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///GoogleAppEngineProfile/InstancesPackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_AqLDM5mIEeOO1r0zDW1uRQ http:///GoogleAppEngineProfile/ServicesPackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_AqLDCZmIEeOO1r0zDW1uRQ http:///GoogleAppEngineProfile/StoragePackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_AqLDbpmIEeOO1r0zDW1uRQ http:///platform/org/artist/profiles/platform.ecore platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml#_nVo99-GkEeO9doEpfZw2-A">
+  <uml:Model xmi:id="_KcvrwOG_EeOme8YHu-WqnQ" name="model">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_RbRDcOHHEeOme8YHu-WqnQ">
+      <importedPackage xmi:type="uml:Model" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bE_3gEeKQb7onjNL6fQ"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Component" xmi:id="_S-r3oOG_EeOme8YHu-WqnQ" clientDependency="__L3bIOHDEeOme8YHu-WqnQ" name="CCUI">
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_cnSwoOG_EeOme8YHu-WqnQ" clientDependency="_jhVxoOG_EeOme8YHu-WqnQ _gBiNcOHAEeOme8YHu-WqnQ" name="ccui.ilc"/>
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_hH51EOG_EeOme8YHu-WqnQ" clientDependency="_m8dNoOG_EeOme8YHu-WqnQ" name="ccui.idc"/>
+      <nestedClassifier xmi:type="uml:Component" xmi:id="_COusAOHAEeOme8YHu-WqnQ" clientDependency="_GPiPAOHAEeOme8YHu-WqnQ" name="ccui.swe"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_VzfhkOG_EeOme8YHu-WqnQ" name="ILC"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_XIQ8IOG_EeOme8YHu-WqnQ" name="IDC"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_jhVxoOG_EeOme8YHu-WqnQ" name="" client="_cnSwoOG_EeOme8YHu-WqnQ" supplier="_VzfhkOG_EeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_m8dNoOG_EeOme8YHu-WqnQ" name="" client="_hH51EOG_EeOme8YHu-WqnQ" supplier="_XIQ8IOG_EeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_5d5IgOG_EeOme8YHu-WqnQ" name="GITEWS"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_GPiPAOHAEeOme8YHu-WqnQ" name="" client="_COusAOHAEeOme8YHu-WqnQ" supplier="_5d5IgOG_EeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_J_2e8OHAEeOme8YHu-WqnQ" name="SPC"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_be_2YOHAEeOme8YHu-WqnQ" name="Resource Repository"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_gBiNcOHAEeOme8YHu-WqnQ" name="" client="_cnSwoOG_EeOme8YHu-WqnQ" supplier="_be_2YOHAEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="__L3bIOHDEeOme8YHu-WqnQ" name="" client="_S-r3oOG_EeOme8YHu-WqnQ" supplier="_J_2e8OHAEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_8gCRkOHEEeOme8YHu-WqnQ" clientDependency="_E1HGIOHFEeOme8YHu-WqnQ _yb3BcOHFEeOme8YHu-WqnQ _zlGhcOHFEeOme8YHu-WqnQ _0gADcOHFEeOme8YHu-WqnQ _1Yw3cOHFEeOme8YHu-WqnQ _1_-ocOHFEeOme8YHu-WqnQ" name="DEWS CCUI Assemble" fileName="Artifact1.file">
+      <manifestation xmi:type="uml:Manifestation" xmi:id="_E1HGIOHFEeOme8YHu-WqnQ" name="" client="_8gCRkOHEEeOme8YHu-WqnQ" supplier="_S-r3oOG_EeOme8YHu-WqnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_TsGIgOHFEeOme8YHu-WqnQ" clientDependency="_er6FAOHFEeOme8YHu-WqnQ" name="ILC Assemble" fileName="Artifact1.file">
+      <manifestation xmi:type="uml:Manifestation" xmi:id="_er6FAOHFEeOme8YHu-WqnQ" name="" client="_TsGIgOHFEeOme8YHu-WqnQ" supplier="_VzfhkOG_EeOme8YHu-WqnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_U6JQAOHFEeOme8YHu-WqnQ" clientDependency="_fv4qgOHFEeOme8YHu-WqnQ" name="IDC Assemble" fileName="Artifact1.file">
+      <manifestation xmi:type="uml:Manifestation" xmi:id="_fv4qgOHFEeOme8YHu-WqnQ" name="" client="_U6JQAOHFEeOme8YHu-WqnQ" supplier="_XIQ8IOG_EeOme8YHu-WqnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_YsOagOHFEeOme8YHu-WqnQ" clientDependency="_hitTAOHFEeOme8YHu-WqnQ" name="GITEWS Assemble" fileName="Artifact1.file">
+      <manifestation xmi:type="uml:Manifestation" xmi:id="_hitTAOHFEeOme8YHu-WqnQ" name="" client="_YsOagOHFEeOme8YHu-WqnQ" supplier="_5d5IgOG_EeOme8YHu-WqnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_iZyE8OHFEeOme8YHu-WqnQ" clientDependency="_pybGcOHFEeOme8YHu-WqnQ" name="SPC Assemble" fileName="Artifact1.file">
+      <manifestation xmi:type="uml:Manifestation" xmi:id="_pybGcOHFEeOme8YHu-WqnQ" name="" client="_iZyE8OHFEeOme8YHu-WqnQ" supplier="_J_2e8OHAEeOme8YHu-WqnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Artifact" xmi:id="_j61oAOHFEeOme8YHu-WqnQ" clientDependency="_vDG88OHFEeOme8YHu-WqnQ" name="RR Assemble" fileName="Artifact1.file">
+      <manifestation xmi:type="uml:Manifestation" xmi:id="_vDG88OHFEeOme8YHu-WqnQ" name="" client="_j61oAOHFEeOme8YHu-WqnQ" supplier="_be_2YOHAEeOme8YHu-WqnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_yb3BcOHFEeOme8YHu-WqnQ" name="" client="_8gCRkOHEEeOme8YHu-WqnQ" supplier="_TsGIgOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_zlGhcOHFEeOme8YHu-WqnQ" name="" client="_8gCRkOHEEeOme8YHu-WqnQ" supplier="_U6JQAOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_0gADcOHFEeOme8YHu-WqnQ" name="" client="_8gCRkOHEEeOme8YHu-WqnQ" supplier="_YsOagOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_1Yw3cOHFEeOme8YHu-WqnQ" name="" client="_8gCRkOHEEeOme8YHu-WqnQ" supplier="_iZyE8OHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_1_-ocOHFEeOme8YHu-WqnQ" name="" client="_8gCRkOHEEeOme8YHu-WqnQ" supplier="_j61oAOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_ucldkOHHEeOme8YHu-WqnQ" clientDependency="_HXqbEOHIEeOme8YHu-WqnQ _Xgj70OHJEeOme8YHu-WqnQ _ZQaI0OHJEeOme8YHu-WqnQ _Z99LUOHJEeOme8YHu-WqnQ _OOZiAOHLEeOme8YHu-WqnQ _PFjzgOHLEeOme8YHu-WqnQ _QseG8OHLEeOme8YHu-WqnQ" name="CCUI">
+      <classifier xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+      <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_HXqbEOHIEeOme8YHu-WqnQ" name="" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_8gCRkOHEEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_JCsZgOHIEeOme8YHu-WqnQ" clientDependency="_Lt-UAOHIEeOme8YHu-WqnQ" name="IDC">
+      <classifier xmi:type="uml:Artifact" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_g0ciMAilEeOpWq22bueY-w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Lt-UAOHIEeOme8YHu-WqnQ" name="" client="_JCsZgOHIEeOme8YHu-WqnQ" supplier="_U6JQAOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_W792cOHIEeOme8YHu-WqnQ" clientDependency="_qaWFQOHJEeOme8YHu-WqnQ" name="ILC">
+      <classifier xmi:type="uml:Artifact" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_g0ciMAilEeOpWq22bueY-w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_X8vW8OHIEeOme8YHu-WqnQ" clientDependency="_prMgQOHJEeOme8YHu-WqnQ" name="GITEWS">
+      <classifier xmi:type="uml:Artifact" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_g0ciMAilEeOpWq22bueY-w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_bTDLcOHIEeOme8YHu-WqnQ" clientDependency="_rDizQOHJEeOme8YHu-WqnQ" name="SPC">
+      <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bPv3gEeKQb7onjNL6fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_dzkncOHIEeOme8YHu-WqnQ" clientDependency="_b5NhoOHKEeOme8YHu-WqnQ" name="Resource Repository">
+      <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bPv3gEeKQb7onjNL6fQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Xgj70OHJEeOme8YHu-WqnQ" name="" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_bTDLcOHIEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ZQaI0OHJEeOme8YHu-WqnQ" name="" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_JCsZgOHIEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Z99LUOHJEeOme8YHu-WqnQ" name="" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_X8vW8OHIEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_prMgQOHJEeOme8YHu-WqnQ" name="" client="_X8vW8OHIEeOme8YHu-WqnQ" supplier="_YsOagOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_qaWFQOHJEeOme8YHu-WqnQ" name="" client="_W792cOHIEeOme8YHu-WqnQ" supplier="_TsGIgOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_rDizQOHJEeOme8YHu-WqnQ" name="" client="_bTDLcOHIEeOme8YHu-WqnQ" supplier="_iZyE8OHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_b5NhoOHKEeOme8YHu-WqnQ" name="" client="_dzkncOHIEeOme8YHu-WqnQ" supplier="_j61oAOHFEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OOZiAOHLEeOme8YHu-WqnQ" name="Dependency1" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_W792cOHIEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_PFjzgOHLEeOme8YHu-WqnQ" name="" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_W792cOHIEeOme8YHu-WqnQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_QseG8OHLEeOme8YHu-WqnQ" name="" client="_ucldkOHHEeOme8YHu-WqnQ" supplier="_dzkncOHIEeOme8YHu-WqnQ"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_qEu7QOHBEeOme8YHu-WqnQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qFfwQOHBEeOme8YHu-WqnQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml#_nVo98OGkEeO9doEpfZw2-A"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/platform_profile.profile.uml#_oj6noODjEeOwY-fyt2GR9A"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9a0pYOHFEeOme8YHu-WqnQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9bmFcOHFEeOme8YHu-WqnQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_AqLC8JmIEeOO1r0zDW1uRQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="platform:/plugin/eu.artist.migration.caml/umlprofiles/GoogleAppEngineProfile.profile.uml#_8pyKYAQQEeOYP5GGYb_HuQ"/>
+    </profileApplication>
+  </uml:Model>
+  <platform.org.artist.profiles.platform:Language xmi:id="_3FSAcOHBEeOme8YHu-WqnQ" base_Component="_S-r3oOG_EeOme8YHu-WqnQ">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <platform.org.artist.profiles.platform:Language xmi:id="_n7KxQOHCEeOme8YHu-WqnQ" base_Component="_VzfhkOG_EeOme8YHu-WqnQ">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <platform.org.artist.profiles.platform:Language xmi:id="_EtJH0OHDEeOme8YHu-WqnQ" base_Component="_XIQ8IOG_EeOme8YHu-WqnQ">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <platform.org.artist.profiles.platform:Language xmi:id="_rpNT0OHDEeOme8YHu-WqnQ" base_Component="_5d5IgOG_EeOme8YHu-WqnQ">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <platform.org.artist.profiles.platform:Language xmi:id="_C7NasOHEEeOme8YHu-WqnQ" base_Component="_J_2e8OHAEeOme8YHu-WqnQ">
+    <realizations>Java</realizations>
+  </platform.org.artist.profiles.platform:Language>
+  <GoogleAppEngineProfile.InstancesPackage:FrontendInstance xmi:id="_0HjKYOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_ucldkOHHEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.ServicesPackage:Users xmi:id="_0H2sYOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_ucldkOHHEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.StoragePackage:GoogleCloudStorage xmi:id="_3-9g0OHJEeOme8YHu-WqnQ" base_InstanceSpecification="_bTDLcOHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.ServicesPackage:TaskQueue xmi:id="_3_E1kOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_bTDLcOHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.InstancesPackage:BackendInstance xmi:id="_6OSfIOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_W792cOHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.ServicesPackage:TaskQueue xmi:id="_6OkzAOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_W792cOHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.InstancesPackage:BackendInstance xmi:id="_7-bnEOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_JCsZgOHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.ServicesPackage:TaskQueue xmi:id="_7-i70OHJEeOme8YHu-WqnQ" base_InstanceSpecification="_JCsZgOHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.InstancesPackage:BackendInstance xmi:id="_-He-QOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_X8vW8OHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.ServicesPackage:TaskQueue xmi:id="_-HmTAOHJEeOme8YHu-WqnQ" base_InstanceSpecification="_X8vW8OHIEeOme8YHu-WqnQ"/>
+  <GoogleAppEngineProfile.StoragePackage:GoogleCloudStorage xmi:id="_ACOzsOHKEeOme8YHu-WqnQ" base_InstanceSpecification="_dzkncOHIEeOme8YHu-WqnQ"/>
+</xmi:XMI>

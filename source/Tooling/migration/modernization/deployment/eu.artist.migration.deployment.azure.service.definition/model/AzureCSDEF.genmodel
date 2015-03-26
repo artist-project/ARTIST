@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.migration.deployment.azure.service.definition/src"
+    modelPluginID="eu.artist.migration.deployment.azure.service.definition" modelName="AzureCSDEF"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>AzureCSDEF.ecore</foreignModel>
+  <genPackages prefix="AzureCSDef" basePackage="eu.artist.migration.deployment.azure"
+      resource="XML" disposableProviderFactory="true" fileExtensions="csdef" ecorePackage="AzureCSDEF.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//AnyPort">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//AnyPort/_"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//BuiltinStoreName">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/My"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/Root"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/CA"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/Trust"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/Disallowed"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/TrustedPeople"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/TrustedPublisher"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/AuthRoot"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//BuiltinStoreName/AddressBook"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//DistributionType">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//DistributionType/sourceIP"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//DistributionType/sourceIPProtocol"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//DistributionType/none"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//ExecutionContext">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//ExecutionContext/limited"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//ExecutionContext/elevated"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//InternalProtocol">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//InternalProtocol/http"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//InternalProtocol/tcp"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//InternalProtocol/udp"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//InternalProtocol/any"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//MatchMode">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//MatchMode/AnyRule"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//PermissionLevel">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//PermissionLevel/limitedOrElevated"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//PermissionLevel/elevated"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//ProbeProtocol">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//ProbeProtocol/http"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//ProbeProtocol/tcp"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//Protocol">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//Protocol/http"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//Protocol/https"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//Protocol/tcp"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//Protocol/udp"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//SchemaVersion">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//SchemaVersion/unspecified"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//SchemaVersion/_20140624"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//StoreLocation">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//StoreLocation/CurrentUser"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//StoreLocation/LocalMachine"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//TaskType">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TaskType/simple"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TaskType/foreground"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TaskType/background"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//TopologyChangeDiscovery">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TopologyChangeDiscovery/UpgradeDomainWalk"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TopologyChangeDiscovery/Blast"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AzureCSDEF.ecore#//TransportProtocol">
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TransportProtocol/udp"/>
+      <genEnumLiterals ecoreEnumLiteral="AzureCSDEF.ecore#//TransportProtocol/tcp"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//AnyPortObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//BuiltinStoreNameObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//DistributionTypeObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//ExecutionContextObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//InternalProtocolObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//LBProbeInterval"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//LBProbeIntervalObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//LBProbeTimeout"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//LBProbeTimeoutObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//MatchModeObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//NamedElementNameString"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//NonEmptyString"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//PermissionLevelObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//PortInteger"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//PortIntegerObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//PortSpecifier"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//PositiveInt"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//PositiveIntObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//ProbeProtocolObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//ProtocolObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//SchemaVersionObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//StoreLocationObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//StoreName"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//TaskTypeObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//TopologyChangeDiscoveryObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//TransportProtocolObject"/>
+    <genDataTypes ecoreDataType="AzureCSDEF.ecore#//VirtualDirectoryName"/>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//AllocatePublicPortFromElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//AllocatePublicPortFromElement/fixedPortRange"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//AllowAllTraffic"/>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Binding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Binding/endpointName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Binding/hostHeader"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Binding/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Bindings">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Bindings/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Certificate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Certificate/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Certificate/permissionLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Certificate/storeLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Certificate/storeName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Certificates">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Certificates/certificate"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//ConfigurationSetting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ConfigurationSetting/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//ConfigurationSettings">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ConfigurationSettings/setting"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//ContentElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ContentElement/sourceDirectory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ContentElement/destination"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//ContentsElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ContentsElement/content"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Destinations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Destinations/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Destinations/roleEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//DocumentRoot/roleModule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//DocumentRoot/serviceDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Endpoints">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Endpoints/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Endpoints/inputEndpoint"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Endpoints/internalEndpoint"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Endpoints/instanceInputEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//EntryPointElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//EntryPointElement/netFxEntryPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Environment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Environment/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//FromRole">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//FromRole/roleName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Import/moduleName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Imports">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Imports/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Imports/import"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//InputEndpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/certificate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/idleTimeoutInMinutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/ignoreRoleInstanceStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/loadBalancer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/loadBalancerDistribution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/loadBalancerProbe"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/localPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpoint/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//InputEndpointsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InputEndpointsType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//InputEndpointsType/inputEndpoint"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//InputEndpointType"/>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//InstanceInputEndpointElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//InstanceInputEndpointElement/allocatePublicPortFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InstanceInputEndpointElement/idleTimeoutInMinutes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InstanceInputEndpointElement/localPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InstanceInputEndpointElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InstanceInputEndpointElement/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//InternalEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InternalEndpoint/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//InternalEndpoint/fixedPort"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//InternalEndpoint/fixedPortRange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InternalEndpoint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InternalEndpoint/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//InternalEndpoint/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//InternalEndpointType"/>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//LoadBalancerProbe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LoadBalancerProbe/intervalInSeconds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LoadBalancerProbe/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LoadBalancerProbe/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LoadBalancerProbe/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LoadBalancerProbe/protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LoadBalancerProbe/timeoutInSeconds"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//LoadBalancerProbes">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//LoadBalancerProbes/loadBalancerProbe"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//LocalResources">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LocalResources/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//LocalResources/localStorage"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//LocalStore">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LocalStore/cleanOnRoleRecycle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LocalStore/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//LocalStore/sizeInMB"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//NetFxAssemblyEntryPointElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//NetFxAssemblyEntryPointElement/assemblyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//NetFxAssemblyEntryPointElement/targetFrameworkVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//NetworkTrafficRules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//NetworkTrafficRules/onlyAllowTrafficTo"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//OnlyAllowTrafficTo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//OnlyAllowTrafficTo/destinations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//OnlyAllowTrafficTo/allowAllTraffic"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//OnlyAllowTrafficTo/whenSource"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Port/port"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//PortRange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//PortRange/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//PortRange/min"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//ProgramEntryPointElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ProgramEntryPointElement/commandLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ProgramEntryPointElement/setReadyOnProcessStart"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//RdmaEndpointElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//RdmaEndpointElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//RoleEndpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//RoleEndpoint/endpointName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//RoleEndpoint/roleName"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//RoleInstanceValueElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//RoleInstanceValueElement/xpath"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//RoleModule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/startup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/runtime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/configurationSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/endpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/localResources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/certificates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//RoleModule/sites"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//RoleModule/namespace"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Runtime">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Runtime/environment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Runtime/executionContext"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//RuntimeForRoleModule"/>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//ServiceDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ServiceDefinition/loadBalancerProbes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ServiceDefinition/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ServiceDefinition/webRole"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ServiceDefinition/workerRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//ServiceDefinition/networkTrafficRules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ServiceDefinition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ServiceDefinition/schemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ServiceDefinition/topologyChangeDiscovery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//ServiceDefinition/upgradeDomainCount"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Site">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Site/bindings"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Sites">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Sites/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Sites/site"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//SourceDirectoryElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//SourceDirectoryElement/path"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Startup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Startup/task"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Startup/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Task/environment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Task/commandLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Task/executionContext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Task/taskType"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//Variable/roleInstanceValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//Variable/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//VirtualApplication"/>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//VirtualDirectory">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//VirtualDirectory/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//VirtualDirectory/virtualDirectory"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//VirtualDirectory/virtualApplication"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//VirtualDirectory/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//VirtualDirectory/physicalDirectory"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//WebRole">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/startup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/localStorage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/localResources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/configurationSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/inputEndpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/internalEndpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/endpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/certificates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/sites"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/runtime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRole/contents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WebRole/enableNativeCodeExecution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WebRole/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WebRole/vmsize"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//WebRuntime">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WebRuntime/entryPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//WhenSource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WhenSource/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WhenSource/fromRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WhenSource/matches"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//WorkerEntryPointElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerEntryPointElement/programEntryPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerEntryPointElement/netFxEntryPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//WorkerRole">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/startup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/localStorage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/localResources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/configurationSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/endpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/certificates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/runtime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRole/contents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WorkerRole/enableNativeCodeExecution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WorkerRole/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AzureCSDEF.ecore#//WorkerRole/vmsize"/>
+    </genClasses>
+    <genClasses ecoreClass="AzureCSDEF.ecore#//WorkerRuntime">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AzureCSDEF.ecore#//WorkerRuntime/entryPoint"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

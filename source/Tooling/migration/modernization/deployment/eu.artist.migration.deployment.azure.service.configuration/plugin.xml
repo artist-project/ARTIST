@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated AzureCSCFG -->
+      <package
+            uri="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration"
+            class="eu.artist.migration.deployment.azure.cscfg.AzureCSCfgPackage"
+            genModel="model/AzureCSCFG.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated AzureCSCFG -->
+      <parser
+            type="azurecscfg"
+            class="eu.artist.migration.deployment.azure.cscfg.util.AzureCSCfgResourceFactoryImpl"/>
+   </extension>
+</plugin>

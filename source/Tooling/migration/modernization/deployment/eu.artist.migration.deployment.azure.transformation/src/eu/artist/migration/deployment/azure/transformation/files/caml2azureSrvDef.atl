@@ -1,0 +1,287 @@
+-- @nsURI ACSDMM=http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+-- AZUP: Azure Profile
+module caml2azureSrvDef;
+create ACSDM : ACSDMM from UMLM : UMLMM, AZUP : UMLMM;
+
+
+--- CAML Metamodel and Profiles
+-- the Azure profile
+helper def: AzureProfile: UMLMM!Profile = UMLMM!Profile.allInstancesFrom('AZUP') -> any(e | e.name = 'MicrosoftAzureProfile');
+
+-- Stereotypes of the Azure profile
+helper def: AzureStereotypes: Sequence(UML!Stereotype) = UMLMM!Stereotype.allInstancesFrom('AZUP');
+
+---- the MAInstanceType Stereotype
+helper def: MAInstanceType: UMLMM!Stereotype = thisModule.AzureStereotypes 
+	-> any(s | s.qualifiedName = 'MicrosoftAzureProfile::InstancesPackage::MAInstanceType');
+
+helper def: CloudServiceConfiguration: UMLMM!Stereotype = thisModule.AzureStereotypes 
+	-> any(s | s.qualifiedName = 'MicrosoftAzureProfile::ConfigurationPackage::CloudServiceConfiguration');
+
+helper def: RoleConfiguration: UMLMM!Stereotype = thisModule.AzureStereotypes 
+	-> any(s | s.qualifiedName = 'MicrosoftAzureProfile::ConfigurationPackage::RoleConfiguration');
+
+helper def: WebRoleConfiguration: UMLMM!Stereotype = thisModule.AzureStereotypes 
+	-> any(s | s.qualifiedName = 'MicrosoftAzureProfile::ConfigurationPackage::WebRoleConfiguration');
+
+helper def: WorkerRoleConfiguration: UMLMM!Stereotype = thisModule.AzureStereotypes 
+	-> any(s | s.qualifiedName = 'MicrosoftAzureProfile::ConfigurationPackage::WorkerRoleConfiguration');
+
+helper def: RoleConfigurationStereotypes: Set(UMLMM!Stereotype) = Set{thisModule.RoleConfiguration, thisModule.WebRoleConfiguration, thisModule.WorkerRoleConfiguration};
+
+--- END Azure Profiles
+
+--- CloudML@ARTIST Profiles
+
+
+----- END CloudML@ARTIST Profiles
+--- Azure queries in CAML and CloudML@ARTIST profiled deployment models
+
+--- checks if given instance is a CloudService
+helper context UMLMM!InstanceSpecification def : isCloudService () : Boolean = 
+	not self.classifier->select(c | c.oclIsKindOf(UMLMM!Artifact) and c.name='CloudService').isEmpty();
+
+--- checks if given instance is a CloudConfiguration
+helper context UMLMM!InstanceSpecification def : isCloudConfiguration () : Boolean = 
+	not self.classifier->select(c | c.oclIsKindOf(UMLMM!DeploymentSpecification) and c.name='CloudConfiguration').isEmpty();
+
+--- gets the CloudConfiguration associated to a CloudService instance specification
+helper context UMLMM!InstanceSpecification def : getConfiguration() : UMLMM!InstanceSpecification = 
+	if (self.isCloudService()) then
+		let cc: UMLMM!Slot = self.ownedElement->select(s | s.oclIsKindOf(UMLMM!Slot))->select(s | s.isCloudConfiguration())->first() in
+			let value: UMLMM!InstanceValue = cc.value->first() in
+				let instance: UMLMM!InstanceSpecification = value.instance in
+					instance
+	else 
+		OclUndefined
+	endif;
+
+--- gets the CloudNode associated to a CloudConfiguration instance specification
+helper context UMLMM!InstanceSpecification def : getCloudNode() : UMLMM!InstanceSpecification = 
+	if (self.isCloudConfiguration()) then
+		let cc: UMLMM!Slot = self.ownedElement->select(s | s.oclIsKindOf(UMLMM!Slot))->select(s | s.isCloudOffering())->first() in
+			let value: UMLMM!InstanceValue = cc.value->first() in
+				let instance: UMLMM!InstanceSpecification = value.instance in
+					instance
+	else 
+		OclUndefined
+	endif;
+
+
+--- checks if the slot references a CloudConfiguration
+helper context UMLMM!Slot def:isCloudConfiguration() : Boolean =
+	self.definingFeature.type.qualifiedName = 'CloudLibrary::CloudConfiguration'
+	;
+
+--- checks if the slot references a CloudNode
+helper context UMLMM!Slot def:isCloudOffering() : Boolean =
+	self.definingFeature.type.qualifiedName = 'CloudLibrary::CloudOffering'
+	;
+
+
+--- gets role configuration stereotype associated to this instance 
+helper context UMLMM!InstanceSpecification def : getRoleConfiguration() : Boolean = 
+	let roleConfigurations:Sequence(UMLMM!Stereotype) =
+			self.getAppliedStereotypes()->asSet()->intersection (thisModule.RoleConfigurationStereotypes)->asSequence()
+	in
+	if (not roleConfigurations.isEmpty()) then
+		self.getStereotypeApplication(roleConfigurations.first())
+	else
+		OclUndefined
+	endif;
+
+--- returns the stereotype (given) applied to the configuration of this instance node
+helper context UMLMM!InstanceSpecification def : getConfigurationStereotype(type:UMLMM!Stereotype) : UMLMM!Stereotype = 
+	let configurationType:UMLMM!Stereotype = self.getConfiguration().getAppliedStereotypes()->asSet()->intersection (Set{type}) in
+		if not configurationType.isEmpty() then
+			self.getConfiguration().getStereotypeApplication(type)
+		else
+			OclUndefined->debug('undefined')
+		endif;
+
+--- END Azure queries
+
+--- Helpers
+-- the root document of the generated XML model 
+helper def: DocumentRoot: ACSDMM!DocumentRoot = OclUndefined;
+
+--- checks if the instance specification has been annotated with given stereotype
+helper context UMLMM!Element def : isStereotypedWith(stereotype:UMLMM!Stereotype) : Boolean =
+	if (self.getAppliedStereotypes()->select(s | stereotype.superTypeOf (s)).isEmpty()) then
+		false
+	else
+		true
+	endif;
+
+--- checks if given stereotype is a superType of the parameter
+helper context UMLMM!Stereotype def : superTypeOf(s:UMLMM!Stereotype) : Boolean = 
+	if (s.oclIsUndefined()) then
+		false
+	else
+		if (self = s) then
+			true
+		else
+			if (s.general.oclIsUndefined()) then
+				false
+			else
+				self.superTypeOf (s.general->first()) --- generalize it for multiple Stereotype hierarchy
+			endif
+		endif
+	endif;
+
+--- gets the value of an given property for given stereotype
+helper context UMLMM!Element def : getValueForStereotypeProperty(stereotype:UMLMM!Stereotype, property:String) : OclAny = 
+	self.getStereotypeApplication(stereotype).refGetValue(property);
+
+--- END Helpers
+
+-- create the root element first
+entrypoint rule createDocumentRoot() {
+	to t: ACSDMM!DocumentRoot (
+--		xMLNSPrefixMap <- 'http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition'	
+	)
+	do {
+		thisModule.DocumentRoot <- t;	
+	}
+}
+
+--- Mapping rules
+
+-- 
+rule AzureInstanceType2ServiceDefinition {
+	from s: UMLMM!InstanceSpecification (s.isCloudService()) 
+	to t: ACSDMM!ServiceDefinition (
+		name <- s.name->debug('service name'),
+		schemaVersion <- '2014-06.2.4',
+		webRole <- let roles:Sequence(UMLMM!InstanceSpecification) = 
+			s.getConfigurationStereotype(thisModule.CloudServiceConfiguration).refGetValue('roleConfiguration')
+			in roles->select(r | r.isStereotypedWith(thisModule.WebRoleConfiguration))
+				->collect(r | thisModule.createWebRole(r->debug('WebRole configuration'), r.getCloudNode())),
+		workerRole <- let roles:Sequence(UMLMM!InstanceSpecification) = 
+			s.getConfigurationStereotype(thisModule.CloudServiceConfiguration).refGetValue('roleConfiguration')
+			in roles->select(r | r.isStereotypedWith(thisModule.WorkerRoleConfiguration))
+				->collect(r | thisModule.createWorkerRole(r->debug('WorkerRole configuration'), r.getCloudNode()))
+	)
+	do {
+		thisModule.DocumentRoot.serviceDefinition <- t;		
+	}
+}
+
+lazy rule createWebRole {
+	from
+		rc : UMLMM!InstanceSpecification, -- RoleConfiguration
+		cn : UMLMM!InstanceSpecification  -- CloudOffering
+	to 
+		t : ACSDMM!WebRole (
+			name <- cn.name,
+			vmsize <- rc.getRoleConfiguration().refGetValue('vmSize'),
+			sites <- thisModule.createSites(rc),
+			endpoints <- thisModule.createEndpoints(rc),
+			imports <- thisModule.createImports (rc),
+			configurationSettings <- thisModule.createConfigurationSettings(rc)
+		)
+} 
+
+lazy rule createSites {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Sites (
+			site <- thisModule.createSite(s)
+		)
+}
+
+lazy rule createSite {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Site (
+			name <- 'Web',
+			bindings <- thisModule.createBindings(s)
+		)
+}
+
+lazy rule createBindings {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Bindings (
+			binding <- thisModule.createBinding(s)
+		)
+}
+
+lazy rule createBinding {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Binding (
+			name <- 'Endpoint1',
+			endpointName <- 'Endpoint1'
+		)
+}
+
+lazy rule createEndpoints {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Endpoints (
+			inputEndpoint <- thisModule.createInputEndpoint(s)
+		)
+}
+
+lazy rule createInputEndpoint {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!InputEndpoint (
+			name <- 'Endpoint1',
+			protocol <- 'http',
+			port <- 80
+		)
+}
+
+lazy rule createImports {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Imports (
+			import <- thisModule.createImport(s)
+		)
+}
+
+lazy rule createImport {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!Import (
+			moduleName <- 'Diagnostics'
+		)
+}
+
+lazy rule createConfigurationSettings {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : ACSDMM!ConfigurationSettings (
+			
+		)
+}
+
+
+lazy rule createWorkerRole {
+	from
+		rc : UMLMM!InstanceSpecification, -- RoleConfiguration
+		cn : UMLMM!InstanceSpecification  -- CloudOffering
+	to 
+		t : ACSDMM!WorkerRole (
+			name <- cn.name,
+			vmsize <- rc.getRoleConfiguration().refGetValue('vmSize'),
+			imports <- thisModule.createImports(rc),
+			configurationSettings <- thisModule.createConfigurationSettings(rc)
+		)
+} 
+
+
+

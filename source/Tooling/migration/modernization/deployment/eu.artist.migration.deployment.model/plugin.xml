@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated deployment -->
+      <package
+            uri="http://deployment/1.0"
+            class="deployment.DeploymentPackage"
+            genModel="model/PIMetamodelv0.1/deployment.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated deployment-provider -->
+      <package
+            uri="http://deployment-provider/1.0"
+            class="deployment_provider.Deployment_providerPackage"
+            genModel="model/PIMetamodelv0.3/deployment-provider.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated deployment-provider -->
+      <package
+            uri="http://deployment_app/1.0"
+            class="deployment_app.Deployment_appPackage"
+            genModel="model/PIMetamodelv0.3/deployment-provider.genmodel"/>
+   </extension>
+</plugin>

@@ -1,0 +1,336 @@
+-- @nsURI AEWMM=http://appengine.google.com/ns/1.0/appengine-web-app
+-- @nsURI UMLMM=http://www.eclipse.org/uml2/4.0.0/UML
+
+-- GAEP: Google App Engine Profile
+-- CMLCP: CloudML@ARTIST Core Profile
+module caml2gaeweb;
+create AEWM : AEWMM from UMLM : UMLMM, GAEP : UMLMM, CMLCP : UMLMM, SECP : UMLMM;
+
+
+--- CAML Metamodel and Profiles
+-- the GAE profile
+helper def: GAEProfile: UMLMM!Profile = UMLMM!Profile.allInstancesFrom('GAEP') -> any(e | e.name = 'GoogleAppEngineProfile');
+
+-- Stereotypes of the GAE profile
+helper def: GAEStereotypes: Sequence(UML!Stereotype) = UMLMM!Stereotype.allInstancesFrom('GAEP');
+
+-- the GAEInstanceType Stereotype
+helper def: GAEInstanceType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::InstancesPackage::GAEInstanceType');
+
+helper def: GAEF1InstanceType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::InstancesPackage::GAEF1');
+
+helper def: GAEF4InstanceType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::InstancesPackage::GAEF4');
+
+helper def: InstanceTypes: Set(UMLMM!Stereotype) = Set{thisModule.GAEF1InstanceType, thisModule.GAEF4InstanceType};
+
+
+-- the EnvironmentConfigurationType Stereotype
+helper def: EnvironmentConfigurationType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::ConfigurationPackage::EnvironmentConfiguration');
+
+-- the ScalingConfigurationType Stereotype
+helper def: ScalingConfigurationType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::ConfigurationPackage::ScalingConfiguration');
+
+-- the MailServiceType Stereotype
+helper def: MailServiceType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::ServicesPackage::Email');
+
+-- the BasicScaled stereotype
+helper def: BasicScaledType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::ConfigurationPackage::BasicScaled');
+
+-- the AutoScaled stereotype
+helper def: AutoScaledType: UMLMM!Stereotype = thisModule.GAEStereotypes -> any(s | s.qualifiedName = 'GoogleAppEngineProfile::ConfigurationPackage::AutoScaled');
+
+helper def: ScalingStereotypes: Set(UMLMM!Stereotype) = Set{thisModule.BasicScaledType, thisModule.AutoScaledType};
+
+--- END CAML Profiles
+
+--- CloudML@ARTIST Profiles
+
+--  The CloudML@ARTIST core profile
+helper def: CoreProfile: UMLMM!Profile = UMLMM!Profile.allInstancesFrom('CMLCP') -> any(e | e.name = 'CoreProfile');
+
+-- Stereotypes of the CloudML@ARTIST core profile
+helper def: CloudMLStereotypes: Sequence(UML!Stereotype) = UMLMM!Stereotype.allInstancesFrom('CMLCP');
+
+-- the SaaS Configuration Stereotype
+helper def: SaaSConfigurationType: UMLMM!Stereotype = 
+	thisModule.CloudMLStereotypes -> any(s | s.qualifiedName = 'CoreProfile::SaaS::Configuration');
+
+-- the SaaS Property Stereotype
+helper def: SaaSPropertyType: UMLMM!Stereotype = 
+	thisModule.CloudMLStereotypes -> any(s | s.qualifiedName = 'CoreProfile::SaaS::Property');
+
+-- Stereotypes of the CloudML@ARTIST security profile
+helper def: SecurityStereotypes: Sequence(UML!Stereotype) = UMLMM!Stereotype.allInstancesFrom('SECP');
+
+-- the DoS_resilience Stereotype
+helper def: DoS_resilienceType: UMLMM!Stereotype = 
+	thisModule.SecurityStereotypes -> any(s | s.qualifiedName = 'SecurityProfile::DoS_resilience');
+
+--- END CloudML@ARTIST Profiles
+
+--- GAE queries in CAML and CloudML@ARTIST profiled deployment models
+
+--- checks if given instance is a GAEInstance
+helper context UMLMM!InstanceSpecification def : isGAEInstanceType () : Boolean = 
+	if(self.getAppliedStereotypes()-> notEmpty()) 
+		then self.getAppliedStereotypes() -> exists(e | 
+			e.getGenerals() -> includes(thisModule.GAEInstanceType)) 
+	else false endif;
+
+--- returns module name from an InstanceSpecification whose container is a CloudNode, annotated with GAEInstance stereotype.
+helper context UMLMM!InstanceSpecification def: getModuleName() : String = 
+	self.name->debug(' module');
+
+--- returns application name from an InstanceSpecification of type CloudConfiguration stereotype with EnvironmentConfiguration
+--- and associated to a CloudNode
+helper context UMLMM!InstanceSpecification def: getApplicationName() : String = 
+	let configuration:UMLMM!InstanceSpecification = self.getConfiguration() in
+	if (not configuration.oclIsUndefined() and configuration.isStereotypedWith (thisModule.EnvironmentConfigurationType)) then
+		configuration.getValueForStereotypeProperty(
+			thisModule.EnvironmentConfigurationType,'applicationTitle')->debug (' applicationTitle')
+	else
+		self.name->debug (' applicationTitle') -- configuration not found, CloudNode name used instead
+	endif;
+
+--- gets the CloudConfiguration associated to a CloudNode instance specification
+helper context UMLMM!InstanceSpecification def : getConfiguration() : UMLMM!InstanceSpecification = 
+	if (self.isGAEInstanceType()) then
+		let cc: UMLMM!Slot = self.ownedElement->select(s | s.oclIsKindOf(UMLMM!Slot))->select(s | s.isCloudConfiguration())->first() in
+			let value: UMLMM!InstanceValue = cc.value->first() in
+				let instance: UMLMM!InstanceSpecification = value.instance in
+					instance
+	else 
+		OclUndefined
+	endif;
+
+
+--- checks if the slot references a CloudConfiguration
+helper context UMLMM!Slot def:isCloudConfiguration() : Boolean =
+	self.definingFeature.type.qualifiedName = 'CloudLibrary::CloudConfiguration'
+	;
+
+--- determines the threadsafe value based on the availability of a CloudConfiguration associated to this node
+--- stereotyped with any ScalingConfiguration stereotype
+helper context UMLMM!InstanceSpecification def: getThreadSafe() : Boolean = 
+	if (self.getConfiguration().isStereotypedWith(thisModule.ScalingConfigurationType)) then
+		true->debug (' threadsafe')
+	else
+		false->debug (' threadsafe')
+	endif;
+
+--- checks if given CloudNode instance declares in its CloudConfiguration a mail service
+helper context UMLMM!InstanceSpecification def: declaresMailServiceInConfiguration() : Boolean =
+	if (self.getConfiguration().isStereotypedWith(thisModule.MailServiceType)) then
+		true->debug (' mail service')
+	else
+		false->debug (' mail service')
+	endif;
+
+--- detects components associated to the given CloudNode that have been annotated with SaaS::Configuration (describes system properties)
+helper context UMLMM!InstanceSpecification def: getSystemProperties() : Sequence(UMLMM!Element) = 
+	UMLMM!Dependency.allInstancesFrom('UMLM')->select(d | d.source->includes (self))->collect(d | d.target)->flatten()
+	->collect(t | t.classifier)->flatten()->select(c | c.oclIsKindOf(UMLMM!Artifact))
+	->collect(c | c.manifestation)->flatten()
+	->collect(m | m.target)->flatten()
+	->select(c | c.isStereotypedWith(thisModule.SaaSConfigurationType))->debug ('system configurations')
+	->collect(p | p.getValueForStereotypeProperty(thisModule.SaaSConfigurationType, 'property'))->flatten();
+
+--- detects components associated to the given CloudNode that have been annotated with SecurityProfile::DoS_resilience (describes a security concern)
+-- TODO: extend this query to support other security concerns when available in the profile
+helper context UMLMM!InstanceSpecification def: declaresSecurityConcerns() : Sequence(UMLMM!Element) = 
+	not UMLMM!Dependency.allInstancesFrom('UMLM')->select(d | d.source->includes (self))->collect(d | d.target)->flatten()
+	->collect(t | t.classifier)->flatten()->select(c | c.oclIsKindOf(UMLMM!Artifact))
+	->collect(c | c.manifestation)->flatten()
+	->collect(m | m.target)->flatten()
+	->select(c | c.isStereotypedWith(thisModule.DoS_resilienceType))->debug ('security concern')->flatten()->isEmpty();
+
+--- determines if the configuration associated to this instance (of type GAEInstanceType) declares any scaling stereotype
+helper context UMLMM!InstanceSpecification def : declaresScaling() : Boolean = 
+	if (self.isGAEInstanceType()) then
+		not self.getConfiguration().getAppliedStereotypes()
+			->debug('applied stereotypes for configuration')->asSet()->intersection (thisModule.ScalingStereotypes).isEmpty()
+	else
+		false
+	endif;
+
+helper context UMLMM!InstanceSpecification def : isInstanceConfiguredWithStereotype(stereotype:UMLMM!Stereotype) : Boolean = 
+	if (self.isGAEInstanceType()) then
+		not self.getConfiguration().getAppliedStereotypes()
+			->debug('applied stereotypes for configuration')->asSet()->intersection (Set{stereotype}).isEmpty()
+	else
+		false
+	endif;
+
+--- determines if the configuration associated to this instance (of type GAEInstanceType) declares a basic scaling stereotype
+helper context UMLMM!InstanceSpecification def : declaresBasicScaling() : Boolean = 
+	self.isInstanceConfiguredWithStereotype(thisModule.BasicScaledType);
+
+--- determines if the configuration associated to this instance (of type GAEInstanceType) declares a auto scaling stereotype
+helper context UMLMM!InstanceSpecification def : declaresAutoScaling() : Boolean = 
+	self.isInstanceConfiguredWithStereotype(thisModule.AutoScaledType);
+
+
+--- gets the applied GAEInstanceType subtype on this instance specification
+helper context UMLMM!InstanceSpecification def : getInstanceClass() : String = 
+	let instanceTypes:UMLMM!Stereotype = self.getAppliedStereotypes()->asSet()->intersection (thisModule.InstanceTypes) in
+		if not instanceTypes.isEmpty() then
+			instanceTypes.asSequence().first().name.regexReplaceAll('GAE','')
+		else
+			if self.declaresBasicScaling() then 'B2'
+			else 
+				if self.declaresAutoScaling() then 'F1'
+			    else OclUndefined
+			    endif 
+			endif
+		endif;
+
+--- returns the stereotype (given) applied to the configuration of this instance node
+helper context UMLMM!InstanceSpecification def : getConfigurationStereotype(type:UMLMM!Stereotype) : UMLMM!Stereotype = 
+	let configurationTypes:UMLMM!Stereotype = self.getConfiguration().getAppliedStereotypes()->asSet()->intersection (Set{type}) in
+		if not configurationTypes.isEmpty() then
+			self.getConfiguration()
+		else
+			OclUndefined
+		endif;
+
+--- gets the configuration instance what has applied the BasicScalingType associated to this instance specification
+helper context UMLMM!InstanceSpecification def : getBasicScaling() : UMLMM!Stereotype = 
+	self.getConfigurationStereotype(thisModule.BasicScaledType);
+
+
+--- gets the configuration instance what has applied the AutoScalingType associated to this instance specification
+helper context UMLMM!InstanceSpecification def : getAutoScaling() : UMLMM!Stereotype = 
+	self.getConfigurationStereotype(thisModule.AutoScaledType);
+
+--- END GAE queries
+
+--- Helpers
+-- the root document of the generated XML model 
+helper def: DocumentRoot: AEWMM!DocumentRoot = OclUndefined;
+
+--- checks if the instance specification has been annotated with given stereotype
+helper context UMLMM!Element def : isStereotypedWith(stereotype:UMLMM!Stereotype) : Boolean =
+	if (self.getAppliedStereotypes()->select(s | stereotype.superTypeOf (s)).isEmpty()) then
+		false
+	else
+		true
+	endif;
+
+--- checks if given stereotype is a superType of the parameter
+helper context UMLMM!Stereotype def : superTypeOf(s:UMLMM!Stereotype) : Boolean = 
+	if (s.oclIsUndefined()) then
+		false
+	else
+		if (self = s) then
+			true
+		else
+			if (s.general.oclIsUndefined()) then
+				false
+			else
+				self.superTypeOf (s.general->first()) --- generalize it for multiple Stereotype hierarchy
+			endif
+		endif
+	endif;
+
+--- gets the value of an given property for given stereotype
+helper context UMLMM!Element def : getValueForStereotypeProperty(stereotype:UMLMM!Stereotype, property:String) : OclAny = 
+	self.getStereotypeApplication(stereotype).refGetValue(property);
+
+--- END Helpers
+
+-- create the root element first
+entrypoint rule createDocumentRoot() {
+	to t: AEWMM!DocumentRoot ()
+	do {
+		thisModule.DocumentRoot <- t;	
+	}
+}
+
+--- Mapping rules
+
+-- create an AppengineWebApp / Module for each GAEInstanceType
+rule GAEInstanceType2AppengineWebApp {
+	-- VMException: Do not know how to handle type: org.eclipse.uml2.uml.internal.impl.StereotypeImpl@1991236
+	-- from s: UMLMM!InstanceSpecification (s.getAppliedStereotypes() -> select(e | e.oclIsKindOf(thisModule.GAEInstanceType)) -> notEmpty())
+	from s: UMLMM!InstanceSpecification (s.isGAEInstanceType()) -- -> select(e | e.getGenerals()))
+	to t: AEWMM!AppengineWebAppType (
+		-- TODO: check what should be the name
+		application <- s->debug('CloudNode').getApplicationName(),
+		module <- s.getModuleName(),
+		version <- '1.0',
+		sessionsEnabled <- false,
+		sslEnabled <- if (s.declaresSecurityConcerns()) then true else false endif,
+		threadsafe <- s.getThreadSafe(),
+		asyncSessionPersistence <- thisModule->createAsyncSessionPersistence(s),
+		inboundServices <- if (s.declaresMailServiceInConfiguration()) then thisModule->createInboundServices() else OclUndefined endif,
+		systemProperties <- let properties:Collection(OclAny) = s.getSystemProperties() in 
+			if not properties.oclIsUndefined() and not properties.isEmpty() 
+			then thisModule->createSystemProperties(properties) else OclUndefined endif,
+		instanceClass <- if (s.declaresScaling()->debug ('declares scaling')) then s.getInstanceClass() else OclUndefined endif,
+		basicScaling <- if (s.declaresBasicScaling()->debug ('declares basic scaling')) then thisModule->createBasicScaling(s.getBasicScaling()) else OclUndefined endif,
+		automaticScaling <- if (s.declaresAutoScaling()->debug ('declares auto scaling')) then thisModule->createAutoScaling(s.getAutoScaling()) else OclUndefined endif
+	)
+	do {
+		thisModule.DocumentRoot.appengineWebApp <- t;		
+	}
+}
+
+lazy rule createBasicScaling {
+	from
+		s : UMLMM!Stereotype
+	to 
+		t : AEWMM!BasicScalingType (
+			idleTimeout <- s.getValueForStereotypeProperty(thisModule.BasicScaledType, 'idleTimeoutBeforeShutdown'),
+			maxInstances <- s.getValueForStereotypeProperty(thisModule.BasicScaledType, 'maximumRunningInstances').toString()
+		)
+} 
+
+lazy rule createAutoScaling {
+	from
+		s : UMLMM!Stereotype
+	to 
+		t : AEWMM!AutomaticScalingType (
+			maxIdleInstances <- s.getValueForStereotypeProperty(thisModule.AutoScaledType, 'maximumIdleInstances'),
+			minPendingLatency <- s.getValueForStereotypeProperty(thisModule.AutoScaledType, 'minimumPendingLatencyBeforeStartup'),
+			maxPendingLatency <- s.getValueForStereotypeProperty(thisModule.AutoScaledType, 'maximumPendingLatencyBeforeStartup'),
+			maxConcurrentRequests <- s.getValueForStereotypeProperty(thisModule.AutoScaledType, 'maximumConcurrentRequests').toString()
+		)
+} 
+
+lazy rule createAsyncSessionPersistence {
+	from
+		s : UMLMM!InstanceSpecification
+	to 
+		t : AEWMM!AsyncSessionPersistenceType (
+			enabled <- false
+		)
+}
+
+lazy rule createInboundServices {
+	from
+		s : UMLMM!InstanceSpecification 
+	to 
+		t : AEWMM!InboundServicesType (
+			service <- 'mail'
+		)
+}
+
+lazy rule createSystemProperties {
+	from
+		s : Collection (OclAny)
+	to 
+		t : AEWMM!SystemPropertiesType (
+			property <- s->collect(p | thisModule->createProperty(p))
+		)
+}
+
+lazy rule createProperty {
+	from
+		s : OclAny
+	to 
+		t : AEWMM!PropertyType (
+			name <- s.refGetValue('key'),
+			value1 <- s.refGetValue('value')
+		)
+}
+

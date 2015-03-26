@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AmazonAWSProfile.InstancesPackage="http:///AmazonAWSProfile/InstancesPackage.ecore" xmlns:AmazonAWSProfile.ServicesPackage="http:///AmazonAWSProfile/ServicesPackage.ecore" xmlns:AmazonAWSProfile.StoragePackage="http:///AmazonAWSProfile/StoragePackage.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///AmazonAWSProfile/InstancesPackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/AmazonAWSProfile.profile.uml#_yd_cfZocEeOO1r0zDW1uRQ http:///AmazonAWSProfile/ServicesPackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/AmazonAWSProfile.profile.uml#_yd_dEpocEeOO1r0zDW1uRQ http:///AmazonAWSProfile/StoragePackage.ecore platform:/plugin/eu.artist.migration.caml/umlprofiles/AmazonAWSProfile.profile.uml#_yd_cz5ocEeOO1r0zDW1uRQ">
+  <uml:Model xmi:id="_8r-88I5AEeOyycY9NFDX9w" name="PetstoreApplicationDeployment">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_pWLPwI5JEeOza5lRrrcUxA">
+      <importedPackage xmi:type="uml:Model" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bE_3gEeKQb7onjNL6fQ"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_poMz4I5JEeOza5lRrrcUxA">
+      <importedPackage xmi:type="uml:Model" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_5q2WNAl7EeO-Gf_thSXy4g"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_KD8wsI5OEeOza5lRrrcUxA" name="WebApplicationHostingBlueprint">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_AOezUI5BEeOyycY9NFDX9w" name="ApplicationServerInA">
+        <classifier xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_cFxewI5LEeOza5lRrrcUxA" name="ApplicationServerInB">
+        <classifier xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_cFxewo5LEeOza5lRrrcUxA" name="ASOE">
+        <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_GXlLMAr9EeOJxI3yGkc6zw"/>
+        <slot xmi:type="uml:Slot" xmi:id="_zThlgI5QEeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_yJ24MAr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_zThlgY5QEeOIDcH6VyuBSQ" name="InstanceValue1" instance="_1OtnMI5NEeOza5lRrrcUxA"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_zThlgo5QEeOIDcH6VyuBSQ" instance="_3OZVEI5PEeOIDcH6VyuBSQ"/>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_pSaUoI5KEeOza5lRrrcUxA" name="CN_WC0_WC0">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pSaUoY5KEeOza5lRrrcUxA" source="InstanceEnd" references="_AOezUI5BEeOyycY9NFDX9w"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_1kFiwIy3EeOOGr6qMP3Q2w"/>
+        <slot xmi:type="uml:Slot" xmi:id="_pSaUoo5KEeOza5lRrrcUxA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_WPVuEQr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_pSaUo45KEeOza5lRrrcUxA" name="InstanceValue0" instance="_AOezUI5BEeOyycY9NFDX9w">
+            <type xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_pSaUpI5KEeOza5lRrrcUxA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_WPDaMAr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_pSgbQI5KEeOza5lRrrcUxA" name="InstanceValue0" instance="_cFxewo5LEeOza5lRrrcUxA">
+            <type xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_GXlLMAr9EeOJxI3yGkc6zw"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_cFxew45LEeOza5lRrrcUxA" name="CN_WC1_WC1">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cFxexI5LEeOza5lRrrcUxA" source="InstanceEnd" references="_cFxewI5LEeOza5lRrrcUxA _cFxewo5LEeOza5lRrrcUxA"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_1kFiwIy3EeOOGr6qMP3Q2w"/>
+        <slot xmi:type="uml:Slot" xmi:id="_cFxexY5LEeOza5lRrrcUxA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_WPVuEQr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_cFxexo5LEeOza5lRrrcUxA" name="InstanceValue0" instance="_cFxewI5LEeOza5lRrrcUxA">
+            <type xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_cFxex45LEeOza5lRrrcUxA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_WPDaMAr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_cFxeyI5LEeOza5lRrrcUxA" name="InstanceValue0" instance="_cFxewo5LEeOza5lRrrcUxA">
+            <type xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_GXlLMAr9EeOJxI3yGkc6zw"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_yFXT0I5REeOIDcH6VyuBSQ" name="InstanceSpecification1">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yFXT0Y5REeOIDcH6VyuBSQ" source="InstanceEnd" references="_cFxewI5LEeOza5lRrrcUxA _JXJ0wI5REeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_yFXT0o5REeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_yFXT045REeOIDcH6VyuBSQ" name="InstanceValue0" instance="_cFxewI5LEeOza5lRrrcUxA">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_yFdacI5REeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_yFdacY5REeOIDcH6VyuBSQ" name="InstanceValue0" instance="_cFxewI5LEeOza5lRrrcUxA">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_JXJ0wI5REeOIDcH6VyuBSQ" name="LB">
+        <classifier xmi:type="uml:Artifact" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_g0ciMAilEeOpWq22bueY-w"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5GWqUI5REeOIDcH6VyuBSQ" name="LB2">
+        <classifier xmi:type="uml:Artifact" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_g0ciMAilEeOpWq22bueY-w"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_kESJQI5SEeOIDcH6VyuBSQ" name="InstanceSpecification4">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kESJQY5SEeOIDcH6VyuBSQ" source="InstanceEnd" references="_5GWqUI5REeOIDcH6VyuBSQ _dekZgI5SEeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_kESJQo5SEeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_kESJQ45SEeOIDcH6VyuBSQ" name="InstanceValue0" instance="_5GWqUI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_kESJRI5SEeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_kESJRY5SEeOIDcH6VyuBSQ" name="InstanceValue0" instance="_5GWqUI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_lsq40I5REeOIDcH6VyuBSQ" name="InstanceSpecification0">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lsq40Y5REeOIDcH6VyuBSQ" source="InstanceEnd" references="_JXJ0wI5REeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_lsq40o5REeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_lsq4045REeOIDcH6VyuBSQ" name="InstanceValue0" instance="_JXJ0wI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_lsq41I5REeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_lsq41Y5REeOIDcH6VyuBSQ" name="InstanceValue0" instance="_JXJ0wI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_p0vhcI5REeOIDcH6VyuBSQ" name="InstanceSpecification11">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_p0vhcY5REeOIDcH6VyuBSQ" source="InstanceEnd" references="_JXJ0wI5REeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_p0vhco5REeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_p0vhc45REeOIDcH6VyuBSQ" name="InstanceValue0" instance="_JXJ0wI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_p0vhdI5REeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_p0vhdY5REeOIDcH6VyuBSQ" name="InstanceValue0" instance="_JXJ0wI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_dekZgI5SEeOIDcH6VyuBSQ" name="CD">
+        <classifier xmi:type="uml:Artifact" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_g0ciMAilEeOpWq22bueY-w"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_qzDuYI5SEeOIDcH6VyuBSQ" name="Storage">
+        <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bPv3gEeKQb7onjNL6fQ"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3wRywI5SEeOIDcH6VyuBSQ" name="InstanceSpecification12">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3wRywY5SEeOIDcH6VyuBSQ" source="InstanceEnd" references="_qzDuYI5SEeOIDcH6VyuBSQ _dekZgI5SEeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_3wRywo5SEeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_3wRyw45SEeOIDcH6VyuBSQ" name="InstanceValue0" instance="_qzDuYI5SEeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_3wRyxI5SEeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_3wRyxY5SEeOIDcH6VyuBSQ" name="InstanceValue0" instance="_qzDuYI5SEeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_5zmVYI5SEeOIDcH6VyuBSQ" name="RDSSlave">
+        <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bPv3gEeKQb7onjNL6fQ"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_mDGCgI5WEeONTvwTeuJZnA" name="RDSMaster">
+        <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bPv3gEeKQb7onjNL6fQ"/>
+        <classifier xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_zZ99AI5WEeONTvwTeuJZnA" name="InstanceSpecification13">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zZ99AY5WEeONTvwTeuJZnA" source="InstanceEnd" references="_mDGCgI5WEeONTvwTeuJZnA _cFxewI5LEeOza5lRrrcUxA"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_zZ99Ao5WEeONTvwTeuJZnA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_zZ99A45WEeONTvwTeuJZnA" name="InstanceValue0" instance="_mDGCgI5WEeONTvwTeuJZnA">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_zZ99BI5WEeONTvwTeuJZnA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_zZ99BY5WEeONTvwTeuJZnA" name="InstanceValue0" instance="_mDGCgI5WEeONTvwTeuJZnA">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_Jg70II5XEeONTvwTeuJZnA" name="InstanceSpecification5">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Jg70IY5XEeONTvwTeuJZnA" source="InstanceEnd" references="_5zmVYI5SEeOIDcH6VyuBSQ _mDGCgI5WEeONTvwTeuJZnA"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_Jg70Io5XEeONTvwTeuJZnA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_Jg70I45XEeONTvwTeuJZnA" name="InstanceValue0" instance="_5zmVYI5SEeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_Jg70JI5XEeONTvwTeuJZnA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_Jg70JY5XEeONTvwTeuJZnA" name="InstanceValue0" instance="_5zmVYI5SEeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_AvjuII9UEeOO9epavamt9A" name="InstanceSpecification6">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AvjuIY9UEeOO9epavamt9A" source="InstanceEnd" references="_JXJ0wI5REeOIDcH6VyuBSQ _dekZgI5SEeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_AvjuIo9UEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_AvjuI49UEeOO9epavamt9A" name="InstanceValue0" instance="_JXJ0wI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_AvjuJI9UEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_AvjuJY9UEeOO9epavamt9A" name="InstanceValue0" instance="_JXJ0wI5REeOIDcH6VyuBSQ">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_fkzkAI9UEeOO9epavamt9A" name="InstanceSpecification7">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fkzkAY9UEeOO9epavamt9A" source="InstanceEnd" references="_mDGCgI5WEeONTvwTeuJZnA _AOezUI5BEeOyycY9NFDX9w"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_fkzkAo9UEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_fkzkA49UEeOO9epavamt9A" name="InstanceValue0" instance="_mDGCgI5WEeONTvwTeuJZnA">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_fkzkBI9UEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_fkzkBY9UEeOO9epavamt9A" name="InstanceValue0" instance="_mDGCgI5WEeONTvwTeuJZnA">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_hIXogI9UEeOO9epavamt9A" name="InstanceSpecification8">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hIXogY9UEeOO9epavamt9A" source="InstanceEnd" references="_AOezUI5BEeOyycY9NFDX9w _JXJ0wI5REeOIDcH6VyuBSQ"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bNP3gEeKQb7onjNL6fQ"/>
+        <slot xmi:type="uml:Slot" xmi:id="_hIXogo9UEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bLf3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_hIXog49UEeOO9epavamt9A" name="InstanceValue0" instance="_AOezUI5BEeOyycY9NFDX9w">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_hIdvII9UEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bMP3gEeKQb7onjNL6fQ"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_hIdvIY9UEeOO9epavamt9A" name="InstanceValue0" instance="_AOezUI5BEeOyycY9NFDX9w">
+            <type xmi:type="uml:Class" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_8jBY4Iy5EeOOGr6qMP3Q2w"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_9dziII9WEeOO9epavamt9A" name="InstanceSpecification9">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9dziIY9WEeOO9epavamt9A" source="InstanceEnd" references="_AOezUI5BEeOyycY9NFDX9w _cFxewo5LEeOza5lRrrcUxA"/>
+        <classifier xmi:type="uml:CommunicationPath" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_1kFiwIy3EeOOGr6qMP3Q2w"/>
+        <slot xmi:type="uml:Slot" xmi:id="_9dziIo9WEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_WPVuEQr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_9dziI49WEeOO9epavamt9A" name="InstanceValue0" instance="_AOezUI5BEeOyycY9NFDX9w">
+            <type xmi:type="uml:Node" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_c73bKf3gEeKQb7onjNL6fQ"/>
+          </value>
+        </slot>
+        <slot xmi:type="uml:Slot" xmi:id="_9dziJI9WEeOO9epavamt9A">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_WPDaMAr9EeOJxI3yGkc6zw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_9dziJY9WEeOO9epavamt9A" name="InstanceValue0" instance="_cFxewo5LEeOza5lRrrcUxA">
+            <type xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml/umllibraries/CAMLLibrary.uml#_GXlLMAr9EeOJxI3yGkc6zw"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Deployment" xmi:id="_K303QI9XEeOO9epavamt9A" name="Deployment" client="_KzNScI9WEeOO9epavamt9A" supplier="_cFxewo5LEeOza5lRrrcUxA"/>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_KzNScI9WEeOO9epavamt9A" clientDependency="_K303QI9XEeOO9epavamt9A" name="PetstoreApp" classifier="_StOisI9WEeOO9epavamt9A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_N1g90I5OEeOza5lRrrcUxA" name="OperatingEnvironment">
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_1OtnMI5NEeOza5lRrrcUxA" name="JEEContainer">
+        <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_5q2WSwl7EeO-Gf_thSXy4g"/>
+        <slot xmi:type="uml:Slot" xmi:id="_T4OuMI5OEeOza5lRrrcUxA">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_5q2WUgl7EeO-Gf_thSXy4g"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="__-G3MI5PEeOIDcH6VyuBSQ">
+            <instance xmi:type="uml:EnumerationLiteral" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_5q2Wawl7EeO-Gf_thSXy4g"/>
+          </value>
+        </slot>
+      </packagedElement>
+      <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="_3OZVEI5PEeOIDcH6VyuBSQ" name="JDK">
+        <classifier xmi:type="uml:ExecutionEnvironment" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_-S4g8I5OEeOWVNgZTlBGVw"/>
+        <slot xmi:type="uml:Slot" xmi:id="_FvLd8I5QEeOIDcH6VyuBSQ">
+          <definingFeature xmi:type="uml:Property" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_EjhYkI5PEeOWVNgZTlBGVw"/>
+          <value xmi:type="uml:InstanceValue" xmi:id="_ViQ8MI5QEeOIDcH6VyuBSQ">
+            <instance xmi:type="uml:EnumerationLiteral" href="platform:/plugin/eu.artist.migration.caml.operatingenvironments/umllibraries/webOperatingEnvironment.uml#_MApRcY5PEeOWVNgZTlBGVw"/>
+          </value>
+        </slot>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_6oe_EJNtEeOm8br50_71sw" name="PetstoreComponents">
+      <packagedElement xmi:type="uml:Component" xmi:id="_opcxMJNuEeOm8br50_71sw" clientDependency="_8CZtcJNvEeOm8br50_71sw" name="PetstoreWebUI">
+        <packagedElement xmi:type="uml:Usage" xmi:id="_8CZtcJNvEeOm8br50_71sw" client="_opcxMJNuEeOm8br50_71sw" supplier="_rgvHYJNuEeOm8br50_71sw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_rgvHYJNuEeOm8br50_71sw" clientDependency="_ZifHMJNwEeOm8br50_71sw _sLpasJNwEeOm8br50_71sw" name="PetstoreController">
+        <packagedElement xmi:type="uml:Usage" xmi:id="_ZifHMJNwEeOm8br50_71sw" client="_rgvHYJNuEeOm8br50_71sw" supplier="_tinfkJNuEeOm8br50_71sw"/>
+        <packagedElement xmi:type="uml:Usage" xmi:id="_sLpasJNwEeOm8br50_71sw" client="_rgvHYJNuEeOm8br50_71sw" supplier="_vTiqoJNuEeOm8br50_71sw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_tinfkJNuEeOm8br50_71sw" clientDependency="_ii-3UJNwEeOm8br50_71sw" name="PetstoreService">
+        <packagedElement xmi:type="uml:Usage" xmi:id="_ii-3UJNwEeOm8br50_71sw" client="_tinfkJNuEeOm8br50_71sw" supplier="_vTiqoJNuEeOm8br50_71sw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_vTiqoJNuEeOm8br50_71sw" name="PetstoreDomain"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_A6pEMJNvEeOm8br50_71sw" name="PetstoreDeployment">
+      <packagedElement xmi:type="uml:Artifact" xmi:id="_StOisI9WEeOO9epavamt9A" clientDependency="_NImO0JNvEeOm8br50_71sw _NnP5sJNvEeOm8br50_71sw _OBlFQJNvEeOm8br50_71sw _Of7OIJNvEeOm8br50_71sw" name="PetstoreApp.war" fileName="Artifact1.file">
+        <manifestation xmi:type="uml:Manifestation" xmi:id="_NImO0JNvEeOm8br50_71sw" name="Manifestation1" client="_StOisI9WEeOO9epavamt9A" supplier="_opcxMJNuEeOm8br50_71sw" utilizedElement="_opcxMJNuEeOm8br50_71sw"/>
+        <manifestation xmi:type="uml:Manifestation" xmi:id="_NnP5sJNvEeOm8br50_71sw" name="Manifestation2" client="_StOisI9WEeOO9epavamt9A" supplier="_rgvHYJNuEeOm8br50_71sw" utilizedElement="_rgvHYJNuEeOm8br50_71sw"/>
+        <manifestation xmi:type="uml:Manifestation" xmi:id="_OBlFQJNvEeOm8br50_71sw" name="Manifestation3" client="_StOisI9WEeOO9epavamt9A" supplier="_tinfkJNuEeOm8br50_71sw" utilizedElement="_tinfkJNuEeOm8br50_71sw"/>
+        <manifestation xmi:type="uml:Manifestation" xmi:id="_Of7OIJNvEeOm8br50_71sw" name="Manifestation4" client="_StOisI9WEeOO9epavamt9A" supplier="_vTiqoJNuEeOm8br50_71sw" utilizedElement="_vTiqoJNuEeOm8br50_71sw"/>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_3Eh2II5JEeOza5lRrrcUxA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3En8wI5JEeOza5lRrrcUxA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="platform:/plugin/eu.artist.migration.caml/umlprofiles/AmazonAWSProfile.profile.uml#_yd_cYJocEeOO1r0zDW1uRQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="platform:/plugin/eu.artist.migration.caml/umlprofiles/AmazonAWSProfile.profile.uml#_jQv9dv3kEeKQb7onjNL6fQ"/>
+    </profileApplication>
+  </uml:Model>
+  <AmazonAWSProfile.StoragePackage:RDSSlave xmi:id="_4-AX4I5XEeONTvwTeuJZnA" base_InstanceSpecification="_5zmVYI5SEeOIDcH6VyuBSQ"/>
+  <AmazonAWSProfile.StoragePackage:RDSMaster xmi:id="_7x3moI5XEeONTvwTeuJZnA" base_InstanceSpecification="_mDGCgI5WEeONTvwTeuJZnA"/>
+  <AmazonAWSProfile.StoragePackage:SynchronousReplication xmi:id="_9RJBAI5XEeONTvwTeuJZnA" base_InstanceSpecification="_Jg70II5XEeONTvwTeuJZnA"/>
+  <AmazonAWSProfile.ServicesPackage:ElasticLoadBalancing xmi:id="_BPTfsI5YEeONTvwTeuJZnA" base_InstanceSpecification="_JXJ0wI5REeOIDcH6VyuBSQ"/>
+  <AmazonAWSProfile.ServicesPackage:AWSCloudFront xmi:id="_Gr32EI5YEeONTvwTeuJZnA" base_InstanceSpecification="_dekZgI5SEeOIDcH6VyuBSQ"/>
+  <AmazonAWSProfile.ServicesPackage:ElasticLoadBalancing xmi:id="_Z71D0I5YEeONTvwTeuJZnA" base_InstanceSpecification="_5GWqUI5REeOIDcH6VyuBSQ"/>
+  <AmazonAWSProfile.InstancesPackage:M1SmallInstance xmi:id="_tYGPQI5YEeONTvwTeuJZnA" base_InstanceSpecification="_AOezUI5BEeOyycY9NFDX9w" instanceCategory="Reserved" contract="OneYearTerm" utilization="Medium" region="EU" availabilityZone="A" autoScaling="true"/>
+  <AmazonAWSProfile.InstancesPackage:M1SmallInstance xmi:id="_CGku8I9VEeOO9epavamt9A" base_InstanceSpecification="_cFxewI5LEeOza5lRrrcUxA" instanceCategory="Reserved" contract="OneYearTerm" utilization="Medium" region="EU" availabilityZone="B" autoScaling="true"/>
+  <AmazonAWSProfile.ServicesPackage:AWSCloudFront xmi:id="_dP5awI9XEeOO9epavamt9A" base_InstanceSpecification="_dekZgI5SEeOIDcH6VyuBSQ"/>
+  <AmazonAWSProfile.ServicesPackage:ElasticLoadBalancing xmi:id="_rYK9AI9XEeOO9epavamt9A" base_InstanceSpecification="_JXJ0wI5REeOIDcH6VyuBSQ"/>
+  <AmazonAWSProfile.InstancesPackage:M1SmallInstance xmi:id="_t_QUAI9XEeOO9epavamt9A" base_InstanceSpecification="_AOezUI5BEeOyycY9NFDX9w" instanceCategory="Reserved" contract="OneYearTerm" utilization="Medium" region="EU" availabilityZone="A" autoScaling="true"/>
+  <AmazonAWSProfile.InstancesPackage:M1SmallInstance xmi:id="_wDPlAI9XEeOO9epavamt9A" base_InstanceSpecification="_cFxewI5LEeOza5lRrrcUxA" contract="OneYearTerm" utilization="Medium" region="EU" availabilityZone="B" autoScaling="true"/>
+  <AmazonAWSProfile.StoragePackage:RDSMaster xmi:id="_5ts4II9XEeOO9epavamt9A" base_InstanceSpecification="_mDGCgI5WEeONTvwTeuJZnA"/>
+  <AmazonAWSProfile.StoragePackage:RDSSlave xmi:id="_7nrRgI9XEeOO9epavamt9A" base_InstanceSpecification="_5zmVYI5SEeOIDcH6VyuBSQ"/>
+</xmi:XMI>

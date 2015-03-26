@@ -1,0 +1,1178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema id="ServiceDefinitionSchema" targetNamespace="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" xmlns:mstns="http://tempuri.org/XMLSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+  
+  <xs:complexType name="LocalStore">
+    <xs:annotation>
+      <xs:documentation>
+        Configuration of a local storage resource
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" use="required" type="NamedElementNameString">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the resource. This is used by the role's code to map to a directory in the local file system.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="sizeInMB" type="PositiveInt" default="1000">
+      <xs:annotation>
+        <xs:documentation>
+          The desired storage space (in MB)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="cleanOnRoleRecycle" type="xs:boolean" default="true">
+      <xs:annotation>
+        <xs:documentation>
+          Deletes the contents of the local storage on role recycle.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ConfigurationSetting">
+    <xs:annotation>
+      <xs:documentation>
+        A configuration setting is the mapping of a name to a string value. The name of the setting is
+        declared here and the mapping to a value is set in the service configuration file.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the configuration setting.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="Certificate">
+    <xs:annotation>
+      <xs:documentation>
+        A certificate setting is the mapping of a named  certificate to its destination.
+        The mapping from the name of the certificate to the actual certificate is defined in the service configuration file.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the certificate.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="storeLocation" type="StoreLocation" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The location of the store where the certificate needs to be deployed.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="storeName" type="StoreName" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the store where the certificate needs to be deployed.
+          Either built in stores like My (for Personal), Root(for Trusted Root CA), CA (for Intermediate CA), Trust (for Enterprise Trust)
+          or a custom certificate store
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="permissionLevel" type="PermissionLevel" default="limitedOrElevated">
+      <xs:annotation>
+        <xs:documentation>
+          Set this to elevated to retrict access to elevated exceutionContext startup or runtime process to access the private key.
+          Set this to limitedOrElevated to allow both limited and elevated executionContext startup or runtime processes to access the private key
+          Default value is limitedOrElevated which is backwards compatible.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="StoreLocation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CurrentUser">
+        <xs:annotation>
+          <xs:documentation>
+            To install to the users certificate stores
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LocalMachine">
+        <xs:annotation>
+          <xs:documentation>
+            To install to the machines certificate stores
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <xs:simpleType name="LBProbeInterval">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="LBProbeTimeout">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="11" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="PositiveInt">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="StoreName">
+    <xs:union memberTypes="BuiltinStoreName NonEmptyString" />
+  </xs:simpleType>
+
+  <xs:simpleType name="AnyPort">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="*" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PortSpecifier">
+    <xs:annotation>
+      <xs:documentation>
+        Port specifier can be an integer or '*' to represent an automatically allocated port
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="PortInteger AnyPort" />
+  </xs:simpleType>
+
+  <xs:simpleType name="BuiltinStoreName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="My">
+        <xs:annotation>
+          <xs:documentation>
+            Personal certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Root">
+        <xs:annotation>
+          <xs:documentation>
+            Trusted Root Certificate Authorities certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CA">
+        <xs:annotation>
+          <xs:documentation>
+            Intermediate Certificate Authorities certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Trust">
+        <xs:annotation>
+          <xs:documentation>
+            Enterprise Trust List certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Disallowed">
+        <xs:annotation>
+          <xs:documentation>
+            Untrusted Certificates
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TrustedPeople">
+        <xs:annotation>
+          <xs:documentation>
+            Trusted People certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TrustedPublisher">
+        <xs:annotation>
+          <xs:documentation>
+            Trusted Publishers certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AuthRoot">
+        <xs:annotation>
+          <xs:documentation>
+            Third-party certificate authorities certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AddressBook">
+        <xs:annotation>
+          <xs:documentation>
+            Other people certificate store
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Certificates">
+    <xs:annotation>
+      <xs:documentation>
+        Declaration of all certificates that need to be deployed.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Certificate" type="Certificate" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Endpoints">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a collection of endpoints.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="InputEndpoint" type="InputEndpoint" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="InternalEndpoint" type="InternalEndpoint" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="InstanceInputEndpoint" type="InstanceInputEndpointElement" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ConfigurationSettings">
+    <xs:annotation>
+      <xs:documentation>
+        Configuration settings are deployment-specific mappings of names to string values that can be
+        accessed from the role's code. The names of the settings are declared here and the mappings to
+        values is done in the service configuration file.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Setting" type="ConfigurationSetting" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WebRole">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of the web role which accepts external requests.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Imports" type="Imports" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Startup" type="Startup" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LocalStorage" type="LocalStore" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LocalResources" type="LocalResources" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ConfigurationSettings" type="ConfigurationSettings" minOccurs="0" maxOccurs="1" />
+      <xs:element name="InputEndpoints" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>
+              A set of endpoints that can be exposed by the service.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:sequence minOccurs="1" maxOccurs="2">
+            <xs:element name="InputEndpoint">
+              <xs:annotation>
+                <xs:documentation>
+                  An endpoint of a service specifies the transport protocol and port on which the service receives requests.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:restriction base="InputEndpoint">
+                    <xs:attribute name="protocol" use="required">
+                      <xs:simpleType>
+                        <xs:restriction base="Protocol">
+                          <xs:enumeration value="http" />
+                          <xs:enumeration value="https" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:attribute>
+                  </xs:restriction>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InternalEndpoint" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:restriction base="InternalEndpoint">
+              <xs:attribute name="protocol" use="required">
+                <xs:simpleType>
+                  <xs:restriction base="InternalProtocol">
+                    <xs:enumeration value="http" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+            </xs:restriction>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Endpoints" type="Endpoints" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Certificates" type="Certificates" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Sites" type="Sites" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Runtime" minOccurs="0" maxOccurs="1" type="WebRuntime" />
+      <xs:element name="Contents" type="ContentsElement" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the role. Each role should have a unique name.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="enableNativeCodeExecution" type="xs:boolean" default="true">
+      <xs:annotation>
+        <xs:documentation>
+          Allow the execution of native x64 code in this role. Also enables full trust managed code.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="vmsize" type="xs:string" default="Small">
+      <xs:annotation>
+        <xs:documentation>
+          The size of the VM needed to host this role.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    </xs:complexType>
+
+  <xs:complexType name="WorkerRole">
+    <xs:annotation>
+      <xs:documentation>
+        Configuration for optional process role of service.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Imports" type="Imports" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Startup" type="Startup" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LocalStorage" type="LocalStore" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LocalResources" type="LocalResources" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ConfigurationSettings" type="ConfigurationSettings" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Endpoints" type="Endpoints" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Certificates" type="Certificates" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Runtime" minOccurs="0" maxOccurs="1" type="WorkerRuntime" />
+      <xs:element name="Contents" type="ContentsElement" minOccurs="0" maxOccurs="1" />
+      </xs:all>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the role. Each role should have a unique name.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="enableNativeCodeExecution" type="xs:boolean" default="true">
+      <xs:annotation>
+        <xs:documentation>
+          Allow the execution of native x64 code in this role. Also enables full trust managed code.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="vmsize" type="xs:string" default="Small">
+      <xs:annotation>
+        <xs:documentation>
+          The size of the VM needed to host this role.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    </xs:complexType>
+
+  <xs:simpleType name="Protocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="http" />
+      <xs:enumeration value="https" />
+      <xs:enumeration value="tcp" />
+      <xs:enumeration value="udp" />
+      </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InternalProtocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="http" />
+      <xs:enumeration value="tcp" />
+      <xs:enumeration value="udp" />
+      <xs:enumeration value="any" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ProbeProtocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="http" />
+      <xs:enumeration value="tcp" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TransportProtocol">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="udp" />
+      <xs:enumeration value="tcp" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DistributionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sourceIP" />
+      <xs:enumeration value="sourceIPProtocol" />
+	  <xs:enumeration value="none" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="InputEndpoint">
+    <xs:annotation>
+      <xs:documentation>
+        An endpoint of a service specifies the transport protocol and port on which the service receives requests.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="protocol" type="Protocol" use="required" />
+    <xs:attribute name="port" type="PortInteger" use="required" />
+    <xs:attribute name="certificate" type="NamedElementNameString">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the certificate for use with https endpoints.
+          The store location and store names for https configuration is automatic and need not be defined.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="localPort" type="PortSpecifier" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional specifier to control the assignement of the local port used for a loadbalanced endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ignoreRoleInstanceStatus" type="xs:boolean" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          Set this value to true to ensure a load balanced endpoint is always available regardless of 
+          the role instance status. The default value is false.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="loadBalancerProbe" type="NamedElementNameString" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Custom load balancer probe.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="loadBalancer" type="NamedElementNameString" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Reference to a load balancer defined for this deployment.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="idleTimeoutInMinutes" type="PositiveInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional specifier to control the TCP idle connection timeout for the endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+	<xs:attribute name="loadBalancerDistribution" type="DistributionType" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional specifier to control LoadBalancer Policy of an endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="InternalEndpoint">
+    <xs:annotation>
+      <xs:documentation>
+        An endpoint of a role that can be used for inter role communication. It specifies the transport protocol, 
+        and optional a set of fixed port ranges that can be used to communicate to the endpoint.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:annotation>
+        <xs:documentation>
+          The collection of fixed port ranges.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:element name="FixedPort" type="Port" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="FixedPortRange" type="PortRange" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the endpoint
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="port" type="PortSpecifier" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional specifier to control the assignement of the port used for the internal endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="protocol" use="required" type="InternalProtocol">
+      <xs:annotation>
+        <xs:documentation>
+          The protocol of the endpoint
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="InstanceInputEndpointElement">
+    <xs:annotation>
+      <xs:documentation>
+        An endpoint that is associated with a specific role instance by using port forwarding in the load balancer.
+        Each instance is mapped to a specific port from a range of possible ports.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="AllocatePublicPortFrom" type="AllocatePublicPortFromElement" minOccurs="1" maxOccurs="1" />
+    </xs:all>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="localPort" type="PortInteger" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Specifier that defines the same fixed local port that all instances will listen to
+          to get incomming traffic forwarded to the instance.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="protocol" use="required" type="TransportProtocol">
+      <xs:annotation>
+        <xs:documentation>
+          The transport protocol of the endpoint. Note use "tcp" for http/https based traffic.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="idleTimeoutInMinutes" type="PositiveInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Optional specifier to control the TCP idle connection timeout for the endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="RdmaEndpointElement">
+    <xs:annotation>
+      <xs:documentation>
+        An endpoint that is associated with a specific role instance for supporting nic/network RDMA or RDMA Capable scenario.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the endpoint.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="AllocatePublicPortFromElement">
+    <xs:annotation>
+      <xs:documentation>
+        The set of ports used to public ports for instance input endpoints allocated from.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="FixedPortRange" type="PortRange" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ServiceDefinition">
+    <xs:annotation>
+      <xs:documentation>
+        The description of a Utility Computing Service.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="1" maxOccurs="1">
+      <xs:element name="LoadBalancerProbes" type="LoadBalancerProbes" minOccurs="0" maxOccurs="1" />
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="WebRole" type="WebRole" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="WorkerRole" type="WorkerRole" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      <xs:element name="NetworkTrafficRules" minOccurs="0" maxOccurs="1" type="NetworkTrafficRules" />
+    </xs:sequence>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the service.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="upgradeDomainCount" type="PositiveInt" default="5">
+      <xs:annotation>
+        <xs:documentation>
+          The number of upgrade domains for each role in this service.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="schemaVersion" type="SchemaVersion" default="unspecified">
+      <xs:annotation>
+        <xs:documentation>
+          The version of the ServiceDefinition schema used.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="topologyChangeDiscovery" type="TopologyChangeDiscovery" default="UpgradeDomainWalk">
+      <xs:annotation>
+        <xs:documentation>
+          This feature sets the policy for when containers are notified about changes in network topology resulting from an upgrade.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="SchemaVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unspecified" />
+      <xs:enumeration value="2014-06.2.4" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TopologyChangeDiscovery">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UpgradeDomainWalk">
+        <xs:annotation>
+          <xs:documentation>
+            In the ordinary mode (“UpgradeDomainWalk”) the containers are made aware of the topology change after their upgrade domain has been walked.
+            This is also the default value of the attribute
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Blast">
+        <xs:annotation>
+          <xs:documentation>
+            In “Blast” mode all containers are immediately notified of the change at the start of an update. This is a tenant-wide setting affecting all containers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="LocalResources">
+    <xs:annotation>
+      <xs:documentation>
+        A set of local storage resources that can be defined for the service.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="LocalStorage" type="LocalStore" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Sites">
+    <xs:annotation>
+      <xs:documentation>
+        A set of IIS7 sites associted with a Web Role
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="Site" type="Site" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Site">
+    <xs:annotation>
+      <xs:documentation>
+        Defintion of a single IIS7 site associted with a Web Role
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="VirtualDirectory">
+        <xs:sequence>
+          <xs:element name="Bindings" type="Bindings" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Bindings">
+    <xs:sequence>
+      <xs:element name="Binding" type="Binding" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Binding">
+    <xs:annotation>
+      <xs:documentation>
+        A site uses a list of bindings
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the binding.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="endpointName" type="NamedElementNameString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the endpooint on the Web Role
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="hostHeader" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Host name used, if any.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="VirtualDirectory">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VirtualDirectory" type="VirtualDirectory" />
+        <xs:element name="VirtualApplication" type="VirtualDirectory" />
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name" type="VirtualDirectoryName" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name which is reflected in the virtual path
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="physicalDirectory" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Location of the physical directory, can also be specified during packaging. 
+          A relative path is assumed to be relative to the location of the csdef.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType> 
+
+  <xs:complexType name="VirtualApplication">
+    <xs:complexContent>
+      <xs:extension base="VirtualDirectory" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="VirtualDirectoryName">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^[a-zA-Z_][^\\/\?;:@&amp;=\+\$,\|&quot;&lt;&gt;\`\'\^]*(?&lt;![\.\s])$" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- 
+  Allows a string which starts with alphabets or underscore, followed by any number of character
+  except ^ \ / : * ? ' < > |. And it should not end in whitespace.
+  -->
+  <xs:simpleType name="NamedElementNameString">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^[a-zA-Z_][^\\\/\:\*\?\&quot;\&lt;\&gt;\|\`\'\^]*(?&lt;![\.\s])$" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="256" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MatchMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AnyRule" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PortInteger">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" /> 
+      <xs:maxInclusive value="65535" /> 
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="RoleEndpoint">
+    <xs:attribute name="roleName" type="NamedElementNameString" use="required" />
+    <xs:attribute name="endpointName" type="NamedElementNameString" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="Port">
+    <xs:attribute name="port" type="PortInteger" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="PortRange">
+    <xs:attribute name="min" type="PortInteger" use="required" />
+    <xs:attribute name="max" type="PortInteger" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="FromRole">
+    <xs:attribute name="roleName" type="NamedElementNameString" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="Destinations">
+    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="RoleEndpoint" type="RoleEndpoint" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WhenSource">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="FromRole" type="FromRole" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="matches" type="MatchMode" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="AllowAllTraffic" />
+
+  <xs:complexType name="OnlyAllowTrafficTo">
+    <xs:annotation>
+      <xs:documentation>
+        Rule that allow the service to restrict traffic between roles
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Destinations" type="Destinations" />
+      <xs:choice>
+        <xs:element name="AllowAllTraffic" type="AllowAllTraffic" />
+        <xs:element name="WhenSource" type="WhenSource" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NetworkTrafficRules">
+    <xs:annotation>
+      <xs:documentation>
+        Definition of rules that allow the control of interrole traffic.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OnlyAllowTrafficTo" type="OnlyAllowTrafficTo" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="TaskType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="simple" />
+      <xs:enumeration value="foreground" />
+      <xs:enumeration value="background" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="RoleInstanceValueElement">
+    <xs:annotation>
+      <xs:documentation>
+        Specifies a value based on the configuration of the current role instance.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="xpath" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          XPath that selects the a value from the instance configuration document.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="Variable">
+    <xs:sequence>
+      <xs:element name="RoleInstanceValue" type="RoleInstanceValueElement" maxOccurs="1" minOccurs="0" /> 
+    </xs:sequence>
+    <xs:attribute name="name" type="NonEmptyString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Specifies that name of the environment variable.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="value" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Specifies that name of the value of the envrironment value.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="Environment">
+    <xs:sequence>
+      <xs:element name="Variable" type="Variable" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Task">
+    <xs:all>
+      <xs:element name="Environment" type="Environment" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+    <xs:attribute name="commandLine" type="NonEmptyString" use="required" />
+    <xs:attribute name="executionContext" type="ExecutionContext" default="limited" />
+    <xs:attribute name="taskType" type="TaskType" default="simple" />
+  </xs:complexType>
+
+  <xs:simpleType name="ExecutionContext">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="limited" />
+      <xs:enumeration value="elevated" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PermissionLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="limitedOrElevated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that both elevated and limited startup tasks and runtime processes can access this resource.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="elevated">
+        <xs:annotation>
+          <xs:documentation>
+            Specifies that only elevated startup tasks and runtime processes can access this resource.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Startup">
+    <xs:annotation>
+      <xs:documentation>
+        A sequence of startups
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Task" type="Task" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="priority" type="xs:int" default="0">
+      <xs:annotation>
+        <xs:documentation>
+          For internal use only.
+        </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="LoadBalancerProbe">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="protocol" type="ProbeProtocol" use="required" />
+    <xs:attribute name="port" type="PortInteger" use="optional" />
+    <xs:attribute name="path" type="xs:string" use="optional" />
+    <xs:attribute name="intervalInSeconds" type="LBProbeInterval" default="15" />
+    <xs:attribute name="timeoutInSeconds" type="LBProbeTimeout" default="31" />
+  </xs:complexType>
+
+  <xs:complexType name="LoadBalancerProbes">
+    <xs:sequence>
+      <xs:element name="LoadBalancerProbe" type="LoadBalancerProbe" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Import">
+    <xs:attribute name="moduleName" type="NamedElementNameString">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the module to include.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:complexType name="Imports">
+    <xs:annotation>
+      <xs:documentation>
+        A set of role modules to be included in this role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Import" type="Import" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Runtime">
+    <xs:annotation>
+      <xs:documentation>
+        Controls the runtime environment of the Windows Azure host process.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Environment" type="Environment" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="executionContext" type="ExecutionContext" default="limited" />
+    </xs:complexType>
+
+  <xs:complexType name="WorkerRuntime">
+    <xs:complexContent>
+      <xs:extension base="Runtime">
+        <xs:sequence>
+          <xs:element name="EntryPoint" type="WorkerEntryPointElement" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WebRuntime">
+    <xs:complexContent>
+      <xs:extension base="Runtime">
+        <xs:sequence>
+          <xs:element name="EntryPoint" type="EntryPointElement" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="EntryPointElement">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the entry point of a role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="NetFxEntryPoint" type="NetFxAssemblyEntryPointElement" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="WorkerEntryPointElement">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the entrypoint of a role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="ProgramEntryPoint" type="ProgramEntryPointElement" />
+      <xs:element name="NetFxEntryPoint" type="NetFxAssemblyEntryPointElement" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="ProgramEntryPointElement">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the entry point of a role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="commandLine" type="NonEmptyString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Command line of program to start.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="setReadyOnProcessStart" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The role is not started until the program explicitly signals started.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="NetFxAssemblyEntryPointElement">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the entrypoint of a role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="assemblyName" type="NonEmptyString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Name of assembly to load.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="targetFrameworkVersion" type="NonEmptyString" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          .NET Framework Version
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="SourceDirectoryElement">
+    <xs:annotation>
+      <xs:documentation>
+        A local directory to recursively copy content from.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="path" type="NonEmptyString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Relative or absolute path to a directory to copy from.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ContentElement">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the contents of a role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SourceDirectory" type="SourceDirectoryElement" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="destination" type="NonEmptyString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Location to place the contents relative to "approot"
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ContentsElement">
+    <xs:annotation>
+      <xs:documentation>
+        Defines the contents of a role.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Content" type="ContentElement" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RuntimeForRoleModule">
+    <xs:annotation>
+      <xs:documentation>
+        Controls the runtime environment of the Windows Azure host process.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+     <xs:restriction base="Runtime">
+      <xs:sequence>
+        <xs:element name="Environment" type="Environment" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+      <xs:attribute name="executionContext" type="ExecutionContext" use="prohibited" />
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RoleModule">
+    <xs:annotation>
+      <xs:documentation>
+        Undocumented feature. This syntax is subject to future breaking changes.
+      </xs:documentation>
+      </xs:annotation>
+    <xs:all>
+      <xs:element name="Startup" minOccurs="0" maxOccurs="1" type="Startup" />
+      <xs:element name="Runtime" minOccurs="0" maxOccurs="1" type="RuntimeForRoleModule" />
+      <xs:element name="ConfigurationSettings" type="ConfigurationSettings" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Endpoints" type="Endpoints" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LocalResources" type="LocalResources" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Certificates" type="Certificates" minOccurs="0" maxOccurs="1" />
+      <xs:element name="Sites" type="Sites" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+    <xs:attribute name="namespace" type="NamedElementNameString" use="required" />
+  </xs:complexType>
+
+  <xs:element name="RoleModule" type="RoleModule" />
+  <xs:element name="ServiceDefinition" type="ServiceDefinition" />
+</xs:schema>

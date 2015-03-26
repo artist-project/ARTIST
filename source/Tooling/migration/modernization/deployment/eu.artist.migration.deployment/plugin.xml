@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="eu.artist.migration.deployment.category"
+            name="Deployment Tool">
+      </category>
+      <command
+            categoryId="eu.artist.migration.deployment.category"
+            id="eu.artist.migration.deployment.commands.generateDescriptors"
+            name="Generate Deployment Descriptors">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.artist.migration.deployment.handler.DeploymentHandler"
+            commandId="eu.artist.migration.deployment.commands.generateDescriptors">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="eu.artist.migration.deployment.menu.main"
+               label="Deployment Tool">
+            <command
+                  commandId="eu.artist.migration.deployment.commands.generateDescriptors"
+                  id="eu.artist.migration.deployment.menus.cloudifyGUI">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.uml">
+                           </test>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+<!--
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.uml"
+            id="eu.artist.migration.deployment.popupMenus.contribution.IFile">
+         <menu id="eu.artist.migration.deployment.menu" label="Deployment Tool" path="additionsDeployment">
+               <groupMarker name="deployment"/> 
+         </menu>
+         <action
+               class="eu.artist.migration.deployment.handler.DeploymentAction"
+               enablesFor="+"
+               id="eu.artist.migration.deployment.popupMenus.acceleoGenerateUml2javaAction"
+               label="Generate Deployment Descriptors"
+               menubarPath="eu.artist.migration.deployment.menu/deployment"/>
+      </objectContribution>
+   </extension>
+-->
+</plugin>

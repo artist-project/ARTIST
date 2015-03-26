@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ASCII"?>
+<deployment-provider:CloudProvider
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:deployment-provider="http://deployment-provider/1.0"
+    xsi:schemaLocation="http://deployment-provider/1.0 ../deployment-provider.ecore"
+    name="Microsoft">
+  <offerings
+      xsi:type="deployment-provider:CloudPlatformOffering"
+      name="Windows Azure">
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Web Sites"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Mobile Services"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Cloud Services"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="SQL Database"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="HDInsight"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Cache"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Recovery Manager"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Media Services"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Service Bus"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Notification Hubs"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Scheduler"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Biztalk Services"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Active Directory"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Multi-Factor Authentication"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="ExpressRoute"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Virtual Network"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Traffic Manager"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudHardwareService"
+        name="Virtual Machines"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudDeploymentService"
+        name="Azure Deployment Service">
+      <configuredBy
+          xsi:type="deployment-provider:ApplicationDeploymentDescriptor"
+          name="Service Configuration File">
+        <entries
+            key="ServiceName"/>
+        <entries
+            key="OSFamily"
+            optional="true"/>
+        <entries
+            key="OSVersion"
+            optional="true"/>
+        <entries
+            key="SchemaVersion"
+            optional="true"/>
+        <entries
+            key="Role.RoleName"
+            parent="//@offerings.0/@offeredServices.18/@configuredBy.0/@entries.6"/>
+        <entries
+            key="Role.NumberOfInstances"
+            optional="true"
+            ref=""
+            parent="//@offerings.0/@offeredServices.18/@configuredBy.0/@entries.6"/>
+        <entries
+            key="Role"
+            optional="true"/>
+      </configuredBy>
+      <configuredBy
+          xsi:type="deployment-provider:ApplicationDeploymentDescriptor"
+          name="Service Definition File">
+        <entries
+            key="Name"/>
+        <entries
+            key="TopologyChangeDiscovery"
+            optional="true"/>
+        <entries
+            key="SchemaVersion"
+            optional="true"/>
+        <entries
+            key="UpgradeDomainCount"
+            optional="true"/>
+        <entries
+            key="WebRole.Name"
+            parent="//@offerings.0/@offeredServices.18/@configuredBy.1/@entries.7"/>
+        <entries
+            key="WebRole.VMSize"
+            optional="true"
+            parent="//@offerings.0/@offeredServices.18/@configuredBy.1/@entries.7"/>
+        <entries
+            key="WebRole.SiteName"
+            parent="//@offerings.0/@offeredServices.18/@configuredBy.1/@entries.7"/>
+        <entries
+            key="WebRole"
+            optional="true"/>
+        <entries
+            key="WorkerRole.Name"
+            parent="//@offerings.0/@offeredServices.18/@configuredBy.1/@entries.8"/>
+        <entries
+            key="WorkerRole.VMSize"/>
+      </configuredBy>
+      <configuredBy
+          xsi:type="deployment-provider:InfrastructureDeploymentDescriptor"
+          name="Network Configuration File"/>
+      <supportedClients
+          name="Azure Management Portal">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients
+          name="Azure SDK">
+        <supportedInterfaces>API</supportedInterfaces>
+        <supportedLanguages>CSharp</supportedLanguages>
+        <supportedLanguages>Python</supportedLanguages>
+        <supportedLanguages>Ruby</supportedLanguages>
+        <supportedLanguages>Java</supportedLanguages>
+      </supportedClients>
+      <supportedClients
+          name="Visual Studio Plugin">
+        <supportedInterfaces>IDE</supportedInterfaces>
+        <supportedInterfaces>FTP</supportedInterfaces>
+      </supportedClients>
+      <supportedClients
+          name="Webmatrix Plugin">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <supportedClients
+          name="Azure Management Tools (Powershell and Cross Platform CLI)">
+        <supportedInterfaces>CLI</supportedInterfaces>
+      </supportedClients>
+      <supportedClients
+          name="Eclipse Plugin">
+        <supportedInterfaces>IDE</supportedInterfaces>
+      </supportedClients>
+      <usesAccount>
+        <uses/>
+      </usesAccount>
+    </offeredServices>
+    <offeredServices
+        xsi:type="deployment-provider:CloudHardwareService"
+        name="Storage"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudHardwareService"
+        name="Backup"/>
+    <supportedLanguages>CSharp</supportedLanguages>
+  </offerings>
+  <offerings
+      xsi:type="deployment-provider:CloudPlatformOffering"
+      name="Windows Azure Pack">
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Web Sites"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Service Bus"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="Virtual Network"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudHardwareService"
+        name="Virtual Machines"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudSoftwareService"
+        name="SQL Database"/>
+    <offeredServices
+        xsi:type="deployment-provider:CloudDeploymentService"
+        name="WAP Deployment Service">
+      <supportedClients
+          name="Management Portal">
+        <supportedInterfaces>Web</supportedInterfaces>
+      </supportedClients>
+      <supportedClients
+          name="Service Management API">
+        <supportedInterfaces>API</supportedInterfaces>
+      </supportedClients>
+    </offeredServices>
+    <supportedLanguages>CSharp</supportedLanguages>
+  </offerings>
+</deployment-provider:CloudProvider>

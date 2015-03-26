@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_hxv2QJKBEeOrRt8tZQKTGw" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_hzjNEJKBEeOrRt8tZQKTGw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_hzj0IJKBEeOrRt8tZQKTGw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_hzkbMJKBEeOrRt8tZQKTGw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_U3DSsJKHEeOrRt8tZQKTGw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="deployment-app.ecore#//CloudApplication/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_U3D5wJKHEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hzlpUJKBEeOrRt8tZQKTGw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="deployment-app.ecore#//CloudApplication/language"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzlpUZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hzkbMZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hzkbMpKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hzkbM5KBEeOrRt8tZQKTGw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_hzlCQJKBEeOrRt8tZQKTGw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hzlCQZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hzlCQpKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hzlCQ5KBEeOrRt8tZQKTGw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hzjNEZKBEeOrRt8tZQKTGw" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="deployment-app.ecore#//CloudApplication"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hzjNEpKBEeOrRt8tZQKTGw" x="300" y="140"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hzlpUpKBEeOrRt8tZQKTGw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_hzmQYJKBEeOrRt8tZQKTGw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_hzm3cJKBEeOrRt8tZQKTGw" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hzm3cZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hzm3cpKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hzm3c5KBEeOrRt8tZQKTGw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_hznegJKBEeOrRt8tZQKTGw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hznegZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hznegpKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hzneg5KBEeOrRt8tZQKTGw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hzlpU5KBEeOrRt8tZQKTGw" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="deployment-app.ecore#//CloudApplicationDeploymentUnit"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hzlpVJKBEeOrRt8tZQKTGw" x="310" y="315"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hzosoJKBEeOrRt8tZQKTGw" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_hzpTsJKBEeOrRt8tZQKTGw" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_hzp6wJKBEeOrRt8tZQKTGw" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_hzqh0JKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/WAR"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzqh0ZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hzrI4JKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/EAR"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzrI4ZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hzrv8JKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/ZIP"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzrv8ZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hzsXAJKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/Git"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzsXAZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hzs-EJKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/SVN"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzs-EZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hzuMMJKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/dotNET_Assembly"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzuMMZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_9hKLEKuEEeOhW_L26kp2pA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//PlatformDeploymentUnitType/Folder"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9hKLEauEEeOhW_L26kp2pA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hzp6wZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hzp6wpKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hzp6w5KBEeOrRt8tZQKTGw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hzosoZKBEeOrRt8tZQKTGw" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="deployment-app.ecore#//PlatformDeploymentUnitType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hzosopKBEeOrRt8tZQKTGw" x="945" y="130" width="212"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hz9cwpKBEeOrRt8tZQKTGw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_hz-D0JKBEeOrRt8tZQKTGw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_hz-q4JKBEeOrRt8tZQKTGw" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hz-q4ZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hz-q4pKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hz-q45KBEeOrRt8tZQKTGw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_hz_R8JKBEeOrRt8tZQKTGw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hz_R8ZKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hz_R8pKBEeOrRt8tZQKTGw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hz_R85KBEeOrRt8tZQKTGw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hz9cw5KBEeOrRt8tZQKTGw" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="deployment-app.ecore#//ApplicationComponent"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hz9cxJKBEeOrRt8tZQKTGw" x="335" y="35"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_lyG2wKoOEeO25pwkk26oaQ" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_lyJTAKoOEeO25pwkk26oaQ" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_lyKhIKoOEeO25pwkk26oaQ" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_wwB84KoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/C"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_wwB84aoOEeO25pwkk26oaQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_vvfs8KoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/CSharp"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vvfs8aoOEeO25pwkk26oaQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_uj41cKoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/Go"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uj41caoOEeO25pwkk26oaQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_npWsQKoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/Java"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_npWsQaoOEeO25pwkk26oaQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_o7__4KoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/Python"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_o7__4aoOEeO25pwkk26oaQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_sd6AYKoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/PHP"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_sd6AYaoOEeO25pwkk26oaQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_2L7k4KoOEeO25pwkk26oaQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//ProgrammingLanguage/Ruby"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2L7k4aoOEeO25pwkk26oaQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_lyKhIaoOEeO25pwkk26oaQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_lyKhIqoOEeO25pwkk26oaQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_lyKhI6oOEeO25pwkk26oaQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_lyG2waoOEeO25pwkk26oaQ" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="15053796" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="deployment-app.ecore#//ProgrammingLanguage"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lyG2wqoOEeO25pwkk26oaQ" x="40" y="140" width="175"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_FZL3QKuFEeOhW_L26kp2pA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_FZNFYKuFEeOhW_L26kp2pA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_FZNFYauFEeOhW_L26kp2pA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_hzoFkJKBEeOrRt8tZQKTGw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="deployment-app.ecore#//CloudApplicationPlatformDeploymentUnit/type"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hzoFkZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_FZNFYquFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_FZNFY6uFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_FZNFZKuFEeOhW_L26kp2pA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_FZNscKuFEeOhW_L26kp2pA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_FZNscauFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_FZNscquFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_FZNsc6uFEeOhW_L26kp2pA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_FZL3QauFEeOhW_L26kp2pA" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="deployment-app.ecore#//CloudApplicationPlatformDeploymentUnit"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FZL3QquFEeOhW_L26kp2pA" x="595" y="255" width="286"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_H-KVcKuFEeOhW_L26kp2pA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_H-K8gKuFEeOhW_L26kp2pA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_H-K8gauFEeOhW_L26kp2pA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_aQp1YKuFEeOhW_L26kp2pA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="deployment-app.ecore#//CloudApplicationInfrastructureDeploymentUnit/type"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aQp1YauFEeOhW_L26kp2pA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_H-K8gquFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_H-K8g6uFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_H-K8hKuFEeOhW_L26kp2pA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_H-LjkKuFEeOhW_L26kp2pA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_H-LjkauFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_H-LjkquFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_H-Ljk6uFEeOhW_L26kp2pA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_H-KVcauFEeOhW_L26kp2pA" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="deployment-app.ecore#//CloudApplicationInfrastructureDeploymentUnit"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_H-KVcquFEeOhW_L26kp2pA" x="595" y="390" width="313"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_TCatEKuFEeOhW_L26kp2pA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_TCbUIKuFEeOhW_L26kp2pA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_TCbUIauFEeOhW_L26kp2pA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_hztlIJKBEeOrRt8tZQKTGw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//InfrastructureDeploymentUnitType/OVF"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hztlIZKBEeOrRt8tZQKTGw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_AvOpkKuFEeOhW_L26kp2pA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="deployment-app.ecore#//InfrastructureDeploymentUnitType/VHD"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AvOpkauFEeOhW_L26kp2pA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_TCbUIquFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_TCbUI6uFEeOhW_L26kp2pA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_TCbUJKuFEeOhW_L26kp2pA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_TCatEauFEeOhW_L26kp2pA" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="deployment-app.ecore#//InfrastructureDeploymentUnitType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TCatEquFEeOhW_L26kp2pA" x="950" y="365" width="237"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Nx-gcK3xEeOk0r5IyPhoSQ" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_Nx_HgK3xEeOk0r5IyPhoSQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_Nx_Hga3xEeOk0r5IyPhoSQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Nx_Hgq3xEeOk0r5IyPhoSQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Nx_Hg63xEeOk0r5IyPhoSQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Nx_HhK3xEeOk0r5IyPhoSQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Nx_Hha3xEeOk0r5IyPhoSQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Nx_Hhq3xEeOk0r5IyPhoSQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Nx_Hh63xEeOk0r5IyPhoSQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Nx_HiK3xEeOk0r5IyPhoSQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Nx-gca3xEeOk0r5IyPhoSQ" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="8905185" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="deployment-app.ecore#//ApplicationDescriptor"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nx-gcq3xEeOk0r5IyPhoSQ" x="665" y="150"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_hxv2QZKBEeOrRt8tZQKTGw"/>
+  <element xmi:type="ecore:EPackage" href="deployment-app.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_h16kkJKBEeOrRt8tZQKTGw" type="3002" source="_hzjNEJKBEeOrRt8tZQKTGw" target="_hzlpUpKBEeOrRt8tZQKTGw">
+    <children xmi:type="notation:Node" xmi:id="_h17LoJKBEeOrRt8tZQKTGw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_h17LoZKBEeOrRt8tZQKTGw" x="-1" y="-57"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_h17ysJKBEeOrRt8tZQKTGw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_h17ysZKBEeOrRt8tZQKTGw" x="-1" y="18"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_h16kkZKBEeOrRt8tZQKTGw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_h16kkpKBEeOrRt8tZQKTGw" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="deployment-app.ecore#//CloudApplication/deploymentUnits"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h16kk5KBEeOrRt8tZQKTGw" points="[0, 0, 779, 60]$[-779, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_h7vfwJKBEeOrRt8tZQKTGw" id="(0.5,0.8783783783783784)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_h2MRYJKBEeOrRt8tZQKTGw" type="3003" source="_hz9cwpKBEeOrRt8tZQKTGw" target="_hzjNEJKBEeOrRt8tZQKTGw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_h2MRYZKBEeOrRt8tZQKTGw" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_h2MRYpKBEeOrRt8tZQKTGw" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h2MRY5KBEeOrRt8tZQKTGw" points="[-78, -21, 64, -106]$[-111, -21, 31, -106]$[-111, 67, 31, -18]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_h7zxMJKBEeOrRt8tZQKTGw" id="(0.5,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_h7zxMZKBEeOrRt8tZQKTGw" id="(0.4765957446808511,0.05405405405405406)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_evw_8KoPEeO25pwkk26oaQ" type="3002" source="_hzjNEJKBEeOrRt8tZQKTGw" target="_hz9cwpKBEeOrRt8tZQKTGw">
+    <children xmi:type="notation:Node" xmi:id="_evyOEKoPEeO25pwkk26oaQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_evyOEaoPEeO25pwkk26oaQ" x="-17" y="77"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_evy1IKoPEeO25pwkk26oaQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_evy1IaoPEeO25pwkk26oaQ" x="-2" y="19"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_evw_8aoPEeO25pwkk26oaQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_evw_8qoPEeO25pwkk26oaQ" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="deployment-app.ecore#//CloudApplication/comprisedComponents"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_evw_86oPEeO25pwkk26oaQ" points="[6, -9, 2, 61]$[6, -56, 2, 14]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ev14cKoPEeO25pwkk26oaQ" id="(0.7191489361702128,0.17567567567567569)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ev14caoPEeO25pwkk26oaQ" id="(0.879746835443038,0.5555555555555556)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_L246gKuFEeOhW_L26kp2pA" type="3003" source="_H-KVcKuFEeOhW_L26kp2pA" target="_hzlpUpKBEeOrRt8tZQKTGw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_L246gauFEeOhW_L26kp2pA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_L246gquFEeOhW_L26kp2pA" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_L246g6uFEeOhW_L26kp2pA" points="[-9, -7, 64, 46]$[-71, -72, 2, -19]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_L26IoKuFEeOhW_L26kp2pA" id="(0.04153354632587859,0.4888888888888889)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_L26IoauFEeOhW_L26kp2pA" id="(0.9140271493212669,0.4727272727272727)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_MUVrgKuFEeOhW_L26kp2pA" type="3003" source="_FZL3QKuFEeOhW_L26kp2pA" target="_hzlpUpKBEeOrRt8tZQKTGw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_MUVrgauFEeOhW_L26kp2pA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_MUVrgquFEeOhW_L26kp2pA" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MUVrg6uFEeOhW_L26kp2pA" points="[-10, 7, 66, -43]$[-74, 35, 2, -15]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MUYHwKuFEeOhW_L26kp2pA" id="(0.04895104895104895,0.3111111111111111)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MUYHwauFEeOhW_L26kp2pA" id="(0.9004524886877828,0.38181818181818183)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_QIXwEK3xEeOk0r5IyPhoSQ" type="3002" source="_hzjNEJKBEeOrRt8tZQKTGw" target="_Nx-gcK3xEeOk0r5IyPhoSQ">
+    <children xmi:type="notation:Node" xmi:id="_QIY-MK3xEeOk0r5IyPhoSQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QIY-Ma3xEeOk0r5IyPhoSQ" x="-51" y="-12"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_QIY-Mq3xEeOk0r5IyPhoSQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QIY-M63xEeOk0r5IyPhoSQ" x="6" y="-12"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_QIXwEa3xEeOk0r5IyPhoSQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_QIXwEq3xEeOk0r5IyPhoSQ" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="deployment-app.ecore#//CloudApplication/isConfiguredBy"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QIXwE63xEeOk0r5IyPhoSQ" points="[11, 4, -155, 1]$[110, 4, -56, 1]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QIbacK3xEeOk0r5IyPhoSQ" id="(0.9361702127659575,0.3783783783783784)"/>
+  </edges>
+</notation:Diagram>

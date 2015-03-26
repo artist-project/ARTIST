@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.migration.modernisation.dt.model/src"
+    modelPluginID="eu.artist.migration.modernisation.dt.model" modelName="Deployment-provider"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>deployment-provider.ecore</foreignModel>
+  <genPackages prefix="Deployment_provider" disposableProviderFactory="true" ecorePackage="deployment-provider.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-provider.ecore#//ServiceInterface">
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ServiceInterface/CLI"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ServiceInterface/IDE"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ServiceInterface/Web"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ServiceInterface/API"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ServiceInterface/FTP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-provider.ecore#//ApplicationTopology">
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationTopology/SingleInstance"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationTopology/LoadBalanced"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationTopology/MultipleInstances"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-provider.ecore#//VirtualInstanceType">
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//VirtualInstanceType/ComputedOptimized"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//VirtualInstanceType/MemoryOptimized"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//VirtualInstanceType/GeneralPurpose"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//VirtualInstanceType/StorageOptimized"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-provider.ecore#//ApplicationFrameworkType">
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Spring"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Rails"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Sinatra"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Play"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Lift"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Django"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Struts"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/WordPress"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Umbraco"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/DotNetNuke"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Drupal"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/CakePHP"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//ApplicationFrameworkType/Express"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-provider.ecore#//LanguageFrameworkType">
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//LanguageFrameworkType/JavaSE"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//LanguageFrameworkType/JavaEE"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//LanguageFrameworkType/CSharp"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//LanguageFrameworkType/JavaScript"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-provider.ecore#//LanguageFrameworkType/ASPNET"/>
+    </genEnums>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudProvider/offerings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudProvider/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="deployment-provider.ecore#//CloudService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudService/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudService/configuredBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudService/supportedClients"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudDeploymentService">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudDeploymentService/usesAccount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudDeploymentService/requiredServices"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//DeploymentDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//DeploymentDescriptor/reliesOnRecipe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//DeploymentDescriptor/reliesOnTemplate"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//ApplicationDeploymentDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//ApplicationDeploymentDescriptor/topology"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//InfrastructureDeploymentDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//InfrastructureDeploymentDescriptor/clusters"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="deployment-provider.ecore#//CloudOffering">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudOffering/offeredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudOffering/offeredFrameworks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudOffering/name"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudInfrastructureOffering">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudInfrastructureOffering/comprisedInstances"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudPlatformOffering">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudPlatformOffering/supportedLanguages"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//EnvironmentDescriptor"/>
+    <genClasses ecoreClass="deployment-provider.ecore#//AuthenticationToken">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//AuthenticationToken/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//AuthenticationToken/password"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudHardwareService"/>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudSoftwareService"/>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudInfrastructurePhysicalInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudInfrastructurePhysicalInstance/runVMs"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudInfrastructureVirtualInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudInfrastructureVirtualInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//Stack">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//Stack/layers"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudInfrastructureVirtualCluster">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//CloudInfrastructureVirtualCluster/manages"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//ApplicationFramework">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//ApplicationFramework/type"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//AuthenticationAccount">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//AuthenticationAccount/uses"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//DeploymentRecipe"/>
+    <genClasses ecoreClass="deployment-provider.ecore#//DeploymentTemplate"/>
+    <genClasses ecoreClass="deployment-provider.ecore#//DescriptorEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//DescriptorEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//DescriptorEntry/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//DescriptorEntry/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//DescriptorEntry/ref"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//DescriptorEntry/parent"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//CloudServiceClient">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudServiceClient/supportedInterfaces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudServiceClient/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//CloudServiceClient/supportedLanguages"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//ApplicationLanguageFramework">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//ApplicationLanguageFramework/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="deployment-provider.ecore#//Framework">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//Framework/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//Framework/version"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-provider.ecore#//ServiceConfigurationDescriptor"/>
+    <genClasses ecoreClass="deployment-provider.ecore#//Descriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-provider.ecore#//Descriptor/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//Descriptor/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-provider.ecore#//Descriptor/optional"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Deployment_app" disposableProviderFactory="true" ecorePackage="deployment-app.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-app.ecore#//PlatformDeploymentUnitType">
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/WAR"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/EAR"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/ZIP"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/Git"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/SVN"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/dotNET_Assembly"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//PlatformDeploymentUnitType/Folder"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-app.ecore#//ProgrammingLanguage">
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/C"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/CSharp"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/Go"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/Java"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/Python"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/PHP"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//ProgrammingLanguage/Ruby"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deployment-app.ecore#//InfrastructureDeploymentUnitType">
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//InfrastructureDeploymentUnitType/OVF"/>
+      <genEnumLiterals ecoreEnumLiteral="deployment-app.ecore#//InfrastructureDeploymentUnitType/VHD"/>
+    </genEnums>
+    <genClasses ecoreClass="deployment-app.ecore#//CloudApplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplication/deploymentUnits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-app.ecore#//CloudApplication/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-app.ecore#//CloudApplication/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplication/requiredFrameworks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplication/hostedOnOffering"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplication/requiredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplication/comprisedComponents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplication/isConfiguredBy"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="deployment-app.ecore#//CloudApplicationDeploymentUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplicationDeploymentUnit/isConfiguredBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deployment-app.ecore#//CloudApplicationDeploymentUnit/configureServices"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-app.ecore#//ApplicationComponent"/>
+    <genClasses ecoreClass="deployment-app.ecore#//CloudApplicationPlatformDeploymentUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-app.ecore#//CloudApplicationPlatformDeploymentUnit/type"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-app.ecore#//CloudApplicationInfrastructureDeploymentUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deployment-app.ecore#//CloudApplicationInfrastructureDeploymentUnit/type"/>
+    </genClasses>
+    <genClasses ecoreClass="deployment-app.ecore#//ApplicationDescriptor"/>
+  </genPackages>
+</genmodel:GenModel>

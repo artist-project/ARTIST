@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="deployment_app" nsURI="http://deployment_app/1.0" nsPrefix="deployment_app">
+  <eClassifiers xsi:type="ecore:EClass" name="CloudApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentUnits" lowerBound="1"
+        upperBound="-1" eType="#//CloudApplicationDeploymentUnit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//ProgrammingLanguage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredFrameworks" upperBound="-1"
+        eType="ecore:EClass deployment-provider.ecore#//ApplicationFramework" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hostedOnOffering" upperBound="-1"
+        eType="ecore:EClass deployment-provider.ecore#//CloudOffering" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
+        eType="ecore:EClass deployment-provider.ecore#//CloudService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comprisedComponents" upperBound="-1"
+        eType="#//ApplicationComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isConfiguredBy" upperBound="-1"
+        eType="#//ApplicationDescriptor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudApplicationDeploymentUnit" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isConfiguredBy" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass deployment-provider.ecore#//DeploymentDescriptor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configureServices" upperBound="-1"
+        eType="ecore:EClass deployment-provider.ecore#//ServiceConfigurationDescriptor"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PlatformDeploymentUnitType">
+    <eLiterals name="WAR"/>
+    <eLiterals name="EAR" value="1"/>
+    <eLiterals name="ZIP" value="3"/>
+    <eLiterals name="Git" value="2"/>
+    <eLiterals name="SVN" value="5"/>
+    <eLiterals name="dotNET_Assembly" value="6"/>
+    <eLiterals name="Folder" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationComponent" eSuperTypes="#//CloudApplication"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProgrammingLanguage">
+    <eLiterals name="C" value="6"/>
+    <eLiterals name="CSharp" value="5"/>
+    <eLiterals name="Go" value="4"/>
+    <eLiterals name="Java"/>
+    <eLiterals name="Python" value="1"/>
+    <eLiterals name="PHP" value="2"/>
+    <eLiterals name="Ruby" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudApplicationPlatformDeploymentUnit"
+      eSuperTypes="#//CloudApplicationDeploymentUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//PlatformDeploymentUnitType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudApplicationInfrastructureDeploymentUnit"
+      eSuperTypes="#//CloudApplicationDeploymentUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//InfrastructureDeploymentUnitType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InfrastructureDeploymentUnitType">
+    <eLiterals name="OVF" value="4"/>
+    <eLiterals name="VHD" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationDescriptor" eSuperTypes="deployment-provider.ecore#//Descriptor"/>
+</ecore:EPackage>

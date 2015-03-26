@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ServiceConfigurationSchema" targetNamespace="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" elementFormDefault="qualified" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" xmlns:mstns="http://tempuri.org/XMLSchema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ConfigurationSetting">
+    <xs:annotation>
+      <xs:documentation>
+        A configuration setting is a mapping of a name to a string value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the configuration setting. The name should match the name of a setting
+          declared in the service definition.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="value" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The value of the configuration setting.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="Certificate">
+    <xs:annotation>
+      <xs:documentation>
+        A certificate setting is a mapping of a name of a certificate to the identifying value (ie. SHA1 thumbprint).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the certificate. The name should match the name of a certificate
+          declared in the service definition.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="thumbprint" type="ThumbprintType" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The digest (or thumbprint) of the certificate data used to uniquely identify a certificate.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="thumbprintAlgorithm" type="ThumbprintAlgorithmTypes" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The hash algorithm that generates a digest of data (or thumbprint)
+          for digital signatures such as MD5, SHA1, SHA256. This is different than
+          the algorithm used in creating the signature inside the certificate.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="ThumbprintAlgorithmTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="sha1">
+        <xs:annotation>
+          <xs:documentation>
+            Algorithm currently used in certmgr.msc to display thumbprint.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ThumbprintType">
+    <xs:annotation>
+      <xs:documentation>
+        A thubmprint must be a non-empty string of hex digits.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:pattern value="[0-9A-Fa-f\s]*" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="TargetSetting">
+    <xs:attribute name="count" use="required" type="xs:int">
+      <xs:annotation>
+        <xs:documentation>
+          The number of role instances that are required.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    </xs:complexType>
+
+  <xs:complexType name="OsImageSetting">
+    <xs:attribute name="href" type="xs:anyURI" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          URI to an image in the virtual machine image repository
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="RoleSettings">
+    <xs:all>
+      <xs:element name="OsImage" type="OsImageSetting" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            TODO
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ConfigurationSettings" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Values for the configuration settings names declared in the
+            service definition to string values.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Setting" type="ConfigurationSetting" minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Instances" type="TargetSetting" minOccurs="1" maxOccurs="1" />
+      <xs:element name="Certificates" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Thumbprint mapping values for the certificates declared by name in the service definition.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Certificate" type="Certificate" minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the role. The name should match the name of the role in the service definition.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="vmName" type="VmNameString" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          The VM name (prefix) of the role.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ServiceConfiguration">
+    <xs:sequence>
+      <xs:element name="Role" type="RoleSettings" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The configuration and instance settings for a role.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="NetworkConfiguration" type="NetworkConfigurationElement" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Advanced network configuration for a service.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GuestAgentSettings" type="GuestAgentSettingsElement" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Advanced settings for guest agent.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="serviceName" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The name of the service must match the name of the service in the service definition.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="osFamily" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          The family of the guest operating system on which this service should run. If omitted, the service runs on the default guest operating system.
+          See Configuring Operating System Versions (http://go.microsoft.com/fwlink/?LinkId=179590) for more information.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="osVersion" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          The version of the guest operating system on which this service should run. If omitted, the service runs on the default guest operating system.
+          See Configuring Operating System Versions (http://go.microsoft.com/fwlink/?LinkId=179590) for more information.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="schemaVersion" type="SchemaVersion" default="unspecified">
+      <xs:annotation>
+        <xs:documentation>
+          The version of the ServiceConfiguration schema used.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="SchemaVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="2014-06.2.4" />
+      <xs:enumeration value="unspecified" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IpAddressString">
+    <xs:annotation>
+      <xs:documentation>
+        IP address must be valid.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="SubnetElement">
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="SubnetsElement">
+    <xs:sequence>
+      <xs:element name="Subnet" type="SubnetElement" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="PublicIPElement">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="idleTimeoutInMinutes" type="PositiveInt" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="PublicIPsElement">
+    <xs:sequence>
+      <xs:element name="PublicIP" type="PublicIPElement" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InstanceAddressElement">
+    <xs:sequence>
+      <xs:element name="Subnets" type="SubnetsElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="PublicIPs" type="PublicIPsElement" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+    <xs:attribute name="roleName" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="AddressAssignmentsElement">
+    <xs:sequence>
+      <xs:element name="InstanceAddress" type="InstanceAddressElement" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="ReservedIPs" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ReservedIP" type="ReservedIPElement" minOccurs="1" maxOccurs="1" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LoadBalancersElement">
+    <xs:annotation>
+      <xs:documentation>
+        A list of load balancers associated with this deployment.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LoadBalancer" type="LoadBalancerElement" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="IPConfigurationAddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="private">
+        <xs:annotation>
+          <xs:documentation>
+            Indicates that this IP address is a private address from the private address pool.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="FrontendIPConfigurationElement">
+    <xs:annotation>
+      <xs:documentation>
+        The outward facing IP address configuration for a load balancer.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="type" type="IPConfigurationAddressType" use="required" />
+    <xs:attribute name="subnet" type="NamedElementNameString" use="optional" />
+    <xs:attribute name="staticVirtualNetworkIPAddress" type="IpAddressString" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="LoadBalancerElement">
+    <xs:annotation>
+      <xs:documentation>
+        A load balancer for distributing network load across instances in this deployment.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FrontendIPConfiguration" type="FrontendIPConfigurationElement" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="name" type="NamedElementNameString" use="required" />
+  </xs:complexType>  
+
+  <xs:complexType name="ReservedIPElement">
+    <xs:attribute name="name" type="NamedElementNameString" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="VirtualNetworkSiteElement">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+
+  <xs:complexType name="DnsServerElement">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="IPAddress" type="IpAddressString" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="DnsServersElement">
+    <xs:sequence>
+      <xs:element name="DnsServer" type="DnsServerElement" minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            The Dns server settings.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DnsElement">
+    <xs:sequence>
+      <xs:element name="DnsServers" type="DnsServersElement" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+    </xs:complexType>
+
+  <xs:simpleType name="RuleAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="permit" />
+      <xs:enumeration value="deny" />
+    </xs:restriction>
+  </xs:simpleType>
+ 
+  <xs:complexType name="RuleElement">
+    <xs:annotation>
+      <xs:documentation>
+        order value must be unique in an EndpointAcl
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="order" type="xs:unsignedShort" use="required" />
+    <xs:attribute name="action" type="RuleAction" use="required" />
+    <xs:attribute name="remoteSubnet" type="xs:string" use="required" />
+    <xs:attribute name="description" type="BoundedLengthString" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="AccessControlElement">
+    <xs:annotation>
+      <xs:documentation>
+        The AccessControl contains a set of rules
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Rule" type="RuleElement" minOccurs="1" maxOccurs="50" />
+    </xs:sequence>
+    <xs:attribute name="name" type="NamedElementNameString" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="AccessControlsElement">
+    <xs:annotation>
+      <xs:documentation>
+        A list of AccessControls
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AccessControl" type="AccessControlElement" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EndpointAclsElement">
+    <xs:annotation>
+      <xs:documentation>
+        The EndpontAcl associates an ACL to a role and endpoint combination
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EndpointAcl" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="role" type="NamedElementNameString" use="required" />
+          <xs:attribute name="endPoint" type="NamedElementNameString" use="required" />
+          <xs:attribute name="accessControl" type="NamedElementNameString" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NetworkSecurityGroupElement">
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="NetworkSecurityGroupRefElement">
+    <xs:sequence>
+      <xs:element name="NetworkSecurityGroup" type="NetworkSecurityGroupElement" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+    <xs:attribute name="roleName" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="NetworkSecurityGroupRefsElement">
+    <xs:sequence>
+      <xs:element name="NetworkSecurityGroupRef" type="NetworkSecurityGroupRefElement" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NetworkConfigurationElement">
+    <xs:sequence>
+      <xs:element name="Dns" type="DnsElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="VirtualNetworkSite" type="VirtualNetworkSiteElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="AddressAssignments" type="AddressAssignmentsElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="AccessControls" type="AccessControlsElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="EndpointAcls" type="EndpointAclsElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LoadBalancers" type="LoadBalancersElement" minOccurs="0" maxOccurs="1" />
+      <xs:element name="NetworkSecurityGroupRefs" type="NetworkSecurityGroupRefsElement" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GuestAgentSettingsElement">
+    <xs:attribute name="cleanupFirewallOnRoleRestart" type="xs:boolean" use="optional" default="true">
+      <xs:annotation>
+        <xs:documentation>
+          The flag to specify if firewall rules will be reapplied on role restarts. Default value is true.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="allowRoleProcessLocalDumps" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>
+          The flag to specify if crashing role processes dumps will be saved locally. Default value is false.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  
+  <xs:simpleType name="VmNameString">
+    <xs:restriction base="xs:string">
+      <!-- complies with http://tools.ietf.org/html/rfc1123#section-2 -->
+      <!-- further constrained to 10 characters, to support scale-out -->
+      <xs:pattern value="^(?![\-])[a-zA-Z0-9\-]{1,10}(?&lt;![\-])$" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- 
+  Allows a string which starts with alphabets or underscore, followed by any number of character
+  except ^ \ / : * ? ' < > |. And it should not end in whitespace.
+  -->
+  <xs:simpleType name="NamedElementNameString">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^[a-zA-Z_][^\\\/\:\*\?\&quot;\&lt;\&gt;\|\`\'\^]*(?&lt;![\.\s])$" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="BoundedLengthString">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PositiveInt">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="ServiceConfiguration" type="ServiceConfiguration" />
+</xs:schema>

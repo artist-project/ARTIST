@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="deployment_provider" nsURI="http://deployment-provider/1.0"
+    nsPrefix="deployment-provider">
+  <eClassifiers xsi:type="ecore:EClass" name="CloudProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offerings" lowerBound="1"
+        upperBound="-1" eType="#//CloudOffering" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudService" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuredBy" upperBound="-1"
+        eType="#//ServiceConfigurationDescriptor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supportedClients" upperBound="-1"
+        eType="#//CloudServiceClient" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudDeploymentService" eSuperTypes="#//CloudSoftwareService">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usesAccount" eType="#//AuthenticationAccount"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
+        eType="#//CloudService" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ServiceInterface">
+    <eLiterals name="CLI"/>
+    <eLiterals name="IDE" value="1"/>
+    <eLiterals name="Web" value="2"/>
+    <eLiterals name="API" value="3"/>
+    <eLiterals name="FTP" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeploymentDescriptor" eSuperTypes="#//ServiceConfigurationDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reliesOnRecipe" upperBound="-1"
+        eType="#//DeploymentRecipe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reliesOnTemplate" upperBound="-1"
+        eType="#//DeploymentTemplate" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationDeploymentDescriptor" eSuperTypes="#//DeploymentDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topology" lowerBound="1"
+        eType="#//ApplicationTopology"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InfrastructureDeploymentDescriptor"
+      eSuperTypes="#//DeploymentDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clusters" upperBound="-1"
+        eType="#//CloudInfrastructureVirtualCluster" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudOffering" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offeredServices" lowerBound="1"
+        upperBound="-1" eType="#//CloudService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="offeredFrameworks" upperBound="-1"
+        eType="#//Framework" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudInfrastructureOffering" eSuperTypes="#//CloudOffering">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comprisedInstances" lowerBound="1"
+        upperBound="-1" eType="#//CloudInfrastructurePhysicalInstance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudPlatformOffering" eSuperTypes="#//CloudOffering">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportedLanguages" lowerBound="1"
+        upperBound="-1" eType="ecore:EEnum deployment-app.ecore#//ProgrammingLanguage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ApplicationTopology">
+    <eLiterals name="SingleInstance"/>
+    <eLiterals name="LoadBalanced" value="1"/>
+    <eLiterals name="MultipleInstances" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentDescriptor" eSuperTypes="#//ServiceConfigurationDescriptor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AuthenticationToken">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudHardwareService" eSuperTypes="#//CloudService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudSoftwareService" eSuperTypes="#//CloudService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudInfrastructurePhysicalInstance">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runVMs" upperBound="-1"
+        eType="#//CloudInfrastructureVirtualInstance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudInfrastructureVirtualInstance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//VirtualInstanceType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VirtualInstanceType">
+    <eLiterals name="ComputedOptimized"/>
+    <eLiterals name="MemoryOptimized" value="1"/>
+    <eLiterals name="GeneralPurpose" value="2"/>
+    <eLiterals name="StorageOptimized" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stack">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="layers" upperBound="-1"
+        eType="#//CloudInfrastructureVirtualCluster" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudInfrastructureVirtualCluster">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="manages" lowerBound="1"
+        upperBound="-1" eType="#//CloudInfrastructureVirtualInstance" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationFramework" eSuperTypes="#//Framework">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ApplicationFrameworkType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AuthenticationAccount">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="uses" eType="#//AuthenticationToken"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeploymentRecipe"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeploymentTemplate" eSuperTypes="#//DeploymentDescriptor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DescriptorEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//DescriptorEntry"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ApplicationFrameworkType">
+    <eLiterals name="Spring"/>
+    <eLiterals name="Rails" value="1"/>
+    <eLiterals name="Sinatra" value="2"/>
+    <eLiterals name="Play" value="3"/>
+    <eLiterals name="Lift" value="4"/>
+    <eLiterals name="Django" value="5"/>
+    <eLiterals name="Struts" value="6"/>
+    <eLiterals name="WordPress" value="7"/>
+    <eLiterals name="Umbraco" value="8"/>
+    <eLiterals name="DotNetNuke" value="9"/>
+    <eLiterals name="Drupal" value="10"/>
+    <eLiterals name="CakePHP" value="12"/>
+    <eLiterals name="Express" value="13"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloudServiceClient">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportedInterfaces" lowerBound="1"
+        upperBound="-1" eType="#//ServiceInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportedLanguages" upperBound="-1"
+        eType="ecore:EEnum deployment-app.ecore#//ProgrammingLanguage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationLanguageFramework" eSuperTypes="#//Framework">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LanguageFrameworkType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LanguageFrameworkType">
+    <eLiterals name="JavaSE"/>
+    <eLiterals name="JavaEE" value="1"/>
+    <eLiterals name="CSharp" value="2"/>
+    <eLiterals name="JavaScript" value="3"/>
+    <eLiterals name="ASPNET" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Framework" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceConfigurationDescriptor" eSuperTypes="#//Descriptor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Descriptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        eType="#//DescriptorEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>

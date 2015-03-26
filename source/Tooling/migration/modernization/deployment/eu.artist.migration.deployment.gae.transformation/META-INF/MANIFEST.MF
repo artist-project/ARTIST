@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATL eu.artist.migration.deployment.gae.transformation Transformation Runtime Plug-in
+Bundle-SymbolicName: eu.artist.migration.deployment.gae.transformation
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.migration.deployment.gae.transformation.Activator
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.uml2.uml,
+ org.eclipse.m2m.atl.engine.emfvm,
+ eu.artist.migration.deployment.gae.appengine.web.app;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: eu.artist.migration.deployment.gae.transformation.files

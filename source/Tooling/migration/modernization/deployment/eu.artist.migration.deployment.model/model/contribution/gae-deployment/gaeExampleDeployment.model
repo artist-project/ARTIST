@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<deploymentpim:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deploymentpim="http://deploymentpim/1.0" xmi:id="_-abwEJXFEeOun9hUUX97lg">
+  <deploymentElements xsi:type="deploymentpim:CloudApplication" xmi:id="_K62jsJXGEeOun9hUUX97lg" name="PetstoreApp" uses="_IALF0JXHEeOun9hUUX97lg" comprises="_8peTUJXGEeOun9hUUX97lg _9fc5EJXGEeOun9hUUX97lg _9BaSMJXGEeOun9hUUX97lg _754pcJXGEeOun9hUUX97lg" hosted on a="_YoXqUJXLEeOun9hUUX97lg"/>
+  <deploymentElements xsi:type="deploymentpim:ApplicationComponent" xmi:id="_754pcJXGEeOun9hUUX97lg" name="PetstoreWebUI"/>
+  <deploymentElements xsi:type="deploymentpim:ApplicationComponent" xmi:id="_8peTUJXGEeOun9hUUX97lg" name="PetstoreController"/>
+  <deploymentElements xsi:type="deploymentpim:ApplicationComponent" xmi:id="_9BaSMJXGEeOun9hUUX97lg" name="PetstoreService"/>
+  <deploymentElements xsi:type="deploymentpim:ApplicationComponent" xmi:id="_9fc5EJXGEeOun9hUUX97lg" name="PetstoreDomain"/>
+  <deploymentElements xsi:type="deploymentpim:CloudApplicationDeploymentUnit" xmi:id="_IALF0JXHEeOun9hUUX97lg" isConfiguredBy="_PXeqkJXHEeOun9hUUX97lg _LGtHAJXJEeOun9hUUX97lg"/>
+  <deploymentElements xsi:type="deploymentpim:DeploymentDescriptor" xmi:id="_PXeqkJXHEeOun9hUUX97lg" file="appengine-web.xml"/>
+  <deploymentElements xsi:type="deploymentpim:DeploymentDescriptor" xmi:id="_LGtHAJXJEeOun9hUUX97lg" file="backends.xml"/>
+  <deploymentElements xsi:type="deploymentpim:CloudML@ARTIST!PlatformOffering" xmi:id="_YoXqUJXLEeOun9hUUX97lg" name="AppEngine"/>
+  <deploymentElements xsi:type="deploymentpim:CloudML@ARTIST!ApplicationFramework" xmi:id="_kzhYkJXLEeOun9hUUX97lg"/>
+  <deploymentElements xsi:type="deploymentpim:CloudDeploymentService" xmi:id="_-jwccJXLEeOun9hUUX97lg" deploys="_IALF0JXHEeOun9hUUX97lg">
+    <supportedChannels>API</supportedChannels>
+    <supportedChannels>IDE</supportedChannels>
+    <supportedChannels>Web</supportedChannels>
+  </deploymentElements>
+</deploymentpim:Deployment>

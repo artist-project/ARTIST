@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated appengine-web -->
+      <package
+            uri="http://appengine.google.com/ns/1.0/appengine-web-app"
+            class="gaeweb.GaewebPackage"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated appengine-web -->
+      <parser
+            type="gaeweb"
+            class="gaeweb.util.GaewebResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.migration.modernisation.dt.model/src"
+    modelPluginID="eu.artist.migration.modernisation.dt.model" modelName="DeploymentPIM"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>deploymentPIM.ecore</foreignModel>
+  <genPackages prefix="Deploymentpim" disposableProviderFactory="true" ecorePackage="deploymentPIM.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deploymentPIM.ecore#//DeploymentChannel">
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentChannel/CLI"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentChannel/IDE"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentChannel/Web"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentChannel/API"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deploymentPIM.ecore#//DeploymentUnitType">
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/WAR"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/EAR"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/ZIP"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/Git"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/SVN"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/OVF"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//DeploymentUnitType/dotNET_Assembly"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deploymentPIM.ecore#//CloudMLARTIST_ProgrammingLanguage">
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ProgrammingLanguage/Java"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ProgrammingLanguage/PHP"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ProgrammingLanguage/Python"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ProgrammingLanguage/Go"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ProgrammingLanguage/Ruby"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deploymentPIM.ecore#//ApplicationTopology">
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//ApplicationTopology/SingleInstance"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//ApplicationTopology/LoadBalanced"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//ApplicationTopology/MultipleInstances"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deploymentPIM.ecore#//VirtualInstanceType"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="deploymentPIM.ecore#//CloudMLARTIST_ApplicationFrameworks">
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ApplicationFrameworks/J2EE"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ApplicationFrameworks/dotNET"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ApplicationFrameworks/Node_js"/>
+      <genEnumLiterals ecoreEnumLiteral="deploymentPIM.ecore#//CloudMLARTIST_ApplicationFrameworks/RubyonRails"/>
+    </genEnums>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_Provider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudMLARTIST_Provider/offeredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudMLARTIST_Provider/offerings"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTISTSService"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudDeploymentService">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//CloudDeploymentService/supportedChannels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudDeploymentService/managedOfferings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudDeploymentService/usesAccount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudDeploymentService/requiredServices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//CloudDeploymentService/supportedLanguages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudDeploymentService/deployedApplications"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudApplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplication/deploymentUnits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplication/comprisedComponents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplication/hostedOnOffering"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplication/requiredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplication/requiredFrameworks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//CloudApplication/language"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudApplicationDeploymentUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//CloudApplicationDeploymentUnit/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplicationDeploymentUnit/isConfiguredBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudApplicationDeploymentUnit/uses"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//DeploymentDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//DeploymentDescriptor/reliesOnRecipe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//DeploymentDescriptor/reliesOnTemplate"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//ApplicationDeploymentDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//ApplicationDeploymentDescriptor/topology"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//InfrastructureDeploymentDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//InfrastructureDeploymentDescriptor/stacks"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//ApplicationComponent"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_Offering">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudMLARTIST_Offering/offeredServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudMLARTIST_Offering/offeredFrameworks"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_InfrastructureOffering">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudMLARTIST_InfrastructureOffering/comprisedInstances"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_PlatformOffering"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//EnvironmentDescriptor"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//AuthenticationToken"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_HardwareService"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_SoftwareService"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudInfrastructurePhysicalInstance">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//CloudInfrastructurePhysicalInstance/runVMs"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudInfrastructureVirtualInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//CloudInfrastructureVirtualInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//Stack">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//Stack/layers"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//Layer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//Layer/manages"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//CloudMLARTIST_ApplicationFramework">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute deploymentPIM.ecore#//CloudMLARTIST_ApplicationFramework/type"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//ServiceConfigurationDescriptor"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//AuthenticationAccount">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference deploymentPIM.ecore#//AuthenticationAccount/uses"/>
+    </genClasses>
+    <genClasses ecoreClass="deploymentPIM.ecore#//DeploymentRecipe"/>
+    <genClasses ecoreClass="deploymentPIM.ecore#//DeploymentTemplate"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment:CloudML_Provider xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment="http://deployment/1.0" name="Google">
+  <offerings xsi:type="deployment:CloudML_PlatformOffering" name="Google App Engine">
+    <offeredServices xsi:type="deployment:CloudDeploymentService" name="Google App Engine SDK">
+      <supportedChannels>CLI</supportedChannels>
+      <supportedChannels>API</supportedChannels>
+    </offeredServices>
+    <offeredServices xsi:type="deployment:CloudDeploymentService" name="Eclipse Google Plugin">
+      <supportedChannels>IDE</supportedChannels>
+    </offeredServices>
+    <supportedLanguages>Java</supportedLanguages>
+    <supportedLanguages>PHP</supportedLanguages>
+    <supportedLanguages>Python</supportedLanguages>
+    <supportedLanguages>Go</supportedLanguages>
+    <deploymentUnits>
+      <isConfiguredBy xsi:type="deployment:ApplicationDeploymentDescriptor" name="appengine-web.xml"/>
+      <isConfiguredBy xsi:type="deployment:InfrastructureDeploymentDescriptor" name="backends.xml" optional="true"/>
+      <isConfiguredBy xsi:type="deployment:ServiceConfigurationDescriptor" name="descriptor datastore-indexes.xml" optional="true"/>
+    </deploymentUnits>
+  </offerings>
+</deployment:CloudML_Provider>

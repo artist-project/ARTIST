@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.migration.deployment.gae.appengine.web.app/src"
+    modelPluginID="eu.artist.migration.deployment.gae.appengine.web.app" modelName="Appengine-web"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>appengine-web.ecore</foreignModel>
+  <genPackages prefix="Gaeweb" resource="XML" disposableProviderFactory="true" ecorePackage="appengine-web.ecore#/">
+    <genDataTypes ecoreDataType="appengine-web.ecore#//ExpirationType"/>
+    <genDataTypes ecoreDataType="appengine-web.ecore#//TargetUtilizationType"/>
+    <genDataTypes ecoreDataType="appengine-web.ecore#//UrlStreamHandlerType"/>
+    <genClasses ecoreClass="appengine-web.ecore#//AdminConsole">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AdminConsole/page"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//AdminConsolePageType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AdminConsolePageType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AdminConsolePageType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AdminConsolePageType/url"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//AppengineWebAppType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/application"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/sourceLanguage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/module"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/instanceClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/automaticScaling"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/manualScaling"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/basicScaling"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/staticFiles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/resourceFiles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/systemProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/vmSettings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/vmHealthCheck"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/envVariables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/sslEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/sessionsEnabled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/asyncSessionPersistence"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/userPermissions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/publicRoot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/inboundServices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/precompilationEnabled"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/adminConsole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/staticErrorHandlers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/warmupRequestsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/threadsafe"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/autoIdPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/codeLock"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/vm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/pagespeed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AppengineWebAppType/classLoaderConfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/urlStreamHandler"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AppengineWebAppType/useGoogleConnectorJ"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//AsyncSessionPersistenceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AsyncSessionPersistenceType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AsyncSessionPersistenceType/enabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AsyncSessionPersistenceType/queueName"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//AutomaticScalingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/minPendingLatency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/maxPendingLatency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/minIdleInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/maxIdleInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/maxConcurrentRequests"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/minNumInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/maxNumInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//AutomaticScalingType/coolDownPeriodSec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//AutomaticScalingType/cpuUtilization"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//BasicScalingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//BasicScalingType/maxInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//BasicScalingType/idleTimeout"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//ClassLoaderConfigType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//ClassLoaderConfigType/prioritySpecifier"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//CpuUtilizationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//CpuUtilizationType/targetUtilization"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//CpuUtilizationType/aggregationWindowLengthSec"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference appengine-web.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference appengine-web.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//DocumentRoot/appengineWebApp"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//EnvVariablesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//EnvVariablesType/envVar"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//EnvVarType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//EnvVarType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//EnvVarType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//EnvVarType/value1"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//ExcludeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//ExcludeType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//HttpHeaderType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//HttpHeaderType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//HttpHeaderType/value"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//InboundServicesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//InboundServicesType/service"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//IncludeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//IncludeType/path"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//ManualScalingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//ManualScalingType/instances"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//PagespeedType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PagespeedType/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PagespeedType/urlBlacklist"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PagespeedType/domainToRewrite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PagespeedType/enabledRewriter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PagespeedType/disabledRewriter"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//PermissionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PermissionType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PermissionType/actions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PermissionType/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PermissionType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//PrioritySpecifierType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PrioritySpecifierType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PrioritySpecifierType/filename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PrioritySpecifierType/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//PropertyType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PropertyType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PropertyType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//PropertyType/value1"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//ResourceFilesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//ResourceFilesType/include"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//ResourceFilesType/exclude"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//SettingType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//SettingType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//SettingType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//SettingType/value1"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//StaticErrorHandlers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//StaticErrorHandlers/handler"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//StaticErrorHandlersHandler">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//StaticErrorHandlersHandler/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//StaticErrorHandlersHandler/errorCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//StaticErrorHandlersHandler/file"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//StaticFilesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//StaticFilesType/include"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//StaticFilesType/exclude"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//StaticIncludeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//StaticIncludeType/httpHeader"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//StaticIncludeType/expiration"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//SystemPropertiesType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//SystemPropertiesType/property"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//UserPermissionsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//UserPermissionsType/permission"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//VmHealthCheckType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/enableHealthCheck"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/checkIntervalSec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/timeoutSec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/unhealthyThreshold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/healthyThreshold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/restartThreshold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute appengine-web.ecore#//VmHealthCheckType/host"/>
+    </genClasses>
+    <genClasses ecoreClass="appengine-web.ecore#//VmSettingsType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference appengine-web.ecore#//VmSettingsType/setting"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
