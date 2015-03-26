@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="correspondencesmm" nsURI="http://correspondencesmm/1.0" nsPrefix="correspondencesmm">
+  <eClassifiers xsi:type="ecore:EClass" name="CorrepondencesModel" eSuperTypes="/eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testCases" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//TestCase"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestCase" eSuperTypes="/eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activityCorrespondences"
+        upperBound="-1" eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//ActivityCorrespondence"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyCorrespondences"
+        upperBound="-1" eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//PropertyCorrespondence"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueCorrespondences" upperBound="-1"
+        eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//ValueCorrespondence"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterCorrespondences"
+        upperBound="-1" eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//ParameterCorrespondence"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActivityCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genActivity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legActivity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="migActivity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeCorrespondences" upperBound="-1"
+        eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//typeCorrespondence"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genProperty" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legProperty" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="migProperty" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeCorrespondences" upperBound="-1"
+        eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//typeCorrespondence"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="migValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeCorrespondences" upperBound="-1"
+        eType="ecore:EClass /eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesMM.ecore#//typeCorrespondence"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="typeCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="migType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genParameter" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="legType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="migType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

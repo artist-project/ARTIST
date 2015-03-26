@@ -1,0 +1,323 @@
+-- @atlcompiler emftvm
+-- $Id$
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library "lib::NestedTestMapping"; 
+
+---********************************RCP  Queries************************************---
+--- detected workbench stereotyped classes
+helper def: workbenchStereotypedModel: Sequence(UML2!Model) = 
+	UML2!Model.allInstancesFrom('IN')->select(m | m.isMainModel())->debug ('workbench');
+
+--- TODO detected provider stereotyped classes
+ helper def: jfaceLabelStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsView2())-> debug ('jfaceLabel');
+ 
+--- detected perspective stereotyped classes
+helper def: perspectiveStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsPerspective())-> debug ('perspectives');
+
+--- detected action stereotyped classes
+helper def: actionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('action', 'class'))-> debug ('actions');
+
+--- detected view actions stereotyped classes
+helper def: viewActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsViewAction())-> debug ('view actions');
+
+--- detected toolbar actions stereotyped classes
+helper def: toolBarActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsToolBarAction())-> debug ('toolbar actions');
+
+--- detected menu actions stereotyped classes
+helper def: menuActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsMenuAction())-> debug ('menu actions');
+
+--- detected object actions stereotyped classes
+helper def: objectActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsObjectAction())-> debug ('object actions');
+
+--- detected object contribution stereotyped classes
+helper def: objectContributionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsBusinessObject())-> debug ('objectContributions');
+
+
+--- Other RCP elements detected and mapped to GUI stereotypes
+
+helper def : iPagelayoutElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IPageLayout')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IPageLayout')))->debug ('iPagelayoutElements');
+
+helper def : compositeElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Composite')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Composite')))->debug ('compositeElements');
+
+helper def : iViewPartElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IViewPart')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IViewPart')))->debug ('iViewPartElements');
+
+helper def : iJMSPartElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p->debug('imp2property').type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IViewPart')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IViewPart')))->debug ('iJmsPartElements');
+
+helper def : iActionElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::action::IAction')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::action::IAction')))->debug ('iActionElements');
+ 
+helper def : imageElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and 
+		(p.type.getQualifiedName().endsWith ('org::eclipse::swt::graphics::Image') or p.type.getQualifiedName().endsWith ('org::eclipse::jface::resource::ImageDescriptor'))
+	).union(
+	UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and 
+		(p.type.getQualifiedName().endsWith ('org::eclipse::swt::graphics::Image') or p.type.getQualifiedName().endsWith ('org::eclipse::jface::resource::ImageDescriptor'))
+	))->debug ('imageElements');
+
+helper def : treeViewersElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TreeViewer')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TreeViewer')))->debug ('treeViewersElements');
+
+helper def : dialogElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::dialogs::Dialog')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::dialogs::Dialog')))->debug ('dialogElements');
+
+helper def : labelElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Label')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Label')))->debug ('labelElements');
+ 
+helper def : tableElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TableViewer')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TableViewer')))->debug ('tableElements');
+
+helper def : toolkitFormElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::FormToolkit')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::FormToolkit')))->debug ('toolkitFormElements');
+
+helper def : scrolledFormElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::ScrolledForm')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::ScrolledForm')))->debug ('scrolledFormElements');
+----------------------------------------------------------------------------------------------
+helper context UML2!Class def : isImplementsORextendsFromClassWithPackage(classname: String) : Boolean = 
+	-- list of classes that  extends classname
+   self.getGenerals()->select(k | k.getQualifiedName().contains(classname)).union(
+   		-- list of classes that implements classname
+   		self.getAllImplementedInterfaces()->select(k | k.getQualifiedName().contains(classname)))->notEmpty();
+
+-- returning list of classes that inherite from org::eclipse::jface::viewers::ITableLabelProvider
+-- for the moment we don't conseider the ITreeContentProvider
+helper def : inheritsFromAnythingJavaxJms : Sequence(UML2!Element) =
+	(thisModule.allINClasses->select(s|s.isImplementsORextendsFromClassWithPackage('javax::jms::')))->debug('inheritsFromAnythingJavaxJms');
+
+
+-- Level 2 we retrieve all that are inherting anything from JMS and retreive their generalization
+helper def : namesOfextendingClassExtendingClassFromAnythingJavaxJms2 : Sequence(UML2!Element) =
+	thisModule.namesOfextendingClassFromAnythingJavaxJms1->collect(k | k->getGenerals())->flatten();
+
+-- Level 1 we retrieve all that are inherting anything from JMS and retreive their generalization
+helper def : namesOfextendingClassFromAnythingJavaxJms1 : Sequence(UML2!Element) =
+	thisModule.inheritsFromAnythingJavaxJms->collect(k | k->getGenerals())->flatten();
+
+
+helper context UML2!Parameter def : isRelatedJMS() : Boolean  =
+	not self.oclIsUndefined() and not self.type.oclIsUndefined() and self.type.getQualifiedName().contains('javax::jms::');
+
+-- we check if a method (operation) is returning or their parameters are related if jms
+helper context UML2!Operation def : isRelatedJMS() : Boolean  = 
+	-- parameterableElements includes the returned element
+   self.parameterableElements()->select(k|k->isRelatedJMS())->notEmpty();
+
+helper context UML2!Class def : hasMethodWithJMS() : Boolean  = 
+	-- list of classes that  extends classname
+   self.getOperations()->select(k | k.isRelatedJMS())->notEmpty();
+
+helper def : classHasParameterWithJMS : Sequence(UML2!Element) =
+	(thisModule.allINClasses->select(s| s->hasMethodWithJMS()))->debug('classHasMethodWithJMS');
+
+
+helper context UML2!Element def : isImplementsORextendsFromClassFromSequenceInternal(listclass: Sequence(UML2!Class)) : Boolean = 
+	-- list of classes that  extends classname
+   listclass -> select(k | k.getQualifiedName() = self.getQualifiedName())->notEmpty();
+
+helper context UML2!Class def : isImplementsORextendsFromClassFromSequence(listclass: Sequence(UML2!Class)) : Boolean = 
+	-- list of classes that  extends classname
+   self.getGenerals()->select(k | k.isImplementsORextendsFromClassFromSequenceInternal(listclass)).union(
+   		-- list of classes that implements classname
+   		self.getAllImplementedInterfaces()->select(k | k.isImplementsORextendsFromClassFromSequenceInternal(listclass)))->notEmpty();
+
+
+
+helper context UML2!Parameter def : isRelatedWithAnyClassFromSequence(s: Sequence(UML2!Class)) : Boolean  =
+	not self.oclIsUndefined() and not self.type.oclIsUndefined() and s->select(k | k.getQualifiedName() = self.type.getQualifiedName())->notEmpty();
+
+helper context UML2!Operation def : isRelatedWithAnyClassFromSequence(s: Sequence(UML2!Class)) : Boolean  = 
+	-- parameterableElements includes the returned element
+   self.parameterableElements()->select(k|k->isRelatedWithAnyClassFromSequence(s))->notEmpty();
+
+helper  def : complexTypeMatchesWithAnyClassFromSequence(listclass: Sequence(UML2!Class), name: String) : Boolean  =
+	-- it tries to detect cases lik  e root model::org.dews.ccui::Project data types::java.util.Map<org.dews_online.ccui.swe.model.SweConstants.SweServiceType,java.util.List<? extends org.dews_online.ccui.swe.model.services.ASweService>>
+   listclass->select(k | k.getQualifiedName().replaceAll('root model::org.dews.ccui::','') = name->replaceAll('\\.','::'))->notEmpty();  
+
+helper  def : simpleTypeMatchesWithAnyClassFromSequence(listclass: Sequence(UML2!Class), name: String) : Boolean  = 
+   listclass->select(k | k.getQualifiedName() = name)->notEmpty();  
+	
+helper context UML2!Property def : propertyIsRelatedWithAnyClassFromSequence(listclass: Sequence(UML2!Class)) : Boolean  =
+	not self.type.oclIsUndefined() and (thisModule.simpleTypeMatchesWithAnyClassFromSequence(listclass, self.type.getQualifiedName()) or self.type.getQualifiedName().replaceAll('root model::org.dews.ccui::','').split('<|>|,| ')->select(k | thisModule.complexTypeMatchesWithAnyClassFromSequence(listclass, k))->notEmpty()) ;
+	
+-- list of classes that generalize any class that has something to do with the names in the parameter sequence 
+helper context UML2!Class def : isClassInSequence(s: Sequence(UML2!Class)) : Boolean = 
+   s->select(k |   self.getQualifiedName() = k.getQualifiedName())->notEmpty();
+
+-- Level 1 returns the list of classes that extend from any class that is directly related with something of jms
+helper def : extendingFromAnythingJavaxJms1  : Sequence(UML2!Element) =
+	thisModule.allINClasses->select(s|s.isClassInSequence(thisModule.namesOfextendingClassFromAnythingJavaxJms1))->debug('extendingFromAnythingJavaxJms1');
+
+-- Level 2 returns the list of classes that extend from and extended class that is directly related with something of jms
+helper def : extendingFromExtendingFromAnythingJavaxJms2 : Sequence(UML2!Element) =
+	thisModule.allINClasses->select(s|s.isClassInSequence(thisModule.namesOfextendingClassExtendingClassFromAnythingJavaxJms2))->debug('extendingFromAnythingJavaxJms2');
+
+helper context UML2!Class def : hasMethodUsingAnyClassFromSequence(s: Sequence(UML2!Class)) : Boolean  = 
+	-- list of classes that  extends classname
+   self.getOperations()->select(k | k.isRelatedWithAnyClassFromSequence(s))->notEmpty();
+
+helper context UML2!Class def : hasAttributeUsingAnyClassFromSequence(s: Sequence(UML2!Class)) : Boolean  = 
+	-- list of classes that  extends classname
+   self.getAllAttributes()->select(k | k.propertyIsRelatedWithAnyClassFromSequence(s))->notEmpty();
+
+
+helper def : unionOfExtendingAndInheritingJMSClasses : Sequence(UML2!Element) =
+	thisModule.inheritsFromAnythingJavaxJms->union(thisModule.extendingFromAnythingJavaxJms1)->union(thisModule.extendingFromExtendingFromAnythingJavaxJms2);
+
+
+
+helper context UML2!Element def : isImplementsORextendsAClassFromSequenceInternal(class: UML2!Class) : Boolean = 
+	-- list of classes that  extends classname
+   self.getGenerals()->select(k | k.getQualifiedName() = class.getQualifiedName()).union(
+   		-- list of classes that implements classname
+   		self.getAllImplementedInterfaces()->select(k | k.getQualifiedName() = class.getQualifiedName()))->notEmpty();
+	
+helper context UML2!Class def : isImplementsORextendsAClassFromSequence(listclass: Sequence(UML2!Class)) : Boolean = 
+   listclass->select(k |  k.isImplementsORextendsAClassFromSequenceInternal(self))->notEmpty();
+
+
+
+helper def : classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesLx(listOfClasses: Sequence(UML2!Element), txt:String) : Sequence(UML2!Element) =
+	thisModule.allINClasses->select(s | s->isImplementsORextendsFromClassFromSequence(listOfClasses))->debug(txt+'-1')
+	->union(thisModule.allINClasses->select(s | s->isImplementsORextendsAClassFromSequence(listOfClasses))->debug(txt+'-2')
+	->union(thisModule.allINClasses->select(s| s->hasMethodUsingAnyClassFromSequence(listOfClasses))->debug(txt+'-3')
+	->union(thisModule.allINClasses->select(s| s->hasAttributeUsingAnyClassFromSequence(listOfClasses))->debug(txt+'-4'))))->debug('----'+txt);
+
+helper def : classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesL1 : Sequence(UML2!Element) =
+	thisModule.classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesLx(thisModule.unionOfExtendingAndInheritingJMSClasses, 'cl1');
+
+
+helper def : classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesL2 : Sequence(UML2!Element) =
+	thisModule.classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesLx(thisModule.classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesL1, 'cl2');
+
+helper def : classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesL3 : Sequence(UML2!Element) =
+	thisModule.classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesLx(thisModule.classHasParameterOrAttributeWithExtendingAndInheritingJMSClassesL2, 'cl3');
+
+
+---******************************END of RCP Queries********************************---
+--- union of collections with RCP stereotyped classes
+helper def : allStereotypedClasses() : Sequence(UML2!Class) =
+	 thisModule.allINClasses->select(s| s.getQualifiedName().contains('Inner'))-> debug ('allStereotypedClasses');
+    ---EGO COMMENTED ->union(thisModule.actionStereotypedClasses)
+	-- ->union(thisModule.objectContributionStereotypedClasses);
+
+
+helper def : selectClass : Sequence(UML2!Element) =
+	 thisModule.allINClasses->select(s| s.getQualifiedName().contains('Inner'));
+
+
+helper def: scrollPanelStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='ScrollPanel').first();
+
+
+--- defines the mapping between RCP queries and GUI profile stereotypes
+helper def : queries() : Map (Sequence(UML2!Element), UML2!Stereotype) = 
+	Map {--(thisModule.inheritsFromAnythingJavaxJms, thisModule.scrollPanelStereotype),
+		 --(thisModule.classHasParameterWithJMS, thisModule.scrollPanelStereotype),
+		 --(thisModule.extendingFromAnythingJavaxJms1, thisModule.scrollPanelStereotype),
+		 --(thisModule.extendingFromExtendingFromAnythingJavaxJms2, thisModule.scrollPanelStereotype),
+		 --(thisModule.unionOfExtendingAndInheritingJMSClasses, thisModule.scrollPanelStereotype),
+		 (thisModule.selectClass , thisModule.scrollPanelStereotype)
+		 
+};
+	
+--- defines the plugin attributes to obtain the name property for applied GUI stereotypes
+helper def : nameAttributes() : Map (UML2!Stereotype, TupleType (role:String, classLabel:String, attrName:String)) = 
+Map {(thisModule.uiPanelStereotype, Tuple{role='view', classLabel='class', attrName='name'}), 
+	 (thisModule.uiLayoutStereotype, Tuple{role='perspective', classLabel='class', attrName='name'}),
+	 (thisModule.panelActionStereotype, Tuple{role='action', classLabel='class', attrName='label'}),
+	 (thisModule.toolBarActionStereotype, Tuple{role='action', classLabel='class', attrName='label'}),
+	 (thisModule.menuActionStereotype, Tuple{role='action', classLabel='class', attrName='label'}),
+	 (thisModule.objectActionStereotype, Tuple{role='action', classLabel='class', attrName='label'})
+};
+
+helper def: uiApplicationStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='UIApplication').first();
+
+
+--- it specifies the profile to be applied at model level
+helper def : modelStereotype : UML2!Stereotype = thisModule.uiApplicationStereotype;
+
+--- structure that defines the properties of different stereotyped applications
+--- it includes the stereotype and its corresponding stereotypes elements, and a list of property names and their values
+helper def : stereotypeAttributes(element: OclAny) : 
+	Map (UML2!Stereotype, 
+		TupleType (stereotypedElements:Sequence(UML2!Element), attributes:Map(String, Sequence(UML2!Elements)))) = 
+	Map {
+			(thisModule.uiApplicationStereotype, 
+		 		Tuple{stereotypedElements=thisModule.workbenchStereotypedModel, 
+					attributes=Map{
+						('layouts', thisModule.perspectiveStereotypedClasses->collect(c | c.resolve().getStereotypeApplications())->flatten()),
+						('toolBarActions', thisModule.toolBarActionStereotypedClasses->collect(c | c.resolve().getStereotypeApplications())->flatten()),
+						('menuActions', thisModule.menuActionStereotypedClasses->collect(c | c.resolve().getStereotypeApplications())->flatten())
+					}
+		 		}
+			),
+			(thisModule.actionableObjectStereotype, 
+		 		Tuple{stereotypedElements=thisModule.objectContributionStereotypedClasses, 
+					attributes=Map{
+						('action',
+							if (element.oclIsUndefined() or not element.oclIsTypeOf(UML2!Class)) then
+								OclUndefined
+							else
+								if (thisModule.objectActionStereotypedClasses->select (a|
+									a.isActionForObject(element))->collect(c | c.resolve().getStereotypeApplications())->flatten()->isEmpty()) then
+									OclUndefined
+								else 
+									thisModule.objectActionStereotypedClasses->select (a|
+										a.isActionForObject(element))->collect(c | c.resolve().getStereotypeApplications())->flatten()->first()
+								endif
+							endif
+						)
+					}
+		 		}
+			)
+		};
+
+		--- A sequence containing all the elements from IN GWT
+helper def: classifiersFromGWT: Sequence(UML2!Classifier) = UML2!Classifier.allInstancesFrom('INGWT');
+
+--- A sequence containing all the view elements from IN GWT
+helper def: viewsInGWT: Sequence(UML2!Element) = 
+	thisModule.classifiersFromGWT->select(e|
+		not e.getAppliedStereotype('GUI::UIPanel').oclIsUndefined());
+		

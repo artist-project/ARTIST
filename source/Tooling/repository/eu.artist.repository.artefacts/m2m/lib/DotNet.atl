@@ -1,0 +1,29 @@
+-- @atlcompiler emftvm
+-- $Id$
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library "lib::DotNet";
+
+-- Stereotypes included in MicrosoftSharePoint profile
+helper def: remoteObjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('DotNetProfile')->select(e|e.name='RemoteObject').first();
+helper def: serviceHostStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('DotNetProfile')->select(e|e.name='ServiceHost').first();
+helper def: SOLRStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('DotNetProfile')->select(e|e.name='SOLR').first();
+

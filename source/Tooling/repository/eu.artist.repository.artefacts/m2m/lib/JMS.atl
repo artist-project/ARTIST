@@ -1,0 +1,53 @@
+-- @atlcompiler emftvm
+-- $Id$
+-- TODO check if it is necessary, for the moment it's acopy from GUI.atl
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library "lib::JMS";
+
+---***************************GUI profile Stereotypes******************************---
+
+helper def: jmsAdministeredObjectsStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSAdministeredObjects').first()->debug('jmsAdministeredObjectsStereotype');
+
+helper def: jmsConnectionStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSConnection').first();
+helper def: jmsConnectionFactoryStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSConnectionFactory').first();
+helper def: jmsMessageConsumerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSMessageConsumer').first();
+helper def: jmsMessageListenerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSMessageListener').first();
+helper def: jmsMessageProducerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSMessageProducer').first();
+helper def: jmsConectionFactoryStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSConnectionFactory').first();
+helper def: jmsContextStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSContext').first();
+helper def: jmsSessionStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSSession').first();
+helper def: jmsTopicStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSTopic').first();
+helper def: jmsClientStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSClient').first();
+helper def: jmsQueueStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSQueue').first();
+helper def: jmsDestinationStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('Profile')->select(e|e.name='JMSDestination').first();
+
+
+---*****************************End of Stereotypes*********************************---

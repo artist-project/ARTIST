@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_D8NpUHO_EeS1b_KiG_Ghfg" name="Profile" metaclassReference="_KdSwsHO_EeS1b_KiG_Ghfg" metamodelReference="_D8NpUXO_EeS1b_KiG_Ghfg">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Udx-MHO_EeS1b_KiG_Ghfg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_Udx-MXO_EeS1b_KiG_Ghfg" name="Profile" nsURI="http:///schemas/Profile/_UdwJAHO_EeS1b_KiG_Ghfg/0" nsPrefix="Profile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UdzMU3O_EeS1b_KiG_Ghfg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UdzMVHO_EeS1b_KiG_Ghfg" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UdzMVXO_EeS1b_KiG_Ghfg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UdzMVnO_EeS1b_KiG_Ghfg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UdzMV3O_EeS1b_KiG_Ghfg" key="Date" value="2014-11-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UdzMWHO_EeS1b_KiG_Ghfg" key="Author" value="Burak Karaboga"/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Udx-MnO_EeS1b_KiG_Ghfg" name="RemoteObject">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Udx-M3O_EeS1b_KiG_Ghfg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LMTy0HO_EeS1b_KiG_Ghfg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Udx-NHO_EeS1b_KiG_Ghfg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Udx-NnO_EeS1b_KiG_Ghfg" name="ServiceHost">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Udx-N3O_EeS1b_KiG_Ghfg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LgMYIHO_EeS1b_KiG_Ghfg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Udx-OHO_EeS1b_KiG_Ghfg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Udx-OnO_EeS1b_KiG_Ghfg" name="SOLR">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Udx-O3O_EeS1b_KiG_Ghfg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Lt1LgHO_EeS1b_KiG_Ghfg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Udx-PHO_EeS1b_KiG_Ghfg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_KdSwsHO_EeS1b_KiG_Ghfg" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_D8NpUXO_EeS1b_KiG_Ghfg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_D8NpUnO_EeS1b_KiG_Ghfg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LMTy0HO_EeS1b_KiG_Ghfg" name="RemoteObject">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Qfp7wHO_EeS1b_KiG_Ghfg" name="base_Class" association="_Qfqi0HO_EeS1b_KiG_Ghfg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LgMYIHO_EeS1b_KiG_Ghfg" name="ServiceHost">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Q3QjcHO_EeS1b_KiG_Ghfg" name="base_Class" association="_Q3QjcXO_EeS1b_KiG_Ghfg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Lt1LgHO_EeS1b_KiG_Ghfg" name="SOLR">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RL-PMHO_EeS1b_KiG_Ghfg" name="base_Class" association="_RL-PMXO_EeS1b_KiG_Ghfg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_Qfqi0HO_EeS1b_KiG_Ghfg" name="E_RemoteObject_Class1" memberEnd="_Qfqi0XO_EeS1b_KiG_Ghfg _Qfp7wHO_EeS1b_KiG_Ghfg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Qfqi0XO_EeS1b_KiG_Ghfg" name="extension_RemoteObject" type="_LMTy0HO_EeS1b_KiG_Ghfg" aggregation="composite" association="_Qfqi0HO_EeS1b_KiG_Ghfg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_Q3QjcXO_EeS1b_KiG_Ghfg" name="E_ServiceHost_Class1" memberEnd="_Q3QjcnO_EeS1b_KiG_Ghfg _Q3QjcHO_EeS1b_KiG_Ghfg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Q3QjcnO_EeS1b_KiG_Ghfg" name="extension_ServiceHost" type="_LgMYIHO_EeS1b_KiG_Ghfg" aggregation="composite" association="_Q3QjcXO_EeS1b_KiG_Ghfg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_RL-PMXO_EeS1b_KiG_Ghfg" name="E_SOLR_Class1" memberEnd="_RL-PMnO_EeS1b_KiG_Ghfg _RL-PMHO_EeS1b_KiG_Ghfg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_RL-PMnO_EeS1b_KiG_Ghfg" name="extension_SOLR" type="_Lt1LgHO_EeS1b_KiG_Ghfg" aggregation="composite" association="_RL-PMXO_EeS1b_KiG_Ghfg"/>
+  </packagedElement>
+</uml:Profile>

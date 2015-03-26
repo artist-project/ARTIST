@@ -1,0 +1,100 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module uml2java.
+ */]
+[module uml2java('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import org::eclipse::acceleo::module::GWTGenerator::uml2java::files::classJavaFile /]
+[import org::eclipse::acceleo::module::GWTGenerator::uml2java::files::enumJavaFile /]
+[import org::eclipse::acceleo::module::GWTGenerator::uml2java::files::interfaceJavaFile /]
+[import org::eclipse::acceleo::module::GWTGenerator::uml2java::properties::properties /]
+[**
+ * This template is the entry point of the generation.
+ * @param aModel The root of the input model.
+ */]
+[template public main(aModel : Model)]
+[comment @main/]
+[if not (aModel.name.equalsIgnoreCase('root model') or aModel.name.equalsIgnoreCase('externals') or aModel.name.equalsIgnoreCase('source references'))]
+[for (aType : Type | aModel.eAllContents(Package).ownedType)]
+	[if aType.getQualifiedName().contains('org.dews_online.ccui.core::org::dews_online')]
+		[if (aType.oclIsKindOf(Class) and aType.owner.oclIsTypeOf(Package))]
+			[aType.oclAsType(Class).genClassJavaFile()/]
+		[elseif (aType.oclIsKindOf(Interface))]
+			[aType.oclAsType(Interface).genInterfaceJavaFile()/]
+		[elseif (aType.oclIsKindOf(Enumeration))]
+			[aType.oclAsType(Enumeration).genEnumJavaFile()/]
+		[/if]
+	[/if]
+[/for]
+[comment]Here we create the main gwt class from the Workbench stereotyped model[/comment]
+[if (not (aModel.getAppliedStereotype('RCP::Workbench').oclIsUndefined()))]
+[file ('/'+aModel.name.replaceAll('\\.', '/')+'/Client/'+aModel.name.replaceAll('\\.', '_').toUpperFirst()+'.java', false, 'UTF-8')]
+package [aModel.name+'.Client'/];
+/*
+ ****************************************TRANSFORMATION RECOMMENDATION*******************************************
+ * There are certain elements that either we can't transform or the class that they should be transformed to	*
+ * is not always the same for each case, so here we provide a list of the correspondence between classes in swt *
+ * and classes in gwt to make easier the necessary hand-adaptation.												*
+ * Swt to gwt class correspondence:																				*
+ *																												*
+ * Button 		- 	com.google.gwt.user.client.ui.PushButton/RadioButton/CheckBox. Button in swt has an			* 
+ * 					attribute that tells which type of button it is, and since we can't check that attribute	*
+ *					in this transformation it will be up to you to check which is the proper type.				*
+ * Label 		- 	com.google.gwt.user.client.ui.Label															*
+ * Link 		- 	com.google.gwt.user.client.ui.Hyperlink														*
+ * Text 		- 	com.google.gwt.user.client.ui.TextBox														*
+ * GridLayout 	- 	com.google.gwt.user.client.ui.Grid or FlowPanel. Both are similar but sometimes 			*
+ * 					FlowPanel can be more useful.																*
+ * Group 		- 	com.google.gwt.user.client.ui.CaptionPanel													*
+ * Combo 		- 	com.google.gwt.user.client.ui.ListBox														*
+ * Image 		- 	com.google.gwt.user.client.ui.Image															*
+ ****************************************************************************************************************
+ */
+[comment]Here we generate the imports[/comment]
+import java.util.*;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.RootPanel;
+[for (aClass: Class | aModel.getModel().allOwnedElements()->select(e|e.oclIsKindOf(Class)))]
+[if (not (aClass.getAppliedStereotype('RCP::Perspective').oclIsUndefined()))]
+import [aClass.getSourceFolder() + aClass.ancestors(Package)->reject(aPackage: Package | aPackage.oclIsTypeOf(Model)).name->reverse()->sep('.') + '.'+aClass.name.toUpperFirst() +';'/]
+[/if]
+[/for]
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class [aModel.name.replaceAll('\\.', '_').toUpperFirst()/] implements EntryPoint {
+
+[for (aClass: Class | aModel.getModel().allOwnedElements()->select(e|e.oclIsKindOf(Class)))]
+[if (not (aClass.getAppliedStereotype('RCP::Perspective').oclIsUndefined()))]
+	/**
+	 * The documentation of the attribute [aClass.name.toUpperFirst()/].
+	 * 
+	 * @generated
+	 */
+	private [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/];
+[/if]
+[/for]
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		/** TODO Auto-generated method stub
+		 * Add here the perspective(s) to the rootPanel with
+		 * RootPanel.get().add(new YourPerspective());
+		 * NOTE: it might be necessary to change get() for get("yourRootPanelName") 
+		 */
+[for (aClass: Class | aModel.getModel().allOwnedElements()->select(e|e.oclIsKindOf(Class)))]
+[if (not (aClass.getAppliedStereotype('RCP::Perspective').oclIsUndefined()))]
+	this.[aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/](); //TODO: check that it has been properly initialized
+	RootPanel.get().add(this.[aClass.name.toLowerFirst()/]); 
+[/if]
+[/for]
+	}
+}
+[/file]
+[/if]
+[/if]
+[/template]
+[comment][query public getValue(element: Element, stereotypeName: String, propertyName: String): String = 
+	invoke('org.eclipse.acceleo.module.javaServices.UML2Services', 
+		'getValue(java.lang.Object,java.lang.String,java.lang.String)', Sequence{element,stereotypeName,propertyName})/][/comment]

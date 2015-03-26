@@ -1,0 +1,105 @@
+-- @atlcompiler emftvm
+-- $Id$
+
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+--- 	Burak Karaboga - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library "lib::J2EE";
+
+-- Stereotypes included in J2EE profile
+--TODO: To be updated with the other stereotypes in the profile - talk with Elena
+helper def: entityManagerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='EntityManager').first();
+helper def: persistentObjectStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='PersistentObject').first();
+helper def: entityStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Entity').first();
+helper def: queryStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Query').first();
+helper def: servletStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Servlet').first();
+helper def: servletResponseStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='ServletResponse').first();
+helper def: servletRequestStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='ServletRequest').first();
+helper def: jspPageStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='JspPage').first();
+helper def: genericServletRequestStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='GenericServlet').first();
+helper def: servletContextStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='ServletContext').first();
+helper def: httpJspPageStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='HttpJspPage').first();
+helper def: httpServletStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='HttpServlet').first();
+helper def: httpServletRequestStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='HttpServletRequest').first();
+helper def: httpServletResponseStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='HttpServletResponse').first();
+helper def: webServiceStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='WebService').first();
+helper def: webMethodStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='WebMethod').first();
+helper def: webParamStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='WebParam').first();
+helper def: webResultStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='WebResult').first();
+helper def: enterpriseBeanStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='EnterpriseBean').first();
+helper def: sessionBeanStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='SessionBean').first();
+helper def: messageDrivenStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='MessageDriven').first();
+helper def: messageListenerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='MessageListener').first();
+helper def: resourceStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Resource').first();
+helper def: statefulStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Statefull').first();
+helper def: statelessStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Stateless').first();
+helper def: remoteStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Remote').first();
+helper def: clientStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Client').first();
+helper def: jmsMessageListenerStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='JMSMessageListener').first();
+helper def: messageDrivenBeanStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='MessageDrivenBean').first();
+helper def: sessionContextStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='SessionContext').first();
+helper def: ejbContextStereotype: UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='EJBContext').first();
+helper def: embeddableStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Embeddable').first();
+helper def: managedBeanStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='ManagedBean').first();
+helper def: requestScopedStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='RequestScoped').first();
+helper def: sessionScopedStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='SessionScoped').first();
+helper def: applicationScopedStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='ApplicationScoped').first();
+helper def: dependentStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Dependent').first();
+helper def: conversationScopedStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='ConversationScoped').first();
+helper def: securityStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='Security').first();
+helper def: loginModuleStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='LoginModule').first();
+helper def: callbackHandlerStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='CallbackHandler').first();
+helper def: cdiBeanStereotype:UML2!Stereotype = profile!Stereotype.
+	allInstancesFrom('J2EEProfile')->select(e|e.name='CDIBean').first();

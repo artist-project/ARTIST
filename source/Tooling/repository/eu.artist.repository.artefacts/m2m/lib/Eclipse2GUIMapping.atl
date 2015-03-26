@@ -1,0 +1,245 @@
+-- @atlcompiler emftvm
+-- $Id$
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @nsURI XML=http://www.eclipse.org/MoDisco/Xml/0.1.incubation/XML
+-- @nsURI profile=http://www.eclipse.org/uml2/4.0.0/UML
+-------------------------------------------------------------------------------
+--- Copyright (c) 2014 ATOS S.A.
+--- All rights reserved. This program and the accompanying materials
+--- are made available under the terms of the Eclipse Public License v1.0
+--- which accompanies this distribution, and is available at
+--- http://www.eclipse.org/legal/epl-v10.html
+---
+--- Contributors:
+---     Jesús Gorroñogoitia - main development
+--- 	Burak Karaboga - main development
+---		Javier Garcia - main development
+---
+--- Initially developed in the context of ARTIST EU project www.artist-project.eu    
+---     
+-------------------------------------------------------------------------------
+
+library "lib::Eclipse2GUIMapping"; 
+
+---********************************RCP  Queries************************************---
+--- detected workbench stereotyped classes
+helper def: workbenchStereotypedModel: Sequence(UML2!Model) = 
+	UML2!Model.allInstancesFrom('IN')->select(m | m.isMainModel())->debug ('workbench');
+
+--- detected view stereotyped classes
+helper def: viewStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsView())-> debug ('views');
+
+--- TODO detected provider stereotyped classes
+ helper def: jfaceLabelStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsView2())-> debug ('jfaceLabel');
+ 
+--- detected perspective stereotyped classes
+helper def: perspectiveStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsPerspective())-> debug ('perspectives');
+
+--- detected action stereotyped classes
+helper def: actionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginWithRoleForClassLabel('action', 'class'))-> debug ('actions');
+
+--- detected view actions stereotyped classes
+helper def: viewActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsViewAction())-> debug ('view actions');
+
+--- detected toolbar actions stereotyped classes
+helper def: toolBarActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsToolBarAction())-> debug ('toolbar actions');
+
+--- detected menu actions stereotyped classes
+helper def: menuActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsMenuAction())-> debug ('menu actions');
+
+--- detected object actions stereotyped classes
+helper def: objectActionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsObjectAction())-> debug ('object actions');
+
+--- detected object contribution stereotyped classes
+helper def: objectContributionStereotypedClasses: Sequence(UML2!Class) = 
+	thisModule.allINClasses->select(s|s.isInPluginAsBusinessObject())-> debug ('objectContributions');
+
+--- union of collections with RCP stereotyped classes
+helper def : allStereotypedClasses() : Sequence(UML2!Class) = thisModule.viewStereotypedClasses
+	->union(thisModule.perspectiveStereotypedClasses)->union(thisModule.actionStereotypedClasses)
+	->union(thisModule.objectContributionStereotypedClasses)->union(thisModule.inheritsFromTableLabel)
+	->union(thisModule.inheritsFromAction)->union(thisModule.inheritsFromTableLabel);
+
+--- Other RCP elements detected and mapped to GUI stereotypes
+
+helper def : iPagelayoutElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IPageLayout')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IPageLayout')))->debug ('iPagelayoutElements');
+
+helper def : compositeElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Composite')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Composite')))->debug ('compositeElements');
+
+helper def : iViewPartElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IViewPart')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::IViewPart')))->debug ('iViewPartElements');
+
+helper def : iActionElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::action::IAction')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::action::IAction')))->debug ('iActionElements');
+ 
+helper def : imageElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and 
+		(p.type.getQualifiedName().endsWith ('org::eclipse::swt::graphics::Image') or p.type.getQualifiedName().endsWith ('org::eclipse::jface::resource::ImageDescriptor'))
+	).union(
+	UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and 
+		(p.type.getQualifiedName().endsWith ('org::eclipse::swt::graphics::Image') or p.type.getQualifiedName().endsWith ('org::eclipse::jface::resource::ImageDescriptor'))
+	))->debug ('imageElements');
+
+helper def : treeViewersElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TreeViewer')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TreeViewer')))->debug ('treeViewersElements');
+
+helper def : dialogElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::dialogs::Dialog')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::dialogs::Dialog')))->debug ('dialogElements');
+
+helper def : labelElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Label')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::swt::widgets::Label')))->debug ('labelElements');
+ 
+helper def : tableElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TableViewer')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::jface::viewers::TableViewer')))->debug ('tableElements');
+
+helper def : toolkitFormElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::FormToolkit')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::FormToolkit')))->debug ('toolkitFormElements');
+
+helper def : scrolledFormElements : Sequence(UML2!Element) = 
+	UML2!Property.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::ScrolledForm')).union(
+		UML2!Parameter.allInstancesFrom('IN')->select(p | not p.type.oclIsUndefined() and p.type.getQualifiedName().endsWith ('org::eclipse::ui::forms::widgets::ScrolledForm')))->debug ('scrolledFormElements');
+
+helper context UML2!Class def : implementsORextendsFromClassWithName(classname: String) : Boolean = 
+	-- list of classes that  extends classname
+   self.getGenerals()->select(k | k.getQualifiedName().endsWith(classname)).union(
+   		-- list of classes that implements classname
+   		self.getAllImplementedInterfaces()->select(k | k.getQualifiedName().endsWith(classname)))->notEmpty();
+
+-- returning list of classes that inherite from org::eclipse::jface::viewers::ITableLabelProvider
+-- for the moment we don't conseider the ITreeContentProvider
+helper def : inheritsFromTableLabel : Sequence(UML2!Element) =
+	(thisModule.allINClasses->select(s|s.implementsORextendsFromClassWithName('org::eclipse::jface::viewers::ITableLabelProvider')))->debug('inheritsFromTableLabel');
+
+
+-- returning list of classes that inherite from org::eclipse::jface::action::Action
+helper def : inheritsFromAction : Sequence(UML2!Element) =
+	(thisModule.allINClasses->select(s|s.implementsORextendsFromClassWithName('org::eclipse::jface::action::Action')))->debug('inheritsFromAction');
+
+
+	
+
+
+	
+
+---******************************END of RCP Queries********************************---
+helper def : sameAndOuterClasses(list:Sequence(UML2!Class)) : Sequence(UML2!Class) =
+	thisModule.allINClasses->select(class | list->includes(class) or class.ownedElement->exists(inner | list->includes(inner))); 	
+
+
+--- defines the mapping between RCP queries and GUI profile stereotypes
+helper def : queries() : Map (Sequence(UML2!Element), UML2!Stereotype) = 
+	Map {(thisModule.sameAndOuterClasses(thisModule.viewStereotypedClasses), thisModule.uiPanelStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.inheritsFromTableLabel), thisModule.labelStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.inheritsFromAction), thisModule.actionableObjectStereotype), 
+		 (thisModule.sameAndOuterClasses(thisModule.perspectiveStereotypedClasses), thisModule.uiLayoutStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.viewActionStereotypedClasses), thisModule.panelActionStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.objectContributionStereotypedClasses), thisModule.actionableObjectStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.toolBarActionStereotypedClasses),thisModule.toolBarActionStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.menuActionStereotypedClasses),thisModule.menuActionStereotype),
+		 (thisModule.sameAndOuterClasses(thisModule.objectActionStereotypedClasses),thisModule.objectActionStereotype),
+		 
+		 (thisModule.iPagelayoutElements, thisModule.uiLayoutStereotype),
+		 (thisModule.compositeElements, thisModule.uiPanelStereotype),
+		 (thisModule.iViewPartElements, thisModule.uiPanelStereotype),
+		 (thisModule.iActionElements, thisModule.uiActionStereotype),
+		 (thisModule.imageElements, thisModule.imageStereotype),
+		 (thisModule.treeViewersElements, thisModule.treeStereotype),
+		 (thisModule.dialogElements, thisModule.dialogStereotype),
+		 (thisModule.labelElements, thisModule.labelStereotype),
+		 (thisModule.tableElements, thisModule.tableStereotype),
+		 (thisModule.toolkitFormElements, thisModule.uiPanelStereotype),
+		 (thisModule.scrolledFormElements, thisModule.scrollPanelStereotype)
+};
+	
+--- defines the plugin attributes to obtain the name property for applied GUI stereotypes
+helper def : nameAttributes() : Map (UML2!Stereotype, TupleType (role:String, classLabel:String, attrName:String)) = 
+Map {(thisModule.uiPanelStereotype, Tuple{role='view', classLabel='class', attrName='name'}), 
+	 (thisModule.uiLayoutStereotype, Tuple{role='perspective', classLabel='class', attrName='name'}),
+	 (thisModule.panelActionStereotype, Tuple{role='action', classLabel='class', attrName='label'}),
+	 (thisModule.toolBarActionStereotype, Tuple{role='action', classLabel='class', attrName='label'}),
+	 (thisModule.menuActionStereotype, Tuple{role='action', classLabel='class', attrName='label'}),
+	 (thisModule.objectActionStereotype, Tuple{role='action', classLabel='class', attrName='label'})
+};
+
+--- it specifies the profile to be applied at model level
+helper def : modelStereotype : UML2!Stereotype = thisModule.uiApplicationStereotype;
+
+--- structure that defines the properties of different stereotyped applications
+--- it includes the stereotype and its corresponding stereotypes elements, and a list of property names and their values
+helper def : stereotypeAttributes(element: OclAny) : 
+	Map (UML2!Stereotype, 
+		TupleType (stereotypedElements:Sequence(UML2!Element), attributes:Map(String, Sequence(UML2!Elements)))) = 
+	Map {
+			(thisModule.uiApplicationStereotype, 
+		 		Tuple{stereotypedElements=thisModule.workbenchStereotypedModel, 
+					attributes=Map{
+						('layouts', thisModule.perspectiveStereotypedClasses->collect(c | c.resolve().getStereotypeApplications())->flatten()),
+						('toolBarActions', thisModule.toolBarActionStereotypedClasses->collect(c | c.resolve().getStereotypeApplications())->flatten()),
+						('menuActions', thisModule.menuActionStereotypedClasses->collect(c | c.resolve().getStereotypeApplications())->flatten())
+					}
+		 		}
+			),
+			(thisModule.uiLayoutStereotype, 
+		 		Tuple{stereotypedElements=thisModule.perspectiveStereotypedClasses, 
+					attributes=Map{
+						('panels', thisModule.viewStereotypedClasses->select (c|
+							c.belongsToPackage(element.refImmediateComposite()))->collect(c | c.resolve().getStereotypeApplications())->flatten())
+					}
+		 		}
+			),
+			(thisModule.uiPanelStereotype, 
+		 		Tuple{stereotypedElements=thisModule.viewStereotypedClasses, 
+					attributes=Map{
+						('actions', thisModule.viewActionStereotypedClasses->select (a| 
+							a.isActionForView(element))->collect(c | c.resolve().getStereotypeApplications())->flatten())
+					}
+		 		}
+			),
+			(thisModule.actionableObjectStereotype, 
+		 		Tuple{stereotypedElements=thisModule.objectContributionStereotypedClasses, 
+					attributes=Map{
+						('action',
+							if (element.oclIsUndefined() or not element.oclIsTypeOf(UML2!Class)) then
+								OclUndefined
+							else
+								if (thisModule.objectActionStereotypedClasses->select (a|
+									a.isActionForObject(element))->collect(c | c.resolve().getStereotypeApplications())->flatten()->isEmpty()) then
+									OclUndefined
+								else 
+									thisModule.objectActionStereotypedClasses->select (a|
+										a.isActionForObject(element))->collect(c | c.resolve().getStereotypeApplications())->flatten()->first()
+								endif
+							endif
+						)
+					}
+		 		}
+			)
+		};
+
+		--- A sequence containing all the elements from IN GWT
+helper def: classifiersFromGWT: Sequence(UML2!Classifier) = UML2!Classifier.allInstancesFrom('INGWT');
+
+--- A sequence containing all the view elements from IN GWT
+helper def: viewsInGWT: Sequence(UML2!Element) = 
+	thisModule.classifiersFromGWT->select(e|
+		not e.getAppliedStereotype('GUI::UIPanel').oclIsUndefined());
+		
