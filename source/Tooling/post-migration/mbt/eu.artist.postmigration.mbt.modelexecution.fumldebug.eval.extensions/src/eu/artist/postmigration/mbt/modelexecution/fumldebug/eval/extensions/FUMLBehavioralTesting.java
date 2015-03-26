@@ -14,9 +14,13 @@
 
 package eu.artist.postmigration.mbt.modelexecution.fumldebug.eval.extensions;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +28,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runners.Parameterized;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized.Parameter;
 import org.modelexecution.fumldebug.core.ExecutionContext;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -49,11 +56,37 @@ public class FUMLBehavioralTesting {
 	ResourceSet resSet = null;
 	Resource inModel = null;
 	
-	private static final String PETSTORE_MODEL_PATH_AGL = "../eu.artist.postmigration.mbt.insertTestCases/output/petstoreLegacyOutput.uml";
-	private static final String PETSTORE_MODEL_PATH_AGM = "../eu.artist.postmigration.mbt.insertTestCases/output/petstoreMigratedOutput.uml";
+	private static String MODEL_PATH_AGL;
+	private static String MODEL_PATH_AGM;	
+	private static String MODEL_PATH_CORRESP;
 	
 	@BeforeClass
 	public static void setupBeforeClass() {
+		BufferedReader br = null;
+		try {			 
+			String sCurrentLine; 
+			br = new BufferedReader(new FileReader("config.properties"));
+ 
+			if ((sCurrentLine = br.readLine()) != null) {
+				MODEL_PATH_AGL = sCurrentLine;
+			}
+			if ((sCurrentLine = br.readLine()) != null) {
+				MODEL_PATH_AGM = sCurrentLine;
+			}
+			if ((sCurrentLine = br.readLine()) != null) {
+				MODEL_PATH_CORRESP = sCurrentLine;
+			}
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (br != null)br.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		
 		turnOffLogging();
 	}
 
@@ -89,7 +122,7 @@ public class FUMLBehavioralTesting {
 		List<DynamicEObjectImpl> tc = new ArrayList<DynamicEObjectImpl>();;
 		
 		resSet = createResourceSet();
-		inModel = loadModel("../eu.artist.postmigration.mbt.insertTestCases/input/CorrespondencesModelPetstore.xmi", 
+		inModel = loadModel(MODEL_PATH_CORRESP, 				
 							"model/CorrespondencesMM.ecore");
 		EObject root = inModel.getContents().get(0); //Object containing the CorrespondencesModel
 				
@@ -106,9 +139,9 @@ public class FUMLBehavioralTesting {
 				System.out.println("\n\n**********  " + testCaseName + " **********" + "\n");					
 			
 				//**Code to iterate over the Test Cases**//
-				ModelExecutor executorLeg = new ModelExecutor(PETSTORE_MODEL_PATH_AGL, testCaseName); //Executor for the legacy app
+				ModelExecutor executorLeg = new ModelExecutor(MODEL_PATH_AGL, testCaseName); //Executor for the legacy app
 				if (executorLeg.getActivityPublic() != null){
-					ModelExecutor executorMig = new ModelExecutor(PETSTORE_MODEL_PATH_AGM, testCaseName); //Executor for the migrated app
+					ModelExecutor executorMig = new ModelExecutor(MODEL_PATH_AGM, testCaseName); //Executor for the migrated app
 					if (executorMig.getActivityPublic() != null){
 						int rootExecutionID = executorLeg.executeStepwise();
 						outputLeg = getExecutionContext().getActivityOutput(
@@ -183,8 +216,7 @@ public class FUMLBehavioralTesting {
 	
 	public ExecutionContext getExecutionContext() {
 		return ExecutionContext.getInstance();
-	}
-	
+	}	
 	
 	/***Methods for loading a metamodel and an XMI model***/
 	
