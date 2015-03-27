@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+  <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Cloud Target Selection"
+            id="eu.artist.migration.cloudselection">
+      </category>
+      <view
+            name="General Features"
+            icon="icons/sample.gif"
+            category="eu.artist.migration.cloudselection"
+            class="eu.artist.migration.cloudselection.ui.views.CommonFeaturesView"
+            id="eu.artist.migration.cloudselection.views.CommonFeaturesView">
+      </view>
+      <view
+            name="Service Features"
+            icon="icons/sample.gif"
+            category="eu.artist.migration.cloudselection"
+            class="eu.artist.migration.cloudselection.ui.views.ServiceFeaturesView"
+            id="eu.artist.migration.cloudselection.views.ServiceFeaturesView">
+      </view>
+   </extension>
+  <extension
+        id="eu.artist.migration.cloudselection.validation"
+        point="org.eclipse.ui.commands">
+     <category
+           id="eu.artist.migration.cloudselection.commandcategory"
+           name="Cloud Target Selection">
+     </category>
+     <command
+           categoryId="eu.artist.migration.cloudselection.commandcategory"
+           defaultHandler="eu.artist.migration.cloudselection.ui.handlers.ValidateCommonsHandler"
+           id="eu.artist.migration.cloudselection.commands.validationCommons"
+           name="General Features Validation">
+     </command>
+     <command
+           categoryId="eu.artist.migration.cloudselection.commandcategory"
+           defaultHandler="eu.artist.migration.cloudselection.ui.handlers.ValidateServiceHandler"
+           id="eu.artist.migration.cloudselection.commands.validationServices"
+           name="Service Validation">
+     </command>
+     <command
+           defaultHandler="eu.artist.migration.cloudselection.ui.handlers.ResultsHandler"
+           id="eu.artist.migration.cloudselection.commands.showresults"
+           name="Results">
+        <commandParameter
+              id="eu.artist.migration.cloudselection.commandPartrueameter1"
+              name="results"
+              optional="false">
+        </commandParameter>
+     </command>
+     <command
+           categoryId="eu.artist.migration.cloudselection.commands.category1"
+           defaultHandler="eu.artist.migration.cloudselection.ui.handlers.FileHandler"
+           id="eu.artist.migration.cloudselection.commands.CoreFileSelection"
+           name="Core Profile Selection">
+     </command>
+     <category
+           id="eu.artist.migration.cloudselection.commands.category1"
+           name="commandsCategory">
+     </category>
+     <command
+           categoryId="eu.artist.migration.cloudselection.commands.category1"
+           defaultHandler="eu.artist.migration.cloudselection.ui.handlers.ProvidersFileHandler"
+           id="eu.artist.migration.cloudselection.commands.ProviderSelection"
+           name="Provider Selection">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="Cloud Target Selection"
+               id="eu.artist.migration.cloudselection.mainMenu">
+            <command
+                  commandId="eu.artist.migration.cloudselection.commands.validationCommons"
+                  id="eu.artist.migration.cloudselection.menu.validationCommons"
+                  label="General Features Validation">
+            </command>
+            <command
+                  commandId="eu.artist.migration.cloudselection.commands.validationServices"
+                  id="eu.artist.migration.cloudselection.menu.ValidationServices"
+                  label="Service Features Validation"
+                  style="push">
+            </command>
+            <menu
+                  label="Uml Files Selection">
+               <command
+                     commandId="eu.artist.migration.cloudselection.commands.CoreFileSelection"
+                     style="push">
+               </command>
+               <command
+                     commandId="eu.artist.migration.cloudselection.commands.ProviderSelection"
+                     style="push">
+               </command>
+            </menu>
+         </menu>
+      </menuContribution>
+      
+  </extension>
+   
+</plugin>
