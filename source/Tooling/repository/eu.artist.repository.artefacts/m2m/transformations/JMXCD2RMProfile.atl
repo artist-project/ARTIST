@@ -1,0 +1,318 @@
+-- @atlcompiler atl2006
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+-- @description	In this transformation, a class diagram will be transformed in a UML profile
+
+
+module JMXCD2RMProfile;
+create OUT: UML2 from IN: UML2, UMLCD: UML2;
+
+helper def: bo: UML2!ElementImport =
+	OclUndefined;
+
+helper def: bc: UML2!ElementImport =
+	OclUndefined;
+
+helper def: bi: UML2!ElementImport =
+	OclUndefined;
+
+helper def: pac: UML2!Package =
+	OclUndefined;
+
+helper context UML2!Package def : packageName() : String = 
+	if (self.refImmediateComposite().oclIsUndefined() or (not self.
+			refImmediateComposite().oclIsKindOf(UML2!Package))) then
+		self.name
+	else
+		self.refImmediateComposite() -> packageName() + '.' + self.name
+	endif;
+
+helper context UML2!Class def : isMgtFactory() : Boolean = 
+	if self.package.oclIsUndefined() 
+	then false 
+	else 
+		if not self.package.packageName().endsWith('java.lang.management') 
+		then false 
+		else 
+			if not self.name.endsWith('ManagementFactory') 
+			then false 
+			else true 
+			endif 
+		endif 
+	endif;
+
+
+
+helper context UML2!Interface def : existingOpsByName : Map(String, UML2!Operation) =
+	self.ownedOperation ->iterate(op; acc : Map(String,UML2!Operation) = Map{} |
+		if acc.get(op.name).oclIsUndefined() then
+			acc->including(op.name, op)
+		else
+			acc
+		endif
+	);
+
+
+helper context UML2!Class def : existingOpsByName : Map(String, UML2!Operation) =
+	self.ownedOperation ->iterate(op; acc : Map(String,UML2!Operation) = Map{} |
+		if acc.get(op.name).oclIsUndefined() then
+			acc->including(op.name, op)
+		else
+			acc
+		endif
+	);
+
+
+helper context String def : normalize(): String = self.regexReplaceAll('MXBean', '').toLower();
+
+rule Interface {
+	from
+		s: UML2!Interface in IN (
+			s.name.endsWith('MXBean') and s.package.packageName().endsWith('java.lang.management')
+		)
+	to
+		t: UML2!Stereotype (
+			name <- s.name.regexReplaceAll('MXBean', ''),
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			ownedAttribute <- Set{s.existingOpsByName.getValues() -> select(o | o.name.
+					startsWith('get')) -> collect(o | thisModule.op2prop(o)),
+							base_element, base_int} -> asSequence(),
+			nestedClassifier <- s.nestedClassifier,
+			package <- thisModule.pac,
+			ownedReception <- s.ownedReception
+		),
+		base_element: UML2!Property (
+			name <- 'base_Class',
+			isUnique <- false,
+			association <- extension
+		),
+		base_int: UML2!Property (
+			name <- 'base_Interface',
+			isUnique <- false,
+			association <- extension2
+		),
+		extension: UML2!Extension (
+			name <- 'Extension_' + t.name,
+			memberEnd <- Set{extensionEnd,
+						base_element},
+			ownedEnd <- Set{extensionEnd},
+			package <- pkg
+		),
+		extensionEnd: UML2!ExtensionEnd (
+			name <- 'extension_' + t.name,
+			aggregation <- #composite,
+			type <- t,
+			association <- extension
+		),
+		extension2: UML2!Extension (
+			name <- 'ExtensionI_' + t.name,
+			memberEnd <- Set{extensionEnd2,
+						base_int},
+			ownedEnd <- Set{extensionEnd2},
+			package <- pkg
+		),
+		extensionEnd2: UML2!ExtensionEnd (
+			name <- 'extensionI_' + t.name,
+			aggregation <- #composite,
+			type <- t,
+			association <- extension2
+		),
+		pkg: UML2!Package (
+			name <- t.name.toLower()
+		)
+	do {
+		thisModule.pac.packagedElement <- thisModule.pac.packagedElement.append(pkg);
+	}
+}
+
+
+
+lazy rule op2prop {
+	from
+		o: UML2!Operation (
+			not o.name.startsWith('set')
+		)
+	using {
+		target_name: String = if o.name.startsWith('get') then
+			o.name.substring(4, o.name.size()).normalize()
+		else
+			'op_'.concat(o.name).normalize()
+		endif;
+		pa: UML2!Package = thisModule.resolveTemp(o.owner, 'pkg');
+	}
+	to
+		p: UML2!Property (
+			name <- target_name,
+			type <- s
+			--association <- thisModule.createAss(thisModule.resolveTemp(o.owner, 't'), p)
+		),
+		s: UML2!Stereotype (
+			ownedAttribute <- Set{base_element},
+			name <- target_name,
+			package <- pa
+		),
+		base_element: UML2!Property (
+			name <- 'base_Operation',
+			isUnique <- false --		, type <-
+					-- UML2!Class.allInstancesFrom('UMLCD')->any(e|e.name = 'Operation')
+			,
+			association <- extension
+		),
+		extension: UML2!Extension (
+			name <- 'Extension_' + s.name,
+			memberEnd <- Set{extensionEnd,
+						base_element},
+			ownedEnd <- Set{extensionEnd},
+			package <- pa
+		),
+		extensionEnd: UML2!ExtensionEnd (
+			name <- 'extension_' + s.name,
+			aggregation <- #composite,
+			type <- s,
+			association <- extension
+		)
+		
+		do{
+			 p.association <- thisModule.createAss(thisModule.resolveTemp(o.owner, 't'), p, pa);
+			 
+		}
+		
+}
+
+rule createAss(s:UML2!Stereotype, b:UML2!Property, p: UML2!Package){
+	to 
+	a : UML2!Property(
+			name <- s.name.toLower(),
+			type <- s,
+			association <- asso,
+			lower <- 1,
+			upper <- 1
+		),
+	asso: UML2!Association (
+			name <- a.name.concat('_').concat(b.name),
+			memberEnd <- Set{a, b},
+			ownedEnd <- Set{a},
+			package <- p
+	)	
+	do {
+		asso;
+	}
+}
+
+rule Class {
+	from
+		s: UML2!Class in IN (
+			s.isMgtFactory()
+		)
+	to
+		t: UML2!Stereotype (
+			name <- s.name,
+			packageImport <- s.packageImport,
+			ownedRule <- s.ownedRule,
+			ownedAttribute <- Set{s.existingOpsByName.getValues() -> select(o | o.name.
+					startsWith('get')) -> select(o | o.name.endsWith('MXBean')) -> collect(o | thisModule.op2prop(o)),
+							base_element} -> asSequence(),
+			nestedClassifier <- s.nestedClassifier,
+			package <- thisModule.pac,
+			ownedReception <- s.ownedReception
+		),
+		base_element: UML2!Property (
+			name <- 'base_Class',
+			isUnique <- false,
+			association <- extension
+		),
+		extension: UML2!Extension (
+			name <- 'Extension_' + t.name,
+			memberEnd <- Set{extensionEnd,
+						base_element},
+			ownedEnd <- Set{extensionEnd},
+			package <- pkg
+		),
+		extensionEnd: UML2!ExtensionEnd (
+			name <- 'extension_' + t.name,
+			aggregation <- #composite,
+			type <- t,
+			association <- extension
+		),
+		pkg: UML2!Package (
+			name <- t.name.toLower()
+		)
+		do {
+			thisModule.pac.packagedElement <- thisModule.pac.packagedElement.append(pkg);
+		}
+		
+}
+
+entrypoint rule entry() {
+	to
+		t: UML2!Profile (
+			name <- 'RM-profile',
+			packagedElement <- Set{pkg_eu},
+			metamodelReference <- Set{umlImport},
+			metaclassReference <- Set{classImport,
+						opImport, intImport}
+		),
+		umlImport: UML2!PackageImport (
+			visibility <- #public,
+			importedPackage <- UML2!Model.allInstancesFrom('UMLCD') -> any(e | e.name =
+					'UML')
+		),
+		classImport: UML2!ElementImport (
+			alias <- 'Class',
+			visibility <- #public,
+			importedElement <- UML2!Class.allInstancesFrom('UMLCD') -> any(e | e.name =
+					'Class')
+		),
+		opImport: UML2!ElementImport (
+			alias <- 'Operation',
+			visibility <- #public,
+			importedElement <- UML2!Class.allInstancesFrom('UMLCD') -> any(e | e.name =
+					'Operation')
+		),
+		intImport: UML2!ElementImport (
+			alias <- 'Interface',
+			visibility <- #public,
+			importedElement <- UML2!Class.allInstancesFrom('UMLCD') -> any(e | e.name =
+					'Interface')
+		),
+		pkg_resources: UML2!Package (
+			name <- 'rm',
+			packagedElement <- UML2!Classifier.allInstancesFrom('IN') -> collect(e |
+					thisModule.resolveTemp(e, 'pkg'))
+		),
+		pkg_eng: UML2!Package (
+			name <- 'eng',
+			packagedElement <- pkg_resources
+		),
+		pkg_artist: UML2!Package (
+			name <- 'artist',
+			packagedElement <- pkg_eng
+		),
+		pkg_eu: UML2!Package (
+			name <- 'eu',
+			packagedElement <- pkg_artist
+		)
+	do {
+		thisModule.pac <- pkg_resources;
+		thisModule.bo <- opImport;
+		thisModule.bc <- classImport;
+		thisModule.bi <- intImport;
+	}
+}
+
+endpoint rule end() {
+	do {
+		for	(elm in UML2!Property.allInstancesFrom('OUT') -> select(b | not b.name.
+				oclIsUndefined()) -> select(e | e.name.startsWith('base_Class'))) {
+			elm.type <- thisModule.bc.importedElement;
+		}
+		for	(elm in UML2!Property.allInstancesFrom('OUT') -> select(b | not b.name.
+				oclIsUndefined()) -> select(e | e.name.startsWith('base_Operation'))) {
+			elm.type <- thisModule.bo.importedElement;
+		}
+		for	(elm in UML2!Property.allInstancesFrom('OUT') -> select(b | not b.name.
+				oclIsUndefined()) -> select(e | e.name.startsWith('base_Interface'))) {
+			elm.type <- thisModule.bi.importedElement;
+		}
+	}
+}

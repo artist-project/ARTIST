@@ -1,0 +1,109 @@
+-- @atlcompiler emftvm
+-- @nsURI UML2=http://www.eclipse.org/uml2/4.0.0/UML
+
+
+module Annotate4RM;
+create OUT: UML2 refining IN: UML2, RM: UML2;
+
+---VARIABLES
+
+helper def: rmprofile: UML2!Profile =
+	UML2!Profile.allInstancesFrom('RM').asSequence().first();
+
+helper def: rm_stereotypes: Set(UML2!Stereotype) =
+	UML2!Stereotype.allInstancesFrom('RM') -> select(var | var.package.name.startsWith('rm'))-> asSet() -> debug();
+
+
+---HELPERS
+helper context UML2!Package def: sub_stereotype(n : String): UML2!Stereotype =
+	let ss : Sequence (UML2!Stereotype) = self.sub_stereotypes(n) in if ss.isEmpty() then OclUndefined else ss.first() endif;
+
+helper context UML2!Package def: sub_stereotypes(n : String): Sequence (UML2!Stereotype) =
+	self.search_by_Pk() -> select(e | e.oclIsTypeOf(UML2!Stereotype)) -> select(v | n.endsWith(v.name)) -> asSequence();
+
+
+helper context Collection(UML2!NamedElement) def : search_by_Name(n : String): UML2!NamedElement = self -> any(ne | n.endsWith(ne.name)); 
+
+helper context UML2!Package def : search_by_Pk(): Collection(UML2!PackageableElement) = self.packagedElement -> asSequence(); 
+
+helper context UML2!Operation def: getOpStereo(): UML2!Stereotype =
+	UML2!Stereotype.allInstancesFrom('RM') -> select (s| self.name.toLower().endsWith(s.name)) -> any(s | s.package.name = self.owner.name.name_from_bean().toLower());
+
+helper context UML2!Interface def: getIntStereo(): UML2!Stereotype = thisModule.rm_stereotypes -> any(var | self.name.name_from_bean() = var.name);
+
+helper context String def : name_from_bean() : String = self.replaceAll('MXBean', '');
+
+helper context UML2!Class def: getMFStereo(): UML2!Stereotype = thisModule.rm_stereotypes -> any(var | var.name = 'ManagementFactory');
+
+helper context UML2!Operation def: getMFOpStereo(): UML2!Stereotype =
+	UML2!Stereotype.allInstancesFrom('RM') -> select (s| self.name.name_from_bean().toLower().endsWith(s.name)) -> any(s | s.package.name = 'managementfactory');
+
+
+-----RULES
+rule Model {
+	from
+		s: UML2!Model in IN (
+			s.oclIsTypeOf(UML2!Model)
+		)
+	to
+		t: UML2!Model mapsTo s
+
+	do {
+		--- We apply profiles
+		for (prof in s.getAllAppliedProfiles()){
+				t.applyProfile(prof);
+		}
+		--- We apply the auth profile
+		t.applyProfile(thisModule.rmprofile); 
+	}
+}
+
+
+--- Annotate the MXBeans
+rule AnnInterface { 
+	from
+		s: UML2!Interface in IN (
+			s.name.endsWith('MXBean')
+		)
+	using {
+		st : UML2!Stereotype = s.getIntStereo();
+	}
+	to
+		t: UML2!Interface
+	do {
+		--- We apply the stereotype
+			if (not st.oclIsUndefined())  {
+				s.applyStereotype(st);		
+				-- annotate all operations in this bean with their stereotypes 
+				for (op in s.getOperations()) {
+					if(not op.getOpStereo().oclIsUndefined())
+						op.applyStereotype(op.getOpStereo());
+				}			
+			}
+		}
+}
+
+--- Annotate the MXBeans
+rule AnnClass { 
+	from
+		s: UML2!Class in IN (
+			s.name.endsWith('ManagementFactory')
+		)
+	using {
+		st : UML2!Stereotype = s.getMFStereo();
+	}
+	to
+		t: UML2!Class
+	do {
+		--- We apply the stereotype
+			if (not st.oclIsUndefined())  {
+				s.applyStereotype(st);		
+				-- annotate all operations in this bean with their stereotypes 
+				for (op in s.getOperations()) {
+					if(not op.getMFOpStereo().oclIsUndefined())
+						op.applyStereotype(op.getMFOpStereo());
+				}			
+			}
+		}
+}
+
