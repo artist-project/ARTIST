@@ -1,9 +1,9 @@
 package eu.artist.migration.cloudselection.umlmodelservice.validation;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
-import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.Resources;
 import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.TargetProfile;
 import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.TargetProfile.CompositeResponse;
 import eu.artist.migration.cloudselection.viewdatamodel.EnumerationProperty;
@@ -12,7 +12,7 @@ import eu.artist.migration.cloudselection.viewdatamodel.LeafEnumValue;
 
 public class ServiceValidator extends Validator{
 
-	public static String validate(Set<LeafElement> checked){
+	public static String validate(Set<LeafElement> checked, List<String> providerNames){
 		
 		TargetProfile provider = null;
 		
@@ -32,7 +32,7 @@ public class ServiceValidator extends Validator{
 			}
 		}
 		String totalRes = "Results : " ;
-		for (String p : Resources.namesAndPaths.keySet()){
+		for (String p : providerNames){
 			provider = new TargetProfile(p);
 			for (String prop: compositeRequests.keySet()){
 				provider.score.increaseMaxScore();

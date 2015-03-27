@@ -81,7 +81,7 @@ public class TargetProfile{
 		score = new Score();
 		//this.resource = Utils.resources.providersResources.get(name);
 		try {
-			this.resource = Resources.loadResource(Resources.namesAndPaths.get(name));
+			this.resource = Resources.loadResource(name);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -167,7 +167,7 @@ public class TargetProfile{
 		}
 		return resultList;
 	}
-	
+
 	public ElementAndAppliedStereo findAppliedStereotypeForCommonFeatures(){
 		Profile prof = (Profile)resource.getContents().get(0);
 		EList<NamedElement> elements = prof.getOwnedMembers();

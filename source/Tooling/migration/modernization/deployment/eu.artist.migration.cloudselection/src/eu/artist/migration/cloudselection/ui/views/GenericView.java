@@ -36,11 +36,8 @@ public abstract class GenericView extends ViewPart{
 	protected ViewContentProvider contentProv;
 	
 	private Action clear;
-	private Action loadModels;
-	private Action loadCore;
+	private Action providerselection;
 	private Action validateProvs;
-	private Action refresh;
-	
 	
 	public void createPartControl(Composite parent) {
 		GridLayout layout = new GridLayout();
@@ -100,10 +97,12 @@ public abstract class GenericView extends ViewPart{
 			}
 
 		});
-		if (Resources.isCoreLoaded()){
-			treeViewer.setInput(getInitalInput());
-			treeViewer.expandAll();
-		}
+		if (!Resources.isCoreLoaded()){
+	 		 Resources.loadCoreResource();
+	 	}
+	 	contentProv.viewer.setInput(getInitalInput());
+		contentProv.viewer.expandAll();
+		contentProv.viewer.refresh();
 		makeActions();
 		contributeToActionBars();
 	}
@@ -116,15 +115,12 @@ public abstract class GenericView extends ViewPart{
 	
 	private void fillLocalPullDown(IMenuManager manager) {
 		manager.add(clear);
-		manager.add(loadModels);
 		manager.add(validateProvs);
 	}
 	
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(loadCore);
-		manager.add(refresh);
+		manager.add(providerselection);
 		manager.add(clear);
-		manager.add(loadModels);
 		manager.add(validateProvs);
 	}
 
@@ -138,24 +134,15 @@ public abstract class GenericView extends ViewPart{
 		clear.setToolTipText("Clear current selection");
 		clear.setImageDescriptor(ImageDescriptor.createFromImage(Utils.createImage("clear.gif")));;
 		
-		loadCore = new Action(){
+		providerselection = new Action(){
 			public void run(){
-				loadCore();
-			}
-		};
-		loadCore.setText("Load core metamodel");
-		loadCore.setDescription("Load core metamodel");
-		loadCore.setImageDescriptor(ImageDescriptor.createFromImage(Utils.createImage("add_exc.gif")));
-		
-		loadModels = new Action() {
-			public void run() {
 				loadModels();
 			}
 		};
+		providerselection.setText("Select providers");
+		providerselection.setDescription("Select providers");
+		providerselection.setImageDescriptor(ImageDescriptor.createFromImage(Utils.createImage("add_exc.gif")));
 		
-		loadModels.setText("Load metamodels of candidate cloud platforms");
-		loadModels.setImageDescriptor(ImageDescriptor.createFromImage(Utils.createImage("jload_obj.gif")));
-				
 		validateProvs = new Action() {
 			public void run(){
 				validate();
@@ -164,43 +151,8 @@ public abstract class GenericView extends ViewPart{
 		validateProvs.setText("Validate and suggest target platform");
 		validateProvs.setDescription("Get the best target platform solution according to your selection");
 		validateProvs.setImageDescriptor(ImageDescriptor.createFromImage(Utils.createImage("lrun_obj.gif")));
-		
-		refresh = new Action(){
-			public void run(){
-				refresh();
-			}
-		};
-		
-		refresh.setText("Refresh Viewer");
-		refresh.setImageDescriptor(ImageDescriptor.createFromImage(Utils.createImage("refresh.gif")));
 	}
 
-	public void loadCore(){
-		IWorkbenchWindow window = this.getViewSite().getWorkbenchWindow();
-		IHandlerService handlerService = (IHandlerService)window.getService(IHandlerService.class);
-		try {
-				handlerService.executeCommand("eu.artist.migration.cloudselection.commands.CoreFileSelection", null);	
-		} catch (ExecutionException | NotDefinedException
-				| NotEnabledException | NotHandledException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	
-	public void refresh(){
-		 try{
-		 	contentProv.viewer.getInput().getClass();
-		 }
-		 catch(NullPointerException nul){
-		 	if (Resources.isCoreLoaded()){
-		 		contentProv.viewer.setInput(getInitalInput());
-		 		contentProv.viewer.expandAll();
-		 		contentProv.viewer.refresh();
-		 		
-		 	}
-		 }
-	}
 	
 	public void validate(){
 		IWorkbenchWindow window = this.getViewSite().getWorkbenchWindow();
@@ -217,11 +169,6 @@ public abstract class GenericView extends ViewPart{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
-	public void unload(){
-		Resources.unloadProviders();
-		System.gc();
 	}
 	
 	public void setChecked(ModelElement item, boolean checked){

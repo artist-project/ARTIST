@@ -3,9 +3,9 @@ package eu.artist.migration.cloudselection.umlmodelservice.validation;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
-import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.Resources;
 import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.TargetProfile;
 import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.TargetProfile.CompositeResponse;
 import eu.artist.migration.cloudselection.viewdatamodel.EnumerationProperty;
@@ -16,7 +16,7 @@ import eu.artist.migration.cloudselection.viewdatamodel.LeafProperty;
 
 public class CommonValidator extends Validator{
 	
-	public static String validate(Set<LeafElement> checked){
+	public static String validate(Set<LeafElement> checked, List<String> providerNames){
 		TargetProfile provider = null;
 		
 		//String1: property, String2: values
@@ -48,7 +48,7 @@ public class CommonValidator extends Validator{
 		}
 		
 		String totalRes = "Results: ";
-		for(String p : Resources.namesAndPaths.keySet()){
+		for(String p : providerNames){
 			provider = new TargetProfile(p);
 			Iterator<String> it = leafPropertyRequests.iterator();
 			while (it.hasNext()){

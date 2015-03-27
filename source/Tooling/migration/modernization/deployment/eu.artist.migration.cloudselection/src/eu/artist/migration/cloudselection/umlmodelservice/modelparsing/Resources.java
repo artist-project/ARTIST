@@ -2,9 +2,13 @@ package eu.artist.migration.cloudselection.umlmodelservice.modelparsing;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URISyntaxException;
+import java.net.URL;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -26,7 +30,6 @@ import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
 import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 import org.eclipse.uml2.uml.Profile;
-
 import eu.artist.migration.cloudselection.viewdatamodel.EnumerationProperty;
 import eu.artist.migration.cloudselection.viewdatamodel.HelperElement;
 import eu.artist.migration.cloudselection.viewdatamodel.LeafEnumValue;
@@ -36,56 +39,36 @@ import eu.artist.migration.cloudselection.viewdatamodel.ServiceElement;
 
 public abstract class Resources {
 
-
-	//public Map<String,Resource> providersResources = new HashMap<String, Resource>();
-	public static Map<String,String> namesAndPaths = new HashMap<String, String>();
-	
 	public static HelperElement serviceGroups;
 	public static HelperElement commonFeatures;
 	private static boolean loadedCoreres = false;
 	
-	
-	public static void loadProviderPath(String targetName, String targetPath){
-		namesAndPaths.put(targetName, targetPath);
-	}
-	
-	public void unloadTargets(){
-		namesAndPaths = new HashMap<String, String>();
-	}
-	
-	public static void loadCoreResource(String pathToModelFile){
-		String path = pathToModelFile;
+	public static void loadCoreResource(){
 		commonFeatures = new HelperElement();
 		serviceGroups = new HelperElement();
 		try{
-			if (!loadedCoreres) {
-				Resource res = loadResource(path);
-				Profile profile = (Profile)res.getContents().get(0);
-				EList<NamedElement> elements = profile.getOwnedMembers();
-				int count = elements.size();
-				for (int i=0; i<count; i++){
-					if (elements.get(i) instanceof Profile){
-						populateServiceGroup((Profile)elements.get(i));
-					}
-					else if (elements.get(i).getName().equals("CommonFeatures")){
-						populateComonFeatures(elements.get(i));
-					}
-					}
-				loadedCoreres = true;
-				for (Resource r : res.getResourceSet().getResources()){
-					r.unload();
+			Resource res = loadResource("CloudMl@Artist core profile");
+			Profile profile = (Profile)res.getContents().get(0);
+			EList<NamedElement> elements = profile.getOwnedMembers();
+			int count = elements.size();
+			for (int i=0; i<count; i++){
+				if (elements.get(i) instanceof Profile){
+					populateServiceGroup((Profile)elements.get(i));
 				}
-					
+				else if (elements.get(i).getName().equals("CommonFeatures")){
+					populateComonFeatures(elements.get(i));
+				}
+			}
+			loadedCoreres = true;
+			for (Resource r : res.getResourceSet().getResources()){
+				r.unload();
 			}
 		}
 		catch(IOException e){
 			e.printStackTrace();
 		}
 	}		
-			
-	public static void unloadProviders(){
-		namesAndPaths = new HashMap<String, String>();
-	}
+		
 	
 	public static void populateComonFeatures(NamedElement commonFeaturesStereo){
 		HelperElement generals = new HelperElement("GeneralFeatures");
@@ -181,13 +164,30 @@ public abstract class Resources {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 		UMLResourcesUtil.init(resourceSet);
 		
-		File f = new File(profileString);
-		URI uri = URI.createFileURI(f.getAbsolutePath());
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+		IExtensionPoint point = registry.getExtensionPoint("org.eclipse.papyrus.uml.extensionpoints.UMLProfile");
+		for (int i=0; i<point.getExtensions().length; i++){
+			if (point.getExtensions()[i].getConfigurationElements()[0].getAttribute("name").equals(profileString) && point.getExtensions()[i].getConfigurationElements()[0].getAttribute("provider").equals("ARTIST Project")){
+				String profilePath = point.getExtensions()[i].getConfigurationElements()[0].getAttribute("path");
+				URL url = new URL(profilePath);
+				//File f = new File(profilePath);
+				File f;
+				try {
+					url = FileLocator.toFileURL(url);
+					f = new File(FileLocator.resolve(url).toURI());
+					URI uri = URI.createFileURI(f.getCanonicalPath());
+					Resource resource = resourceSet.createResource(uri);
+					resource.load(null);
+					return resource;
+				} catch (URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		}
+		return null; 
 		
-		Resource resource = resourceSet.createResource(uri);
-		resource.load(null);
-		
-		return resource;
 	}
 	
 	public static boolean isCoreLoaded(){
