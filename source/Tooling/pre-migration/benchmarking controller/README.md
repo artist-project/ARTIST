@@ -20,7 +20,7 @@ What the Benchmark tool is about
 Functionalities included in this version
 ----
 
--- 	Creation/Distruction of instances on several cloud providers (Amazon EC2, Trystack, oVirt, Flexiant, Azure, Openstack)
+-- 	Creation/Distruction of instances on two different cloud providers (Amazon EC2 and Trystack)
 
 -- Execution of existing performance workload
 - DaCapo tool for java-based applications
@@ -28,8 +28,9 @@ Functionalities included in this version
 - Dwarfs suite for CPUs benchmark
 - Filebench for file system and storage benchmarks
 - YCSB for the database evaluation
+    
 -- Data output parsing and database storing 
--- Integration with GUI interface    
+-- Integration with the GUI interface
 
 Known issues of this version:
 ----
@@ -38,10 +39,12 @@ Known issues of this version:
 -- CloudSuite parser could not work correctly
 
 
-Functionality expected in next versions
+
+Functionality integrated in this versions
 ----
 
--- Implementation of more Cloud Providers connectors (e.g.,GAE)
+-- Implementation of more Cloud Providers connectors (GAE, Azure, Flexiant)
+
 
 Reference to the user/installation manual
 ----
