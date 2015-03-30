@@ -38,7 +38,9 @@ public enum ModelType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANNOTATION(0, "Annotation", "Annotation"), /**
+	ANNOTATION(0, "Annotation", "Annotation"),
+
+	/**
 	 * The '<em><b>Object Structure</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

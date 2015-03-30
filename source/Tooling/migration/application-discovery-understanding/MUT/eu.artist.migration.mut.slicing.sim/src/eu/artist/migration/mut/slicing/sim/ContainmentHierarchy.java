@@ -38,7 +38,9 @@ public enum ContainmentHierarchy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM(0, "Custom", "Custom"), /**
+	CUSTOM(0, "Custom", "Custom"),
+
+	/**
 	 * The '<em><b>Nearest</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +48,9 @@ public enum ContainmentHierarchy implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEAREST(1, "Nearest", "Nearest"), /**
+	NEAREST(1, "Nearest", "Nearest"),
+
+	/**
 	 * The '<em><b>Complete</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

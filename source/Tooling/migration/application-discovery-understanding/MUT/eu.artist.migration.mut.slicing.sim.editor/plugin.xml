@@ -6,88 +6,20 @@
 
 <plugin>
 
-   <extension
-         point="org.eclipse.core.runtime.applications"
-         id="SimEditorAdvisorApplication">
+   <extension point="org.eclipse.ui.newWizards">
       <!-- @generated sim -->
-      <application>
-         <run class="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisor$Application"/>
-      </application>
-   </extension>
-
-   <extension point="org.eclipse.ui.perspectives">
-      <!-- @generated sim -->
-      <perspective
-            name="%_UI_Perspective_label"
-            class="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisor$Perspective"
-            id="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorPerspective">
-      </perspective>
-   </extension>
-
-   <extension point="org.eclipse.ui.commands">
-      <!-- @generated sim -->
-      <command
-            name="%_UI_Menu_OpenURI_label"
-            description="%_UI_Menu_OpenURI_description"
-            categoryId="org.eclipse.ui.category.file"
-            id="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenURICommand"/>
-      <command
-            name="%_UI_Menu_Open_label"
-            description="%_UI_Menu_Open_description"
-            categoryId="org.eclipse.ui.category.file"
-            id="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenCommand"/>
-   </extension>
-
-   <extension point="org.eclipse.ui.bindings">
-      <!-- @generated sim -->
-      <key
-            commandId="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenURICommand"
-            sequence="M1+U"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-      <key
-            commandId="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenCommand"
-            sequence="M1+O"
-            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
-   </extension>
-
-   <extension point="org.eclipse.ui.actionSets">
-      <!-- @generated sim -->
-      <actionSet
-            label="%_UI_SimEditorAdvisor_ActionSet_label"
-            visible="true"
-            id="SimEditorAdvisorActionSet">
-         <action
-               label="%_UI_Menu_About_label"
-               class="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisor$AboutAction"
-               menubarPath="help/additions"
-               id="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorAboutAction"/>
-         <action
-               label="%_UI_Menu_OpenURI_label"
-               definitionId="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenURICommand"
-               class="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisor$OpenURIAction"
-               menubarPath="file/additions"
-               id="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenURIAction"/>
-         <action
-               label="%_UI_Menu_Open_label"
-               definitionId="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenCommand"
-               class="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisor$OpenAction"
-               menubarPath="file/additions"
-               id="eu.artist.migration.mut.slicing.sim.presentation.SimEditorAdvisorOpenAction"/>
-      </actionSet>
-   </extension>
-
-   <extension point="org.eclipse.ui.actionSets">
-      <!-- @generated sim -->
-      <actionSet
-            label="%_UI_SimModelWizard_ActionSet_label"
-            visible="true"
-            id="eu.artist.migration.mut.slicing.sim.presentation.SimActionBarContributorActionSet">
-         <action
-               label="%_UI_SimModelWizard_label"
-               class="eu.artist.migration.mut.slicing.sim.presentation.SimActionBarContributor$NewAction"
-               menubarPath="file/new/additions"
-               id="eu.artist.migration.mut.slicing.sim.presentation.SimActionBarContributorNewAction"/>
-      </actionSet>
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="eu.artist.migration.mut.slicing.sim.presentation.SimModelWizardID"
+            name="%_UI_SimModelWizard_label"
+            class="eu.artist.migration.mut.slicing.sim.presentation.SimModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SimModelFile.gif">
+         <description>%_UI_SimModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">

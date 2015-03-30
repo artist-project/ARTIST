@@ -14,7 +14,6 @@
  */
 package eu.artist.migration.mut.slicing.sim;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,10 +32,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingConfiguration()
- * @model
+ * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface SlicingConfiguration extends EObject {
+public interface SlicingConfiguration extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Intent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getConfiguration <em>Configuration</em>}'.

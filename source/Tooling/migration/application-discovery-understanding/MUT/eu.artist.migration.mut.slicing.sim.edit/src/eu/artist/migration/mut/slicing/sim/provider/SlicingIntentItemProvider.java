@@ -94,9 +94,9 @@ public class SlicingIntentItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SlicingIntent_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SlicingIntent_name_feature", "_UI_SlicingIntent_type"),
-				 SimPackage.Literals.SLICING_INTENT__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 SimPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,

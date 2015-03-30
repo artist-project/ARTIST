@@ -52,15 +52,6 @@ public interface SimFactory extends EFactory {
 	SlicingCriterion createSlicingCriterion();
 
 	/**
-	 * Returns a new object of class '<em>Feature Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature Value</em>'.
-	 * @generated
-	 */
-	FeatureValue createFeatureValue();
-
-	/**
 	 * Returns a new object of class '<em>Slicing Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

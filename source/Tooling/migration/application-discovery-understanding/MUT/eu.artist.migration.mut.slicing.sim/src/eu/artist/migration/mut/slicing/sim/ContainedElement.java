@@ -38,7 +38,9 @@ public enum ContainedElement implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM(0, "Custom", "Custom"), /**
+	CUSTOM(0, "Custom", "Custom"),
+
+	/**
 	 * The '<em><b>All</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +48,37 @@ public enum ContainedElement implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALL(1, "All", "All");
+	ALL(1, "All", "All"),
+
+	/**
+	 * The '<em><b>All Features</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALL_FEATURES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ALL_FEATURES(2, "AllFeatures", "AllFeatures"),
+
+	/**
+	 * The '<em><b>All Behavioral Features</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALL_BEHAVIORAL_FEATURES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ALL_BEHAVIORAL_FEATURES(3, "AllBehavioralFeatures", "AllBehavioralFeatures"),
+
+	/**
+	 * The '<em><b>All Structural Features</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALL_STRUCTURAL_FEATURES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ALL_STRUCTURAL_FEATURES(4, "AllStructuralFeatures", "AllStructuralFeatures");
 
 	/**
 	 * The '<em><b>Custom</b></em>' literal value.
@@ -79,6 +111,51 @@ public enum ContainedElement implements Enumerator {
 	public static final int ALL_VALUE = 1;
 
 	/**
+	 * The '<em><b>All Features</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>All Features</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ALL_FEATURES
+	 * @model name="AllFeatures"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ALL_FEATURES_VALUE = 2;
+
+	/**
+	 * The '<em><b>All Behavioral Features</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>All Behavioral Features</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ALL_BEHAVIORAL_FEATURES
+	 * @model name="AllBehavioralFeatures"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ALL_BEHAVIORAL_FEATURES_VALUE = 3;
+
+	/**
+	 * The '<em><b>All Structural Features</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>All Structural Features</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ALL_STRUCTURAL_FEATURES
+	 * @model name="AllStructuralFeatures"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ALL_STRUCTURAL_FEATURES_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Contained Element</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +165,9 @@ public enum ContainedElement implements Enumerator {
 		new ContainedElement[] {
 			CUSTOM,
 			ALL,
+			ALL_FEATURES,
+			ALL_BEHAVIORAL_FEATURES,
+			ALL_STRUCTURAL_FEATURES,
 		};
 
 	/**
@@ -140,6 +220,9 @@ public enum ContainedElement implements Enumerator {
 		switch (value) {
 			case CUSTOM_VALUE: return CUSTOM;
 			case ALL_VALUE: return ALL;
+			case ALL_FEATURES_VALUE: return ALL_FEATURES;
+			case ALL_BEHAVIORAL_FEATURES_VALUE: return ALL_BEHAVIORAL_FEATURES;
+			case ALL_STRUCTURAL_FEATURES_VALUE: return ALL_STRUCTURAL_FEATURES;
 		}
 		return null;
 	}

@@ -71,7 +71,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory {
 		switch (eClass.getClassifierID()) {
 			case SimPackage.SLICING_INTENT: return createSlicingIntent();
 			case SimPackage.SLICING_CRITERION: return createSlicingCriterion();
-			case SimPackage.FEATURE_VALUE: return createFeatureValue();
 			case SimPackage.SLICING_CONFIGURATION: return createSlicingConfiguration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -142,16 +141,6 @@ public class SimFactoryImpl extends EFactoryImpl implements SimFactory {
 	public SlicingCriterion createSlicingCriterion() {
 		SlicingCriterionImpl slicingCriterion = new SlicingCriterionImpl();
 		return slicingCriterion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FeatureValue createFeatureValue() {
-		FeatureValueImpl featureValue = new FeatureValueImpl();
-		return featureValue;
 	}
 
 	/**

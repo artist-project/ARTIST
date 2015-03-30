@@ -31,9 +31,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -55,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements SlicingIntent {
+public class SlicingIntentImpl extends EObjectImpl implements SlicingIntent {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -97,24 +96,44 @@ public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements S
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getInject() <em>Inject</em>}' attribute list.
+	 * The default value of the '{@link #getInject() <em>Inject</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInject()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModelType> inject;
+	protected static final ModelType INJECT_EDEFAULT = ModelType.ANNOTATION;
 
 	/**
-	 * The cached value of the '{@link #getExtract() <em>Extract</em>}' attribute list.
+	 * The cached value of the '{@link #getInject() <em>Inject</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInject()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModelType inject = INJECT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExtract() <em>Extract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExtract()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModelType> extract;
+	protected static final ModelType EXTRACT_EDEFAULT = ModelType.ANNOTATION;
+
+	/**
+	 * The cached value of the '{@link #getExtract() <em>Extract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtract()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModelType extract = EXTRACT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getCriteria() <em>Criteria</em>}' containment reference list.
@@ -202,10 +221,7 @@ public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModelType> getInject() {
-		if (inject == null) {
-			inject = new EDataTypeUniqueEList<ModelType>(ModelType.class, this, SimPackage.SLICING_INTENT__INJECT);
-		}
+	public ModelType getInject() {
 		return inject;
 	}
 
@@ -214,11 +230,32 @@ public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModelType> getExtract() {
-		if (extract == null) {
-			extract = new EDataTypeUniqueEList<ModelType>(ModelType.class, this, SimPackage.SLICING_INTENT__EXTRACT);
-		}
+	public void setInject(ModelType newInject) {
+		ModelType oldInject = inject;
+		inject = newInject == null ? INJECT_EDEFAULT : newInject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SLICING_INTENT__INJECT, oldInject, inject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModelType getExtract() {
 		return extract;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExtract(ModelType newExtract) {
+		ModelType oldExtract = extract;
+		extract = newExtract == null ? EXTRACT_EDEFAULT : newExtract;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SLICING_INTENT__EXTRACT, oldExtract, extract));
 	}
 
 	/**
@@ -351,12 +388,10 @@ public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements S
 				setDescription((String)newValue);
 				return;
 			case SimPackage.SLICING_INTENT__INJECT:
-				getInject().clear();
-				getInject().addAll((Collection<? extends ModelType>)newValue);
+				setInject((ModelType)newValue);
 				return;
 			case SimPackage.SLICING_INTENT__EXTRACT:
-				getExtract().clear();
-				getExtract().addAll((Collection<? extends ModelType>)newValue);
+				setExtract((ModelType)newValue);
 				return;
 			case SimPackage.SLICING_INTENT__CRITERIA:
 				getCriteria().clear();
@@ -384,10 +419,10 @@ public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements S
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case SimPackage.SLICING_INTENT__INJECT:
-				getInject().clear();
+				setInject(INJECT_EDEFAULT);
 				return;
 			case SimPackage.SLICING_INTENT__EXTRACT:
-				getExtract().clear();
+				setExtract(EXTRACT_EDEFAULT);
 				return;
 			case SimPackage.SLICING_INTENT__CRITERIA:
 				getCriteria().clear();
@@ -412,9 +447,9 @@ public class SlicingIntentImpl extends MinimalEObjectImpl.Container implements S
 			case SimPackage.SLICING_INTENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case SimPackage.SLICING_INTENT__INJECT:
-				return inject != null && !inject.isEmpty();
+				return inject != INJECT_EDEFAULT;
 			case SimPackage.SLICING_INTENT__EXTRACT:
-				return extract != null && !extract.isEmpty();
+				return extract != EXTRACT_EDEFAULT;
 			case SimPackage.SLICING_INTENT__CRITERIA:
 				return criteria != null && !criteria.isEmpty();
 			case SimPackage.SLICING_INTENT__CONFIGURATION:

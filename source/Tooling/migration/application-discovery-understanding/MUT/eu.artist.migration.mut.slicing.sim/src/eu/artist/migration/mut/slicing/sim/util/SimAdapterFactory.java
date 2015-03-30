@@ -88,12 +88,12 @@ public class SimAdapterFactory extends AdapterFactoryImpl {
 				return createSlicingCriterionAdapter();
 			}
 			@Override
-			public Adapter caseFeatureValue(FeatureValue object) {
-				return createFeatureValueAdapter();
-			}
-			@Override
 			public Adapter caseSlicingConfiguration(SlicingConfiguration object) {
 				return createSlicingConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -144,20 +144,6 @@ public class SimAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link eu.artist.migration.mut.slicing.sim.FeatureValue <em>Feature Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see eu.artist.migration.mut.slicing.sim.FeatureValue
-	 * @generated
-	 */
-	public Adapter createFeatureValueAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link eu.artist.migration.mut.slicing.sim.SlicingConfiguration <em>Slicing Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -168,6 +154,20 @@ public class SimAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSlicingConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link eu.artist.migration.mut.slicing.sim.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see eu.artist.migration.mut.slicing.sim.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

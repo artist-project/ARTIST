@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -70,6 +69,34 @@ public interface SimPackage extends EPackage {
 	SimPackage eINSTANCE = eu.artist.migration.mut.slicing.sim.impl.SimPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link eu.artist.migration.mut.slicing.sim.NamedElement <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see eu.artist.migration.mut.slicing.sim.NamedElement
+	 * @see eu.artist.migration.mut.slicing.sim.impl.SimPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link eu.artist.migration.mut.slicing.sim.impl.SlicingIntentImpl <em>Slicing Intent</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +113,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT__NAME = 0;
+	int SLICING_INTENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -95,25 +122,25 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT__DESCRIPTION = 1;
+	int SLICING_INTENT__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Inject</b></em>' attribute list.
+	 * The feature id for the '<em><b>Inject</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT__INJECT = 2;
+	int SLICING_INTENT__INJECT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Extract</b></em>' attribute list.
+	 * The feature id for the '<em><b>Extract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT__EXTRACT = 3;
+	int SLICING_INTENT__EXTRACT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Criteria</b></em>' containment reference list.
@@ -122,7 +149,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT__CRITERIA = 4;
+	int SLICING_INTENT__CRITERIA = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Configuration</b></em>' containment reference.
@@ -131,7 +158,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT__CONFIGURATION = 5;
+	int SLICING_INTENT__CONFIGURATION = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Slicing Intent</em>' class.
@@ -140,16 +167,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_INTENT_FEATURE_COUNT = 6;
-
-	/**
-	 * The number of operations of the '<em>Slicing Intent</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICING_INTENT_OPERATION_COUNT = 0;
+	int SLICING_INTENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl <em>Slicing Criterion</em>}' class.
@@ -162,31 +180,31 @@ public interface SimPackage extends EPackage {
 	int SLICING_CRITERION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICING_CRITERION__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Intent</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CRITERION__INTENT = 0;
+	int SLICING_CRITERION__INTENT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Features</b></em>' reference list.
+	 * The feature id for the '<em><b>Inject</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CRITERION__FEATURES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICING_CRITERION__VALUES = 2;
+	int SLICING_CRITERION__INJECT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference list.
@@ -195,7 +213,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CRITERION__ELEMENT = 3;
+	int SLICING_CRITERION__ELEMENT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Slicing Criterion</em>' class.
@@ -204,71 +222,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CRITERION_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Slicing Criterion</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICING_CRITERION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link eu.artist.migration.mut.slicing.sim.impl.FeatureValueImpl <em>Feature Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see eu.artist.migration.mut.slicing.sim.impl.FeatureValueImpl
-	 * @see eu.artist.migration.mut.slicing.sim.impl.SimPackageImpl#getFeatureValue()
-	 * @generated
-	 */
-	int FEATURE_VALUE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Criterion</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_VALUE__CRITERION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Feature</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_VALUE__FEATURE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_VALUE__VALUE = 2;
-
-	/**
-	 * The number of structural features of the '<em>Feature Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_VALUE_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Feature Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_VALUE_OPERATION_COUNT = 0;
+	int SLICING_CRITERION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link eu.artist.migration.mut.slicing.sim.impl.SlicingConfigurationImpl <em>Slicing Configuration</em>}' class.
@@ -278,7 +232,16 @@ public interface SimPackage extends EPackage {
 	 * @see eu.artist.migration.mut.slicing.sim.impl.SimPackageImpl#getSlicingConfiguration()
 	 * @generated
 	 */
-	int SLICING_CONFIGURATION = 3;
+	int SLICING_CONFIGURATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLICING_CONFIGURATION__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Intent</b></em>' container reference.
@@ -287,7 +250,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CONFIGURATION__INTENT = 0;
+	int SLICING_CONFIGURATION__INTENT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Containment Hierarchy</b></em>' attribute.
@@ -296,7 +259,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CONFIGURATION__CONTAINMENT_HIERARCHY = 1;
+	int SLICING_CONFIGURATION__CONTAINMENT_HIERARCHY = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Contained Element</b></em>' attribute.
@@ -305,7 +268,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CONFIGURATION__CONTAINED_ELEMENT = 2;
+	int SLICING_CONFIGURATION__CONTAINED_ELEMENT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Generalization Hierarchy</b></em>' attribute.
@@ -314,7 +277,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CONFIGURATION__GENERALIZATION_HIERARCHY = 3;
+	int SLICING_CONFIGURATION__GENERALIZATION_HIERARCHY = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Referenced Element</b></em>' attribute.
@@ -323,7 +286,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CONFIGURATION__REFERENCED_ELEMENT = 4;
+	int SLICING_CONFIGURATION__REFERENCED_ELEMENT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Slicing Configuration</em>' class.
@@ -332,16 +295,7 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLICING_CONFIGURATION_FEATURE_COUNT = 5;
-
-	/**
-	 * The number of operations of the '<em>Slicing Configuration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLICING_CONFIGURATION_OPERATION_COUNT = 0;
+	int SLICING_CONFIGURATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link eu.artist.migration.mut.slicing.sim.ContainmentHierarchy <em>Containment Hierarchy</em>}' enum.
@@ -405,17 +359,6 @@ public interface SimPackage extends EPackage {
 	EClass getSlicingIntent();
 
 	/**
-	 * Returns the meta object for the attribute '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.SlicingIntent#getName()
-	 * @see #getSlicingIntent()
-	 * @generated
-	 */
-	EAttribute getSlicingIntent_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -427,10 +370,10 @@ public interface SimPackage extends EPackage {
 	EAttribute getSlicingIntent_Description();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getInject <em>Inject</em>}'.
+	 * Returns the meta object for the attribute '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getInject <em>Inject</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Inject</em>'.
+	 * @return the meta object for the attribute '<em>Inject</em>'.
 	 * @see eu.artist.migration.mut.slicing.sim.SlicingIntent#getInject()
 	 * @see #getSlicingIntent()
 	 * @generated
@@ -438,10 +381,10 @@ public interface SimPackage extends EPackage {
 	EAttribute getSlicingIntent_Inject();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getExtract <em>Extract</em>}'.
+	 * Returns the meta object for the attribute '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getExtract <em>Extract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Extract</em>'.
+	 * @return the meta object for the attribute '<em>Extract</em>'.
 	 * @see eu.artist.migration.mut.slicing.sim.SlicingIntent#getExtract()
 	 * @see #getSlicingIntent()
 	 * @generated
@@ -492,26 +435,15 @@ public interface SimPackage extends EPackage {
 	EReference getSlicingCriterion_Intent();
 
 	/**
-	 * Returns the meta object for the reference list '{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getFeatures <em>Features</em>}'.
+	 * Returns the meta object for the attribute list '{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getInject <em>Inject</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Features</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.SlicingCriterion#getFeatures()
+	 * @return the meta object for the attribute list '<em>Inject</em>'.
+	 * @see eu.artist.migration.mut.slicing.sim.SlicingCriterion#getInject()
 	 * @see #getSlicingCriterion()
 	 * @generated
 	 */
-	EReference getSlicingCriterion_Features();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getValues <em>Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Values</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.SlicingCriterion#getValues()
-	 * @see #getSlicingCriterion()
-	 * @generated
-	 */
-	EReference getSlicingCriterion_Values();
+	EAttribute getSlicingCriterion_Inject();
 
 	/**
 	 * Returns the meta object for the reference list '{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getElement <em>Element</em>}'.
@@ -523,49 +455,6 @@ public interface SimPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSlicingCriterion_Element();
-
-	/**
-	 * Returns the meta object for class '{@link eu.artist.migration.mut.slicing.sim.FeatureValue <em>Feature Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Feature Value</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.FeatureValue
-	 * @generated
-	 */
-	EClass getFeatureValue();
-
-	/**
-	 * Returns the meta object for the container reference '{@link eu.artist.migration.mut.slicing.sim.FeatureValue#getCriterion <em>Criterion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Criterion</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.FeatureValue#getCriterion()
-	 * @see #getFeatureValue()
-	 * @generated
-	 */
-	EReference getFeatureValue_Criterion();
-
-	/**
-	 * Returns the meta object for the reference '{@link eu.artist.migration.mut.slicing.sim.FeatureValue#getFeature <em>Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Feature</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.FeatureValue#getFeature()
-	 * @see #getFeatureValue()
-	 * @generated
-	 */
-	EReference getFeatureValue_Feature();
-
-	/**
-	 * Returns the meta object for the attribute '{@link eu.artist.migration.mut.slicing.sim.FeatureValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see eu.artist.migration.mut.slicing.sim.FeatureValue#getValue()
-	 * @see #getFeatureValue()
-	 * @generated
-	 */
-	EAttribute getFeatureValue_Value();
 
 	/**
 	 * Returns the meta object for class '{@link eu.artist.migration.mut.slicing.sim.SlicingConfiguration <em>Slicing Configuration</em>}'.
@@ -633,6 +522,27 @@ public interface SimPackage extends EPackage {
 	EAttribute getSlicingConfiguration_ReferencedElement();
 
 	/**
+	 * Returns the meta object for class '{@link eu.artist.migration.mut.slicing.sim.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see eu.artist.migration.mut.slicing.sim.NamedElement
+	 * @generated
+	 */
+	EClass getNamedElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link eu.artist.migration.mut.slicing.sim.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see eu.artist.migration.mut.slicing.sim.NamedElement#getName()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Name();
+
+	/**
 	 * Returns the meta object for enum '{@link eu.artist.migration.mut.slicing.sim.ContainmentHierarchy <em>Containment Hierarchy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -697,7 +607,6 @@ public interface SimPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -716,14 +625,6 @@ public interface SimPackage extends EPackage {
 		EClass SLICING_INTENT = eINSTANCE.getSlicingIntent();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SLICING_INTENT__NAME = eINSTANCE.getSlicingIntent_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -732,7 +633,7 @@ public interface SimPackage extends EPackage {
 		EAttribute SLICING_INTENT__DESCRIPTION = eINSTANCE.getSlicingIntent_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Inject</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Inject</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -740,7 +641,7 @@ public interface SimPackage extends EPackage {
 		EAttribute SLICING_INTENT__INJECT = eINSTANCE.getSlicingIntent_Inject();
 
 		/**
-		 * The meta object literal for the '<em><b>Extract</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Extract</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -782,20 +683,12 @@ public interface SimPackage extends EPackage {
 		EReference SLICING_CRITERION__INTENT = eINSTANCE.getSlicingCriterion_Intent();
 
 		/**
-		 * The meta object literal for the '<em><b>Features</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Inject</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SLICING_CRITERION__FEATURES = eINSTANCE.getSlicingCriterion_Features();
-
-		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SLICING_CRITERION__VALUES = eINSTANCE.getSlicingCriterion_Values();
+		EAttribute SLICING_CRITERION__INJECT = eINSTANCE.getSlicingCriterion_Inject();
 
 		/**
 		 * The meta object literal for the '<em><b>Element</b></em>' reference list feature.
@@ -804,40 +697,6 @@ public interface SimPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SLICING_CRITERION__ELEMENT = eINSTANCE.getSlicingCriterion_Element();
-
-		/**
-		 * The meta object literal for the '{@link eu.artist.migration.mut.slicing.sim.impl.FeatureValueImpl <em>Feature Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see eu.artist.migration.mut.slicing.sim.impl.FeatureValueImpl
-		 * @see eu.artist.migration.mut.slicing.sim.impl.SimPackageImpl#getFeatureValue()
-		 * @generated
-		 */
-		EClass FEATURE_VALUE = eINSTANCE.getFeatureValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Criterion</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE_VALUE__CRITERION = eINSTANCE.getFeatureValue_Criterion();
-
-		/**
-		 * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE_VALUE__FEATURE = eINSTANCE.getFeatureValue_Feature();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FEATURE_VALUE__VALUE = eINSTANCE.getFeatureValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link eu.artist.migration.mut.slicing.sim.impl.SlicingConfigurationImpl <em>Slicing Configuration</em>}' class.
@@ -888,6 +747,24 @@ public interface SimPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SLICING_CONFIGURATION__REFERENCED_ELEMENT = eINSTANCE.getSlicingConfiguration_ReferencedElement();
+
+		/**
+		 * The meta object literal for the '{@link eu.artist.migration.mut.slicing.sim.NamedElement <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see eu.artist.migration.mut.slicing.sim.NamedElement
+		 * @see eu.artist.migration.mut.slicing.sim.impl.SimPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
 		 * The meta object literal for the '{@link eu.artist.migration.mut.slicing.sim.ContainmentHierarchy <em>Containment Hierarchy</em>}' enum.

@@ -18,9 +18,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Feature;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Slicing Criterion</b></em>'.
@@ -30,17 +27,16 @@ import org.eclipse.uml2.uml.Feature;
  * The following features are supported:
  * <ul>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getIntent <em>Intent</em>}</li>
- *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getFeatures <em>Features</em>}</li>
- *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getValues <em>Values</em>}</li>
+ *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getInject <em>Inject</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingCriterion#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
  *
  * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingCriterion()
- * @model
+ * @model annotation="gmf.node label='name'"
  * @generated
  */
-public interface SlicingCriterion extends EObject {
+public interface SlicingCriterion extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Intent</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getCriteria <em>Criteria</em>}'.
@@ -70,42 +66,26 @@ public interface SlicingCriterion extends EObject {
 	void setIntent(SlicingIntent value);
 
 	/**
-	 * Returns the value of the '<em><b>Features</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.uml2.uml.Feature}.
+	 * Returns the value of the '<em><b>Inject</b></em>' attribute list.
+	 * The list contents are of type {@link eu.artist.migration.mut.slicing.sim.ModelType}.
+	 * The literals are from the enumeration {@link eu.artist.migration.mut.slicing.sim.ModelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Features</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Inject</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Features</em>' reference list.
-	 * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingCriterion_Features()
-	 * @model
+	 * @return the value of the '<em>Inject</em>' attribute list.
+	 * @see eu.artist.migration.mut.slicing.sim.ModelType
+	 * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingCriterion_Inject()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Feature> getFeatures();
-
-	/**
-	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link eu.artist.migration.mut.slicing.sim.FeatureValue}.
-	 * It is bidirectional and its opposite is '{@link eu.artist.migration.mut.slicing.sim.FeatureValue#getCriterion <em>Criterion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Values</em>' containment reference list.
-	 * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingCriterion_Values()
-	 * @see eu.artist.migration.mut.slicing.sim.FeatureValue#getCriterion
-	 * @model opposite="criterion" containment="true"
-	 * @generated
-	 */
-	EList<FeatureValue> getValues();
+	EList<ModelType> getInject();
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.uml2.uml.Element}.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Element</em>' reference list isn't clear,
@@ -117,6 +97,6 @@ public interface SlicingCriterion extends EObject {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<Element> getElement();
+	EList<EObject> getElement();
 
 } // SlicingCriterion

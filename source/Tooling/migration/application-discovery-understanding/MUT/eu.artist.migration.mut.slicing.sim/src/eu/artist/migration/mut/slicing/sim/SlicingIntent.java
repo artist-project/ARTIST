@@ -16,8 +16,6 @@ package eu.artist.migration.mut.slicing.sim;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Slicing Intent</b></em>'.
@@ -26,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getDescription <em>Description</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getInject <em>Inject</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getExtract <em>Extract</em>}</li>
@@ -39,33 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SlicingIntent extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingIntent_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface SlicingIntent extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,40 +64,62 @@ public interface SlicingIntent extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Inject</b></em>' attribute list.
-	 * The list contents are of type {@link eu.artist.migration.mut.slicing.sim.ModelType}.
+	 * Returns the value of the '<em><b>Inject</b></em>' attribute.
 	 * The literals are from the enumeration {@link eu.artist.migration.mut.slicing.sim.ModelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Inject</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Inject</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inject</em>' attribute list.
+	 * @return the value of the '<em>Inject</em>' attribute.
 	 * @see eu.artist.migration.mut.slicing.sim.ModelType
+	 * @see #setInject(ModelType)
 	 * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingIntent_Inject()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<ModelType> getInject();
+	ModelType getInject();
 
 	/**
-	 * Returns the value of the '<em><b>Extract</b></em>' attribute list.
-	 * The list contents are of type {@link eu.artist.migration.mut.slicing.sim.ModelType}.
+	 * Sets the value of the '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getInject <em>Inject</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inject</em>' attribute.
+	 * @see eu.artist.migration.mut.slicing.sim.ModelType
+	 * @see #getInject()
+	 * @generated
+	 */
+	void setInject(ModelType value);
+
+	/**
+	 * Returns the value of the '<em><b>Extract</b></em>' attribute.
 	 * The literals are from the enumeration {@link eu.artist.migration.mut.slicing.sim.ModelType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Extract</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Extract</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extract</em>' attribute list.
+	 * @return the value of the '<em>Extract</em>' attribute.
 	 * @see eu.artist.migration.mut.slicing.sim.ModelType
+	 * @see #setExtract(ModelType)
 	 * @see eu.artist.migration.mut.slicing.sim.SimPackage#getSlicingIntent_Extract()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<ModelType> getExtract();
+	ModelType getExtract();
+
+	/**
+	 * Sets the value of the '{@link eu.artist.migration.mut.slicing.sim.SlicingIntent#getExtract <em>Extract</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Extract</em>' attribute.
+	 * @see eu.artist.migration.mut.slicing.sim.ModelType
+	 * @see #getExtract()
+	 * @generated
+	 */
+	void setExtract(ModelType value);
 
 	/**
 	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference list.

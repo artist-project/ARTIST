@@ -15,7 +15,6 @@
 package eu.artist.migration.mut.slicing.sim.provider;
 
 
-import eu.artist.migration.mut.slicing.sim.ContainmentHierarchy;
 import eu.artist.migration.mut.slicing.sim.SimPackage;
 import eu.artist.migration.mut.slicing.sim.SlicingConfiguration;
 
@@ -73,12 +72,35 @@ public class SlicingConfigurationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 			addContainmentHierarchyPropertyDescriptor(object);
 			addContainedElementPropertyDescriptor(object);
 			addGeneralizationHierarchyPropertyDescriptor(object);
 			addReferencedElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 SimPackage.Literals.NAMED_ELEMENT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -188,8 +210,7 @@ public class SlicingConfigurationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ContainmentHierarchy labelValue = ((SlicingConfiguration)object).getContainmentHierarchy();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((SlicingConfiguration)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SlicingConfiguration_type") :
 			getString("_UI_SlicingConfiguration_type") + " " + label;
@@ -208,6 +229,7 @@ public class SlicingConfigurationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SlicingConfiguration.class)) {
+			case SimPackage.SLICING_CONFIGURATION__NAME:
 			case SimPackage.SLICING_CONFIGURATION__CONTAINMENT_HIERARCHY:
 			case SimPackage.SLICING_CONFIGURATION__CONTAINED_ELEMENT:
 			case SimPackage.SLICING_CONFIGURATION__GENERALIZATION_HIERARCHY:

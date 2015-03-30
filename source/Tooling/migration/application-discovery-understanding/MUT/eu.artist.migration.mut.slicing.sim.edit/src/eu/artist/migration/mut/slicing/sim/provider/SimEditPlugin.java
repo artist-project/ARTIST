@@ -18,10 +18,6 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
-
-import org.eclipse.uml2.uml.edit.UMLEditPlugin;
-
 /**
  * This is the central singleton for the Sim edit plugin.
  * <!-- begin-user-doc -->
@@ -54,8 +50,6 @@ public final class SimEditPlugin extends EMFPlugin {
 	public SimEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     EcoreEditPlugin.INSTANCE,
-		     UMLEditPlugin.INSTANCE,
 		   });
 	}
 

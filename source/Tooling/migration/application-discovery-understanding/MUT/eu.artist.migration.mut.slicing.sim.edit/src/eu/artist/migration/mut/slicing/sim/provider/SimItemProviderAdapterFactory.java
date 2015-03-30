@@ -130,29 +130,6 @@ public class SimItemProviderAdapterFactory extends SimAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link eu.artist.migration.mut.slicing.sim.FeatureValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FeatureValueItemProvider featureValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link eu.artist.migration.mut.slicing.sim.FeatureValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFeatureValueAdapter() {
-		if (featureValueItemProvider == null) {
-			featureValueItemProvider = new FeatureValueItemProvider(this);
-		}
-
-		return featureValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link eu.artist.migration.mut.slicing.sim.SlicingConfiguration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,7 +253,6 @@ public class SimItemProviderAdapterFactory extends SimAdapterFactory implements 
 	public void dispose() {
 		if (slicingIntentItemProvider != null) slicingIntentItemProvider.dispose();
 		if (slicingCriterionItemProvider != null) slicingCriterionItemProvider.dispose();
-		if (featureValueItemProvider != null) featureValueItemProvider.dispose();
 		if (slicingConfigurationItemProvider != null) slicingConfigurationItemProvider.dispose();
 	}
 

@@ -38,7 +38,9 @@ public enum ReferencedElement implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM(0, "Custom", "Custom"), /**
+	CUSTOM(0, "Custom", "Custom"),
+
+	/**
 	 * The '<em><b>Package Scoped</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +48,9 @@ public enum ReferencedElement implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PACKAGE_SCOPED(1, "PackageScoped", "PackageScoped"), /**
+	PACKAGE_SCOPED(1, "PackageScoped", "PackageScoped"),
+
+	/**
 	 * The '<em><b>Model Scoped</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,7 +58,9 @@ public enum ReferencedElement implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MODEL_SCOPED(2, "ModelScoped", "ModelScoped"), /**
+	MODEL_SCOPED(2, "ModelScoped", "ModelScoped"),
+
+	/**
 	 * The '<em><b>All</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/eu.artist.migration.mut.slicing.sim/src"
+    modelPluginID="eu.artist.migration.mut.slicing.sim" modelName="Sim" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>sim.emf</foreignModel>
+  <genPackages prefix="Sim" basePackage="eu.artist.migration.mut.slicing" disposableProviderFactory="true"
+      ecorePackage="sim.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sim.ecore#//ContainmentHierarchy">
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainmentHierarchy/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainmentHierarchy/Nearest"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainmentHierarchy/Complete"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sim.ecore#//ContainedElement">
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainedElement/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainedElement/All"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainedElement/AllFeatures"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainedElement/AllBehavioralFeatures"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ContainedElement/AllStructuralFeatures"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sim.ecore#//ReferencedElement">
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ReferencedElement/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ReferencedElement/PackageScoped"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ReferencedElement/ModelScoped"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ReferencedElement/All"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sim.ecore#//GeneralizationHierarchy">
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//GeneralizationHierarchy/Custom"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//GeneralizationHierarchy/PackageScoped"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//GeneralizationHierarchy/ModelScoped"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//GeneralizationHierarchy/All"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//GeneralizationHierarchy/PushDown"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sim.ecore#//ModelType">
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ModelType/Annotation"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ModelType/ObjectStructure"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ModelType/ClassStructure"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ModelType/IntraClassBehavior"/>
+      <genEnumLiterals ecoreEnumLiteral="sim.ecore#//ModelType/InterClassBehavior"/>
+    </genEnums>
+    <genClasses ecoreClass="sim.ecore#//SlicingIntent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingIntent/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingIntent/inject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingIntent/extract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SlicingIntent/criteria"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sim.ecore#//SlicingIntent/configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="sim.ecore#//SlicingCriterion">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SlicingCriterion/intent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingCriterion/inject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sim.ecore#//SlicingCriterion/element"/>
+    </genClasses>
+    <genClasses ecoreClass="sim.ecore#//SlicingConfiguration">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sim.ecore#//SlicingConfiguration/intent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingConfiguration/containmentHierarchy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingConfiguration/containedElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingConfiguration/generalizationHierarchy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//SlicingConfiguration/referencedElement"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sim.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sim.ecore#//NamedElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -16,9 +16,9 @@ package eu.artist.migration.mut.slicing.sim.impl;
 
 import eu.artist.migration.mut.slicing.sim.ContainedElement;
 import eu.artist.migration.mut.slicing.sim.ContainmentHierarchy;
-import eu.artist.migration.mut.slicing.sim.FeatureValue;
 import eu.artist.migration.mut.slicing.sim.GeneralizationHierarchy;
 import eu.artist.migration.mut.slicing.sim.ModelType;
+import eu.artist.migration.mut.slicing.sim.NamedElement;
 import eu.artist.migration.mut.slicing.sim.ReferencedElement;
 import eu.artist.migration.mut.slicing.sim.SimFactory;
 import eu.artist.migration.mut.slicing.sim.SimPackage;
@@ -33,8 +33,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.uml2.uml.UMLPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,14 +60,14 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass featureValueEClass = null;
+	private EClass slicingConfigurationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass slicingConfigurationEClass = null;
+	private EClass namedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,9 +150,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		UMLPackage.eINSTANCE.eClass();
-
 		// Create package meta-data objects
 		theSimPackage.createPackageContents();
 
@@ -184,7 +179,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicingIntent_Name() {
+	public EAttribute getSlicingIntent_Description() {
 		return (EAttribute)slicingIntentEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -193,7 +188,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicingIntent_Description() {
+	public EAttribute getSlicingIntent_Inject() {
 		return (EAttribute)slicingIntentEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -202,7 +197,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicingIntent_Inject() {
+	public EAttribute getSlicingIntent_Extract() {
 		return (EAttribute)slicingIntentEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -211,17 +206,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSlicingIntent_Extract() {
-		return (EAttribute)slicingIntentEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getSlicingIntent_Criteria() {
-		return (EReference)slicingIntentEClass.getEStructuralFeatures().get(4);
+		return (EReference)slicingIntentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -230,7 +216,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * @generated
 	 */
 	public EReference getSlicingIntent_Configuration() {
-		return (EReference)slicingIntentEClass.getEStructuralFeatures().get(5);
+		return (EReference)slicingIntentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -256,17 +242,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSlicingCriterion_Features() {
-		return (EReference)slicingCriterionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSlicingCriterion_Values() {
-		return (EReference)slicingCriterionEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSlicingCriterion_Inject() {
+		return (EAttribute)slicingCriterionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -275,43 +252,7 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 * @generated
 	 */
 	public EReference getSlicingCriterion_Element() {
-		return (EReference)slicingCriterionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFeatureValue() {
-		return featureValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFeatureValue_Criterion() {
-		return (EReference)featureValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFeatureValue_Feature() {
-		return (EReference)featureValueEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFeatureValue_Value() {
-		return (EAttribute)featureValueEClass.getEStructuralFeatures().get(2);
+		return (EReference)slicingCriterionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -366,6 +307,24 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 	 */
 	public EAttribute getSlicingConfiguration_ReferencedElement() {
 		return (EAttribute)slicingConfigurationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedElement() {
+		return namedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -442,7 +401,6 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 
 		// Create classes and their features
 		slicingIntentEClass = createEClass(SLICING_INTENT);
-		createEAttribute(slicingIntentEClass, SLICING_INTENT__NAME);
 		createEAttribute(slicingIntentEClass, SLICING_INTENT__DESCRIPTION);
 		createEAttribute(slicingIntentEClass, SLICING_INTENT__INJECT);
 		createEAttribute(slicingIntentEClass, SLICING_INTENT__EXTRACT);
@@ -451,14 +409,8 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 
 		slicingCriterionEClass = createEClass(SLICING_CRITERION);
 		createEReference(slicingCriterionEClass, SLICING_CRITERION__INTENT);
-		createEReference(slicingCriterionEClass, SLICING_CRITERION__FEATURES);
-		createEReference(slicingCriterionEClass, SLICING_CRITERION__VALUES);
+		createEAttribute(slicingCriterionEClass, SLICING_CRITERION__INJECT);
 		createEReference(slicingCriterionEClass, SLICING_CRITERION__ELEMENT);
-
-		featureValueEClass = createEClass(FEATURE_VALUE);
-		createEReference(featureValueEClass, FEATURE_VALUE__CRITERION);
-		createEReference(featureValueEClass, FEATURE_VALUE__FEATURE);
-		createEAttribute(featureValueEClass, FEATURE_VALUE__VALUE);
 
 		slicingConfigurationEClass = createEClass(SLICING_CONFIGURATION);
 		createEReference(slicingConfigurationEClass, SLICING_CONFIGURATION__INTENT);
@@ -466,6 +418,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 		createEAttribute(slicingConfigurationEClass, SLICING_CONFIGURATION__CONTAINED_ELEMENT);
 		createEAttribute(slicingConfigurationEClass, SLICING_CONFIGURATION__GENERALIZATION_HIERARCHY);
 		createEAttribute(slicingConfigurationEClass, SLICING_CONFIGURATION__REFERENCED_ELEMENT);
+
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		// Create enums
 		containmentHierarchyEEnum = createEEnum(CONTAINMENT_HIERARCHY);
@@ -498,34 +453,27 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		UMLPackage theUMLPackage = (UMLPackage)EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		slicingIntentEClass.getESuperTypes().add(this.getNamedElement());
+		slicingCriterionEClass.getESuperTypes().add(this.getNamedElement());
+		slicingConfigurationEClass.getESuperTypes().add(this.getNamedElement());
 
-		// Initialize classes, features, and operations; add parameters
+		// Initialize classes and features; add operations and parameters
 		initEClass(slicingIntentEClass, SlicingIntent.class, "SlicingIntent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSlicingIntent_Name(), ecorePackage.getEString(), "name", null, 0, 1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicingIntent_Description(), ecorePackage.getEString(), "description", null, 0, 1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSlicingIntent_Inject(), this.getModelType(), "inject", null, 1, -1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSlicingIntent_Extract(), this.getModelType(), "extract", null, 1, -1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlicingIntent_Inject(), this.getModelType(), "inject", null, 1, 1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlicingIntent_Extract(), this.getModelType(), "extract", null, 1, 1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicingIntent_Criteria(), this.getSlicingCriterion(), this.getSlicingCriterion_Intent(), "criteria", null, 1, -1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSlicingIntent_Configuration(), this.getSlicingConfiguration(), this.getSlicingConfiguration_Intent(), "configuration", null, 0, 1, SlicingIntent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slicingCriterionEClass, SlicingCriterion.class, "SlicingCriterion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSlicingCriterion_Intent(), this.getSlicingIntent(), this.getSlicingIntent_Criteria(), "intent", null, 1, 1, SlicingCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSlicingCriterion_Features(), theUMLPackage.getFeature(), null, "features", null, 0, -1, SlicingCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSlicingCriterion_Values(), this.getFeatureValue(), this.getFeatureValue_Criterion(), "values", null, 0, -1, SlicingCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSlicingCriterion_Element(), theUMLPackage.getElement(), null, "element", null, 1, -1, SlicingCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(featureValueEClass, FeatureValue.class, "FeatureValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFeatureValue_Criterion(), this.getSlicingCriterion(), this.getSlicingCriterion_Values(), "criterion", null, 1, 1, FeatureValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFeatureValue_Feature(), theUMLPackage.getFeature(), null, "feature", null, 1, 1, FeatureValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFeatureValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, FeatureValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlicingCriterion_Inject(), this.getModelType(), "inject", null, 1, -1, SlicingCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSlicingCriterion_Element(), ecorePackage.getEObject(), null, "element", null, 1, -1, SlicingCriterion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slicingConfigurationEClass, SlicingConfiguration.class, "SlicingConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSlicingConfiguration_Intent(), this.getSlicingIntent(), this.getSlicingIntent_Configuration(), "intent", null, 1, 1, SlicingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -533,6 +481,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 		initEAttribute(getSlicingConfiguration_ContainedElement(), this.getContainedElement(), "containedElement", null, 0, 1, SlicingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicingConfiguration_GeneralizationHierarchy(), this.getGeneralizationHierarchy(), "generalizationHierarchy", null, 0, 1, SlicingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSlicingConfiguration_ReferencedElement(), this.getReferencedElement(), "referencedElement", null, 0, 1, SlicingConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(containmentHierarchyEEnum, ContainmentHierarchy.class, "ContainmentHierarchy");
@@ -543,6 +494,9 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 		initEEnum(containedElementEEnum, ContainedElement.class, "ContainedElement");
 		addEEnumLiteral(containedElementEEnum, ContainedElement.CUSTOM);
 		addEEnumLiteral(containedElementEEnum, ContainedElement.ALL);
+		addEEnumLiteral(containedElementEEnum, ContainedElement.ALL_FEATURES);
+		addEEnumLiteral(containedElementEEnum, ContainedElement.ALL_BEHAVIORAL_FEATURES);
+		addEEnumLiteral(containedElementEEnum, ContainedElement.ALL_STRUCTURAL_FEATURES);
 
 		initEEnum(referencedElementEEnum, ReferencedElement.class, "ReferencedElement");
 		addEEnumLiteral(referencedElementEEnum, ReferencedElement.CUSTOM);
@@ -566,6 +520,49 @@ public class SimPackageImpl extends EPackageImpl implements SimPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// gmf.diagram
+		createGmfAnnotations();
+		// gmf.node
+		createGmf_1Annotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>gmf.diagram</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGmfAnnotations() {
+		String source = "gmf.diagram";	
+		addAnnotation
+		  (slicingIntentEClass, 
+		   source, 
+		   new String[] {
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>gmf.node</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGmf_1Annotations() {
+		String source = "gmf.node";	
+		addAnnotation
+		  (slicingCriterionEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name"
+		   });	
+		addAnnotation
+		  (slicingConfigurationEClass, 
+		   source, 
+		   new String[] {
+			 "label", "name"
+		   });
 	}
 
 } //SimPackageImpl

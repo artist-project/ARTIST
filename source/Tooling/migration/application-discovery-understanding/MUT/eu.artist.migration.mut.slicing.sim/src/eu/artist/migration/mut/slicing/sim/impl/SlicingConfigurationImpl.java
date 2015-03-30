@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingConfigurationImpl#getIntent <em>Intent</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingConfigurationImpl#getContainmentHierarchy <em>Containment Hierarchy</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingConfigurationImpl#getContainedElement <em>Contained Element</em>}</li>
@@ -50,7 +51,27 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container implements SlicingConfiguration {
+public class SlicingConfigurationImpl extends EObjectImpl implements SlicingConfiguration {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getContainmentHierarchy() <em>Containment Hierarchy</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,27 @@ public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	protected EClass eStaticClass() {
 		return SimPackage.Literals.SLICING_CONFIGURATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SLICING_CONFIGURATION__NAME, oldName, name));
 	}
 
 	/**
@@ -327,6 +369,8 @@ public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SimPackage.SLICING_CONFIGURATION__NAME:
+				return getName();
 			case SimPackage.SLICING_CONFIGURATION__INTENT:
 				return getIntent();
 			case SimPackage.SLICING_CONFIGURATION__CONTAINMENT_HIERARCHY:
@@ -349,6 +393,9 @@ public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SimPackage.SLICING_CONFIGURATION__NAME:
+				setName((String)newValue);
+				return;
 			case SimPackage.SLICING_CONFIGURATION__INTENT:
 				setIntent((SlicingIntent)newValue);
 				return;
@@ -376,6 +423,9 @@ public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SimPackage.SLICING_CONFIGURATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case SimPackage.SLICING_CONFIGURATION__INTENT:
 				setIntent((SlicingIntent)null);
 				return;
@@ -403,6 +453,8 @@ public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SimPackage.SLICING_CONFIGURATION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SimPackage.SLICING_CONFIGURATION__INTENT:
 				return getIntent() != null;
 			case SimPackage.SLICING_CONFIGURATION__CONTAINMENT_HIERARCHY:
@@ -427,7 +479,9 @@ public class SlicingConfigurationImpl extends MinimalEObjectImpl.Container imple
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (containmentHierarchy: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", containmentHierarchy: ");
 		result.append(containmentHierarchy);
 		result.append(", containedElement: ");
 		result.append(containedElement);

@@ -14,7 +14,7 @@
  */
 package eu.artist.migration.mut.slicing.sim.impl;
 
-import eu.artist.migration.mut.slicing.sim.FeatureValue;
+import eu.artist.migration.mut.slicing.sim.ModelType;
 import eu.artist.migration.mut.slicing.sim.SimPackage;
 import eu.artist.migration.mut.slicing.sim.SlicingCriterion;
 import eu.artist.migration.mut.slicing.sim.SlicingIntent;
@@ -27,18 +27,15 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Feature;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,35 +44,45 @@ import org.eclipse.uml2.uml.Feature;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl#getIntent <em>Intent</em>}</li>
- *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl#getFeatures <em>Features</em>}</li>
- *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl#getInject <em>Inject</em>}</li>
  *   <li>{@link eu.artist.migration.mut.slicing.sim.impl.SlicingCriterionImpl#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implements SlicingCriterion {
+public class SlicingCriterionImpl extends EObjectImpl implements SlicingCriterion {
 	/**
-	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' reference list.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFeatures()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Feature> features;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValues()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<FeatureValue> values;
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInject() <em>Inject</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInject()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModelType> inject;
 
 	/**
 	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference list.
@@ -85,7 +92,7 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> element;
+	protected EList<EObject> element;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +111,27 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	protected EClass eStaticClass() {
 		return SimPackage.Literals.SLICING_CRITERION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimPackage.SLICING_CRITERION__NAME, oldName, name));
 	}
 
 	/**
@@ -152,11 +180,11 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Feature> getFeatures() {
-		if (features == null) {
-			features = new EObjectResolvingEList<Feature>(Feature.class, this, SimPackage.SLICING_CRITERION__FEATURES);
+	public EList<ModelType> getInject() {
+		if (inject == null) {
+			inject = new EDataTypeUniqueEList<ModelType>(ModelType.class, this, SimPackage.SLICING_CRITERION__INJECT);
 		}
-		return features;
+		return inject;
 	}
 
 	/**
@@ -164,21 +192,9 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<FeatureValue> getValues() {
-		if (values == null) {
-			values = new EObjectContainmentWithInverseEList<FeatureValue>(FeatureValue.class, this, SimPackage.SLICING_CRITERION__VALUES, SimPackage.FEATURE_VALUE__CRITERION);
-		}
-		return values;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Element> getElement() {
+	public EList<EObject> getElement() {
 		if (element == null) {
-			element = new EObjectResolvingEList<Element>(Element.class, this, SimPackage.SLICING_CRITERION__ELEMENT);
+			element = new EObjectResolvingEList<EObject>(EObject.class, this, SimPackage.SLICING_CRITERION__ELEMENT);
 		}
 		return element;
 	}
@@ -188,7 +204,6 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -196,8 +211,6 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetIntent((SlicingIntent)otherEnd, msgs);
-			case SimPackage.SLICING_CRITERION__VALUES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getValues()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -212,8 +225,6 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case SimPackage.SLICING_CRITERION__INTENT:
 				return basicSetIntent(null, msgs);
-			case SimPackage.SLICING_CRITERION__VALUES:
-				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -240,12 +251,12 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SimPackage.SLICING_CRITERION__NAME:
+				return getName();
 			case SimPackage.SLICING_CRITERION__INTENT:
 				return getIntent();
-			case SimPackage.SLICING_CRITERION__FEATURES:
-				return getFeatures();
-			case SimPackage.SLICING_CRITERION__VALUES:
-				return getValues();
+			case SimPackage.SLICING_CRITERION__INJECT:
+				return getInject();
 			case SimPackage.SLICING_CRITERION__ELEMENT:
 				return getElement();
 		}
@@ -261,20 +272,19 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SimPackage.SLICING_CRITERION__NAME:
+				setName((String)newValue);
+				return;
 			case SimPackage.SLICING_CRITERION__INTENT:
 				setIntent((SlicingIntent)newValue);
 				return;
-			case SimPackage.SLICING_CRITERION__FEATURES:
-				getFeatures().clear();
-				getFeatures().addAll((Collection<? extends Feature>)newValue);
-				return;
-			case SimPackage.SLICING_CRITERION__VALUES:
-				getValues().clear();
-				getValues().addAll((Collection<? extends FeatureValue>)newValue);
+			case SimPackage.SLICING_CRITERION__INJECT:
+				getInject().clear();
+				getInject().addAll((Collection<? extends ModelType>)newValue);
 				return;
 			case SimPackage.SLICING_CRITERION__ELEMENT:
 				getElement().clear();
-				getElement().addAll((Collection<? extends Element>)newValue);
+				getElement().addAll((Collection<? extends EObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -288,14 +298,14 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SimPackage.SLICING_CRITERION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case SimPackage.SLICING_CRITERION__INTENT:
 				setIntent((SlicingIntent)null);
 				return;
-			case SimPackage.SLICING_CRITERION__FEATURES:
-				getFeatures().clear();
-				return;
-			case SimPackage.SLICING_CRITERION__VALUES:
-				getValues().clear();
+			case SimPackage.SLICING_CRITERION__INJECT:
+				getInject().clear();
 				return;
 			case SimPackage.SLICING_CRITERION__ELEMENT:
 				getElement().clear();
@@ -312,16 +322,34 @@ public class SlicingCriterionImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SimPackage.SLICING_CRITERION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SimPackage.SLICING_CRITERION__INTENT:
 				return getIntent() != null;
-			case SimPackage.SLICING_CRITERION__FEATURES:
-				return features != null && !features.isEmpty();
-			case SimPackage.SLICING_CRITERION__VALUES:
-				return values != null && !values.isEmpty();
+			case SimPackage.SLICING_CRITERION__INJECT:
+				return inject != null && !inject.isEmpty();
 			case SimPackage.SLICING_CRITERION__ELEMENT:
 				return element != null && !element.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", inject: ");
+		result.append(inject);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SlicingCriterionImpl
