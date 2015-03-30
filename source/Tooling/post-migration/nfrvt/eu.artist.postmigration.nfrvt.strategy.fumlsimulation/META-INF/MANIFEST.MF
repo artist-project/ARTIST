@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fUML Performance Simulation
+Bundle-SymbolicName: eu.artist.postmigration.nfrvt.strategy.fumlsimulation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.postmigration.nfrvt.strategy.fumlsimulation.FUMLSimulationActivator
+Bundle-Vendor: ARTIST
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.modelexecution.fuml.nfr,
+ org.eclipse.debug.core,
+ eu.artist.postmigration.nfrvt.lang.util,
+ org.eclipse.debug.ui,
+ org.eclipse.emf.common.ui,
+ org.eclipse.emf.edit,
+ org.modelexecution.fumldebug.ui.commons,
+ eu.artist.postmigration.nfrvt.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: eu.artist.postmigration.nfrvt.strategy.fumlsimulation,
+ eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.internal,
+ eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.ui

@@ -1,22 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel.impl;
 
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage;
-
-import eu.artist.postmigration.nfrvt.lang.esl.esl.EslPackage;
 
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQualitativePropertyEvaluation;
@@ -30,9 +16,6 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalModelEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.HardGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.NumberExpressionEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.SoftGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
@@ -40,6 +23,8 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEv
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Verdict;
 
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GmlPackage;
+
+import eu.artist.postmigration.nfrvt.lang.pml.pml.PmlPackage;
 
 import eu.artist.postmigration.nfrvt.lang.tsl.tsl.TslPackage;
 
@@ -96,13 +81,6 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    * @generated
    */
   private EClass appliedQuantitativePropertyEvaluationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass quantitativePropertyRealizationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -172,20 +150,6 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum realizationLevelKindEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum realizationTypeKindEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EEnum verdictEEnum = null;
 
   /**
@@ -237,8 +201,8 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
     isInited = true;
 
     // Initialize simple dependencies
-    EslPackage.eINSTANCE.eClass();
     GmlPackage.eINSTANCE.eClass();
+    PmlPackage.eINSTANCE.eClass();
     TslPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -271,19 +235,9 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMigrationEvaluation_Imports()
-  {
-    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getMigrationEvaluation_Name()
   {
-    return (EAttribute)migrationEvaluationEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)migrationEvaluationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -293,7 +247,7 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    */
   public EAttribute getMigrationEvaluation_Date()
   {
-    return (EAttribute)migrationEvaluationEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)migrationEvaluationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -303,7 +257,7 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    */
   public EReference getMigrationEvaluation_Transformations()
   {
-    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(3);
+    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -313,7 +267,7 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    */
   public EReference getMigrationEvaluation_PropertyEvaluations()
   {
-    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(4);
+    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -323,7 +277,7 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    */
   public EReference getMigrationEvaluation_Evaluation()
   {
-    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(5);
+    return (EReference)migrationEvaluationEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -374,6 +328,26 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
   public EReference getTransformation_Target()
   {
     return (EReference)transformationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransformation_Context()
+  {
+    return (EReference)transformationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTransformation_Info()
+  {
+    return (EAttribute)transformationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -461,79 +435,9 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAppliedQuantitativePropertyEvaluation_Realizations()
+  public EReference getAppliedQuantitativePropertyEvaluation_Measurements()
   {
     return (EReference)appliedQuantitativePropertyEvaluationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getQuantitativePropertyRealization()
-  {
-    return quantitativePropertyRealizationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getQuantitativePropertyRealization_Name()
-  {
-    return (EAttribute)quantitativePropertyRealizationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getQuantitativePropertyRealization_Strategy()
-  {
-    return (EReference)quantitativePropertyRealizationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getQuantitativePropertyRealization_Level()
-  {
-    return (EAttribute)quantitativePropertyRealizationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getQuantitativePropertyRealization_Type()
-  {
-    return (EAttribute)quantitativePropertyRealizationEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getQuantitativePropertyRealization_Values()
-  {
-    return (EReference)quantitativePropertyRealizationEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getQuantitativePropertyRealization_Precision()
-  {
-    return (EAttribute)quantitativePropertyRealizationEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -841,26 +745,6 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getRealizationLevelKind()
-  {
-    return realizationLevelKindEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getRealizationTypeKind()
-  {
-    return realizationTypeKindEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EEnum getVerdict()
   {
     return verdictEEnum;
@@ -897,7 +781,6 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
 
     // Create classes and their features
     migrationEvaluationEClass = createEClass(MIGRATION_EVALUATION);
-    createEReference(migrationEvaluationEClass, MIGRATION_EVALUATION__IMPORTS);
     createEAttribute(migrationEvaluationEClass, MIGRATION_EVALUATION__NAME);
     createEAttribute(migrationEvaluationEClass, MIGRATION_EVALUATION__DATE);
     createEReference(migrationEvaluationEClass, MIGRATION_EVALUATION__TRANSFORMATIONS);
@@ -909,6 +792,8 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
     createEReference(transformationEClass, TRANSFORMATION__PATTERN);
     createEReference(transformationEClass, TRANSFORMATION__SOURCE);
     createEReference(transformationEClass, TRANSFORMATION__TARGET);
+    createEReference(transformationEClass, TRANSFORMATION__CONTEXT);
+    createEAttribute(transformationEClass, TRANSFORMATION__INFO);
 
     appliedPropertyEvaluationEClass = createEClass(APPLIED_PROPERTY_EVALUATION);
     createEAttribute(appliedPropertyEvaluationEClass, APPLIED_PROPERTY_EVALUATION__NAME);
@@ -920,15 +805,7 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
 
     appliedQuantitativePropertyEvaluationEClass = createEClass(APPLIED_QUANTITATIVE_PROPERTY_EVALUATION);
     createEReference(appliedQuantitativePropertyEvaluationEClass, APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY);
-    createEReference(appliedQuantitativePropertyEvaluationEClass, APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS);
-
-    quantitativePropertyRealizationEClass = createEClass(QUANTITATIVE_PROPERTY_REALIZATION);
-    createEAttribute(quantitativePropertyRealizationEClass, QUANTITATIVE_PROPERTY_REALIZATION__NAME);
-    createEReference(quantitativePropertyRealizationEClass, QUANTITATIVE_PROPERTY_REALIZATION__STRATEGY);
-    createEAttribute(quantitativePropertyRealizationEClass, QUANTITATIVE_PROPERTY_REALIZATION__LEVEL);
-    createEAttribute(quantitativePropertyRealizationEClass, QUANTITATIVE_PROPERTY_REALIZATION__TYPE);
-    createEReference(quantitativePropertyRealizationEClass, QUANTITATIVE_PROPERTY_REALIZATION__VALUES);
-    createEAttribute(quantitativePropertyRealizationEClass, QUANTITATIVE_PROPERTY_REALIZATION__PRECISION);
+    createEReference(appliedQuantitativePropertyEvaluationEClass, APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS);
 
     goalModelEvaluationEClass = createEClass(GOAL_MODEL_EVALUATION);
     createEReference(goalModelEvaluationEClass, GOAL_MODEL_EVALUATION__GOAL_MODEL);
@@ -970,8 +847,6 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
     createEReference(numberExpressionEvaluationEClass, NUMBER_EXPRESSION_EVALUATION__EVALUATIONS);
 
     // Create enums
-    realizationLevelKindEEnum = createEEnum(REALIZATION_LEVEL_KIND);
-    realizationTypeKindEEnum = createEEnum(REALIZATION_TYPE_KIND);
     verdictEEnum = createEEnum(VERDICT);
   }
 
@@ -1005,13 +880,14 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
     TslPackage theTslPackage = (TslPackage)EPackage.Registry.INSTANCE.getEPackage(TslPackage.eNS_URI);
     UMLPackage theUMLPackage = (UMLPackage)EPackage.Registry.INSTANCE.getEPackage(UMLPackage.eNS_URI);
     GmlPackage theGmlPackage = (GmlPackage)EPackage.Registry.INSTANCE.getEPackage(GmlPackage.eNS_URI);
-    EslPackage theEslPackage = (EslPackage)EPackage.Registry.INSTANCE.getEPackage(EslPackage.eNS_URI);
+    PmlPackage thePmlPackage = (PmlPackage)EPackage.Registry.INSTANCE.getEPackage(PmlPackage.eNS_URI);
 
     // Create type parameters
 
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    migrationEvaluationEClass.getESuperTypes().add(theArtistCommonPackage.getARTISTModel());
     appliedQualitativePropertyEvaluationEClass.getESuperTypes().add(this.getAppliedPropertyEvaluation());
     appliedQuantitativePropertyEvaluationEClass.getESuperTypes().add(this.getAppliedPropertyEvaluation());
     softGoalEvaluationEClass.getESuperTypes().add(this.getGoalEvaluation());
@@ -1023,9 +899,8 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(migrationEvaluationEClass, MigrationEvaluation.class, "MigrationEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMigrationEvaluation_Imports(), theArtistCommonPackage.getImportNamespace(), null, "imports", null, 0, -1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMigrationEvaluation_Name(), theEcorePackage.getEString(), "name", null, 0, 1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMigrationEvaluation_Date(), theEcorePackage.getEString(), "date", null, 0, 1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMigrationEvaluation_Date(), theEcorePackage.getEDate(), "date", null, 0, 1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMigrationEvaluation_Transformations(), this.getTransformation(), null, "transformations", null, 0, -1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMigrationEvaluation_PropertyEvaluations(), this.getAppliedPropertyEvaluation(), null, "propertyEvaluations", null, 0, -1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMigrationEvaluation_Evaluation(), this.getGoalModelEvaluation(), null, "evaluation", null, 0, 1, MigrationEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1035,6 +910,8 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
     initEReference(getTransformation_Pattern(), theTslPackage.getPattern(), null, "pattern", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransformation_Source(), theUMLPackage.getNamedElement(), null, "source", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransformation_Target(), theUMLPackage.getNamedElement(), null, "target", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransformation_Context(), theUMLPackage.getNamedElement(), null, "context", null, 0, -1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransformation_Info(), theEcorePackage.getEString(), "info", null, 0, 1, Transformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appliedPropertyEvaluationEClass, AppliedPropertyEvaluation.class, "AppliedPropertyEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAppliedPropertyEvaluation_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AppliedPropertyEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1046,15 +923,7 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
 
     initEClass(appliedQuantitativePropertyEvaluationEClass, AppliedQuantitativePropertyEvaluation.class, "AppliedQuantitativePropertyEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAppliedQuantitativePropertyEvaluation_Property(), theGmlPackage.getAppliedQuantitativeProperty(), null, "property", null, 0, 1, AppliedQuantitativePropertyEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppliedQuantitativePropertyEvaluation_Realizations(), this.getQuantitativePropertyRealization(), null, "realizations", null, 0, -1, AppliedQuantitativePropertyEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(quantitativePropertyRealizationEClass, QuantitativePropertyRealization.class, "QuantitativePropertyRealization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getQuantitativePropertyRealization_Name(), theEcorePackage.getEString(), "name", null, 0, 1, QuantitativePropertyRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQuantitativePropertyRealization_Strategy(), theEslPackage.getEvaluationStrategy(), null, "strategy", null, 0, 1, QuantitativePropertyRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getQuantitativePropertyRealization_Level(), this.getRealizationLevelKind(), "level", null, 0, 1, QuantitativePropertyRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getQuantitativePropertyRealization_Type(), this.getRealizationTypeKind(), "type", null, 0, 1, QuantitativePropertyRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQuantitativePropertyRealization_Values(), theArtistCommonPackage.getValueSpecification(), null, "values", null, 0, -1, QuantitativePropertyRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getQuantitativePropertyRealization_Precision(), theEcorePackage.getEBigDecimal(), "precision", null, 0, 1, QuantitativePropertyRealization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppliedQuantitativePropertyEvaluation_Measurements(), thePmlPackage.getMeasurement(), null, "measurements", null, 0, -1, AppliedQuantitativePropertyEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goalModelEvaluationEClass, GoalModelEvaluation.class, "GoalModelEvaluation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGoalModelEvaluation_GoalModel(), theGmlPackage.getGoalModel(), null, "goalModel", null, 0, 1, GoalModelEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1096,15 +965,6 @@ public class GelPackageImpl extends EPackageImpl implements GelPackage
     initEReference(getNumberExpressionEvaluation_Evaluations(), this.getNumberExpressionEvaluation(), null, "evaluations", null, 0, -1, NumberExpressionEvaluation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(realizationLevelKindEEnum, RealizationLevelKind.class, "RealizationLevelKind");
-    addEEnumLiteral(realizationLevelKindEEnum, RealizationLevelKind.MODEL);
-    addEEnumLiteral(realizationLevelKindEEnum, RealizationLevelKind.CODE);
-
-    initEEnum(realizationTypeKindEEnum, RealizationTypeKind.class, "RealizationTypeKind");
-    addEEnumLiteral(realizationTypeKindEEnum, RealizationTypeKind.CALCULATED);
-    addEEnumLiteral(realizationTypeKindEEnum, RealizationTypeKind.MEASURED);
-    addEEnumLiteral(realizationTypeKindEEnum, RealizationTypeKind.ESTIMATED);
-
     initEEnum(verdictEEnum, Verdict.class, "Verdict");
     addEEnumLiteral(verdictEEnum, Verdict.PASS);
     addEEnumLiteral(verdictEEnum, Verdict.FAIL);

@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.common.artistCommon;
@@ -1743,6 +1731,80 @@ public interface ArtistCommonPackage extends EPackage
   int OPERATOR_FEATURE_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl <em>ARTIST Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getARTISTModel()
+   * @generated
+   */
+  int ARTIST_MODEL = 36;
+
+  /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIST_MODEL__IMPORTS = 0;
+
+  /**
+   * The number of structural features of the '<em>ARTIST Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARTIST_MODEL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.WorkloadImpl <em>Workload</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.WorkloadImpl
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getWorkload()
+   * @generated
+   */
+  int WORKLOAD = 37;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKLOAD__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Activity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKLOAD__ACTIVITY = 1;
+
+  /**
+   * The feature id for the '<em><b>Pattern</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKLOAD__PATTERN = 2;
+
+  /**
+   * The number of structural features of the '<em>Workload</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WORKLOAD_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ImportURIorNamespaceImpl <em>Import UR Ior Namespace</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1750,7 +1812,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getImportURIorNamespace()
    * @generated
    */
-  int IMPORT_UR_IOR_NAMESPACE = 36;
+  int IMPORT_UR_IOR_NAMESPACE = 38;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -1787,7 +1849,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getImportURI()
    * @generated
    */
-  int IMPORT_URI = 37;
+  int IMPORT_URI = 39;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -1815,7 +1877,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getImportNamespace()
    * @generated
    */
-  int IMPORT_NAMESPACE = 38;
+  int IMPORT_NAMESPACE = 40;
 
   /**
    * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
@@ -1843,7 +1905,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getOrOperator()
    * @generated
    */
-  int OR_OPERATOR = 39;
+  int OR_OPERATOR = 41;
 
   /**
    * The number of structural features of the '<em>Or Operator</em>' class.
@@ -1862,7 +1924,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getXOrOperator()
    * @generated
    */
-  int XOR_OPERATOR = 40;
+  int XOR_OPERATOR = 42;
 
   /**
    * The number of structural features of the '<em>XOr Operator</em>' class.
@@ -1881,7 +1943,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getAndOperator()
    * @generated
    */
-  int AND_OPERATOR = 41;
+  int AND_OPERATOR = 43;
 
   /**
    * The number of structural features of the '<em>And Operator</em>' class.
@@ -1900,7 +1962,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getImplicationOperator()
    * @generated
    */
-  int IMPLICATION_OPERATOR = 42;
+  int IMPLICATION_OPERATOR = 44;
 
   /**
    * The number of structural features of the '<em>Implication Operator</em>' class.
@@ -1919,7 +1981,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getEqualsOperator()
    * @generated
    */
-  int EQUALS_OPERATOR = 43;
+  int EQUALS_OPERATOR = 45;
 
   /**
    * The number of structural features of the '<em>Equals Operator</em>' class.
@@ -1938,7 +2000,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getNotEqualsOperator()
    * @generated
    */
-  int NOT_EQUALS_OPERATOR = 44;
+  int NOT_EQUALS_OPERATOR = 46;
 
   /**
    * The number of structural features of the '<em>Not Equals Operator</em>' class.
@@ -1957,7 +2019,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getNotOperator()
    * @generated
    */
-  int NOT_OPERATOR = 45;
+  int NOT_OPERATOR = 47;
 
   /**
    * The number of structural features of the '<em>Not Operator</em>' class.
@@ -1976,7 +2038,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getGreaterThanOperator()
    * @generated
    */
-  int GREATER_THAN_OPERATOR = 46;
+  int GREATER_THAN_OPERATOR = 48;
 
   /**
    * The number of structural features of the '<em>Greater Than Operator</em>' class.
@@ -1995,7 +2057,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getGreaterOrEqualThanOperator()
    * @generated
    */
-  int GREATER_OR_EQUAL_THAN_OPERATOR = 47;
+  int GREATER_OR_EQUAL_THAN_OPERATOR = 49;
 
   /**
    * The number of structural features of the '<em>Greater Or Equal Than Operator</em>' class.
@@ -2014,7 +2076,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getLessThanOperator()
    * @generated
    */
-  int LESS_THAN_OPERATOR = 48;
+  int LESS_THAN_OPERATOR = 50;
 
   /**
    * The number of structural features of the '<em>Less Than Operator</em>' class.
@@ -2033,7 +2095,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getLessOrEqualThanOperator()
    * @generated
    */
-  int LESS_OR_EQUAL_THAN_OPERATOR = 49;
+  int LESS_OR_EQUAL_THAN_OPERATOR = 51;
 
   /**
    * The number of structural features of the '<em>Less Or Equal Than Operator</em>' class.
@@ -2052,7 +2114,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getAdditionOperator()
    * @generated
    */
-  int ADDITION_OPERATOR = 50;
+  int ADDITION_OPERATOR = 52;
 
   /**
    * The number of structural features of the '<em>Addition Operator</em>' class.
@@ -2071,7 +2133,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getSubstractionOperator()
    * @generated
    */
-  int SUBSTRACTION_OPERATOR = 51;
+  int SUBSTRACTION_OPERATOR = 53;
 
   /**
    * The number of structural features of the '<em>Substraction Operator</em>' class.
@@ -2090,7 +2152,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getMultiplicationOperator()
    * @generated
    */
-  int MULTIPLICATION_OPERATOR = 52;
+  int MULTIPLICATION_OPERATOR = 54;
 
   /**
    * The number of structural features of the '<em>Multiplication Operator</em>' class.
@@ -2109,7 +2171,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getDivisionOperator()
    * @generated
    */
-  int DIVISION_OPERATOR = 53;
+  int DIVISION_OPERATOR = 55;
 
   /**
    * The number of structural features of the '<em>Division Operator</em>' class.
@@ -2128,7 +2190,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getModulusOperator()
    * @generated
    */
-  int MODULUS_OPERATOR = 54;
+  int MODULUS_OPERATOR = 56;
 
   /**
    * The number of structural features of the '<em>Modulus Operator</em>' class.
@@ -2147,7 +2209,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getMaxOperator()
    * @generated
    */
-  int MAX_OPERATOR = 55;
+  int MAX_OPERATOR = 57;
 
   /**
    * The number of structural features of the '<em>Max Operator</em>' class.
@@ -2166,7 +2228,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getMinOperator()
    * @generated
    */
-  int MIN_OPERATOR = 56;
+  int MIN_OPERATOR = 58;
 
   /**
    * The number of structural features of the '<em>Min Operator</em>' class.
@@ -2185,7 +2247,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getAvgOperator()
    * @generated
    */
-  int AVG_OPERATOR = 57;
+  int AVG_OPERATOR = 59;
 
   /**
    * The number of structural features of the '<em>Avg Operator</em>' class.
@@ -2204,7 +2266,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getSumOperator()
    * @generated
    */
-  int SUM_OPERATOR = 58;
+  int SUM_OPERATOR = 60;
 
   /**
    * The number of structural features of the '<em>Sum Operator</em>' class.
@@ -2223,7 +2285,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getExponentialOperator()
    * @generated
    */
-  int EXPONENTIAL_OPERATOR = 59;
+  int EXPONENTIAL_OPERATOR = 61;
 
   /**
    * The number of structural features of the '<em>Exponential Operator</em>' class.
@@ -2242,7 +2304,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getAbsoluteOperator()
    * @generated
    */
-  int ABSOLUTE_OPERATOR = 60;
+  int ABSOLUTE_OPERATOR = 62;
 
   /**
    * The number of structural features of the '<em>Absolute Operator</em>' class.
@@ -2261,7 +2323,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getNaturalLogarithmOperator()
    * @generated
    */
-  int NATURAL_LOGARITHM_OPERATOR = 61;
+  int NATURAL_LOGARITHM_OPERATOR = 63;
 
   /**
    * The number of structural features of the '<em>Natural Logarithm Operator</em>' class.
@@ -2280,7 +2342,7 @@ public interface ArtistCommonPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getCommonLogarithmOperator()
    * @generated
    */
-  int COMMON_LOGARITHM_OPERATOR = 62;
+  int COMMON_LOGARITHM_OPERATOR = 64;
 
   /**
    * The number of structural features of the '<em>Common Logarithm Operator</em>' class.
@@ -2937,6 +2999,70 @@ public interface ArtistCommonPackage extends EPackage
    * @generated
    */
   EClass getOperator();
+
+  /**
+   * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel <em>ARTIST Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ARTIST Model</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel
+   * @generated
+   */
+  EClass getARTISTModel();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel#getImports()
+   * @see #getARTISTModel()
+   * @generated
+   */
+  EReference getARTISTModel_Imports();
+
+  /**
+   * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload <em>Workload</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Workload</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload
+   * @generated
+   */
+  EClass getWorkload();
+
+  /**
+   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload#getName()
+   * @see #getWorkload()
+   * @generated
+   */
+  EAttribute getWorkload_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload#getActivity <em>Activity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Activity</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload#getActivity()
+   * @see #getWorkload()
+   * @generated
+   */
+  EReference getWorkload_Activity();
+
+  /**
+   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload#getPattern <em>Pattern</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pattern</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload#getPattern()
+   * @see #getWorkload()
+   * @generated
+   */
+  EAttribute getWorkload_Pattern();
 
   /**
    * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportURIorNamespace <em>Import UR Ior Namespace</em>}'.
@@ -3842,6 +3968,58 @@ public interface ArtistCommonPackage extends EPackage
      * @generated
      */
     EClass OPERATOR = eINSTANCE.getOperator();
+
+    /**
+     * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl <em>ARTIST Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl
+     * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getARTISTModel()
+     * @generated
+     */
+    EClass ARTIST_MODEL = eINSTANCE.getARTISTModel();
+
+    /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARTIST_MODEL__IMPORTS = eINSTANCE.getARTISTModel_Imports();
+
+    /**
+     * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.WorkloadImpl <em>Workload</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.WorkloadImpl
+     * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ArtistCommonPackageImpl#getWorkload()
+     * @generated
+     */
+    EClass WORKLOAD = eINSTANCE.getWorkload();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORKLOAD__NAME = eINSTANCE.getWorkload_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Activity</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WORKLOAD__ACTIVITY = eINSTANCE.getWorkload_Activity();
+
+    /**
+     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WORKLOAD__PATTERN = eINSTANCE.getWorkload_Pattern();
 
     /**
      * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ImportURIorNamespaceImpl <em>Import UR Ior Namespace</em>}' class.

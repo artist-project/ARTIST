@@ -92,6 +92,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTISTCommon.ecore#//UnlimitedLiteral/value"/>
     </genClasses>
     <genClasses ecoreClass="ARTISTCommon.ecore#//Operator"/>
+    <genClasses ecoreClass="ARTISTCommon.ecore#//ARTISTModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ARTISTCommon.ecore#//ARTISTModel/imports"/>
+    </genClasses>
+    <genClasses ecoreClass="ARTISTCommon.ecore#//Workload">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTISTCommon.ecore#//Workload/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ARTISTCommon.ecore#//Workload/activity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTISTCommon.ecore#//Workload/pattern"/>
+    </genClasses>
     <genClasses ecoreClass="ARTISTCommon.ecore#//ImportURIorNamespace">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTISTCommon.ecore#//ImportURIorNamespace/importURI"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTISTCommon.ecore#//ImportURIorNamespace/importedNamespace"/>

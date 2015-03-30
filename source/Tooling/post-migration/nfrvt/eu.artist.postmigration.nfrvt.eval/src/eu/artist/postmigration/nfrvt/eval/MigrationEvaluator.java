@@ -12,29 +12,28 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.eval;
 
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
 
-import eu.artist.postmigration.nfrvt.eval.util.ComparatorUtil;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
+import eu.artist.postmigration.nfrvt.lang.common.eval.logic.NumericLogic;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.GelFactory;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalModelEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel;
+import eu.artist.postmigration.nfrvt.lang.pml.pml.MeasurementModel;
+import eu.artist.postmigration.nfrvt.lang.util.MigrationFactory;
+import eu.artist.postmigration.nfrvt.lang.util.MigrationResourceSet;
+import eu.artist.postmigration.nfrvt.lang.util.builder.MigrationEvaluationBuilder;
 
 /**
  * An evaluator encapsulating the evaluation of a complete 
@@ -47,54 +46,16 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel;
  */
 public class MigrationEvaluator {	
 	
+	public static EvaluationSettings DEFAULT_SETTINGS = new EvaluationSettings();
+	
 	private EvaluationSettings settings = new EvaluationSettings();
-	private Map<Goal, GoalEvaluation> goalEvaluations = new HashMap<>();
-	private MigrationEvaluation migrationEvaluation;
-	private GoalModel goalModel;
 	
-	private Map<AppliedProperty, AppliedPropertyEvaluation> appliedPropertyEvaluations = new HashMap<>();
-	private Set<Transformation> transformations = new TreeSet<Transformation>(ComparatorUtil.createTransformationComparator());
-
-	
-	/**
-	 * Sets the evaluation that should be re-evaluated.
-	 * 
-	 * @param migrationEvaluation evaluation to be re-evaluated
-	 */
-	public void setMigrationEvaluation(MigrationEvaluation migrationEvaluation) {
-		this.migrationEvaluation = migrationEvaluation;
+	public MigrationEvaluator(EvaluationSettings settings) {
+		setSettings(settings);
 	}
 	
-	/**
-	 * Returns the evaluation that should be re-evaluated.
-	 * 
-	 * @return evaluation to be re-evaluated
-	 * 
-	 */
-	public MigrationEvaluation getMigrationEvaluation() {
-		if(migrationEvaluation == null) 
-			throw new IllegalArgumentException("No migration evaluation.");
-		return migrationEvaluation;
-	}
-	
-	/**
-	 * Sets the goal model that should be evaluated.
-	 * 
-	 * @param goalModel goal model to be evaluated
-	 */
-	public void setGoalModel(GoalModel goalModel) {
-		this.goalModel = goalModel;
-	}
-	
-	/**
-	 * Returns the goal model that should be evaluated.
-	 * 
-	 * @return goal model to be evaluated
-	 */
-	public GoalModel getGoalModel() {
-		if(goalModel == null)
-			throw new IllegalArgumentException("No goal model specified in goal model evaluation.");
-		return goalModel;
+	public MigrationEvaluator() {
+		this(DEFAULT_SETTINGS);
 	}
 	
 	/**
@@ -105,6 +66,8 @@ public class MigrationEvaluator {
 	 */
 	public void setSettings(EvaluationSettings settings) {
 		this.settings = settings;
+		NumericLogic.setSettings(settings);
+		MigrationFactory.setSettings(settings);
 	}
 	
 	/**
@@ -116,149 +79,12 @@ public class MigrationEvaluator {
 		return settings;
 	}	
 	
-	/**
-	 * Returns a map of all goals that have been evaluated so far together
-	 * with their respective evaluation results.
-	 * 
-	 * @return map of all evaluated goals and their evaluation results
-	 */
-	public Map<Goal, GoalEvaluation> getGoalEvaluations() {
-		return goalEvaluations;
-	}
-	
-	/**
-	 * Adds a new goal evaluation result to this evaluation. Any old evaluation
-	 * will be replaced.
-	 * 
-	 * @param goal goal that has been evaluated
-	 * @param evaluation evaluation result
-	 */
-	public void addGoalEvaluation(Goal goal, GoalEvaluation evaluation) {
-		this.goalEvaluations.put(goal, evaluation);
-	}
-	
-	/**
-	 * Returns the evaluation result for the given goal.
-	 * 
-	 * @param goal goal for which to retrieve the evaluation result
-	 * @return evaluation result or null if no evaluation result is available 
-	 * yet
-	 */
-	public GoalEvaluation getGoalEvaluation(Goal goal) {
-		return this.goalEvaluations.get(goal);
-	}
-	
-	/**
-	 * Returns a map of applied properties and their evaluations. This map may
-	 * be empty.
-	 * 
-	 * @return applied properties and their evaluation results
-	 */
-	public Map<AppliedProperty, AppliedPropertyEvaluation> getAppliedPropertyEvaluations() {
-		if(appliedPropertyEvaluations == null)
-			return Collections.emptyMap();
-		return appliedPropertyEvaluations;
-	}
-	
-	/**
-	 * Return the evaluation result for the given applied property.
-	 * 
-	 * @param property applied property
-	 * @return evaluation of property or null if no evaluation is available
-	 * so far
-	 */
-	public AppliedPropertyEvaluation getAppliedPropertyEvaluation(AppliedProperty property) {
-		return getAppliedPropertyEvaluations().get(property);
-	}
-	
-	/**
-	 * Sets all evaluation results to be considered for applied properties.
-	 * 
-	 * @param appliedPropertyEvaluations new evaluation results
-	 */
-	public void setAppliedPropertyEvaluations(Map<AppliedProperty, AppliedPropertyEvaluation> appliedPropertyEvaluations) {
-		this.appliedPropertyEvaluations = appliedPropertyEvaluations;
-	}
-	
-	/**
-	 * Adds a new evaluation result for the given applied property. Any result
-	 * previously stored will be overridden.
-	 * 
-	 * @param property property that has been evaluated
-	 * @param evaluation evaluation result
-	 */
-	public void addAppliedPropertyEvaluation(AppliedProperty property, AppliedPropertyEvaluation evaluation) {
-		this.appliedPropertyEvaluations.put(property, evaluation);
-	}
-	
-	/**
-	 * Adds new evaluation result for the given applied properties. Any result
-	 * previously stored for the properties will be overridden.
-	 * 
-	 * @param evaluations new evaluation results
-	 * @param evaluation evaluation result
-	 */
-	public void addAppliedPropertyEvaluations(Collection<AppliedPropertyEvaluation> evaluations) {
-		for(AppliedPropertyEvaluation evaluation : evaluations)
-			this.appliedPropertyEvaluations.put(evaluation.getProperty(), evaluation);
-	}
-	
-	/**
-	 * Return the applied patterns (transformations).
-	 * 
-	 * @return used transformations
-	 */
-	public Set<Transformation> getTransformations() {
-		return transformations;
-	}
-	
-	/**
-	 * Add a new transformation.
-	 * 
-	 * @param transformation new applied pattern
-	 */
-	protected void addTransformation(Transformation transformation) {
-		if(transformation != null)
-			transformations.add(transformation);
-	}
-	
-	/**
-	 * Adds all given transformations.
-	 * 
-	 * @param transformation transformations to be added
-	 */
-	protected void addTransformations(Collection<Transformation> transformation) {
-		if(transformation != null && !transformation.isEmpty())
-			transformations.addAll(transformation);
-	}
-	
-	/**
-	 * Returns the current date.
-	 * 
-	 * @return string representation of the current date
-	 */
-	private String getCurrentDate() {
-		return new SimpleDateFormat().format(new Date());
-	}
-	
-	/**
-	 * Evaluates the given goal model.
-	 * 
-	 * @param goalModel model to be evaluated
-	 * @return evaluation result
-	 */
 	public MigrationEvaluation evaluateMigration(GoalModel goalModel) {
-		return evaluateMigration(goalModel, null);
+		return evaluateMigration(goalModel, new ArrayList<MeasurementModel>());
 	}
 	
-	/**
-	 * Re-evaluates the given evaluation.
-	 * 
-	 * @param evaluation evaluation to be re-evaluated
-	 * @return evaluation result
-	 */
-	public MigrationEvaluation evaluateMigration(MigrationEvaluation evaluation) {
-		return evaluateMigration(evaluation.getEvaluation().getGoalModel(), evaluation);
+	public MigrationEvaluation evaluateMigration(GoalModel goalModel, List<MeasurementModel> measurements) {
+		return evaluateMigration(goalModel, measurements, new ArrayList<Transformation>());
 	}
 	
 	/**
@@ -266,65 +92,61 @@ public class MigrationEvaluator {
 	 * migration evaluation.
 	 * 
 	 * @param goalModel goal model to be evaluated
-	 * @param existingEvaluation already present evaluation information
+	 * @param measurements already present evaluation information
+	 * @param transformation applied transformations
 	 * @return new evaluation result
 	 */
-	protected MigrationEvaluation evaluateMigration(GoalModel goalModel, MigrationEvaluation existingEvaluation) {
-		MigrationEvaluation migrationEvaluation = GelFactory.eINSTANCE.createMigrationEvaluation();
-		
-		setMigrationEvaluation(migrationEvaluation);
-		setGoalModel(goalModel);
-		
-		migrationEvaluation.setName(getGoalModel().getName() + getSettings().getSuffix());
-		migrationEvaluation.setDate(getCurrentDate());
-		
-		if(existingEvaluation != null)
-			addTransformations(EcoreUtil2.copyAll(existingEvaluation.getTransformations()));
-		migrationEvaluation.getTransformations().addAll(getTransformations());
-		
-		if(existingEvaluation != null)
-			addAppliedPropertyEvaluations(EcoreUtil2.copyAll(existingEvaluation.getPropertyEvaluations()));
-		addAppliedPropertyEvaluations(evaluateProperties());
-		
-		migrationEvaluation.getPropertyEvaluations().addAll(getAppliedPropertyEvaluations().values());
-		migrationEvaluation.setEvaluation(evaluateGoalModel());
-		
-		return migrationEvaluation;
+	public MigrationEvaluation evaluateMigration(GoalModel goalModel, List<MeasurementModel> measurements, List<Transformation> transformation) {
+		return evaluateMigration(new MigrationResourceSet(), goalModel, measurements, transformation);
 	}
-	
+		
 	/**
-	 * Returns the applied properties from the goal model or null if there
-	 * are no applied properties.
+	 * Evaluates the given goal model with the data present in the given 
+	 * migration evaluation.
 	 * 
-	 * @return applied properties if present or null
+	 * @param resourceSet to be used
+	 * @param goalModel goal model to be evaluated
+	 * @param measurements already present evaluation information
+	 * @param transformation applied transformations
+	 * @return new evaluation result
 	 */
-	private List<AppliedProperty> extractRelevantAppliedProperties() {
-		if(getGoalModel() == null)
-			return null;
-		return getGoalModel().getAppliedProperties();
-	}
-	
-	/**
-	 * Evaluates all relevant properties from the current goal model.
-	 * 
-	 * @return evaluation results for all relevant properties
-	 */
-	private Set<AppliedPropertyEvaluation> evaluateProperties() {
-		PropertyEvaluator propertyEvaluator = new PropertyEvaluator(getTransformations(), getSettings());
-		Map<AppliedProperty, AppliedPropertyEvaluation> evaluations = propertyEvaluator.evaluate(extractRelevantAppliedProperties(), getAppliedPropertyEvaluations());
-		Set<AppliedPropertyEvaluation> result =  new TreeSet<>(ComparatorUtil.createAppliedPropertyEvaluationComparator());
-		Collection<AppliedPropertyEvaluation> values = evaluations.values();
-		result.addAll(values);
-		return result;
-	}
-	
-	/**
-	 * Evaluates the current goal model.
-	 * 
-	 * @return evaluation result for the current goal model
-	 */
-	private GoalModelEvaluation evaluateGoalModel() {
-		GoalModelEvaluator goalModelEvaluator = new GoalModelEvaluator(getAppliedPropertyEvaluations(), getSettings());
-		return goalModelEvaluator.evaluate(getGoalModel());
+	public MigrationEvaluation evaluateMigration(MigrationResourceSet resourceSet, GoalModel goalModel, List<MeasurementModel> measurements, List<Transformation> transformation) {
+		EcoreUtil.resolveAll(goalModel);
+		for(MeasurementModel model : measurements)
+			EcoreUtil.resolveAll(model);
+
+		MigrationEvaluationBuilder builder = new MigrationEvaluationBuilder(resourceSet);
+		
+		// general data
+		builder.setName(goalModel.getName() + getSettings().getSuffix());
+		
+		// transformations
+		List<Transformation> transformations = new ArrayList<>(EcoreUtil2.copyAll(transformation));
+		builder.addTransformations(transformation);
+		
+		// property evaluations
+		Map<AppliedProperty, AppliedPropertyEvaluation> evaluations = new HashMap<>();
+
+		QualitativePropertyEvaluator qualitativeEvaluator = new QualitativePropertyEvaluator(getSettings(), transformations);
+		QuantitativePropertyEvaluator quantitativeEvaluator = new QuantitativePropertyEvaluator(getSettings(), measurements);		
+
+		List<AppliedQualitativeProperty> qualitativeProperties = new ArrayList<>();
+		List<AppliedQuantitativeProperty> quantitativeProperties = new ArrayList<>();
+		for(AppliedProperty property : goalModel.getAppliedProperties()) {
+			if(property instanceof AppliedQualitativeProperty)
+				qualitativeProperties.add((AppliedQualitativeProperty) property);
+			else if(property instanceof AppliedQuantitativeProperty)
+				quantitativeProperties.add((AppliedQuantitativeProperty) property);
+		}
+		evaluations.putAll(qualitativeEvaluator.evaluate(qualitativeProperties));
+		evaluations.putAll(quantitativeEvaluator.evaluate(quantitativeProperties));
+		builder.addAppliedPropertyEvaluations(evaluations.values());
+		
+		// goal model evaluation
+		GoalModelEvaluator goalModelEvaluator = new GoalModelEvaluator(evaluations, getSettings());
+		GoalModelEvaluation goalModelEvaluation = goalModelEvaluator.evaluate(goalModel);
+		builder.setGoalModelEvaluation(goalModelEvaluation);
+		
+		return builder.getMigrationEvaluation();
 	}
 }

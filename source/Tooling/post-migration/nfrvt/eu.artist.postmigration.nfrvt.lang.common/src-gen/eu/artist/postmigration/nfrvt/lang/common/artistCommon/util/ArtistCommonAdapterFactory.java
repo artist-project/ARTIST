@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.common.artistCommon.util;
@@ -265,6 +253,16 @@ public class ArtistCommonAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOperator(Operator object)
       {
         return createOperatorAdapter();
+      }
+      @Override
+      public Adapter caseARTISTModel(ARTISTModel object)
+      {
+        return createARTISTModelAdapter();
+      }
+      @Override
+      public Adapter caseWorkload(Workload object)
+      {
+        return createWorkloadAdapter();
       }
       @Override
       public Adapter caseImportURIorNamespace(ImportURIorNamespace object)
@@ -959,6 +957,36 @@ public class ArtistCommonAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOperatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel <em>ARTIST Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel
+   * @generated
+   */
+  public Adapter createARTISTModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload <em>Workload</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload
+   * @generated
+   */
+  public Adapter createWorkloadAdapter()
   {
     return null;
   }

@@ -25,7 +25,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification
  */
 public class RelationalLogic {
 	
-	private static Comparator<Object> artistComparator;
+	private static Comparator<Object> valueComparator;
 	
 	/**
 	 * Returns the comparator used for comparing objects. Defaults
@@ -34,9 +34,9 @@ public class RelationalLogic {
 	 * @return comparator
 	 */
 	public static Comparator<Object> getComparator() {
-		if(artistComparator == null)
-			artistComparator = new ValueSpecificationComparator();
-		return artistComparator;
+		if(valueComparator == null)
+			valueComparator = new ValueSpecificationComparator();
+		return valueComparator;
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class RelationalLogic {
 	 * @param comparator comparator to be used
 	 */
 	public static void setComparator(Comparator<Object> comparator) {
-		RelationalLogic.artistComparator = comparator;
+		RelationalLogic.valueComparator = comparator;
 	}
 	
 	/**

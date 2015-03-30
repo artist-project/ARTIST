@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="MigrationResource" name="New Migration Resource to be pre-loaded in ARTIST." schema="schema/eu.artist.postmigration.nfrvt.extensionpoint.exsd"/>
+   <extension
+         point="eu.artist.postmigration.nfrvt.extensionpoint.MigrationResource">
+      <library
+            name="UMLPrimitiveTypes"
+            path="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml">
+      </library>
+      <library
+            name="EcorePrimitiveTypes"
+            path="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml">
+      </library>
+      <library
+            name="XMLPrimitiveTypes"
+            path="pathmap://UML_LIBRARIES/XMLPrimitiveTypes.library.uml">
+      </library>
+      <library
+            name="JavaPrimitiveTypes"
+            path="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml">
+      </library>
+      <library
+            name="MARTELibrary"
+            path="pathmap://Papyrus_LIBRARIES/MARTE_Library.library.uml">
+      </library>
+   </extension>
+
+</plugin>

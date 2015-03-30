@@ -3,17 +3,21 @@
  */
 package eu.artist.postmigration.nfrvt.lang.gml.validation
 
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Expression
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.LiteralValueExpression
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification
 import eu.artist.postmigration.nfrvt.lang.common.eval.ExpressionValidator
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression
 import eu.artist.postmigration.nfrvt.lang.gml.gml.CompositeGoal
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GmlPackage
+import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalExpression
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference
 import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal
+import eu.artist.postmigration.nfrvt.lang.gml.renderer.GMLTextRenderer
 import java.util.HashSet
 import java.util.Set
 import org.eclipse.xtext.validation.Check
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage
 
 //import org.eclipse.xtext.validation.Check
 
@@ -23,6 +27,12 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackag
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class GMLValidator extends AbstractGMLValidator {
+
+	public static final String DETERMINISTIC_VALUE = "DETERMINISTIC_VALUE";
+	public static final String UNNECESSARY_GOAL = "UNNECESSARY_GOAL";
+	public static final String NON_MATCHING_TYPES = "NON_MATCHING_TYPES";
+	
+	protected GMLTextRenderer renderer = new GMLTextRenderer();
 
 	CompositeGoalValidator compositeGoalValidator = new CompositeGoalValidator();
 	HardGoalValidator hardGoalConditionValidator = new HardGoalValidator();
@@ -46,9 +56,59 @@ class GMLValidator extends AbstractGMLValidator {
 		compositeGoalValidator.showAll
 		if(!ValueUtil.isBooleanOrNull(result))
 			error("Condition does not return a boolean value.", GmlPackage.Literals.COMPOSITE_GOAL__CONDITION)
-		val variableExpressions = goal.condition.eAllContents.filter(typeof(GoalReference)).toList
-		if(ValueUtil.isBooleanOrNull(result) && variableExpressions.empty)
-			warning("No references to any goals found, always returns " + ValueUtil.getBooleanOrNull(result) + ".", GmlPackage.Literals.COMPOSITE_GOAL__CONDITION)
+		if(goal.condition instanceof LiteralValueExpression)
+			warning(
+				"Goal '" + goal.name + "' always returns " + ValueUtil.getBooleanOrNull(result), 
+				GmlPackage.Literals.COMPOSITE_GOAL__CONDITION,
+				UNNECESSARY_GOAL,
+				"composite")
+//		val variableExpressions = goal.condition.eAllContents.filter(typeof(GoalReference)).toList
+//		if(ValueUtil.isBooleanOrNull(result) && variableExpressions.empty)
+//			warning(
+//				"No references to any goals found, always returns " + ValueUtil.getBooleanOrNull(result) + ".", 
+//				GmlPackage.Literals.COMPOSITE_GOAL__CONDITION,
+//				DETERMINISTIC_VALUE,
+//				ValueUtil.getBooleanOrNull(result).toString);
+	}
+	
+	@Check
+	def comparableExpression(Expression e) {
+		if(e instanceof ValueSpecification)
+			return;
+			
+		try {
+			val comparableValidator = new ComparableValidator();
+			comparableValidator.doEvaluate(e)
+			comparableValidator.errors.forEach[msg, feature| error(msg, e.eContainer, e.eContainingFeature)]
+			comparableValidator.warnings.forEach[msg, feature| warning(msg, e.eContainer, e.eContainingFeature)]
+			comparableValidator.infos.forEach[msg, feature| info(msg, e.eContainer, e.eContainingFeature)]
+			comparableValidator.reset
+			comparableValidator.showAll
+		} catch(Exception ex) {
+			System.out.println(ex)
+		}
+	}
+	
+	@Check
+	def usefulExpression(Expression e) {
+		if(e instanceof ValueSpecification)
+			return;
+		
+		var ValueSpecification result = null
+		if(e instanceof GoalExpression)
+			result = compositeGoalValidator.doEvaluate(e)
+		else
+			result = hardGoalConditionValidator.doEvaluate(e)
+			
+		hardGoalConditionValidator.showAll
+		if(result != null) {
+			warning(
+				"Expression '" + renderer.doRender(e) + "' always returns " + renderer.doRender(result) + ".",
+				e.eContainer,
+				e.eContainingFeature,
+				DETERMINISTIC_VALUE,
+				renderer.doRender(result))
+		}
 	}
 	
 	@Check
@@ -57,9 +117,19 @@ class GMLValidator extends AbstractGMLValidator {
 		hardGoalConditionValidator.showAll
 		if(!ValueUtil.isBooleanOrNull(result))
 			error("Condition does not return a boolean value.", GmlPackage.Literals.HARD_GOAL__CONDITION)
-		val variableExpressions = goal.condition.eAllContents.filter(typeof(AppliedQuantitativePropertyExpression)).toList
-		if(ValueUtil.isBooleanOrNull(result) && variableExpressions.empty)
-			warning("No $variables used in this condition, always returns " + ValueUtil.getBooleanOrNull(result) + ".", GmlPackage.Literals.HARD_GOAL__CONDITION)
+		if(goal.condition instanceof LiteralValueExpression)
+			warning(
+				"Goal '" + goal.name + "' always returns " + ValueUtil.getBooleanOrNull(result), 
+				GmlPackage.Literals.HARD_GOAL__CONDITION,
+				UNNECESSARY_GOAL,
+				"hardgoal")
+//		val variableExpressions = goal.condition.eAllContents.filter(typeof(AppliedQuantitativePropertyExpression)).toList
+//		if(ValueUtil.isBooleanOrNull(result) && variableExpressions.empty)
+//			warning(
+//				"No $variables used in this condition, always returns " + ValueUtil.getBooleanOrNull(result) + ".", 
+//				GmlPackage.Literals.HARD_GOAL__CONDITION,
+//				DETERMINISTIC_VALUE,
+//				ValueUtil.getBooleanOrNull(result).toString)
 	}
 /*	
 	@Check

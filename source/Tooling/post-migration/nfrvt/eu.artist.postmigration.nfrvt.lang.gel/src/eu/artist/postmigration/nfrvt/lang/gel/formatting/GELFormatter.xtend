@@ -5,8 +5,8 @@ package eu.artist.postmigration.nfrvt.lang.gel.formatting
 
 import com.google.inject.Inject
 import eu.artist.postmigration.nfrvt.lang.gel.services.GELGrammarAccess
-import eu.artist.postmigration.nfrvt.lang.util.mwe.formatting.ARTISTDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
+import eu.artist.postmigration.nfrvt.lang.common.formatting.ARTISTDeclarativeFormatter
 
 // import com.google.inject.Inject;
 // import eu.artist.postmigration.nfrvt.lang.gel.services.GELGrammarAccess

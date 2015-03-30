@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="types" nsURI="http://www.artist.eu/postmigration/nfrvt/ARTISTTypes"
+    nsPrefix="eu.artist.postmigration.nfrvt.resources.types">
+  <eClassifiers xsi:type="ecore:EEnum" name="CloudProvider">
+    <eLiterals name="GoogleAppEngine" literal="GoogleAppEngine"/>
+    <eLiterals name="MicrosoftAzure" value="1" literal="MicrosoftAzure"/>
+    <eLiterals name="AmazonEC2" value="2" literal="AmazonEC2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProgrammingLanguage">
+    <eLiterals name="Java" literal="Java"/>
+    <eLiterals name="CSharp" value="1" literal="CSharp"/>
+    <eLiterals name="CPlusPlus" value="2" literal="CPlusPlus"/>
+    <eLiterals name="Ruby" value="3" literal="Ruby"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DBType">
+    <eLiterals name="SQL" literal="SQL"/>
+    <eLiterals name="NoSQL" value="1" literal="NoSQL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProvisioningType">
+    <eLiterals name="PaaS" literal="PaaS"/>
+    <eLiterals name="IaaS" value="1" literal="IaaS"/>
+    <eLiterals name="SaaS" value="2" literal="SaaS"/>
+    <eLiterals name="Hybrid" value="3" literal="Hybrid"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Country">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+</ecore:EPackage>

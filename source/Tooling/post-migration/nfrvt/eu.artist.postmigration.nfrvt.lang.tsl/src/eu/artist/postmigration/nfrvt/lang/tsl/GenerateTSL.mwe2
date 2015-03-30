@@ -15,10 +15,10 @@ module eu.artist.postmigration.nfrvt.lang.tsl.GenerateTSL
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
-import eu.artist.postmigration.nfrvt.lang.util.mwe.*
+import eu.artist.postmigration.nfrvt.lang.common.*
 
 var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/tsl/TSL.xtext"
-var fileExtensions = "tsl"
+var fileExtensions = "tsl,pattern,optpat"
 var projectName = "eu.artist.postmigration.nfrvt.lang.tsl"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true

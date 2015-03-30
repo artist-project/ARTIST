@@ -1,18 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel.util;
+
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel;
 
 import eu.artist.postmigration.nfrvt.lang.gel.gel.*;
 
@@ -88,6 +78,7 @@ public class GelSwitch<T> extends Switch<T>
       {
         MigrationEvaluation migrationEvaluation = (MigrationEvaluation)theEObject;
         T result = caseMigrationEvaluation(migrationEvaluation);
+        if (result == null) result = caseARTISTModel(migrationEvaluation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -118,13 +109,6 @@ public class GelSwitch<T> extends Switch<T>
         AppliedQuantitativePropertyEvaluation appliedQuantitativePropertyEvaluation = (AppliedQuantitativePropertyEvaluation)theEObject;
         T result = caseAppliedQuantitativePropertyEvaluation(appliedQuantitativePropertyEvaluation);
         if (result == null) result = caseAppliedPropertyEvaluation(appliedQuantitativePropertyEvaluation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case GelPackage.QUANTITATIVE_PROPERTY_REALIZATION:
-      {
-        QuantitativePropertyRealization quantitativePropertyRealization = (QuantitativePropertyRealization)theEObject;
-        T result = caseQuantitativePropertyRealization(quantitativePropertyRealization);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -282,22 +266,6 @@ public class GelSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Quantitative Property Realization</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Quantitative Property Realization</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseQuantitativePropertyRealization(QuantitativePropertyRealization object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Goal Model Evaluation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -437,6 +405,22 @@ public class GelSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNumberExpressionEvaluation(NumberExpressionEvaluation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>ARTIST Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ARTIST Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseARTISTModel(ARTISTModel object)
   {
     return null;
   }

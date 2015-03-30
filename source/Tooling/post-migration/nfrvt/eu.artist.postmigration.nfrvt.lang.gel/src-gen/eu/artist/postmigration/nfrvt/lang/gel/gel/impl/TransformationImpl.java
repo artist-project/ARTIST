@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel.impl;
@@ -46,6 +34,8 @@ import org.eclipse.uml2.uml.NamedElement;
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.TransformationImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.TransformationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.TransformationImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.TransformationImpl#getContext <em>Context</em>}</li>
+ *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.TransformationImpl#getInfo <em>Info</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +92,36 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected EList<NamedElement> target;
+
+  /**
+   * The cached value of the '{@link #getContext() <em>Context</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContext()
+   * @generated
+   * @ordered
+   */
+  protected EList<NamedElement> context;
+
+  /**
+   * The default value of the '{@link #getInfo() <em>Info</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInfo()
+   * @generated
+   * @ordered
+   */
+  protected static final String INFO_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInfo() <em>Info</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInfo()
+   * @generated
+   * @ordered
+   */
+  protected String info = INFO_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -223,6 +243,43 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<NamedElement> getContext()
+  {
+    if (context == null)
+    {
+      context = new EObjectResolvingEList<NamedElement>(NamedElement.class, this, GelPackage.TRANSFORMATION__CONTEXT);
+    }
+    return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getInfo()
+  {
+    return info;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInfo(String newInfo)
+  {
+    String oldInfo = info;
+    info = newInfo;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GelPackage.TRANSFORMATION__INFO, oldInfo, info));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -237,6 +294,10 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
         return getSource();
       case GelPackage.TRANSFORMATION__TARGET:
         return getTarget();
+      case GelPackage.TRANSFORMATION__CONTEXT:
+        return getContext();
+      case GelPackage.TRANSFORMATION__INFO:
+        return getInfo();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -266,6 +327,13 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
         getTarget().clear();
         getTarget().addAll((Collection<? extends NamedElement>)newValue);
         return;
+      case GelPackage.TRANSFORMATION__CONTEXT:
+        getContext().clear();
+        getContext().addAll((Collection<? extends NamedElement>)newValue);
+        return;
+      case GelPackage.TRANSFORMATION__INFO:
+        setInfo((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -292,6 +360,12 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
       case GelPackage.TRANSFORMATION__TARGET:
         getTarget().clear();
         return;
+      case GelPackage.TRANSFORMATION__CONTEXT:
+        getContext().clear();
+        return;
+      case GelPackage.TRANSFORMATION__INFO:
+        setInfo(INFO_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -314,6 +388,10 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
         return source != null && !source.isEmpty();
       case GelPackage.TRANSFORMATION__TARGET:
         return target != null && !target.isEmpty();
+      case GelPackage.TRANSFORMATION__CONTEXT:
+        return context != null && !context.isEmpty();
+      case GelPackage.TRANSFORMATION__INFO:
+        return INFO_EDEFAULT == null ? info != null : !INFO_EDEFAULT.equals(info);
     }
     return super.eIsSet(featureID);
   }
@@ -331,6 +409,8 @@ public class TransformationImpl extends MinimalEObjectImpl.Container implements 
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", info: ");
+    result.append(info);
     result.append(')');
     return result.toString();
   }

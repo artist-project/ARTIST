@@ -6,12 +6,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="nsl"
-            id="eu.artist.postmigration.nfrvt.lang.nsl.NSL"
-            name="Textual Property Catalogue Editor">
+              class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="nsl,prop"
+              icon="icons/nsl_file.gif"
+              id="eu.artist.postmigration.nfrvt.lang.nsl.NSL"
+              name="Textual Property Catalogue Editor">
         </editor>
     </extension>
     <extension
@@ -80,9 +81,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="eu.artist.postmigration.nfrvt.lang.nsl.NSL"
-            name="NSL">
+              category="eu.artist.postmigration.nfrvt.lang.nfrvt"
+              class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="eu.artist.postmigration.nfrvt.lang.nsl.NSL"
+              name="Properties">
             <keywordReference id="eu.artist.postmigration.nfrvt.lang.nsl.ui.keyword_NSL"/>
         </page>
         <page
@@ -220,6 +222,20 @@
         <resourceServiceProvider
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="nsl">
+        </resourceServiceProvider>
+    </extension>
+    
+    <extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="prop">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="prop">
         </resourceServiceProvider>
     </extension>
 
@@ -379,19 +395,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.nsl.NSL.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="nsl">
+            extensions="nsl,prop">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.nsl.NSL.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="nsl" label="NSL Compare">
+            extensions="nsl,prop" label="NSL Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.nsl.NSL.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="nsl">
+            extensions="nsl,prop">
     </provider>
   </extension>
   <extension
@@ -399,7 +415,7 @@
      <wizard
            category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.wizards.NewPropertyFileWizard"
-           icon="icons/PropertyCatalogue.png"
+           icon="icons/new_nsl.gif"
            id="eu.artist.postmigration.nfrvt.lang.nsl.ui.wizards.NewPropertyFileWizard"
            name="Property Catalogue File">
      </wizard>

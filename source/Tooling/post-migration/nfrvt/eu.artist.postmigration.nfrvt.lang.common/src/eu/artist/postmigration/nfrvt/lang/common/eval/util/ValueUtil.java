@@ -13,6 +13,7 @@
 package eu.artist.postmigration.nfrvt.lang.common.eval.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.InstanceSpecification;
@@ -23,6 +24,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.BooleanLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.InstanceSpecificationExpression;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NullLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NumberLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ObjectSpecificationExpression;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.StringLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification;
@@ -37,17 +39,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification
  */
 public class ValueUtil {
 	private static ArtistCommonFactory factory = ArtistCommonFactory.eINSTANCE;
-	
-	/**
-	 * Creates a new null literal
-	 * @return new null literal
-	 */
-	public static NullLiteral createNullLiteral() {
-		NullLiteral literal = factory.createNullLiteral();
-		literal.setValue("null");
-		return literal;
-	}
-	
+
 	/**
 	 * Creates a new boolean literal based on the given boolean value. 
 	 * If the value is null, null is returned.
@@ -81,6 +73,8 @@ public class ValueUtil {
 	 */
 	public static NumberLiteral createNumberLiteral(BigDecimal b) {
 		NumberLiteral literal = factory.createNumberLiteral();
+		if(b.scale() < 0)
+			b = b.setScale(0, RoundingMode.HALF_UP);
 		literal.setValue(b);
 		return literal;
 	}
@@ -105,9 +99,7 @@ public class ValueUtil {
 	 * @return new number literal
 	 */
 	public static NumberLiteral createNumberLiteral(double d) {
-		NumberLiteral literal = factory.createNumberLiteral();
-		literal.setValue(new BigDecimal(d));
-		return literal;
+		return createNumberLiteral(new BigDecimal(d));
 	}
 	
 	/**
@@ -117,9 +109,7 @@ public class ValueUtil {
 	 * @return new number literal
 	 */
 	public static NumberLiteral createNumberLiteral(Integer i) {
-		NumberLiteral literal = factory.createNumberLiteral();
-		literal.setValue(new BigDecimal(i));
-		return literal;
+		return createNumberLiteral(new BigDecimal(i));
 	}
 	
 	/**
@@ -130,6 +120,16 @@ public class ValueUtil {
 	public static UnlimitedLiteral createUnlimitedLiteral() {
 		UnlimitedLiteral literal = factory.createUnlimitedLiteral();
 		literal.setValue("*");
+		return literal;
+	}
+	
+	/**
+	 * Creates a new null literal.
+	 * @return new null literal
+	 */
+	public static NullLiteral createNullLiteral() {
+		NullLiteral literal = factory.createNullLiteral();
+		literal.setValue("null");
 		return literal;
 	}
 	
@@ -370,5 +370,23 @@ public class ValueUtil {
 		if(e instanceof NumberLiteral)
 			return (NumberLiteral) e;
 		return null;
+	}
+	
+	public static String getTypeName(ValueSpecification value) {
+		if(value instanceof BooleanLiteral)
+			return "Boolean";
+		if(value instanceof NullLiteral)
+			return "Null";
+		if(value instanceof NumberLiteral)
+			return "Number";
+		if(value instanceof StringLiteral)
+			return "String";
+		if(value instanceof UnlimitedLiteral)
+			return "Unlimited";
+		if(value instanceof ObjectSpecificationExpression)
+			return ((ObjectSpecificationExpression)value).getType().getName();
+		if(value instanceof InstanceSpecificationExpression)
+			return ((InstanceSpecificationExpression)value).getValue().eClass().getName();
+		return "<type-not-found>";
 	}
 }

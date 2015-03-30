@@ -9,7 +9,7 @@
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="gml"
+            extensions="gml,goal"
             id="eu.artist.postmigration.nfrvt.lang.gml.GML"
             name="GML Editor">
         </editor>
@@ -223,6 +223,20 @@
         </resourceServiceProvider>
     </extension>
 
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="goal">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="goal">
+        </resourceServiceProvider>
+    </extension>
+
 
 	<!-- marker definitions for eu.artist.postmigration.nfrvt.lang.gml.GML -->
 	<extension
@@ -251,7 +265,7 @@
          point="org.eclipse.xtext.builder.participant">
       <participant
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-            fileExtensions="gml"
+            fileExtensions="gml,goal"
             >
       </participant>
    </extension>
@@ -379,19 +393,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gml.GML.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gml">
+            extensions="gml,goal">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gml.GML.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gml" label="GML Compare">
+            extensions="gml,goal" label="GML Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.gml.GML.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="gml">
+            extensions="gml,goal">
     </provider>
   </extension>
 

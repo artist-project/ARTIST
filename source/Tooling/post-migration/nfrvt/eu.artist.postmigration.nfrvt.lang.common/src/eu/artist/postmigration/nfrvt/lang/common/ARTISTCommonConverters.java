@@ -12,6 +12,8 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.common;
 
+import java.util.Date;
+
 import org.eclipse.xtext.common.services.DefaultTerminalConverters;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverter;
@@ -31,6 +33,9 @@ public class ARTISTCommonConverters extends DefaultTerminalConverters {
 	@Inject
 	QualifiedNameValueConverter qnConverter;
 	
+	@Inject
+	ARTISTDateTimeValueConverter dateTimeConverter;
+	
 	@ValueConverter(rule = "QualifiedName")
     public IValueConverter<String> QualifiedName() {
 		return qnConverter;
@@ -39,5 +44,10 @@ public class ARTISTCommonConverters extends DefaultTerminalConverters {
 	@ValueConverter(rule = "QualifiedNameWithWildcard")
     public IValueConverter<String> QualifiedNameWithWildcard() {
 		return qnConverter;
+    }
+	
+	@ValueConverter(rule = "DATE_TIME")
+    public IValueConverter<Date> DATE_TIME() {
+		return dateTimeConverter;
     }
 }

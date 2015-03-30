@@ -1,0 +1,90 @@
+2014/07/14 22:26:38
+Found Solutions: 1
+
+Solution 1:
+Configuration Set:
+  FixedScaling(EntityManager, 4)
+  FixedScaling(CustomerService, 3)
+  Cache(Item)
+  AutoScaling(OrderService, 1, 4, Utilization, 0.2936, 0.4616)
+
+Scenario:
+  ApplicationController::login (250) ->
+  CustomerService::login (4000) ->
+  EntityManager::findAllCustomers (5000) ->
+  ApplicationController::findItem (125) ->
+  CatalogService::findItem (250) ->
+  EntityManager::findAllItems (5000) ->
+  ApplicationController::addItemToCart (1250) ->
+  OrderService::addItemToCart (250) ->
+  EntityManager::persist (2500) ->
+  ApplicationController::confirmOrder (1250) ->
+  OrderService::confirmOrder (2500)
+
+Settings:
+  Price / Instance / TimeUnit: 0.00075
+  Price / Cache / TimeUnit: 0.0015
+  Cache SpeedUp:
+    Customer: 3
+    Item: 15
+    Order: 1
+  Instance SpeedUp:
+    ApplicationController: 1
+    CatalogService: 1
+    CustomerService: 1
+    EntityManager: 1
+    OrderService: 1
+
+Instances:
+  ApplicationController: 1
+  CatalogService: 1
+  CustomerService: 3
+  EntityManager: 4
+  OrderService: 2
+
+Execution Times per Request:
+  *: 6360.07
+  ApplicationController: 1591.67
+  CatalogService: 16.67
+  CustomerService: 1333.33
+  EntityManager: 2152.78
+  OrderService: 1265.62
+
+Costs:
+  *: 620.11
+  ApplicationController: 47.7
+  CatalogService: 47.7
+  CustomerService: 143.1
+  EntityManager: 190.8
+  Item: 95.4
+  OrderService: 95.4
+  ___: 0
+
+Utilization:
+  *: 1
+  ApplicationController: 0.2502593219
+  CatalogService: 0.0026205165
+  CustomerService: 0.2096413168
+  EntityManager: 0.3384833761
+  OrderService: 0.1989954687
+
+Runtime / Request: 6360.069444444444
+Cost / Request: 62.01067708333335
+Average Utilization: 0.2
+
+Nr Requests: 10
+Total Runtime: 63600.694444444445
+Total Cost: 620.1067708333335
+Total Utilization: 1.0
+
+------------------
+Cost(0.48042708333333395)
+AvgResponseTime(0.0)
+AvgUtilization(0.0)
+------------------
+isValid: true
+constraints(0.0)
+---------------------------------------------------
+
+
+

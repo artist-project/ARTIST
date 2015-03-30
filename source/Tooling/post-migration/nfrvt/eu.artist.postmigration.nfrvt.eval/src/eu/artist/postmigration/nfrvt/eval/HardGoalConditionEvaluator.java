@@ -12,13 +12,13 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.eval;
 
-import eu.artist.postmigration.nfrvt.eval.util.MigrationFactory;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression;
+import eu.artist.postmigration.nfrvt.lang.util.MigrationFactory;
 
 /**
  * An evaluator for hard goal conditions that uses the evaluation 
@@ -86,7 +86,7 @@ class HardGoalConditionEvaluator extends ExpressionEvaluator {
 					"$" + reference.getValue().getName() + " as evaluated.");
 		
 		return MigrationFactory.createValueSpecificationExpressionEvaluation(
-				ValueUtil.copy(value),
+				MigrationFactory.copy(value),
 				"$" + reference.getValue().getName() + " as evaluated.");
 	}
 }

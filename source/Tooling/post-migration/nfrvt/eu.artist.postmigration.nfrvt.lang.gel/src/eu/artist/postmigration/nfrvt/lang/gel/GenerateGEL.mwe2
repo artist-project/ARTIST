@@ -15,10 +15,10 @@ module eu.artist.postmigration.nfrvt.lang.gel.GenerateGEL
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
-import eu.artist.postmigration.nfrvt.lang.util.mwe.*
+import eu.artist.postmigration.nfrvt.lang.common.*
 
 var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/gel/GEL.xtext"
-var fileExtensions = "gel"
+var fileExtensions = "gel,eval"
 var projectName = "eu.artist.postmigration.nfrvt.lang.gel"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true
@@ -35,8 +35,8 @@ Workflow {
     		umlTypes = true
     		nsl = true
     		tsl = true
-    		esl = true
     		gml = true
+    		pml = true
     	}
     }
     
@@ -101,7 +101,7 @@ Workflow {
     		// fragment = exporting.SimpleNamesFragment auto-inject {}
     
     		// scoping and exporting API
-    		fragment = scoping.ImportURIScopingFragment auto-inject {}
+//    		fragment = scoping.ImportURIScopingFragment auto-inject {}
     		fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
     		fragment = exporting.QualifiedNamesFragment auto-inject {}
     		fragment = builder.BuilderIntegrationFragment auto-inject {}

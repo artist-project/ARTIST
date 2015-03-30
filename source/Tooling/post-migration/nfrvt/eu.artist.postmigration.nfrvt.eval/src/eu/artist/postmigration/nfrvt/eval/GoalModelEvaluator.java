@@ -19,18 +19,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import eu.artist.postmigration.nfrvt.lang.gel.eval.VerdictConverter;
-import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.CompositeGoal;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.common.eval.logic.BooleanLogic;
 import eu.artist.postmigration.nfrvt.lang.common.eval.logic.NumericLogic;
 import eu.artist.postmigration.nfrvt.lang.common.eval.util.ValueUtil;
+import eu.artist.postmigration.nfrvt.lang.gel.eval.VerdictConverter;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.BooleanExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.CompositeGoalEvaluation;
@@ -41,6 +34,13 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.HardGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.SoftGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Verdict;
+import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.CompositeGoal;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.DirectionKind;
 
 /**
@@ -60,8 +60,8 @@ public class GoalModelEvaluator {
 	private EvaluationSettings settings = new EvaluationSettings();
 	private List<Goal> topLevelGoals = new ArrayList<>();
 	private Map<Goal, GoalEvaluation> goalEvaluations = new HashMap<>();
-	private GoalExpressionEvaluator goalExpressionEvaluator = new GoalExpressionEvaluator(this, getSettings());
-	private HardGoalConditionEvaluator hardGoalConditionEvaluator = new HardGoalConditionEvaluator(this, getSettings());
+	private GoalExpressionEvaluator goalExpressionEvaluator;
+	private HardGoalConditionEvaluator hardGoalConditionEvaluator;
 	
 	/**
 	 * An evaluator for goal models. Goal models are evaluated by evaluating all
@@ -74,7 +74,9 @@ public class GoalModelEvaluator {
 	 */
 	public GoalModelEvaluator(Map<AppliedProperty, AppliedPropertyEvaluation> appliedPropertyEvaluations, EvaluationSettings settings) {
 		this.appliedPropertyEvaluations = appliedPropertyEvaluations;
-		this.settings = settings;
+		this.goalExpressionEvaluator = new GoalExpressionEvaluator(this, settings);
+		this.hardGoalConditionEvaluator = new HardGoalConditionEvaluator(this, settings);
+		setSettings(settings);
 	}
 	
 	/**
@@ -85,7 +87,9 @@ public class GoalModelEvaluator {
 	 */
 	public void setSettings(EvaluationSettings settings) {
 		this.settings = settings;
-		NumericLogic.setSettings(settings);
+		this.goalExpressionEvaluator.setSettings(settings);
+		this.hardGoalConditionEvaluator.setSettings(settings);
+		renderer.setPrecision(settings.getPrecision());
 	}
 	
 	/**
@@ -287,9 +291,8 @@ public class GoalModelEvaluator {
 		
 		BigDecimal impact = ValueUtil.assertNumber(propertyEvaluation.getValue());
 		
-		BigDecimal difference = goal.getThreshold().subtract(impact);
-		evaluation.setDifference(difference.abs());
-
+		BigDecimal difference = NumericLogic.scale(NumericLogic.abs(NumericLogic.subtract(goal.getThreshold(), impact)));
+		evaluation.setDifference(difference);
 		DirectionKind direction = goal.getProperty().getProperty().getDirection();
 		
 		evaluation.setReason(

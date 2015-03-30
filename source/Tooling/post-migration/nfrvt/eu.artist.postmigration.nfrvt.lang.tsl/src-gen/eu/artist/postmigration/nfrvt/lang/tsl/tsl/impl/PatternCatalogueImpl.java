@@ -1,20 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.tsl.tsl.impl;
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportNamespace;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl;
 
 import eu.artist.postmigration.nfrvt.lang.tsl.tsl.Pattern;
 import eu.artist.postmigration.nfrvt.lang.tsl.tsl.PatternCatalogue;
@@ -31,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -43,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.tsl.tsl.impl.PatternCatalogueImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.tsl.tsl.impl.PatternCatalogueImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.tsl.tsl.impl.PatternCatalogueImpl#getPatterns <em>Patterns</em>}</li>
  * </ul>
@@ -51,18 +37,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implements PatternCatalogue
+public class PatternCatalogueImpl extends ARTISTModelImpl implements PatternCatalogue
 {
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<ImportNamespace> imports;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -119,20 +95,6 @@ public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ImportNamespace> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<ImportNamespace>(ImportNamespace.class, this, TslPackage.PATTERN_CATALOGUE__IMPORTS);
-    }
-    return imports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -175,8 +137,6 @@ public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case TslPackage.PATTERN_CATALOGUE__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case TslPackage.PATTERN_CATALOGUE__PATTERNS:
         return ((InternalEList<?>)getPatterns()).basicRemove(otherEnd, msgs);
     }
@@ -193,8 +153,6 @@ public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case TslPackage.PATTERN_CATALOGUE__IMPORTS:
-        return getImports();
       case TslPackage.PATTERN_CATALOGUE__NAME:
         return getName();
       case TslPackage.PATTERN_CATALOGUE__PATTERNS:
@@ -214,10 +172,6 @@ public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case TslPackage.PATTERN_CATALOGUE__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends ImportNamespace>)newValue);
-        return;
       case TslPackage.PATTERN_CATALOGUE__NAME:
         setName((String)newValue);
         return;
@@ -239,9 +193,6 @@ public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case TslPackage.PATTERN_CATALOGUE__IMPORTS:
-        getImports().clear();
-        return;
       case TslPackage.PATTERN_CATALOGUE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -262,8 +213,6 @@ public class PatternCatalogueImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case TslPackage.PATTERN_CATALOGUE__IMPORTS:
-        return imports != null && !imports.isEmpty();
       case TslPackage.PATTERN_CATALOGUE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case TslPackage.PATTERN_CATALOGUE__PATTERNS:

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.postmigration.nfrvt.resources/src" modelPluginID="eu.artist.postmigration.nfrvt.resources"
+    modelName="ARTIST_Types" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.uml2.types/model/Types.genmodel#//types" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>ARTIST_Types.ecore</foreignModel>
+  <genPackages prefix="ARTISTTypes" basePackage="eu.artist.postmigration.nfrvt.resources"
+      disposableProviderFactory="true" ecorePackage="ARTIST_Types.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ARTIST_Types.ecore#//CloudProvider">
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//CloudProvider/GoogleAppEngine"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//CloudProvider/MicrosoftAzure"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//CloudProvider/AmazonEC2"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ARTIST_Types.ecore#//ProgrammingLanguage">
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProgrammingLanguage/Java"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProgrammingLanguage/CSharp"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProgrammingLanguage/CPlusPlus"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProgrammingLanguage/Ruby"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ARTIST_Types.ecore#//DBType">
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//DBType/SQL"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//DBType/NoSQL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ARTIST_Types.ecore#//ProvisioningType">
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProvisioningType/PaaS"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProvisioningType/IaaS"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProvisioningType/SaaS"/>
+      <genEnumLiterals ecoreEnumLiteral="ARTIST_Types.ecore#//ProvisioningType/Hybrid"/>
+    </genEnums>
+    <genClasses ecoreClass="ARTIST_Types.ecore#//Country">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTIST_Types.ecore#//Country/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ARTIST_Types.ecore#//Country/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

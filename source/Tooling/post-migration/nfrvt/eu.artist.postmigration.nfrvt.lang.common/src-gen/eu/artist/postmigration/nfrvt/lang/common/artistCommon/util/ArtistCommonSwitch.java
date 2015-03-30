@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.common.artistCommon.util;
@@ -600,6 +588,20 @@ public class ArtistCommonSwitch<T> extends Switch<T>
       {
         Operator operator = (Operator)theEObject;
         T result = caseOperator(operator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ArtistCommonPackage.ARTIST_MODEL:
+      {
+        ARTISTModel artistModel = (ARTISTModel)theEObject;
+        T result = caseARTISTModel(artistModel);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ArtistCommonPackage.WORKLOAD:
+      {
+        Workload workload = (Workload)theEObject;
+        T result = caseWorkload(workload);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1392,6 +1394,38 @@ public class ArtistCommonSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseOperator(Operator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>ARTIST Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ARTIST Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseARTISTModel(ARTISTModel object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Workload</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Workload</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWorkload(Workload object)
   {
     return null;
   }

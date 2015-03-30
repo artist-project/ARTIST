@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ARTIST_Types -->
+      <package
+            uri="http://www.artist.eu/postmigration/nfrvt/ARTISTTypes"
+            class="eu.artist.postmigration.nfrvt.resources.types.ARTISTTypesPackage"
+            genModel="resources/ARTIST_Types.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://ARTIST_MIGRATION_LIBRARIES/"
+            target="platform:/plugin/eu.artist.postmigration.nfrvt.resources/resources/">
+      </mapping>
+   </extension>
+   <extension
+         point="eu.artist.postmigration.nfrvt.extensionpoint.MigrationResource">
+      <library
+            language="All"
+            name="ARTIST NFP Catalogue"
+            path="pathmap://ARTIST_MIGRATION_LIBRARIES/ARTIST_NFPCatalogue.prop">
+      </library>
+      <library
+            language="All"
+            name="ARTIST Static Catalogue"
+            path="pathmap://ARTIST_MIGRATION_LIBRARIES/ARTIST_StaticPropertyCatalogue.prop">
+      </library>
+      <library
+            language="All"
+            name="ARTIST Pattern Catalogue"
+            path="pathmap://ARTIST_MIGRATION_LIBRARIES/ARTIST_PatternCatalogue.pattern">
+      </library>
+      <library
+            language="All"
+            name="ARTIST Types Library"
+            path="pathmap://ARTIST_MIGRATION_LIBRARIES/ARTIST_Types.library.uml">
+      </library>
+   </extension>
+
+</plugin>

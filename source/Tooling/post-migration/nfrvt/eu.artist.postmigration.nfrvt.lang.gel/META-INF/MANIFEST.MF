@@ -14,8 +14,6 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  eu.artist.postmigration.nfrvt.lang.nsl;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.tsl;bundle-version="1.0.0",
- eu.artist.postmigration.nfrvt.lang.esl;bundle-version="1.0.0",
- eu.artist.postmigration.nfrvt.lang.util;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.gml;bundle-version="1.0.0",
  org.eclipse.xtext.util,
  org.eclipse.emf.ecore,
@@ -24,11 +22,12 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.common.types,
  org.eclipse.uml2.uml;bundle-version="4.1.2",
  org.eclipse.uml2.codegen.ecore;bundle-version="1.9.100",
- eu.artist.postmigration.nfrvt.lang.uml.uml;bundle-version="1.0.0",
+ eu.artist.postmigration.nfrvt.lang.uml;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.common;bundle-version="1.0.0",
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
  eu.artist.postmigration.nfrvt.lang.uml.ui;bundle-version="1.0.0",
- org.junit
+ org.junit,
+ eu.artist.postmigration.nfrvt.lang.pml;bundle-version="1.0.0"
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/CommonBehaviors/BasicBehaviors.ecore"
+            class="org.modelexecution.fuml.Syntax.CommonBehaviors.BasicBehaviors.BasicBehaviorsPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/CommonBehaviors/Communications.ecore"
+            class="org.modelexecution.fuml.Syntax.CommonBehaviors.Communications.CommunicationsPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Classes/Kernel.ecore"
+            class="org.modelexecution.fuml.Syntax.Classes.Kernel.KernelPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Activities/IntermediateActivities.ecore"
+            class="org.modelexecution.fuml.Syntax.Activities.IntermediateActivities.IntermediateActivitiesPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Activities/CompleteStructuredActivities.ecore"
+            class="org.modelexecution.fuml.Syntax.Activities.CompleteStructuredActivities.CompleteStructuredActivitiesPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Activities/ExtraStructuredActivities.ecore"
+            class="org.modelexecution.fuml.Syntax.Activities.ExtraStructuredActivities.ExtraStructuredActivitiesPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Actions/IntermediateActions.ecore"
+            class="org.modelexecution.fuml.Syntax.Actions.IntermediateActions.IntermediateActionsPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Actions/CompleteActions.ecore"
+            class="org.modelexecution.fuml.Syntax.Actions.CompleteActions.CompleteActionsPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///fUML/Syntax/Actions/BasicActions.ecore"
+            class="org.modelexecution.fuml.Syntax.Actions.BasicActions.BasicActionsPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fuml -->
+      <package
+            uri="http://www.modelexecution.org/fuml/semantics/classes/kernel"
+            class="org.modelexecution.fuml.Semantics.Classes.Kernel.KernelPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fuml -->
+      <package
+            uri="http://www.modelexecution.org/fuml/semantics/loci/locil1"
+            class="org.modelexecution.fuml.Semantics.Loci.LociL1.LociL1Package"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fuml -->
+      <package
+            uri="http://www.modelexecution.org/fuml/semantics/commonbehaviors/basicbehaviors"
+            class="org.modelexecution.fuml.Semantics.CommonBehaviors.BasicBehaviors.BasicBehaviorsPackage"
+            genModel="model/fuml.genmodel"/>
+   </extension>
+
+</plugin>

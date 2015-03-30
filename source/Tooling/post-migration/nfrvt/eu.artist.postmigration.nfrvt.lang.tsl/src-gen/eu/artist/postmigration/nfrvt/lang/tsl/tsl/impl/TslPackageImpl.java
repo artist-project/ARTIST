@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.tsl.tsl.impl;
@@ -142,19 +130,9 @@ public class TslPackageImpl extends EPackageImpl implements TslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPatternCatalogue_Imports()
-  {
-    return (EReference)patternCatalogueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getPatternCatalogue_Name()
   {
-    return (EAttribute)patternCatalogueEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)patternCatalogueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -164,7 +142,7 @@ public class TslPackageImpl extends EPackageImpl implements TslPackage
    */
   public EReference getPatternCatalogue_Patterns()
   {
-    return (EReference)patternCatalogueEClass.getEStructuralFeatures().get(2);
+    return (EReference)patternCatalogueEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -308,7 +286,6 @@ public class TslPackageImpl extends EPackageImpl implements TslPackage
 
     // Create classes and their features
     patternCatalogueEClass = createEClass(PATTERN_CATALOGUE);
-    createEReference(patternCatalogueEClass, PATTERN_CATALOGUE__IMPORTS);
     createEAttribute(patternCatalogueEClass, PATTERN_CATALOGUE__NAME);
     createEReference(patternCatalogueEClass, PATTERN_CATALOGUE__PATTERNS);
 
@@ -360,10 +337,10 @@ public class TslPackageImpl extends EPackageImpl implements TslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    patternCatalogueEClass.getESuperTypes().add(theArtistCommonPackage.getARTISTModel());
 
     // Initialize classes and features; add operations and parameters
     initEClass(patternCatalogueEClass, PatternCatalogue.class, "PatternCatalogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPatternCatalogue_Imports(), theArtistCommonPackage.getImportNamespace(), null, "imports", null, 0, -1, PatternCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPatternCatalogue_Name(), theEcorePackage.getEString(), "name", null, 0, 1, PatternCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPatternCatalogue_Patterns(), this.getPattern(), null, "patterns", null, 0, -1, PatternCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

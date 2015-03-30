@@ -6,12 +6,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="gel"
-            id="eu.artist.postmigration.nfrvt.lang.gel.GEL"
-            name="Textual Goal Model Evaluation Editor">
+              class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="gel,eval"
+              icon="icons/gel_file.gif"
+              id="eu.artist.postmigration.nfrvt.lang.gel.GEL"
+              name="Textual Goal Model Evaluation Editor">
         </editor>
     </extension>
     <extension
@@ -80,9 +81,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="eu.artist.postmigration.nfrvt.lang.gel.GEL"
-            name="GEL">
+              category="eu.artist.postmigration.nfrvt.lang.nfrvt"
+              class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="eu.artist.postmigration.nfrvt.lang.gel.GEL"
+              name="Migration Evaluations">
             <keywordReference id="eu.artist.postmigration.nfrvt.lang.gel.ui.keyword_GEL"/>
         </page>
         <page
@@ -220,6 +222,19 @@
         <resourceServiceProvider
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
             uriExtension="gel">
+        </resourceServiceProvider>
+    </extension>
+    <extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="eval">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="eval">
         </resourceServiceProvider>
     </extension>
 
@@ -379,19 +394,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gel.GEL.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gel">
+            extensions="gel,eval">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gel.GEL.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gel" label="GEL Compare">
+            extensions="gel,eval" label="GEL Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.gel.GEL.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="gel">
+            extensions="gel,eval">
     </provider>
   </extension>
 

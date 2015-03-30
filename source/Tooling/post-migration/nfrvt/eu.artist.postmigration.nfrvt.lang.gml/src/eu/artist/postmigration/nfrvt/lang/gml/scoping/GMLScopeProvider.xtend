@@ -3,7 +3,9 @@
  */
 package eu.artist.postmigration.nfrvt.lang.gml.scoping
 
+import eu.artist.postmigration.nfrvt.extensionpoint.RegisteredModelResources
 import eu.artist.postmigration.nfrvt.lang.common.scoping.ARTISTCommonScopeProvider
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression
@@ -13,6 +15,7 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.SimpleScope
 
 /**
  * This class contains custom scoping description.
@@ -22,7 +25,6 @@ import org.eclipse.xtext.scoping.Scopes
  *
  */
 class GMLScopeProvider extends ARTISTCommonScopeProvider {
-
 	def IScope scope_AppliedQuantitativeProperty_workload(AppliedQuantitativeProperty p, EReference ref) {
 		if(ref.name.equals("workload")) {
 			val container = p.eContainer
@@ -31,6 +33,28 @@ class GMLScopeProvider extends ARTISTCommonScopeProvider {
 			val gm = container as GoalModel;
 			return Scopes::scopeFor(gm.workloads);
 		}
+	}
+	
+//	def boolean hasScenarioStereotype(EObject obj) {
+//		var element = obj as Element;
+//		if(element == null)
+//			return false;
+//		EcoreUtil.resolveAll(obj);
+//		var container = obj.eContainer;
+//		return element.getAppliedStereotype("MARTE::MARTE_AnalysisModel::GQAM::GaAnalysisContext") != null
+//	}
+//	
+//	def IScope scope_Workload_activity(Workload workload, EReference ref) {
+//		var activities = delegateGetScope(workload, ref);
+//		return Scopes::scopeFor(activities.allElements.map[d | d.EObjectOrProxy].filter[a | hasScenarioStereotype(a)]);
+//	}
+	
+	def IScope scope_AppliedProperty_context(AppliedProperty property, EReference ref) {
+		var scope = delegate.getScope(property, ref);
+		val converter = property.eResource.resourceSet.URIConverter;
+		val preloadedURIs = RegisteredModelResources.getInstance.URIs.map[u | converter.normalize(u)].toSet;
+		scope = new SimpleScope(scope.allElements.filter[desc | !preloadedURIs.contains(converter.normalize(desc.EObjectURI).trimFragment)]);
+		return scope;
 	}
 	
 	def IScope scope_SoftGoal_property(SoftGoal g, EReference ref) {
@@ -64,4 +88,6 @@ class GMLScopeProvider extends ARTISTCommonScopeProvider {
 			return Scopes::scopeFor(gm.appliedProperties.filter(typeof(AppliedQuantitativeProperty)));
 		}
 	}
+	
+	
 }

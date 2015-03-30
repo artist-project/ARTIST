@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gml.gml;
@@ -88,7 +76,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_MODEL__IMPORTS = 0;
+  int GOAL_MODEL__IMPORTS = ArtistCommonPackage.ARTIST_MODEL__IMPORTS;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -97,7 +85,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_MODEL__NAME = 1;
+  int GOAL_MODEL__NAME = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Workloads</b></em>' containment reference list.
@@ -106,7 +94,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_MODEL__WORKLOADS = 2;
+  int GOAL_MODEL__WORKLOADS = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Applied Properties</b></em>' containment reference list.
@@ -115,7 +103,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_MODEL__APPLIED_PROPERTIES = 3;
+  int GOAL_MODEL__APPLIED_PROPERTIES = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Goals</b></em>' containment reference list.
@@ -124,7 +112,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_MODEL__GOALS = 4;
+  int GOAL_MODEL__GOALS = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Goal Model</em>' class.
@@ -133,53 +121,7 @@ public interface GmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_MODEL_FEATURE_COUNT = 5;
-
-  /**
-   * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.WorkloadImpl <em>Workload</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.WorkloadImpl
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getWorkload()
-   * @generated
-   */
-  int WORKLOAD = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORKLOAD__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Activity</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORKLOAD__ACTIVITY = 1;
-
-  /**
-   * The feature id for the '<em><b>Pattern</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORKLOAD__PATTERN = 2;
-
-  /**
-   * The number of structural features of the '<em>Workload</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int WORKLOAD_FEATURE_COUNT = 3;
+  int GOAL_MODEL_FEATURE_COUNT = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.AppliedPropertyImpl <em>Applied Property</em>}' class.
@@ -189,7 +131,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getAppliedProperty()
    * @generated
    */
-  int APPLIED_PROPERTY = 2;
+  int APPLIED_PROPERTY = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -226,7 +168,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getAppliedQualitativeProperty()
    * @generated
    */
-  int APPLIED_QUALITATIVE_PROPERTY = 3;
+  int APPLIED_QUALITATIVE_PROPERTY = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -272,7 +214,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getAppliedQuantitativeProperty()
    * @generated
    */
-  int APPLIED_QUANTITATIVE_PROPERTY = 4;
+  int APPLIED_QUANTITATIVE_PROPERTY = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -336,7 +278,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoal()
    * @generated
    */
-  int GOAL = 5;
+  int GOAL = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -382,7 +324,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getSoftGoal()
    * @generated
    */
-  int SOFT_GOAL = 6;
+  int SOFT_GOAL = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -455,7 +397,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getSoftGoalImpact()
    * @generated
    */
-  int SOFT_GOAL_IMPACT = 7;
+  int SOFT_GOAL_IMPACT = 6;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -492,7 +434,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getHardGoal()
    * @generated
    */
-  int HARD_GOAL = 8;
+  int HARD_GOAL = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -556,7 +498,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getCompositeGoal()
    * @generated
    */
-  int COMPOSITE_GOAL = 9;
+  int COMPOSITE_GOAL = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -611,7 +553,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalExpression()
    * @generated
    */
-  int GOAL_EXPRESSION = 10;
+  int GOAL_EXPRESSION = 9;
 
   /**
    * The number of structural features of the '<em>Goal Expression</em>' class.
@@ -630,7 +572,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalImplication()
    * @generated
    */
-  int GOAL_IMPLICATION = 11;
+  int GOAL_IMPLICATION = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -676,7 +618,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalDisjunction()
    * @generated
    */
-  int GOAL_DISJUNCTION = 12;
+  int GOAL_DISJUNCTION = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -722,7 +664,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalConjunction()
    * @generated
    */
-  int GOAL_CONJUNCTION = 13;
+  int GOAL_CONJUNCTION = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -768,7 +710,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalComparison()
    * @generated
    */
-  int GOAL_COMPARISON = 14;
+  int GOAL_COMPARISON = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -814,7 +756,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalBooleanUnit()
    * @generated
    */
-  int GOAL_BOOLEAN_UNIT = 15;
+  int GOAL_BOOLEAN_UNIT = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -860,7 +802,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalNegation()
    * @generated
    */
-  int GOAL_NEGATION = 16;
+  int GOAL_NEGATION = 15;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -915,7 +857,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalBooleanLiteral()
    * @generated
    */
-  int GOAL_BOOLEAN_LITERAL = 17;
+  int GOAL_BOOLEAN_LITERAL = 16;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -970,7 +912,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalReference()
    * @generated
    */
-  int GOAL_REFERENCE = 18;
+  int GOAL_REFERENCE = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1025,7 +967,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getParenthesizedGoalExpression()
    * @generated
    */
-  int PARENTHESIZED_GOAL_EXPRESSION = 19;
+  int PARENTHESIZED_GOAL_EXPRESSION = 18;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1080,7 +1022,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getAppliedQuantitativePropertyExpression()
    * @generated
    */
-  int APPLIED_QUANTITATIVE_PROPERTY_EXPRESSION = 20;
+  int APPLIED_QUANTITATIVE_PROPERTY_EXPRESSION = 19;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1135,7 +1077,7 @@ public interface GmlPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getGoalKind()
    * @generated
    */
-  int GOAL_KIND = 21;
+  int GOAL_KIND = 20;
 
 
   /**
@@ -1147,17 +1089,6 @@ public interface GmlPackage extends EPackage
    * @generated
    */
   EClass getGoalModel();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel#getImports <em>Imports</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Imports</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel#getImports()
-   * @see #getGoalModel()
-   * @generated
-   */
-  EReference getGoalModel_Imports();
 
   /**
    * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel#getName <em>Name</em>}'.
@@ -1202,49 +1133,6 @@ public interface GmlPackage extends EPackage
    * @generated
    */
   EReference getGoalModel_Goals();
-
-  /**
-   * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.Workload <em>Workload</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Workload</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.Workload
-   * @generated
-   */
-  EClass getWorkload();
-
-  /**
-   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.Workload#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.Workload#getName()
-   * @see #getWorkload()
-   * @generated
-   */
-  EAttribute getWorkload_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.Workload#getActivity <em>Activity</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Activity</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.Workload#getActivity()
-   * @see #getWorkload()
-   * @generated
-   */
-  EReference getWorkload_Activity();
-
-  /**
-   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.Workload#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Pattern</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gml.gml.Workload#getPattern()
-   * @see #getWorkload()
-   * @generated
-   */
-  EAttribute getWorkload_Pattern();
 
   /**
    * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty <em>Applied Property</em>}'.
@@ -1755,14 +1643,6 @@ public interface GmlPackage extends EPackage
     EClass GOAL_MODEL = eINSTANCE.getGoalModel();
 
     /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GOAL_MODEL__IMPORTS = eINSTANCE.getGoalModel_Imports();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1793,40 +1673,6 @@ public interface GmlPackage extends EPackage
      * @generated
      */
     EReference GOAL_MODEL__GOALS = eINSTANCE.getGoalModel_Goals();
-
-    /**
-     * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.WorkloadImpl <em>Workload</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.WorkloadImpl
-     * @see eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GmlPackageImpl#getWorkload()
-     * @generated
-     */
-    EClass WORKLOAD = eINSTANCE.getWorkload();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WORKLOAD__NAME = eINSTANCE.getWorkload_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Activity</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference WORKLOAD__ACTIVITY = eINSTANCE.getWorkload_Activity();
-
-    /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute WORKLOAD__PATTERN = eINSTANCE.getWorkload_Pattern();
 
     /**
      * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.AppliedPropertyImpl <em>Applied Property</em>}' class.

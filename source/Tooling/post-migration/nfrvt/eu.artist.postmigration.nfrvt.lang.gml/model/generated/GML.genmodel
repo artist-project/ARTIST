@@ -8,23 +8,17 @@
     editorPluginID="eu.artist.postmigration.nfrvt.lang.gml.editor" runtimeVersion="2.9"
     usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.genmodel#//nsl platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
   <genPackages prefix="Gml" basePackage="eu.artist.postmigration.nfrvt.lang.gml" resource="XML"
-      disposableProviderFactory="true" fileExtensions="gml" ecorePackage="GML.ecore#/">
+      disposableProviderFactory="true" fileExtensions="gml,goal" ecorePackage="GML.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GML.ecore#//GoalKind">
       <genEnumLiterals ecoreEnumLiteral="GML.ecore#//GoalKind/REQUIRED"/>
       <genEnumLiterals ecoreEnumLiteral="GML.ecore#//GoalKind/OFFERED"/>
       <genEnumLiterals ecoreEnumLiteral="GML.ecore#//GoalKind/CONTRACT"/>
     </genEnums>
     <genClasses ecoreClass="GML.ecore#//GoalModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//GoalModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/workloads"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/appliedProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GML.ecore#//GoalModel/goals"/>
-    </genClasses>
-    <genClasses ecoreClass="GML.ecore#//Workload">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Workload/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GML.ecore#//Workload/activity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//Workload/pattern"/>
     </genClasses>
     <genClasses ecoreClass="GML.ecore#//AppliedProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GML.ecore#//AppliedProperty/name"/>

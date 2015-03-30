@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Migration Resource Extension Point Registry
+Bundle-SymbolicName: eu.artist.postmigration.nfrvt.extensionpoint;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ARTIST
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.emf.common,
+ org.eclipse.uml2.uml,
+ org.eclipse.papyrus.marte.static.profile,
+ org.eclipse.e4.core.di,
+ com.google.guava,
+ org.eclipse.equinox.registry;bundle-version="3.5.301"
+Export-Package: eu.artist.postmigration.nfrvt.extensionpoint,
+ eu.artist.postmigration.nfrvt.spi
+Import-Package: org.eclipse.core.runtime

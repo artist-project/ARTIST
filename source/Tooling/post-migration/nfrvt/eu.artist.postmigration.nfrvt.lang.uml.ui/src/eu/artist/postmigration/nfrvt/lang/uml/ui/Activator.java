@@ -19,7 +19,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.util.Modules;
 
-import eu.artist.postmigration.nfrvt.lang.uml.uml.UmlRuntimeModule;
+import eu.artist.postmigration.nfrvt.lang.uml.UmlRuntimeModule;
 
 
 /**

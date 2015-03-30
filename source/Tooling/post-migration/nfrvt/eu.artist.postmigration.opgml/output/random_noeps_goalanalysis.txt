@@ -1,0 +1,86 @@
+2014/07/14 20:28:43
+Found Solutions: 1
+
+Solution 1:
+Scenario:
+  ApplicationController::login (250) ->
+  CustomerService::login (4000) ->
+  EntityManager::findAllCustomers (5000) ->
+  ApplicationController::findItem (125) ->
+  CatalogService::findItem (250) ->
+  EntityManager::findAllItems (5000) ->
+  ApplicationController::addItemToCart (1250) ->
+  OrderService::addItemToCart (250) ->
+  EntityManager::persist (2500) ->
+  ApplicationController::confirmOrder (1250) ->
+  OrderService::confirmOrder (2500)
+
+Settings:
+  Price / Instance / TimeUnit: 0.0005
+  Price / Cache / TimeUnit: 0.0015
+  Cache SpeedUp:
+    Customer: 3
+    Item: 5
+    Order: 1
+  Instance SpeedUp:
+    ApplicationController: 1
+    CatalogService: 1
+    CustomerService: 1
+    EntityManager: 1
+    OrderService: 1
+
+Configuration Set:
+  FixedScaling(CatalogService, 4)
+
+Instances:
+  ApplicationController: 1
+  CatalogService: 4
+  CustomerService: 1
+  EntityManager: 1
+  OrderService: 1
+
+Execution Times per Request:
+  *: 22187.5
+  ApplicationController: 2875
+  CatalogService: 62.5
+  CustomerService: 4000
+  EntityManager: 12500
+  OrderService: 2750
+
+Costs:
+  *: 887.5
+  ApplicationController: 110.94
+  CatalogService: 443.75
+  CustomerService: 110.94
+  EntityManager: 110.94
+  OrderService: 110.94
+  ___: 0
+
+Utilization:
+  *: 1
+  ApplicationController: 0.1295774648
+  CatalogService: 0.0028169014
+  CustomerService: 0.1802816901
+  EntityManager: 0.5633802817
+  OrderService: 0.123943662
+
+Runtime / Request: 22187.5
+Cost / Request: 88.75
+Average Utilization: 0.2
+
+Nr Requests: 10
+Total Runtime: 221875.0
+Total Cost: 887.5
+Total Utilization: 1.0
+
+------------------
+Cost(0.0)
+AvgResponseTime(0.0)
+AvgUtilization(0.0)
+------------------
+isValid: true
+constraints(0.0)
+---------------------------------------------------
+
+
+

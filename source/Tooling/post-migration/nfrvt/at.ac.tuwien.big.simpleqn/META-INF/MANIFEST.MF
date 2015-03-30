@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simpleqn
+Bundle-SymbolicName: at.ac.tuwien.big.simpleqn
+Bundle-Version: 1.0.0.qualifier
+Export-Package: at.ac.tuwien.big.simpleqn,
+ at.ac.tuwien.big.simpleqn.strategies
+Require-Bundle: org.junit;bundle-version="4.10.0",
+ org.scala-lang.scala-library;bundle-version="2.11.2";visibility:=reexport,
+ org.scala-lang.scala-reflect;bundle-version="2.11.2";visibility:=reexport,
+ org.scala-lang.scala-actors;bundle-version="2.11.2";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

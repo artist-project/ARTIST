@@ -15,10 +15,12 @@ package eu.artist.postmigration.nfrvt.eval.run.internal.process;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.math.RoundingMode;
+import java.util.List;
 
 import eu.artist.postmigration.nfrvt.eval.run.EvaluationProcessor;
 import eu.artist.postmigration.nfrvt.eval.run.launch.EvaluationLaunchDelegate;
-import eu.artist.postmigration.nfrvt.eval.run.logger.ConsoleLogger;
+import eu.artist.postmigration.nfrvt.lang.util.run.ConsoleLogger;
 
 /**
  * Class to be used by the launch delegate and delegates internal work to
@@ -34,7 +36,11 @@ public class InternalEvaluationProcess extends Process {
 	public static final int EXIT_VALUE = 0;
 	
 	private String inputModelPath;
+	private List<String> inputMeasurements;
 	private String outputModelPath;
+
+	private RoundingMode roundingMode;
+	private int precision;
 	
 	/**
 	 * Creates a new process with the specified input model and output model. 
@@ -43,9 +49,12 @@ public class InternalEvaluationProcess extends Process {
 	 * @param outputModelPath
 	 * @param goalModelEvaluationName
 	 */
-	public InternalEvaluationProcess(String inputModelPath, String outputModelPath, String goalModelEvaluationName) {
+	public InternalEvaluationProcess(String inputModelPath, List<String> inputMeasurements, String outputModelPath, int precision, RoundingMode roundingMode) {
 		this.inputModelPath = inputModelPath;
+		this.inputMeasurements = inputMeasurements;
 		this.outputModelPath = outputModelPath;
+		this.precision = precision;
+		this.roundingMode = roundingMode;
 	}
 
 	/**
@@ -55,7 +64,7 @@ public class InternalEvaluationProcess extends Process {
 	 * @throws IOException
 	 */
 	public void run(ConsoleLogger consoleLogger) throws IOException {
-		new EvaluationProcessor(consoleLogger).evaluate(inputModelPath, outputModelPath);
+		new EvaluationProcessor(consoleLogger).evaluate(inputModelPath, inputMeasurements, outputModelPath, precision, roundingMode);
 	}
 
 	/**

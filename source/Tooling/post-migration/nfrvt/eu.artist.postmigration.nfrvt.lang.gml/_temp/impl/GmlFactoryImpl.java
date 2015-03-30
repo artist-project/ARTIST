@@ -78,7 +78,6 @@ public class GmlFactoryImpl extends EFactoryImpl implements GmlFactory
     switch (eClass.getClassifierID())
     {
       case GmlPackage.GOAL_MODEL: return createGoalModel();
-      case GmlPackage.WORKLOAD: return createWorkload();
       case GmlPackage.APPLIED_QUALITATIVE_PROPERTY: return createAppliedQualitativeProperty();
       case GmlPackage.APPLIED_QUANTITATIVE_PROPERTY: return createAppliedQuantitativeProperty();
       case GmlPackage.GOAL: return createGoal();
@@ -147,16 +146,6 @@ public class GmlFactoryImpl extends EFactoryImpl implements GmlFactory
     return goalModel;
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Workload createWorkload()
-  {
-    WorkloadImpl workload = new WorkloadImpl();
-    return workload;
-  }
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

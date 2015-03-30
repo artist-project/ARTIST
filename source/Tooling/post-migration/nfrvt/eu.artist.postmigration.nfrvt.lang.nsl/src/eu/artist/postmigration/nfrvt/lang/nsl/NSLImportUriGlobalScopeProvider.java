@@ -12,15 +12,10 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.nsl;
 
-import eu.artist.postmigration.nfrvt.lang.util.mwe.scoping.ARTISTImportUriGlobalScopeProvider;
+import eu.artist.postmigration.nfrvt.lang.common.scoping.ARTISTImportUriGlobalScopeProvider;
 
 public class NSLImportUriGlobalScopeProvider extends ARTISTImportUriGlobalScopeProvider {
 
 	public NSLImportUriGlobalScopeProvider() {
-		addAdditionalUri(ECORE_PRIMITIVE_TYPES);
-		addAdditionalUri(UML_PRIMITIVE_TYPES);
-		addAdditionalUri(XML_PRIMITIVE_TYPES);
-		addAdditionalUri(JAVA_PRIMITIVE_TYPES);
-		addAdditionalUri(MARTE_LIBRARY);
 	}
 }

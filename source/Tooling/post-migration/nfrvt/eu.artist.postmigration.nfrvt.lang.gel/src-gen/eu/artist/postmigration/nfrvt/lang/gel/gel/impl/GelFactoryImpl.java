@@ -32,9 +32,6 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalModelEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.HardGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.NumberExpressionEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.SoftGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEvaluation;
@@ -96,7 +93,6 @@ public class GelFactoryImpl extends EFactoryImpl implements GelFactory
       case GelPackage.TRANSFORMATION: return createTransformation();
       case GelPackage.APPLIED_QUALITATIVE_PROPERTY_EVALUATION: return createAppliedQualitativePropertyEvaluation();
       case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION: return createAppliedQuantitativePropertyEvaluation();
-      case GelPackage.QUANTITATIVE_PROPERTY_REALIZATION: return createQuantitativePropertyRealization();
       case GelPackage.GOAL_MODEL_EVALUATION: return createGoalModelEvaluation();
       case GelPackage.GOAL_EVALUATION: return createGoalEvaluation();
       case GelPackage.SOFT_GOAL_EVALUATION: return createSoftGoalEvaluation();
@@ -120,10 +116,6 @@ public class GelFactoryImpl extends EFactoryImpl implements GelFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case GelPackage.REALIZATION_LEVEL_KIND:
-        return createRealizationLevelKindFromString(eDataType, initialValue);
-      case GelPackage.REALIZATION_TYPE_KIND:
-        return createRealizationTypeKindFromString(eDataType, initialValue);
       case GelPackage.VERDICT:
         return createVerdictFromString(eDataType, initialValue);
       default:
@@ -141,10 +133,6 @@ public class GelFactoryImpl extends EFactoryImpl implements GelFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case GelPackage.REALIZATION_LEVEL_KIND:
-        return convertRealizationLevelKindToString(eDataType, instanceValue);
-      case GelPackage.REALIZATION_TYPE_KIND:
-        return convertRealizationTypeKindToString(eDataType, instanceValue);
       case GelPackage.VERDICT:
         return convertVerdictToString(eDataType, instanceValue);
       default:
@@ -194,17 +182,6 @@ public class GelFactoryImpl extends EFactoryImpl implements GelFactory
   {
     AppliedQuantitativePropertyEvaluationImpl appliedQuantitativePropertyEvaluation = new AppliedQuantitativePropertyEvaluationImpl();
     return appliedQuantitativePropertyEvaluation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public QuantitativePropertyRealization createQuantitativePropertyRealization()
-  {
-    QuantitativePropertyRealizationImpl quantitativePropertyRealization = new QuantitativePropertyRealizationImpl();
-    return quantitativePropertyRealization;
   }
 
   /**
@@ -300,33 +277,9 @@ public class GelFactoryImpl extends EFactoryImpl implements GelFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RealizationLevelKind createRealizationLevelKindFromString(EDataType eDataType, String initialValue)
-  {
-    RealizationLevelKind result = RealizationLevelKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String convertRealizationLevelKindToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RealizationTypeKind createRealizationTypeKindFromString(EDataType eDataType, String initialValue)
-  {
-    RealizationTypeKind result = RealizationTypeKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
   }
 
   /**

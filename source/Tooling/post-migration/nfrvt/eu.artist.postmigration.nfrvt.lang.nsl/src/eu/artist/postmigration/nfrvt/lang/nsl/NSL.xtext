@@ -12,12 +12,15 @@
  *******************************************************************************/
 grammar eu.artist.postmigration.nfrvt.lang.nsl.NSL with eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon
 
-import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as artistCommon
+import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as common
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.eclipse.org/uml2/4.0.0/UML" as uml
 
 generate nsl "http://www.artist.eu/postmigration/nfrvt/lang/nsl/NSL"
 
+ARTISTModel returns common::ARTISTModel:
+	PropertyCatalogue
+;
 
 PropertyCatalogue:
 	imports += ImportNamespace*
@@ -62,20 +65,20 @@ DerivedQuantitativeProperty:
 	"}"
 ;
 
-ComparableExpression returns artistCommon::ComparableExpression:
+ComparableExpression returns common::ComparableExpression:
 	NumberExpression	
 ;
 
-NumberExpression returns artistCommon::NumberExpression:
+NumberExpression returns common::NumberExpression:
 	NumberLiteral | NumberFunction | ParenthesizedArithmeticExpression | QuantitativePropertyExpression
 ;
 
-ParenthesizedArithmeticExpression returns artistCommon::NumberExpression:
+ParenthesizedArithmeticExpression returns common::NumberExpression:
 	{ParenthesizedArithmeticExpression} LeftParenthesis value = ArithmeticExpression RightParenthesis
 ;
 
-QuantitativePropertyExpression returns artistCommon::NumberExpression:
-	{QuantitativePropertyExpression} value = [QuantitativeProperty | QualifiedName]
+QuantitativePropertyExpression returns common::NumberExpression:
+	{QuantitativePropertyExpression} "$" value = [QuantitativeProperty | QualifiedName]
 ;
 
 enum DirectionKind:

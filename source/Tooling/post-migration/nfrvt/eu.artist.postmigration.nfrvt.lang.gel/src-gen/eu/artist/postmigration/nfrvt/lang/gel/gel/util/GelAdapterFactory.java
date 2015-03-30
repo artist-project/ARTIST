@@ -1,18 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel.util;
+
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel;
 
 import eu.artist.postmigration.nfrvt.lang.gel.gel.*;
 
@@ -112,11 +102,6 @@ public class GelAdapterFactory extends AdapterFactoryImpl
         return createAppliedQuantitativePropertyEvaluationAdapter();
       }
       @Override
-      public Adapter caseQuantitativePropertyRealization(QuantitativePropertyRealization object)
-      {
-        return createQuantitativePropertyRealizationAdapter();
-      }
-      @Override
       public Adapter caseGoalModelEvaluation(GoalModelEvaluation object)
       {
         return createGoalModelEvaluationAdapter();
@@ -160,6 +145,11 @@ public class GelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNumberExpressionEvaluation(NumberExpressionEvaluation object)
       {
         return createNumberExpressionEvaluationAdapter();
+      }
+      @Override
+      public Adapter caseARTISTModel(ARTISTModel object)
+      {
+        return createARTISTModelAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -254,21 +244,6 @@ public class GelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAppliedQuantitativePropertyEvaluationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization <em>Quantitative Property Realization</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization
-   * @generated
-   */
-  public Adapter createQuantitativePropertyRealizationAdapter()
   {
     return null;
   }
@@ -404,6 +379,21 @@ public class GelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNumberExpressionEvaluationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel <em>ARTIST Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel
+   * @generated
+   */
+  public Adapter createARTISTModelAdapter()
   {
     return null;
   }

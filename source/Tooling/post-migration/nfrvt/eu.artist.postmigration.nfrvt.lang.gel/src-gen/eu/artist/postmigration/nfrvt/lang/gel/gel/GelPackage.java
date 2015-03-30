@@ -1,18 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel;
+
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -86,7 +76,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION__IMPORTS = 0;
+  int MIGRATION_EVALUATION__IMPORTS = ArtistCommonPackage.ARTIST_MODEL__IMPORTS;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -95,7 +85,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION__NAME = 1;
+  int MIGRATION_EVALUATION__NAME = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Date</b></em>' attribute.
@@ -104,7 +94,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION__DATE = 2;
+  int MIGRATION_EVALUATION__DATE = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Transformations</b></em>' containment reference list.
@@ -113,7 +103,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION__TRANSFORMATIONS = 3;
+  int MIGRATION_EVALUATION__TRANSFORMATIONS = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Property Evaluations</b></em>' containment reference list.
@@ -122,7 +112,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION__PROPERTY_EVALUATIONS = 4;
+  int MIGRATION_EVALUATION__PROPERTY_EVALUATIONS = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Evaluation</b></em>' containment reference.
@@ -131,7 +121,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION__EVALUATION = 5;
+  int MIGRATION_EVALUATION__EVALUATION = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Migration Evaluation</em>' class.
@@ -140,7 +130,7 @@ public interface GelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MIGRATION_EVALUATION_FEATURE_COUNT = 6;
+  int MIGRATION_EVALUATION_FEATURE_COUNT = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.TransformationImpl <em>Transformation</em>}' class.
@@ -189,13 +179,31 @@ public interface GelPackage extends EPackage
   int TRANSFORMATION__TARGET = 3;
 
   /**
+   * The feature id for the '<em><b>Context</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSFORMATION__CONTEXT = 4;
+
+  /**
+   * The feature id for the '<em><b>Info</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSFORMATION__INFO = 5;
+
+  /**
    * The number of structural features of the '<em>Transformation</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSFORMATION_FEATURE_COUNT = 4;
+  int TRANSFORMATION_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.AppliedPropertyEvaluationImpl <em>Applied Property Evaluation</em>}' class.
@@ -345,13 +353,13 @@ public interface GelPackage extends EPackage
   int APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY = APPLIED_PROPERTY_EVALUATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Realizations</b></em>' containment reference list.
+   * The feature id for the '<em><b>Measurements</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS = APPLIED_PROPERTY_EVALUATION_FEATURE_COUNT + 1;
+  int APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS = APPLIED_PROPERTY_EVALUATION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Applied Quantitative Property Evaluation</em>' class.
@@ -363,79 +371,6 @@ public interface GelPackage extends EPackage
   int APPLIED_QUANTITATIVE_PROPERTY_EVALUATION_FEATURE_COUNT = APPLIED_PROPERTY_EVALUATION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.QuantitativePropertyRealizationImpl <em>Quantitative Property Realization</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.QuantitativePropertyRealizationImpl
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getQuantitativePropertyRealization()
-   * @generated
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION = 5;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Strategy</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION__STRATEGY = 1;
-
-  /**
-   * The feature id for the '<em><b>Level</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION__LEVEL = 2;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION__TYPE = 3;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION__VALUES = 4;
-
-  /**
-   * The feature id for the '<em><b>Precision</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION__PRECISION = 5;
-
-  /**
-   * The number of structural features of the '<em>Quantitative Property Realization</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITATIVE_PROPERTY_REALIZATION_FEATURE_COUNT = 6;
-
-  /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GoalModelEvaluationImpl <em>Goal Model Evaluation</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -443,7 +378,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getGoalModelEvaluation()
    * @generated
    */
-  int GOAL_MODEL_EVALUATION = 6;
+  int GOAL_MODEL_EVALUATION = 5;
 
   /**
    * The feature id for the '<em><b>Goal Model</b></em>' reference.
@@ -498,7 +433,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getGoalEvaluation()
    * @generated
    */
-  int GOAL_EVALUATION = 7;
+  int GOAL_EVALUATION = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -544,7 +479,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getSoftGoalEvaluation()
    * @generated
    */
-  int SOFT_GOAL_EVALUATION = 8;
+  int SOFT_GOAL_EVALUATION = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -608,7 +543,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getHardGoalEvaluation()
    * @generated
    */
-  int HARD_GOAL_EVALUATION = 9;
+  int HARD_GOAL_EVALUATION = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -672,7 +607,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getCompositeGoalEvaluation()
    * @generated
    */
-  int COMPOSITE_GOAL_EVALUATION = 10;
+  int COMPOSITE_GOAL_EVALUATION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -736,7 +671,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getValueExpressionEvaluation()
    * @generated
    */
-  int VALUE_EXPRESSION_EVALUATION = 11;
+  int VALUE_EXPRESSION_EVALUATION = 10;
 
   /**
    * The feature id for the '<em><b>Reason</b></em>' attribute.
@@ -764,7 +699,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getValueSpecificationExpressionEvaluation()
    * @generated
    */
-  int VALUE_SPECIFICATION_EXPRESSION_EVALUATION = 12;
+  int VALUE_SPECIFICATION_EXPRESSION_EVALUATION = 11;
 
   /**
    * The feature id for the '<em><b>Reason</b></em>' attribute.
@@ -810,7 +745,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getBooleanExpressionEvaluation()
    * @generated
    */
-  int BOOLEAN_EXPRESSION_EVALUATION = 13;
+  int BOOLEAN_EXPRESSION_EVALUATION = 12;
 
   /**
    * The feature id for the '<em><b>Reason</b></em>' attribute.
@@ -865,7 +800,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getNumberExpressionEvaluation()
    * @generated
    */
-  int NUMBER_EXPRESSION_EVALUATION = 14;
+  int NUMBER_EXPRESSION_EVALUATION = 13;
 
   /**
    * The feature id for the '<em><b>Reason</b></em>' attribute.
@@ -904,26 +839,6 @@ public interface GelPackage extends EPackage
   int NUMBER_EXPRESSION_EVALUATION_FEATURE_COUNT = VALUE_EXPRESSION_EVALUATION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind <em>Realization Level Kind</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getRealizationLevelKind()
-   * @generated
-   */
-  int REALIZATION_LEVEL_KIND = 15;
-
-  /**
-   * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind <em>Realization Type Kind</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getRealizationTypeKind()
-   * @generated
-   */
-  int REALIZATION_TYPE_KIND = 16;
-
-  /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.Verdict <em>Verdict</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -931,7 +846,7 @@ public interface GelPackage extends EPackage
    * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getVerdict()
    * @generated
    */
-  int VERDICT = 17;
+  int VERDICT = 14;
 
 
   /**
@@ -943,17 +858,6 @@ public interface GelPackage extends EPackage
    * @generated
    */
   EClass getMigrationEvaluation();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation#getImports <em>Imports</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Imports</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation#getImports()
-   * @see #getMigrationEvaluation()
-   * @generated
-   */
-  EReference getMigrationEvaluation_Imports();
 
   /**
    * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation#getName <em>Name</em>}'.
@@ -1065,6 +969,28 @@ public interface GelPackage extends EPackage
   EReference getTransformation_Target();
 
   /**
+   * Returns the meta object for the reference list '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation#getContext <em>Context</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Context</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation#getContext()
+   * @see #getTransformation()
+   * @generated
+   */
+  EReference getTransformation_Context();
+
+  /**
+   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation#getInfo <em>Info</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Info</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation#getInfo()
+   * @see #getTransformation()
+   * @generated
+   */
+  EAttribute getTransformation_Info();
+
+  /**
    * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation <em>Applied Property Evaluation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1150,91 +1076,15 @@ public interface GelPackage extends EPackage
   EReference getAppliedQuantitativePropertyEvaluation_Property();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getRealizations <em>Realizations</em>}'.
+   * Returns the meta object for the reference list '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getMeasurements <em>Measurements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Realizations</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getRealizations()
+   * @return the meta object for the reference list '<em>Measurements</em>'.
+   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getMeasurements()
    * @see #getAppliedQuantitativePropertyEvaluation()
    * @generated
    */
-  EReference getAppliedQuantitativePropertyEvaluation_Realizations();
-
-  /**
-   * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization <em>Quantitative Property Realization</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Quantitative Property Realization</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization
-   * @generated
-   */
-  EClass getQuantitativePropertyRealization();
-
-  /**
-   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getName()
-   * @see #getQuantitativePropertyRealization()
-   * @generated
-   */
-  EAttribute getQuantitativePropertyRealization_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getStrategy <em>Strategy</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Strategy</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getStrategy()
-   * @see #getQuantitativePropertyRealization()
-   * @generated
-   */
-  EReference getQuantitativePropertyRealization_Strategy();
-
-  /**
-   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getLevel <em>Level</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Level</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getLevel()
-   * @see #getQuantitativePropertyRealization()
-   * @generated
-   */
-  EAttribute getQuantitativePropertyRealization_Level();
-
-  /**
-   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getType()
-   * @see #getQuantitativePropertyRealization()
-   * @generated
-   */
-  EAttribute getQuantitativePropertyRealization_Type();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Values</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getValues()
-   * @see #getQuantitativePropertyRealization()
-   * @generated
-   */
-  EReference getQuantitativePropertyRealization_Values();
-
-  /**
-   * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getPrecision <em>Precision</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Precision</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization#getPrecision()
-   * @see #getQuantitativePropertyRealization()
-   * @generated
-   */
-  EAttribute getQuantitativePropertyRealization_Precision();
+  EReference getAppliedQuantitativePropertyEvaluation_Measurements();
 
   /**
    * Returns the meta object for class '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.GoalModelEvaluation <em>Goal Model Evaluation</em>}'.
@@ -1558,26 +1408,6 @@ public interface GelPackage extends EPackage
   EReference getNumberExpressionEvaluation_Evaluations();
 
   /**
-   * Returns the meta object for enum '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind <em>Realization Level Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Realization Level Kind</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind
-   * @generated
-   */
-  EEnum getRealizationLevelKind();
-
-  /**
-   * Returns the meta object for enum '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind <em>Realization Type Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Realization Type Kind</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind
-   * @generated
-   */
-  EEnum getRealizationTypeKind();
-
-  /**
    * Returns the meta object for enum '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.Verdict <em>Verdict</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1619,14 +1449,6 @@ public interface GelPackage extends EPackage
      * @generated
      */
     EClass MIGRATION_EVALUATION = eINSTANCE.getMigrationEvaluation();
-
-    /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MIGRATION_EVALUATION__IMPORTS = eINSTANCE.getMigrationEvaluation_Imports();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1711,6 +1533,22 @@ public interface GelPackage extends EPackage
     EReference TRANSFORMATION__TARGET = eINSTANCE.getTransformation_Target();
 
     /**
+     * The meta object literal for the '<em><b>Context</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSFORMATION__CONTEXT = eINSTANCE.getTransformation_Context();
+
+    /**
+     * The meta object literal for the '<em><b>Info</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TRANSFORMATION__INFO = eINSTANCE.getTransformation_Info();
+
+    /**
      * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.AppliedPropertyEvaluationImpl <em>Applied Property Evaluation</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1781,70 +1619,12 @@ public interface GelPackage extends EPackage
     EReference APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY = eINSTANCE.getAppliedQuantitativePropertyEvaluation_Property();
 
     /**
-     * The meta object literal for the '<em><b>Realizations</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Measurements</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS = eINSTANCE.getAppliedQuantitativePropertyEvaluation_Realizations();
-
-    /**
-     * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.QuantitativePropertyRealizationImpl <em>Quantitative Property Realization</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.QuantitativePropertyRealizationImpl
-     * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getQuantitativePropertyRealization()
-     * @generated
-     */
-    EClass QUANTITATIVE_PROPERTY_REALIZATION = eINSTANCE.getQuantitativePropertyRealization();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute QUANTITATIVE_PROPERTY_REALIZATION__NAME = eINSTANCE.getQuantitativePropertyRealization_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Strategy</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference QUANTITATIVE_PROPERTY_REALIZATION__STRATEGY = eINSTANCE.getQuantitativePropertyRealization_Strategy();
-
-    /**
-     * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute QUANTITATIVE_PROPERTY_REALIZATION__LEVEL = eINSTANCE.getQuantitativePropertyRealization_Level();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute QUANTITATIVE_PROPERTY_REALIZATION__TYPE = eINSTANCE.getQuantitativePropertyRealization_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference QUANTITATIVE_PROPERTY_REALIZATION__VALUES = eINSTANCE.getQuantitativePropertyRealization_Values();
-
-    /**
-     * The meta object literal for the '<em><b>Precision</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute QUANTITATIVE_PROPERTY_REALIZATION__PRECISION = eINSTANCE.getQuantitativePropertyRealization_Precision();
+    EReference APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS = eINSTANCE.getAppliedQuantitativePropertyEvaluation_Measurements();
 
     /**
      * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GoalModelEvaluationImpl <em>Goal Model Evaluation</em>}' class.
@@ -2103,26 +1883,6 @@ public interface GelPackage extends EPackage
      * @generated
      */
     EReference NUMBER_EXPRESSION_EVALUATION__EVALUATIONS = eINSTANCE.getNumberExpressionEvaluation_Evaluations();
-
-    /**
-     * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind <em>Realization Level Kind</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationLevelKind
-     * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getRealizationLevelKind()
-     * @generated
-     */
-    EEnum REALIZATION_LEVEL_KIND = eINSTANCE.getRealizationLevelKind();
-
-    /**
-     * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind <em>Realization Type Kind</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see eu.artist.postmigration.nfrvt.lang.gel.gel.RealizationTypeKind
-     * @see eu.artist.postmigration.nfrvt.lang.gel.gel.impl.GelPackageImpl#getRealizationTypeKind()
-     * @generated
-     */
-    EEnum REALIZATION_TYPE_KIND = eINSTANCE.getRealizationTypeKind();
 
     /**
      * The meta object literal for the '{@link eu.artist.postmigration.nfrvt.lang.gel.gel.Verdict <em>Verdict</em>}' enum.

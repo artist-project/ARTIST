@@ -15,11 +15,26 @@
 */
 package eu.artist.postmigration.nfrvt.lang.common.ui.outline;
 
+import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode;
+
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonFactory;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage;
+
 /**
  * Customization of the default outline structure.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
 public class ARTISTCommonOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
-	
+	protected void _createChildren(DocumentRootNode parentNode, ARTISTModel modelElement) {
+		createEStructuralFeatureNode(
+				parentNode, 
+				modelElement, 
+				ArtistCommonPackage.Literals.ARTIST_MODEL__IMPORTS, 
+				_image(ArtistCommonFactory.eINSTANCE.createImportURI()),
+				"Import Declarations", 
+				false);
+		createEObjectNode(parentNode, modelElement);
+	}
 }

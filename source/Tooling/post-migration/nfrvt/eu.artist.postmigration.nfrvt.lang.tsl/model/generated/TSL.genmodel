@@ -8,9 +8,8 @@
     editorPluginID="eu.artist.postmigration.nfrvt.lang.tsl.editor" runtimeVersion="2.9"
     usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.genmodel#//nsl">
   <genPackages prefix="Tsl" basePackage="eu.artist.postmigration.nfrvt.lang.tsl" resource="XML"
-      disposableProviderFactory="true" fileExtensions="tsl" ecorePackage="TSL.ecore#/">
+      disposableProviderFactory="true" fileExtensions="tsl,pattern,optpat" ecorePackage="TSL.ecore#/">
     <genClasses ecoreClass="TSL.ecore#//PatternCatalogue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSL.ecore#//PatternCatalogue/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TSL.ecore#//PatternCatalogue/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TSL.ecore#//PatternCatalogue/patterns"/>
     </genClasses>

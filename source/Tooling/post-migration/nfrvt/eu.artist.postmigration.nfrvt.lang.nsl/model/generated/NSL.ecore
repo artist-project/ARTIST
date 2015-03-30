@@ -2,10 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nsl" nsURI="http://www.artist.eu/postmigration/nfrvt/lang/nsl/NSL"
     nsPrefix="nsl">
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyCatalogue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ImportNamespace"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyCatalogue" eSuperTypes="../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ARTISTModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
@@ -22,11 +19,11 @@
         upperBound="-1" eType="#//Property"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantitativeProperty" eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass ../../../org.eclipse.uml2.uml/model/UML.ecore#//DataType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BaseQuantitativeProperty" eSuperTypes="#//QuantitativeProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="DerivedQuantitativeProperty" eSuperTypes="#//QuantitativeProperty">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ArithmeticExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ArithmeticExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DirectionKind">
@@ -38,11 +35,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="impact" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBigDecimal"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParenthesizedArithmeticExpression" eSuperTypes="platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//NumberExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ArithmeticExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="ParenthesizedArithmeticExpression" eSuperTypes="../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//NumberExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ArithmeticExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QuantitativePropertyExpression" eSuperTypes="platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//NumberExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="QuantitativePropertyExpression" eSuperTypes="../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//NumberExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//QuantitativeProperty"/>
   </eClassifiers>
 </ecore:EPackage>

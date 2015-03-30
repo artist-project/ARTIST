@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="eu.artist.postmigration.nfrvt.search.run.MigrationExplorerLaunchDelegate"
+            id="eu.artist.postmigration.nfrvt.search.launchConfigurationType"
+            modes="run,debug"
+            name="Migration Exploration"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.processFactories">
+      <processFactory
+            class="eu.artist.postmigration.nfrvt.search.run.MigrationExplorerProcessFactory"
+            id="eu.artist.postmigration.nfrvt.search.run.processFactory">
+      </processFactory>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="eu.artist.postmigration.nfrvt.search.run.ui.MigrationExplorerLaunchConfigurationTabGroup"
+            id="eu.artist.postmigration.nfrvt.search.launchConfigurationTabGroup"
+            type="eu.artist.postmigration.nfrvt.search.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="eu.artist.postmigration.nfrvt.search.launchConfigurationType"
+            icon="icons/LaunchMigrationEval.gif"
+            id="eu.artist.postmigration.nfrvt.search.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+</plugin>

@@ -9,7 +9,7 @@
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="nsl"
+            extensions="nsl,prop"
             id="eu.artist.postmigration.nfrvt.lang.nsl.NSL"
             name="NSL Editor">
         </editor>
@@ -223,6 +223,20 @@
         </resourceServiceProvider>
     </extension>
 
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="prop">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="prop">
+        </resourceServiceProvider>
+    </extension>
+
 
 	<!-- marker definitions for eu.artist.postmigration.nfrvt.lang.nsl.NSL -->
 	<extension
@@ -251,7 +265,7 @@
          point="org.eclipse.xtext.builder.participant">
       <participant
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-            fileExtensions="nsl"
+            fileExtensions="nsl,prop"
             >
       </participant>
    </extension>
@@ -379,19 +393,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.nsl.NSL.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="nsl">
+            extensions="nsl,prop">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.nsl.NSL.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="nsl" label="NSL Compare">
+            extensions="nsl,prop" label="NSL Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.nsl.NSL.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.nsl.ui.NSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="nsl">
+            extensions="nsl,prop">
     </provider>
   </extension>
 

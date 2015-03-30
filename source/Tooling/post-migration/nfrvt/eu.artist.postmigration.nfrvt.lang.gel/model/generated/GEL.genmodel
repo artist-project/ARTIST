@@ -5,26 +5,16 @@
     modelPluginID="eu.artist.postmigration.nfrvt.lang.gel" forceOverwrite="true" modelName="GEL"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="eu.artist.postmigration.nfrvt.lang.gel.edit"
-    editorPluginID="eu.artist.postmigration.nfrvt.lang.gel.editor" runtimeVersion="2.9"
-    usedGenPackages="platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.esl/model/generated/ESL.genmodel#//esl platform:/resource/eu.artist.postmigration.nfrvt.lang.gml/model/generated/GML.genmodel#//gml platform:/resource/eu.artist.postmigration.nfrvt.lang.tsl/model/generated/TSL.genmodel#//tsl platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
-  <genPackages prefix="Gel" basePackage="eu.artist.postmigration.nfrvt.lang.gel" resource="XML"
-      disposableProviderFactory="true" fileExtensions="gel" ecorePackage="GEL.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GEL.ecore#//RealizationLevelKind">
-      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationLevelKind/MODEL"/>
-      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationLevelKind/CODE"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="GEL.ecore#//RealizationTypeKind">
-      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationTypeKind/CALCULATED"/>
-      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationTypeKind/MEASURED"/>
-      <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//RealizationTypeKind/ESTIMATED"/>
-    </genEnums>
+    editorPluginID="eu.artist.postmigration.nfrvt.lang.gel.editor" runtimeVersion="2.10"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.gml/model/generated/GML.genmodel#//gml platform:/resource/eu.artist.postmigration.nfrvt.lang.pml/model/generated/PML.genmodel#//pml platform:/resource/eu.artist.postmigration.nfrvt.lang.tsl/model/generated/TSL.genmodel#//tsl platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
+  <genPackages prefix="Gel" basePackage="eu.artist.postmigration.nfrvt.lang.gel" disposableProviderFactory="true"
+      fileExtensions="gel,eval" ecorePackage="GEL.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GEL.ecore#//Verdict">
       <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//Verdict/PASS"/>
       <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//Verdict/FAIL"/>
       <genEnumLiterals ecoreEnumLiteral="GEL.ecore#//Verdict/INCONCLUSIVE"/>
     </genEnums>
     <genClasses ecoreClass="GEL.ecore#//MigrationEvaluation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//MigrationEvaluation/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//MigrationEvaluation/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//MigrationEvaluation/date"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//MigrationEvaluation/transformations"/>
@@ -36,6 +26,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/pattern"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/source"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//Transformation/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//Transformation/info"/>
     </genClasses>
     <genClasses ecoreClass="GEL.ecore#//AppliedPropertyEvaluation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//AppliedPropertyEvaluation/name"/>
@@ -47,15 +39,7 @@
     </genClasses>
     <genClasses ecoreClass="GEL.ecore#//AppliedQuantitativePropertyEvaluation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedQuantitativePropertyEvaluation/property"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedQuantitativePropertyEvaluation/realizations"/>
-    </genClasses>
-    <genClasses ecoreClass="GEL.ecore#//QuantitativePropertyRealization">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//QuantitativePropertyRealization/strategy"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/level"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GEL.ecore#//QuantitativePropertyRealization/values"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GEL.ecore#//QuantitativePropertyRealization/precision"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//AppliedQuantitativePropertyEvaluation/measurements"/>
     </genClasses>
     <genClasses ecoreClass="GEL.ecore#//GoalModelEvaluation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GEL.ecore#//GoalModelEvaluation/goalModel"/>

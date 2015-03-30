@@ -34,10 +34,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
+import eu.artist.postmigration.nfrvt.extensionpoint.FileExtensions;
+
 /**
  * The "New" wizard page allows setting the container for the new file as well
  * as the file name. The page will only accept file name without the extension
- * OR with the extension that matches the expected one (gml).
+ * OR with the extension that matches the expected one (goal).
  */
 
 public class NewGoalModelFileWizardPage extends WizardPage {
@@ -55,7 +57,7 @@ public class NewGoalModelFileWizardPage extends WizardPage {
 	public NewGoalModelFileWizardPage(ISelection selection) {
 		super("wizardPage");
 		setTitle("Multi-page Editor File");
-		setDescription("This wizard creates a new file with *.gml extension that can be opened by the ARTIST Goal Modeling Editor.");
+		setDescription("This wizard creates a new file with *.goal extension that can be opened by the ARTIST Goal Modeling Editor.");
 		this.selection = selection;
 	}
 
@@ -125,7 +127,7 @@ public class NewGoalModelFileWizardPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("goalmodel.gml");
+		fileText.setText("goalmodel.goal");
 	}
 
 	/**
@@ -177,9 +179,8 @@ public class NewGoalModelFileWizardPage extends WizardPage {
 		}
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
-			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("gml") == false) {
-				updateStatus("File extension must be \"gml\"");
+			if(!FileExtensions.isGoalModel(fileName)) {
+				updateStatus("File extension must end with " + FileExtensions.getGoalModelExtensions() + ".");
 				return;
 			}
 		}

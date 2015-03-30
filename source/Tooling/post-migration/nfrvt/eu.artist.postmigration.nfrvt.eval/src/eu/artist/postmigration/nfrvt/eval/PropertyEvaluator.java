@@ -22,11 +22,6 @@ import java.util.Set;
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.util.UMLUtil;
 
-import eu.artist.postmigration.nfrvt.lang.esl.esl.EvaluationStrategy;
-import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonFactory;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AvgOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.MaxOperator;
@@ -43,11 +38,19 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQualitativePropertyEval
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.GelFactory;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.NumberExpressionEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEvaluation;
+import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.Property;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyImpact;
+import eu.artist.postmigration.nfrvt.lang.pml.pml.DataPointMeasurement;
+import eu.artist.postmigration.nfrvt.lang.pml.pml.Measurement;
+import eu.artist.postmigration.nfrvt.lang.pml.pml.TimeSeriesMeasurement;
+import eu.artist.postmigration.nfrvt.lang.pml.pml.TimeValuePair;
+import eu.artist.postmigration.nfrvt.lang.util.MigrationFactory;
 
 /**
  * A property evaluator can evaluate applied qualitative and quantitative
@@ -60,6 +63,7 @@ import eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyImpact;
  * @see AppliedQualitativeProperty
  * @see AppliedQuantitativeProperty
  * @see EvaluationStrategy
+ * @deprecated
  */
 public class PropertyEvaluator {
 	
@@ -81,7 +85,7 @@ public class PropertyEvaluator {
 	 */
 	public PropertyEvaluator(Set<Transformation> relevantTransformations, EvaluationSettings settings) {
 		this.relevantTransformations = relevantTransformations;
-		this.settings = settings;
+		setSettings(settings);
 	}
 	
 	/**
@@ -92,6 +96,7 @@ public class PropertyEvaluator {
 	 */
 	public void setSettings(EvaluationSettings settings) {
 		this.settings = settings;
+		renderer.setPrecision(settings.getPrecision());
 	}
 	
 	/**
@@ -166,45 +171,49 @@ public class PropertyEvaluator {
 		return null;
 	}
 	
-	protected void addOrReplaceRealization(AppliedQuantitativePropertyEvaluation evaluation, QuantitativePropertyRealization realization) {
-		if(realization == null || evaluation == null || realization.getName() == null)
+	protected void addOrReplaceRealization(AppliedQuantitativePropertyEvaluation evaluation, Measurement measurement) {
+		if(measurement == null || evaluation == null || measurement.getName() == null)
 			return;
-		QuantitativePropertyRealization toRemove = null;
-		for(QuantitativePropertyRealization r : evaluation.getRealizations()) {
-			if(realization.getName().equals(r.getName())) {
+		Measurement toRemove = null;
+		for(Measurement r : evaluation.getMeasurements()) {
+			if(measurement.getName().equals(r.getName())) {
 				toRemove = r;
 				break;
 			}
 		}
 		if(toRemove != null)
-			evaluation.getRealizations().remove(toRemove);
-		evaluation.getRealizations().add(realization);
+			evaluation.getMeasurements().remove(toRemove);
+		evaluation.getMeasurements().add(measurement);
 	}
 	
 	protected AppliedQuantitativePropertyEvaluation evaluate(AppliedQuantitativeProperty p, AppliedQuantitativePropertyEvaluation evaluation) {		
-		QuantitativePropertyRealization randomRealization = RandomRealizationStrategy.createRandomRealization(p);
-		addOrReplaceRealization(evaluation, randomRealization);
+//		Measurement randomRealization = RandomObservationStrategy.createRandomRealization(p);
+//		addOrReplaceRealization(evaluation, randomRealization);
 		
 		ValueSpecification value = retrieveValue(evaluation);
 		if(value == null)
 			return null;
 
-		evaluation.setValue(ValueUtil.copy(value));
+		evaluation.setValue(MigrationFactory.copy(value));
 		return evaluation;
 	}
 	
-	protected List<ValueSpecification> getValues(List<QuantitativePropertyRealization> realizations) {
-		if(realizations == null)
+	protected List<ValueSpecification> getValues(List<Measurement> measurements) {
+		if(measurements == null)
 			return Collections.emptyList();
 		
 		List<ValueSpecification> values = new ArrayList<ValueSpecification>();
-		for(QuantitativePropertyRealization realization : realizations)
-			values.addAll(realization.getValues());
+		for(Measurement measurement : measurements)
+			if(measurement instanceof DataPointMeasurement)
+				values.add(((DataPointMeasurement)measurement).getValue());
+			else if(measurement instanceof TimeSeriesMeasurement)
+				for(TimeValuePair pair : ((TimeSeriesMeasurement)measurement).getValues())
+					values.add(pair.getValue());
 		return values;
 	}
 	
 	protected ValueSpecification retrieveValue(AppliedQuantitativePropertyEvaluation evaluation) {
-		List<ValueSpecification> values = getValues(evaluation.getRealizations());
+		List<ValueSpecification> values = getValues(evaluation.getMeasurements());
 		DataType type = evaluation.getProperty().getProperty().getType();
 		
 		if(values.isEmpty()) {
@@ -214,12 +223,13 @@ public class PropertyEvaluator {
 			return null;
 		}
 		
+		
 		if(!UMLUtil.isInteger(type) && !UMLUtil.isReal(type)) {
 			ValueSpecificationExpressionEvaluation valueEvaluation = GelFactory.eINSTANCE.createValueSpecificationExpressionEvaluation();
 			valueEvaluation.setReason("First value of " + renderer.doRender("(", ")", ", ", values) + " = " + renderer.doRender(values.get(0)));
-			valueEvaluation.setResult(ValueUtil.copy(values.get(0)));
+			valueEvaluation.setResult(MigrationFactory.copy(values.get(0)));
 			evaluation.setEvaluation(valueEvaluation);
-			return ValueUtil.copy(values.get(0));
+			return MigrationFactory.copy(values.get(0));
 		}
 		
 		// numeric value
@@ -248,7 +258,9 @@ public class PropertyEvaluator {
 		if(result == null)
 			return null;
 		
-		NumberLiteral resultLiteral = ValueUtil.createNumberLiteral(result);
+//		result = result.setScale(0, getSettings().getRoundingMode());
+		
+		NumberLiteral resultLiteral = MigrationFactory.createNumberLiteral(result);
 		NumberExpressionEvaluation functionEvaluation = GelFactory.eINSTANCE.createNumberExpressionEvaluation();
 		functionEvaluation.setResult(resultLiteral);
 		functionEvaluation.setReason(renderer.doRender(function) + renderer.doRender("(", ")", ", ", numbers) + " = " + renderer.doRender(result));
@@ -260,7 +272,7 @@ public class PropertyEvaluator {
 		NumberExpressionEvaluation sumImpact = evaluateSum(p);
 		
 		evaluation.setEvaluation(sumImpact);
-		evaluation.setValue(ValueUtil.copy(sumImpact.getResult()));
+		evaluation.setValue(MigrationFactory.copy(sumImpact.getResult()));
 		return evaluation;
 	}
 	
@@ -285,20 +297,20 @@ public class PropertyEvaluator {
 		
 		NumberExpressionEvaluation sumImpactEvaluation = GelFactory.eINSTANCE.createNumberExpressionEvaluation();
 		
-		BigDecimal influence = new BigDecimal(0, settings.getMathContext());
+		BigDecimal influence = new BigDecimal(0, getSettings().getMathContext());
 		for(NumberExpressionEvaluation val : evaluations)
 			influence = influence.add(ValueUtil.valueOf(val.getResult()), settings.getMathContext());
 		
 		sumImpactEvaluation.getEvaluations().addAll(evaluations);
 		sumImpactEvaluation.setReason("Sum of all impacts.");
-		sumImpactEvaluation.setResult(ValueUtil.createNumberLiteral(influence));
+		sumImpactEvaluation.setResult(MigrationFactory.createNumberLiteral(influence));
 		return sumImpactEvaluation;
 	}
 
 	private NumberExpressionEvaluation evaluateImpact(Property target, PropertyImpact impact, String sourceRender) {
 		NumberLiteral impactValue = null;
 		if(impact.getTarget().getName().equals(target.getName()))
-			impactValue = ValueUtil.createNumberLiteral(impact.getImpact());
+			impactValue = MigrationFactory.createNumberLiteral(impact.getImpact());
 		
 		if(impactValue == null)
 			return null;

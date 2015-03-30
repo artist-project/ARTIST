@@ -1,20 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.nsl.nsl.impl;
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportNamespace;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl;
 
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.NslPackage;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.Property;
@@ -31,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -43,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.nsl.nsl.impl.PropertyCatalogueImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.nsl.nsl.impl.PropertyCatalogueImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.nsl.nsl.impl.PropertyCatalogueImpl#getProperties <em>Properties</em>}</li>
  * </ul>
@@ -51,18 +37,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implements PropertyCatalogue
+public class PropertyCatalogueImpl extends ARTISTModelImpl implements PropertyCatalogue
 {
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<ImportNamespace> imports;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -119,20 +95,6 @@ public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ImportNamespace> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<ImportNamespace>(ImportNamespace.class, this, NslPackage.PROPERTY_CATALOGUE__IMPORTS);
-    }
-    return imports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -175,8 +137,6 @@ public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case NslPackage.PROPERTY_CATALOGUE__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case NslPackage.PROPERTY_CATALOGUE__PROPERTIES:
         return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
     }
@@ -193,8 +153,6 @@ public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case NslPackage.PROPERTY_CATALOGUE__IMPORTS:
-        return getImports();
       case NslPackage.PROPERTY_CATALOGUE__NAME:
         return getName();
       case NslPackage.PROPERTY_CATALOGUE__PROPERTIES:
@@ -214,10 +172,6 @@ public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case NslPackage.PROPERTY_CATALOGUE__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends ImportNamespace>)newValue);
-        return;
       case NslPackage.PROPERTY_CATALOGUE__NAME:
         setName((String)newValue);
         return;
@@ -239,9 +193,6 @@ public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case NslPackage.PROPERTY_CATALOGUE__IMPORTS:
-        getImports().clear();
-        return;
       case NslPackage.PROPERTY_CATALOGUE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -262,8 +213,6 @@ public class PropertyCatalogueImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case NslPackage.PROPERTY_CATALOGUE__IMPORTS:
-        return imports != null && !imports.isEmpty();
       case NslPackage.PROPERTY_CATALOGUE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case NslPackage.PROPERTY_CATALOGUE__PROPERTIES:

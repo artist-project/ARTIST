@@ -18,6 +18,10 @@ package eu.artist.postmigration.nfrvt.lang.gel;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.serializer.tokens.SerializerScopeProviderBinding;
+
+import com.google.inject.Binder;
 
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTCommonConverters;
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
@@ -25,13 +29,9 @@ import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
+@SuppressWarnings("restriction")
 public class GELRuntimeModule extends eu.artist.postmigration.nfrvt.lang.gel.AbstractGELRuntimeModule {
 
-	@Override
-	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
-		return GELImportUriGlobalScopeProvider.class;
-	}
-	
 	@Override
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
 		return ARTISTCommonConverters.class;
@@ -42,9 +42,14 @@ public class GELRuntimeModule extends eu.artist.postmigration.nfrvt.lang.gel.Abs
 		return ARTISTQualifiedNameProvider.class;
 	}
 	
-//	@Override
-//	public Class<? extends XtextResourceSet> bindXtextResourceSet() {
-//		return ARTISTResourceSet.class;
-//	}
+	@Override
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return GELImportUriGlobalScopeProvider.class;
+	}
+	
+	@Override
+	public void configureSerializerIScopeProvider(Binder binder) {
+		binder.bind(IScopeProvider.class).annotatedWith(SerializerScopeProviderBinding.class).to(bindIScopeProvider());
+	}
 	
 }

@@ -12,7 +12,7 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.gml.validation;
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.NumberLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification;
 import eu.artist.postmigration.nfrvt.lang.common.eval.ExpressionValidator;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GmlPackage;
@@ -25,7 +25,7 @@ public class HardGoalValidator extends ExpressionValidator {
 		setFeature(GmlPackage.Literals.HARD_GOAL__CONDITION);
 	}
 	
-	public NumberLiteral evaluate(AppliedQuantitativePropertyExpression reference) {
+	public ValueSpecification evaluate(AppliedQuantitativePropertyExpression reference) {
 		return null;
 	}
 }

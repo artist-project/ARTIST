@@ -1,20 +1,10 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel;
 
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
+
+import eu.artist.postmigration.nfrvt.lang.pml.pml.Measurement;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -27,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getProperty <em>Property</em>}</li>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getRealizations <em>Realizations</em>}</li>
+ *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation#getMeasurements <em>Measurements</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,19 +54,19 @@ public interface AppliedQuantitativePropertyEvaluation extends AppliedPropertyEv
   void setProperty(AppliedQuantitativeProperty value);
 
   /**
-   * Returns the value of the '<em><b>Realizations</b></em>' containment reference list.
-   * The list contents are of type {@link eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization}.
+   * Returns the value of the '<em><b>Measurements</b></em>' reference list.
+   * The list contents are of type {@link eu.artist.postmigration.nfrvt.lang.pml.pml.Measurement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Realizations</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Measurements</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Realizations</em>' containment reference list.
-   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.GelPackage#getAppliedQuantitativePropertyEvaluation_Realizations()
-   * @model containment="true"
+   * @return the value of the '<em>Measurements</em>' reference list.
+   * @see eu.artist.postmigration.nfrvt.lang.gel.gel.GelPackage#getAppliedQuantitativePropertyEvaluation_Measurements()
+   * @model
    * @generated
    */
-  EList<QuantitativePropertyRealization> getRealizations();
+  EList<Measurement> getMeasurements();
 
 } // AppliedQuantitativePropertyEvaluation

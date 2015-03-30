@@ -34,6 +34,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
+import eu.artist.postmigration.nfrvt.extensionpoint.FileExtensions;
+
 /**
  * The "New" wizard page allows setting the container for the new file as well
  * as the file name. The page will only accept file name without the extension
@@ -55,7 +57,7 @@ public class NewPropertyFileWizardPage extends WizardPage {
 	public NewPropertyFileWizardPage(ISelection selection) {
 		super("wizardPage");
 		setTitle("Property Catalogue File");
-		setDescription("This wizard creates a new file with *.nsl extension that can be opened by the ARTIST Property Catalogue editor.");
+		setDescription("This wizard creates a new file with *.prop extension that can be opened by the ARTIST Property Catalogue editor.");
 		this.selection = selection;
 	}
 
@@ -125,7 +127,7 @@ public class NewPropertyFileWizardPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("properties.nsl");
+		fileText.setText("properties.prop");
 	}
 
 	/**
@@ -177,9 +179,8 @@ public class NewPropertyFileWizardPage extends WizardPage {
 		}
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
-			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("nsl") == false) {
-				updateStatus("File extension must be \"nsl\"");
+			if(!FileExtensions.isPropertyCatalogue(fileName)) {
+				updateStatus("File extension must end with " + FileExtensions.getPropertyCatalogueExtensions() + ".");
 				return;
 			}
 		}

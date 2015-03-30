@@ -1948,53 +1948,59 @@ ruleCollection returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='[' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getCollectionAccess().getLeftSquareBracketKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getCollectionAccess().getCollectionAction_0(),
+            $current);
     }
-(
+)	otherlv_1='[' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getCollectionAccess().getLeftSquareBracketKeyword_1());
+    }
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_0_0()); 
 	    }
-		lv_values_1_0=ruleValueSpecification		{
+		lv_values_2_0=ruleValueSpecification		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCollectionRule());
 	        }
        		add(
        			$current, 
        			"values",
-        		lv_values_1_0, 
+        		lv_values_2_0, 
         		"ValueSpecification");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_2=',' 
+)(	otherlv_3=',' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getCollectionAccess().getCommaKeyword_2_0());
+    	newLeafNode(otherlv_3, grammarAccess.getCollectionAccess().getCommaKeyword_2_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_1_1_0()); 
 	    }
-		lv_values_3_0=ruleValueSpecification		{
+		lv_values_4_0=ruleValueSpecification		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCollectionRule());
 	        }
        		add(
        			$current, 
        			"values",
-        		lv_values_3_0, 
+        		lv_values_4_0, 
         		"ValueSpecification");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_4=']' 
+))*)?	otherlv_5=']' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getCollectionAccess().getRightSquareBracketKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getCollectionAccess().getRightSquareBracketKeyword_3());
     }
 )
 ;
@@ -2017,53 +2023,59 @@ ruleTuple returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='{' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getTupleAccess().getLeftCurlyBracketKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getTupleAccess().getTupleAction_0(),
+            $current);
     }
-(
+)	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getTupleAccess().getLeftCurlyBracketKeyword_1());
+    }
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_0_0()); 
 	    }
-		lv_tuples_1_0=rulePropertyValuePair		{
+		lv_tuples_2_0=rulePropertyValuePair		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTupleRule());
 	        }
        		add(
        			$current, 
        			"tuples",
-        		lv_tuples_1_0, 
+        		lv_tuples_2_0, 
         		"PropertyValuePair");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_2=',' 
+)(	otherlv_3=',' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getTupleAccess().getCommaKeyword_2_0());
+    	newLeafNode(otherlv_3, grammarAccess.getTupleAccess().getCommaKeyword_2_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_1_1_0()); 
 	    }
-		lv_tuples_3_0=rulePropertyValuePair		{
+		lv_tuples_4_0=rulePropertyValuePair		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTupleRule());
 	        }
        		add(
        			$current, 
        			"tuples",
-        		lv_tuples_3_0, 
+        		lv_tuples_4_0, 
         		"PropertyValuePair");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_4='}' 
+))*)?	otherlv_5='}' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getTupleAccess().getRightCurlyBracketKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getTupleAccess().getRightCurlyBracketKeyword_3());
     }
 )
 ;
@@ -3299,6 +3311,10 @@ ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 
 
 
+
+
+
+
 // Entry rule entryRuleQualifiedNameWithWildcard
 entryRuleQualifiedNameWithWildcard returns [String current=null] 
 	:
@@ -3338,6 +3354,47 @@ ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrD
 
 
 
+
+
+
+// Entry rule entryRuleImportNamespace
+entryRuleImportNamespace returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getImportNamespaceRule()); }
+	 iv_ruleImportNamespace=ruleImportNamespace 
+	 { $current=$iv_ruleImportNamespace.current; } 
+	 EOF 
+;
+
+// Rule ImportNamespace
+ruleImportNamespace returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='import' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getImportNamespaceAccess().getImportKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getImportNamespaceAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0()); 
+	    }
+		lv_importedNamespace_1_0=ruleQualifiedNameWithWildcard		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getImportNamespaceRule());
+	        }
+       		set(
+       			$current, 
+       			"importedNamespace",
+        		lv_importedNamespace_1_0, 
+        		"QualifiedNameWithWildcard");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
 
 
 
@@ -3412,6 +3469,8 @@ RULE_SMALL_DECIMAL : ('+'|'-')? RULE_POSITIVE_SMALL_DECIMAL;
 RULE_EBIGDECIMAL : ('+'|'-')? (RULE_INT|'.' RULE_INT|RULE_INT '.' RULE_INT);
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_'|'+'|'-'|'%'|'*'|'/'|'#'|'>'|'<'|'='|'\u00C2\u00A7') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'+'|'-'|'%'|'*'|'/'|'#'|'>'|'<'|'='|'\u00C2\u00A7')*;
+
+RULE_DATE_TIME : RULE_INT '-' RULE_INT '-' RULE_INT ('T' RULE_INT ':' RULE_INT (':' RULE_INT ('.' RULE_INT)?)?)?;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 

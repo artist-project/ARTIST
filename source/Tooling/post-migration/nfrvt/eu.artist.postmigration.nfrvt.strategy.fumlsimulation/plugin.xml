@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.FUMLSimulationLaunchDelegate"
+            id="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.launchConfigurationType"
+            modes="run,debug"
+            name="fUML Workload Simulation"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.processFactories">
+      <processFactory
+            class="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.FUMLSimulationProcessFactory"
+            id="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.processFactory">
+      </processFactory>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.ui.FUMLSimulationLaunchConfigurationTabGroup"
+            id="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.launchConfigurationTabGroup"
+            type="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.launchConfigurationType"
+            icon="icons/Launch2.gif"
+            id="eu.artist.postmigration.nfrvt.strategy.fumlsimulation.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+</plugin>

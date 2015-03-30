@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:l2="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L2" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Package xmi:id="_0" name="ARTISTTypes" URI="http://ARTIST_LIBRARY/type">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="CloudProvider" name="CloudProvider">
+      <ownedLiteral xmi:id="CloudProvider-GoogleAppEngine" name="GoogleAppEngine"/>
+      <ownedLiteral xmi:id="CloudProvider-MicrosoftAzure" name="MicrosoftAzure"/>
+      <ownedLiteral xmi:id="CloudProvider-AmazonEC2" name="AmazonEC2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="ProgrammingLanguage" name="ProgrammingLanguage">
+      <ownedLiteral xmi:id="ProgrammingLanguage-Java" name="Java"/>
+      <ownedLiteral xmi:id="ProgrammingLanguage-C23" name="C#"/>
+      <ownedLiteral xmi:id="ProgrammingLanguage-C" name="C++"/>
+      <ownedLiteral xmi:id="ProgrammingLanguage-Ruby" name="Ruby"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="DBType" name="DBType">
+      <ownedLiteral xmi:id="DBType-SQL" name="SQL"/>
+      <ownedLiteral xmi:id="DBType-NoSQL" name="NoSQL"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_8eZ04DduEeSF-Zmllyu23Q" name="ProvisioningType">
+      <ownedLiteral xmi:id="_-4_A8DduEeSF-Zmllyu23Q" name="PaaS"/>
+      <ownedLiteral xmi:id="_Euv6cDdvEeSF-Zmllyu23Q" name="IaaS"/>
+      <ownedLiteral xmi:id="_HlMjIDdvEeSF-Zmllyu23Q" name="SaaS"/>
+      <ownedLiteral xmi:id="_6oJocDdvEeSF-Zmllyu23Q" name="Hybrid"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_5oyJEDdiEeSF-Zmllyu23Q" name="Country">
+      <ownedAttribute xmi:id="_-tA38DdiEeSF-Zmllyu23Q" name="code">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_XU1s0DdkEeSF-Zmllyu23Q" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <profileApplication xmi:id="_profileApplication.0">
+      <eAnnotations xmi:id="_profileApplication.0-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L2#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/StandardL2.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_n17rIDdlEeSF-Zmllyu23Q">
+      <eAnnotations xmi:id="_n2JGgDdlEeSF-Zmllyu23Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Package>
+  <l2:ModelLibrary xmi:id="_v8hz0OdNEeO4IPootaXltw" base_Package="_0"/>
+  <Ecore:EEnum xmi:id="_tMZZgDdlEeSF-Zmllyu23Q" base_Enumeration="DBType" enumName="DBType"/>
+  <Ecore:EEnumLiteral xmi:id="_3Nr4QDdlEeSF-Zmllyu23Q" base_EnumerationLiteral="DBType-SQL" enumLiteralName="SQL" literal="SQL"/>
+  <Ecore:EEnumLiteral xmi:id="_8PQ7wDdlEeSF-Zmllyu23Q" base_EnumerationLiteral="DBType-NoSQL" enumLiteralName="NoSQL" literal="NoSQL"/>
+  <Ecore:EEnum xmi:id="_Pgn3sDdmEeSF-Zmllyu23Q" base_Enumeration="ProgrammingLanguage" enumName="ProgrammingLanguage"/>
+  <Ecore:EEnumLiteral xmi:id="_QTvWsDdmEeSF-Zmllyu23Q" base_EnumerationLiteral="ProgrammingLanguage-Java" enumLiteralName="Java" literal="Java"/>
+  <Ecore:EEnumLiteral xmi:id="_TFQcEDdmEeSF-Zmllyu23Q" xmlName="" base_EnumerationLiteral="ProgrammingLanguage-C23" enumLiteralName="CSharp" literal="CSharp"/>
+  <Ecore:EEnumLiteral xmi:id="_WGweMDdmEeSF-Zmllyu23Q" xmlName="" base_EnumerationLiteral="ProgrammingLanguage-C" enumLiteralName="CPlusPlus" literal="CPlusPlus"/>
+  <Ecore:EEnumLiteral xmi:id="_YmTp0DdmEeSF-Zmllyu23Q" xmlName="" base_EnumerationLiteral="ProgrammingLanguage-Ruby" enumLiteralName="Ruby" literal="Ruby"/>
+  <Ecore:EEnum xmi:id="_bdmnEDdmEeSF-Zmllyu23Q" base_Enumeration="CloudProvider" enumName="CloudProvider"/>
+  <Ecore:EEnumLiteral xmi:id="_eXqkcDdmEeSF-Zmllyu23Q" base_EnumerationLiteral="CloudProvider-GoogleAppEngine" enumLiteralName="GoogleAppEngine" literal="GoogleAppEngine"/>
+  <Ecore:EEnumLiteral xmi:id="_f7zQsDdmEeSF-Zmllyu23Q" base_EnumerationLiteral="CloudProvider-MicrosoftAzure" enumLiteralName="MicrosoftAzure" literal="MicrosoftAzure"/>
+  <Ecore:EEnumLiteral xmi:id="_hVoxcDdmEeSF-Zmllyu23Q" base_EnumerationLiteral="CloudProvider-AmazonEC2" enumLiteralName="AmazonEC2" literal="AmazonEC2"/>
+  <Ecore:EPackage xmi:id="_3JBIwDdnEeSF-Zmllyu23Q" base_Package="_0" packageName="types" nsPrefix="" nsURI="http://www.artist.eu/postmigration/nfrvt/types" basePackage="eu.artist.postmigration.nfrvt.resources" prefix="ARTISTTypes"/>
+  <Ecore:EEnum xmi:id="_AXJoEDdvEeSF-Zmllyu23Q" base_Enumeration="_8eZ04DduEeSF-Zmllyu23Q" enumName="ProvisioningType"/>
+  <Ecore:EEnumLiteral xmi:id="_DpjM8DdvEeSF-Zmllyu23Q" base_EnumerationLiteral="_-4_A8DduEeSF-Zmllyu23Q" enumLiteralName="PaaS" literal="PaaS"/>
+  <Ecore:EEnumLiteral xmi:id="_EuwhgDdvEeSF-Zmllyu23Q" base_EnumerationLiteral="_Euv6cDdvEeSF-Zmllyu23Q" enumLiteralName="IaaS" literal="IaaS"/>
+  <Ecore:EEnumLiteral xmi:id="_HlNKMDdvEeSF-Zmllyu23Q" base_EnumerationLiteral="_HlMjIDdvEeSF-Zmllyu23Q" enumLiteralName="SaaS" literal="SaaS"/>
+  <Ecore:EEnumLiteral xmi:id="_6oKPgDdvEeSF-Zmllyu23Q" base_EnumerationLiteral="_6oJocDdvEeSF-Zmllyu23Q" enumLiteralName="Hybrid" literal="Hybrid"/>
+</xmi:XMI>

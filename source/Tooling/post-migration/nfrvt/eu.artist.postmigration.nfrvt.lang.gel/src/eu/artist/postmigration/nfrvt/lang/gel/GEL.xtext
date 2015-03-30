@@ -12,20 +12,24 @@
  *******************************************************************************/
 grammar eu.artist.postmigration.nfrvt.lang.gel.GEL with eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon
 
-import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as artistCommon
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.eclipse.org/uml2/4.0.0/UML" as uml
+import "http://www.artist.eu/postmigration/nfrvt/lang/common/ARTISTCommon" as common
 import "http://www.artist.eu/postmigration/nfrvt/lang/nsl/NSL" as nsl
 import "http://www.artist.eu/postmigration/nfrvt/lang/tsl/TSL" as tsl
-import "http://www.artist.eu/postmigration/nfrvt/lang/esl/ESL" as esl
 import "http://www.artist.eu/postmigration/nfrvt/lang/gml/GML" as gml
+import "http://www.artist.eu/postmigration/nfrvt/lang/pml/PML" as pml
 
 generate gel "http://www.artist.eu/postmigration/nfrvt/lang/gel/GEL"
+
+ARTISTModel returns common::ARTISTModel:
+	MigrationEvaluation
+;
 
 MigrationEvaluation:
 	imports += ImportNamespace*
 	"evaluation" name = QualifiedName "{"
-		"date" date = STRING ","
+		"date" date = DATE_TIME ","
 		"migration" "["
 			(transformations += Transformation)*
 		"]" ","
@@ -45,6 +49,10 @@ Transformation:
 		("," "target" "["
 			(target += [uml::NamedElement | QualifiedName])*
 		"]")?
+		("," "context" "["
+			(context += [uml::NamedElement | QualifiedName])*
+		"]")?
+		("," "info" info = STRING)?
 	"}"	
 ;
 
@@ -65,19 +73,9 @@ AppliedQuantitativePropertyEvaluation:
 		"property" property = [gml::AppliedQuantitativeProperty | QualifiedName] ","
 		"value" value = ValueSpecification ","
 		evaluation = ValueExpressionEvaluation 
-		("," "realizations" "[" 
-			(realizations += QuantitativePropertyRealization ("," realizations += QuantitativePropertyRealization)*)?
+		("," "measurements" "[" 
+			(measurements += [pml::Measurement | QualifiedName] ("," measurements += [pml::Measurement | QualifiedName])*)?
 		"]")?
-	"}"
-;
-
-QuantitativePropertyRealization:
-	name = ID "{"
-		("strategy" strategy = [esl::EvaluationStrategy | QualifiedName]? ",")?
-		"level" level = RealizationLevelKind ","
-		"type" type = RealizationTypeKind ","
-		"values" "[" values += ValueSpecification ("," values += ValueSpecification)* "]" 
-		("," "precision" precision = EBIGDECIMAL)?
 	"}"
 ;
 
@@ -156,12 +154,6 @@ NumberExpressionEvaluation:
 	"}"
 ;
 
-enum RealizationLevelKind:
-	MODEL = "model" | CODE ="code"
-;
 
-enum RealizationTypeKind:
-	CALCULATED = "calculated" | MEASURED = "measured" | ESTIMATED = "estimated"
-;
 enum Verdict returns Verdict:
 	PASS = "PASS" | FAIL = "FAIL" | INCONCLUSIVE = "INCONCLUSIVE";

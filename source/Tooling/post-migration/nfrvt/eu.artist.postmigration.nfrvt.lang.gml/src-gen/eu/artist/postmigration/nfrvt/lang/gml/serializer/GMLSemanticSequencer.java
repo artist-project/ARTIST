@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.gml.serializer;
 
 import com.google.inject.Inject;
@@ -68,6 +56,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.XOrOperator;
 import eu.artist.postmigration.nfrvt.lang.common.serializer.ARTISTCommonSemanticSequencer;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
@@ -87,7 +76,6 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.ParenthesizedGoalExpression;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoalImpact;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Workload;
 import eu.artist.postmigration.nfrvt.lang.gml.services.GMLGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
@@ -832,6 +820,12 @@ public class GMLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 					return; 
 				}
 				else break;
+			case ArtistCommonPackage.WORKLOAD:
+				if(context == grammarAccess.getWorkloadRule()) {
+					sequence_Workload(context, (Workload) semanticObject); 
+					return; 
+				}
+				else break;
 			case ArtistCommonPackage.XOR_OPERATOR:
 				if(context == grammarAccess.getXOrOperatorRule()) {
 					sequence_XOrOperator(context, (XOrOperator) semanticObject); 
@@ -950,7 +944,8 @@ public class GMLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 				}
 				else break;
 			case GmlPackage.GOAL_MODEL:
-				if(context == grammarAccess.getGoalModelRule()) {
+				if(context == grammarAccess.getARTISTModelRule() ||
+				   context == grammarAccess.getGoalModelRule()) {
 					sequence_GoalModel(context, (GoalModel) semanticObject); 
 					return; 
 				}
@@ -1020,12 +1015,6 @@ public class GMLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 			case GmlPackage.SOFT_GOAL_IMPACT:
 				if(context == grammarAccess.getSoftGoalImpactRule()) {
 					sequence_SoftGoalImpact(context, (SoftGoalImpact) semanticObject); 
-					return; 
-				}
-				else break;
-			case GmlPackage.WORKLOAD:
-				if(context == grammarAccess.getWorkloadRule()) {
-					sequence_Workload(context, (Workload) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1254,12 +1243,12 @@ public class GMLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	 */
 	protected void sequence_Workload(EObject context, Workload semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, GmlPackage.Literals.WORKLOAD__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GmlPackage.Literals.WORKLOAD__NAME));
-			if(transientValues.isValueTransient(semanticObject, GmlPackage.Literals.WORKLOAD__ACTIVITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GmlPackage.Literals.WORKLOAD__ACTIVITY));
-			if(transientValues.isValueTransient(semanticObject, GmlPackage.Literals.WORKLOAD__PATTERN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GmlPackage.Literals.WORKLOAD__PATTERN));
+			if(transientValues.isValueTransient(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__NAME));
+			if(transientValues.isValueTransient(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__ACTIVITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__ACTIVITY));
+			if(transientValues.isValueTransient(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__PATTERN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__PATTERN));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);

@@ -9,7 +9,7 @@
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="gel"
+            extensions="gel,eval"
             id="eu.artist.postmigration.nfrvt.lang.gel.GEL"
             name="GEL Editor">
         </editor>
@@ -223,6 +223,20 @@
         </resourceServiceProvider>
     </extension>
 
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="eval">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="eval">
+        </resourceServiceProvider>
+    </extension>
+
 
 	<!-- marker definitions for eu.artist.postmigration.nfrvt.lang.gel.GEL -->
 	<extension
@@ -251,7 +265,7 @@
          point="org.eclipse.xtext.builder.participant">
       <participant
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-            fileExtensions="gel"
+            fileExtensions="gel,eval"
             >
       </participant>
    </extension>
@@ -379,19 +393,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gel.GEL.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gel">
+            extensions="gel,eval">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gel.GEL.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gel" label="GEL Compare">
+            extensions="gel,eval" label="GEL Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.gel.GEL.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.gel.ui.GELExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="gel">
+            extensions="gel,eval">
     </provider>
   </extension>
 

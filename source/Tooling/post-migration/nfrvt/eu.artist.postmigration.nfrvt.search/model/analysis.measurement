@@ -1,0 +1,17 @@
+observation StaticAnalysis {
+	time 2015-01-22T18:24:52.380,
+	level "Model",
+	type "measured",
+	measurements [
+		data-point StaticAnalysis_2015-01-22-18-24-52-390_01 {
+			property eu.artist.^property.catalogue.static.ProgrammingLanguage,
+			context petstore,
+			value ARTISTTypes.ProgrammingLanguage.Java
+		},
+		data-point StaticAnalysis_2015-01-22-18-24-55-132_02 {
+			property eu.artist.^property.catalogue.static.CloudProvider,
+			context petstore,
+			value ARTISTTypes.CloudProvider.GoogleAppEngine
+		}
+	]
+}

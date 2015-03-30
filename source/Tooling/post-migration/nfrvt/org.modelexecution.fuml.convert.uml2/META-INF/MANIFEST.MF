@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Converter UML2 to fUML
+Bundle-SymbolicName: org.modelexecution.fuml.convert.uml2;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.modelexecution.fuml.convert.uml2.UML2ConverterPlugin
+Bundle-Vendor: modelexecution.org
+Require-Bundle: org.eclipse.core.runtime,
+ org.modelexecution.fuml.convert;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.uml2.uml;bundle-version="3.2.100";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.modelexecution.fuml.convert.uml2

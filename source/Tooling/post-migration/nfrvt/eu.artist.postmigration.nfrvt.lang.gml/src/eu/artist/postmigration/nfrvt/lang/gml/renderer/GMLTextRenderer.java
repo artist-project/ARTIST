@@ -14,12 +14,13 @@ package eu.artist.postmigration.nfrvt.lang.gml.renderer;
 
 import org.eclipse.uml2.uml.NamedElement;
 
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQualitativeProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativePropertyExpression;
+import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalKind;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Workload;
 import eu.artist.postmigration.nfrvt.lang.nsl.renderer.NSLTextRenderer;
 
 /**
@@ -30,6 +31,8 @@ import eu.artist.postmigration.nfrvt.lang.nsl.renderer.NSLTextRenderer;
 public class GMLTextRenderer extends NSLTextRenderer {
 
 	protected String render(AppliedQuantitativePropertyExpression e) {
+		if(e.getValue() == null)
+			return null;
 		if (e.getValue().getFunction() == null)
 			return "$" + e.getValue().getName();
 		return doRender(e.getValue().getFunction()) + "($"
@@ -62,6 +65,10 @@ public class GMLTextRenderer extends NSLTextRenderer {
 
 	protected String render(NamedElement element) {
 		return element.getQualifiedName();
+	}
+	
+	protected String render(Goal goal) {
+		return goal.getName();
 	}
 
 }

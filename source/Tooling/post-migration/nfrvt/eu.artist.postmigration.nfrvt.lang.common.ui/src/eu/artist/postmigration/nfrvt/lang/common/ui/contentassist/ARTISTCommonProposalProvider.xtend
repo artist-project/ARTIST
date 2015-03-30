@@ -3,27 +3,29 @@
  */
 package eu.artist.postmigration.nfrvt.lang.common.ui.contentassist
 
+import com.google.common.collect.Sets
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonFactory
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ObjectSpecificationExpression
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple
+import java.lang.reflect.InvocationTargetException
+import java.math.BigDecimal
+import java.util.Date
+import java.util.Set
+import org.eclipse.emf.common.notify.Notification
+import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EOperation
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.swt.graphics.Image
 import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.GrammarUtil
+import org.eclipse.xtext.Keyword
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import org.eclipse.xtext.RuleCall
-import org.eclipse.xtext.util.Strings
-import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal
-import org.eclipse.xtext.GrammarUtil
 import org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher
-import org.eclipse.xtext.Keyword
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.EOperation
-import org.eclipse.emf.common.util.EList
-import java.lang.reflect.InvocationTargetException
-import org.eclipse.emf.common.notify.Notification
-import org.eclipse.swt.graphics.Image
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonFactory
-import com.google.common.collect.Sets
-import java.util.Set
+import org.eclipse.xtext.util.Strings
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -51,6 +53,10 @@ class ARTISTCommonProposalProvider extends AbstractARTISTCommonProposalProvider 
 		if(proposalText == null) 
 			proposalText = Strings.toFirstUpper(ruleCall.getRule().getName().toLowerCase());
 		createProposal(context, acceptor, ruleCall, proposalText, STRING_DUMMY.image, 1, -2);
+	}
+	
+	def void createStringProposal(ContentAssistContext context, ICompletionProposalAcceptor acceptor, Assignment assignment, String proposal) {
+		createProposal(context, acceptor, assignment.terminal as RuleCall, proposal, STRING_DUMMY.image, 1, -2);
 	}
 	
 	def void createIDProposal(ContentAssistContext context, ICompletionProposalAcceptor acceptor,
@@ -145,23 +151,23 @@ class ARTISTCommonProposalProvider extends AbstractARTISTCommonProposalProvider 
 	}
 	
 	override complete_Number(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createProposal(context, acceptor, ruleCall, 1, NUMBER_DUMMY.image);
+		createProposal(context, acceptor, ruleCall, new BigDecimal("1"), NUMBER_DUMMY.image);
 	}
 	
 	override complete_EBIGDECIMAL(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createProposal(context, acceptor, ruleCall, 1.0, NUMBER_DUMMY.image);
+		createProposal(context, acceptor, ruleCall, new BigDecimal("1.0"), NUMBER_DUMMY.image);
 	}
 	
 	override complete_SMALL_DECIMAL(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createProposal(context, acceptor, ruleCall, -0.1, NUMBER_DUMMY.image);
+		createProposal(context, acceptor, ruleCall, new BigDecimal("-0.1"), NUMBER_DUMMY.image);
 	}
 	
 	override complete_POSITIVE_SMALL_DECIMAL(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createProposal(context, acceptor, ruleCall, 0.1, NUMBER_DUMMY.image);
+		createProposal(context, acceptor, ruleCall, new BigDecimal("0.1"), NUMBER_DUMMY.image);
 	}
 	
 	override complete_NullLiteral(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createProposal(context, acceptor, ruleCall, "null",NULL_DUMMY.image);
+		createProposal(context, acceptor, ruleCall, "null", NULL_DUMMY.image);
 	}
 	
 	override complete_EBOOLEAN(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -189,7 +195,7 @@ class ARTISTCommonProposalProvider extends AbstractARTISTCommonProposalProvider 
 	}
 	
 	override complete_QualifiedNameWithWildcard(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		createIDProposal(context, acceptor, ruleCall, "unique.qualified.name");
+		createIDProposal(context, acceptor, ruleCall, "unique.qualified.name.*");
 	}
 	
 	override complete_ID(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -232,24 +238,34 @@ class ARTISTCommonProposalProvider extends AbstractARTISTCommonProposalProvider 
 		createProposal(context, acceptor, ruleCall, "log(1)", NUMBER_FUNCTION_DUMMY.image, 4, -5);
 	}
 	
+	override complete_DATE_TIME(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		createProposal(context, acceptor, ruleCall, new Date(), factory.createMaximumFunction.image);
+	}
+	
 	override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
 		if(!filteredKeywords.contains(keyword.value))
 			super.completeKeyword(keyword, contentAssistContext, acceptor)
 	}
 	
-	private static final val STRING_DUMMY = factory.createStringLiteral()
+	override completeWorkload_Pattern(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeWorkload_Pattern(model, assignment, context, acceptor)
+		createStringProposal(context, acceptor, assignment, "open")
+		createStringProposal(context, acceptor, assignment, "closed")
+	}
 	
-	private static final val BOOLEAN_DUMMY = factory.createBooleanLiteral()
+	protected static final val STRING_DUMMY = factory.createStringLiteral()
 	
-	private static final val NULL_DUMMY = factory.createNullLiteral()
+	protected static final val BOOLEAN_DUMMY = factory.createBooleanLiteral()
 	
-	private static final val UNLIMITED_DUMMY = factory.createUnlimitedLiteral()
+	protected static final val NULL_DUMMY = factory.createNullLiteral()
 	
-	private static final val NUMBER_FUNCTION_DUMMY = factory.createNumberFunction()
+	protected static final val UNLIMITED_DUMMY = factory.createUnlimitedLiteral()
 	
-	private static final val NUMBER_DUMMY = factory.createNumberLiteral()
+	protected static final val NUMBER_FUNCTION_DUMMY = factory.createNumberFunction()
 	
-	private static final Keyword DUMMY_KEYWORD = new Keyword() {
+	protected static final val NUMBER_DUMMY = factory.createNumberLiteral()
+	
+	protected static final Keyword DUMMY_KEYWORD = new Keyword() {
 		
 		override getValue() { return ""; }
 		

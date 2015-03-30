@@ -24,25 +24,29 @@ import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
  */
 public class NumericLogic {
 	
-	private static EvaluationSettings settings;
+	private static EvaluationSettings settings = new EvaluationSettings();
 	
 	/**
 	 * Returns the {@link EvaluationSettings} used for numeric operations
 	 * containing, e.g., the rounding mode.
 	 */
 	public static EvaluationSettings getSettings() {
-		if(settings == null)
-			settings = new EvaluationSettings();
 		return settings;
 	}
 
 	/**
-	 * Specifies the {@link EvaluationSettings} used for numreic operations
+	 * Specifies the {@link EvaluationSettings} used for numeric operations
 	 * containing, e.g., the rounding mode.
 	 * @param settings
 	 */
 	public static void setSettings(EvaluationSettings settings) {
 		NumericLogic.settings = settings;
+	}
+	
+	public static BigDecimal scale(BigDecimal value) {
+		if(value.scale() < 0 || (value.precision() != getSettings().getPrecision()))
+			value = value.setScale(0, getSettings().getRoundingMode());
+		return value;
 	}
 	
 	/***
@@ -56,7 +60,7 @@ public class NumericLogic {
 	public static BigDecimal log(BigDecimal value) {
 		if(value == null)
 			return null;
-		return new BigDecimal(Math.log10(value.doubleValue()), getSettings().getMathContext());
+		return scale(new BigDecimal(Math.log10(value.doubleValue()), getSettings().getMathContext()));
 	}
 	
 	/***
@@ -70,7 +74,7 @@ public class NumericLogic {
 	public static BigDecimal ln(BigDecimal value) {
 		if(value == null)
 			return null;
-		return new BigDecimal(Math.log(value.doubleValue()), getSettings().getMathContext());
+		return scale(new BigDecimal(Math.log(value.doubleValue()), getSettings().getMathContext()));
 	}
 	
 	/***
@@ -99,7 +103,7 @@ public class NumericLogic {
 	public static BigDecimal pow(BigDecimal base, BigDecimal exp) {
 		if(base == null || exp == null)
 			return null;
-		return base.pow(exp.intValue(), getSettings().getMathContext());
+		return scale(base.pow(exp.intValue(), getSettings().getMathContext()));
 	}
 	
 	/**
@@ -115,8 +119,8 @@ public class NumericLogic {
 			return null;
 		BigDecimal sum = zero();
 		for(BigDecimal value : values)
-			sum = sum.add(value, getSettings().getMathContext());
-		return sum;		
+			sum = sum.add(value);
+		return scale(sum);		
 	}
 	
 	/**
@@ -168,9 +172,10 @@ public class NumericLogic {
 			return null;
 		BigDecimal sum = zero();
 		for(BigDecimal value : values)
-			sum = sum.add(value, getSettings().getMathContext());
-		BigDecimal divisor = new BigDecimal(values.size(), getSettings().getMathContext());
-		return sum.divide(divisor, getSettings().getMathContext());		
+			sum = sum.add(value);
+
+		BigDecimal divisor = new BigDecimal(values.size());
+		return scale(sum.divide(divisor, getSettings().getPrecision(), getSettings().getMathContext().getRoundingMode()));		
 	}
 	
 	/**
@@ -185,7 +190,7 @@ public class NumericLogic {
 	public static BigDecimal divide(BigDecimal dividend, BigDecimal divisor) {
 		if(dividend == null | divisor == null)
 			return null;
-		return dividend.divide(divisor, getSettings().getMathContext());
+		return scale(dividend.divide(divisor, getSettings().getMathContext().getPrecision(), getSettings().getMathContext().getRoundingMode()));
 	}
 	
 	/**
@@ -200,7 +205,7 @@ public class NumericLogic {
 	public static BigDecimal subtract(BigDecimal minuend, BigDecimal substrahend) {
 		if(minuend == null | substrahend == null)
 			return null;
-		return minuend.subtract(substrahend, getSettings().getMathContext());
+		return scale(minuend.subtract(substrahend));
 	}
 	
 	/**
@@ -215,7 +220,7 @@ public class NumericLogic {
 	public static BigDecimal add(BigDecimal augend, BigDecimal addend) {
 		if(augend == null | addend == null)
 			return null;
-		return augend.add(addend, getSettings().getMathContext());
+		return scale(augend.add(addend));
 	}
 	
 	/**
@@ -230,7 +235,7 @@ public class NumericLogic {
 	public static BigDecimal multiply(BigDecimal multiplicand, BigDecimal multiplier) {
 		if(multiplier == null | multiplicand == null)
 			return null;
-		return multiplicand.multiply(multiplier, getSettings().getMathContext());
+		return scale(multiplicand.multiply(multiplier, getSettings().getMathContext()));
 	}
 	
 	/**
@@ -245,7 +250,7 @@ public class NumericLogic {
 	public static BigDecimal modulo(BigDecimal dividend, BigDecimal divisor) {
 		if(dividend == null | divisor == null)
 			return null;
-		return dividend.remainder(divisor, getSettings().getMathContext());
+		return scale(dividend.remainder(divisor, getSettings().getMathContext()));
 	}
 	
 	/**
@@ -253,6 +258,6 @@ public class NumericLogic {
 	 * @return new zero value
 	 */
 	public static BigDecimal zero() {
-		return new BigDecimal(0, getSettings().getMathContext());
+		return new BigDecimal(0);
 	}
 }

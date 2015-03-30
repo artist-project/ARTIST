@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.nsl.nsl.impl;
@@ -199,19 +187,9 @@ public class NslPackageImpl extends EPackageImpl implements NslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPropertyCatalogue_Imports()
-  {
-    return (EReference)propertyCatalogueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getPropertyCatalogue_Name()
   {
-    return (EAttribute)propertyCatalogueEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)propertyCatalogueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -221,7 +199,7 @@ public class NslPackageImpl extends EPackageImpl implements NslPackage
    */
   public EReference getPropertyCatalogue_Properties()
   {
-    return (EReference)propertyCatalogueEClass.getEStructuralFeatures().get(2);
+    return (EReference)propertyCatalogueEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -455,7 +433,6 @@ public class NslPackageImpl extends EPackageImpl implements NslPackage
 
     // Create classes and their features
     propertyCatalogueEClass = createEClass(PROPERTY_CATALOGUE);
-    createEReference(propertyCatalogueEClass, PROPERTY_CATALOGUE__IMPORTS);
     createEAttribute(propertyCatalogueEClass, PROPERTY_CATALOGUE__NAME);
     createEReference(propertyCatalogueEClass, PROPERTY_CATALOGUE__PROPERTIES);
 
@@ -524,6 +501,7 @@ public class NslPackageImpl extends EPackageImpl implements NslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    propertyCatalogueEClass.getESuperTypes().add(theArtistCommonPackage.getARTISTModel());
     qualitativePropertyEClass.getESuperTypes().add(this.getProperty());
     quantitativePropertyEClass.getESuperTypes().add(this.getProperty());
     baseQuantitativePropertyEClass.getESuperTypes().add(this.getQuantitativeProperty());
@@ -533,7 +511,6 @@ public class NslPackageImpl extends EPackageImpl implements NslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(propertyCatalogueEClass, PropertyCatalogue.class, "PropertyCatalogue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPropertyCatalogue_Imports(), theArtistCommonPackage.getImportNamespace(), null, "imports", null, 0, -1, PropertyCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPropertyCatalogue_Name(), theEcorePackage.getEString(), "name", null, 0, 1, PropertyCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPropertyCatalogue_Properties(), this.getProperty(), null, "properties", null, 0, -1, PropertyCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

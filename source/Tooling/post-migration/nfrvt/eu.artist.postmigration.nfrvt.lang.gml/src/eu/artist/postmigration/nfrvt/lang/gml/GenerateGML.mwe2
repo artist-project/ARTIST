@@ -15,11 +15,10 @@ module eu.artist.postmigration.nfrvt.lang.gml.GenerateGML
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
-import eu.artist.postmigration.nfrvt.lang.util.mwe.*
-import eu.artist.postmigration.nfrvt.lang.util.resource.*
+import eu.artist.postmigration.nfrvt.lang.common.*
 
 var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/gml/GML.xtext"
-var fileExtensions = "gml"
+var fileExtensions = "gml,goal"
 var projectName = "eu.artist.postmigration.nfrvt.lang.gml"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true

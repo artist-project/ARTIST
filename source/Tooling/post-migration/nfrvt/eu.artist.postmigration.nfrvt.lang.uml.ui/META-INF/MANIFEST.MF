@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: eu.artist.postmigration.nfrvt.lang.uml.ui
+Bundle-Name: ARTIST UML UI Support
 Bundle-SymbolicName: eu.artist.postmigration.nfrvt.lang.uml.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ActivationPolicy: lazy
@@ -9,6 +9,11 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.xtext.ui,
  org.apache.log4j,
  org.eclipse.xtext.ui.shared,
- eu.artist.postmigration.nfrvt.lang.uml.uml,
- org.eclipse.uml2.uml.editor
+ eu.artist.postmigration.nfrvt.lang.uml,
+ org.eclipse.uml2.uml.editor,
+ org.eclipse.emf.codegen,
+ org.eclipse.core.filesystem,
+ org.eclipse.ui.workbench,
+ org.eclipse.emf.ecore.editor
 Bundle-Vendor: ARTIST
+Export-Package: eu.artist.postmigration.nfrvt.lang.uml.ui

@@ -2,10 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tsl" nsURI="http://www.artist.eu/postmigration/nfrvt/lang/tsl/TSL"
     nsPrefix="tsl">
-  <eClassifiers xsi:type="ecore:EClass" name="PatternCatalogue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ImportNamespace"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternCatalogue" eSuperTypes="../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ARTISTModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
         eType="#//Pattern" containment="true"/>
@@ -16,7 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="problem" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="solution" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyImpacts" upperBound="-1"
-        eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//PropertyImpact"
+        eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//PropertyImpact"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="patternImpacts" upperBound="-1"
         eType="#//PatternImpact" containment="true"/>

@@ -1,26 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gml.gml.impl;
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportNamespace;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
+
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl;
 
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GmlPackage;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalModel;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Workload;
 
 import java.util.Collection;
 
@@ -33,7 +22,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GoalModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GoalModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GoalModelImpl#getWorkloads <em>Workloads</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gml.gml.impl.GoalModelImpl#getAppliedProperties <em>Applied Properties</em>}</li>
@@ -55,18 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalModel
+public class GoalModelImpl extends ARTISTModelImpl implements GoalModel
 {
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<ImportNamespace> imports;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -136,20 +113,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
   protected EClass eStaticClass()
   {
     return GmlPackage.Literals.GOAL_MODEL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ImportNamespace> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<ImportNamespace>(ImportNamespace.class, this, GmlPackage.GOAL_MODEL__IMPORTS);
-    }
-    return imports;
   }
 
   /**
@@ -227,8 +190,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
   {
     switch (featureID)
     {
-      case GmlPackage.GOAL_MODEL__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case GmlPackage.GOAL_MODEL__WORKLOADS:
         return ((InternalEList<?>)getWorkloads()).basicRemove(otherEnd, msgs);
       case GmlPackage.GOAL_MODEL__APPLIED_PROPERTIES:
@@ -249,8 +210,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
   {
     switch (featureID)
     {
-      case GmlPackage.GOAL_MODEL__IMPORTS:
-        return getImports();
       case GmlPackage.GOAL_MODEL__NAME:
         return getName();
       case GmlPackage.GOAL_MODEL__WORKLOADS:
@@ -274,10 +233,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
   {
     switch (featureID)
     {
-      case GmlPackage.GOAL_MODEL__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends ImportNamespace>)newValue);
-        return;
       case GmlPackage.GOAL_MODEL__NAME:
         setName((String)newValue);
         return;
@@ -307,9 +262,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
   {
     switch (featureID)
     {
-      case GmlPackage.GOAL_MODEL__IMPORTS:
-        getImports().clear();
-        return;
       case GmlPackage.GOAL_MODEL__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -336,8 +288,6 @@ public class GoalModelImpl extends MinimalEObjectImpl.Container implements GoalM
   {
     switch (featureID)
     {
-      case GmlPackage.GOAL_MODEL__IMPORTS:
-        return imports != null && !imports.isEmpty();
       case GmlPackage.GOAL_MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case GmlPackage.GOAL_MODEL__WORKLOADS:

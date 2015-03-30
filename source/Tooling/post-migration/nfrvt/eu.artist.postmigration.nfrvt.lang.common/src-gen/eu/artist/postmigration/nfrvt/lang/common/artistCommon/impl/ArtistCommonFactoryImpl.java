@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl;
@@ -112,6 +100,8 @@ public class ArtistCommonFactoryImpl extends EFactoryImpl implements ArtistCommo
       case ArtistCommonPackage.STRING_LITERAL: return createStringLiteral();
       case ArtistCommonPackage.UNLIMITED_LITERAL: return createUnlimitedLiteral();
       case ArtistCommonPackage.OPERATOR: return createOperator();
+      case ArtistCommonPackage.ARTIST_MODEL: return createARTISTModel();
+      case ArtistCommonPackage.WORKLOAD: return createWorkload();
       case ArtistCommonPackage.IMPORT_UR_IOR_NAMESPACE: return createImportURIorNamespace();
       case ArtistCommonPackage.IMPORT_URI: return createImportURI();
       case ArtistCommonPackage.IMPORT_NAMESPACE: return createImportNamespace();
@@ -538,6 +528,28 @@ public class ArtistCommonFactoryImpl extends EFactoryImpl implements ArtistCommo
   {
     OperatorImpl operator = new OperatorImpl();
     return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ARTISTModel createARTISTModel()
+  {
+    ARTISTModelImpl artistModel = new ARTISTModelImpl();
+    return artistModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Workload createWorkload()
+  {
+    WorkloadImpl workload = new WorkloadImpl();
+    return workload;
   }
 
   /**

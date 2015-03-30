@@ -12,6 +12,9 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.eval.run.launch;
 
+import java.math.RoundingMode;
+import java.util.List;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.DebugPlugin;
@@ -19,7 +22,7 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
 
-import eu.artist.postmigration.nfrvt.eval.run.Activator;
+import eu.artist.postmigration.nfrvt.eval.run.MigrationEvaluationActivator;
 import eu.artist.postmigration.nfrvt.eval.run.internal.process.InternalEvaluationProcess;
 
 /**
@@ -40,32 +43,52 @@ public class EvaluationLaunchDelegate extends LaunchConfigurationDelegate {
 	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-		String modelPath = getInputModelPath(configuration);
-		String resultPath = getOutputModelPath(configuration);
-		String analysisContext = getGoalModelEvaluationName(configuration);
-
-		InternalEvaluationProcess process = new InternalEvaluationProcess(modelPath,
-				resultPath, analysisContext);
+		String inputModel = getInputModelPath(configuration);
+		List<String> inputMeasurements = getGoalModelEvaluationName(configuration);
+		String resultModel = getOutputModelPath(configuration);
+		Integer precision = getSettingsPrecision(configuration);
+		RoundingMode roundingMode = getSettingsRoundingMode(configuration);
+		
+		InternalEvaluationProcess process = new InternalEvaluationProcess(inputModel,
+				inputMeasurements, resultModel, precision, roundingMode);
 
 		DebugPlugin.newProcess(launch, process, GML_EXEC_LABEL);
 	}
 
 	private String getInputModelPath(ILaunchConfiguration configuration)
 			throws CoreException {
-		return configuration.getAttribute(Activator.ATT_INPUT_MODEL_PATH,
-				(String) null);
+		return (String)configuration.getAttribute(
+				MigrationEvaluationActivator.ATT_INPUT_MODEL_PATH,
+				(List<String>) null).get(0);
 	}
 
-	private String getGoalModelEvaluationName(ILaunchConfiguration configuration)
+	@SuppressWarnings("unchecked")
+	private List<String> getGoalModelEvaluationName(ILaunchConfiguration configuration)
 			throws CoreException {
-		return configuration.getAttribute(
-				Activator.ATT_GOALMODELEVALUATION_NAME, (String) null);
+		return (List<String>) configuration.getAttribute(
+				MigrationEvaluationActivator.ATT_INPUT_MEASUREMENT_MODELS_PATHS,
+				(List<String>)null);
 	}
 
 	private String getOutputModelPath(ILaunchConfiguration configuration)
 			throws CoreException {
-		return configuration.getAttribute(Activator.ATT_OUTPUT_MODEL_PATH,
-				(String) null);
+		return (String) configuration.getAttribute(
+				MigrationEvaluationActivator.ATT_OUTPUT_MODEL_PATH,
+				(List<String>) null).get(0);
+	}
+	
+	private Integer getSettingsPrecision(ILaunchConfiguration configuration)
+			throws CoreException {
+		return configuration.getAttribute(
+				MigrationEvaluationActivator.ATT_SETTINGS_PRECISION,
+				2);
+	}
+	
+	private RoundingMode getSettingsRoundingMode(ILaunchConfiguration configuration)
+			throws CoreException {
+		return RoundingMode.valueOf(configuration.getAttribute(
+				MigrationEvaluationActivator.ATT_SETTINGS_ROUNDING, 
+				RoundingMode.HALF_UP.name()));
 	}
 
 	@Override

@@ -3,7 +3,7 @@
 
 <plugin>
 
-    <extension
+<!--    <extension
             point="org.eclipse.ui.editors">
         <editor
             class="eu.artist.postmigration.nfrvt.lang.common.ui.ARTISTCommonExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
@@ -14,6 +14,7 @@
             name="ARTISTCommon Editor">
         </editor>
     </extension>
+-->
     <extension
         point="org.eclipse.ui.handlers">
         <handler
@@ -80,6 +81,12 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
+            class="eu.artist.postmigration.nfrvt.lang.common.ui.NFRVTPreferencePage"
+            id="eu.artist.postmigration.nfrvt.lang.nfrvt"
+            name="NFRVT Editors">
+        </page>
+        <!--
+        <page
             class="eu.artist.postmigration.nfrvt.lang.common.ui.ARTISTCommonExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="eu.artist.postmigration.nfrvt.lang.common.ARTISTCommon"
             name="ARTISTCommon">
@@ -99,6 +106,7 @@
             name="Templates">
             <keywordReference id="eu.artist.postmigration.nfrvt.lang.common.ui.keyword_ARTISTCommon"/>
         </page>
+        -->
     </extension>
     <extension
             point="org.eclipse.ui.propertyPages">

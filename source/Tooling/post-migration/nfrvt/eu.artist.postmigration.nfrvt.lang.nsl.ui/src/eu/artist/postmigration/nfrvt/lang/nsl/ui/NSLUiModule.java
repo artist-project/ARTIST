@@ -15,7 +15,14 @@
  */
 package eu.artist.postmigration.nfrvt.lang.nsl.ui;
 
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.LanguageSpecific;
+import org.eclipse.xtext.ui.editor.IURIEditorOpener;
+
+import com.google.inject.Binder;
+
+import eu.artist.postmigration.nfrvt.lang.common.ui.ARTISTCommonLanguageSpecificURIEditorOpener;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -23,5 +30,12 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class NSLUiModule extends eu.artist.postmigration.nfrvt.lang.nsl.ui.AbstractNSLUiModule {
 	public NSLUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	@Override
+	public void configureLanguageSpecificURIEditorOpener(Binder binder) {
+		if (PlatformUI.isWorkbenchRunning())
+			binder.bind(IURIEditorOpener.class).annotatedWith(LanguageSpecific.class)
+					.to(ARTISTCommonLanguageSpecificURIEditorOpener.class);
 	}
 }

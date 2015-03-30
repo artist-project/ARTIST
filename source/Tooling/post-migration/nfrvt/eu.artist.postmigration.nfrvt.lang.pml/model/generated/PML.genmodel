@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/eu.artist.postmigration.nfrvt.lang.pml/src-gen"
+    editDirectory="/eu.artist.postmigration.nfrvt.lang.pml.edit/src" editorDirectory="/eu.artist.postmigration.nfrvt.lang.pml.editor/src"
+    modelPluginID="eu.artist.postmigration.nfrvt.lang.pml" forceOverwrite="true" modelName="PML"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="eu.artist.postmigration.nfrvt.lang.pml.edit"
+    editorPluginID="eu.artist.postmigration.nfrvt.lang.pml.editor" runtimeVersion="2.10"
+    usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.genmodel#//nsl platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
+  <genPackages prefix="Pml" basePackage="eu.artist.postmigration.nfrvt.lang.pml" disposableProviderFactory="true"
+      fileExtensions="pml,measurement,value" ecorePackage="PML.ecore#/">
+    <genClasses ecoreClass="PML.ecore#//MeasurementModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//MeasurementModel/observations"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//Observation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Observation/toolName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Observation/dateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Observation/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Observation/measurementType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//Observation/measurements"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//Measurement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Measurement/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PML.ecore#//Measurement/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Measurement/confidence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//Measurement/info"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//ApplicationMeasurement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PML.ecore#//ApplicationMeasurement/context"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//ApplicationMeasurement/workload"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//DataPointMeasurement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//DataPointMeasurement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//TimeSeriesMeasurement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//TimeSeriesMeasurement/values"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//BenchmarkMeasurement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PML.ecore#//BenchmarkMeasurement/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//BenchmarkMeasurement/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//BenchmarkMeasurement/test"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//BenchmarkMeasurement/workload"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//BenchmarkMeasurement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PML.ecore#//TimeValuePair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PML.ecore#//TimeValuePair/dateTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PML.ecore#//TimeValuePair/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

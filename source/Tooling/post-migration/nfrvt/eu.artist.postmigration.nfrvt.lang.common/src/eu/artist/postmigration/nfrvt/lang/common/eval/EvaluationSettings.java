@@ -33,8 +33,11 @@ import java.math.RoundingMode;
  *
  */
 public class EvaluationSettings {
-	private String suffix = "_Evaluation";
-	private MathContext mathContext = MathContext.DECIMAL64;
+	private static final String SUFFIX = "_Evaluation";
+	private static final MathContext MATH_CONTEXT = MathContext.DECIMAL64;
+	
+	private String suffix;
+	private MathContext mathContext;
 	
 	/**
 	 * Settings considered during the evaluation of goal models.
@@ -42,7 +45,9 @@ public class EvaluationSettings {
 	 * for numerical operations and values are rounded according to 
 	 * {@link RoundingMode#HALF_EVEN}.
 	 */
-	public EvaluationSettings() { }
+	public EvaluationSettings() {
+		this(SUFFIX, MATH_CONTEXT);
+	}
 	
 	/**
 	 * Creates new settings with the provided information.
@@ -68,6 +73,29 @@ public class EvaluationSettings {
 	public EvaluationSettings(String suffix, MathContext context) {
 		this.suffix = suffix;
 		this.mathContext = context;
+	}
+	
+	/**
+	 * Creates new settings with the provided information.
+	 * By default, the suffix '_Evaluation' is used.
+	 * 
+	 * @param context context containing the precision value and the rounding 
+	 * mode
+	 */
+	public EvaluationSettings(MathContext context) {
+		this(SUFFIX, context);
+	}
+	
+	/**
+	 * Creates new settings with the provided information.
+	 * By default, the suffix '_Evaluation' is used.
+	 * 
+	 * @param precision the non-negative int precision setting for double 
+	 * values
+	 * @param roundingMode rounding behavior for numerical operations
+	 */
+	public EvaluationSettings(int precision, RoundingMode roundingMode) {
+		this(SUFFIX, precision, roundingMode);
 	}
 	
 	/**

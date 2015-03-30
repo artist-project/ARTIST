@@ -1,0 +1,775 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Martin Fleck (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+import eu.artist.property.catalogue.static.*
+
+/**
+ * A catalogue of properties of interest, with special focus on non-functional
+ * properties collected from literature.
+ * 
+ * Link: https://docs.google.com/document/d/11yRx9V-HQT5wGr7TXPoE1j8QZgRFAlS-RrKe3IMZvHc
+ */
+property-catalogue eu.artist.property.catalogue.nonfunctional {
+	
+	/**
+	 * Security is the degree to which a product or system protects information 
+	 * and data so that persons or other products or systems have the degree 
+	 * of data access appropriate to their types and levels of authorization.
+	 */
+	qualitative Security {
+		description
+		"Security is the degree to which a product or system protects information and data so that persons or other products or systems have the degree of data access appropriate to their types and levels of authorization.",
+		direction increasing,
+		properties [
+			Confidentiality
+			Integrity
+			NonRepudation
+			Accountability
+			Authenticity
+			Availability
+			Auditability
+		],
+		impacts [
+			Accountability -.2,
+			Analyzability +.2
+		]
+	}
+	
+	/**
+	 * Confidentiality is the degree to which a product or system ensures that 
+	 * data are accessible only to those authorized to have access.
+	 */
+	qualitative Confidentiality {
+		description
+		"Confidentiality is the degree to which a product or system ensures that data are accessible only to those authorized to have access."
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Integrity {
+		description "",
+		impacts [
+			Accountability -0.2,
+			Analyzability 0.2
+		]
+	}
+	
+	/**
+	 * Availability is the degree to which a system, product, or component is 
+	 * operational and accessible when required for use.
+	 */
+	qualitative Availability {
+		description
+		"Availability is the degree to which a system, product, or component is operational and accessible when required for use.",
+		direction increasing,
+		properties [
+			DownTimeInPercent
+			MeanTimeToRestoreService
+			MeanTimeToFailure
+			MeanTimeBetweenFailures
+		],
+		impacts [
+			Reliability 0.2
+		]
+	}
+	
+	/**
+	 * Scalability is the ability of the system to sustain increasing workloads 
+	 * by making use of additional resources, and therefore, in contrast to 
+	 * elasticity, it is not directly related to how well the actual resource 
+	 * demands are matched by the provisioned resources at any point in time.
+	 */
+	qualitative Scalability {
+		description
+		"Scalability is the ability of the system to sustain increasing workloads by making use of additional resources, and therefore, in contrast to elasticity, it is not directly related to how well the actual resource demands are matched by the provisioned resources at any point in time.",
+		direction increasing,
+		properties [
+			Elasticity
+			ResponseTime
+			Throughput
+			AverageResponseTime
+			AverageSystemLoginTime
+			Utilization
+			RequestServiceTime
+			RequestWaitingTime
+		]
+	}
+		
+	/**
+	 * Elasticity is the degree to which a system is able to adapt to workload 
+	 * changes by provisioning and de-provisioning resources in an autonomic 
+	 * manner, such that at each point in time the available resources match 
+	 * the current demand as closely as possible.
+	 */
+	qualitative Elasticity {
+		description
+		"Elasticity is the degree to which a system is able to adapt to workload changes by provisioning and deprovisioning resources in an autonomic manner, such that at each point in time the available resources match the current demand as closely as possible.",
+		direction increasing,
+		properties [
+			ResponseTime
+			Throughput
+			AverageResponseTime
+			AverageSystemLoginTime
+			Utilization
+			RequestServiceTime
+			RequestWaitingTime
+		]
+	}
+	
+	/**
+	 * Cost or Cost reduction is one of the first concerns to build up a 
+	 * cloud system that can adapt to changing consumer behaviour and reduce 
+	 * cost for infrastructure maintenance and acquisition. Scalability and 
+	 * Pay-per-Use are essential aspects of this issue. 
+	 */
+	qualitative Cost {
+		description "Cost or Cost reduction is one of the first concerns to build up a cloud system that can adapt to changing consumer behaviour and reduce cost for infrastructure maintenance and acquisition. Scalability and Pay-per-Use are essential aspects of this issue.",
+		direction decreasing,
+		properties [
+			CostHardware
+			CostPerRequest
+			CostStorage
+		]
+	}
+	
+	/*
+	 * Performance efficiency is the performance relative to the amount of 
+	 * resources used under stated conditions.
+	 */
+	qualitative PerformanceEfficiency {
+		description
+		"Performance efficiency is the performance relative to the amount of resources used under stated conditions.",
+		direction increasing,
+		properties [
+			TimeBehavior
+			Capacity
+			ResourceUtilization
+			Scalability
+			Elasticity
+			ResponseTime
+			Throughput
+			AverageResponseTime
+			AverageSystemLoginTime
+			Utilization
+			RequestServiceTime
+			RequestWaitingTime
+		],
+		impacts [
+			Interoperability -0.2,
+			Maintainability -0.2,
+			Reliability -0.2,
+			Testability -0.2,
+			Usability -0.2
+		]
+	}
+			
+	/**
+	 * Time Behaviour is the degree to which the response and processing times 
+	 * and throughput rates of a product or system, when performing its 
+	 * functions, meet requirements.
+	 */
+	qualitative TimeBehavior {
+		description
+		"Time Behaviour is the degree to which the response and processing times and throughput rates of a product or system, when performing its functions, meet requirements.",
+		properties [
+			ResponseTime
+			AverageResponseTime
+			AverageSystemLoginTime
+			RequestServiceTime
+			RequestWaitingTime
+		]
+	}
+			
+	/**
+	 * Maintainability is the degree of effectiveness and efficiency with 
+	 * which a product or system can be modified by the intended 
+	 * maintainers.
+	 */
+	qualitative Maintainability {
+		description
+		"Maintainability is the degree of effectiveness and efficiency with which a product or system can be modified by the intended maintainers.",
+		properties [
+			Modularity
+			Reusability
+			Analyzability
+			Modifiability
+			Testability
+			MeanTimeToRestoreService
+			Cohesion
+			Coupling
+			CyclomaticComplexity
+			HalsteadVolume
+			MaintainabilityIndexMicrosoft
+		],
+		impacts [
+			Availability 0.2,
+			Reliability 0.2,
+			Testability 0.2,
+			PerformanceEfficiency -0.2
+		]
+	}
+		
+	/**
+	 * Modularity is the degree to which a system or computer program is 
+	 * composed of discrete components such that a change to one component 
+	 * has minimal impact on other components.
+	 */
+	qualitative Modularity {
+		description
+		"Modularity is the degree to which a system or computer program is composed of discrete components such that a change to one component has minimal impact on other components.",
+		properties [
+			Cohesion
+			Coupling
+		]
+	}
+	
+	/**
+	 * Maintainability index as described by Microsoft in 
+	 * http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx
+	 */
+	derived MaintainabilityIndexMicrosoft {
+		description "Maintainability index as described by Microsoft in http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx",
+		type PrimitiveTypes.Real,
+		direction decreasing,
+		expression max(0, ((171 - 5.2 * ln($HalsteadVolume) - 0.23 * $CyclomaticComplexity - 16.2 * ln($LinesOfCode))* 100 / 171))
+	}	
+		
+	/**
+	 * Modifiability is the degree to which a product or system can be 
+	 * effectively and efficiently modified without introducing defects 
+	 * or degrading existing product quality.
+	 */
+	qualitative Modifiability {
+		description
+		"Modifiability is the degree to which a product or system can be effectively and efficiently modified without introducing defects or degrading existing product quality."
+	}
+		
+	/**
+	 * Usability is the degree to which a product or system can be used by 
+	 * specified users to achieve specified goals with effectiveness, 
+	 * efficiency and satisfaction in a specified context of use.
+	 */
+	qualitative Usability {
+		description
+		"Usability is the degree to which a product or system can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.",
+		direction increasing,
+		properties [
+			Learnability
+			Operability
+			UserErrorProtection
+			UserInterfaceAesthetics
+			TimeToLearn
+			TimeSpentOnErrors
+			TimePerTask
+			SingleUsabilityRate
+		],
+		impacts [
+			Testability -0.2,
+			PerformanceEfficiency -0.2
+		]
+	}
+		
+	/**
+	 * Learnability is the degree to which a product or system can be used by 
+	 * specified users to achieve specified goals of learning to use the 
+	 * product or system with effectiveness, efficiency, freedom from risk 
+	 * and satisfaction in a specified context of use.
+	 */
+	qualitative Learnability {
+		description "Learnability is the degree to which a product or system can be used by specified users to achieve specified goals of learning to use the product or system with effectiveness, efficiency, freedom from risk and satisfaction in a specified context of use."
+	}
+	
+	/**
+	 * Resource Utilization is the degree to which the amounts and types of 
+	 * resources used by a product or system when performing its functions 
+	 * meet requirements.
+	 */
+	qualitative ResourceUtilization {
+		description
+		"Resource Utilization is the degree to which the amounts and types of resources used by a product or system when performing its functions meet requirements.",
+		direction range,
+		properties [
+			Capacity
+			CPUUsage
+			MemoryUsage
+			Throughput
+			Utilization
+		]
+	}
+	
+	/**
+	 * Compliance to specific laws, standards or SLAs. This affects both the 
+	 * application and the provider. Providers typically offer SLAs not for all 
+	 * cases of deployment, but based on some deployment preconditions that 
+	 * must be met for an SLA to apply for a specific service (e.g. deployment 
+	 * in more than one availability zones). Thus an application’s deployment 
+	 * should be checked in case it does not conform to the providers 
+	 * preconditions.
+	 */
+	quantitative SLACompliance {
+		description
+		"Compliance to specific laws, standards or SLAs. This affects both the application and the provider. Providers typically offer SLAs not for all cases of deployment, but based on some deployment preconditions that must be met for an SLA to apply for a specific service (e.g. deployment in more than one availability zones). Thus an application’s deployment should be checked in case it does not conform to the provider’s preconditions.",
+		type MARTE_Library.BasicNFP_Types.NFP_Percentage,
+		direction increasing
+	}
+	
+	/**
+	 * Multi-Tenancy means there are multiple tenants sharing a system. 
+	 * Usually the system is a software application operated by one 
+	 * company, the host, for use by other companies, the tenants. Each 
+	 * tenant company has individual employees who access the software. 
+	 * All employees of a tenant company can be connected within the 
+	 * application while other tenants are invisible; this creates the 
+	 * illusion for each tenant that they are the only customers using 
+	 * the software.
+	 */
+	quantitative MutliTenancy {
+		description "Multi-Tenancy means there are multiple tenants sharing a system. Usually the system is a software application operated by one company, the host, for use by other companies, the tenants. Each tenant company has individual employees who access the software. All employees of a tenant company can be connected within the application while other tenants are invisible; this creates the illusion for each tenant that they are the only customers using the software.",
+		type PrimitiveTypes.Boolean
+	} 
+	
+	/**
+	 * Reliability is the degree to which a system, product, or component 
+	 * performs specified functions under specified conditions for a specified 
+	 * period of time.
+	 */
+	qualitative Reliability {
+		description
+		"Reliability is the degree to which a system, product, or component performs specified functions under specified conditions for a specified period of time.",
+		properties [
+			Availability
+			Maturity
+			FaultTolerance
+			Recoverability
+			DownTimeInPercent
+			MeanTimeBetweenFailures
+			MeanTimeToFailure
+			MeanTimeToRestoreService
+			FailureRate
+		],
+		impacts [
+			PerformanceEfficiency -0.2,
+			Availability 0.2,
+			Maintainability 0.2,
+			Testability 0.2,
+			Usability 0.2
+		]
+	}
+	
+	/**
+	 * Compliance to specific laws, standards or SLAs. This affects both the 
+	 * application and the provider. Providers typically must be in 
+	 * compliance with specific regulatory obligations (security from data 
+	 * loss measures, security from unauthorized access measures, geographic 
+	 * location of the stored data with constraints etc.).
+	 */
+	qualitative LegalCompliance {
+		description "Compliance to specific laws, standards or SLAs. This affects both the application and the provider. Providers typically must be in compliance with specific regulatory obligations (security from data loss measures, security from unauthorized access measures, geographic location of the stored data with constraints etc.).",
+		properties [
+			SLACompliance
+		]
+	}
+		
+	/**
+	 * Compatibility is the degree to which a product, system, or component can
+	 * exchange information with other products, systems, or components, and/or 
+	 * perform its required functions, while sharing the same hardware or 
+	 * software environment.
+	 */
+	qualitative Compatibility {
+		description
+		"Compatibility is the degree to which a product, system, or component can exchange information with other products, systems, or components, and/or perform its required functions, while sharing the same hardware or software environment.",
+		direction increasing,
+		properties [
+			CoExistence
+			Interoperability
+		]
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Maturity {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative FaultTolerance {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Recoverability {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative CoExistence {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Interoperability {
+		description "",
+		impacts [
+			PerformanceEfficiency -0.2,
+			Integrity -0.2
+		]
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative DownTimeInPercent {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Percentage,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative MeanTimeToRestoreService {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative MeanTimeBetweenFailures {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative MeanTimeToFailure {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative FailureRate {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Frequency,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative ResponseTime {
+		description "ResponseTime",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative Throughput {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_DataTxRate,
+		direction increasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative AverageSystemLoginTime {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative AverageResponseTime {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative Utilization {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Percentage,
+		direction increasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative RequestWaitingTime {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative RequestServiceTime {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative CPUUsage {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Percentage,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative MemoryUsage {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Percentage,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative CostStorage {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Price,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative CostHardware {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Price,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative CostPerRequest {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Price,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	quantitative CyclomaticComplexity {
+		description "",
+		type PrimitiveTypes.Integer,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative HalsteadVolume {
+		description "",
+		type PrimitiveTypes.Real,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative Cohesion {
+		description "",
+		type XMLPrimitiveTypes.Date,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative Coupling {
+		description "",
+		type PrimitiveTypes.Real,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative TimeToLearn {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative TimePerTask {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative TimeSpentOnErrors {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+		
+	/**
+	 * 
+	 */
+	quantitative SingleUsabilityRate {
+		description "",
+		type MARTE_Library.BasicNFP_Types.NFP_Duration,
+		direction decreasing
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Auditability {
+		description ""
+	}
+		
+	/**
+	 * 
+	 */
+	qualitative NonRepudation {
+		description ""
+	}
+		
+	/**
+	 * 
+	 */
+	qualitative Accountability {
+		description ""
+	}
+		
+	/**
+	 * 
+	 */
+	qualitative Authenticity {
+		description ""
+	}
+		
+	/**
+	 * 
+	 */
+	qualitative Capacity {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Reusability {
+		description "",
+		impacts [
+			PerformanceEfficiency -0.2,
+			Integrity -0.2,
+			Reliability -0.2,
+			Testability 0.2
+		]
+	}
+		
+	/**
+	 * 
+	 */
+	qualitative Analyzability {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Testability {
+		description "",
+		impacts [
+			Availability 0.2,
+			Maintainability 0.2,
+			Reliability 0.2,
+			Usability 0.2,
+			PerformanceEfficiency -0.2
+		]
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Operability {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative UserErrorProtection {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative UserInterfaceAesthetics {
+		description ""
+	}
+	
+	/**
+	 * 
+	 */
+	qualitative Dependability {
+		description "Dependability",
+		properties [
+			Reliability
+			Maintainability
+		]
+	}
+	
+	quantitative BusyTime {
+		description "",
+		type PrimitiveTypes.Real,
+		direction decreasing
+	}
+	
+	quantitative AverageQueueLength {
+		description "",
+		type PrimitiveTypes.Real,
+		direction decreasing
+	}
+}

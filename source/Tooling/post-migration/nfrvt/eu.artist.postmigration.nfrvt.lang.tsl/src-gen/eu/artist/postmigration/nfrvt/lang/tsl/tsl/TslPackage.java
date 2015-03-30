@@ -1,18 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.tsl.tsl;
+
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -85,7 +75,7 @@ public interface TslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PATTERN_CATALOGUE__IMPORTS = 0;
+  int PATTERN_CATALOGUE__IMPORTS = ArtistCommonPackage.ARTIST_MODEL__IMPORTS;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -94,7 +84,7 @@ public interface TslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PATTERN_CATALOGUE__NAME = 1;
+  int PATTERN_CATALOGUE__NAME = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Patterns</b></em>' containment reference list.
@@ -103,7 +93,7 @@ public interface TslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PATTERN_CATALOGUE__PATTERNS = 2;
+  int PATTERN_CATALOGUE__PATTERNS = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Pattern Catalogue</em>' class.
@@ -112,7 +102,7 @@ public interface TslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PATTERN_CATALOGUE_FEATURE_COUNT = 3;
+  int PATTERN_CATALOGUE_FEATURE_COUNT = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.tsl.tsl.impl.PatternImpl <em>Pattern</em>}' class.
@@ -243,17 +233,6 @@ public interface TslPackage extends EPackage
    * @generated
    */
   EClass getPatternCatalogue();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.tsl.tsl.PatternCatalogue#getImports <em>Imports</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Imports</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.tsl.tsl.PatternCatalogue#getImports()
-   * @see #getPatternCatalogue()
-   * @generated
-   */
-  EReference getPatternCatalogue_Imports();
 
   /**
    * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.tsl.tsl.PatternCatalogue#getName <em>Name</em>}'.
@@ -428,14 +407,6 @@ public interface TslPackage extends EPackage
      * @generated
      */
     EClass PATTERN_CATALOGUE = eINSTANCE.getPatternCatalogue();
-
-    /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PATTERN_CATALOGUE__IMPORTS = eINSTANCE.getPatternCatalogue_Imports();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

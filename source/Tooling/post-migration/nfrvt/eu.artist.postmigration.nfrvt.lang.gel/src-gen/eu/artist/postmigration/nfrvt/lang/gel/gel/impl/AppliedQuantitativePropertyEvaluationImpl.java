@@ -1,29 +1,17 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel.impl;
 
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQuantitativePropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.GelPackage;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization;
 
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedQuantitativeProperty;
+
+import eu.artist.postmigration.nfrvt.lang.pml.pml.Measurement;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -32,8 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.AppliedQuantitativePropertyEvaluationImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.AppliedQuantitativePropertyEvaluationImpl#getRealizations <em>Realizations</em>}</li>
+ *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.AppliedQuantitativePropertyEvaluationImpl#getMeasurements <em>Measurements</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,14 +49,14 @@ public class AppliedQuantitativePropertyEvaluationImpl extends AppliedPropertyEv
   protected AppliedQuantitativeProperty property;
 
   /**
-   * The cached value of the '{@link #getRealizations() <em>Realizations</em>}' containment reference list.
+   * The cached value of the '{@link #getMeasurements() <em>Measurements</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRealizations()
+   * @see #getMeasurements()
    * @generated
    * @ordered
    */
-  protected EList<QuantitativePropertyRealization> realizations;
+  protected EList<Measurement> measurements;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,29 +127,13 @@ public class AppliedQuantitativePropertyEvaluationImpl extends AppliedPropertyEv
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<QuantitativePropertyRealization> getRealizations()
+  public EList<Measurement> getMeasurements()
   {
-    if (realizations == null)
+    if (measurements == null)
     {
-      realizations = new EObjectContainmentEList<QuantitativePropertyRealization>(QuantitativePropertyRealization.class, this, GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS);
+      measurements = new EObjectResolvingEList<Measurement>(Measurement.class, this, GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS);
     }
-    return realizations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS:
-        return ((InternalEList<?>)getRealizations()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return measurements;
   }
 
   /**
@@ -178,8 +149,8 @@ public class AppliedQuantitativePropertyEvaluationImpl extends AppliedPropertyEv
       case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY:
         if (resolve) return getProperty();
         return basicGetProperty();
-      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS:
-        return getRealizations();
+      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS:
+        return getMeasurements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,9 +169,9 @@ public class AppliedQuantitativePropertyEvaluationImpl extends AppliedPropertyEv
       case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY:
         setProperty((AppliedQuantitativeProperty)newValue);
         return;
-      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS:
-        getRealizations().clear();
-        getRealizations().addAll((Collection<? extends QuantitativePropertyRealization>)newValue);
+      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS:
+        getMeasurements().clear();
+        getMeasurements().addAll((Collection<? extends Measurement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -219,8 +190,8 @@ public class AppliedQuantitativePropertyEvaluationImpl extends AppliedPropertyEv
       case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY:
         setProperty((AppliedQuantitativeProperty)null);
         return;
-      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS:
-        getRealizations().clear();
+      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS:
+        getMeasurements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -238,8 +209,8 @@ public class AppliedQuantitativePropertyEvaluationImpl extends AppliedPropertyEv
     {
       case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__PROPERTY:
         return property != null;
-      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__REALIZATIONS:
-        return realizations != null && !realizations.isEmpty();
+      case GelPackage.APPLIED_QUANTITATIVE_PROPERTY_EVALUATION__MEASUREMENTS:
+        return measurements != null && !measurements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

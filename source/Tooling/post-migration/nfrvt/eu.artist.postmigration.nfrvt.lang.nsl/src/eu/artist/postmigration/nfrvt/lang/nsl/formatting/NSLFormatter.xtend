@@ -5,8 +5,8 @@ package eu.artist.postmigration.nfrvt.lang.nsl.formatting
 
 import com.google.inject.Inject
 import eu.artist.postmigration.nfrvt.lang.nsl.services.NSLGrammarAccess
-import eu.artist.postmigration.nfrvt.lang.util.mwe.formatting.ARTISTDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
+import eu.artist.postmigration.nfrvt.lang.common.formatting.ARTISTDeclarativeFormatter
 
 /**
  * This class contains custom formatting description.

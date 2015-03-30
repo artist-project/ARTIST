@@ -1,20 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gel.gel.impl;
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ImportNamespace;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl.ARTISTModelImpl;
 
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedPropertyEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.GelPackage;
@@ -23,6 +11,7 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,7 +22,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -45,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.MigrationEvaluationImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.MigrationEvaluationImpl#getName <em>Name</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.MigrationEvaluationImpl#getDate <em>Date</em>}</li>
  *   <li>{@link eu.artist.postmigration.nfrvt.lang.gel.gel.impl.MigrationEvaluationImpl#getTransformations <em>Transformations</em>}</li>
@@ -56,18 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implements MigrationEvaluation
+public class MigrationEvaluationImpl extends ARTISTModelImpl implements MigrationEvaluation
 {
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<ImportNamespace> imports;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -96,7 +73,7 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected static final String DATE_EDEFAULT = null;
+  protected static final Date DATE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
@@ -106,7 +83,7 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected String date = DATE_EDEFAULT;
+  protected Date date = DATE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getTransformations() <em>Transformations</em>}' containment reference list.
@@ -164,20 +141,6 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ImportNamespace> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<ImportNamespace>(ImportNamespace.class, this, GelPackage.MIGRATION_EVALUATION__IMPORTS);
-    }
-    return imports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -201,7 +164,7 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDate()
+  public Date getDate()
   {
     return date;
   }
@@ -211,9 +174,9 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDate(String newDate)
+  public void setDate(Date newDate)
   {
-    String oldDate = date;
+    Date oldDate = date;
     date = newDate;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GelPackage.MIGRATION_EVALUATION__DATE, oldDate, date));
@@ -305,8 +268,6 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case GelPackage.MIGRATION_EVALUATION__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case GelPackage.MIGRATION_EVALUATION__TRANSFORMATIONS:
         return ((InternalEList<?>)getTransformations()).basicRemove(otherEnd, msgs);
       case GelPackage.MIGRATION_EVALUATION__PROPERTY_EVALUATIONS:
@@ -327,8 +288,6 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case GelPackage.MIGRATION_EVALUATION__IMPORTS:
-        return getImports();
       case GelPackage.MIGRATION_EVALUATION__NAME:
         return getName();
       case GelPackage.MIGRATION_EVALUATION__DATE:
@@ -354,15 +313,11 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case GelPackage.MIGRATION_EVALUATION__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends ImportNamespace>)newValue);
-        return;
       case GelPackage.MIGRATION_EVALUATION__NAME:
         setName((String)newValue);
         return;
       case GelPackage.MIGRATION_EVALUATION__DATE:
-        setDate((String)newValue);
+        setDate((Date)newValue);
         return;
       case GelPackage.MIGRATION_EVALUATION__TRANSFORMATIONS:
         getTransformations().clear();
@@ -389,9 +344,6 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case GelPackage.MIGRATION_EVALUATION__IMPORTS:
-        getImports().clear();
-        return;
       case GelPackage.MIGRATION_EVALUATION__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -421,8 +373,6 @@ public class MigrationEvaluationImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case GelPackage.MIGRATION_EVALUATION__IMPORTS:
-        return imports != null && !imports.isEmpty();
       case GelPackage.MIGRATION_EVALUATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case GelPackage.MIGRATION_EVALUATION__DATE:

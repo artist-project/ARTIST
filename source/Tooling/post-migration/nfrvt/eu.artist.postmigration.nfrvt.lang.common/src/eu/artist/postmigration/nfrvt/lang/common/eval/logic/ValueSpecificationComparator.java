@@ -69,7 +69,7 @@ public class ValueSpecificationComparator implements Comparator<Object> {
 			throw new IllegalArgumentException("Not comparable.");
 		return result;
 	}
-	
+		
 	/**
 	 * Returns the object described by the instance specification. For
 	 * enumeration literals, their qualified name is returned, otherwise
@@ -185,9 +185,9 @@ public class ValueSpecificationComparator implements Comparator<Object> {
 	@SuppressWarnings("unchecked")
 	public Integer doCompare(Object first, Object second) {
 		if(!(first instanceof Comparable))
-			throw new IllegalArgumentException("LHS of condition is not comparable: " + first);
+			throw new IllegalArgumentException("LHS of condition is not comparable: " + first + ". RHS: " + second);
 		if(!(second instanceof Comparable))
-			throw new IllegalArgumentException("RHS of condition is not comparable: " + second);
+			throw new IllegalArgumentException("RHS of condition is not comparable: " + second + ". LHS: " + first);
 			
 		Comparable<Object> firstComparable = (Comparable<Object>)first;
 		Comparable<Object> secondComparable = (Comparable<Object>)second;

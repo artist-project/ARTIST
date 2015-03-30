@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ARTIST Migration Evaluation Run Dialog
 Bundle-SymbolicName: eu.artist.postmigration.nfrvt.eval.run;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: eu.artist.postmigration.nfrvt.eval.run.Activator
+Bundle-Activator: eu.artist.postmigration.nfrvt.eval.run.MigrationEvaluationActivator
 Bundle-Vendor: ARTIST
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui,
  org.eclipse.ui.workbench,
  eu.artist.postmigration.nfrvt.lang.gml.ui;bundle-version="1.0.0",
- eu.artist.postmigration.nfrvt.lang.esl.ui;bundle-version="1.0.0",
+ eu.artist.postmigration.nfrvt.lang.pml.ui;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.uml.ui;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.tsl.ui;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.gel,
@@ -26,7 +26,7 @@ Require-Bundle: org.eclipse.ui,
  eu.artist.postmigration.nfrvt.lang.gel.ui;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.nsl.ui;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.common.ui;bundle-version="1.0.0",
- eu.artist.postmigration.nfrvt.lang.uml.uml;bundle-version="1.0.0",
+ eu.artist.postmigration.nfrvt.lang.uml;bundle-version="1.0.0",
  eu.artist.postmigration.nfrvt.lang.util;bundle-version="1.0.0",
  org.eclipse.xtext.ui;bundle-version="2.6.0",
  org.eclipse.uml2.uml.resources;bundle-version="4.1.0",
@@ -39,3 +39,5 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.debug.core.model
+Export-Package: eu.artist.postmigration.nfrvt.eval.run,
+ eu.artist.postmigration.nfrvt.eval.run.ui.launch

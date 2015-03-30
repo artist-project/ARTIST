@@ -6,12 +6,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="tsl"
-            id="eu.artist.postmigration.nfrvt.lang.tsl.TSL"
-            name="Textual Pattern Catalogue Editor">
+              class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="tsl,pattern,optpat"
+              icon="icons/tsl_file.gif"
+              id="eu.artist.postmigration.nfrvt.lang.tsl.TSL"
+              name="Textual Pattern Catalogue Editor">
         </editor>
     </extension>
     <extension
@@ -80,9 +81,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="eu.artist.postmigration.nfrvt.lang.tsl.TSL"
-            name="TSL">
+              category="eu.artist.postmigration.nfrvt.lang.nfrvt"
+              class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="eu.artist.postmigration.nfrvt.lang.tsl.TSL"
+              name="Optimization Patterns">
             <keywordReference id="eu.artist.postmigration.nfrvt.lang.tsl.ui.keyword_TSL"/>
         </page>
         <page
@@ -222,7 +224,34 @@
             uriExtension="tsl">
         </resourceServiceProvider>
     </extension>
+    
+    <extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="pattern">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="pattern">
+        </resourceServiceProvider>
+    </extension>
 
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="optpat">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="optpat">
+        </resourceServiceProvider>
+    </extension>
 
 	<!-- marker definitions for eu.artist.postmigration.nfrvt.lang.tsl.TSL -->
 	<extension
@@ -379,19 +408,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.tsl.TSL.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="tsl">
+            extensions="tsl,pattern,optpat">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.tsl.TSL.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="tsl" label="TSL Compare">
+            extensions="tsl,pattern,optpat" label="TSL Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.tsl.TSL.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.tsl.ui.TSLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="tsl">
+            extensions="tsl,pattern,optpat">
     </provider>
   </extension>
   <extension
@@ -399,7 +428,7 @@
      <wizard
            category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
            class="eu.artist.postmigration.nfrvt.lang.tsl.ui.wizards.NewPatternSpecificationWizard"
-           icon="icons/PatternCatalogue.png"
+           icon="icons/new_tsl.gif"
            id="eu.artist.postmigration.nfrvt.lang.tsl.ui.wizards.NewPatternSpecificationWizard"
            name="Pattern Catalogue File">
      </wizard>

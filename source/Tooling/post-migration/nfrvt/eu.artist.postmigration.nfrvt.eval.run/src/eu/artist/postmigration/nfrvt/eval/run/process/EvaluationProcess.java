@@ -30,7 +30,7 @@ import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.IStreamsProxy;
 
 import eu.artist.postmigration.nfrvt.eval.run.internal.process.InternalEvaluationProcess;
-import eu.artist.postmigration.nfrvt.eval.run.logger.ConsoleLogger;
+import eu.artist.postmigration.nfrvt.lang.util.run.ConsoleLogger;
 
 /**
  * This class is created by the {@link EvaluationProcessFactory} and runs the 
@@ -70,7 +70,6 @@ public class EvaluationProcess extends PlatformObject implements IProcess {
 		try {
 			consoleLogger.write("---------------");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

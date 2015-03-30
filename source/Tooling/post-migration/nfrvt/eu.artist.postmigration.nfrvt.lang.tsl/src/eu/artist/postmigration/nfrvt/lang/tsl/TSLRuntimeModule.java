@@ -18,6 +18,10 @@ package eu.artist.postmigration.nfrvt.lang.tsl;
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.serializer.tokens.SerializerScopeProviderBinding;
+
+import com.google.inject.Binder;
 
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTCommonConverters;
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
@@ -25,6 +29,7 @@ import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
+@SuppressWarnings("restriction")
 public class TSLRuntimeModule extends eu.artist.postmigration.nfrvt.lang.tsl.AbstractTSLRuntimeModule {
 	@Override
 	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
@@ -39,5 +44,10 @@ public class TSLRuntimeModule extends eu.artist.postmigration.nfrvt.lang.tsl.Abs
 	@Override
 	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
 		return ARTISTQualifiedNameProvider.class;
+	}
+	
+	@Override
+	public void configureSerializerIScopeProvider(Binder binder) {
+		binder.bind(IScopeProvider.class).annotatedWith(SerializerScopeProviderBinding.class).to(bindIScopeProvider());
 	}
 }

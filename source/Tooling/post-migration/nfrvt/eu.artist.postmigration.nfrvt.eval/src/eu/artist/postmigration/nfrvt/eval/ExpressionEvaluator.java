@@ -19,8 +19,6 @@ import java.util.List;
 
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
-import eu.artist.postmigration.nfrvt.eval.util.MigrationFactory;
-import eu.artist.postmigration.nfrvt.eval.util.ObjectUtil;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditionOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditiveExpression;
@@ -77,6 +75,9 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.NumberExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
+import eu.artist.postmigration.nfrvt.lang.util.CollectionUtil;
+import eu.artist.postmigration.nfrvt.lang.util.MigrationFactory;
+import eu.artist.postmigration.nfrvt.lang.util.ObjectUtil;
 
 /**
  * An expression evaluator is able to evaluate any {@link Expression}. This 
@@ -90,7 +91,7 @@ import eu.artist.postmigration.nfrvt.lang.gel.renderer.GELTextRenderer;
 public class ExpressionEvaluator {
 		
 	protected static GELTextRenderer renderer = new GELTextRenderer();
-	private EvaluationSettings settings = new EvaluationSettings();
+	private EvaluationSettings settings;
 
 	private PolymorphicDispatcher<? extends ValueExpressionEvaluation> evaluateDispatcher = new PolymorphicDispatcher<>(
 			"evaluate", Collections.singletonList(this));
@@ -103,7 +104,7 @@ public class ExpressionEvaluator {
 	 * @param settings settings used for the evaluation
 	 */
 	public ExpressionEvaluator(EvaluationSettings settings) {
-		this.settings = settings;
+		setSettings(settings);
 	}
 	
 	/**
@@ -114,7 +115,7 @@ public class ExpressionEvaluator {
 	 */
 	public void setSettings(EvaluationSettings settings) {
 		this.settings = settings;
-		NumericLogic.setSettings(settings);
+		renderer.setPrecision(settings.getPrecision());
 	}
 	
 	/**
@@ -199,7 +200,7 @@ public class ExpressionEvaluator {
 		return MigrationFactory.createBooleanExpressionEvaluation(
 				result, 
 				"[" + renderer.doRender(leftEval.getResult()) + " " + renderer.doRender(parent.getOperator()) + " " + renderer.doRender(rightEval.getResult()) + "] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(leftEval, rightEval));
+				CollectionUtil.asIterable(leftEval, rightEval));
 	}
 	
 	protected BooleanExpressionEvaluation evaluate(Negation n) {
@@ -210,12 +211,12 @@ public class ExpressionEvaluator {
 		return MigrationFactory.createBooleanExpressionEvaluation(
 				result, 
 				"[" + renderer.doRender(n.getOperator()) + " " + renderer.doRender(valueEvaluation.getResult()) + "] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(valueEvaluation));
+				CollectionUtil.asIterable(valueEvaluation));
 	}
 	
 	protected BooleanExpressionEvaluation evaluate(BooleanLiteral b) {
 		return MigrationFactory.createBooleanExpressionEvaluation(
-				ValueUtil.createBooleanLiteralOrNull(b.getValue()), 
+				MigrationFactory.createBooleanLiteralOrNull(b.getValue()), 
 				"[" + renderer.doRender(b) + "] is user-specified.");
 	}
 	
@@ -228,7 +229,10 @@ public class ExpressionEvaluator {
 			comparison = RelationalLogic.compare(left.getResult(), right.getResult());
 		} catch(Exception ex) {
 			throw new IllegalArgumentException(
-				"LHS and RHS of condition are not comparable: " + renderer.doRender(e));
+				"LHS and RHS of condition are not comparable: " 
+				+ ValueUtil.getTypeName(left.getResult()) + " " 
+				+ renderer.doRender(e.getOperator()) + " " 
+				+ ValueUtil.getTypeName(right.getResult()));
 		}
 		
 		Boolean result = null;
@@ -249,14 +253,23 @@ public class ExpressionEvaluator {
 			return MigrationFactory.createBooleanExpressionEvaluation(
 				result, 
 				"[" + renderer.doRender(e) + "] can not be evaluated.",
-				ObjectUtil.asIterable(left, right));
+				CollectionUtil.asIterable(left, right));
+		}
+		
+		BigDecimal difference = null;
+		if(left.getResult() instanceof NumberLiteral && right.getResult() instanceof NumberLiteral) {
+			NumberLiteral leftLiteral = (NumberLiteral) left.getResult();
+			NumberLiteral rightLiteral = (NumberLiteral) right.getResult();
+			difference = NumericLogic.abs(NumericLogic.subtract(leftLiteral.getValue(), rightLiteral.getValue()));
+		} else {
+			difference = NumericLogic.abs(new BigDecimal(comparison, settings.getMathContext()));
 		}
 		
 		return MigrationFactory.createBooleanExpressionEvaluation(
 				result, 
 				"[" + renderer.doRender(left.getResult()) + " " + renderer.doRender(e.getOperator()) + " " + renderer.doRender(right.getResult()) + "] = " + renderer.doRender(result),
-				new BigDecimal(comparison, settings.getMathContext()),
-				ObjectUtil.asIterable(left, right));
+				difference,
+				CollectionUtil.asIterable(left, right));
 	}
 	
 	protected ValueExpressionEvaluation evaluate(RelationalExpression e) {
@@ -269,31 +282,31 @@ public class ExpressionEvaluator {
 	
 	protected ValueSpecificationExpressionEvaluation evaluate(InstanceSpecificationExpression e) {
 		return MigrationFactory.createValueSpecificationExpressionEvaluation(
-				ValueUtil.createInstanceSpecificationExpression(e.getValue()),
+				MigrationFactory.createInstanceSpecificationExpression(e.getValue()),
 				"[" + renderer.doRender(e) + "] is user-specified.");
 	}
 	
 	protected ValueSpecificationExpressionEvaluation evaluate(ObjectSpecificationExpression e) {		
 		return MigrationFactory.createValueSpecificationExpressionEvaluation(
-				ValueUtil.copy(e),
+				MigrationFactory.copy(e),
 				"[" + renderer.doRender(e) + "] is user-specified.");
 	}
 
 	protected ValueSpecificationExpressionEvaluation evaluate(NullLiteral literal) {
 		return MigrationFactory.createValueSpecificationExpressionEvaluation(
-				ValueUtil.createNullLiteral(), 
+				MigrationFactory.createNullLiteral(), 
 				"[" + renderer.doRender(literal) + "] is user-specified.");
 	}
 	
 	protected ValueSpecificationExpressionEvaluation evaluate(UnlimitedLiteral literal) {
 		return MigrationFactory.createValueSpecificationExpressionEvaluation(
-				ValueUtil.createUnlimitedLiteral(), 
+				MigrationFactory.createUnlimitedLiteral(), 
 				"[" + renderer.doRender(literal) + "] is user-specified.");
 	}
 	
 	public ValueSpecificationExpressionEvaluation evaluate(StringLiteral literal) {
 		return MigrationFactory.createValueSpecificationExpressionEvaluation(
-				ValueUtil.createStringLiteral(literal.getValue()), 
+				MigrationFactory.createStringLiteral(literal.getValue()), 
 				"[" + renderer.doRender(literal) + "] is user-specified.");
 	}
 	
@@ -329,11 +342,11 @@ public class ExpressionEvaluator {
 		
 		if(result == null)
 			return getUnsuccessfulNumberEvaluation(parent, leftEval, rightEval);
-	
+		
 		return MigrationFactory.createNumberExpressionEvaluation(
 				result,
 				"[" + renderer.doRender(leftEval.getResult()) + " " + renderer.doRender(parent.getOperator()) + " " + renderer.doRender(rightEval.getResult()) + "] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(NumberExpressionEvaluation.class, leftEval, rightEval));
+				CollectionUtil.asIterable(NumberExpressionEvaluation.class, leftEval, rightEval));
 		
 	}
 	
@@ -412,7 +425,7 @@ public class ExpressionEvaluator {
 		return MigrationFactory.createNumberExpressionEvaluation(
 				result,
 				"[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(baseEval.getResult()) + ", " + renderer.doRender(expEval.getResult()) + ")] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(baseEval, expEval));
+				CollectionUtil.asIterable(baseEval, expEval));
 	}
 	
 	protected NumberExpressionEvaluation evaluate(AbsoluteFunction e) {
@@ -424,7 +437,7 @@ public class ExpressionEvaluator {
 		return MigrationFactory.createNumberExpressionEvaluation(
 				result,
 				"[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(valueEval.getResult()) + ")] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(valueEval));
+				CollectionUtil.asIterable(valueEval));
 	}
 	
 	protected NumberExpressionEvaluation evaluate(NaturalLogarithmFunction e) {
@@ -436,7 +449,7 @@ public class ExpressionEvaluator {
 		return MigrationFactory.createNumberExpressionEvaluation(
 				result,
 				"[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(valueEval.getResult()) + ")] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(valueEval));
+				CollectionUtil.asIterable(valueEval));
 	}
 	
 	protected NumberExpressionEvaluation evaluate(CommonLogarithmFunction e) {
@@ -448,7 +461,7 @@ public class ExpressionEvaluator {
 		return MigrationFactory.createNumberExpressionEvaluation(
 				result, 
 				"[" + renderer.doRender(e.getOperator()) + "(" + renderer.doRender(valueEval) + ")] = " + renderer.doRender(result),
-				ObjectUtil.asIterable(valueEval));
+				CollectionUtil.asIterable(valueEval));
 	}
 	
 	protected NumberExpressionEvaluation evaluate(NumberLiteral e) {
@@ -460,7 +473,7 @@ public class ExpressionEvaluator {
 	}
 	
 	protected NumberExpressionEvaluation getUnsuccessfulNumberEvaluation(Expression e, ValueExpressionEvaluation... subEvals) {
-		return getUnsuccessfulNumberEvaluation(e, "", ObjectUtil.asIterable(NumberExpressionEvaluation.class, subEvals));
+		return getUnsuccessfulNumberEvaluation(e, "", CollectionUtil.asIterable(NumberExpressionEvaluation.class, subEvals));
 	}
 	
 	protected NumberExpressionEvaluation getUnsuccessfulNumberEvaluation(Expression e, String message, Iterable<? extends NumberExpressionEvaluation> subEvals) {

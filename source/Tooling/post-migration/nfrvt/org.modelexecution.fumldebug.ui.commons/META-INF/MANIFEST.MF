@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Commons
+Bundle-SymbolicName: org.modelexecution.fumldebug.ui.commons
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.modelexecution.fumldebug.ui.commons.FUMLUICommons
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.modelexecution.fumldebug;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.modelexecution.fumldebug.ui.commons,
+ org.modelexecution.fumldebug.ui.commons.provider

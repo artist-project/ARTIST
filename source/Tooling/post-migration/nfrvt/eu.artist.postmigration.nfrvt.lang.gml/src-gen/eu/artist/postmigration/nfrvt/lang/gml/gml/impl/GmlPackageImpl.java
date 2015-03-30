@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.gml.gml.impl;
@@ -39,7 +27,6 @@ import eu.artist.postmigration.nfrvt.lang.gml.gml.HardGoal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.ParenthesizedGoalExpression;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoal;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.SoftGoalImpact;
-import eu.artist.postmigration.nfrvt.lang.gml.gml.Workload;
 
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.NslPackage;
 
@@ -68,13 +55,6 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    * @generated
    */
   private EClass goalModelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass workloadEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -297,19 +277,9 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGoalModel_Imports()
-  {
-    return (EReference)goalModelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getGoalModel_Name()
   {
-    return (EAttribute)goalModelEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)goalModelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -319,7 +289,7 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    */
   public EReference getGoalModel_Workloads()
   {
-    return (EReference)goalModelEClass.getEStructuralFeatures().get(2);
+    return (EReference)goalModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -329,7 +299,7 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    */
   public EReference getGoalModel_AppliedProperties()
   {
-    return (EReference)goalModelEClass.getEStructuralFeatures().get(3);
+    return (EReference)goalModelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -339,47 +309,7 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
    */
   public EReference getGoalModel_Goals()
   {
-    return (EReference)goalModelEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getWorkload()
-  {
-    return workloadEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWorkload_Name()
-  {
-    return (EAttribute)workloadEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getWorkload_Activity()
-  {
-    return (EReference)workloadEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getWorkload_Pattern()
-  {
-    return (EAttribute)workloadEClass.getEStructuralFeatures().get(2);
+    return (EReference)goalModelEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -863,16 +793,10 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
 
     // Create classes and their features
     goalModelEClass = createEClass(GOAL_MODEL);
-    createEReference(goalModelEClass, GOAL_MODEL__IMPORTS);
     createEAttribute(goalModelEClass, GOAL_MODEL__NAME);
     createEReference(goalModelEClass, GOAL_MODEL__WORKLOADS);
     createEReference(goalModelEClass, GOAL_MODEL__APPLIED_PROPERTIES);
     createEReference(goalModelEClass, GOAL_MODEL__GOALS);
-
-    workloadEClass = createEClass(WORKLOAD);
-    createEAttribute(workloadEClass, WORKLOAD__NAME);
-    createEReference(workloadEClass, WORKLOAD__ACTIVITY);
-    createEAttribute(workloadEClass, WORKLOAD__PATTERN);
 
     appliedPropertyEClass = createEClass(APPLIED_PROPERTY);
     createEAttribute(appliedPropertyEClass, APPLIED_PROPERTY__NAME);
@@ -976,6 +900,7 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    goalModelEClass.getESuperTypes().add(theArtistCommonPackage.getARTISTModel());
     appliedQualitativePropertyEClass.getESuperTypes().add(this.getAppliedProperty());
     appliedQuantitativePropertyEClass.getESuperTypes().add(this.getAppliedProperty());
     softGoalEClass.getESuperTypes().add(this.getGoal());
@@ -994,16 +919,10 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(goalModelEClass, GoalModel.class, "GoalModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGoalModel_Imports(), theArtistCommonPackage.getImportNamespace(), null, "imports", null, 0, -1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getGoalModel_Name(), theEcorePackage.getEString(), "name", null, 0, 1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGoalModel_Workloads(), this.getWorkload(), null, "workloads", null, 0, -1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGoalModel_Workloads(), theArtistCommonPackage.getWorkload(), null, "workloads", null, 0, -1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGoalModel_AppliedProperties(), this.getAppliedProperty(), null, "appliedProperties", null, 0, -1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGoalModel_Goals(), this.getGoal(), null, "goals", null, 0, -1, GoalModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(workloadEClass, Workload.class, "Workload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWorkload_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Workload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getWorkload_Activity(), theUMLPackage.getActivity(), null, "activity", null, 0, 1, Workload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getWorkload_Pattern(), theEcorePackage.getEString(), "pattern", null, 0, 1, Workload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(appliedPropertyEClass, AppliedProperty.class, "AppliedProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAppliedProperty_Name(), theEcorePackage.getEString(), "name", null, 0, 1, AppliedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1015,7 +934,7 @@ public class GmlPackageImpl extends EPackageImpl implements GmlPackage
     initEClass(appliedQuantitativePropertyEClass, AppliedQuantitativeProperty.class, "AppliedQuantitativeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAppliedQuantitativeProperty_Property(), theNslPackage.getQuantitativeProperty(), null, "property", null, 0, 1, AppliedQuantitativeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAppliedQuantitativeProperty_Function(), theArtistCommonPackage.getOperator(), null, "function", null, 0, 1, AppliedQuantitativeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAppliedQuantitativeProperty_Workload(), this.getWorkload(), null, "workload", null, 0, 1, AppliedQuantitativeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAppliedQuantitativeProperty_Workload(), theArtistCommonPackage.getWorkload(), null, "workload", null, 0, 1, AppliedQuantitativeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goalEClass, Goal.class, "Goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGoal_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

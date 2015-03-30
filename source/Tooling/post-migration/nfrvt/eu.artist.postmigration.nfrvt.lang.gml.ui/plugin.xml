@@ -6,12 +6,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="gml"
-            id="eu.artist.postmigration.nfrvt.lang.gml.GML"
-            name="Textual Goal Model Editor">
+              class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:eu.artist.postmigration.nfrvt.lang.common.ui.DropXtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="gml,goal"
+              icon="icons/gml_file.gif"
+              id="eu.artist.postmigration.nfrvt.lang.gml.GML"
+              name="Textual Goal Model Editor">
         </editor>
 		<!-- class before org.eclipse.xtext.ui.editor.XtextEditor -->
     </extension>
@@ -81,9 +82,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="eu.artist.postmigration.nfrvt.lang.gml.GML"
-            name="GML">
+              category="eu.artist.postmigration.nfrvt.lang.nfrvt"
+              class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="eu.artist.postmigration.nfrvt.lang.gml.GML"
+              name="Goal Models">
             <keywordReference id="eu.artist.postmigration.nfrvt.lang.gml.ui.keyword_GML"/>
         </page>
         <page
@@ -223,6 +225,20 @@
             uriExtension="gml">
         </resourceServiceProvider>
     </extension>
+    
+    <extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="goal">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="goal">
+        </resourceServiceProvider>
+    </extension>
 
 
 	<!-- marker definitions for eu.artist.postmigration.nfrvt.lang.gml.GML -->
@@ -248,14 +264,15 @@
 	    <persistent value="true"/>
 	</extension>
 
-	
-
-   <extension
+	 <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="gml,goal"
+            >
       </participant>
    </extension>
+
    <extension
             point="org.eclipse.ui.preferencePages">
         <page
@@ -380,19 +397,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gml.GML.compare.contentViewers"
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gml">
+            extensions="gml,goal">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="eu.artist.postmigration.nfrvt.lang.gml.GML.compare.contentMergeViewers"
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="gml" label="GML Compare">
+            extensions="gml,goal" label="GML Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="eu.artist.postmigration.nfrvt.lang.gml.GML.editors.documentProviders"
             class="eu.artist.postmigration.nfrvt.lang.gml.ui.GMLExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="gml">
+            extensions="gml,goal">
     </provider>
   </extension>
   <extension
@@ -400,7 +417,7 @@
      <wizard
            category="eu.artist.postmigration.nfrvt.lang.common.GoalModelCategory"
            class="eu.artist.postmigration.nfrvt.lang.gml.ui.wizards.NewGoalModelFileWizard"
-           icon="icons/GoalModel.png"
+           icon="icons/new_gml.gif"
            id="eu.artist.postmigration.nfrvt.lang.gml.ui.wizards.NewGoalModelFileWizard"
            name="Goal Model File">
      </wizard>

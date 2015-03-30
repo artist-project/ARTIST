@@ -3,32 +3,17 @@
 */
 package eu.artist.postmigration.nfrvt.lang.nsl.ui.outline
 
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonFactory
-import eu.artist.postmigration.nfrvt.lang.nsl.nsl.NslPackage
+import eu.artist.postmigration.nfrvt.lang.common.ui.outline.ARTISTCommonOutlineTreeProvider
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyCatalogue
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
-import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
-import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
 
 /**
  * Customization of the default outline structure.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class NSLOutlineTreeProvider extends DefaultOutlineTreeProvider {
-	def protected _createChildren(DocumentRootNode parentNode, PropertyCatalogue modelElement) {
-		createEStructuralFeatureNode(
-			parentNode,
-			modelElement,
-			NslPackage.Literals.PROPERTY_CATALOGUE__IMPORTS,
-			ArtistCommonFactory.eINSTANCE.createImportURI._image,
-			"Import Declarations",
-			false
-		)
-		createEObjectNode(parentNode, modelElement);
-	}
-	
+class NSLOutlineTreeProvider extends ARTISTCommonOutlineTreeProvider {
 	def protected _createChildren(IOutlineNode parentNode, PropertyCatalogue modelElement) {
 		for (EObject childElement : modelElement.properties)
 			createNode(parentNode, childElement);

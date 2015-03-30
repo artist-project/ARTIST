@@ -153,11 +153,13 @@ ObjectSpecificationExpression:
 ;
 
 Collection:
-	'[' values += ValueSpecification (',' values += ValueSpecification)* ']'
+	{Collection}
+	'[' (values += ValueSpecification (',' values += ValueSpecification)*)? ']'
 ;
 
 Tuple:
-	'{' tuples += PropertyValuePair (',' tuples += PropertyValuePair)* '}'
+	{Tuple}
+	'{' (tuples += PropertyValuePair (',' tuples += PropertyValuePair)*)? '}'
 ;
 
 PropertyValuePair:
@@ -301,6 +303,18 @@ RightParenthesis:
 
 QualifiedName:
   ID (=>'.' ID)*;
+
+ARTISTModel:
+	{ARTISTModel}
+	imports += ImportNamespace*
+;
+ 
+Workload:
+	name = ID "{"
+		"activity" activity = [uml::Activity | QualifiedName] ","
+		"pattern" pattern = STRING
+	"}"
+;
   
 QualifiedNameWithWildcard:
   QualifiedName '.*'?
@@ -355,4 +369,9 @@ terminal EBIGDECIMAL returns ecore::EBigDecimal:
 
 terminal ID:
 	'^'?('a'..'z'|'A'..'Z'|'_'|'+'|'-'|'%'|'*'|'/'|'#'|'>'|'<'|'='|'§') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'+'|'-'|'%'|'*'|'/'|'#'|'>'|'<'|'='|'§')*
+;
+
+terminal DATE_TIME returns ecore::EDate:
+	// time zone not working: (('+'|'-') INT ((':' INT) | INT)?)?
+	INT '-' INT '-' INT ('T' INT ':' INT(':' INT ('.' INT )?)?)?
 ;

@@ -13,12 +13,17 @@
 package eu.artist.postmigration.nfrvt.lang.common.renderer;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Collections;
+import java.util.Date;
+import java.util.Locale;
 
 import org.eclipse.uml2.uml.DataType;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.xtext.util.PolymorphicDispatcher;
 
+import eu.artist.postmigration.nfrvt.lang.common.ARTISTDateTimeValueConverter;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditionOperator;
@@ -90,6 +95,19 @@ public class ARTISTCommonRenderer implements ITextRenderer {
 	private PolymorphicDispatcher<String> renderDispatcher = new PolymorphicDispatcher<>(
 			"render", Collections.singletonList(this));
 
+	private DecimalFormat format = new DecimalFormat();
+	
+	public ARTISTCommonRenderer() {
+		format.setMaximumFractionDigits(2);
+		format.setMinimumFractionDigits(0);
+		format.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+		format.setGroupingUsed(false);
+	}
+	
+	public void setPrecision(int precision) {
+		format.setMaximumFractionDigits(precision);
+	}
+	
 	@Override
 	public String doRender(Object obj) {
 		if(obj == null)
@@ -263,7 +281,7 @@ public class ARTISTCommonRenderer implements ITextRenderer {
 	}
 
 	protected String render(BigDecimal decimal) {
-		return decimal.toEngineeringString();
+		return format.format(decimal.doubleValue());
 	}
 
 	protected String render(BooleanLiteral l) {
@@ -309,6 +327,8 @@ public class ARTISTCommonRenderer implements ITextRenderer {
 	}
 
 	protected String render(InstanceSpecificationExpression e) {
+		if(e.getValue() == null)
+			return null;
 		String qn = e.getValue().getQualifiedName();
 		return qn;
 	}
@@ -426,5 +446,9 @@ public class ARTISTCommonRenderer implements ITextRenderer {
 	
 	protected String render(String s) {
 		return s;
+	}
+	
+	protected String render(Date date) {
+		return ARTISTDateTimeValueConverter.MILLISECONDS.format(date);
 	}
 }

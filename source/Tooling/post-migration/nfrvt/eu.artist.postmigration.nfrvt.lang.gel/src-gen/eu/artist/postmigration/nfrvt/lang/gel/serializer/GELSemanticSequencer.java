@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.gel.serializer;
 
 import com.google.inject.Inject;
@@ -68,6 +56,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.XOrOperator;
 import eu.artist.postmigration.nfrvt.lang.common.serializer.ARTISTCommonSemanticSequencer;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.AppliedQualitativePropertyEvaluation;
@@ -79,7 +68,6 @@ import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalModelEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.HardGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.MigrationEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.NumberExpressionEvaluation;
-import eu.artist.postmigration.nfrvt.lang.gel.gel.QuantitativePropertyRealization;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.SoftGoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.ValueSpecificationExpressionEvaluation;
@@ -827,6 +815,12 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 					return; 
 				}
 				else break;
+			case ArtistCommonPackage.WORKLOAD:
+				if(context == grammarAccess.getWorkloadRule()) {
+					sequence_Workload(context, (Workload) semanticObject); 
+					return; 
+				}
+				else break;
 			case ArtistCommonPackage.XOR_OPERATOR:
 				if(context == grammarAccess.getXOrOperatorRule()) {
 					sequence_XOrOperator(context, (XOrOperator) semanticObject); 
@@ -877,7 +871,8 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 				}
 				else break;
 			case GelPackage.MIGRATION_EVALUATION:
-				if(context == grammarAccess.getMigrationEvaluationRule()) {
+				if(context == grammarAccess.getARTISTModelRule() ||
+				   context == grammarAccess.getMigrationEvaluationRule()) {
 					sequence_MigrationEvaluation(context, (MigrationEvaluation) semanticObject); 
 					return; 
 				}
@@ -886,12 +881,6 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 				if(context == grammarAccess.getNumberExpressionEvaluationRule() ||
 				   context == grammarAccess.getValueExpressionEvaluationRule()) {
 					sequence_NumberExpressionEvaluation(context, (NumberExpressionEvaluation) semanticObject); 
-					return; 
-				}
-				else break;
-			case GelPackage.QUANTITATIVE_PROPERTY_REALIZATION:
-				if(context == grammarAccess.getQuantitativePropertyRealizationRule()) {
-					sequence_QuantitativePropertyRealization(context, (QuantitativePropertyRealization) semanticObject); 
 					return; 
 				}
 				else break;
@@ -951,7 +940,7 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	 *         property=[AppliedQuantitativeProperty|QualifiedName] 
 	 *         value=ValueSpecification 
 	 *         evaluation=ValueExpressionEvaluation 
-	 *         (realizations+=QuantitativePropertyRealization realizations+=QuantitativePropertyRealization*)?
+	 *         (measurements+=[Measurement|QualifiedName] measurements+=[Measurement|QualifiedName]*)?
 	 *     )
 	 */
 	protected void sequence_AppliedQuantitativePropertyEvaluation(EObject context, AppliedQuantitativePropertyEvaluation semanticObject) {
@@ -1038,7 +1027,7 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	 *     (
 	 *         imports+=ImportNamespace* 
 	 *         name=QualifiedName 
-	 *         date=STRING 
+	 *         date=DATE_TIME 
 	 *         transformations+=Transformation* 
 	 *         propertyEvaluations+=AppliedPropertyEvaluation* 
 	 *         evaluation=GoalModelEvaluation
@@ -1060,23 +1049,6 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         strategy=[EvaluationStrategy|QualifiedName]? 
-	 *         level=RealizationLevelKind 
-	 *         type=RealizationTypeKind 
-	 *         values+=ValueSpecification 
-	 *         values+=ValueSpecification* 
-	 *         precision=EBIGDECIMAL?
-	 *     )
-	 */
-	protected void sequence_QuantitativePropertyRealization(EObject context, QuantitativePropertyRealization semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID goal=[SoftGoal|QualifiedName] verdict=Verdict reason=STRING difference=Number?)
 	 */
 	protected void sequence_SoftGoalEvaluation(EObject context, SoftGoalEvaluation semanticObject) {
@@ -1086,7 +1058,14 @@ public class GELSemanticSequencer extends ARTISTCommonSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID pattern=[Pattern|QualifiedName] source+=[NamedElement|QualifiedName]* target+=[NamedElement|QualifiedName]*)
+	 *     (
+	 *         name=ID 
+	 *         pattern=[Pattern|QualifiedName] 
+	 *         source+=[NamedElement|QualifiedName]* 
+	 *         target+=[NamedElement|QualifiedName]* 
+	 *         context+=[NamedElement|QualifiedName]* 
+	 *         info=STRING?
+	 *     )
 	 */
 	protected void sequence_Transformation(EObject context, Transformation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

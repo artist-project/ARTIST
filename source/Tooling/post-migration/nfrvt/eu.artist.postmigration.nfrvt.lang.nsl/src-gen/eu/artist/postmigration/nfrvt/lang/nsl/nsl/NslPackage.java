@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.nsl.nsl;
@@ -88,7 +76,7 @@ public interface NslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_CATALOGUE__IMPORTS = 0;
+  int PROPERTY_CATALOGUE__IMPORTS = ArtistCommonPackage.ARTIST_MODEL__IMPORTS;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -97,7 +85,7 @@ public interface NslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_CATALOGUE__NAME = 1;
+  int PROPERTY_CATALOGUE__NAME = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -106,7 +94,7 @@ public interface NslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_CATALOGUE__PROPERTIES = 2;
+  int PROPERTY_CATALOGUE__PROPERTIES = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Property Catalogue</em>' class.
@@ -115,7 +103,7 @@ public interface NslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_CATALOGUE_FEATURE_COUNT = 3;
+  int PROPERTY_CATALOGUE_FEATURE_COUNT = ArtistCommonPackage.ARTIST_MODEL_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link eu.artist.postmigration.nfrvt.lang.nsl.nsl.impl.PropertyImpl <em>Property</em>}' class.
@@ -606,17 +594,6 @@ public interface NslPackage extends EPackage
   EClass getPropertyCatalogue();
 
   /**
-   * Returns the meta object for the containment reference list '{@link eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyCatalogue#getImports <em>Imports</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Imports</em>'.
-   * @see eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyCatalogue#getImports()
-   * @see #getPropertyCatalogue()
-   * @generated
-   */
-  EReference getPropertyCatalogue_Imports();
-
-  /**
    * Returns the meta object for the attribute '{@link eu.artist.postmigration.nfrvt.lang.nsl.nsl.PropertyCatalogue#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -881,14 +858,6 @@ public interface NslPackage extends EPackage
      * @generated
      */
     EClass PROPERTY_CATALOGUE = eINSTANCE.getPropertyCatalogue();
-
-    /**
-     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PROPERTY_CATALOGUE__IMPORTS = eINSTANCE.getPropertyCatalogue_Imports();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

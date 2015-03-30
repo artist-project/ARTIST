@@ -3,6 +3,9 @@
  */
 package eu.artist.postmigration.nfrvt.lang.gel.scoping
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+
 /**
  * This class contains custom scoping description.
  * 
@@ -11,5 +14,9 @@ package eu.artist.postmigration.nfrvt.lang.gel.scoping
  *
  */
 class GELScopeProvider extends eu.artist.postmigration.nfrvt.lang.common.scoping.ARTISTCommonScopeProvider {
-
+	
+	override getScope(EObject context, EReference reference) {
+		super.getScope(context, reference)
+	}
+	
 }

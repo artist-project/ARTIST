@@ -1,0 +1,24 @@
+module org.modelexecution.fuml.cleaning.convertFUMLOriginalToCleanedFUML
+
+import org.eclipse.emf.mwe.utils.Reader
+import org.eclipse.emf.mwe.utils.Writer
+import org.eclipse.xtend.XtendComponent
+
+var modelPath = "model"
+var fUMLOriginalEcoreFileName = "fUML.ecore.original"
+var fUMLCleanEcoreFileName = "fUML.ecore"
+
+Workflow {
+	component = org.eclipse.emf.mwe.utils.Reader {
+		uri = "${modelPath}/${fUMLOriginalEcoreFileName}"
+		modelSlot = "inputModel"
+	}
+	
+	component = FUMLOriginal2FUMLCleanTransformation {
+	}
+	
+	component = org.eclipse.emf.mwe.utils.Writer {
+		uri = "${modelPath}/${fUMLCleanEcoreFileName}"
+		modelSlot = "outputModel"
+	}
+}

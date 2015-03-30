@@ -15,10 +15,10 @@ module eu.artist.postmigration.nfrvt.lang.nsl.GenerateNSL
 import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
-import eu.artist.postmigration.nfrvt.lang.util.mwe.*
+import eu.artist.postmigration.nfrvt.lang.common.*
 
 var grammarURI = "classpath:/eu/artist/postmigration/nfrvt/lang/nsl/NSL.xtext"
-var fileExtensions = "nsl"
+var fileExtensions = "nsl,prop"
 var projectName = "eu.artist.postmigration.nfrvt.lang.nsl"
 var runtimeProject = "../${projectName}"
 var generateXtendStub = true

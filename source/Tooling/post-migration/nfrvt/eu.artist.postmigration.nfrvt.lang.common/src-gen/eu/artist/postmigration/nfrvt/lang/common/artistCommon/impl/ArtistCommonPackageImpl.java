@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 /**
  */
 package eu.artist.postmigration.nfrvt.lang.common.artistCommon.impl;
 
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditionOperator;
@@ -78,6 +67,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ValueSpecification;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.XOrOperator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -349,6 +339,20 @@ public class ArtistCommonPackageImpl extends EPackageImpl implements ArtistCommo
    * @generated
    */
   private EClass operatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass artistModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass workloadEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1230,6 +1234,66 @@ public class ArtistCommonPackageImpl extends EPackageImpl implements ArtistCommo
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getARTISTModel()
+  {
+    return artistModelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getARTISTModel_Imports()
+  {
+    return (EReference)artistModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWorkload()
+  {
+    return workloadEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkload_Name()
+  {
+    return (EAttribute)workloadEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWorkload_Activity()
+  {
+    return (EReference)workloadEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getWorkload_Pattern()
+  {
+    return (EAttribute)workloadEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getImportURIorNamespace()
   {
     return importURIorNamespaceEClass;
@@ -1663,6 +1727,14 @@ public class ArtistCommonPackageImpl extends EPackageImpl implements ArtistCommo
 
     operatorEClass = createEClass(OPERATOR);
 
+    artistModelEClass = createEClass(ARTIST_MODEL);
+    createEReference(artistModelEClass, ARTIST_MODEL__IMPORTS);
+
+    workloadEClass = createEClass(WORKLOAD);
+    createEAttribute(workloadEClass, WORKLOAD__NAME);
+    createEReference(workloadEClass, WORKLOAD__ACTIVITY);
+    createEAttribute(workloadEClass, WORKLOAD__PATTERN);
+
     importURIorNamespaceEClass = createEClass(IMPORT_UR_IOR_NAMESPACE);
     createEAttribute(importURIorNamespaceEClass, IMPORT_UR_IOR_NAMESPACE__IMPORT_URI);
     createEAttribute(importURIorNamespaceEClass, IMPORT_UR_IOR_NAMESPACE__IMPORTED_NAMESPACE);
@@ -1915,6 +1987,14 @@ public class ArtistCommonPackageImpl extends EPackageImpl implements ArtistCommo
     initEAttribute(getUnlimitedLiteral_Value(), theEcorePackage.getEString(), "value", null, 0, 1, UnlimitedLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operatorEClass, Operator.class, "Operator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(artistModelEClass, ARTISTModel.class, "ARTISTModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getARTISTModel_Imports(), this.getImportNamespace(), null, "imports", null, 0, -1, ARTISTModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(workloadEClass, Workload.class, "Workload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getWorkload_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Workload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWorkload_Activity(), theUMLPackage.getActivity(), null, "activity", null, 0, 1, Workload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWorkload_Pattern(), theEcorePackage.getEString(), "pattern", null, 0, 1, Workload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importURIorNamespaceEClass, ImportURIorNamespace.class, "ImportURIorNamespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImportURIorNamespace_ImportURI(), theEcorePackage.getEString(), "importURI", null, 0, 1, ImportURIorNamespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

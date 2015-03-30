@@ -1,0 +1,54 @@
+/*******************************************************************************
+ * Copyright (c) 2015 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Martin Fleck (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+package at.ac.tuwien.big.momot.initialization.solution;
+
+import org.eclipse.emf.henshin.interpreter.EGraph;
+
+import at.ac.tuwien.big.moea.initialization.solution.AbstractRandomSolutionGenerator;
+import at.ac.tuwien.big.momot.match.ExecutionResult;
+import at.ac.tuwien.big.momot.match.MatchHelper;
+import at.ac.tuwien.big.momot.solution.MatchSolution;
+
+public class MatchSolutionGenerator extends AbstractRandomSolutionGenerator<MatchSolution> {
+
+	private EGraph initialGraph;
+	private MatchHelper matchHelper;
+
+	public MatchSolutionGenerator(int nrVariables, int nrObjectives, int nrConstraints, EGraph initialGraph, MatchHelper matchHelper) {
+		super(nrVariables, nrObjectives, nrConstraints);
+		this.initialGraph = initialGraph;
+		this.matchHelper = matchHelper;
+	}	
+	
+	public MatchHelper getMatchHelper() {
+		return matchHelper;
+	}
+		
+	public EGraph getInitialGraph() {
+		return initialGraph;
+	}
+
+	@Override
+	public MatchSolution createNewSolution(int nrVariables, int nrObjectives, int nrConstraints) {
+		return new MatchSolution(nrVariables, nrObjectives, nrConstraints);
+	}
+
+	protected ExecutionResult createRandomMatchExecution(int nrVariables) {
+		return getMatchHelper().createRandomExecutionSequence(getInitialGraph(), nrVariables);
+	}
+
+	@Override
+	public MatchSolution createRandomSolution(int nrVariables, int nrObjectives, int nrConstraints) {
+		return createRandomMatchExecution(nrVariables).toMatchSolution(nrObjectives, nrConstraints);
+	}
+}

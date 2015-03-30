@@ -5,9 +5,9 @@
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
             delegate="eu.artist.postmigration.nfrvt.eval.run.launch.EvaluationLaunchDelegate"
-            id="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType "
-            modes="run"
-            name="GML Evaluation"
+            id="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType"
+            modes="run, debug"
+            name="Goal Evaluation"
             public="true">
       </launchConfigurationType>
    </extension>
@@ -23,36 +23,16 @@
           <launchConfigurationTabGroup
             class="eu.artist.postmigration.nfrvt.eval.run.ui.launch.EvaluationLaunchConfigurationTabGroup"
             id="eu.artist.postmigration.nfrvt.eval.run.ui.launchConfigurationTabGroup"
-            type="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType ">
+            type="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType">
       </launchConfigurationTabGroup>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
-            configTypeID="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType "
-            icon="icons/GMLLaunch.png"
+            configTypeID="eu.artist.postmigration.nfrvt.eval.run.launchConfigurationType"
+            icon="icons/Launch2.gif"
             id="eu.artist.postmigration.nfrvt.eval.run.ui.launchConfigurationTypeImage">
       </launchConfigurationTypeImage>
-   </extension>
-     <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="eu.artist.postmigration.nfrvt.eval.run.handler.EvaluationHandler"
-            commandId="eu.artist.postmigration.nfrvt.eval.GML.evaluate">
-        <activeWhen>
-         <reference
-                    definitionId="eu.artist.postmigration.nfrvt.lang.gml.GML.Editor.opened">
-                </reference>
-         </activeWhen>
-      </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-         <command
-            description="Trigger Migration Evaluation from GML"
-            id="eu.artist.postmigration.nfrvt.eval.GML.evaluate"
-            name="Evaluate Goals">
-      </command>
    </extension>
    <!--
    <extension

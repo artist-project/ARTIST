@@ -2,36 +2,29 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gml" nsURI="http://www.artist.eu/postmigration/nfrvt/lang/gml/GML"
     nsPrefix="gml">
-  <eClassifiers xsi:type="ecore:EClass" name="GoalModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ImportNamespace"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GoalModel" eSuperTypes="../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//ARTISTModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workloads" upperBound="-1"
-        eType="#//Workload" containment="true"/>
+        eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Workload"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="appliedProperties" upperBound="-1"
         eType="#//AppliedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
         eType="#//Goal" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Workload">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//Activity"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppliedProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" unique="false"
-        upperBound="-1" eType="ecore:EClass platform:/resource/org.eclipse.uml2.uml/model/UML.ecore#//NamedElement"/>
+        upperBound="-1" eType="ecore:EClass ../../../org.eclipse.uml2.uml/model/UML.ecore#//NamedElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppliedQualitativeProperty" eSuperTypes="#//AppliedProperty">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//QualitativeProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//QualitativeProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppliedQuantitativeProperty" eSuperTypes="#//AppliedProperty">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//QuantitativeProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Operator"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.nsl/model/generated/NSL.ecore#//QuantitativeProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Operator"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workload" eType="#//Workload"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workload" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Workload"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Goal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -54,7 +47,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="impact" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBigDecimal"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HardGoal" eSuperTypes="#//Goal">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="successRate" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBigDecimal"/>
   </eClassifiers>
@@ -66,7 +59,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GoalImplication" eSuperTypes="#//GoalExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//GoalDisjunction"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="ecore:EClass platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Operator"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="ecore:EClass ../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//Operator"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//GoalDisjunction"
         containment="true"/>
@@ -90,7 +83,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppliedQuantitativePropertyExpression"
-      eSuperTypes="platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//NumberExpression">
+      eSuperTypes="../../../eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.ecore#//NumberExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//AppliedQuantitativeProperty"/>
   </eClassifiers>
 </ecore:EPackage>

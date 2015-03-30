@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ARTIST UML Support
+Bundle-SymbolicName: eu.artist.postmigration.nfrvt.lang.uml
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: eu.artist.postmigration.nfrvt.lang.uml
+Require-Bundle: org.eclipse.xtext,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.uml2.uml.resources
+Bundle-Vendor: ARTIST

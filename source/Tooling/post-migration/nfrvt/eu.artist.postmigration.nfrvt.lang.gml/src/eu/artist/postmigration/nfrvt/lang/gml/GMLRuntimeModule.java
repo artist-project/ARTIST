@@ -17,8 +17,11 @@ package eu.artist.postmigration.nfrvt.lang.gml;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.resource.IContainer.Manager;
-import org.eclipse.xtext.resource.containers.IAllContainersState.Provider;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
+import org.eclipse.xtext.scoping.IScopeProvider;
+import org.eclipse.xtext.serializer.tokens.SerializerScopeProviderBinding;
+
+import com.google.inject.Binder;
 
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTCommonConverters;
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
@@ -26,6 +29,7 @@ import eu.artist.postmigration.nfrvt.lang.common.ARTISTQualifiedNameProvider;
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
+@SuppressWarnings("restriction")
 public class GMLRuntimeModule extends eu.artist.postmigration.nfrvt.lang.gml.AbstractGMLRuntimeModule {
 
 //	@Override
@@ -38,15 +42,15 @@ public class GMLRuntimeModule extends eu.artist.postmigration.nfrvt.lang.gml.Abs
 //		return ARTISTResourceSet.class;
 //	}
 	
-	@Override
-	public Class<? extends Manager> bindIContainer$Manager() {
-		return super.bindIContainer$Manager();
-	}
-	
-	@Override
-	public Class<? extends Provider> bindIAllContainersState$Provider() {
-		return super.bindIAllContainersState$Provider();
-	}
+//	@Override
+//	public Class<? extends Manager> bindIContainer$Manager() {
+//		return super.bindIContainer$Manager();
+//	}
+//	
+//	@Override
+//	public Class<? extends Provider> bindIAllContainersState$Provider() {
+//		return super.bindIAllContainersState$Provider();
+//	}
 	
 	@Override
 	public Class<? extends IValueConverterService> bindIValueConverterService() {
@@ -57,6 +61,26 @@ public class GMLRuntimeModule extends eu.artist.postmigration.nfrvt.lang.gml.Abs
 	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
 		return ARTISTQualifiedNameProvider.class;
 	}
+	
+	@Override
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+		return GMLImportUriGlobalScopeProvider.class;
+	}
+	
+	@Override
+	public void configureSerializerIScopeProvider(Binder binder) {
+		binder.bind(IScopeProvider.class).annotatedWith(SerializerScopeProviderBinding.class).to(bindIScopeProvider());
+	}
+	
+//	@Override
+//	public Class<? extends ILinkingService> bindILinkingService() {
+//		return ARTISTLinkingService.class;
+//	}
+//	
+//	@Override
+//	public Class<? extends ILinker> bindILinker() {
+//		return super.bindILinker();
+//	}
 	
 //	@Override
 //	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {

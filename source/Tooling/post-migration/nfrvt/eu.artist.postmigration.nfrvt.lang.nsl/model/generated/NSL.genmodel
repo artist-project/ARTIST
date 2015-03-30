@@ -5,17 +5,16 @@
     modelPluginID="eu.artist.postmigration.nfrvt.lang.nsl" forceOverwrite="true" modelName="NSL"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="eu.artist.postmigration.nfrvt.lang.nsl.edit"
-    editorPluginID="eu.artist.postmigration.nfrvt.lang.nsl.editor" runtimeVersion="2.9"
+    editorPluginID="eu.artist.postmigration.nfrvt.lang.nsl.editor" runtimeVersion="2.10"
     usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore platform:/resource/eu.artist.postmigration.nfrvt.lang.common/model/generated/ARTISTCommon.genmodel#//artistCommon platform:/resource/org.eclipse.uml2.uml/model/UML.genmodel#//uml">
-  <genPackages prefix="Nsl" basePackage="eu.artist.postmigration.nfrvt.lang.nsl" resource="XML"
-      disposableProviderFactory="true" fileExtensions="nsl" ecorePackage="NSL.ecore#/">
+  <genPackages prefix="Nsl" basePackage="eu.artist.postmigration.nfrvt.lang.nsl" disposableProviderFactory="true"
+      fileExtensions="nsl,prop" ecorePackage="NSL.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="NSL.ecore#//DirectionKind">
       <genEnumLiterals ecoreEnumLiteral="NSL.ecore#//DirectionKind/INCREASING"/>
       <genEnumLiterals ecoreEnumLiteral="NSL.ecore#//DirectionKind/DECREASING"/>
       <genEnumLiterals ecoreEnumLiteral="NSL.ecore#//DirectionKind/RANGE"/>
     </genEnums>
     <genClasses ecoreClass="NSL.ecore#//PropertyCatalogue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NSL.ecore#//PropertyCatalogue/imports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NSL.ecore#//PropertyCatalogue/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NSL.ecore#//PropertyCatalogue/properties"/>
     </genClasses>

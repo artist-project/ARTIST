@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.common.parser.antlr.internal; 
 
 import org.eclipse.xtext.*;
@@ -34,7 +22,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_EBOOLEAN", "RULE_NULL", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_POSITIVE_SMALL_DECIMAL", "RULE_SMALL_DECIMAL", "RULE_EBIGDECIMAL", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "','", "')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", "'or'", "'||'", "'xor'", "'^'", "'and'", "'&&'", "'=>'", "'->'", "'=='", "'!='", "'<>'", "'!'", "'not'", "'>'", "'>='", "'<'", "'<='", "'+'", "'-'", "'/'", "'%'", "'max'", "'min'", "'avg'", "'sum'", "'exp'", "'abs'", "'ln'", "'log'", "'.'", "'.*'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_EBOOLEAN", "RULE_NULL", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_POSITIVE_SMALL_DECIMAL", "RULE_SMALL_DECIMAL", "RULE_EBIGDECIMAL", "RULE_DATE_TIME", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "','", "')'", "'['", "']'", "'{'", "'}'", "'='", "'*'", "'or'", "'||'", "'xor'", "'^'", "'and'", "'&&'", "'=>'", "'->'", "'=='", "'!='", "'<>'", "'!'", "'not'", "'>'", "'>='", "'<'", "'<='", "'+'", "'-'", "'/'", "'%'", "'max'", "'min'", "'avg'", "'sum'", "'exp'", "'abs'", "'ln'", "'log'", "'.'", "'.*'", "'import'"
     };
     public static final int RULE_ID=7;
     public static final int T__29=29;
@@ -45,13 +33,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=15;
+    public static final int RULE_ANY_OTHER=16;
     public static final int T__21=21;
     public static final int T__20=20;
     public static final int EOF=-1;
     public static final int T__55=55;
+    public static final int T__56=56;
     public static final int T__19=19;
-    public static final int T__16=16;
+    public static final int T__57=57;
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__18=18;
@@ -72,9 +61,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final int T__45=45;
     public static final int T__48=48;
     public static final int T__49=49;
-    public static final int RULE_SL_COMMENT=13;
+    public static final int RULE_SL_COMMENT=14;
     public static final int RULE_NULL=5;
-    public static final int RULE_ML_COMMENT=12;
+    public static final int RULE_ML_COMMENT=13;
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int RULE_STRING=6;
@@ -83,12 +72,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
+    public static final int RULE_DATE_TIME=12;
     public static final int RULE_POSITIVE_SMALL_DECIMAL=9;
     public static final int RULE_EBOOLEAN=4;
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
-    public static final int RULE_WS=14;
+    public static final int RULE_WS=15;
 
     // delegates
     // delegators
@@ -300,7 +290,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>=31 && LA1_0<=32)) ) {
+                if ( ((LA1_0>=32 && LA1_0<=33)) ) {
                     alt1=1;
                 }
 
@@ -508,7 +498,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( ((LA3_0>=25 && LA3_0<=28)) ) {
+                if ( ((LA3_0>=26 && LA3_0<=29)) ) {
                     alt3=1;
                 }
 
@@ -540,10 +530,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	    int alt2=2;
             	    int LA2_0 = input.LA(1);
 
-            	    if ( ((LA2_0>=25 && LA2_0<=26)) ) {
+            	    if ( ((LA2_0>=26 && LA2_0<=27)) ) {
             	        alt2=1;
             	    }
-            	    else if ( ((LA2_0>=27 && LA2_0<=28)) ) {
+            	    else if ( ((LA2_0>=28 && LA2_0<=29)) ) {
             	        alt2=2;
             	    }
             	    else {
@@ -770,7 +760,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( ((LA4_0>=29 && LA4_0<=30)) ) {
+                if ( ((LA4_0>=30 && LA4_0<=31)) ) {
                     alt4=1;
                 }
 
@@ -978,7 +968,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( ((LA6_0>=33 && LA6_0<=35)) ) {
+                if ( ((LA6_0>=34 && LA6_0<=36)) ) {
                     alt6=1;
                 }
 
@@ -1010,10 +1000,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	    int alt5=2;
             	    int LA5_0 = input.LA(1);
 
-            	    if ( (LA5_0==33) ) {
+            	    if ( (LA5_0==34) ) {
             	        alt5=1;
             	    }
-            	    else if ( ((LA5_0>=34 && LA5_0<=35)) ) {
+            	    else if ( ((LA5_0>=35 && LA5_0<=36)) ) {
             	        alt5=2;
             	    }
             	    else {
@@ -1218,8 +1208,8 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:434:1: (this_Negation_0= ruleNegation | this_RelationalExpression_1= ruleRelationalExpression | this_BooleanLiteral_2= ruleBooleanLiteral )
             int alt7=3;
             switch ( input.LA(1) ) {
-            case 36:
             case 37:
+            case 38:
                 {
                 alt7=1;
                 }
@@ -1231,9 +1221,8 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             case RULE_POSITIVE_SMALL_DECIMAL:
             case RULE_SMALL_DECIMAL:
             case RULE_EBIGDECIMAL:
-            case 16:
-            case 24:
-            case 46:
+            case 17:
+            case 25:
             case 47:
             case 48:
             case 49:
@@ -1241,6 +1230,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             case 51:
             case 52:
             case 53:
+            case 54:
                 {
                 alt7=2;
                 }
@@ -1587,7 +1577,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( ((LA9_0>=38 && LA9_0<=41)) ) {
+                if ( ((LA9_0>=39 && LA9_0<=42)) ) {
                     alt9=1;
                 }
 
@@ -1599,22 +1589,22 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:550:2: ( ( () ( (lv_operator_2_0= ruleGreaterThanOperator ) ) ) | ( () ( (lv_operator_4_0= ruleGreaterOrEqualThanOperator ) ) ) | ( () ( (lv_operator_6_0= ruleLessOrEqualThanOperator ) ) ) | ( () ( (lv_operator_8_0= ruleLessThanOperator ) ) ) )
             	    int alt8=4;
             	    switch ( input.LA(1) ) {
-            	    case 38:
+            	    case 39:
             	        {
             	        alt8=1;
             	        }
             	        break;
-            	    case 39:
+            	    case 40:
             	        {
             	        alt8=2;
             	        }
             	        break;
-            	    case 41:
+            	    case 42:
             	        {
             	        alt8=3;
             	        }
             	        break;
-            	    case 40:
+            	    case 41:
             	        {
             	        alt8=4;
             	        }
@@ -2357,7 +2347,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
-                if ( ((LA12_0>=42 && LA12_0<=43)) ) {
+                if ( ((LA12_0>=43 && LA12_0<=44)) ) {
                     alt12=1;
                 }
 
@@ -2389,10 +2379,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	    int alt11=2;
             	    int LA11_0 = input.LA(1);
 
-            	    if ( (LA11_0==43) ) {
+            	    if ( (LA11_0==44) ) {
             	        alt11=1;
             	    }
-            	    else if ( (LA11_0==42) ) {
+            	    else if ( (LA11_0==43) ) {
             	        alt11=2;
             	    }
             	    else {
@@ -2623,7 +2613,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt14=2;
                 int LA14_0 = input.LA(1);
 
-                if ( (LA14_0==24||(LA14_0>=44 && LA14_0<=45)) ) {
+                if ( (LA14_0==25||(LA14_0>=45 && LA14_0<=46)) ) {
                     alt14=1;
                 }
 
@@ -2654,17 +2644,17 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:915:1: (lv_operator_2_1= ruleMultiplicationOperator | lv_operator_2_2= ruleDivisionOperator | lv_operator_2_3= ruleModulusOperator )
             	    int alt13=3;
             	    switch ( input.LA(1) ) {
-            	    case 24:
+            	    case 25:
             	        {
             	        alt13=1;
             	        }
             	        break;
-            	    case 44:
+            	    case 45:
             	        {
             	        alt13=2;
             	        }
             	        break;
-            	    case 45:
+            	    case 46:
             	        {
             	        alt13=3;
             	        }
@@ -2903,7 +2893,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( ((LA15_0>=RULE_INT && LA15_0<=RULE_EBIGDECIMAL)) ) {
                 alt15=1;
             }
-            else if ( ((LA15_0>=46 && LA15_0<=53)) ) {
+            else if ( ((LA15_0>=47 && LA15_0<=54)) ) {
                 alt15=2;
             }
             else {
@@ -3051,42 +3041,42 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1043:1: (this_MaximumFunction_0= ruleMaximumFunction | this_MinimumFunction_1= ruleMinimumFunction | this_AverageFunction_2= ruleAverageFunction | this_SumFunction_3= ruleSumFunction | this_ExponentialFunction_4= ruleExponentialFunction | this_AbsoluteFunction_5= ruleAbsoluteFunction | this_NaturalLogarithmFunction_6= ruleNaturalLogarithmFunction | this_CommonLogarithmFunction_7= ruleCommonLogarithmFunction )
             int alt16=8;
             switch ( input.LA(1) ) {
-            case 46:
+            case 47:
                 {
                 alt16=1;
                 }
                 break;
-            case 47:
+            case 48:
                 {
                 alt16=2;
                 }
                 break;
-            case 48:
+            case 49:
                 {
                 alt16=3;
                 }
                 break;
-            case 49:
+            case 50:
                 {
                 alt16=4;
                 }
                 break;
-            case 50:
+            case 51:
                 {
                 alt16=5;
                 }
                 break;
-            case 51:
+            case 52:
                 {
                 alt16=6;
                 }
                 break;
-            case 52:
+            case 53:
                 {
                 alt16=7;
                 }
                 break;
-            case 53:
+            case 54:
                 {
                 alt16=8;
                 }
@@ -3397,7 +3387,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleMaximumFunction2491); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleMaximumFunction2491); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMaximumFunctionAccess().getLeftParenthesisKeyword_1());
@@ -3444,7 +3434,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt17=2;
                 int LA17_0 = input.LA(1);
 
-                if ( (LA17_0==17) ) {
+                if ( (LA17_0==18) ) {
                     alt17=1;
                 }
 
@@ -3453,7 +3443,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1183:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleMaximumFunction2525); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleMaximumFunction2525); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getMaximumFunctionAccess().getCommaKeyword_3_0());
@@ -3503,7 +3493,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleMaximumFunction2560); if (state.failed) return current;
+            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleMaximumFunction2560); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getMaximumFunctionAccess().getRightParenthesisKeyword_4());
@@ -3630,7 +3620,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleMinimumFunction2664); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleMinimumFunction2664); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMinimumFunctionAccess().getLeftParenthesisKeyword_1());
@@ -3677,7 +3667,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( (LA18_0==17) ) {
+                if ( (LA18_0==18) ) {
                     alt18=1;
                 }
 
@@ -3686,7 +3676,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1270:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleMinimumFunction2698); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleMinimumFunction2698); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getMinimumFunctionAccess().getCommaKeyword_3_0());
@@ -3736,7 +3726,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleMinimumFunction2733); if (state.failed) return current;
+            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleMinimumFunction2733); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getMinimumFunctionAccess().getRightParenthesisKeyword_4());
@@ -3863,7 +3853,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleAverageFunction2837); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleAverageFunction2837); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAverageFunctionAccess().getLeftParenthesisKeyword_1());
@@ -3910,7 +3900,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt19=2;
                 int LA19_0 = input.LA(1);
 
-                if ( (LA19_0==17) ) {
+                if ( (LA19_0==18) ) {
                     alt19=1;
                 }
 
@@ -3919,7 +3909,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1357:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleAverageFunction2871); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleAverageFunction2871); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getAverageFunctionAccess().getCommaKeyword_3_0());
@@ -3969,7 +3959,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleAverageFunction2906); if (state.failed) return current;
+            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleAverageFunction2906); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getAverageFunctionAccess().getRightParenthesisKeyword_4());
@@ -4096,7 +4086,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleSumFunction3010); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleSumFunction3010); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSumFunctionAccess().getLeftParenthesisKeyword_1());
@@ -4143,7 +4133,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==17) ) {
+                if ( (LA20_0==18) ) {
                     alt20=1;
                 }
 
@@ -4152,7 +4142,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1444:4: otherlv_3= ',' ( (lv_values_4_0= ruleNumberExpression ) )
             	    {
-            	    otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleSumFunction3044); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleSumFunction3044); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_3, grammarAccess.getSumFunctionAccess().getCommaKeyword_3_0());
@@ -4202,7 +4192,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleSumFunction3079); if (state.failed) return current;
+            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleSumFunction3079); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getSumFunctionAccess().getRightParenthesisKeyword_4());
@@ -4329,7 +4319,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleExponentialFunction3183); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleExponentialFunction3183); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getExponentialFunctionAccess().getLeftParenthesisKeyword_1());
@@ -4370,7 +4360,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleExponentialFunction3216); if (state.failed) return current;
+            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleExponentialFunction3216); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getExponentialFunctionAccess().getCommaKeyword_3());
@@ -4411,7 +4401,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,18,FOLLOW_18_in_ruleExponentialFunction3249); if (state.failed) return current;
+            otherlv_5=(Token)match(input,19,FOLLOW_19_in_ruleExponentialFunction3249); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getExponentialFunctionAccess().getRightParenthesisKeyword_5());
@@ -4535,7 +4525,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleAbsoluteFunction3353); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleAbsoluteFunction3353); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAbsoluteFunctionAccess().getLeftParenthesisKeyword_1());
@@ -4576,7 +4566,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleAbsoluteFunction3386); if (state.failed) return current;
+            otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleAbsoluteFunction3386); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getAbsoluteFunctionAccess().getRightParenthesisKeyword_3());
@@ -4700,7 +4690,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleNaturalLogarithmFunction3490); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleNaturalLogarithmFunction3490); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNaturalLogarithmFunctionAccess().getLeftParenthesisKeyword_1());
@@ -4741,7 +4731,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleNaturalLogarithmFunction3523); if (state.failed) return current;
+            otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleNaturalLogarithmFunction3523); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getNaturalLogarithmFunctionAccess().getRightParenthesisKeyword_3());
@@ -4865,7 +4855,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleCommonLogarithmFunction3627); if (state.failed) return current;
+            otherlv_1=(Token)match(input,17,FOLLOW_17_in_ruleCommonLogarithmFunction3627); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getCommonLogarithmFunctionAccess().getLeftParenthesisKeyword_1());
@@ -4906,7 +4896,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleCommonLogarithmFunction3660); if (state.failed) return current;
+            otherlv_3=(Token)match(input,19,FOLLOW_19_in_ruleCommonLogarithmFunction3660); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getCommonLogarithmFunctionAccess().getRightParenthesisKeyword_3());
@@ -5325,10 +5315,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( (LA22_0==19) ) {
+            if ( (LA22_0==20) ) {
                 alt22=1;
             }
-            else if ( (LA22_0==21) ) {
+            else if ( (LA22_0==22) ) {
                 alt22=2;
             }
             else {
@@ -5487,137 +5477,167 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCollection"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1947:1: ruleCollection returns [EObject current=null] : (otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1947:1: ruleCollection returns [EObject current=null] : ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )* )? otherlv_5= ']' ) ;
     public final EObject ruleCollection() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        EObject lv_values_1_0 = null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        EObject lv_values_2_0 = null;
 
-        EObject lv_values_3_0 = null;
+        EObject lv_values_4_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1950:28: ( (otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:1: (otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1950:28: ( ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )* )? otherlv_5= ']' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:1: ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )* )? otherlv_5= ']' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:1: (otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:3: otherlv_0= '[' ( (lv_values_1_0= ruleValueSpecification ) ) (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )* otherlv_4= ']'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:1: ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )* )? otherlv_5= ']' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:2: () otherlv_1= '[' ( ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )* )? otherlv_5= ']'
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleCollection4155); if (state.failed) return current;
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1951:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1952:5: 
+            {
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getCollectionAccess().getLeftSquareBracketKeyword_0());
+                      current = forceCreateModelElement(
+                          grammarAccess.getCollectionAccess().getCollectionAction_0(),
+                          current);
                   
             }
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1955:1: ( (lv_values_1_0= ruleValueSpecification ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1956:1: (lv_values_1_0= ruleValueSpecification )
-            {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1956:1: (lv_values_1_0= ruleValueSpecification )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1957:3: lv_values_1_0= ruleValueSpecification
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_1_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection4176);
-            lv_values_1_0=ruleValueSpecification();
 
-            state._fsp--;
-            if (state.failed) return current;
+            }
+
+            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleCollection4164); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getCollectionRule());
-              	        }
-                     		add(
-                     			current, 
-                     			"values",
-                      		lv_values_1_0, 
-                      		"ValueSpecification");
-              	        afterParserOrEnumRuleCall();
-              	    
+                  	newLeafNode(otherlv_1, grammarAccess.getCollectionAccess().getLeftSquareBracketKeyword_1());
+                  
+            }
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1961:1: ( ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )* )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
+
+            if ( ((LA24_0>=RULE_EBOOLEAN && LA24_0<=RULE_EBIGDECIMAL)||LA24_0==25) ) {
+                alt24=1;
+            }
+            switch (alt24) {
+                case 1 :
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1961:2: ( (lv_values_2_0= ruleValueSpecification ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )*
+                    {
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1961:2: ( (lv_values_2_0= ruleValueSpecification ) )
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1962:1: (lv_values_2_0= ruleValueSpecification )
+                    {
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1962:1: (lv_values_2_0= ruleValueSpecification )
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1963:3: lv_values_2_0= ruleValueSpecification
+                    {
+                    if ( state.backtracking==0 ) {
+                       
+                      	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_0_0()); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection4186);
+                    lv_values_2_0=ruleValueSpecification();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = createModelElementForParent(grammarAccess.getCollectionRule());
+                      	        }
+                             		add(
+                             			current, 
+                             			"values",
+                              		lv_values_2_0, 
+                              		"ValueSpecification");
+                      	        afterParserOrEnumRuleCall();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1979:2: (otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) ) )*
+                    loop23:
+                    do {
+                        int alt23=2;
+                        int LA23_0 = input.LA(1);
+
+                        if ( (LA23_0==18) ) {
+                            alt23=1;
+                        }
+
+
+                        switch (alt23) {
+                    	case 1 :
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1979:4: otherlv_3= ',' ( (lv_values_4_0= ruleValueSpecification ) )
+                    	    {
+                    	    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleCollection4199); if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	          	newLeafNode(otherlv_3, grammarAccess.getCollectionAccess().getCommaKeyword_2_1_0());
+                    	          
+                    	    }
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1983:1: ( (lv_values_4_0= ruleValueSpecification ) )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1984:1: (lv_values_4_0= ruleValueSpecification )
+                    	    {
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1984:1: (lv_values_4_0= ruleValueSpecification )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1985:3: lv_values_4_0= ruleValueSpecification
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_1_1_0()); 
+                    	      	    
+                    	    }
+                    	    pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection4220);
+                    	    lv_values_4_0=ruleValueSpecification();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      	        if (current==null) {
+                    	      	            current = createModelElementForParent(grammarAccess.getCollectionRule());
+                    	      	        }
+                    	             		add(
+                    	             			current, 
+                    	             			"values",
+                    	              		lv_values_4_0, 
+                    	              		"ValueSpecification");
+                    	      	        afterParserOrEnumRuleCall();
+                    	      	    
+                    	    }
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop23;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
             }
 
-            }
-
-
-            }
-
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1973:2: (otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) ) )*
-            loop23:
-            do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
-
-                if ( (LA23_0==17) ) {
-                    alt23=1;
-                }
-
-
-                switch (alt23) {
-            	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1973:4: otherlv_2= ',' ( (lv_values_3_0= ruleValueSpecification ) )
-            	    {
-            	    otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleCollection4189); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	          	newLeafNode(otherlv_2, grammarAccess.getCollectionAccess().getCommaKeyword_2_0());
-            	          
-            	    }
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1977:1: ( (lv_values_3_0= ruleValueSpecification ) )
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1978:1: (lv_values_3_0= ruleValueSpecification )
-            	    {
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1978:1: (lv_values_3_0= ruleValueSpecification )
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:1979:3: lv_values_3_0= ruleValueSpecification
-            	    {
-            	    if ( state.backtracking==0 ) {
-            	       
-            	      	        newCompositeNode(grammarAccess.getCollectionAccess().getValuesValueSpecificationParserRuleCall_2_1_0()); 
-            	      	    
-            	    }
-            	    pushFollow(FOLLOW_ruleValueSpecification_in_ruleCollection4210);
-            	    lv_values_3_0=ruleValueSpecification();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      	        if (current==null) {
-            	      	            current = createModelElementForParent(grammarAccess.getCollectionRule());
-            	      	        }
-            	             		add(
-            	             			current, 
-            	             			"values",
-            	              		lv_values_3_0, 
-            	              		"ValueSpecification");
-            	      	        afterParserOrEnumRuleCall();
-            	      	    
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop23;
-                }
-            } while (true);
-
-            otherlv_4=(Token)match(input,20,FOLLOW_20_in_ruleCollection4224); if (state.failed) return current;
+            otherlv_5=(Token)match(input,21,FOLLOW_21_in_ruleCollection4236); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_4, grammarAccess.getCollectionAccess().getRightSquareBracketKeyword_3());
+                  	newLeafNode(otherlv_5, grammarAccess.getCollectionAccess().getRightSquareBracketKeyword_3());
                   
             }
 
@@ -5643,7 +5663,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTuple"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2007:1: entryRuleTuple returns [EObject current=null] : iv_ruleTuple= ruleTuple EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2013:1: entryRuleTuple returns [EObject current=null] : iv_ruleTuple= ruleTuple EOF ;
     public final EObject entryRuleTuple() throws RecognitionException {
         EObject current = null;
 
@@ -5651,13 +5671,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2008:2: (iv_ruleTuple= ruleTuple EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2009:2: iv_ruleTuple= ruleTuple EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2014:2: (iv_ruleTuple= ruleTuple EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2015:2: iv_ruleTuple= ruleTuple EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getTupleRule()); 
             }
-            pushFollow(FOLLOW_ruleTuple_in_entryRuleTuple4260);
+            pushFollow(FOLLOW_ruleTuple_in_entryRuleTuple4272);
             iv_ruleTuple=ruleTuple();
 
             state._fsp--;
@@ -5665,7 +5685,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleTuple; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTuple4270); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTuple4282); if (state.failed) return current;
 
             }
 
@@ -5683,137 +5703,167 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTuple"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2016:1: ruleTuple returns [EObject current=null] : (otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2022:1: ruleTuple returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )* )? otherlv_5= '}' ) ;
     public final EObject ruleTuple() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        EObject lv_tuples_1_0 = null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        EObject lv_tuples_2_0 = null;
 
-        EObject lv_tuples_3_0 = null;
+        EObject lv_tuples_4_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2019:28: ( (otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2020:1: (otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2025:28: ( ( () otherlv_1= '{' ( ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )* )? otherlv_5= '}' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2026:1: ( () otherlv_1= '{' ( ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )* )? otherlv_5= '}' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2020:1: (otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2020:3: otherlv_0= '{' ( (lv_tuples_1_0= rulePropertyValuePair ) ) (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )* otherlv_4= '}'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2026:1: ( () otherlv_1= '{' ( ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )* )? otherlv_5= '}' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2026:2: () otherlv_1= '{' ( ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )* )? otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleTuple4307); if (state.failed) return current;
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2026:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2027:5: 
+            {
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_0, grammarAccess.getTupleAccess().getLeftCurlyBracketKeyword_0());
+                      current = forceCreateModelElement(
+                          grammarAccess.getTupleAccess().getTupleAction_0(),
+                          current);
                   
             }
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2024:1: ( (lv_tuples_1_0= rulePropertyValuePair ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2025:1: (lv_tuples_1_0= rulePropertyValuePair )
-            {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2025:1: (lv_tuples_1_0= rulePropertyValuePair )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2026:3: lv_tuples_1_0= rulePropertyValuePair
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_1_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple4328);
-            lv_tuples_1_0=rulePropertyValuePair();
 
-            state._fsp--;
-            if (state.failed) return current;
+            }
+
+            otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleTuple4328); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getTupleRule());
-              	        }
-                     		add(
-                     			current, 
-                     			"tuples",
-                      		lv_tuples_1_0, 
-                      		"PropertyValuePair");
-              	        afterParserOrEnumRuleCall();
-              	    
+                  	newLeafNode(otherlv_1, grammarAccess.getTupleAccess().getLeftCurlyBracketKeyword_1());
+                  
+            }
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2036:1: ( ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )* )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
+
+            if ( (LA26_0==RULE_ID) ) {
+                alt26=1;
+            }
+            switch (alt26) {
+                case 1 :
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2036:2: ( (lv_tuples_2_0= rulePropertyValuePair ) ) (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )*
+                    {
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2036:2: ( (lv_tuples_2_0= rulePropertyValuePair ) )
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2037:1: (lv_tuples_2_0= rulePropertyValuePair )
+                    {
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2037:1: (lv_tuples_2_0= rulePropertyValuePair )
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2038:3: lv_tuples_2_0= rulePropertyValuePair
+                    {
+                    if ( state.backtracking==0 ) {
+                       
+                      	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_0_0()); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple4350);
+                    lv_tuples_2_0=rulePropertyValuePair();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = createModelElementForParent(grammarAccess.getTupleRule());
+                      	        }
+                             		add(
+                             			current, 
+                             			"tuples",
+                              		lv_tuples_2_0, 
+                              		"PropertyValuePair");
+                      	        afterParserOrEnumRuleCall();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2054:2: (otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) ) )*
+                    loop25:
+                    do {
+                        int alt25=2;
+                        int LA25_0 = input.LA(1);
+
+                        if ( (LA25_0==18) ) {
+                            alt25=1;
+                        }
+
+
+                        switch (alt25) {
+                    	case 1 :
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2054:4: otherlv_3= ',' ( (lv_tuples_4_0= rulePropertyValuePair ) )
+                    	    {
+                    	    otherlv_3=(Token)match(input,18,FOLLOW_18_in_ruleTuple4363); if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	          	newLeafNode(otherlv_3, grammarAccess.getTupleAccess().getCommaKeyword_2_1_0());
+                    	          
+                    	    }
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2058:1: ( (lv_tuples_4_0= rulePropertyValuePair ) )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2059:1: (lv_tuples_4_0= rulePropertyValuePair )
+                    	    {
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2059:1: (lv_tuples_4_0= rulePropertyValuePair )
+                    	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2060:3: lv_tuples_4_0= rulePropertyValuePair
+                    	    {
+                    	    if ( state.backtracking==0 ) {
+                    	       
+                    	      	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_1_1_0()); 
+                    	      	    
+                    	    }
+                    	    pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple4384);
+                    	    lv_tuples_4_0=rulePropertyValuePair();
+
+                    	    state._fsp--;
+                    	    if (state.failed) return current;
+                    	    if ( state.backtracking==0 ) {
+
+                    	      	        if (current==null) {
+                    	      	            current = createModelElementForParent(grammarAccess.getTupleRule());
+                    	      	        }
+                    	             		add(
+                    	             			current, 
+                    	             			"tuples",
+                    	              		lv_tuples_4_0, 
+                    	              		"PropertyValuePair");
+                    	      	        afterParserOrEnumRuleCall();
+                    	      	    
+                    	    }
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop25;
+                        }
+                    } while (true);
+
+
+                    }
+                    break;
+
             }
 
-            }
-
-
-            }
-
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2042:2: (otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) ) )*
-            loop24:
-            do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
-
-                if ( (LA24_0==17) ) {
-                    alt24=1;
-                }
-
-
-                switch (alt24) {
-            	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2042:4: otherlv_2= ',' ( (lv_tuples_3_0= rulePropertyValuePair ) )
-            	    {
-            	    otherlv_2=(Token)match(input,17,FOLLOW_17_in_ruleTuple4341); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	          	newLeafNode(otherlv_2, grammarAccess.getTupleAccess().getCommaKeyword_2_0());
-            	          
-            	    }
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2046:1: ( (lv_tuples_3_0= rulePropertyValuePair ) )
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2047:1: (lv_tuples_3_0= rulePropertyValuePair )
-            	    {
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2047:1: (lv_tuples_3_0= rulePropertyValuePair )
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2048:3: lv_tuples_3_0= rulePropertyValuePair
-            	    {
-            	    if ( state.backtracking==0 ) {
-            	       
-            	      	        newCompositeNode(grammarAccess.getTupleAccess().getTuplesPropertyValuePairParserRuleCall_2_1_0()); 
-            	      	    
-            	    }
-            	    pushFollow(FOLLOW_rulePropertyValuePair_in_ruleTuple4362);
-            	    lv_tuples_3_0=rulePropertyValuePair();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      	        if (current==null) {
-            	      	            current = createModelElementForParent(grammarAccess.getTupleRule());
-            	      	        }
-            	             		add(
-            	             			current, 
-            	             			"tuples",
-            	              		lv_tuples_3_0, 
-            	              		"PropertyValuePair");
-            	      	        afterParserOrEnumRuleCall();
-            	      	    
-            	    }
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop24;
-                }
-            } while (true);
-
-            otherlv_4=(Token)match(input,22,FOLLOW_22_in_ruleTuple4376); if (state.failed) return current;
+            otherlv_5=(Token)match(input,23,FOLLOW_23_in_ruleTuple4400); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-                  	newLeafNode(otherlv_4, grammarAccess.getTupleAccess().getRightCurlyBracketKeyword_3());
+                  	newLeafNode(otherlv_5, grammarAccess.getTupleAccess().getRightCurlyBracketKeyword_3());
                   
             }
 
@@ -5839,7 +5889,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePropertyValuePair"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2076:1: entryRulePropertyValuePair returns [EObject current=null] : iv_rulePropertyValuePair= rulePropertyValuePair EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2088:1: entryRulePropertyValuePair returns [EObject current=null] : iv_rulePropertyValuePair= rulePropertyValuePair EOF ;
     public final EObject entryRulePropertyValuePair() throws RecognitionException {
         EObject current = null;
 
@@ -5847,13 +5897,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2077:2: (iv_rulePropertyValuePair= rulePropertyValuePair EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2078:2: iv_rulePropertyValuePair= rulePropertyValuePair EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2089:2: (iv_rulePropertyValuePair= rulePropertyValuePair EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2090:2: iv_rulePropertyValuePair= rulePropertyValuePair EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getPropertyValuePairRule()); 
             }
-            pushFollow(FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair4412);
+            pushFollow(FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair4436);
             iv_rulePropertyValuePair=rulePropertyValuePair();
 
             state._fsp--;
@@ -5861,7 +5911,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_rulePropertyValuePair; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyValuePair4422); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyValuePair4446); if (state.failed) return current;
 
             }
 
@@ -5879,7 +5929,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertyValuePair"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2085:1: rulePropertyValuePair returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2097:1: rulePropertyValuePair returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) ) ;
     public final EObject rulePropertyValuePair() throws RecognitionException {
         EObject current = null;
 
@@ -5890,17 +5940,17 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2088:28: ( ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2089:1: ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2100:28: ( ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2101:1: ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2089:1: ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2089:2: ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2101:1: ( ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2101:2: ( ( ruleQualifiedName ) ) otherlv_1= '=' ( (lv_value_2_0= ruleValueSpecification ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2089:2: ( ( ruleQualifiedName ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2090:1: ( ruleQualifiedName )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2101:2: ( ( ruleQualifiedName ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2102:1: ( ruleQualifiedName )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2090:1: ( ruleQualifiedName )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2091:3: ruleQualifiedName
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2102:1: ( ruleQualifiedName )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2103:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -5914,7 +5964,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getPropertyValuePairAccess().getPropertyPropertyCrossReference_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyValuePair4470);
+            pushFollow(FOLLOW_ruleQualifiedName_in_rulePropertyValuePair4494);
             ruleQualifiedName();
 
             state._fsp--;
@@ -5930,24 +5980,24 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,23,FOLLOW_23_in_rulePropertyValuePair4482); if (state.failed) return current;
+            otherlv_1=(Token)match(input,24,FOLLOW_24_in_rulePropertyValuePair4506); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getPropertyValuePairAccess().getEqualsSignKeyword_1());
                   
             }
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2108:1: ( (lv_value_2_0= ruleValueSpecification ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2109:1: (lv_value_2_0= ruleValueSpecification )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2120:1: ( (lv_value_2_0= ruleValueSpecification ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2121:1: (lv_value_2_0= ruleValueSpecification )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2109:1: (lv_value_2_0= ruleValueSpecification )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2110:3: lv_value_2_0= ruleValueSpecification
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2121:1: (lv_value_2_0= ruleValueSpecification )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2122:3: lv_value_2_0= ruleValueSpecification
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getPropertyValuePairAccess().getValueValueSpecificationParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleValueSpecification_in_rulePropertyValuePair4503);
+            pushFollow(FOLLOW_ruleValueSpecification_in_rulePropertyValuePair4527);
             lv_value_2_0=ruleValueSpecification();
 
             state._fsp--;
@@ -5994,7 +6044,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInstanceSpecificationExpression"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2134:1: entryRuleInstanceSpecificationExpression returns [EObject current=null] : iv_ruleInstanceSpecificationExpression= ruleInstanceSpecificationExpression EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2146:1: entryRuleInstanceSpecificationExpression returns [EObject current=null] : iv_ruleInstanceSpecificationExpression= ruleInstanceSpecificationExpression EOF ;
     public final EObject entryRuleInstanceSpecificationExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6002,13 +6052,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2135:2: (iv_ruleInstanceSpecificationExpression= ruleInstanceSpecificationExpression EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2136:2: iv_ruleInstanceSpecificationExpression= ruleInstanceSpecificationExpression EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2147:2: (iv_ruleInstanceSpecificationExpression= ruleInstanceSpecificationExpression EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2148:2: iv_ruleInstanceSpecificationExpression= ruleInstanceSpecificationExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getInstanceSpecificationExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression4539);
+            pushFollow(FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression4563);
             iv_ruleInstanceSpecificationExpression=ruleInstanceSpecificationExpression();
 
             state._fsp--;
@@ -6016,7 +6066,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleInstanceSpecificationExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression4549); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression4573); if (state.failed) return current;
 
             }
 
@@ -6034,21 +6084,21 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInstanceSpecificationExpression"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2143:1: ruleInstanceSpecificationExpression returns [EObject current=null] : ( ( ruleQualifiedName ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2155:1: ruleInstanceSpecificationExpression returns [EObject current=null] : ( ( ruleQualifiedName ) ) ;
     public final EObject ruleInstanceSpecificationExpression() throws RecognitionException {
         EObject current = null;
 
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2146:28: ( ( ( ruleQualifiedName ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2147:1: ( ( ruleQualifiedName ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2158:28: ( ( ( ruleQualifiedName ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2159:1: ( ( ruleQualifiedName ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2147:1: ( ( ruleQualifiedName ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2148:1: ( ruleQualifiedName )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2159:1: ( ( ruleQualifiedName ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2160:1: ( ruleQualifiedName )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2148:1: ( ruleQualifiedName )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2149:3: ruleQualifiedName
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2160:1: ( ruleQualifiedName )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2161:3: ruleQualifiedName
             {
             if ( state.backtracking==0 ) {
 
@@ -6062,7 +6112,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getInstanceSpecificationExpressionAccess().getValueInstanceSpecificationCrossReference_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression4596);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression4620);
             ruleQualifiedName();
 
             state._fsp--;
@@ -6098,7 +6148,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteralValueExpression"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2170:1: entryRuleLiteralValueExpression returns [EObject current=null] : iv_ruleLiteralValueExpression= ruleLiteralValueExpression EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2182:1: entryRuleLiteralValueExpression returns [EObject current=null] : iv_ruleLiteralValueExpression= ruleLiteralValueExpression EOF ;
     public final EObject entryRuleLiteralValueExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6106,13 +6156,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2171:2: (iv_ruleLiteralValueExpression= ruleLiteralValueExpression EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2172:2: iv_ruleLiteralValueExpression= ruleLiteralValueExpression EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2183:2: (iv_ruleLiteralValueExpression= ruleLiteralValueExpression EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2184:2: iv_ruleLiteralValueExpression= ruleLiteralValueExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLiteralValueExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression4631);
+            pushFollow(FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression4655);
             iv_ruleLiteralValueExpression=ruleLiteralValueExpression();
 
             state._fsp--;
@@ -6120,7 +6170,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLiteralValueExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralValueExpression4641); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralValueExpression4665); if (state.failed) return current;
 
             }
 
@@ -6138,7 +6188,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteralValueExpression"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2179:1: ruleLiteralValueExpression returns [EObject current=null] : (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2191:1: ruleLiteralValueExpression returns [EObject current=null] : (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral ) ;
     public final EObject ruleLiteralValueExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6156,58 +6206,58 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2182:28: ( (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2183:1: (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2194:28: ( (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2195:1: (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2183:1: (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral )
-            int alt25=5;
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2195:1: (this_NumberLiteral_0= ruleNumberLiteral | this_BooleanLiteral_1= ruleBooleanLiteral | this_NullLiteral_2= ruleNullLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnlimitedLiteral_4= ruleUnlimitedLiteral )
+            int alt27=5;
             switch ( input.LA(1) ) {
             case RULE_INT:
             case RULE_POSITIVE_SMALL_DECIMAL:
             case RULE_SMALL_DECIMAL:
             case RULE_EBIGDECIMAL:
                 {
-                alt25=1;
+                alt27=1;
                 }
                 break;
             case RULE_EBOOLEAN:
                 {
-                alt25=2;
+                alt27=2;
                 }
                 break;
             case RULE_NULL:
                 {
-                alt25=3;
+                alt27=3;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt25=4;
+                alt27=4;
                 }
                 break;
-            case 24:
+            case 25:
                 {
-                alt25=5;
+                alt27=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 25, 0, input);
+                    new NoViableAltException("", 27, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt25) {
+            switch (alt27) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2184:5: this_NumberLiteral_0= ruleNumberLiteral
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2196:5: this_NumberLiteral_0= ruleNumberLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getNumberLiteralParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression4688);
+                    pushFollow(FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression4712);
                     this_NumberLiteral_0=ruleNumberLiteral();
 
                     state._fsp--;
@@ -6222,14 +6272,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2194:5: this_BooleanLiteral_1= ruleBooleanLiteral
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2206:5: this_BooleanLiteral_1= ruleBooleanLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getBooleanLiteralParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression4715);
+                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression4739);
                     this_BooleanLiteral_1=ruleBooleanLiteral();
 
                     state._fsp--;
@@ -6244,14 +6294,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2204:5: this_NullLiteral_2= ruleNullLiteral
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2216:5: this_NullLiteral_2= ruleNullLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getNullLiteralParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression4742);
+                    pushFollow(FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression4766);
                     this_NullLiteral_2=ruleNullLiteral();
 
                     state._fsp--;
@@ -6266,14 +6316,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2214:5: this_StringLiteral_3= ruleStringLiteral
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2226:5: this_StringLiteral_3= ruleStringLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getStringLiteralParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression4769);
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression4793);
                     this_StringLiteral_3=ruleStringLiteral();
 
                     state._fsp--;
@@ -6288,14 +6338,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2224:5: this_UnlimitedLiteral_4= ruleUnlimitedLiteral
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2236:5: this_UnlimitedLiteral_4= ruleUnlimitedLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getLiteralValueExpressionAccess().getUnlimitedLiteralParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression4796);
+                    pushFollow(FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression4820);
                     this_UnlimitedLiteral_4=ruleUnlimitedLiteral();
 
                     state._fsp--;
@@ -6332,7 +6382,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2240:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2252:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
     public final EObject entryRuleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6340,13 +6390,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2241:2: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2242:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2253:2: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2254:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral4831);
+            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral4855);
             iv_ruleBooleanLiteral=ruleBooleanLiteral();
 
             state._fsp--;
@@ -6354,7 +6404,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleBooleanLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral4841); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral4865); if (state.failed) return current;
 
             }
 
@@ -6372,7 +6422,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2249:1: ruleBooleanLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_EBOOLEAN ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2261:1: ruleBooleanLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_EBOOLEAN ) ) ;
     public final EObject ruleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6381,16 +6431,16 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2252:28: ( ( (lv_value_0_0= RULE_EBOOLEAN ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2253:1: ( (lv_value_0_0= RULE_EBOOLEAN ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2264:28: ( ( (lv_value_0_0= RULE_EBOOLEAN ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2265:1: ( (lv_value_0_0= RULE_EBOOLEAN ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2253:1: ( (lv_value_0_0= RULE_EBOOLEAN ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2254:1: (lv_value_0_0= RULE_EBOOLEAN )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2265:1: ( (lv_value_0_0= RULE_EBOOLEAN ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2266:1: (lv_value_0_0= RULE_EBOOLEAN )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2254:1: (lv_value_0_0= RULE_EBOOLEAN )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2255:3: lv_value_0_0= RULE_EBOOLEAN
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2266:1: (lv_value_0_0= RULE_EBOOLEAN )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2267:3: lv_value_0_0= RULE_EBOOLEAN
             {
-            lv_value_0_0=(Token)match(input,RULE_EBOOLEAN,FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral4882); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_EBOOLEAN,FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral4906); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getBooleanLiteralAccess().getValueEBOOLEANTerminalRuleCall_0()); 
@@ -6434,7 +6484,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumberLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2279:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2291:1: entryRuleNumberLiteral returns [EObject current=null] : iv_ruleNumberLiteral= ruleNumberLiteral EOF ;
     public final EObject entryRuleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6442,13 +6492,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2280:2: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2281:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2292:2: (iv_ruleNumberLiteral= ruleNumberLiteral EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2293:2: iv_ruleNumberLiteral= ruleNumberLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral4922);
+            pushFollow(FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral4946);
             iv_ruleNumberLiteral=ruleNumberLiteral();
 
             state._fsp--;
@@ -6456,7 +6506,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumberLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLiteral4932); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberLiteral4956); if (state.failed) return current;
 
             }
 
@@ -6474,7 +6524,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2288:1: ruleNumberLiteral returns [EObject current=null] : ( (lv_value_0_0= ruleNumber ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2300:1: ruleNumberLiteral returns [EObject current=null] : ( (lv_value_0_0= ruleNumber ) ) ;
     public final EObject ruleNumberLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6484,21 +6534,21 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2291:28: ( ( (lv_value_0_0= ruleNumber ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2292:1: ( (lv_value_0_0= ruleNumber ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2303:28: ( ( (lv_value_0_0= ruleNumber ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2304:1: ( (lv_value_0_0= ruleNumber ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2292:1: ( (lv_value_0_0= ruleNumber ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2293:1: (lv_value_0_0= ruleNumber )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2304:1: ( (lv_value_0_0= ruleNumber ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2305:1: (lv_value_0_0= ruleNumber )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2293:1: (lv_value_0_0= ruleNumber )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2294:3: lv_value_0_0= ruleNumber
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2305:1: (lv_value_0_0= ruleNumber )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2306:3: lv_value_0_0= ruleNumber
             {
             if ( state.backtracking==0 ) {
                
               	        newCompositeNode(grammarAccess.getNumberLiteralAccess().getValueNumberParserRuleCall_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleNumber_in_ruleNumberLiteral4977);
+            pushFollow(FOLLOW_ruleNumber_in_ruleNumberLiteral5001);
             lv_value_0_0=ruleNumber();
 
             state._fsp--;
@@ -6542,7 +6592,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNullLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2318:1: entryRuleNullLiteral returns [EObject current=null] : iv_ruleNullLiteral= ruleNullLiteral EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2330:1: entryRuleNullLiteral returns [EObject current=null] : iv_ruleNullLiteral= ruleNullLiteral EOF ;
     public final EObject entryRuleNullLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6550,13 +6600,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2319:2: (iv_ruleNullLiteral= ruleNullLiteral EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2320:2: iv_ruleNullLiteral= ruleNullLiteral EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2331:2: (iv_ruleNullLiteral= ruleNullLiteral EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2332:2: iv_ruleNullLiteral= ruleNullLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNullLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral5012);
+            pushFollow(FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral5036);
             iv_ruleNullLiteral=ruleNullLiteral();
 
             state._fsp--;
@@ -6564,7 +6614,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNullLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNullLiteral5022); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNullLiteral5046); if (state.failed) return current;
 
             }
 
@@ -6582,7 +6632,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNullLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2327:1: ruleNullLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_NULL ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2339:1: ruleNullLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_NULL ) ) ;
     public final EObject ruleNullLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6591,16 +6641,16 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2330:28: ( ( (lv_value_0_0= RULE_NULL ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2331:1: ( (lv_value_0_0= RULE_NULL ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2342:28: ( ( (lv_value_0_0= RULE_NULL ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2343:1: ( (lv_value_0_0= RULE_NULL ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2331:1: ( (lv_value_0_0= RULE_NULL ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2332:1: (lv_value_0_0= RULE_NULL )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2343:1: ( (lv_value_0_0= RULE_NULL ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2344:1: (lv_value_0_0= RULE_NULL )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2332:1: (lv_value_0_0= RULE_NULL )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2333:3: lv_value_0_0= RULE_NULL
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2344:1: (lv_value_0_0= RULE_NULL )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2345:3: lv_value_0_0= RULE_NULL
             {
-            lv_value_0_0=(Token)match(input,RULE_NULL,FOLLOW_RULE_NULL_in_ruleNullLiteral5063); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_NULL,FOLLOW_RULE_NULL_in_ruleNullLiteral5087); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getNullLiteralAccess().getValueNULLTerminalRuleCall_0()); 
@@ -6644,7 +6694,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2357:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2369:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6652,13 +6702,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2358:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2359:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2370:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2371:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5103);
+            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5127);
             iv_ruleStringLiteral=ruleStringLiteral();
 
             state._fsp--;
@@ -6666,7 +6716,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStringLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral5113); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral5137); if (state.failed) return current;
 
             }
 
@@ -6684,7 +6734,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2366:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2378:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6693,16 +6743,16 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2369:28: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2370:1: ( (lv_value_0_0= RULE_STRING ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2381:28: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2382:1: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2370:1: ( (lv_value_0_0= RULE_STRING ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2371:1: (lv_value_0_0= RULE_STRING )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2382:1: ( (lv_value_0_0= RULE_STRING ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2383:1: (lv_value_0_0= RULE_STRING )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2371:1: (lv_value_0_0= RULE_STRING )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2372:3: lv_value_0_0= RULE_STRING
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2383:1: (lv_value_0_0= RULE_STRING )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2384:3: lv_value_0_0= RULE_STRING
             {
-            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral5154); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral5178); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
@@ -6746,7 +6796,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnlimitedLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2396:1: entryRuleUnlimitedLiteral returns [EObject current=null] : iv_ruleUnlimitedLiteral= ruleUnlimitedLiteral EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2408:1: entryRuleUnlimitedLiteral returns [EObject current=null] : iv_ruleUnlimitedLiteral= ruleUnlimitedLiteral EOF ;
     public final EObject entryRuleUnlimitedLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6754,13 +6804,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2397:2: (iv_ruleUnlimitedLiteral= ruleUnlimitedLiteral EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2398:2: iv_ruleUnlimitedLiteral= ruleUnlimitedLiteral EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2409:2: (iv_ruleUnlimitedLiteral= ruleUnlimitedLiteral EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2410:2: iv_ruleUnlimitedLiteral= ruleUnlimitedLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getUnlimitedLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral5194);
+            pushFollow(FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral5218);
             iv_ruleUnlimitedLiteral=ruleUnlimitedLiteral();
 
             state._fsp--;
@@ -6768,7 +6818,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleUnlimitedLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnlimitedLiteral5204); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnlimitedLiteral5228); if (state.failed) return current;
 
             }
 
@@ -6786,7 +6836,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnlimitedLiteral"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2405:1: ruleUnlimitedLiteral returns [EObject current=null] : ( (lv_value_0_0= '*' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2417:1: ruleUnlimitedLiteral returns [EObject current=null] : ( (lv_value_0_0= '*' ) ) ;
     public final EObject ruleUnlimitedLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6795,16 +6845,16 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2408:28: ( ( (lv_value_0_0= '*' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2409:1: ( (lv_value_0_0= '*' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2420:28: ( ( (lv_value_0_0= '*' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2421:1: ( (lv_value_0_0= '*' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2409:1: ( (lv_value_0_0= '*' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2410:1: (lv_value_0_0= '*' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2421:1: ( (lv_value_0_0= '*' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2422:1: (lv_value_0_0= '*' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2410:1: (lv_value_0_0= '*' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2411:3: lv_value_0_0= '*'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2422:1: (lv_value_0_0= '*' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2423:3: lv_value_0_0= '*'
             {
-            lv_value_0_0=(Token)match(input,24,FOLLOW_24_in_ruleUnlimitedLiteral5246); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,25,FOLLOW_25_in_ruleUnlimitedLiteral5270); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       newLeafNode(lv_value_0_0, grammarAccess.getUnlimitedLiteralAccess().getValueAsteriskKeyword_0());
@@ -6844,7 +6894,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOrOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2432:1: entryRuleOrOperator returns [EObject current=null] : iv_ruleOrOperator= ruleOrOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2444:1: entryRuleOrOperator returns [EObject current=null] : iv_ruleOrOperator= ruleOrOperator EOF ;
     public final EObject entryRuleOrOperator() throws RecognitionException {
         EObject current = null;
 
@@ -6852,13 +6902,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2433:2: (iv_ruleOrOperator= ruleOrOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2434:2: iv_ruleOrOperator= ruleOrOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2445:2: (iv_ruleOrOperator= ruleOrOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2446:2: iv_ruleOrOperator= ruleOrOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getOrOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleOrOperator_in_entryRuleOrOperator5294);
+            pushFollow(FOLLOW_ruleOrOperator_in_entryRuleOrOperator5318);
             iv_ruleOrOperator=ruleOrOperator();
 
             state._fsp--;
@@ -6866,7 +6916,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleOrOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOrOperator5304); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOrOperator5328); if (state.failed) return current;
 
             }
 
@@ -6884,7 +6934,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOrOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2441:1: ruleOrOperator returns [EObject current=null] : ( () (otherlv_1= 'or' | otherlv_2= '||' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2453:1: ruleOrOperator returns [EObject current=null] : ( () (otherlv_1= 'or' | otherlv_2= '||' ) ) ;
     public final EObject ruleOrOperator() throws RecognitionException {
         EObject current = null;
 
@@ -6894,14 +6944,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2444:28: ( ( () (otherlv_1= 'or' | otherlv_2= '||' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2445:1: ( () (otherlv_1= 'or' | otherlv_2= '||' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2456:28: ( ( () (otherlv_1= 'or' | otherlv_2= '||' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2457:1: ( () (otherlv_1= 'or' | otherlv_2= '||' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2445:1: ( () (otherlv_1= 'or' | otherlv_2= '||' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2445:2: () (otherlv_1= 'or' | otherlv_2= '||' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2457:1: ( () (otherlv_1= 'or' | otherlv_2= '||' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2457:2: () (otherlv_1= 'or' | otherlv_2= '||' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2445:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2446:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2457:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2458:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -6913,28 +6963,28 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2451:2: (otherlv_1= 'or' | otherlv_2= '||' )
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2463:2: (otherlv_1= 'or' | otherlv_2= '||' )
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA26_0==25) ) {
-                alt26=1;
+            if ( (LA28_0==26) ) {
+                alt28=1;
             }
-            else if ( (LA26_0==26) ) {
-                alt26=2;
+            else if ( (LA28_0==27) ) {
+                alt28=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 26, 0, input);
+                    new NoViableAltException("", 28, 0, input);
 
                 throw nvae;
             }
-            switch (alt26) {
+            switch (alt28) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2451:4: otherlv_1= 'or'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2463:4: otherlv_1= 'or'
                     {
-                    otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleOrOperator5351); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,26,FOLLOW_26_in_ruleOrOperator5375); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getOrOperatorAccess().getOrKeyword_1_0());
@@ -6944,9 +6994,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2456:7: otherlv_2= '||'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2468:7: otherlv_2= '||'
                     {
-                    otherlv_2=(Token)match(input,26,FOLLOW_26_in_ruleOrOperator5369); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,27,FOLLOW_27_in_ruleOrOperator5393); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getOrOperatorAccess().getVerticalLineVerticalLineKeyword_1_1());
@@ -6981,7 +7031,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleXOrOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2468:1: entryRuleXOrOperator returns [EObject current=null] : iv_ruleXOrOperator= ruleXOrOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2480:1: entryRuleXOrOperator returns [EObject current=null] : iv_ruleXOrOperator= ruleXOrOperator EOF ;
     public final EObject entryRuleXOrOperator() throws RecognitionException {
         EObject current = null;
 
@@ -6989,13 +7039,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2469:2: (iv_ruleXOrOperator= ruleXOrOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2470:2: iv_ruleXOrOperator= ruleXOrOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2481:2: (iv_ruleXOrOperator= ruleXOrOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2482:2: iv_ruleXOrOperator= ruleXOrOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getXOrOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator5406);
+            pushFollow(FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator5430);
             iv_ruleXOrOperator=ruleXOrOperator();
 
             state._fsp--;
@@ -7003,7 +7053,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleXOrOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleXOrOperator5416); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleXOrOperator5440); if (state.failed) return current;
 
             }
 
@@ -7021,7 +7071,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleXOrOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2477:1: ruleXOrOperator returns [EObject current=null] : ( () (otherlv_1= 'xor' | otherlv_2= '^' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2489:1: ruleXOrOperator returns [EObject current=null] : ( () (otherlv_1= 'xor' | otherlv_2= '^' ) ) ;
     public final EObject ruleXOrOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7031,14 +7081,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2480:28: ( ( () (otherlv_1= 'xor' | otherlv_2= '^' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2481:1: ( () (otherlv_1= 'xor' | otherlv_2= '^' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2492:28: ( ( () (otherlv_1= 'xor' | otherlv_2= '^' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2493:1: ( () (otherlv_1= 'xor' | otherlv_2= '^' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2481:1: ( () (otherlv_1= 'xor' | otherlv_2= '^' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2481:2: () (otherlv_1= 'xor' | otherlv_2= '^' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2493:1: ( () (otherlv_1= 'xor' | otherlv_2= '^' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2493:2: () (otherlv_1= 'xor' | otherlv_2= '^' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2481:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2482:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2493:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2494:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7050,28 +7100,28 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2487:2: (otherlv_1= 'xor' | otherlv_2= '^' )
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2499:2: (otherlv_1= 'xor' | otherlv_2= '^' )
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA27_0==27) ) {
-                alt27=1;
+            if ( (LA29_0==28) ) {
+                alt29=1;
             }
-            else if ( (LA27_0==28) ) {
-                alt27=2;
+            else if ( (LA29_0==29) ) {
+                alt29=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 27, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
-            switch (alt27) {
+            switch (alt29) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2487:4: otherlv_1= 'xor'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2499:4: otherlv_1= 'xor'
                     {
-                    otherlv_1=(Token)match(input,27,FOLLOW_27_in_ruleXOrOperator5463); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,28,FOLLOW_28_in_ruleXOrOperator5487); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getXOrOperatorAccess().getXorKeyword_1_0());
@@ -7081,9 +7131,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2492:7: otherlv_2= '^'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2504:7: otherlv_2= '^'
                     {
-                    otherlv_2=(Token)match(input,28,FOLLOW_28_in_ruleXOrOperator5481); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,29,FOLLOW_29_in_ruleXOrOperator5505); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getXOrOperatorAccess().getCircumflexAccentKeyword_1_1());
@@ -7118,7 +7168,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAndOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2504:1: entryRuleAndOperator returns [EObject current=null] : iv_ruleAndOperator= ruleAndOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2516:1: entryRuleAndOperator returns [EObject current=null] : iv_ruleAndOperator= ruleAndOperator EOF ;
     public final EObject entryRuleAndOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7126,13 +7176,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2505:2: (iv_ruleAndOperator= ruleAndOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2506:2: iv_ruleAndOperator= ruleAndOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2517:2: (iv_ruleAndOperator= ruleAndOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2518:2: iv_ruleAndOperator= ruleAndOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAndOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAndOperator_in_entryRuleAndOperator5518);
+            pushFollow(FOLLOW_ruleAndOperator_in_entryRuleAndOperator5542);
             iv_ruleAndOperator=ruleAndOperator();
 
             state._fsp--;
@@ -7140,7 +7190,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAndOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAndOperator5528); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAndOperator5552); if (state.failed) return current;
 
             }
 
@@ -7158,7 +7208,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAndOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2513:1: ruleAndOperator returns [EObject current=null] : ( () (otherlv_1= 'and' | otherlv_2= '&&' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2525:1: ruleAndOperator returns [EObject current=null] : ( () (otherlv_1= 'and' | otherlv_2= '&&' ) ) ;
     public final EObject ruleAndOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7168,14 +7218,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2516:28: ( ( () (otherlv_1= 'and' | otherlv_2= '&&' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2517:1: ( () (otherlv_1= 'and' | otherlv_2= '&&' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2528:28: ( ( () (otherlv_1= 'and' | otherlv_2= '&&' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2529:1: ( () (otherlv_1= 'and' | otherlv_2= '&&' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2517:1: ( () (otherlv_1= 'and' | otherlv_2= '&&' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2517:2: () (otherlv_1= 'and' | otherlv_2= '&&' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2529:1: ( () (otherlv_1= 'and' | otherlv_2= '&&' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2529:2: () (otherlv_1= 'and' | otherlv_2= '&&' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2517:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2518:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2529:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2530:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7187,28 +7237,28 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2523:2: (otherlv_1= 'and' | otherlv_2= '&&' )
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2535:2: (otherlv_1= 'and' | otherlv_2= '&&' )
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA28_0==29) ) {
-                alt28=1;
+            if ( (LA30_0==30) ) {
+                alt30=1;
             }
-            else if ( (LA28_0==30) ) {
-                alt28=2;
+            else if ( (LA30_0==31) ) {
+                alt30=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 28, 0, input);
+                    new NoViableAltException("", 30, 0, input);
 
                 throw nvae;
             }
-            switch (alt28) {
+            switch (alt30) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2523:4: otherlv_1= 'and'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2535:4: otherlv_1= 'and'
                     {
-                    otherlv_1=(Token)match(input,29,FOLLOW_29_in_ruleAndOperator5575); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleAndOperator5599); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getAndOperatorAccess().getAndKeyword_1_0());
@@ -7218,9 +7268,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2528:7: otherlv_2= '&&'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2540:7: otherlv_2= '&&'
                     {
-                    otherlv_2=(Token)match(input,30,FOLLOW_30_in_ruleAndOperator5593); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,31,FOLLOW_31_in_ruleAndOperator5617); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getAndOperatorAccess().getAmpersandAmpersandKeyword_1_1());
@@ -7255,7 +7305,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleImplicationOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2540:1: entryRuleImplicationOperator returns [EObject current=null] : iv_ruleImplicationOperator= ruleImplicationOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2552:1: entryRuleImplicationOperator returns [EObject current=null] : iv_ruleImplicationOperator= ruleImplicationOperator EOF ;
     public final EObject entryRuleImplicationOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7263,13 +7313,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2541:2: (iv_ruleImplicationOperator= ruleImplicationOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2542:2: iv_ruleImplicationOperator= ruleImplicationOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2553:2: (iv_ruleImplicationOperator= ruleImplicationOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2554:2: iv_ruleImplicationOperator= ruleImplicationOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getImplicationOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator5630);
+            pushFollow(FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator5654);
             iv_ruleImplicationOperator=ruleImplicationOperator();
 
             state._fsp--;
@@ -7277,7 +7327,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleImplicationOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicationOperator5640); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImplicationOperator5664); if (state.failed) return current;
 
             }
 
@@ -7295,7 +7345,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImplicationOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2549:1: ruleImplicationOperator returns [EObject current=null] : ( () (otherlv_1= '=>' | otherlv_2= '->' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2561:1: ruleImplicationOperator returns [EObject current=null] : ( () (otherlv_1= '=>' | otherlv_2= '->' ) ) ;
     public final EObject ruleImplicationOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7305,14 +7355,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2552:28: ( ( () (otherlv_1= '=>' | otherlv_2= '->' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2553:1: ( () (otherlv_1= '=>' | otherlv_2= '->' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2564:28: ( ( () (otherlv_1= '=>' | otherlv_2= '->' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2565:1: ( () (otherlv_1= '=>' | otherlv_2= '->' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2553:1: ( () (otherlv_1= '=>' | otherlv_2= '->' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2553:2: () (otherlv_1= '=>' | otherlv_2= '->' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2565:1: ( () (otherlv_1= '=>' | otherlv_2= '->' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2565:2: () (otherlv_1= '=>' | otherlv_2= '->' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2553:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2554:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2565:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2566:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7324,28 +7374,28 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2559:2: (otherlv_1= '=>' | otherlv_2= '->' )
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2571:2: (otherlv_1= '=>' | otherlv_2= '->' )
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA29_0==31) ) {
-                alt29=1;
+            if ( (LA31_0==32) ) {
+                alt31=1;
             }
-            else if ( (LA29_0==32) ) {
-                alt29=2;
+            else if ( (LA31_0==33) ) {
+                alt31=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 29, 0, input);
+                    new NoViableAltException("", 31, 0, input);
 
                 throw nvae;
             }
-            switch (alt29) {
+            switch (alt31) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2559:4: otherlv_1= '=>'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2571:4: otherlv_1= '=>'
                     {
-                    otherlv_1=(Token)match(input,31,FOLLOW_31_in_ruleImplicationOperator5687); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,32,FOLLOW_32_in_ruleImplicationOperator5711); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getImplicationOperatorAccess().getEqualsSignGreaterThanSignKeyword_1_0());
@@ -7355,9 +7405,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2564:7: otherlv_2= '->'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2576:7: otherlv_2= '->'
                     {
-                    otherlv_2=(Token)match(input,32,FOLLOW_32_in_ruleImplicationOperator5705); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,33,FOLLOW_33_in_ruleImplicationOperator5729); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getImplicationOperatorAccess().getHyphenMinusGreaterThanSignKeyword_1_1());
@@ -7392,7 +7442,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEqualsOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2576:1: entryRuleEqualsOperator returns [EObject current=null] : iv_ruleEqualsOperator= ruleEqualsOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2588:1: entryRuleEqualsOperator returns [EObject current=null] : iv_ruleEqualsOperator= ruleEqualsOperator EOF ;
     public final EObject entryRuleEqualsOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7400,13 +7450,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2577:2: (iv_ruleEqualsOperator= ruleEqualsOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2578:2: iv_ruleEqualsOperator= ruleEqualsOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2589:2: (iv_ruleEqualsOperator= ruleEqualsOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2590:2: iv_ruleEqualsOperator= ruleEqualsOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getEqualsOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator5742);
+            pushFollow(FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator5766);
             iv_ruleEqualsOperator=ruleEqualsOperator();
 
             state._fsp--;
@@ -7414,7 +7464,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleEqualsOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEqualsOperator5752); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEqualsOperator5776); if (state.failed) return current;
 
             }
 
@@ -7432,7 +7482,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEqualsOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2585:1: ruleEqualsOperator returns [EObject current=null] : ( () otherlv_1= '==' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2597:1: ruleEqualsOperator returns [EObject current=null] : ( () otherlv_1= '==' ) ;
     public final EObject ruleEqualsOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7441,14 +7491,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2588:28: ( ( () otherlv_1= '==' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2589:1: ( () otherlv_1= '==' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2600:28: ( ( () otherlv_1= '==' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2601:1: ( () otherlv_1= '==' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2589:1: ( () otherlv_1= '==' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2589:2: () otherlv_1= '=='
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2601:1: ( () otherlv_1= '==' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2601:2: () otherlv_1= '=='
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2589:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2590:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2601:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2602:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7460,7 +7510,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,33,FOLLOW_33_in_ruleEqualsOperator5798); if (state.failed) return current;
+            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleEqualsOperator5822); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getEqualsOperatorAccess().getEqualsSignEqualsSignKeyword_1());
@@ -7489,7 +7539,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNotEqualsOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2607:1: entryRuleNotEqualsOperator returns [EObject current=null] : iv_ruleNotEqualsOperator= ruleNotEqualsOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2619:1: entryRuleNotEqualsOperator returns [EObject current=null] : iv_ruleNotEqualsOperator= ruleNotEqualsOperator EOF ;
     public final EObject entryRuleNotEqualsOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7497,13 +7547,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2608:2: (iv_ruleNotEqualsOperator= ruleNotEqualsOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2609:2: iv_ruleNotEqualsOperator= ruleNotEqualsOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2620:2: (iv_ruleNotEqualsOperator= ruleNotEqualsOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2621:2: iv_ruleNotEqualsOperator= ruleNotEqualsOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNotEqualsOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator5834);
+            pushFollow(FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator5858);
             iv_ruleNotEqualsOperator=ruleNotEqualsOperator();
 
             state._fsp--;
@@ -7511,7 +7561,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNotEqualsOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNotEqualsOperator5844); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNotEqualsOperator5868); if (state.failed) return current;
 
             }
 
@@ -7529,7 +7579,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNotEqualsOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2616:1: ruleNotEqualsOperator returns [EObject current=null] : ( () (otherlv_1= '!=' | otherlv_2= '<>' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2628:1: ruleNotEqualsOperator returns [EObject current=null] : ( () (otherlv_1= '!=' | otherlv_2= '<>' ) ) ;
     public final EObject ruleNotEqualsOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7539,14 +7589,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2619:28: ( ( () (otherlv_1= '!=' | otherlv_2= '<>' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2620:1: ( () (otherlv_1= '!=' | otherlv_2= '<>' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2631:28: ( ( () (otherlv_1= '!=' | otherlv_2= '<>' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2632:1: ( () (otherlv_1= '!=' | otherlv_2= '<>' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2620:1: ( () (otherlv_1= '!=' | otherlv_2= '<>' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2620:2: () (otherlv_1= '!=' | otherlv_2= '<>' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2632:1: ( () (otherlv_1= '!=' | otherlv_2= '<>' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2632:2: () (otherlv_1= '!=' | otherlv_2= '<>' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2620:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2621:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2632:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2633:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7558,28 +7608,28 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2626:2: (otherlv_1= '!=' | otherlv_2= '<>' )
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2638:2: (otherlv_1= '!=' | otherlv_2= '<>' )
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA30_0==34) ) {
-                alt30=1;
+            if ( (LA32_0==35) ) {
+                alt32=1;
             }
-            else if ( (LA30_0==35) ) {
-                alt30=2;
+            else if ( (LA32_0==36) ) {
+                alt32=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 30, 0, input);
+                    new NoViableAltException("", 32, 0, input);
 
                 throw nvae;
             }
-            switch (alt30) {
+            switch (alt32) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2626:4: otherlv_1= '!='
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2638:4: otherlv_1= '!='
                     {
-                    otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleNotEqualsOperator5891); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,35,FOLLOW_35_in_ruleNotEqualsOperator5915); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getNotEqualsOperatorAccess().getExclamationMarkEqualsSignKeyword_1_0());
@@ -7589,9 +7639,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2631:7: otherlv_2= '<>'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2643:7: otherlv_2= '<>'
                     {
-                    otherlv_2=(Token)match(input,35,FOLLOW_35_in_ruleNotEqualsOperator5909); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,36,FOLLOW_36_in_ruleNotEqualsOperator5933); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getNotEqualsOperatorAccess().getLessThanSignGreaterThanSignKeyword_1_1());
@@ -7626,7 +7676,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNotOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2643:1: entryRuleNotOperator returns [EObject current=null] : iv_ruleNotOperator= ruleNotOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2655:1: entryRuleNotOperator returns [EObject current=null] : iv_ruleNotOperator= ruleNotOperator EOF ;
     public final EObject entryRuleNotOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7634,13 +7684,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2644:2: (iv_ruleNotOperator= ruleNotOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2645:2: iv_ruleNotOperator= ruleNotOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2656:2: (iv_ruleNotOperator= ruleNotOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2657:2: iv_ruleNotOperator= ruleNotOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNotOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNotOperator_in_entryRuleNotOperator5946);
+            pushFollow(FOLLOW_ruleNotOperator_in_entryRuleNotOperator5970);
             iv_ruleNotOperator=ruleNotOperator();
 
             state._fsp--;
@@ -7648,7 +7698,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNotOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNotOperator5956); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNotOperator5980); if (state.failed) return current;
 
             }
 
@@ -7666,7 +7716,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNotOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2652:1: ruleNotOperator returns [EObject current=null] : ( () (otherlv_1= '!' | otherlv_2= 'not' ) ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2664:1: ruleNotOperator returns [EObject current=null] : ( () (otherlv_1= '!' | otherlv_2= 'not' ) ) ;
     public final EObject ruleNotOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7676,14 +7726,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2655:28: ( ( () (otherlv_1= '!' | otherlv_2= 'not' ) ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2656:1: ( () (otherlv_1= '!' | otherlv_2= 'not' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2667:28: ( ( () (otherlv_1= '!' | otherlv_2= 'not' ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2668:1: ( () (otherlv_1= '!' | otherlv_2= 'not' ) )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2656:1: ( () (otherlv_1= '!' | otherlv_2= 'not' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2656:2: () (otherlv_1= '!' | otherlv_2= 'not' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2668:1: ( () (otherlv_1= '!' | otherlv_2= 'not' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2668:2: () (otherlv_1= '!' | otherlv_2= 'not' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2656:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2657:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2668:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2669:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7695,28 +7745,28 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2662:2: (otherlv_1= '!' | otherlv_2= 'not' )
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2674:2: (otherlv_1= '!' | otherlv_2= 'not' )
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA31_0==36) ) {
-                alt31=1;
+            if ( (LA33_0==37) ) {
+                alt33=1;
             }
-            else if ( (LA31_0==37) ) {
-                alt31=2;
+            else if ( (LA33_0==38) ) {
+                alt33=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 31, 0, input);
+                    new NoViableAltException("", 33, 0, input);
 
                 throw nvae;
             }
-            switch (alt31) {
+            switch (alt33) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2662:4: otherlv_1= '!'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2674:4: otherlv_1= '!'
                     {
-                    otherlv_1=(Token)match(input,36,FOLLOW_36_in_ruleNotOperator6003); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,37,FOLLOW_37_in_ruleNotOperator6027); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getNotOperatorAccess().getExclamationMarkKeyword_1_0());
@@ -7726,9 +7776,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2667:7: otherlv_2= 'not'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2679:7: otherlv_2= 'not'
                     {
-                    otherlv_2=(Token)match(input,37,FOLLOW_37_in_ruleNotOperator6021); if (state.failed) return current;
+                    otherlv_2=(Token)match(input,38,FOLLOW_38_in_ruleNotOperator6045); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_2, grammarAccess.getNotOperatorAccess().getNotKeyword_1_1());
@@ -7763,7 +7813,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGreaterThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2679:1: entryRuleGreaterThanOperator returns [EObject current=null] : iv_ruleGreaterThanOperator= ruleGreaterThanOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2691:1: entryRuleGreaterThanOperator returns [EObject current=null] : iv_ruleGreaterThanOperator= ruleGreaterThanOperator EOF ;
     public final EObject entryRuleGreaterThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7771,13 +7821,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2680:2: (iv_ruleGreaterThanOperator= ruleGreaterThanOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2681:2: iv_ruleGreaterThanOperator= ruleGreaterThanOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2692:2: (iv_ruleGreaterThanOperator= ruleGreaterThanOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2693:2: iv_ruleGreaterThanOperator= ruleGreaterThanOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGreaterThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator6058);
+            pushFollow(FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator6082);
             iv_ruleGreaterThanOperator=ruleGreaterThanOperator();
 
             state._fsp--;
@@ -7785,7 +7835,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGreaterThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterThanOperator6068); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterThanOperator6092); if (state.failed) return current;
 
             }
 
@@ -7803,7 +7853,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGreaterThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2688:1: ruleGreaterThanOperator returns [EObject current=null] : ( () otherlv_1= '>' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2700:1: ruleGreaterThanOperator returns [EObject current=null] : ( () otherlv_1= '>' ) ;
     public final EObject ruleGreaterThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7812,14 +7862,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2691:28: ( ( () otherlv_1= '>' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2692:1: ( () otherlv_1= '>' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2703:28: ( ( () otherlv_1= '>' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2704:1: ( () otherlv_1= '>' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2692:1: ( () otherlv_1= '>' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2692:2: () otherlv_1= '>'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2704:1: ( () otherlv_1= '>' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2704:2: () otherlv_1= '>'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2692:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2693:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2704:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2705:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7831,7 +7881,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,38,FOLLOW_38_in_ruleGreaterThanOperator6114); if (state.failed) return current;
+            otherlv_1=(Token)match(input,39,FOLLOW_39_in_ruleGreaterThanOperator6138); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGreaterThanOperatorAccess().getGreaterThanSignKeyword_1());
@@ -7860,7 +7910,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGreaterOrEqualThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2710:1: entryRuleGreaterOrEqualThanOperator returns [EObject current=null] : iv_ruleGreaterOrEqualThanOperator= ruleGreaterOrEqualThanOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2722:1: entryRuleGreaterOrEqualThanOperator returns [EObject current=null] : iv_ruleGreaterOrEqualThanOperator= ruleGreaterOrEqualThanOperator EOF ;
     public final EObject entryRuleGreaterOrEqualThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7868,13 +7918,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2711:2: (iv_ruleGreaterOrEqualThanOperator= ruleGreaterOrEqualThanOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2712:2: iv_ruleGreaterOrEqualThanOperator= ruleGreaterOrEqualThanOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2723:2: (iv_ruleGreaterOrEqualThanOperator= ruleGreaterOrEqualThanOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2724:2: iv_ruleGreaterOrEqualThanOperator= ruleGreaterOrEqualThanOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getGreaterOrEqualThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator6150);
+            pushFollow(FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator6174);
             iv_ruleGreaterOrEqualThanOperator=ruleGreaterOrEqualThanOperator();
 
             state._fsp--;
@@ -7882,7 +7932,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleGreaterOrEqualThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator6160); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator6184); if (state.failed) return current;
 
             }
 
@@ -7900,7 +7950,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGreaterOrEqualThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2719:1: ruleGreaterOrEqualThanOperator returns [EObject current=null] : ( () otherlv_1= '>=' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2731:1: ruleGreaterOrEqualThanOperator returns [EObject current=null] : ( () otherlv_1= '>=' ) ;
     public final EObject ruleGreaterOrEqualThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7909,14 +7959,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2722:28: ( ( () otherlv_1= '>=' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2723:1: ( () otherlv_1= '>=' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2734:28: ( ( () otherlv_1= '>=' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2735:1: ( () otherlv_1= '>=' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2723:1: ( () otherlv_1= '>=' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2723:2: () otherlv_1= '>='
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2735:1: ( () otherlv_1= '>=' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2735:2: () otherlv_1= '>='
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2723:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2724:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2735:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2736:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -7928,7 +7978,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,39,FOLLOW_39_in_ruleGreaterOrEqualThanOperator6206); if (state.failed) return current;
+            otherlv_1=(Token)match(input,40,FOLLOW_40_in_ruleGreaterOrEqualThanOperator6230); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getGreaterOrEqualThanOperatorAccess().getGreaterThanSignEqualsSignKeyword_1());
@@ -7957,7 +8007,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLessThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2741:1: entryRuleLessThanOperator returns [EObject current=null] : iv_ruleLessThanOperator= ruleLessThanOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2753:1: entryRuleLessThanOperator returns [EObject current=null] : iv_ruleLessThanOperator= ruleLessThanOperator EOF ;
     public final EObject entryRuleLessThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -7965,13 +8015,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2742:2: (iv_ruleLessThanOperator= ruleLessThanOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2743:2: iv_ruleLessThanOperator= ruleLessThanOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2754:2: (iv_ruleLessThanOperator= ruleLessThanOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2755:2: iv_ruleLessThanOperator= ruleLessThanOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLessThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator6242);
+            pushFollow(FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator6266);
             iv_ruleLessThanOperator=ruleLessThanOperator();
 
             state._fsp--;
@@ -7979,7 +8029,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLessThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLessThanOperator6252); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLessThanOperator6276); if (state.failed) return current;
 
             }
 
@@ -7997,7 +8047,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLessThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2750:1: ruleLessThanOperator returns [EObject current=null] : ( () otherlv_1= '<' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2762:1: ruleLessThanOperator returns [EObject current=null] : ( () otherlv_1= '<' ) ;
     public final EObject ruleLessThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8006,14 +8056,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2753:28: ( ( () otherlv_1= '<' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2754:1: ( () otherlv_1= '<' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2765:28: ( ( () otherlv_1= '<' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2766:1: ( () otherlv_1= '<' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2754:1: ( () otherlv_1= '<' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2754:2: () otherlv_1= '<'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2766:1: ( () otherlv_1= '<' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2766:2: () otherlv_1= '<'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2754:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2755:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2766:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2767:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8025,7 +8075,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,40,FOLLOW_40_in_ruleLessThanOperator6298); if (state.failed) return current;
+            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleLessThanOperator6322); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getLessThanOperatorAccess().getLessThanSignKeyword_1());
@@ -8054,7 +8104,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLessOrEqualThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2772:1: entryRuleLessOrEqualThanOperator returns [EObject current=null] : iv_ruleLessOrEqualThanOperator= ruleLessOrEqualThanOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2784:1: entryRuleLessOrEqualThanOperator returns [EObject current=null] : iv_ruleLessOrEqualThanOperator= ruleLessOrEqualThanOperator EOF ;
     public final EObject entryRuleLessOrEqualThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8062,13 +8112,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2773:2: (iv_ruleLessOrEqualThanOperator= ruleLessOrEqualThanOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2774:2: iv_ruleLessOrEqualThanOperator= ruleLessOrEqualThanOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2785:2: (iv_ruleLessOrEqualThanOperator= ruleLessOrEqualThanOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2786:2: iv_ruleLessOrEqualThanOperator= ruleLessOrEqualThanOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLessOrEqualThanOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator6334);
+            pushFollow(FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator6358);
             iv_ruleLessOrEqualThanOperator=ruleLessOrEqualThanOperator();
 
             state._fsp--;
@@ -8076,7 +8126,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLessOrEqualThanOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator6344); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator6368); if (state.failed) return current;
 
             }
 
@@ -8094,7 +8144,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLessOrEqualThanOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2781:1: ruleLessOrEqualThanOperator returns [EObject current=null] : ( () otherlv_1= '<=' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2793:1: ruleLessOrEqualThanOperator returns [EObject current=null] : ( () otherlv_1= '<=' ) ;
     public final EObject ruleLessOrEqualThanOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8103,14 +8153,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2784:28: ( ( () otherlv_1= '<=' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2785:1: ( () otherlv_1= '<=' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2796:28: ( ( () otherlv_1= '<=' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2797:1: ( () otherlv_1= '<=' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2785:1: ( () otherlv_1= '<=' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2785:2: () otherlv_1= '<='
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2797:1: ( () otherlv_1= '<=' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2797:2: () otherlv_1= '<='
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2785:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2786:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2797:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2798:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8122,7 +8172,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleLessOrEqualThanOperator6390); if (state.failed) return current;
+            otherlv_1=(Token)match(input,42,FOLLOW_42_in_ruleLessOrEqualThanOperator6414); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getLessOrEqualThanOperatorAccess().getLessThanSignEqualsSignKeyword_1());
@@ -8151,7 +8201,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAdditionOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2803:1: entryRuleAdditionOperator returns [EObject current=null] : iv_ruleAdditionOperator= ruleAdditionOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2815:1: entryRuleAdditionOperator returns [EObject current=null] : iv_ruleAdditionOperator= ruleAdditionOperator EOF ;
     public final EObject entryRuleAdditionOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8159,13 +8209,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2804:2: (iv_ruleAdditionOperator= ruleAdditionOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2805:2: iv_ruleAdditionOperator= ruleAdditionOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2816:2: (iv_ruleAdditionOperator= ruleAdditionOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2817:2: iv_ruleAdditionOperator= ruleAdditionOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAdditionOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator6426);
+            pushFollow(FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator6450);
             iv_ruleAdditionOperator=ruleAdditionOperator();
 
             state._fsp--;
@@ -8173,7 +8223,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAdditionOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditionOperator6436); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAdditionOperator6460); if (state.failed) return current;
 
             }
 
@@ -8191,7 +8241,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAdditionOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2812:1: ruleAdditionOperator returns [EObject current=null] : ( () otherlv_1= '+' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2824:1: ruleAdditionOperator returns [EObject current=null] : ( () otherlv_1= '+' ) ;
     public final EObject ruleAdditionOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8200,14 +8250,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2815:28: ( ( () otherlv_1= '+' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2816:1: ( () otherlv_1= '+' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2827:28: ( ( () otherlv_1= '+' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2828:1: ( () otherlv_1= '+' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2816:1: ( () otherlv_1= '+' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2816:2: () otherlv_1= '+'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2828:1: ( () otherlv_1= '+' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2828:2: () otherlv_1= '+'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2816:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2817:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2828:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2829:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8219,7 +8269,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,42,FOLLOW_42_in_ruleAdditionOperator6482); if (state.failed) return current;
+            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleAdditionOperator6506); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAdditionOperatorAccess().getPlusSignKeyword_1());
@@ -8248,7 +8298,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSubstractionOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2834:1: entryRuleSubstractionOperator returns [EObject current=null] : iv_ruleSubstractionOperator= ruleSubstractionOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2846:1: entryRuleSubstractionOperator returns [EObject current=null] : iv_ruleSubstractionOperator= ruleSubstractionOperator EOF ;
     public final EObject entryRuleSubstractionOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8256,13 +8306,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2835:2: (iv_ruleSubstractionOperator= ruleSubstractionOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2836:2: iv_ruleSubstractionOperator= ruleSubstractionOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2847:2: (iv_ruleSubstractionOperator= ruleSubstractionOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2848:2: iv_ruleSubstractionOperator= ruleSubstractionOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSubstractionOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator6518);
+            pushFollow(FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator6542);
             iv_ruleSubstractionOperator=ruleSubstractionOperator();
 
             state._fsp--;
@@ -8270,7 +8320,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSubstractionOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSubstractionOperator6528); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSubstractionOperator6552); if (state.failed) return current;
 
             }
 
@@ -8288,7 +8338,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSubstractionOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2843:1: ruleSubstractionOperator returns [EObject current=null] : ( () otherlv_1= '-' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2855:1: ruleSubstractionOperator returns [EObject current=null] : ( () otherlv_1= '-' ) ;
     public final EObject ruleSubstractionOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8297,14 +8347,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2846:28: ( ( () otherlv_1= '-' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2847:1: ( () otherlv_1= '-' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2858:28: ( ( () otherlv_1= '-' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2859:1: ( () otherlv_1= '-' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2847:1: ( () otherlv_1= '-' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2847:2: () otherlv_1= '-'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2859:1: ( () otherlv_1= '-' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2859:2: () otherlv_1= '-'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2847:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2848:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2859:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2860:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8316,7 +8366,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FOLLOW_43_in_ruleSubstractionOperator6574); if (state.failed) return current;
+            otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleSubstractionOperator6598); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSubstractionOperatorAccess().getHyphenMinusKeyword_1());
@@ -8345,7 +8395,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMultiplicationOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2865:1: entryRuleMultiplicationOperator returns [EObject current=null] : iv_ruleMultiplicationOperator= ruleMultiplicationOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2877:1: entryRuleMultiplicationOperator returns [EObject current=null] : iv_ruleMultiplicationOperator= ruleMultiplicationOperator EOF ;
     public final EObject entryRuleMultiplicationOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8353,13 +8403,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2866:2: (iv_ruleMultiplicationOperator= ruleMultiplicationOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2867:2: iv_ruleMultiplicationOperator= ruleMultiplicationOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2878:2: (iv_ruleMultiplicationOperator= ruleMultiplicationOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2879:2: iv_ruleMultiplicationOperator= ruleMultiplicationOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMultiplicationOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator6610);
+            pushFollow(FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator6634);
             iv_ruleMultiplicationOperator=ruleMultiplicationOperator();
 
             state._fsp--;
@@ -8367,7 +8417,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMultiplicationOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicationOperator6620); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplicationOperator6644); if (state.failed) return current;
 
             }
 
@@ -8385,7 +8435,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultiplicationOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2874:1: ruleMultiplicationOperator returns [EObject current=null] : ( () otherlv_1= '*' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2886:1: ruleMultiplicationOperator returns [EObject current=null] : ( () otherlv_1= '*' ) ;
     public final EObject ruleMultiplicationOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8394,14 +8444,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2877:28: ( ( () otherlv_1= '*' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2878:1: ( () otherlv_1= '*' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2889:28: ( ( () otherlv_1= '*' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2890:1: ( () otherlv_1= '*' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2878:1: ( () otherlv_1= '*' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2878:2: () otherlv_1= '*'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2890:1: ( () otherlv_1= '*' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2890:2: () otherlv_1= '*'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2878:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2879:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2890:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2891:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8413,7 +8463,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,24,FOLLOW_24_in_ruleMultiplicationOperator6666); if (state.failed) return current;
+            otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleMultiplicationOperator6690); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMultiplicationOperatorAccess().getAsteriskKeyword_1());
@@ -8442,7 +8492,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDivisionOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2896:1: entryRuleDivisionOperator returns [EObject current=null] : iv_ruleDivisionOperator= ruleDivisionOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2908:1: entryRuleDivisionOperator returns [EObject current=null] : iv_ruleDivisionOperator= ruleDivisionOperator EOF ;
     public final EObject entryRuleDivisionOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8450,13 +8500,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2897:2: (iv_ruleDivisionOperator= ruleDivisionOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2898:2: iv_ruleDivisionOperator= ruleDivisionOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2909:2: (iv_ruleDivisionOperator= ruleDivisionOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2910:2: iv_ruleDivisionOperator= ruleDivisionOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getDivisionOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator6702);
+            pushFollow(FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator6726);
             iv_ruleDivisionOperator=ruleDivisionOperator();
 
             state._fsp--;
@@ -8464,7 +8514,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleDivisionOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDivisionOperator6712); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDivisionOperator6736); if (state.failed) return current;
 
             }
 
@@ -8482,7 +8532,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDivisionOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2905:1: ruleDivisionOperator returns [EObject current=null] : ( () otherlv_1= '/' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2917:1: ruleDivisionOperator returns [EObject current=null] : ( () otherlv_1= '/' ) ;
     public final EObject ruleDivisionOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8491,14 +8541,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2908:28: ( ( () otherlv_1= '/' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2909:1: ( () otherlv_1= '/' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2920:28: ( ( () otherlv_1= '/' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2921:1: ( () otherlv_1= '/' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2909:1: ( () otherlv_1= '/' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2909:2: () otherlv_1= '/'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2921:1: ( () otherlv_1= '/' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2921:2: () otherlv_1= '/'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2909:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2910:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2921:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2922:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8510,7 +8560,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,44,FOLLOW_44_in_ruleDivisionOperator6758); if (state.failed) return current;
+            otherlv_1=(Token)match(input,45,FOLLOW_45_in_ruleDivisionOperator6782); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getDivisionOperatorAccess().getSolidusKeyword_1());
@@ -8539,7 +8589,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleModulusOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2927:1: entryRuleModulusOperator returns [EObject current=null] : iv_ruleModulusOperator= ruleModulusOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2939:1: entryRuleModulusOperator returns [EObject current=null] : iv_ruleModulusOperator= ruleModulusOperator EOF ;
     public final EObject entryRuleModulusOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8547,13 +8597,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2928:2: (iv_ruleModulusOperator= ruleModulusOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2929:2: iv_ruleModulusOperator= ruleModulusOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2940:2: (iv_ruleModulusOperator= ruleModulusOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2941:2: iv_ruleModulusOperator= ruleModulusOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getModulusOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator6794);
+            pushFollow(FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator6818);
             iv_ruleModulusOperator=ruleModulusOperator();
 
             state._fsp--;
@@ -8561,7 +8611,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleModulusOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModulusOperator6804); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModulusOperator6828); if (state.failed) return current;
 
             }
 
@@ -8579,7 +8629,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModulusOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2936:1: ruleModulusOperator returns [EObject current=null] : ( () otherlv_1= '%' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2948:1: ruleModulusOperator returns [EObject current=null] : ( () otherlv_1= '%' ) ;
     public final EObject ruleModulusOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8588,14 +8638,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2939:28: ( ( () otherlv_1= '%' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2940:1: ( () otherlv_1= '%' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2951:28: ( ( () otherlv_1= '%' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2952:1: ( () otherlv_1= '%' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2940:1: ( () otherlv_1= '%' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2940:2: () otherlv_1= '%'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2952:1: ( () otherlv_1= '%' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2952:2: () otherlv_1= '%'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2940:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2941:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2952:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2953:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8607,7 +8657,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,45,FOLLOW_45_in_ruleModulusOperator6850); if (state.failed) return current;
+            otherlv_1=(Token)match(input,46,FOLLOW_46_in_ruleModulusOperator6874); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getModulusOperatorAccess().getPercentSignKeyword_1());
@@ -8636,7 +8686,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMaxOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2958:1: entryRuleMaxOperator returns [EObject current=null] : iv_ruleMaxOperator= ruleMaxOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2970:1: entryRuleMaxOperator returns [EObject current=null] : iv_ruleMaxOperator= ruleMaxOperator EOF ;
     public final EObject entryRuleMaxOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8644,13 +8694,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2959:2: (iv_ruleMaxOperator= ruleMaxOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2960:2: iv_ruleMaxOperator= ruleMaxOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2971:2: (iv_ruleMaxOperator= ruleMaxOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2972:2: iv_ruleMaxOperator= ruleMaxOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMaxOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator6886);
+            pushFollow(FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator6910);
             iv_ruleMaxOperator=ruleMaxOperator();
 
             state._fsp--;
@@ -8658,7 +8708,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMaxOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMaxOperator6896); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMaxOperator6920); if (state.failed) return current;
 
             }
 
@@ -8676,7 +8726,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMaxOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2967:1: ruleMaxOperator returns [EObject current=null] : ( () otherlv_1= 'max' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2979:1: ruleMaxOperator returns [EObject current=null] : ( () otherlv_1= 'max' ) ;
     public final EObject ruleMaxOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8685,14 +8735,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2970:28: ( ( () otherlv_1= 'max' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2971:1: ( () otherlv_1= 'max' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2982:28: ( ( () otherlv_1= 'max' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2983:1: ( () otherlv_1= 'max' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2971:1: ( () otherlv_1= 'max' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2971:2: () otherlv_1= 'max'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2983:1: ( () otherlv_1= 'max' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2983:2: () otherlv_1= 'max'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2971:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2972:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2983:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2984:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8704,7 +8754,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,46,FOLLOW_46_in_ruleMaxOperator6942); if (state.failed) return current;
+            otherlv_1=(Token)match(input,47,FOLLOW_47_in_ruleMaxOperator6966); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMaxOperatorAccess().getMaxKeyword_1());
@@ -8733,7 +8783,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMinOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2989:1: entryRuleMinOperator returns [EObject current=null] : iv_ruleMinOperator= ruleMinOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3001:1: entryRuleMinOperator returns [EObject current=null] : iv_ruleMinOperator= ruleMinOperator EOF ;
     public final EObject entryRuleMinOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8741,13 +8791,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2990:2: (iv_ruleMinOperator= ruleMinOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2991:2: iv_ruleMinOperator= ruleMinOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3002:2: (iv_ruleMinOperator= ruleMinOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3003:2: iv_ruleMinOperator= ruleMinOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMinOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleMinOperator_in_entryRuleMinOperator6978);
+            pushFollow(FOLLOW_ruleMinOperator_in_entryRuleMinOperator7002);
             iv_ruleMinOperator=ruleMinOperator();
 
             state._fsp--;
@@ -8755,7 +8805,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMinOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMinOperator6988); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMinOperator7012); if (state.failed) return current;
 
             }
 
@@ -8773,7 +8823,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMinOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:2998:1: ruleMinOperator returns [EObject current=null] : ( () otherlv_1= 'min' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3010:1: ruleMinOperator returns [EObject current=null] : ( () otherlv_1= 'min' ) ;
     public final EObject ruleMinOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8782,14 +8832,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3001:28: ( ( () otherlv_1= 'min' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3002:1: ( () otherlv_1= 'min' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3013:28: ( ( () otherlv_1= 'min' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3014:1: ( () otherlv_1= 'min' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3002:1: ( () otherlv_1= 'min' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3002:2: () otherlv_1= 'min'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3014:1: ( () otherlv_1= 'min' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3014:2: () otherlv_1= 'min'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3002:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3003:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3014:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3015:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8801,7 +8851,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,47,FOLLOW_47_in_ruleMinOperator7034); if (state.failed) return current;
+            otherlv_1=(Token)match(input,48,FOLLOW_48_in_ruleMinOperator7058); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMinOperatorAccess().getMinKeyword_1());
@@ -8830,7 +8880,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAvgOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3020:1: entryRuleAvgOperator returns [EObject current=null] : iv_ruleAvgOperator= ruleAvgOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3032:1: entryRuleAvgOperator returns [EObject current=null] : iv_ruleAvgOperator= ruleAvgOperator EOF ;
     public final EObject entryRuleAvgOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8838,13 +8888,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3021:2: (iv_ruleAvgOperator= ruleAvgOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3022:2: iv_ruleAvgOperator= ruleAvgOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3033:2: (iv_ruleAvgOperator= ruleAvgOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3034:2: iv_ruleAvgOperator= ruleAvgOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAvgOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator7070);
+            pushFollow(FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator7094);
             iv_ruleAvgOperator=ruleAvgOperator();
 
             state._fsp--;
@@ -8852,7 +8902,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAvgOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAvgOperator7080); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAvgOperator7104); if (state.failed) return current;
 
             }
 
@@ -8870,7 +8920,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAvgOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3029:1: ruleAvgOperator returns [EObject current=null] : ( () otherlv_1= 'avg' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3041:1: ruleAvgOperator returns [EObject current=null] : ( () otherlv_1= 'avg' ) ;
     public final EObject ruleAvgOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8879,14 +8929,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3032:28: ( ( () otherlv_1= 'avg' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3033:1: ( () otherlv_1= 'avg' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3044:28: ( ( () otherlv_1= 'avg' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3045:1: ( () otherlv_1= 'avg' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3033:1: ( () otherlv_1= 'avg' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3033:2: () otherlv_1= 'avg'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3045:1: ( () otherlv_1= 'avg' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3045:2: () otherlv_1= 'avg'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3033:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3034:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3045:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3046:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8898,7 +8948,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,48,FOLLOW_48_in_ruleAvgOperator7126); if (state.failed) return current;
+            otherlv_1=(Token)match(input,49,FOLLOW_49_in_ruleAvgOperator7150); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAvgOperatorAccess().getAvgKeyword_1());
@@ -8927,7 +8977,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSumOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3051:1: entryRuleSumOperator returns [EObject current=null] : iv_ruleSumOperator= ruleSumOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3063:1: entryRuleSumOperator returns [EObject current=null] : iv_ruleSumOperator= ruleSumOperator EOF ;
     public final EObject entryRuleSumOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8935,13 +8985,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3052:2: (iv_ruleSumOperator= ruleSumOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3053:2: iv_ruleSumOperator= ruleSumOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3064:2: (iv_ruleSumOperator= ruleSumOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3065:2: iv_ruleSumOperator= ruleSumOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getSumOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleSumOperator_in_entryRuleSumOperator7162);
+            pushFollow(FOLLOW_ruleSumOperator_in_entryRuleSumOperator7186);
             iv_ruleSumOperator=ruleSumOperator();
 
             state._fsp--;
@@ -8949,7 +8999,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleSumOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSumOperator7172); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSumOperator7196); if (state.failed) return current;
 
             }
 
@@ -8967,7 +9017,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSumOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3060:1: ruleSumOperator returns [EObject current=null] : ( () otherlv_1= 'sum' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3072:1: ruleSumOperator returns [EObject current=null] : ( () otherlv_1= 'sum' ) ;
     public final EObject ruleSumOperator() throws RecognitionException {
         EObject current = null;
 
@@ -8976,14 +9026,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3063:28: ( ( () otherlv_1= 'sum' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3064:1: ( () otherlv_1= 'sum' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3075:28: ( ( () otherlv_1= 'sum' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3076:1: ( () otherlv_1= 'sum' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3064:1: ( () otherlv_1= 'sum' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3064:2: () otherlv_1= 'sum'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3076:1: ( () otherlv_1= 'sum' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3076:2: () otherlv_1= 'sum'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3064:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3065:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3076:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3077:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -8995,7 +9045,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,49,FOLLOW_49_in_ruleSumOperator7218); if (state.failed) return current;
+            otherlv_1=(Token)match(input,50,FOLLOW_50_in_ruleSumOperator7242); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getSumOperatorAccess().getSumKeyword_1());
@@ -9024,7 +9074,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExponentialOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3082:1: entryRuleExponentialOperator returns [EObject current=null] : iv_ruleExponentialOperator= ruleExponentialOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3094:1: entryRuleExponentialOperator returns [EObject current=null] : iv_ruleExponentialOperator= ruleExponentialOperator EOF ;
     public final EObject entryRuleExponentialOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9032,13 +9082,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3083:2: (iv_ruleExponentialOperator= ruleExponentialOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3084:2: iv_ruleExponentialOperator= ruleExponentialOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3095:2: (iv_ruleExponentialOperator= ruleExponentialOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3096:2: iv_ruleExponentialOperator= ruleExponentialOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExponentialOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator7254);
+            pushFollow(FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator7278);
             iv_ruleExponentialOperator=ruleExponentialOperator();
 
             state._fsp--;
@@ -9046,7 +9096,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExponentialOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExponentialOperator7264); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExponentialOperator7288); if (state.failed) return current;
 
             }
 
@@ -9064,7 +9114,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExponentialOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3091:1: ruleExponentialOperator returns [EObject current=null] : ( () otherlv_1= 'exp' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3103:1: ruleExponentialOperator returns [EObject current=null] : ( () otherlv_1= 'exp' ) ;
     public final EObject ruleExponentialOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9073,14 +9123,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3094:28: ( ( () otherlv_1= 'exp' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3095:1: ( () otherlv_1= 'exp' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3106:28: ( ( () otherlv_1= 'exp' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3107:1: ( () otherlv_1= 'exp' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3095:1: ( () otherlv_1= 'exp' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3095:2: () otherlv_1= 'exp'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3107:1: ( () otherlv_1= 'exp' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3107:2: () otherlv_1= 'exp'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3095:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3096:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3107:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3108:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -9092,7 +9142,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,50,FOLLOW_50_in_ruleExponentialOperator7310); if (state.failed) return current;
+            otherlv_1=(Token)match(input,51,FOLLOW_51_in_ruleExponentialOperator7334); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getExponentialOperatorAccess().getExpKeyword_1());
@@ -9121,7 +9171,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAbsoluteOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3113:1: entryRuleAbsoluteOperator returns [EObject current=null] : iv_ruleAbsoluteOperator= ruleAbsoluteOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3125:1: entryRuleAbsoluteOperator returns [EObject current=null] : iv_ruleAbsoluteOperator= ruleAbsoluteOperator EOF ;
     public final EObject entryRuleAbsoluteOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9129,13 +9179,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3114:2: (iv_ruleAbsoluteOperator= ruleAbsoluteOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3115:2: iv_ruleAbsoluteOperator= ruleAbsoluteOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3126:2: (iv_ruleAbsoluteOperator= ruleAbsoluteOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3127:2: iv_ruleAbsoluteOperator= ruleAbsoluteOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAbsoluteOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator7346);
+            pushFollow(FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator7370);
             iv_ruleAbsoluteOperator=ruleAbsoluteOperator();
 
             state._fsp--;
@@ -9143,7 +9193,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAbsoluteOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteOperator7356); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteOperator7380); if (state.failed) return current;
 
             }
 
@@ -9161,7 +9211,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAbsoluteOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3122:1: ruleAbsoluteOperator returns [EObject current=null] : ( () otherlv_1= 'abs' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3134:1: ruleAbsoluteOperator returns [EObject current=null] : ( () otherlv_1= 'abs' ) ;
     public final EObject ruleAbsoluteOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9170,14 +9220,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3125:28: ( ( () otherlv_1= 'abs' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3126:1: ( () otherlv_1= 'abs' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3137:28: ( ( () otherlv_1= 'abs' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3138:1: ( () otherlv_1= 'abs' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3126:1: ( () otherlv_1= 'abs' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3126:2: () otherlv_1= 'abs'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3138:1: ( () otherlv_1= 'abs' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3138:2: () otherlv_1= 'abs'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3126:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3127:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3138:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3139:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -9189,7 +9239,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,51,FOLLOW_51_in_ruleAbsoluteOperator7402); if (state.failed) return current;
+            otherlv_1=(Token)match(input,52,FOLLOW_52_in_ruleAbsoluteOperator7426); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getAbsoluteOperatorAccess().getAbsKeyword_1());
@@ -9218,7 +9268,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNaturalLogarithmOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3144:1: entryRuleNaturalLogarithmOperator returns [EObject current=null] : iv_ruleNaturalLogarithmOperator= ruleNaturalLogarithmOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3156:1: entryRuleNaturalLogarithmOperator returns [EObject current=null] : iv_ruleNaturalLogarithmOperator= ruleNaturalLogarithmOperator EOF ;
     public final EObject entryRuleNaturalLogarithmOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9226,13 +9276,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3145:2: (iv_ruleNaturalLogarithmOperator= ruleNaturalLogarithmOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3146:2: iv_ruleNaturalLogarithmOperator= ruleNaturalLogarithmOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3157:2: (iv_ruleNaturalLogarithmOperator= ruleNaturalLogarithmOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3158:2: iv_ruleNaturalLogarithmOperator= ruleNaturalLogarithmOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNaturalLogarithmOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator7438);
+            pushFollow(FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator7462);
             iv_ruleNaturalLogarithmOperator=ruleNaturalLogarithmOperator();
 
             state._fsp--;
@@ -9240,7 +9290,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNaturalLogarithmOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator7448); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator7472); if (state.failed) return current;
 
             }
 
@@ -9258,7 +9308,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNaturalLogarithmOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3153:1: ruleNaturalLogarithmOperator returns [EObject current=null] : ( () otherlv_1= 'ln' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3165:1: ruleNaturalLogarithmOperator returns [EObject current=null] : ( () otherlv_1= 'ln' ) ;
     public final EObject ruleNaturalLogarithmOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9267,14 +9317,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3156:28: ( ( () otherlv_1= 'ln' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3157:1: ( () otherlv_1= 'ln' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3168:28: ( ( () otherlv_1= 'ln' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3169:1: ( () otherlv_1= 'ln' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3157:1: ( () otherlv_1= 'ln' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3157:2: () otherlv_1= 'ln'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3169:1: ( () otherlv_1= 'ln' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3169:2: () otherlv_1= 'ln'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3157:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3158:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3169:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3170:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -9286,7 +9336,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,52,FOLLOW_52_in_ruleNaturalLogarithmOperator7494); if (state.failed) return current;
+            otherlv_1=(Token)match(input,53,FOLLOW_53_in_ruleNaturalLogarithmOperator7518); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getNaturalLogarithmOperatorAccess().getLnKeyword_1());
@@ -9315,7 +9365,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCommonLogarithmOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3175:1: entryRuleCommonLogarithmOperator returns [EObject current=null] : iv_ruleCommonLogarithmOperator= ruleCommonLogarithmOperator EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3187:1: entryRuleCommonLogarithmOperator returns [EObject current=null] : iv_ruleCommonLogarithmOperator= ruleCommonLogarithmOperator EOF ;
     public final EObject entryRuleCommonLogarithmOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9323,13 +9373,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3176:2: (iv_ruleCommonLogarithmOperator= ruleCommonLogarithmOperator EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3177:2: iv_ruleCommonLogarithmOperator= ruleCommonLogarithmOperator EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3188:2: (iv_ruleCommonLogarithmOperator= ruleCommonLogarithmOperator EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3189:2: iv_ruleCommonLogarithmOperator= ruleCommonLogarithmOperator EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getCommonLogarithmOperatorRule()); 
             }
-            pushFollow(FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator7530);
+            pushFollow(FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator7554);
             iv_ruleCommonLogarithmOperator=ruleCommonLogarithmOperator();
 
             state._fsp--;
@@ -9337,7 +9387,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleCommonLogarithmOperator; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonLogarithmOperator7540); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCommonLogarithmOperator7564); if (state.failed) return current;
 
             }
 
@@ -9355,7 +9405,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommonLogarithmOperator"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3184:1: ruleCommonLogarithmOperator returns [EObject current=null] : ( () otherlv_1= 'log' ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3196:1: ruleCommonLogarithmOperator returns [EObject current=null] : ( () otherlv_1= 'log' ) ;
     public final EObject ruleCommonLogarithmOperator() throws RecognitionException {
         EObject current = null;
 
@@ -9364,14 +9414,14 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3187:28: ( ( () otherlv_1= 'log' ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3188:1: ( () otherlv_1= 'log' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3199:28: ( ( () otherlv_1= 'log' ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3200:1: ( () otherlv_1= 'log' )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3188:1: ( () otherlv_1= 'log' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3188:2: () otherlv_1= 'log'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3200:1: ( () otherlv_1= 'log' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3200:2: () otherlv_1= 'log'
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3188:2: ()
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3189:5: 
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3200:2: ()
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3201:5: 
             {
             if ( state.backtracking==0 ) {
 
@@ -9383,7 +9433,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,53,FOLLOW_53_in_ruleCommonLogarithmOperator7586); if (state.failed) return current;
+            otherlv_1=(Token)match(input,54,FOLLOW_54_in_ruleCommonLogarithmOperator7610); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getCommonLogarithmOperatorAccess().getLogKeyword_1());
@@ -9412,7 +9462,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLeftParenthesis"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3206:1: entryRuleLeftParenthesis returns [String current=null] : iv_ruleLeftParenthesis= ruleLeftParenthesis EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3218:1: entryRuleLeftParenthesis returns [String current=null] : iv_ruleLeftParenthesis= ruleLeftParenthesis EOF ;
     public final String entryRuleLeftParenthesis() throws RecognitionException {
         String current = null;
 
@@ -9420,13 +9470,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3207:2: (iv_ruleLeftParenthesis= ruleLeftParenthesis EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3208:2: iv_ruleLeftParenthesis= ruleLeftParenthesis EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3219:2: (iv_ruleLeftParenthesis= ruleLeftParenthesis EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3220:2: iv_ruleLeftParenthesis= ruleLeftParenthesis EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLeftParenthesisRule()); 
             }
-            pushFollow(FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis7623);
+            pushFollow(FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis7647);
             iv_ruleLeftParenthesis=ruleLeftParenthesis();
 
             state._fsp--;
@@ -9434,7 +9484,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLeftParenthesis.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftParenthesis7634); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLeftParenthesis7658); if (state.failed) return current;
 
             }
 
@@ -9452,7 +9502,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLeftParenthesis"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3215:1: ruleLeftParenthesis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '(' ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3227:1: ruleLeftParenthesis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '(' ;
     public final AntlrDatatypeRuleToken ruleLeftParenthesis() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9461,10 +9511,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3218:28: (kw= '(' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3220:2: kw= '('
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3230:28: (kw= '(' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3232:2: kw= '('
             {
-            kw=(Token)match(input,16,FOLLOW_16_in_ruleLeftParenthesis7671); if (state.failed) return current;
+            kw=(Token)match(input,17,FOLLOW_17_in_ruleLeftParenthesis7695); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -9491,7 +9541,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRightParenthesis"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3233:1: entryRuleRightParenthesis returns [String current=null] : iv_ruleRightParenthesis= ruleRightParenthesis EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3245:1: entryRuleRightParenthesis returns [String current=null] : iv_ruleRightParenthesis= ruleRightParenthesis EOF ;
     public final String entryRuleRightParenthesis() throws RecognitionException {
         String current = null;
 
@@ -9499,13 +9549,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3234:2: (iv_ruleRightParenthesis= ruleRightParenthesis EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3235:2: iv_ruleRightParenthesis= ruleRightParenthesis EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3246:2: (iv_ruleRightParenthesis= ruleRightParenthesis EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3247:2: iv_ruleRightParenthesis= ruleRightParenthesis EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getRightParenthesisRule()); 
             }
-            pushFollow(FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis7711);
+            pushFollow(FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis7735);
             iv_ruleRightParenthesis=ruleRightParenthesis();
 
             state._fsp--;
@@ -9513,7 +9563,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleRightParenthesis.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRightParenthesis7722); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRightParenthesis7746); if (state.failed) return current;
 
             }
 
@@ -9531,7 +9581,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRightParenthesis"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3242:1: ruleRightParenthesis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= ')' ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3254:1: ruleRightParenthesis returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= ')' ;
     public final AntlrDatatypeRuleToken ruleRightParenthesis() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9540,10 +9590,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3245:28: (kw= ')' )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3247:2: kw= ')'
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3257:28: (kw= ')' )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3259:2: kw= ')'
             {
-            kw=(Token)match(input,18,FOLLOW_18_in_ruleRightParenthesis7759); if (state.failed) return current;
+            kw=(Token)match(input,19,FOLLOW_19_in_ruleRightParenthesis7783); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                       current.merge(kw);
@@ -9570,7 +9620,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3260:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3272:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -9578,13 +9628,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3261:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3262:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3273:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3274:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7799);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7823);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
@@ -9592,7 +9642,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName7810); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName7834); if (state.failed) return current;
 
             }
 
@@ -9610,7 +9660,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3269:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3281:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9621,13 +9671,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3272:28: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3273:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3284:28: ( (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3285:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3273:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3273:6: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3285:1: (this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )* )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3285:6: this_ID_0= RULE_ID ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7850); if (state.failed) return current;
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7874); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -9638,25 +9688,25 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                   newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
                   
             }
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3280:1: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
-            loop32:
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3292:1: ( ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID )*
+            loop34:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA32_0==54) && (synpred1_InternalARTISTCommon())) {
-                    alt32=1;
+                if ( (LA34_0==55) && (synpred1_InternalARTISTCommon())) {
+                    alt34=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt34) {
             	case 1 :
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3280:2: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
+            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3292:2: ( ( '.' )=>kw= '.' ) this_ID_2= RULE_ID
             	    {
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3280:2: ( ( '.' )=>kw= '.' )
-            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3280:3: ( '.' )=>kw= '.'
+            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3292:2: ( ( '.' )=>kw= '.' )
+            	    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3292:3: ( '.' )=>kw= '.'
             	    {
-            	    kw=(Token)match(input,54,FOLLOW_54_in_ruleQualifiedName7878); if (state.failed) return current;
+            	    kw=(Token)match(input,55,FOLLOW_55_in_ruleQualifiedName7902); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
@@ -9666,7 +9716,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7894); if (state.failed) return current;
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7918); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_ID_2);
@@ -9682,7 +9732,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop34;
                 }
             } while (true);
 
@@ -9709,7 +9759,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualifiedNameWithWildcard"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3303:1: entryRuleQualifiedNameWithWildcard returns [String current=null] : iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3319:1: entryRuleQualifiedNameWithWildcard returns [String current=null] : iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF ;
     public final String entryRuleQualifiedNameWithWildcard() throws RecognitionException {
         String current = null;
 
@@ -9717,13 +9767,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3304:2: (iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3305:2: iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3320:2: (iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3321:2: iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getQualifiedNameWithWildcardRule()); 
             }
-            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard7942);
+            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard7970);
             iv_ruleQualifiedNameWithWildcard=ruleQualifiedNameWithWildcard();
 
             state._fsp--;
@@ -9731,7 +9781,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleQualifiedNameWithWildcard.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard7953); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard7981); if (state.failed) return current;
 
             }
 
@@ -9749,7 +9799,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedNameWithWildcard"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3312:1: ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3328:1: ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedNameWithWildcard() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9760,18 +9810,18 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3315:28: ( (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3316:1: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3331:28: ( (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3332:1: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3316:1: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3317:5: this_QualifiedName_0= ruleQualifiedName (kw= '.*' )?
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3332:1: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3333:5: this_QualifiedName_0= ruleQualifiedName (kw= '.*' )?
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard8000);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard8028);
             this_QualifiedName_0=ruleQualifiedName();
 
             state._fsp--;
@@ -9786,18 +9836,18 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3327:1: (kw= '.*' )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3343:1: (kw= '.*' )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA33_0==55) ) {
-                alt33=1;
+            if ( (LA35_0==56) ) {
+                alt35=1;
             }
-            switch (alt33) {
+            switch (alt35) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3328:2: kw= '.*'
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3344:2: kw= '.*'
                     {
-                    kw=(Token)match(input,55,FOLLOW_55_in_ruleQualifiedNameWithWildcard8019); if (state.failed) return current;
+                    kw=(Token)match(input,56,FOLLOW_56_in_ruleQualifiedNameWithWildcard8047); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current.merge(kw);
@@ -9832,8 +9882,129 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleQualifiedNameWithWildcard"
 
 
+    // $ANTLR start "entryRuleImportNamespace"
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3361:1: entryRuleImportNamespace returns [EObject current=null] : iv_ruleImportNamespace= ruleImportNamespace EOF ;
+    public final EObject entryRuleImportNamespace() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleImportNamespace = null;
+
+
+        try {
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3362:2: (iv_ruleImportNamespace= ruleImportNamespace EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3363:2: iv_ruleImportNamespace= ruleImportNamespace EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getImportNamespaceRule()); 
+            }
+            pushFollow(FOLLOW_ruleImportNamespace_in_entryRuleImportNamespace8093);
+            iv_ruleImportNamespace=ruleImportNamespace();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleImportNamespace; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleImportNamespace8103); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleImportNamespace"
+
+
+    // $ANTLR start "ruleImportNamespace"
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3370:1: ruleImportNamespace returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) ) ;
+    public final EObject ruleImportNamespace() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        AntlrDatatypeRuleToken lv_importedNamespace_1_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3373:28: ( (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3374:1: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
+            {
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3374:1: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3374:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
+            {
+            otherlv_0=(Token)match(input,57,FOLLOW_57_in_ruleImportNamespace8140); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_0, grammarAccess.getImportNamespaceAccess().getImportKeyword_0());
+                  
+            }
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3378:1: ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3379:1: (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard )
+            {
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3379:1: (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3380:3: lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getImportNamespaceAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleQualifiedNameWithWildcard_in_ruleImportNamespace8161);
+            lv_importedNamespace_1_0=ruleQualifiedNameWithWildcard();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getImportNamespaceRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"importedNamespace",
+                      		lv_importedNamespace_1_0, 
+                      		"QualifiedNameWithWildcard");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleImportNamespace"
+
+
     // $ANTLR start "entryRuleNumber"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3347:1: entryRuleNumber returns [String current=null] : iv_ruleNumber= ruleNumber EOF ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3404:1: entryRuleNumber returns [String current=null] : iv_ruleNumber= ruleNumber EOF ;
     public final String entryRuleNumber() throws RecognitionException {
         String current = null;
 
@@ -9841,13 +10012,13 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3348:2: (iv_ruleNumber= ruleNumber EOF )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3349:2: iv_ruleNumber= ruleNumber EOF
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3405:2: (iv_ruleNumber= ruleNumber EOF )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3406:2: iv_ruleNumber= ruleNumber EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNumberRule()); 
             }
-            pushFollow(FOLLOW_ruleNumber_in_entryRuleNumber8068);
+            pushFollow(FOLLOW_ruleNumber_in_entryRuleNumber8198);
             iv_ruleNumber=ruleNumber();
 
             state._fsp--;
@@ -9855,7 +10026,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNumber.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumber8079); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumber8209); if (state.failed) return current;
 
             }
 
@@ -9873,7 +10044,7 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumber"
-    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3356:1: ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL ) ;
+    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3413:1: ruleNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL ) ;
     public final AntlrDatatypeRuleToken ruleNumber() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9885,45 +10056,45 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3359:28: ( (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL ) )
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3360:1: (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3416:28: ( (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL ) )
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3417:1: (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL )
             {
-            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3360:1: (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL )
-            int alt34=4;
+            // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3417:1: (this_INT_0= RULE_INT | this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL | this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL | this_EBIGDECIMAL_3= RULE_EBIGDECIMAL )
+            int alt36=4;
             switch ( input.LA(1) ) {
             case RULE_INT:
                 {
-                alt34=1;
+                alt36=1;
                 }
                 break;
             case RULE_POSITIVE_SMALL_DECIMAL:
                 {
-                alt34=2;
+                alt36=2;
                 }
                 break;
             case RULE_SMALL_DECIMAL:
                 {
-                alt34=3;
+                alt36=3;
                 }
                 break;
             case RULE_EBIGDECIMAL:
                 {
-                alt34=4;
+                alt36=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 34, 0, input);
+                    new NoViableAltException("", 36, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt34) {
+            switch (alt36) {
                 case 1 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3360:6: this_INT_0= RULE_INT
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3417:6: this_INT_0= RULE_INT
                     {
-                    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleNumber8119); if (state.failed) return current;
+                    this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleNumber8249); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_INT_0);
@@ -9938,9 +10109,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3368:10: this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3425:10: this_POSITIVE_SMALL_DECIMAL_1= RULE_POSITIVE_SMALL_DECIMAL
                     {
-                    this_POSITIVE_SMALL_DECIMAL_1=(Token)match(input,RULE_POSITIVE_SMALL_DECIMAL,FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber8145); if (state.failed) return current;
+                    this_POSITIVE_SMALL_DECIMAL_1=(Token)match(input,RULE_POSITIVE_SMALL_DECIMAL,FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber8275); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_POSITIVE_SMALL_DECIMAL_1);
@@ -9955,9 +10126,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3376:10: this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3433:10: this_SMALL_DECIMAL_2= RULE_SMALL_DECIMAL
                     {
-                    this_SMALL_DECIMAL_2=(Token)match(input,RULE_SMALL_DECIMAL,FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber8171); if (state.failed) return current;
+                    this_SMALL_DECIMAL_2=(Token)match(input,RULE_SMALL_DECIMAL,FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber8301); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_SMALL_DECIMAL_2);
@@ -9972,9 +10143,9 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3384:10: this_EBIGDECIMAL_3= RULE_EBIGDECIMAL
+                    // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3441:10: this_EBIGDECIMAL_3= RULE_EBIGDECIMAL
                     {
-                    this_EBIGDECIMAL_3=(Token)match(input,RULE_EBIGDECIMAL,FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber8197); if (state.failed) return current;
+                    this_EBIGDECIMAL_3=(Token)match(input,RULE_EBIGDECIMAL,FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber8327); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       		current.merge(this_EBIGDECIMAL_3);
@@ -10011,10 +10182,10 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred1_InternalARTISTCommon
     public final void synpred1_InternalARTISTCommon_fragment() throws RecognitionException {   
-        // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3280:3: ( '.' )
-        // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3281:2: '.'
+        // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3292:3: ( '.' )
+        // ../eu.artist.postmigration.nfrvt.lang.common/src-gen/eu/artist/postmigration/nfrvt/lang/common/parser/antlr/internal/InternalARTISTCommon.g:3293:2: '.'
         {
-        match(input,54,FOLLOW_54_in_synpred1_InternalARTISTCommon7869); if (state.failed) return ;
+        match(input,55,FOLLOW_55_in_synpred1_InternalARTISTCommon7893); if (state.failed) return ;
 
         }
     }
@@ -10045,15 +10216,15 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     static final String DFA10_eofS =
         "\2\uffff\1\11\7\uffff\1\11";
     static final String DFA10_minS =
-        "\1\5\1\uffff\1\22\4\uffff\1\7\2\uffff\1\22";
+        "\1\5\1\uffff\1\23\4\uffff\1\7\2\uffff\1\23";
     static final String DFA10_maxS =
-        "\1\65\1\uffff\1\66\4\uffff\1\7\2\uffff\1\66";
+        "\1\66\1\uffff\1\67\4\uffff\1\7\2\uffff\1\67";
     static final String DFA10_acceptS =
         "\1\uffff\1\1\1\uffff\1\4\1\5\1\6\1\7\1\uffff\1\3\1\2\1\uffff";
     static final String DFA10_specialS =
         "\13\uffff}>";
     static final String[] DFA10_transitionS = {
-            "\1\3\1\4\1\2\4\1\4\uffff\1\6\7\uffff\1\5\25\uffff\10\1",
+            "\1\3\1\4\1\2\4\1\5\uffff\1\6\7\uffff\1\5\25\uffff\10\1",
             "",
             "\1\11\1\10\1\uffff\1\10\3\uffff\13\11\2\uffff\4\11\14\uffff"+
             "\1\7",
@@ -10106,15 +10277,15 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     static final String DFA21_eofS =
         "\2\uffff\1\4\3\uffff\1\4";
     static final String DFA21_minS =
-        "\1\4\1\uffff\1\21\1\7\2\uffff\1\21";
+        "\1\4\1\uffff\1\22\1\7\2\uffff\1\22";
     static final String DFA21_maxS =
-        "\1\30\1\uffff\1\66\1\7\2\uffff\1\66";
+        "\1\31\1\uffff\1\67\1\7\2\uffff\1\67";
     static final String DFA21_acceptS =
         "\1\uffff\1\1\2\uffff\1\2\1\3\1\uffff";
     static final String DFA21_specialS =
         "\7\uffff}>";
     static final String[] DFA21_transitionS = {
-            "\3\1\1\2\4\1\14\uffff\1\1",
+            "\3\1\1\2\4\1\15\uffff\1\1",
             "",
             "\1\4\1\uffff\1\5\1\4\1\5\1\4\37\uffff\1\3",
             "\1\6",
@@ -10163,26 +10334,26 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleImplication_in_ruleExpression131 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImplication_in_entryRuleImplication165 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleImplication175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication222 = new BitSet(new long[]{0x0000000180000002L});
-    public static final BitSet FOLLOW_ruleImplicationOperator_in_ruleImplication252 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication273 = new BitSet(new long[]{0x0000000180000002L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication222 = new BitSet(new long[]{0x0000000300000002L});
+    public static final BitSet FOLLOW_ruleImplicationOperator_in_ruleImplication252 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleDisjunction_in_ruleImplication273 = new BitSet(new long[]{0x0000000300000002L});
     public static final BitSet FOLLOW_ruleDisjunction_in_entryRuleDisjunction311 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleDisjunction321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction368 = new BitSet(new long[]{0x000000001E000002L});
-    public static final BitSet FOLLOW_ruleOrOperator_in_ruleDisjunction400 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleXOrOperator_in_ruleDisjunction419 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction443 = new BitSet(new long[]{0x000000001E000002L});
+    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction368 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_ruleOrOperator_in_ruleDisjunction400 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleXOrOperator_in_ruleDisjunction419 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleConjunction_in_ruleDisjunction443 = new BitSet(new long[]{0x000000003C000002L});
     public static final BitSet FOLLOW_ruleConjunction_in_entryRuleConjunction481 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleConjunction491 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction538 = new BitSet(new long[]{0x0000000060000002L});
-    public static final BitSet FOLLOW_ruleAndOperator_in_ruleConjunction568 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction589 = new BitSet(new long[]{0x0000000060000002L});
+    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction538 = new BitSet(new long[]{0x00000000C0000002L});
+    public static final BitSet FOLLOW_ruleAndOperator_in_ruleConjunction568 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleComparison_in_ruleConjunction589 = new BitSet(new long[]{0x00000000C0000002L});
     public static final BitSet FOLLOW_ruleComparison_in_entryRuleComparison627 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleComparison637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison684 = new BitSet(new long[]{0x0000000E00000002L});
-    public static final BitSet FOLLOW_ruleEqualsOperator_in_ruleComparison716 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_ruleComparison735 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison759 = new BitSet(new long[]{0x0000000E00000002L});
+    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison684 = new BitSet(new long[]{0x0000001C00000002L});
+    public static final BitSet FOLLOW_ruleEqualsOperator_in_ruleComparison716 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_ruleComparison735 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleComparison759 = new BitSet(new long[]{0x0000001C00000002L});
     public static final BitSet FOLLOW_ruleBooleanUnit_in_entryRuleBooleanUnit797 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBooleanUnit807 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNegation_in_ruleBooleanUnit854 = new BitSet(new long[]{0x0000000000000002L});
@@ -10190,16 +10361,16 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleBooleanUnit908 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNegation_in_entryRuleNegation943 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNegation953 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotOperator_in_ruleNegation999 = new BitSet(new long[]{0x003FC03001010FF0L});
+    public static final BitSet FOLLOW_ruleNotOperator_in_ruleNegation999 = new BitSet(new long[]{0x007F806002020FF0L});
     public static final BitSet FOLLOW_ruleBooleanUnit_in_ruleNegation1020 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRelationalExpression_in_entryRuleRelationalExpression1056 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRelationalExpression1066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression1113 = new BitSet(new long[]{0x000003C000000002L});
-    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_ruleRelationalExpression1145 = new BitSet(new long[]{0x003FC00001010FE0L});
-    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_ruleRelationalExpression1183 = new BitSet(new long[]{0x003FC00001010FE0L});
-    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_ruleRelationalExpression1221 = new BitSet(new long[]{0x003FC00001010FE0L});
-    public static final BitSet FOLLOW_ruleLessThanOperator_in_ruleRelationalExpression1259 = new BitSet(new long[]{0x003FC00001010FE0L});
-    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression1282 = new BitSet(new long[]{0x000003C000000002L});
+    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression1113 = new BitSet(new long[]{0x0000078000000002L});
+    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_ruleRelationalExpression1145 = new BitSet(new long[]{0x007F800002020FE0L});
+    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_ruleRelationalExpression1183 = new BitSet(new long[]{0x007F800002020FE0L});
+    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_ruleRelationalExpression1221 = new BitSet(new long[]{0x007F800002020FE0L});
+    public static final BitSet FOLLOW_ruleLessThanOperator_in_ruleRelationalExpression1259 = new BitSet(new long[]{0x007F800002020FE0L});
+    public static final BitSet FOLLOW_ruleComparableExpression_in_ruleRelationalExpression1282 = new BitSet(new long[]{0x0000078000000002L});
     public static final BitSet FOLLOW_ruleComparableExpression_in_entryRuleComparableExpression1320 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleComparableExpression1330 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleArithmeticExpression_in_ruleComparableExpression1377 = new BitSet(new long[]{0x0000000000000002L});
@@ -10214,17 +10385,17 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleAdditiveExpression_in_ruleArithmeticExpression1630 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAdditiveExpression_in_entryRuleAdditiveExpression1664 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAdditiveExpression1674 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression1721 = new BitSet(new long[]{0x00000C0000000002L});
-    public static final BitSet FOLLOW_ruleSubstractionOperator_in_ruleAdditiveExpression1753 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleAdditionOperator_in_ruleAdditiveExpression1772 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression1796 = new BitSet(new long[]{0x00000C0000000002L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression1721 = new BitSet(new long[]{0x0000180000000002L});
+    public static final BitSet FOLLOW_ruleSubstractionOperator_in_ruleAdditiveExpression1753 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleAdditionOperator_in_ruleAdditiveExpression1772 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_ruleAdditiveExpression1796 = new BitSet(new long[]{0x0000180000000002L});
     public static final BitSet FOLLOW_ruleMultiplicativeExpression_in_entryRuleMultiplicativeExpression1834 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicativeExpression1844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression1891 = new BitSet(new long[]{0x0000300001000002L});
-    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_ruleMultiplicativeExpression1923 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleDivisionOperator_in_ruleMultiplicativeExpression1942 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleModulusOperator_in_ruleMultiplicativeExpression1961 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression1985 = new BitSet(new long[]{0x0000300001000002L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression1891 = new BitSet(new long[]{0x0000600002000002L});
+    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_ruleMultiplicativeExpression1923 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleDivisionOperator_in_ruleMultiplicativeExpression1942 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleModulusOperator_in_ruleMultiplicativeExpression1961 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMultiplicativeExpression1985 = new BitSet(new long[]{0x0000600002000002L});
     public static final BitSet FOLLOW_ruleNumberExpression_in_entryRuleNumberExpression2023 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNumberExpression2033 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleNumberExpression2080 = new BitSet(new long[]{0x0000000000000002L});
@@ -10241,66 +10412,66 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleCommonLogarithmFunction_in_ruleNumberFunction2388 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMaximumFunction_in_entryRuleMaximumFunction2423 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMaximumFunction2433 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMaxOperator_in_ruleMaximumFunction2479 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleMaximumFunction2491 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction2512 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_17_in_ruleMaximumFunction2525 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction2546 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_18_in_ruleMaximumFunction2560 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMaxOperator_in_ruleMaximumFunction2479 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleMaximumFunction2491 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction2512 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_18_in_ruleMaximumFunction2525 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMaximumFunction2546 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_19_in_ruleMaximumFunction2560 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMinimumFunction_in_entryRuleMinimumFunction2596 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMinimumFunction2606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinOperator_in_ruleMinimumFunction2652 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleMinimumFunction2664 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction2685 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_17_in_ruleMinimumFunction2698 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction2719 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_18_in_ruleMinimumFunction2733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinOperator_in_ruleMinimumFunction2652 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleMinimumFunction2664 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction2685 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_18_in_ruleMinimumFunction2698 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleMinimumFunction2719 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_19_in_ruleMinimumFunction2733 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAverageFunction_in_entryRuleAverageFunction2769 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAverageFunction2779 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAvgOperator_in_ruleAverageFunction2825 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleAverageFunction2837 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction2858 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_17_in_ruleAverageFunction2871 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction2892 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_18_in_ruleAverageFunction2906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAvgOperator_in_ruleAverageFunction2825 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleAverageFunction2837 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction2858 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_18_in_ruleAverageFunction2871 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAverageFunction2892 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_19_in_ruleAverageFunction2906 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSumFunction_in_entryRuleSumFunction2942 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSumFunction2952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSumOperator_in_ruleSumFunction2998 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleSumFunction3010 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction3031 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_17_in_ruleSumFunction3044 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction3065 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_18_in_ruleSumFunction3079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSumOperator_in_ruleSumFunction2998 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleSumFunction3010 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction3031 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_18_in_ruleSumFunction3044 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleSumFunction3065 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_19_in_ruleSumFunction3079 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExponentialFunction_in_entryRuleExponentialFunction3115 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleExponentialFunction3125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExponentialOperator_in_ruleExponentialFunction3171 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleExponentialFunction3183 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction3204 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleExponentialFunction3216 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction3237 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleExponentialFunction3249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExponentialOperator_in_ruleExponentialFunction3171 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleExponentialFunction3183 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction3204 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleExponentialFunction3216 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleExponentialFunction3237 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleExponentialFunction3249 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAbsoluteFunction_in_entryRuleAbsoluteFunction3285 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteFunction3295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_ruleAbsoluteFunction3341 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleAbsoluteFunction3353 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAbsoluteFunction3374 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleAbsoluteFunction3386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_ruleAbsoluteFunction3341 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleAbsoluteFunction3353 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleAbsoluteFunction3374 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleAbsoluteFunction3386 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNaturalLogarithmFunction_in_entryRuleNaturalLogarithmFunction3422 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmFunction3432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_ruleNaturalLogarithmFunction3478 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleNaturalLogarithmFunction3490 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleNaturalLogarithmFunction3511 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleNaturalLogarithmFunction3523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_ruleNaturalLogarithmFunction3478 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleNaturalLogarithmFunction3490 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleNaturalLogarithmFunction3511 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleNaturalLogarithmFunction3523 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCommonLogarithmFunction_in_entryRuleCommonLogarithmFunction3559 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmFunction3569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_ruleCommonLogarithmFunction3615 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleCommonLogarithmFunction3627 = new BitSet(new long[]{0x003FC00000000F00L});
-    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleCommonLogarithmFunction3648 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_18_in_ruleCommonLogarithmFunction3660 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_ruleCommonLogarithmFunction3615 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_17_in_ruleCommonLogarithmFunction3627 = new BitSet(new long[]{0x007F800000000F00L});
+    public static final BitSet FOLLOW_ruleNumberExpression_in_ruleCommonLogarithmFunction3648 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleCommonLogarithmFunction3660 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParenthesizedExpression_in_entryRuleParenthesizedExpression3696 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParenthesizedExpression3706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_ruleParenthesizedExpression3747 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleParenthesizedExpression3767 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_ruleParenthesizedExpression3747 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleParenthesizedExpression3767 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_ruleRightParenthesis_in_ruleParenthesizedExpression3783 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleValueSpecification_in_entryRuleValueSpecification3818 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleValueSpecification3828 = new BitSet(new long[]{0x0000000000000002L});
@@ -10309,152 +10480,156 @@ public class InternalARTISTCommonParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleObjectSpecificationExpression_in_ruleValueSpecification3929 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleObjectSpecificationExpression_in_entryRuleObjectSpecificationExpression3964 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleObjectSpecificationExpression3974 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleObjectSpecificationExpression4022 = new BitSet(new long[]{0x0000000000280000L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleObjectSpecificationExpression4022 = new BitSet(new long[]{0x0000000000500000L});
     public static final BitSet FOLLOW_ruleCollection_in_ruleObjectSpecificationExpression4044 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTuple_in_ruleObjectSpecificationExpression4071 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCollection_in_entryRuleCollection4108 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCollection4118 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleCollection4155 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection4176 = new BitSet(new long[]{0x0000000000120000L});
-    public static final BitSet FOLLOW_17_in_ruleCollection4189 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection4210 = new BitSet(new long[]{0x0000000000120000L});
-    public static final BitSet FOLLOW_20_in_ruleCollection4224 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTuple_in_entryRuleTuple4260 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTuple4270 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleTuple4307 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple4328 = new BitSet(new long[]{0x0000000000420000L});
-    public static final BitSet FOLLOW_17_in_ruleTuple4341 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple4362 = new BitSet(new long[]{0x0000000000420000L});
-    public static final BitSet FOLLOW_22_in_ruleTuple4376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair4412 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyValuePair4422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyValuePair4470 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_rulePropertyValuePair4482 = new BitSet(new long[]{0x003FC03001010FF0L});
-    public static final BitSet FOLLOW_ruleValueSpecification_in_rulePropertyValuePair4503 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression4539 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression4549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression4596 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression4631 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralValueExpression4641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression4688 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression4715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression4742 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression4769 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression4796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral4831 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral4841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral4882 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral4922 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLiteral4932 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_ruleNumberLiteral4977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral5012 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNullLiteral5022 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NULL_in_ruleNullLiteral5063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5103 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral5113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral5154 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral5194 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnlimitedLiteral5204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleUnlimitedLiteral5246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOrOperator_in_entryRuleOrOperator5294 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOrOperator5304 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleOrOperator5351 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleOrOperator5369 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator5406 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleXOrOperator5416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleXOrOperator5463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleXOrOperator5481 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAndOperator_in_entryRuleAndOperator5518 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAndOperator5528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleAndOperator5575 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleAndOperator5593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator5630 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleImplicationOperator5640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleImplicationOperator5687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleImplicationOperator5705 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator5742 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEqualsOperator5752 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleEqualsOperator5798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator5834 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNotEqualsOperator5844 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleNotEqualsOperator5891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleNotEqualsOperator5909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNotOperator_in_entryRuleNotOperator5946 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNotOperator5956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleNotOperator6003 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleNotOperator6021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator6058 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterThanOperator6068 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleGreaterThanOperator6114 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator6150 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator6160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleGreaterOrEqualThanOperator6206 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator6242 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLessThanOperator6252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleLessThanOperator6298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator6334 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator6344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleLessOrEqualThanOperator6390 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator6426 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAdditionOperator6436 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleAdditionOperator6482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator6518 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSubstractionOperator6528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleSubstractionOperator6574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator6610 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicationOperator6620 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleMultiplicationOperator6666 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator6702 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDivisionOperator6712 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleDivisionOperator6758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator6794 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModulusOperator6804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleModulusOperator6850 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator6886 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMaxOperator6896 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleMaxOperator6942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMinOperator_in_entryRuleMinOperator6978 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMinOperator6988 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleMinOperator7034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator7070 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAvgOperator7080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleAvgOperator7126 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSumOperator_in_entryRuleSumOperator7162 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSumOperator7172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleSumOperator7218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator7254 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExponentialOperator7264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleExponentialOperator7310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator7346 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteOperator7356 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleAbsoluteOperator7402 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator7438 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator7448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleNaturalLogarithmOperator7494 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator7530 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmOperator7540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleCommonLogarithmOperator7586 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis7623 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis7634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleLeftParenthesis7671 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis7711 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis7722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleRightParenthesis7759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7799 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName7810 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7850 = new BitSet(new long[]{0x0040000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleQualifiedName7878 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7894 = new BitSet(new long[]{0x0040000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard7942 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard7953 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard8000 = new BitSet(new long[]{0x0080000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleQualifiedNameWithWildcard8019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber8068 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumber8079 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleNumber8119 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber8145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber8171 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber8197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_synpred1_InternalARTISTCommon7869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_ruleCollection4164 = new BitSet(new long[]{0x007F806002220FF0L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection4186 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_18_in_ruleCollection4199 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_ruleCollection4220 = new BitSet(new long[]{0x0000000000240000L});
+    public static final BitSet FOLLOW_21_in_ruleCollection4236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTuple_in_entryRuleTuple4272 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTuple4282 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleTuple4328 = new BitSet(new long[]{0x0000000000800080L});
+    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple4350 = new BitSet(new long[]{0x0000000000840000L});
+    public static final BitSet FOLLOW_18_in_ruleTuple4363 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_rulePropertyValuePair_in_ruleTuple4384 = new BitSet(new long[]{0x0000000000840000L});
+    public static final BitSet FOLLOW_23_in_ruleTuple4400 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyValuePair_in_entryRulePropertyValuePair4436 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyValuePair4446 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_rulePropertyValuePair4494 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_rulePropertyValuePair4506 = new BitSet(new long[]{0x007F806002020FF0L});
+    public static final BitSet FOLLOW_ruleValueSpecification_in_rulePropertyValuePair4527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInstanceSpecificationExpression_in_entryRuleInstanceSpecificationExpression4563 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInstanceSpecificationExpression4573 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleInstanceSpecificationExpression4620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralValueExpression_in_entryRuleLiteralValueExpression4655 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralValueExpression4665 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_ruleLiteralValueExpression4712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleLiteralValueExpression4739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNullLiteral_in_ruleLiteralValueExpression4766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleLiteralValueExpression4793 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_ruleLiteralValueExpression4820 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral4855 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral4865 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_EBOOLEAN_in_ruleBooleanLiteral4906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberLiteral_in_entryRuleNumberLiteral4946 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberLiteral4956 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_ruleNumberLiteral5001 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNullLiteral_in_entryRuleNullLiteral5036 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNullLiteral5046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NULL_in_ruleNullLiteral5087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5127 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral5137 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral5178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnlimitedLiteral_in_entryRuleUnlimitedLiteral5218 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnlimitedLiteral5228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleUnlimitedLiteral5270 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOrOperator_in_entryRuleOrOperator5318 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOrOperator5328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleOrOperator5375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleOrOperator5393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleXOrOperator_in_entryRuleXOrOperator5430 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleXOrOperator5440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleXOrOperator5487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleXOrOperator5505 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAndOperator_in_entryRuleAndOperator5542 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAndOperator5552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleAndOperator5599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleAndOperator5617 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImplicationOperator_in_entryRuleImplicationOperator5654 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImplicationOperator5664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleImplicationOperator5711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleImplicationOperator5729 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEqualsOperator_in_entryRuleEqualsOperator5766 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEqualsOperator5776 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleEqualsOperator5822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotEqualsOperator_in_entryRuleNotEqualsOperator5858 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNotEqualsOperator5868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleNotEqualsOperator5915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleNotEqualsOperator5933 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNotOperator_in_entryRuleNotOperator5970 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNotOperator5980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleNotOperator6027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleNotOperator6045 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGreaterThanOperator_in_entryRuleGreaterThanOperator6082 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterThanOperator6092 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleGreaterThanOperator6138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGreaterOrEqualThanOperator_in_entryRuleGreaterOrEqualThanOperator6174 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleGreaterOrEqualThanOperator6184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleGreaterOrEqualThanOperator6230 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLessThanOperator_in_entryRuleLessThanOperator6266 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLessThanOperator6276 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleLessThanOperator6322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLessOrEqualThanOperator_in_entryRuleLessOrEqualThanOperator6358 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLessOrEqualThanOperator6368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleLessOrEqualThanOperator6414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAdditionOperator_in_entryRuleAdditionOperator6450 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAdditionOperator6460 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleAdditionOperator6506 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSubstractionOperator_in_entryRuleSubstractionOperator6542 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSubstractionOperator6552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleSubstractionOperator6598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplicationOperator_in_entryRuleMultiplicationOperator6634 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicationOperator6644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleMultiplicationOperator6690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDivisionOperator_in_entryRuleDivisionOperator6726 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDivisionOperator6736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleDivisionOperator6782 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModulusOperator_in_entryRuleModulusOperator6818 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModulusOperator6828 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleModulusOperator6874 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMaxOperator_in_entryRuleMaxOperator6910 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMaxOperator6920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleMaxOperator6966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMinOperator_in_entryRuleMinOperator7002 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMinOperator7012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleMinOperator7058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAvgOperator_in_entryRuleAvgOperator7094 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAvgOperator7104 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleAvgOperator7150 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSumOperator_in_entryRuleSumOperator7186 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSumOperator7196 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleSumOperator7242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExponentialOperator_in_entryRuleExponentialOperator7278 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExponentialOperator7288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleExponentialOperator7334 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteOperator_in_entryRuleAbsoluteOperator7370 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteOperator7380 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleAbsoluteOperator7426 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNaturalLogarithmOperator_in_entryRuleNaturalLogarithmOperator7462 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNaturalLogarithmOperator7472 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleNaturalLogarithmOperator7518 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCommonLogarithmOperator_in_entryRuleCommonLogarithmOperator7554 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCommonLogarithmOperator7564 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleCommonLogarithmOperator7610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLeftParenthesis_in_entryRuleLeftParenthesis7647 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLeftParenthesis7658 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleLeftParenthesis7695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRightParenthesis_in_entryRuleRightParenthesis7735 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRightParenthesis7746 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleRightParenthesis7783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7823 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName7834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7874 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleQualifiedName7902 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7918 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_entryRuleQualifiedNameWithWildcard7970 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedNameWithWildcard7981 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleQualifiedNameWithWildcard8028 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleQualifiedNameWithWildcard8047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleImportNamespace_in_entryRuleImportNamespace8093 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleImportNamespace8103 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleImportNamespace8140 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_ruleQualifiedNameWithWildcard_in_ruleImportNamespace8161 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_entryRuleNumber8198 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumber8209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleNumber8249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_POSITIVE_SMALL_DECIMAL_in_ruleNumber8275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_SMALL_DECIMAL_in_ruleNumber8301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_EBIGDECIMAL_in_ruleNumber8327 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_synpred1_InternalARTISTCommon7893 = new BitSet(new long[]{0x0000000000000002L});
 
 }

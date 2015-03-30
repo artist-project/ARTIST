@@ -15,6 +15,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.common;
 
+import com.google.inject.Injector;
+
 import eu.artist.postmigration.nfrvt.lang.common.ARTISTCommonStandaloneSetupGenerated;
 
 /**
@@ -23,8 +25,15 @@ import eu.artist.postmigration.nfrvt.lang.common.ARTISTCommonStandaloneSetupGene
  */
 public class ARTISTCommonStandaloneSetup extends ARTISTCommonStandaloneSetupGenerated{
 
+	private static Injector injector;
+	
 	public static void doSetup() {
-		new ARTISTCommonStandaloneSetup().createInjectorAndDoEMFRegistration();
+		if(injector == null)
+			injector = new ARTISTCommonStandaloneSetup().createInjectorAndDoEMFRegistration();
+	}
+	
+	public static Injector getInjector() {
+		return injector;
 	}
 }
 

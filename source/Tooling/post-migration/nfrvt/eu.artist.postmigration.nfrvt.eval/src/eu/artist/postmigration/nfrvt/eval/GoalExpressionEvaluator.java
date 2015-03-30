@@ -12,12 +12,12 @@
  *******************************************************************************/
 package eu.artist.postmigration.nfrvt.eval;
 
-import eu.artist.postmigration.nfrvt.eval.util.MigrationFactory;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.gel.eval.VerdictConverter;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.BooleanExpressionEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.GoalEvaluation;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.GoalReference;
+import eu.artist.postmigration.nfrvt.lang.util.MigrationFactory;
 
 /**
  * An evaluator for goal expressions.

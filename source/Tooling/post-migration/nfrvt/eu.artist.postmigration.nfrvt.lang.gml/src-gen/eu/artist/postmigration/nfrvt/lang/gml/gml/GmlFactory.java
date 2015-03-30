@@ -44,15 +44,6 @@ public interface GmlFactory extends EFactory
   GoalModel createGoalModel();
 
   /**
-   * Returns a new object of class '<em>Workload</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Workload</em>'.
-   * @generated
-   */
-  Workload createWorkload();
-
-  /**
    * Returns a new object of class '<em>Applied Qualitative Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

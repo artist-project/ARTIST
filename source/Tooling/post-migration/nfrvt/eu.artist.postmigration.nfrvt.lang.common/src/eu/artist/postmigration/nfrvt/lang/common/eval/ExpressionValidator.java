@@ -306,6 +306,8 @@ public class ExpressionValidator {
 		}
 	}
 	
+	
+	
 	protected BooleanLiteral evaluateBinaryRelational(Comparison e) {		
 		ValueSpecification left = doEvaluate(e.getLeft());
 		ValueSpecification right = doEvaluate(e.getRight());
@@ -314,7 +316,10 @@ public class ExpressionValidator {
 		try {
 			comparison = RelationalLogic.compare(left, right);
 		} catch(Exception ex) {
-			addError("LHS and RHS of condition are not comparable: " + getRenderer().doRender(e), getFeature());
+			addError("LHS and RHS of condition are not comparable: "
+					+ ValueUtil.getTypeName(left) + " " 
+					+ getRenderer().doRender(e.getOperator()) + " "  
+					+ ValueUtil.getTypeName(right), getFeature());
 			return null;
 		}
 		Boolean result = null;
@@ -388,8 +393,9 @@ public class ExpressionValidator {
 		for(NumberExpression numberExpression : values) {
 			cur = ValueUtil.asNumberLiteral(doEvaluate(numberExpression));
 			if(cur != null && cur.getValue() != null) {
-					evaluationResults.add(cur.getValue());
-			}
+				evaluationResults.add(cur.getValue());
+			} else
+				return null;
 		}
 		BigDecimal result = null;
 		

@@ -3,10 +3,8 @@
 */
 package eu.artist.postmigration.nfrvt.lang.tsl.ui.outline
 
-import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+import eu.artist.postmigration.nfrvt.lang.common.ui.outline.ARTISTCommonOutlineTreeProvider
 import eu.artist.postmigration.nfrvt.lang.tsl.tsl.PatternCatalogue
-import eu.artist.postmigration.nfrvt.lang.tsl.tsl.TslPackage
-import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ArtistCommonFactory
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 
@@ -15,19 +13,7 @@ import org.eclipse.xtext.ui.editor.outline.IOutlineNode
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class TSLOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
-	def protected _createChildren(DocumentRootNode parentNode, PatternCatalogue modelElement) {
-		createEStructuralFeatureNode(
-			parentNode,
-			modelElement,
-			TslPackage.Literals.PATTERN_CATALOGUE__IMPORTS,
-			ArtistCommonFactory.eINSTANCE.createImportURI._image,
-			"Import Declarations",
-			false
-		)
-		createEObjectNode(parentNode, modelElement);
-	}
-	
+class TSLOutlineTreeProvider extends ARTISTCommonOutlineTreeProvider {	
 	def protected _createChildren(IOutlineNode parentNode, PatternCatalogue modelElement) {
 		for (EObject childElement : modelElement.patterns)
 			createNode(parentNode, childElement);

@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.common.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.ARTISTModel;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AbsoluteOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.AdditionOperator;
@@ -68,6 +57,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.XOrOperator;
 import eu.artist.postmigration.nfrvt.lang.common.services.ARTISTCommonGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
@@ -90,6 +80,12 @@ public class ARTISTCommonSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ArtistCommonPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ArtistCommonPackage.ARTIST_MODEL:
+				if(context == grammarAccess.getARTISTModelRule()) {
+					sequence_ARTISTModel(context, (ARTISTModel) semanticObject); 
+					return; 
+				}
+				else break;
 			case ArtistCommonPackage.ABSOLUTE_FUNCTION:
 				if(context == grammarAccess.getAbsoluteFunctionRule() ||
 				   context == grammarAccess.getAdditiveExpressionRule() ||
@@ -814,6 +810,12 @@ public class ARTISTCommonSemanticSequencer extends AbstractDelegatingSemanticSeq
 					return; 
 				}
 				else break;
+			case ArtistCommonPackage.WORKLOAD:
+				if(context == grammarAccess.getWorkloadRule()) {
+					sequence_Workload(context, (Workload) semanticObject); 
+					return; 
+				}
+				else break;
 			case ArtistCommonPackage.XOR_OPERATOR:
 				if(context == grammarAccess.getXOrOperatorRule()) {
 					sequence_XOrOperator(context, (XOrOperator) semanticObject); 
@@ -823,6 +825,15 @@ public class ARTISTCommonSemanticSequencer extends AbstractDelegatingSemanticSeq
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (imports+=ImportNamespace*)
+	 */
+	protected void sequence_ARTISTModel(EObject context, ARTISTModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -898,7 +909,7 @@ public class ARTISTCommonSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (values+=ValueSpecification values+=ValueSpecification*)
+	 *     ((values+=ValueSpecification values+=ValueSpecification*)?)
 	 */
 	protected void sequence_Collection(EObject context, Collection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1344,7 +1355,7 @@ public class ARTISTCommonSemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Constraint:
-	 *     (tuples+=PropertyValuePair tuples+=PropertyValuePair*)
+	 *     ((tuples+=PropertyValuePair tuples+=PropertyValuePair*)?)
 	 */
 	protected void sequence_Tuple(EObject context, Tuple semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1357,6 +1368,28 @@ public class ARTISTCommonSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 */
 	protected void sequence_UnlimitedLiteral(EObject context, UnlimitedLiteral semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID activity=[Activity|QualifiedName] pattern=STRING)
+	 */
+	protected void sequence_Workload(EObject context, Workload semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__NAME));
+			if(transientValues.isValueTransient(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__ACTIVITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__ACTIVITY));
+			if(transientValues.isValueTransient(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__PATTERN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArtistCommonPackage.Literals.WORKLOAD__PATTERN));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getWorkloadAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getWorkloadAccess().getActivityActivityQualifiedNameParserRuleCall_3_0_1(), semanticObject.getActivity());
+		feeder.accept(grammarAccess.getWorkloadAccess().getPatternSTRINGTerminalRuleCall_6_0(), semanticObject.getPattern());
+		feeder.finish();
 	}
 	
 	

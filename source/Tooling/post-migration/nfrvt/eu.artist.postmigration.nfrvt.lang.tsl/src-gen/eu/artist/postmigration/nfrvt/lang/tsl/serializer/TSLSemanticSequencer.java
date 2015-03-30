@@ -1,15 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- * Martin Fleck (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *******************************************************************************/
 package eu.artist.postmigration.nfrvt.lang.tsl.serializer;
 
 import com.google.inject.Inject;
@@ -68,6 +56,7 @@ import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumFunction;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.SumOperator;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Tuple;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.UnlimitedLiteral;
+import eu.artist.postmigration.nfrvt.lang.common.artistCommon.Workload;
 import eu.artist.postmigration.nfrvt.lang.common.artistCommon.XOrOperator;
 import eu.artist.postmigration.nfrvt.lang.common.serializer.ARTISTCommonSemanticSequencer;
 import eu.artist.postmigration.nfrvt.lang.nsl.nsl.NslPackage;
@@ -820,6 +809,12 @@ public class TSLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 					return; 
 				}
 				else break;
+			case ArtistCommonPackage.WORKLOAD:
+				if(context == grammarAccess.getWorkloadRule()) {
+					sequence_Workload(context, (Workload) semanticObject); 
+					return; 
+				}
+				else break;
 			case ArtistCommonPackage.XOR_OPERATOR:
 				if(context == grammarAccess.getXOrOperatorRule()) {
 					sequence_XOrOperator(context, (XOrOperator) semanticObject); 
@@ -843,7 +838,8 @@ public class TSLSemanticSequencer extends ARTISTCommonSemanticSequencer {
 				}
 				else break;
 			case TslPackage.PATTERN_CATALOGUE:
-				if(context == grammarAccess.getPatternCatalogueRule()) {
+				if(context == grammarAccess.getARTISTModelRule() ||
+				   context == grammarAccess.getPatternCatalogueRule()) {
 					sequence_PatternCatalogue(context, (PatternCatalogue) semanticObject); 
 					return; 
 				}

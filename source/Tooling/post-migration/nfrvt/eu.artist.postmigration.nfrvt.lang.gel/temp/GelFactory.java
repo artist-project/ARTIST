@@ -69,16 +69,7 @@ public interface GelFactory extends EFactory
    * @generated
    */
   AppliedQuantitativePropertyEvaluation createAppliedQuantitativePropertyEvaluation();
-
-  /**
-   * Returns a new object of class '<em>Quantitative Property Realization</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Quantitative Property Realization</em>'.
-   * @generated
-   */
-  QuantitativePropertyRealization createQuantitativePropertyRealization();
-
+  
   /**
    * Returns a new object of class '<em>Goal Model Evaluation</em>'.
    * <!-- begin-user-doc -->

@@ -34,10 +34,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
+import eu.artist.postmigration.nfrvt.extensionpoint.FileExtensions;
+
 /**
  * The "New" wizard page allows setting the container for the new file as well
  * as the file name. The page will only accept file name without the extension
- * OR with the extension that matches the expected one (tsl).
+ * OR with the extension that matches the expected one (pattern).
  */
 
 public class NewPatternSpecificationWizardPage extends WizardPage {
@@ -55,7 +57,7 @@ public class NewPatternSpecificationWizardPage extends WizardPage {
 	public NewPatternSpecificationWizardPage(ISelection selection) {
 		super("wizardPage");
 		setTitle("Pattern Catalogue File");
-		setDescription("This wizard creates a new file with *.tsl extension that can be opened by the ARTIST Pattern Catalogue Editor.");
+		setDescription("This wizard creates a new file with *.pattern extension that can be opened by the ARTIST Pattern Catalogue Editor.");
 		this.selection = selection;
 	}
 
@@ -125,7 +127,7 @@ public class NewPatternSpecificationWizardPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("patterns.tsl");
+		fileText.setText("patterns.pattern");
 	}
 
 	/**
@@ -177,9 +179,8 @@ public class NewPatternSpecificationWizardPage extends WizardPage {
 		}
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
-			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("tsl") == false) {
-				updateStatus("File extension must be \"tsl\"");
+			if(!FileExtensions.isPatternCatalogue(fileName)) {
+				updateStatus("File extension must end with " + FileExtensions.getPatternCatalogueExtensions() + ".");
 				return;
 			}
 		}
