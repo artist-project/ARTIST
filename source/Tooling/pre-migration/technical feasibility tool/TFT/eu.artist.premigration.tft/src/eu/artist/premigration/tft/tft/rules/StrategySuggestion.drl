@@ -1,0 +1,1114 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * 	Burak Karaboga (Atos) - main development
+ * 	Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+package eu.artist.tft
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.math.BigDecimal;
+
+import eu.artist.premigration.tft.tft.model.Component;
+import eu.artist.premigration.tft.tft.model.MigrationGoals;
+import eu.artist.premigration.tft.tft.model.TechnicalGoals;
+
+import eu.artist.premigration.tft.tft.model.migrationstrategy.MigrationStrategyContainer;
+import eu.artist.premigration.tft.tft.model.migrationstrategy.MigrationStrategy;
+import eu.artist.premigration.tft.tft.model.migrationstrategy.Category;
+import eu.artist.premigration.tft.tft.model.migrationstrategy.Complexity;
+import eu.artist.premigration.tft.nfrvt.resources.types.ProgrammingLanguage
+
+//declare any global variables here
+
+global eu.artist.premigration.tft.tft.model.Component application;
+global eu.artist.premigration.tft.tft.model.MigrationGoals goals;
+
+
+/**************************************************************************************************
+** This rule set contains rules for suggesting migration strategies for a component.
+** 1) According to the target platform, the rule agenda is set before rule engine initiation
+** 2) The check if the component has a data type stereotype is fired no matter what the 
+** target platform is
+** 3) By checking the stereotypes and the migration goals the suggestions are set.
+**************************************************************************************************/
+
+
+//TODO: Strategy complexity assignments needs more improvements
+
+rule "IsStandardComponent"
+	
+	when
+		$component : Component ( !applicationLevelComponent )
+	then
+		//SUPER RULE - DO NOTHING
+end
+
+rule "IsDataTypeComponent" extends "IsStandardComponent"
+	
+ 	when
+		eval ( $component.hasStereotype(Category.DATA.getPossibleStereotypes()))
+		
+    then
+    System.out.println("dataComponent: " + $component.getName());
+    	//SUPER RULE - DO NOTHING 
+end
+
+rule "IsNetworkTypeComponent" extends "IsStandardComponent"
+	
+ 	when
+		eval ( $component.hasStereotype(Category.NETWORK.getPossibleStereotypes()))
+		
+    then
+    System.out.println("Network Component: " + $component.getName());
+    	//SUPER RULE - DO NOTHING 
+end
+
+rule "IsApplicationLevelComponent"
+	
+	when
+		$component : Component ( applicationLevelComponent )
+	then
+		//SUPER RULE - DO NOTHING
+end
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// AGENDA-GROUP GAE ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+rule "Autoscaling_GAE" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+         eval(goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") || goals.hasSoftGoal("Autoscaling") && goals.isItemChecked("Autoscaling")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEAUTOSCALING");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+////TODO: Fix when section. Will be derived from MG?
+//rule "ENDPOINTS_GAE" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+//	
+//    when
+//        eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("GCE") && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+//    then
+//        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GCE");
+//        strategy.setComplexity(Complexity.LOW);
+//        strategy.setSuggested(true);
+//        $component.addMigrationStrategy(strategy);
+//end
+//
+////TODO: Fix when section. Will be derived from MG?
+//rule "CAPABILITIES_GAE" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+//	
+//    when
+//    	eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("CAPABILITIES")  && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+//    then
+//        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CAPABILITIES");
+//        strategy.setComplexity(Complexity.LOW);
+//        strategy.setSuggested(true);
+//        $component.addMigrationStrategy(strategy);
+//end
+
+//TODO: Fix when section. Will be derived from MG?
+//rule "SEARCH_GAE" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+//    when
+//         eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("SEARCH")  && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+//    then
+//        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("SEARCH");
+//        strategy.setComplexity(Complexity.LOW);
+//        strategy.setSuggested(true);
+//        $component.addMigrationStrategy(strategy);
+//end
+
+//TODO: Fix when section. Will be derived from MG?
+//rule "PSEARCH_GAE" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+//	
+//    when
+//         eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("PSEARCH")  && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+//    then
+//        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("PSEARCH");
+//        strategy.setComplexity(Complexity.LOW);
+//        strategy.setSuggested(true);
+//        $component.addMigrationStrategy(strategy);
+//end
+
+//we could potentially restrict these rules only to stereotypes that are spawning new threads, using files, or making system calls etc. Adding it to the application level now
+rule "GAE_Javaruntime" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+
+	when
+		eval (goals.getProgrammingLanguage().getName().equals("Java") && goals.isItemChecked("ProgrammingLanguageGoal"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAETHREADS");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEPROCESSES");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAESOCKETS");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEFILES");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+                
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAESYSTEM");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAECUSTOMCLASSLOADING");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);        
+           
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEWHITELIST");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAESIGNEDJARS");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);                           
+end
+
+//TODO: Re-evaluate - maybe the Scalability part is redundant, the rule has to execute whenever HeavyWeightContentDelivery and DistantDataAccess is expressed as a goal regardless of scalability
+rule "CDN_GAE" extends "IsNetworkTypeComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+    	eval((goals.requiresHardGoal("HeavyWeightContentDelivery") || goals.requiresHardGoal("DistantDataAccess"))	&& goals.requiresSoftGoal("Scalability"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAECDN");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "GAEFEDID_Application" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+		//TODO: softGoal comes with a threshold. It should be used
+         eval(goals.hasSoftGoal("Security")  && goals.isItemChecked("Security"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEFEDID");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "GAEFEDID_SecurityComponent" extends "IsStandardComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+	    eval($component.hasStereotype("Security"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEFEDID");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Multitenancy_GAE" extends "IsApplicationLevelComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+    	eval(goals.requiresHardGoal("Multitenancy")) 
+    then    
+         MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NAMESPACES");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Queue_Scalability_GAE" extends "IsStandardComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+         eval( ($component.hasStereotype(Category.QUEUE.getPossibleStereotypes()) || $component.hasStereotype(Category.WORKFLOW.getPossibleStereotypes()))
+         && goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") ) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEQCW");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAETHROTTLING");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);       
+end
+
+//TODO: Re-evaluate - maybe the Scalability part is redundant, the rule has to execute whenever Bigdata is expressed as a goal regardless of scalability
+rule "Data_Mapreduce_GAE" extends "IsDataTypeComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+         eval(goals.requiresHardGoal("Bigdata") && goals.requiresSoftGoal("Scalability")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("HADOOP");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy); 
+end
+
+rule "Data_Sharding_GAE" extends "IsDataTypeComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+         eval(goals.requiresHardGoal("LargeTransactionVolume") && goals.requiresSoftGoal("Scalability"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("DSSHARECOUNTERS");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy); 
+end
+
+rule "Data_NOSQL" extends "IsDataTypeComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+         //TODO: We don't know how NO-SQL is represented in GML yet 
+    	 //TODO: softGoal comes with a threshold. It should be used
+          eval(goals.requiresSoftGoal("Availability") || goals.requiresSoftGoal("Scalability") || goals.requiresHardGoal("Multitenancy")          
+        || goals.requiresSoftGoal("NO-SQL"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("HRD");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Data_RDBMS" extends "IsDataTypeComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+    	//TODO: We don't know how RDBMSmultitenant is represented in GML yet 
+    	//TODO: softGoal comes with a threshold. It should be used
+         eval(goals.hasSoftGoal("RDBMSmultitenant")  && goals.isItemChecked("RDBMSmultitenant"))         
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CLOUD_SQL");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+/*
+rule "JMS" agenda-group "GOOGLE_APP_ENGINE"
+
+	when 
+		$component : Component (this.hasStereotype(Category.QUEUE.getPossibleStereotypes()))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("TQA");
+		strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+*/
+
+/*
+//Commenting this rule out, as ManagedBean is a JEE component, and it is perfectly fine to have this in GAE, migration to Spring is not mandatory.
+rule "ManagedBean" extends "IsStandardComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+	when
+		eval ( $component.hasStereotype(Category.FRAMEWORK.getPossibleStereotypes()) && goals.getProgrammingLanguage().getName().equals("Java"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("SPRING");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+*/
+
+rule "View" extends "IsStandardComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+	when
+		eval ( $component.hasStereotype(Category.VIEW.getPossibleStereotypes()) )
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GWT");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Cache_GAE" extends "IsStandardComponent" agenda-group "GOOGLE_APP_ENGINE"
+
+	when 
+		eval ( 
+			($component.hasStereotype(Category.DATA.getPossibleStereotypes()) && goals.requiresSoftGoal("Scalability")) ||   
+			($component.hasStereotype(Category.PERFORMANCE.getPossibleStereotypes()) && goals.requiresSoftGoal("PerformanceEfficiency"))
+		)
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("MEMCACHE");
+		strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "RealTimeMsg_GAE" extends "IsStandardComponent" agenda-group "GOOGLE_APP_ENGINE"
+
+	when 
+		eval ($component.hasStereotype(Category.REALTIMEMSG.getPossibleStereotypes()) )
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CHANNEL");
+		strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "ReliabilityGAE" extends "IsNetworkTypeComponent" agenda-group "GOOGLE_APP_ENGINE"
+	
+    when
+    	eval(goals.hasSoftGoal("Reliability") && goals.isItemChecked("Reliability") )           
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GAEADMINCONSOLE");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GCS");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// AGENDA-GROUP EC2 ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//TODO: Fix when section. Will be derived from MG?
+rule "DataPipeLine_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: We don't know how Authorization Requirements is represented in GML yet 
+    	//TODO: softGoal comes with a threshold. It should be used
+    	//eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("DataTransfer") && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+    	eval(goals.hasSoftGoal("DataTransfer") && goals.isItemChecked("DataTransfer"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("DATAPIPELINE");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "SWS_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+
+    when
+         eval(goals.hasSoftGoal("Workflow") && goals.isItemChecked("Workflow"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("SWS");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//TODO: Fix when section. Will be derived from MG?
+rule "CloudSearch_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: We don't know how Authorization Requirements is represented in GML yet 
+    	//TODO: softGoal comes with a threshold. It should be used
+    	//eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("cloudsearch") && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+        eval(goals.hasSoftGoal("cloudsearch") && goals.isItemChecked("cloudsearch"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CLOUDSEARCH");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Autoscaling_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+         eval(goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") || goals.hasSoftGoal("Autoscaling") && goals.isItemChecked("Autoscaling")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AUTOS");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CLOUDWATCH");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);         
+end
+
+rule "Multisite_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: How is dataLocation represented in GML?
+    	eval(
+    	//!mGoals.getTechnicalGoals().getSla().getDataLocation().equals("") || 
+    	goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") 
+    	|| goals.hasSoftGoal("Reliability") && goals.isItemChecked("Reliability"))       
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("MULTISITEDEPLOY_EC2");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//TODO: The when section needs to be checked with Tecnalia and fixed
+rule "ElasticLB_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: How is measuredElements:time represented in GML?
+        //eval(mGoals.getBusinessGoals().getMon().getMeasuredElements().equals("time")  && goals.isItemChecked(mGoals.getBusinessGoals().getMon().getMeasuredElements()))
+        eval(goals.hasSoftGoal("Time") && goals.isItemChecked("Time"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ELASTICLB");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//TODO: The when section needs to be checked with Tecnalia and fixed
+rule "CloudWatch_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: How is measuredElements:time represented in GML?
+        //eval(mGoals.getBusinessGoals().getMon().getMeasuredElements().equals("time") && goals.isItemChecked(mGoals.getBusinessGoals().getMon().getMeasuredElements()))
+        eval(goals.hasSoftGoal("Time") && goals.isItemChecked("Time"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CLOUDWATCH");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//TODO: Re-evaluate - maybe the Scalability part is redundant, the rule has to execute whenever HeavyWeightContentDelivery and DistantDataAccess is expressed as a goal regardless of scalability
+rule "CDN_EC2" extends "IsNetworkTypeComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	eval((goals.requiresHardGoal("HeavyWeightContentDelivery") || goals.requiresHardGoal("DistantDataAccess"))	&& goals.requiresSoftGoal("Scalability"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CLOUDFRONT");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "EC2Security_Application" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: We don't know how Authorization Requirements is represented in GML yet 
+    	//eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("oauth") && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+    	//TODO: softGoal comes with a threshold. It should be used
+    	eval(goals.hasSoftGoal("Security") && goals.isItemChecked("Security"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2FEDID");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2GATEKEEPER");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2VALET");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "EC2Security_SecurityComponent" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	eval($component.hasStereotype("Security"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2FEDID");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2GATEKEEPER");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2VALET");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+/* WRONG GAE namespaces should not be suggested to EC2 target - TO BE REMOVED
+rule "Multitenancy_EC2" extends "IsApplicationLevelComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	eval(mGoals.getTechnicalGoals().getA_p().getMultitenancy().equals("virtualizationbytenant"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NAMESPACES");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+*/
+
+rule "Queue_Scalability_EC2" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+	
+    when
+         eval( ($component.hasStereotype(Category.QUEUE.getPossibleStereotypes()) || $component.hasStereotype(Category.WORKFLOW.getPossibleStereotypes()))
+         && goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") ) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2QCW");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("EC2THROTTLING");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);       
+end
+
+//TODO: Re-evaluate - maybe the Scalability part is redundant, the rule has to execute whenever Bigdata is expressed as a goal regardless of scalability
+rule "Data_Mapreduce_EC2" extends "IsDataTypeComponent" agenda-group "AMAZON_EC2"
+	
+    when
+         eval(goals.requiresHardGoal("Bigdata") && goals.requiresSoftGoal("Scalability")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("MAPREDUCE");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy); 
+end
+
+rule "Data_Sharding_EC2" extends "IsDataTypeComponent" agenda-group "AMAZON_EC2"
+	
+    when
+         eval(goals.requiresHardGoal("LargeTransactionVolume") && goals.requiresSoftGoal("Scalability"))  
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AWSRDSSHARDING");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy); 
+end
+
+rule "Data_NOSQL_EC2" extends "IsDataTypeComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: We don't know how NO-SQL is represented in GML yet 
+    	//TODO: softGoal comes with a threshold. It should be used
+        //eval(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements().equals("NO-SQL") && goals.isItemChecked(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements()))
+        eval(goals.hasSoftGoal("NO-SQL") && goals.isItemChecked("NO-SQL"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("DYNAMO");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Data_RDBMS_EC2" extends "IsDataTypeComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	//TODO: We don't know how RDBMSmultitenant is represented in GML yet 
+    	//TODO: softGoal comes with a threshold. It should be used
+    	//eval(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements().equals("RDBMSmultitenant") && goals.isItemChecked(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements()))
+    	eval(goals.hasSoftGoal("RDBMSmultitenant") && goals.isItemChecked("RDBMSmultitenant"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("RDS");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "ManagedBean_EC2" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+	
+	when
+		eval ($component.hasStereotype(Category.FRAMEWORK.getPossibleStereotypes()) && goals.getProgrammingLanguage().getName().equals("Java"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("STRUTS");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+/*rule "JMS_EC2" agenda-group "AMAZON_EC2"
+
+	when 
+		$component : Component (this.hasStereotype(Category.QUEUE.getPossibleStereotypes()))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("SQS");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+*/
+
+/**
+	NOT USED
+**/
+rule "IsViewComponent_EC2" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+	
+	when
+		eval ( $component.hasStereotype(Category.VIEW.getPossibleStereotypes()) )
+	then
+		//SUPER RULE - DO NOTHING 
+end
+
+
+rule "ViewJava_EC2" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+	
+	when
+		eval ( $component.hasStereotype(Category.VIEW.getPossibleStereotypes())  && goals.getProgrammingLanguage().getName().equals("Java"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("GWT");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "ViewNET_EC2" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+	
+	when
+		eval ( $component.hasStereotype(Category.VIEW.getPossibleStereotypes()) && (goals.getProgrammingLanguage().getName().equals("CSharp") ))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ASP");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Cache_EC2" extends "IsStandardComponent" agenda-group "AMAZON_EC2"
+
+	when 
+		eval ( 
+			($component.hasStereotype(Category.DATA.getPossibleStereotypes()) && goals.requiresSoftGoal("Scalability")) ||   
+			($component.hasStereotype(Category.PERFORMANCE.getPossibleStereotypes()) && goals.requiresSoftGoal("PerformanceEfficiency"))
+		)
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ELASTICACHE");
+		strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "ReliabilityEC2" extends "IsNetworkTypeComponent" agenda-group "AMAZON_EC2"
+	
+    when
+    	eval(goals.hasSoftGoal("Reliability") && goals.isItemChecked("Reliability") )   
+    then
+        //Health Endpoint Monitoring pattern
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ROUTE53");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CLOUDWATCH");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        //Node failure pattern
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ELASTICLB");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+                
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NODESHUTDOWNSIGNAL_EC2");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        //Busy-signal (retry) pattern
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("DATAPIPELINE");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);        
+end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// AGENDA-GROUP AZURE /////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+rule "Autoscaling_Azure" extends "IsApplicationLevelComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+         eval(goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") || goals.hasSoftGoal("Autoscaling") && goals.isItemChecked("Autoscaling")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREAUTOSCALING");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Colocation_Azure" extends "IsApplicationLevelComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	//TODO: How is dataLocation represented in GML?
+    	eval(
+    	//!mGoals.getTechnicalGoals().getSla().getDataLocation().equals("") ||
+    	goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") )         
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZURECOLOCATE");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREAFFINITY");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Multisite_Azure" extends "IsApplicationLevelComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	//TODO: How is dataLocation represented in GML?
+    	eval(
+    	//!mGoals.getTechnicalGoals().getSla().getDataLocation().equals("") ||
+    	goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") 
+    	|| goals.hasSoftGoal("Reliability") && goals.isItemChecked("Reliability"))       
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREMULTISITEDEPLOY");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "VirtualNetwork_AZURE" extends "IsApplicationLevelComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	//TODO: We don't know how Authorization Requirements is represented in GML yet 
+    	//TODO: softGoal comes with a threshold. It should be used
+    	//eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("virtualnetwork") && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+    	eval(goals.hasSoftGoal("virtualnetwork") && goals.isItemChecked("virtualnetwork"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AVN");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//TODO: Re-evaluate - maybe the Scalability part is redundant, the rule has to execute whenever HeavyWeightContentDelivery and DistantDataAccess is expressed as a goal regardless of scalability
+rule "CDN_AZURE" extends "IsNetworkTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	eval((goals.requiresHardGoal("HeavyWeightContentDelivery")
+    	|| goals.requiresHardGoal("DistantDataAccess"))
+    	&& goals.requiresSoftGoal("Scalability")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZURECDN");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "AZURESecurity_Application" extends "IsApplicationLevelComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	//TODO: We don't know how Authorization Requirements is represented in GML yet 
+    	//eval(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements().equals("oauth") && goals.isItemChecked(mGoals.getTechnicalGoals().getU_c().getAuthorisationRequirements()))
+    	//TODO: softGoal comes with a threshold. It should be used
+    	eval(goals.hasSoftGoal("Security") && goals.isItemChecked("Security"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREFEDID");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREMULTIFACTORAUTHENTICATION");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREGATEKEEPER");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREVALET");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "AZURESecurity_SecurityComponent" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	eval($component.hasStereotype("Security"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREFEDID");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREMULTIFACTORAUTHENTICATION");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREGATEKEEPER");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+
+		strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREVALET");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Queue_Scalability_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+         eval( ($component.hasStereotype(Category.QUEUE.getPossibleStereotypes()) || $component.hasStereotype(Category.WORKFLOW.getPossibleStereotypes()))
+         && goals.hasSoftGoal("Scalability") && goals.isItemChecked("Scalability") ) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUREQCW");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZURETHROTTLING");
+        strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);       
+end
+
+//TODO: Re-evaluate - maybe the Scalability part is redundant, the rule has to execute whenever Bigdata is expressed as a goal regardless of scalability
+rule "Data_Mapreduce_AZURE" extends "IsDataTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+         eval(goals.requiresHardGoal("Bigdata") && goals.requiresSoftGoal("Scalability")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("HDINSIGHT");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy); 
+end
+
+rule "Data_Sharding_AZURE" extends "IsDataTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+         eval(goals.requiresHardGoal("LargeTransactionVolume") && goals.requiresSoftGoal("Scalability")) 
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZUSQLDBSHARDING");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy); 
+end
+
+rule "Data_RDBMS_AZURE" extends "IsDataTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	//TODO: We don't know how database scalability requirements are represented in GML
+    	//eval (!$component.hasStereotype("BLOB") && mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements().equals("RDBMSmultitenant") && goals.isItemChecked(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements()))
+    	eval (!$component.hasStereotype("BLOB"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZURE_SQL");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//Too specific
+rule "Data_EntityFramework_AZURE" extends "IsDataTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	eval ($component.hasStereotype("ListStore") || $component.hasStereotype("ObjectModel"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NET_Entity");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Data_NOSQL_AZURE" extends "IsDataTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	//TODO: We don't know how database scalability requirements are represented in GML
+        //eval(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements().equals("NO-SQL") && goals.isItemChecked(mGoals.getTechnicalGoals().getA_p().getDatabaseScalabilityRequirements()))
+        eval(goals.hasSoftGoal("NO-SQL") && goals.isItemChecked("NO-SQL"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("MONGO");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Data_BLOB_AZURE" extends "IsDataTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+         eval($component.hasStereotype("BLOB"))
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NET_Entity");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+/*rule "JMS_AZURE" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		$component : Component (this.hasStereotype(Category.QUEUE.getPossibleStereotypes()))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("SQS");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+*/
+rule "IsViewComponent_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+	
+	when
+		eval ( $component.hasStereotype(Category.VIEW.getPossibleStereotypes()) )
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ASP_MVC");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//Rules for services
+rule "WCFService_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ( $component.hasStereotype("WCFService") )
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("WCFService");
+		strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "WebService_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ( !$component.hasStereotype("WCFService") && $component.hasStereotype(Category.WEB_SERVICE.getPossibleStereotypes()) )
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ASP_WebAPI");
+		strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "AppService_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ($component.hasStereotype(Category.APPLICATION_SERVICE.getPossibleStereotypes()))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("C_NET");
+		strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+/*
+rule "DRUPAL_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ($component.hasStereotype("SPObjectModel"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("DRUPAL");
+		strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+*/
+
+rule "LOGGING_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ($component.hasStereotype("Logging"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZURE_Diagnostics");
+		strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "ASP_NET_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ($component.hasStereotype("Specification"))
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("ASP");
+		strategy.setComplexity(Complexity.AVERAGE);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "Cache_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ( 
+			($component.hasStereotype(Category.DATA.getPossibleStereotypes()) && goals.requiresSoftGoal("Scalability")) ||   
+			($component.hasStereotype(Category.PERFORMANCE.getPossibleStereotypes()) && goals.requiresSoftGoal("PerformanceEfficiency"))
+		)
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("AZURECACHING");
+		strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+//might need an improvement, rule is ambiguous
+rule "Visualization_AZURE" extends "IsStandardComponent" agenda-group "MICROSOFT_AZURE"
+
+	when 
+		eval ($component.hasStereotype(Category.VISUALIZATION.getPossibleStereotypes()) ) 
+	then
+		MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("DIAGRAMO");
+		strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+rule "ReliabilityAzure" extends "IsNetworkTypeComponent" agenda-group "MICROSOFT_AZURE"
+	
+    when
+    	eval(goals.hasSoftGoal("Reliability") && goals.isItemChecked("Reliability") )  
+    then
+        //Health Endpoint Monitoring pattern
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("TRAFFICMANAGER");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        //Node Failure pattern
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NODEFAILUREMONITORING_AZURE");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("NODESHUTDOWNSIGNAL_AZURE");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+        
+        //Busy-signal (retry) pattern
+        strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("TOPAZ");
+        strategy.setComplexity(Complexity.LOW);
+        strategy.setSuggested(true);
+        $component.addMigrationStrategy(strategy);
+end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// AGENDA-GROUP NONE ///////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+rule "CQRS" extends "IsDataTypeComponent" 
+	
+    when
+         eval (true)
+    then
+        MigrationStrategy strategy = MigrationStrategyContainer.INSTANCE.getMigrationStrategy("CQRS");
+        strategy.setComplexity(Complexity.HIGH);
+        strategy.setSuggested(false);
+        $component.addMigrationStrategy(strategy);
+end
+*/

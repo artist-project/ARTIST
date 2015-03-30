@@ -81,6 +81,21 @@ public class Searcher {
 	    }
 	}
 	
+	public void searchInClassList( List<String> classList) throws Exception{
+	    for (String filename : classList) {
+	    	File fileEntry= new File(filename);
+			ArrayList<Integer> lines =searchInFile(fileEntry);
+			SearchResult obj= new SearchResult();
+			obj.setFileName(filename);
+			obj.setLines(lines);
+			if(lines.size()>0){
+    			addResult(obj);
+			}else{
+    			addNoResult(obj);
+			}
+			
+		}
+	}	
 	public ArrayList<Integer> searchInFile(File file) throws Exception{
 		
 		ArrayList<Integer> retorno= new ArrayList<Integer>();

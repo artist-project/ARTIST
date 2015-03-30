@@ -43,6 +43,10 @@ public class Component {
 	private float levelOfComplexity=0;
 	private float maintenance=0;
 
+	private float reusability=0;
+	private float reusabilityLines=0;
+
+	
 	private int maxDIT=0;
 	private float percentageCoverage=0;
 	private float DMS=0;
@@ -210,5 +214,24 @@ public class Component {
 	public void setCohesion(float cohesion) {
 		this.cohesion = cohesion;
 	}
+
+	@XmlElement(name="reusability")
+	public float getReusability() {
+		return reusability;
+	}
+
+	public void setReusability(float reusability) {
+		this.reusability = reusability;
+	}
+
+	@XmlElement(name="reusabilityLines")
+	public float getReusabilityLines() {
+		return reusabilityLines;
+	}
+
+	public void setReusabilityLines(float reusabilityLines) {
+		this.reusabilityLines = reusabilityLines;
+	}
+
 
 }

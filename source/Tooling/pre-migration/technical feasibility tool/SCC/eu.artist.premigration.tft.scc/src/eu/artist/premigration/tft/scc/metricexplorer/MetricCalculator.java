@@ -43,6 +43,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+
+
+
+
+
 import eu.artist.premigration.tft.scc.structures.Component;
 import eu.artist.premigration.tft.scc.structures.Method;
 import eu.artist.premigration.tft.scc.structures.Project;
@@ -96,7 +101,7 @@ public class MetricCalculator {
 		return this.result;
 	}
 	
-	public List<Component> getMetricsByComponent(HashMap<String, List<String>> classFiles, String ComponentModelPath, String ClassModelPath, int type) throws Exception{// type 1 java 2 cshap
+	public List<Component> getMetricsByComponent(HashMap<String, List<String>> classFiles, List<String> srcPaths, String ComponentModelPath, String ClassModelPath, int type) throws Exception{// type 1 java 2 cshap
 		
 		if (type==2){//cshap
 			this.type=2;
@@ -104,7 +109,28 @@ public class MetricCalculator {
 			this.comText="namespace";
 			this.impText="using";
 		}
+		//initialize classPaths
+		for (String com: classFiles.keySet()){
+			System.out.println(com+" component size: "+classFiles.get(com).size());
+			for (int i=0; classFiles.get(com).size()>i; i++){
+				for (String base: srcPaths){
+					String str=base+classFiles.get(com).get(i).replace(".", "/");
+					str=str.substring(0,str.lastIndexOf("/"))+"."+str.substring(str.lastIndexOf("/")+1);
+					File fich = new File(str);
+					if (fich.exists()){
+						classFiles.get(com).set(i, str);
+						break;
+					}
+				}
+			}
+    		
+
+		}
 		
+		//TODO get keywords
+		List<String> keywords= new ArrayList<String>();
+		keywords.add("String");
+		 
 		for (String com: classFiles.keySet()){
     		Component c = new Component();
     		c.setName(com);
@@ -112,6 +138,7 @@ public class MetricCalculator {
     		c.setClassNumber(classFiles.get(com).size());
     		c.setCyclomaticComplexity(getCyclomaticComplexity(classFiles.get(com)));
     		c.setNestedBlockDepth(getNesteBlockDepth(classFiles.get(com)));
+    		this.getReusability(classFiles.get(com), keywords, c);
 		}
 		
         System.out.println();
@@ -146,7 +173,41 @@ public class MetricCalculator {
 		getMaintenance();
 		
 		return this.result;
+		
 	}
+	
+	private void getReusability(List<String> classList, List<String> keywords, Component c) throws Exception{
+		Searcher s= new Searcher(); 
+		s.addType(this.ext);
+		for (String key : keywords) {
+			s.addParam(key);
+		}
+		s.searchInClassList(classList);
+		ClassExplorer ce;
+		if (this.type==1){
+			ce= new JavaExplorer();
+		}else{
+			ce= new CSExplorer();
+		}
+
+		Project p= new Project();
+		
+		for (SearchResult sr : s.getNoResult()) {
+			File sampleFile = new File(sr.getFileName());
+			p.addSourceFile(ce.findMethodsParser(sampleFile));
+		}
+
+		for (SearchResult sr : s.getResult()) {
+			File sampleFile = new File(sr.getFileName());
+			p.addSourceFile(ce.findMethodsParser(sampleFile, sr.getLines()));
+		}
+		c.setReusability(p.getReusability());
+		c.setReusabilityLines(p.getReusabilityLines());
+		System.out.println("********* Reusability level "+c.getName()+": "+p.getReusability());
+		System.out.println("********* Reusability Lines "+c.getName()+": "+p.getReusabilityLines());
+		
+	}
+
 	
 	private void getAGH(String comModel, String classModel) throws Exception{
 		UMLExplorer ue= new UMLExplorer();

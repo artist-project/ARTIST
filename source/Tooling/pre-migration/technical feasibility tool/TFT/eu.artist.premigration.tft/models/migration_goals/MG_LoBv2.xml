@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MigrationGoals>
+<Technical>
+<a_p>
+<migratedpl>.NET</migratedpl>
+<multitenancy>virtualizationbytenant</multitenancy>
+<tdatabasereq> RDBMSmultitenant </tdatabasereq >
+</a_p>
+<SLA>
+<reliability>13</reliability>
+<datalocation>EU</datalocation>
+<responset>3</responset>
+</SLA>
+<u_s>
+<configreq>interface_language</configreq>
+<authorreq>Windows azure Active Directory:Oauth</authorreq>
+</u_s>
+<iaas>
+<targetplat>Azure</targetplat>
+</iaas>
+<interop>
+<interopreq>yes</interopreq>
+</interop>
+</Technical>
+<Business>
+<mon>
+<measur_elem>other:hybrid users-transactions-resources</measur_elem>
+</mon>
+<use>
+<WAI>yes</WAI>
+</use>
+<bil>
+<rule>use</rule>
+</bil>
+<pro>
+<license_mod>use</license_mod>
+</pro>
+</Business>
+</MigrationGoals>

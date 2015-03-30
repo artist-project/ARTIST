@@ -19,6 +19,7 @@ package eu.artist.premigration.tft.scc.structures;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import java.util.ArrayList;
 
 
@@ -74,6 +75,34 @@ public class Project {
         this.sourcefiles.add(l);
     }
     
+    public float getReusability(){
+    	float totMethods=0;
+    	float reMtethods=0;
+    	for ( SourceFile sf : sourcefiles){
+    		for (Method mt: sf.getMethods()){
+    			totMethods++;
+    			if (mt.getReusable().equals("true")){
+    				reMtethods++;
+    			}
+    		}
+    	}
+		//System.out.println("totMthods: "+totMethods+" ReMethods: "+reMtethods);
+    	return reMtethods/totMethods;
+    }
     
-    
-}
+    public float getReusabilityLines(){
+    	float totLines=0;
+    	float reLines=0;
+    	for ( SourceFile sf : sourcefiles){
+    		for (Method mt: sf.getMethods()){
+    			totLines+=Float.parseFloat(mt.getEline())-Float.parseFloat((mt.getBline()));
+    			if (mt.getReusable().equals("true")){
+    				reLines+=Float.parseFloat(mt.getEline())-Float.parseFloat((mt.getBline()));
+    			}
+    		}
+    	}
+		//System.out.println("totLines: "+totLines+" reLines: "+reLines);
+    	return reLines/totLines;
+    }
+	
+}//EOF

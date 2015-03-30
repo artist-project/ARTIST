@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:J2EEProfile="http:///schemas/J2EEProfile/_xc7s4NgdEeK8M8SoWDAAsg/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/J2EEProfile/_xc7s4NgdEeK8M8SoWDAAsg/1 ../../../profiles/j2ee/j2ee5.profile.uml#_xc7s4dgdEeK8M8SoWDAAsg">
+  <uml:Model xmi:id="_z2tY4NjnEeKSvPntUB5YYg" name="root model">
+    <packagedElement xmi:type="uml:Model" xmi:id="_z2tY4djnEeKSvPntUB5YYg" name="PetStore-2.0-EA5">
+      <packagedElement xmi:type="uml:Package" xmi:id="_z2tY4tjnEeKSvPntUB5YYg" name="com">
+        <packagedElement xmi:type="uml:Package" xmi:id="_z2tY49jnEeKSvPntUB5YYg" name="sun">
+          <packagedElement xmi:type="uml:Package" xmi:id="_z2tY5NjnEeKSvPntUB5YYg" name="javaee">
+            <packagedElement xmi:type="uml:Package" xmi:id="_z2tY5djnEeKSvPntUB5YYg" name="blueprints">
+              <packagedElement xmi:type="uml:Package" xmi:id="_z2tY5tjnEeKSvPntUB5YYg" name="petstore">
+                <packagedElement xmi:type="uml:Package" xmi:id="_z2tY59jnEeKSvPntUB5YYg" name="controller">
+                  <packagedElement xmi:type="uml:Component" xmi:id="_z2tY6NjnEeKSvPntUB5YYg" name="ControllerComponent">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY6djnEeKSvPntUB5YYg" name="EntryFilter"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY6tjnEeKSvPntUB5YYg" name="ControllerServlet"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY69jnEeKSvPntUB5YYg" name="CaptchaValidateFilter"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Component" xmi:id="_z2tY7NjnEeKSvPntUB5YYg" name="ManagedBeanComponent">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY7djnEeKSvPntUB5YYg" name="AddressBean"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY7tjnEeKSvPntUB5YYg" name="AutocompleteBean"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY79jnEeKSvPntUB5YYg" name="FileUploadBean"/>
+                  </packagedElement>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_z2tY8NjnEeKSvPntUB5YYg" name="mapviewer">
+                  <packagedElement xmi:type="uml:Component" xmi:id="_z2tY8djnEeKSvPntUB5YYg" name="MapBean">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY8tjnEeKSvPntUB5YYg" name="MapBeanss"/>
+                  </packagedElement>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_z2tY89jnEeKSvPntUB5YYg" name="model">
+                  <packagedElement xmi:type="uml:Component" xmi:id="_z2tY9NjnEeKSvPntUB5YYg" name="ModelComponent">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY9djnEeKSvPntUB5YYg" name="Product"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY9tjnEeKSvPntUB5YYg" name="Item"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY99jnEeKSvPntUB5YYg" name="ZipLocation"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY-NjnEeKSvPntUB5YYg" name="Category"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY-djnEeKSvPntUB5YYg" name="Address"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY-tjnEeKSvPntUB5YYg" name="SellerContactInfo"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY-9jnEeKSvPntUB5YYg" name="Tag"/>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Component" xmi:id="_z2tY_NjnEeKSvPntUB5YYg" name="ManagedBeanComponent">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY_djnEeKSvPntUB5YYg" name="PayPalBean"/>
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tY_tjnEeKSvPntUB5YYg" name="RatingBean"/>
+                  </packagedElement>
+                </packagedElement>
+                <packagedElement xmi:type="uml:Package" xmi:id="_z2tY_9jnEeKSvPntUB5YYg" name="search">
+                  <packagedElement xmi:type="uml:Component" xmi:id="_z2tZANjnEeKSvPntUB5YYg" name="SearchBean">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_z2tZAdjnEeKSvPntUB5YYg" name="SearchBean"/>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_z2tZAtjnEeKSvPntUB5YYg" name="PetstorePu">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z2tZA9jnEeKSvPntUB5YYg" name="PetstorePu"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Component" xmi:id="_z2tZBNjnEeKSvPntUB5YYg" name="UI">
+        <packagedElement xmi:type="uml:Class" xmi:id="_z2tZBdjnEeKSvPntUB5YYg" name="UI"/>
+      </packagedElement>
+      <profileApplication xmi:id="_z2tZBtjnEeKSvPntUB5YYg">
+        <eAnnotations xmi:id="_z2tZB9jnEeKSvPntUB5YYg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="../../../profiles/j2ee/j2ee5.profile.uml#_xc7s4dgdEeK8M8SoWDAAsg"/>
+        </eAnnotations>
+        <appliedProfile href="../../../profiles/j2ee/j2ee5.profile.uml#_MkASwNgcEeK8M8SoWDAAsg"/>
+      </profileApplication>
+    </packagedElement>
+    <profileApplication xmi:id="_z2tZCNjnEeKSvPntUB5YYg">
+      <eAnnotations xmi:id="_z2tZCdjnEeKSvPntUB5YYg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../../../profiles/j2ee/j2ee5.profile.uml#_xc7s4dgdEeK8M8SoWDAAsg"/>
+      </eAnnotations>
+      <appliedProfile href="../../../profiles/j2ee/j2ee5.profile.uml#_MkASwNgcEeK8M8SoWDAAsg"/>
+    </profileApplication>
+  </uml:Model>
+  <J2EEProfile:Controller xmi:id="_z2tZCtjnEeKSvPntUB5YYg" base_Class="_z2tY6NjnEeKSvPntUB5YYg"/>
+  <J2EEProfile:View xmi:id="_z2tZC9jnEeKSvPntUB5YYg" base_Class="_z2tZBNjnEeKSvPntUB5YYg"/>
+  <J2EEProfile:DataSource xmi:id="_z2tZDNjnEeKSvPntUB5YYg" base_Class="_z2tZAtjnEeKSvPntUB5YYg"/>
+  <J2EEProfile:ManagedBean xmi:id="_z2tZDdjnEeKSvPntUB5YYg" base_Class="_z2tZANjnEeKSvPntUB5YYg"/>
+  <J2EEProfile:ManagedBean xmi:id="_z2tZDtjnEeKSvPntUB5YYg" base_Class="_z2tY_NjnEeKSvPntUB5YYg"/>
+  <J2EEProfile:Model xmi:id="_z2tZD9jnEeKSvPntUB5YYg" base_Class="_z2tY9NjnEeKSvPntUB5YYg"/>
+  <J2EEProfile:ManagedBean xmi:id="_z2tZENjnEeKSvPntUB5YYg" base_Class="_z2tY8djnEeKSvPntUB5YYg"/>
+  <J2EEProfile:ManagedBean xmi:id="_z2tZEdjnEeKSvPntUB5YYg" base_Class="_z2tY7NjnEeKSvPntUB5YYg"/>
+</xmi:XMI>

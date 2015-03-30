@@ -1,0 +1,722 @@
+/*******************************************************************************
+ * Copyright (c) 2014 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Martin Fleck (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+
+import eu.artist.property.catalogue.nonfunctional.*
+
+/*
+ * Set of optimization patterns that can be applied to improve certain
+ * properties of a cloud application. Patterns will be implemented in
+ * terms of transformations (M2M, M2T).
+ * 
+ * Link: https://docs.google.com/document/d/1gXGEyhdNclkt27muMjMIwbuhojOkPSAOLOoVb-TUD9E
+ */
+pattern-catalogue eu.artist.catalogue.patterns.atl {
+	
+	/**
+	 * This pattern is useful when the application capacity exceeds the 
+	 * capacity of the largest available compute node.
+	 */
+	pattern HorizontallyScalingComputePattern {
+		context
+		"This pattern is useful when the application capacity exceeds the capacity of the largest available compute node.",
+		problem "We can use this pattern when it is required cost-efficient scaling of compute nodes, such as in the web tier or service tier, and when application capacity requirements exceed (or may exceed after growth) the capacity of the largest available compute node. There are also situations where the application capacity requirements vary seasonally, monthly, weekly, or daily, or are subject to unpredictable spikes in usage. Finally, application compute nodes may require minimal downtime, including resilience in the event of hardware failure, system upgrades, and resource changes due to scaling.",
+		solution "When a cloud-native application is ready to horizontally scale by adding or releasing compute nodes, this is achieved through the cloud platform management user interface, a scaling tool, or directly through the cloud platform management service. The key to efficiently utilizing resources is stateless autonomous compute nodes. Stateless nodes do not imply a stateless application. Important state can be stored external to the nodes in a cloud cache or storage service, which for the web tier is usually done with the help of cookies. Services in the service tier typically do not use session state, so implementation is even easier: all required state is provided by the caller in each call. The key to operations management is to lean on cloud services for automation to reduce complexity in deploying and managing homogeneous nodes.",
+		property-impacts [
+			Availability 0.2,
+			Cost 0.2,
+			Scalability .2
+		],
+		related-patterns [
+			AutoScalingPattern,
+			MapReducePattern,
+			DatabaseShardingPattern,
+			NodeFailurePattern
+		]
+	}
+	
+	/**
+	 * Can be used for all types of applications (especially useful when dealing with variable workloads).
+	 */
+	pattern AutoScalingPattern {
+		context
+		"Can be used for all types of applications (especially useful when dealing with variable workloads).",
+		problem "Low performance or high costs due to over/underutilization matters when the demands for resources change. Difficulty in dealing with load spikes.  Scaling manually through your cloud vendor’s web-hosted management tool helps lower your monthly cloud bill, but automation can do a better job of cost optimization, with less manual effort spent on routine scaling tasks.", 
+		solution "Automation can respond to signals from the cloud service itself and scale reactively to actual need. The two goals of auto-scaling are to optimize resources used by a cloud application (which saves money), and to minimize human intervention (which saves time and reduces errors).", 
+		property-impacts [
+			Availability 0.2,
+			Cost 0.2,
+			Scalability 0.2
+		],
+		pattern-impacts [
+			AutoScalingPattern -0.2
+		],
+		related-patterns [
+			HorizontallyScalingComputePattern,
+			DatabaseShardingPattern,
+			NodeFailurePattern
+		]
+	}
+	
+	/**
+	 * The load on a cloud application commonly varies over time with the 
+	 * number of active users or the types of activities being performed by 
+	 * users. For example, more users are likely to be active during business 
+	 * hours, or the system may be required to perform computationally 
+	 * expensive analytics at the end of each month. There may also be sudden 
+	 * and unanticipated bursts in activity. If the processing requirements of 
+	 * the system exceed the capacity of the resources that are available, the 
+	 * system will suffer from poor performance and may even fail. The system may 
+	 * be obliged to meet an agreed level of service, and such failure could be 
+	 * unacceptable.
+	 */
+	pattern ThrottlingPattern {
+		context
+		"The load on a cloud application commonly varies over time with the number of active users or the types of activities being performed by users. For example, more users are likely to be active during business hours, or the system may be required to perform computationally expensive analytics at the end of each month. There may also be sudden and unanticipated bursts in activity. If the processing requirements of the system exceed the capacity of the resources that are available, the system will suffer from poor performance and may even fail. The system may be obliged to meet an agreed level of service, and such failure could be unacceptable.",
+		problem "There are many strategies available for handling varying load in the cloud, depending on the business goals for the application. One strategy is to use autoscaling services to match the provisioned resources to the user needs at any given time; this has the potential to consistently meet user demand, while optimizing for cost. However, while autoscaling may trigger the provisioning of additional resources, this provisioning is not instantaneous; if demand grows quickly there may be a window of time where there is a resource deficit.", 
+		solution "Only allow applications to use resources up to some soft limit, and then throttle applications when this limit is reached. The system should monitor how it is using resources, and when usage exceeds some system-defined threshold it can throttle requests from one or more users to enable the system to continue functioning and meet any service level agreements that are in place.", 
+		property-impacts [
+			PerformanceEfficiency 0.2,
+			Cost 0.2,
+			Scalability 0.2,
+			Reliability -0.2,
+			Availability -0.2
+		],
+		related-patterns [
+			QueueBasedLoadLevelingPattern,
+			PriorityQueuePattern,
+			MultitenancyPattern
+		]
+	}
+	
+	/**
+	 * Multiple clients accessing the same application on the Cloud where each 
+	 * of them needs its own configuration, being independent from the rest of 
+	 * clients.
+	 * In fact, multitenancy means there are multiple tenants sharing a system. 
+	 * Usually the system is a software application operated by one company, 
+	 * the host, for use by other companies, the tenants. Each tenant company 
+	 * has individual employees who access the software. All employees of a 
+	 * tenant company can be connected within the application while other 
+	 * tenants are invisible; this creates the illusion for each tenant that 
+	 * they are the only customers using the software.
+	 */
+	pattern MultitenancyPattern {
+		context "Multiple clients accessing the same application on the Cloud where each of them needs its own configuration, being independent from the rest of clients. In fact, multitenancy means there are multiple tenants sharing a system. Usually the system is a software application operated by one company, the host, for use by other companies, the tenants. Each tenant company has individual employees who access the software. All employees of a tenant company can be connected within the application while other tenants are invisible; this creates the illusion for each tenant that they are the only customers using the software.",
+		problem "Multitenancy tries to overcome the high cost of single-tenancy. The latter refers to a SaaS architecture (also called multi-instance) in which a separate instance of a software application and supporting infrastructure is used by each customer, or tenant. Single-tenant architecture is mainly used by companies who need a customized approach, either because of their geography (or that of their client-base) or their need of a higher level of security. With single-tenant, each company has a distinct database and system that is either placed on an individual server or segregated using extensive security controls to create a virtual server network. In single-tenancy SaaS environments, each tenant purchases their own copy of the software which can be customized to meet their needs. While the cloud hosting provider’s software acts as the basis for the final application, users are provided with significant capability to make configurations; for example, users can adapt features such as additions to individual modules and channels to various internal databases and external partner databases.",
+		solution "Apply a multitenancy approach. Since multitenant applications run on shared infrastructure, it is important to isolate tenants from each other to protect information security, and prevent rogue actions or failure in one tenant’s execution environment does not impact other tenants’ availability.",
+		property-impacts [
+			Security -0.2,
+			PerformanceEfficiency -0.2,
+			Cost -0.2
+		],
+		related-patterns [
+			AutoScalingPattern,
+			DatabaseShardingPattern
+		]
+	}
+	
+	/**
+	 * Applications which process large volumes of data, perform operations 
+	 * such as sorting or filtering and need to easily scale up/down their 
+	 * operation.
+	 */
+	pattern MapReducePattern {
+		context "Applications which process large volumes of data, perform operations such as sorting or filtering and need to easily scale up/down their operation.",
+		problem
+		"Processing data of big size (Terabytes or even Petabytes) requires considerable processing power and may take an inordinate amount of time. In addition, moving large volumes of data across the network to a central location for processing is inefficient.",
+		solution "In order to take advantage of the use of multiple nodes running in parallel, and to avoid moving the data over the network, use the MapReduce pattern to separate the tasks into two phases; map and reduce. MapReduce is a simple concept. At the most basic, it involves two phases: (i) execute a map process on the data that splits it into multiple key/value pairs, and (ii) execute a reduce process to combine the results produced by the map processes.",  
+		property-impacts [
+			PerformanceEfficiency 0.2,
+			Scalability 0.2
+		],
+		related-patterns [
+			AutoScalingPattern
+		]
+	}
+	
+	/**
+	 * Integrated database sharding support is available with some cloud 
+	 * database services, in both relational and NoSQL varieties.
+	 */
+	pattern DatabaseShardingPattern {
+		context "Integrated database sharding support is available with some cloud database services, in both relational and NoSQL varieties.",
+		problem "This pattern helps in several situations regarding the application database. For example, when the database query volume exceeds the query capability of a single database node, resulting in unacceptable response times or timeouts. The database update volume can also exceed the transactional capability of a single database node, or the database network bandwidth needs to exceed the bandwidth available to a single database node. Finally, we can also use it when the database storage requirements exceed the capacity of a single database node.", 
+		solution "This advanced pattern focuses on horizontally scaling data through sharding. To shard a database is to start with a single database and then divvy up its data across two or more databases (shards). Each shard has the same database schema as the original database. Most data is distributed such that each row appears in exactly one shard. The combined data from all shards is the same as the data from the original database. The collection of shards is a single logical database, even though there are now multiple physical databases involved. Cross-shard transactions are not supported, this is, shards do not reference other shards. Each one of them is autonomous, and they are structurally identical, so the database rows are divvied up across the shards.", 
+		property-impacts [
+			Scalability 0.2,
+			Modifiability -0.2,
+			Maintainability -0.2
+		],
+		related-patterns [
+			HorizontallyScalingComputePattern,
+			AutoScalingPattern
+		]
+	}
+	
+	/**
+	 * This pattern is used with the aim of considerably simplify the design 
+	 * and implementation compared to the use of a single model of the data. 
+	 * In traditional data management systems, all create, read, update, and 
+	 * delete (CRUD) operations are applied to the same representation of the 
+	 * entity. 
+	 * <p/>
+	 * For example, a Data Transfer Object (DTO) representing a customer is 
+	 * retrieved from the data store by the data access layer (DAL) and 
+	 * displayed on the screen. A user updates some fields of the DTO (perhaps 
+	 * through data binding) and the DTO is then saved back in the data store 
+	 * by the DAL. The same DTO is used for both the read and write operations.
+	 */
+	pattern CQRSPattern {
+		context
+		"This pattern is used with the aim of considerably simplify the design and implementation compared to the use of a single model of the data. In traditional data management systems, all create, read, update, and delete (CRUD) operations are applied to the same representation of the entity. For example, a Data Transfer Object (DTO) representing a customer is retrieved from the data store by the data access layer (DAL) and displayed on the screen. A user updates some fields of the DTO (perhaps through data binding) and the DTO is then saved back in the data store by the DAL. The same DTO is used for both the read and write operations.",
+		problem "This pattern overcomes some disadvantages present in the traditional CRUD architecture: (1) Mismatch between the read and write representations of the data, such as additional columns or properties that must be updated correctly even though they are not required as part of an operation. (2) It risks encountering data contention when records are locked in the data store or update conflicts caused by concurrent updates when optimistic locking is used, and these risks increase as the complexity and throughput of the system grows. (3) It can make managing security and permissions more cumbersome because each entity is subject to both read and write operations, which might inadvertently expose data in the wrong context.", 
+		solution "This pattern segregates the operations that read data (Queries) from the operations that update data (Commands) by using separate logical interfaces. This implies that the data models used for querying and updates are different and can be isolated. This considerably simplifies design and implementation compared to the use of a single model of the data.", 
+		property-impacts [
+			Scalability 0.2,
+			Security 0.2,
+			PerformanceEfficiency 0.2,
+			Reliability -0.2
+		],
+		related-patterns [
+			EventSourcingPattern
+		]
+	}
+	
+	/**
+	 * Most applications work with data, and the typical approach is for the 
+	 * application to maintain the current state of the data by updating it as 
+	 * users work with the data. For example, in the traditional create, read, 
+	 * update, and delete (CRUD) model a typical data process will be to read 
+	 * data from the store, make some modifications to it, and update the 
+	 * current state of the data with the new values.
+	 */
+	pattern EventSourcingPattern {
+		context
+		"Most applications work with data, and the typical approach is for the application to maintain the current state of the data by updating it as users work with the data. For example, in the traditional create, read, update, and delete (CRUD) model a typical data process will be to read data from the store, make some modifications to it, and update the current state of the data with the new values.",
+		problem "The CRUD approach has some limitations. Thus, the fact that CRUD systems perform update operations directly against a data store may hinder performance and responsiveness, and limit scalability, due to the processing overhead it requires. Also, in a collaborative domain with many concurrent users, data update conflicts are more likely to occur because the update operations take place on a single item of data. Finally, unless there is an additional auditing mechanism, which records the details of each operation in a separate log, history is lost.", 
+		solution "The Event Sourcing pattern defines an approach to handling operations on data that is driven by a sequence of events, each of which is recorded in an append-only store. Application code creates an event describing an action that has occurred on the data; these events are created in response to changes made to the data, after they have occurred.", 
+		property-impacts [
+			Scalability 0.2,
+			PerformanceEfficiency 0.2,
+			Maintainability -0.2
+		],
+		related-patterns [
+			CQRSPattern
+		]
+	}
+	
+	/**
+	 * In some cases, the data handled by a storage offering is comprised of 
+	 * large numbers of similar data elements, and these elements have certain
+	 * dependencies among each other. Clients querying such data elements make 
+	 * certain assumptions about the data structure. 
+	 */
+	pattern RelationalDatabasePattern {
+		context "In some cases, the data handled by a storage offering is comprised of large numbers of similar data elements, and these elements have certain dependencies among each other. Clients querying such data elements make certain assumptions about the data structure.",
+		problem "In this context, clients expect consistent relations between the retrieved data elements. For this reason, inconsistencies in the data structure may lead to failure of the querying clients.",
+		solution "In a relational database, data elements are stored in tables where each column represents an attribute of a data element with a well-defined semantic. Then, such attributes can be used in data queries, to make them more expressive.",
+		property-impacts [
+			Availability 0.2,
+			PerformanceEfficiency 0.2
+		]
+	}
+	
+	/**
+	 * The data structure should be flexible since different customers can 
+	 * have different requirements, and the data storage offering can be 
+	 * distributed among different resources. Relational database are harder 
+	 * to scale horizontally, since they consist of user-defined database 
+	 * schemas. 
+	 */
+	pattern KeyValueStoragePattern {
+		context "The data structure should be flexible since different customers can have different requirements, and the data storage offering can be distributed among different resources. Relational database are harder to scale horizontally, since they consist of user-defined database schemas.",
+		problem "When cloud applications need to handle large amounts of data that may be globally distributed, it is better to use a key-value storage. This enables providers to adjust storage offerings to the requirements of different customers and provide the same offerings to different customers storing different data.",
+		solution "With the key-value storage offering, pairs of identifiers (key) and associated data (value) are stored in tables. Now, only very limited schema is needed.",
+		property-impacts [
+			Scalability 0.2,
+			PerformanceEfficiency 0.2
+		],
+		related-patterns [
+			MapReducePattern
+		]
+	}
+	
+	/**
+	 * An application should be able to quickly retrieve data from a large data
+	 * store. It may be beneficial to create secondary indexes over fields that 
+	 * are referenced by query criteria. If the data store does not support 
+	 * native secondary indexes, it may be necessary to implement them 
+	 * manually.
+	 */
+	pattern IndexTablePattern {
+		context "An application should be able to quickly retrieve data from a large data store. It may be beneficial to create secondary indexes over fields that are referenced by query criteria. If the data store does not support native secondary indexes, it may be necessary to implement them manually.",
+		problem "Many data stores organize the data for a collection of entities by using the primary key. While the primary key is valuable for queries that need to fetch data based on the value of this key, an application might not be able to use the primary key to retrieve data based on some other field. Many relational databases support secondary indexes. However most NoSQL datastores used by cloud applications do not provide an equivalent feature to secondary indexes.",
+		solution "If the data store does not support secondary indexes, you can emulate them manually, by creating your own index tables. An index table organizes the data by a specified key.",
+		property-impacts [
+			ResponseTime 0.2,
+			PerformanceEfficiency 0.2
+		],
+		related-patterns [
+			MaterializedView,
+			DatabaseShardingPattern
+		]
+	}
+	
+	/**
+	 * When storing data, the priority for developers and data administrators 
+	 * is often focused on how the data is stored, as opposed to how it is 
+	 * read. The chosen storage format is usually closely related to the format 
+	 * of the data, requirements for managing data size and data integrity, and 
+	 * the kind of store in use. 
+	 */
+	pattern MaterializedView {
+		context "When storing data, the priority for developers and data administrators is often focused on how the data is stored, as opposed to how it is read. The chosen storage format is usually closely related to the format of the data, requirements for managing data size and data integrity, and the kind of store in use.",
+		problem "This may have a negative effect on queries. When a query requires only a subset of the data from some entities, such as a summary of orders for several customers without all of the order details, it must extract all of the data for the relevant entities in order to extract the required information.  In addition to joining tables or combining data entities, queries may also include the current values of calculated columns or data items. Realizing the same query once and again influences negatively the performance of the system. When a query requires only a subset of the data from some entities, such as a summary of orders for several customers without all of the order details, it must extract all of the data for the relevant entities in order to extract the required information.",
+		solution
+		"Generate pre-populated views of data in environments where the source data is not in a format that is suitable for querying, where generating a suitable query is difficult, or where query performance is poor due to the nature of the data or the data store. Store these views in the cache.",
+		property-impacts [
+			ResponseTime 0.2,
+			PerformanceEfficiency 0.2,
+			Cost -0.2
+		],
+		related-patterns [
+			IndexTablePattern
+		]
+	}
+	
+	/**
+	 * This pattern is effective in dealing with deployment of an application.
+	 * It aims at moving configuration information out of the application 
+	 * deployment package to a centralized location.
+	 */
+	pattern ExternalConfigurationStorePattern {
+		context "This pattern is effective in dealing with deployment of an application. It aims at moving configuration information out of the application deployment package to a centralized location.",
+		problem "The majority of application runtime environments include configuration information that is held in files that are deployed with the application, and are located within the application folders. In some cases it is possible to edit these files to change the application behavior after it has been deployed. However, in many cases, changes to the configuration require the application to be re-deployed, resulting in unacceptable downtime and additional administrative overhead. Local configuration files also limit the configuration to a single application, whereas in some scenarios it would be useful to share configuration settings across multiple applications. Examples include database connection strings, UI theme information, or the URLs of queues and storage used by a related set of applications. In addition, many configuration systems do not support different versions of configuration information.",
+		solution
+		"Store the configuration information in external storage, and provide an interface that can be used to quickly and efficiently read and update configuration settings. The type of external store depends on the hosting and runtime environment of the application. This approach can provide opportunities for easier management and control of configuration data, and sharing configuration data across applications and application instances.",
+		property-impacts [
+			Availability 0.2,
+			Scalability 0.2
+		],
+		related-patterns [
+			CachingPattern,
+			RuntimeReconfigurationPattern
+		]
+	}
+	
+	/** 
+	 * This pattern can be useful in different context. For example, with 
+	 * applications for which you need to avoid all unnecessary downtime, 
+	 * while still being able to update and apply changes to the application 
+	 * configuration. Also, in environments that expose events that are raised 
+	 * automatically when the main configuration changes. Typically this is 
+	 * when a new configuration file is detected, or when changes are made to 
+	 * an existing configuration file. Finally, in applications where the 
+	 * configuration changes often and the changes can be applied to components 
+	 * without requiring the application to be restarted, or without requiring 
+	 * the hosting server to be rebooted.
+	 */
+	pattern RuntimeReconfigurationPattern {
+		context "This pattern can be useful in different context. For example, with applications for which you need to avoid all unnecessary downtime, while still being able to update and apply changes to the application configuration. Also, in environments that expose events that are raised automatically when the main configuration changes. Typically this is when a new configuration file is detected, or when changes are made to an existing configuration file. Finally, in applications where the configuration changes often and the changes can be applied to components without requiring the application to be restarted, or without requiring the hosting server to be rebooted.",
+		problem "A primary aim for important applications such as commercial and business websites is to minimize downtime and the consequent interruption to customers and users. However, at times it is necessary to reconfigure the application to change specific behavior or settings while it is deployed and in use. Therefore, it is an advantage for the application to be designed in such a way as to allow these configuration changes to be applied while it is running, and for the components of the application to recognize the changes and apply them as soon as possible. Examples of the kinds of configuration changes to be applied might be adjusting the granularity of logging to assist in debugging a problem with the application, swapping connection strings to use a different data store, or turning on or off specific sections or functionality of the application.",
+		solution "The solution for implementing this pattern depends on the features available in the application hosting environment. Typically you will handle one or more events that are raised by the hosting infrastructure when it detects a change to the application configuration. This is usually the result of uploading a new configuration file, or in response to changes in the configuration through the administration portal or by accessing an API.",
+		property-impacts [
+			Availability 0.2
+		]
+	}
+	
+	/**
+	 * Read-heavy application workloads, compute intensive workloads
+	 */
+	pattern CachingPattern {
+		context "Read-heavy application workloads, compute intensive workloads",
+		problem "Low performance for datastore query serving when performed over disk-based databases.",
+		solution "A caching system supports the application for succeeding low latency access to the results of I/O intensive database queries.",
+		property-impacts [
+			PerformanceEfficiency 0.2
+		]
+	}
+	
+	/**
+	 * This pattern is effective when application data is accessed from 
+	 * geographic locations that may not be close to the data center from 
+	 * which it originates, and also when multiple clients access the same 
+	 * application data objects (such as HTML, JavaScript, image, video, or 
+	 * other files) and/or the application includes large downloads, streaming 
+	 * video, or other heavyweight content delivery.
+	 * <p/>
+	 * On the contrary, it must not be applied on resources that are 
+	 * infrequently accessed. A CDN is only efficient for use on resources that
+	 * are usually accessed at least twice before expiring from the CDN cache. 
+	 * That is why it is also not recommended for use on resources that change 
+	 * constantly, such as those changing with each request or for content that 
+	 * is not intended for public viewing.
+	 */
+	pattern ContentDeliveryPattern {
+		context "This pattern is effective when application data is accessed from geographic locations that may not be close to the data center from which it originates, and also when multiple clients access the same application data objects (such as HTML, JavaScript, image, video, or other files) and/or the application includes large downloads, streaming video, or other heavyweight content delivery. On the contrary, it must not be applied on resources that are infrequently accessed. A CDN is only efficient for use on resources that are usually accessed at least twice before expiring from the CDN cache. That is why it is also not recommended for use on resources that change constantly, such as those changing with each request or for content that is not intended for public viewing.",
+		problem "This pattern deals with the performance problems that originate due to the geographic distance between data storage units and users",
+		solution "A way to bring source data and recipients closer together is by caching copies of the source data in locations closer to the recipients. The Content Delivery Network (CDN) is a service that functions as a globally distributed cache. The CDN keeps copies of application files in many places around the world. When these places are close to users, content does not need to travel as far to be delivered, so it will arrive faster, improving the user experience. CDN nodes are strategically located around the globe, hopefully close to application users. When a CDN URL is requested for the first time, the CDN will retrieve the file from the main source (usually known as the origin server), and then return that to the requesting user while also caching a local copy to satisfy subsequent requests for that file.",
+		property-impacts [
+			PerformanceEfficiency 0.2,
+			Scalability 0.2
+		],
+		related-patterns [
+			CachingPattern
+		]
+	}
+	
+	/**
+	 * It is recommended to use this pattern when one node makes frequent use 
+	 * of another node, such as compute node accessing a database, and when the
+	 * application deployment is basic, with no need for more than a single 
+	 * data center. When the application deployment is complex, involving 
+	 * multiple data centers, but nodes within each data center make frequent 
+	 * use of other nodes, it also makes sense to use this pattern because the 
+	 * nodes can be collocated in the same data center.
+	 */
+	pattern ColocatePattern {
+		context "It is recommended to use this pattern when one node makes frequent use of another node, such as compute node accessing a database, and when the application deployment is basic, with no need for more than a single data center. When the application deployment is complex, involving multiple data centers, but nodes within each data center make frequent use of other nodes, it also makes sense to use this pattern because the nodes can be collocated in the same data center.",
+		problem "Accidentally deploying across multiple data centers can result in terrible application performance and unnecessarily inflated costs due to data transfer charges.",
+		solution "The problem is solved by placing a whole application in a geographically similar location. For example, a multitier application generally has a web or application server tier that accesses a database tier. It is often desirable to minimize network latency across these tiers by collocating them in the same data center, since the network latency is minimized. This helps maximize performance between these tiers and can avoid the costs of cloud provider data transmission.",
+		property-impacts [
+			Cost 0.2,
+			Scalability 0.2,
+			PerformanceEfficiency 0.2
+		],
+		related-patterns [
+			MapReducePattern,
+			ValetKeyPattern,
+			ContentDeliveryPattern,
+			MultisiteDeploymentPattern,
+			AffinityGroupsPattern
+		]
+	}
+	
+	/**
+	 * As with the Collocate Pattern, This pattern also seeks to place 
+	 * services/storage that are going to be exchange data together, although 
+	 * it is more fine-grained. 
+	 */
+	pattern AffinityGroupsPattern {
+		context "As with the Collocate Pattern, This pattern also seeks to place services/storage that are going to be exchange data together, although it is more fine-grained.",
+		problem "By using the Collocate Pattern, even if, for instance, we place a hosted service and the storage account in the same data center, nothing tells us that the services will be really close together, since one can be placed in the end of the data center and the other one in the other end.",
+		solution "The use of the Collocate Pattern, as explained above, will reduce cost and improve latency. However, if we use the internal structure of data centers in order to place the services, the gain is even bigger.",
+		property-impacts [
+			Cost 0.2,
+			PerformanceEfficiency 0.2
+		],
+		related-patterns [
+			ColocatePattern
+		]
+	}
+	
+	/**
+	 * This advanced pattern focuses on deploying a single application to more 
+	 * than one data center. It can be used when users are not clustered near 
+	 * any single data center, but form clusters around multiple data centers 
+	 * or are widely distributed geographically. Also, when regulations limit 
+	 * options for storing data in specific data centers or some circumstances 
+	 * require that the public cloud be used in concert with on-premises 
+	 * resources. Finally, its use is also advisable when the application must 
+	 * be resilient to the loss of a single data center.
+	 */
+	pattern MultisiteDeploymentPattern {
+		context "This advanced pattern focuses on deploying a single application to more than one data center. It can be used when users are not clustered near any single data center, but form clusters around multiple data centers or are widely distributed geographically. Also, when regulations limit options for storing data in specific data centers or some circumstances require that the public cloud be used in concert with on-premises resources. Finally, its use is also advisable when the application must be resilient to the loss of a single data center.",
+		problem "This pattern deals with the performance problems that originate due to the geographic distance between data storage units and users. It is similar in some ways to Content Delivery pattern, since it also aims at bringing application closer to user. However, while the Content Delivery pattern focuses on bringing files closer to users, Multisite Deployment pattern also aims at users sending data to the application.",
+		solution "Deploying to multiple data centers helps reduce network latency by routing a client to the nearest data center, which improves the user experience. This also provides the seeds of a solution that can handle failover across data centers and improve availability. This pattern can be used in conjunction with Content Delivery pattern. For example, a user uploads some data in a specific data center, but the data is not replicated to all data centers since we plan to rely on Content Delivery pattern to deliver them most efficiently to users.",
+		property-impacts [
+			Availability 0.2,
+			Reliability 0.2,
+			Scalability 0.2,
+			PerformanceEfficiency 0.2,
+			Cost -0.2
+		],
+		related-patterns [
+			ColocatePattern,
+			ContentDeliveryPattern
+		]
+	}
+	
+	/**
+	 * This pattern is effective when the application uses cloud platform 
+	 * services that are not guaranteed to respond successfully every time. 
+	 * Thus, it focuses on how an application should react when a cloud 
+	 * service responds to a programmatic request with a busy signal rather 
+	 * than success. The pattern reflects the perspective of a client, not 
+	 * the service. 
+	 */
+	pattern BusySignalPattern {
+		context "This pattern is effective when the application uses cloud platform services that are not guaranteed to respond successfully every time. Thus, it focuses on how an application should react when a cloud service responds to a programmatic request with a busy signal rather than success. The pattern reflects the perspective of a client, not the service. ",
+		problem "The client is programmatically making a request of a service, but the service replies with a busy signal. The client is responsible for correct interpretation of the busy signal followed by an appropriate number of retry attempts. If the busy signals continue during retries, the client treats the service as unavailable.",
+		solution "The solution depends on different circumstances. It can be to retry immediately (no delay), what is appropriate if failures are rare. Another option is to retry after delay (fixed or random delay). It gives the service a little time to clear its queue or rebalance, in case for example many clients are retrying quickly at the same time. When, the service is experiencing a temporary problem, it is recommended to retry with increasing delays (linear or exponential backoff) with a maximum delay. Finally, an exception must be thrown after some reasonable number of delays, backoffs and retries if the service still does not respond.",
+		property-impacts [
+			Availability 0.2,
+			Reliability 0.2,
+			PerformanceEfficiency -0.1
+		],
+		related-patterns [
+			CircuitBreakerPattern,
+			NodeFailurePattern
+		]
+	}
+	
+	/**
+	 * In a distributed environment such as the cloud, where an application 
+	 * performs operations that access remote resources and services, it is 
+	 * common for these operations to fail due to transient faults such as 
+	 * slow network connections, timeouts, or the resources being overcommitted
+	 * or temporarily unavailable. These faults are an expected feature of the 
+	 * cloud environment, and they typically correct themselves after a short 
+	 * period of time. A robust cloud application should be prepared to handle 
+	 * these faults by using a strategy such as that embodied by the Retry 
+	 * pattern.
+	 * <p/>
+	 * This pattern is effective when there are faults due to unexpected events 
+	 * that are not easily anticipated, and that may take long to rectify. 
+	 * These faults can range in severity from a partial loss of connectivity 
+	 * to the complete failure of a service.
+	 * 
+	 */
+	pattern CircuitBreakerPattern {
+		context "In a distributed environment such as the cloud, where an application performs operations that access remote resources and services, it is common for these operations to fail due to transient faults such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable. These faults are an expected feature of the cloud environment, and they typically correct themselves after a short period of time. A robust cloud application should be prepared to handle these faults by using a strategy such as that embodied by the Retry pattern. This pattern is effective when there are faults due to unexpected events that are not easily anticipated, and that may take long to rectify. These faults can range in severity from a partial loss of connectivity to the complete failure of a service.",
+		problem "In the context described above, it may be pointless for an application to continually retry performing an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.",
+		solution "The Circuit Breaker pattern can prevent an application repeatedly trying to execute an operation that is likely to fail, allowing it to continue without waiting for the fault to be rectified or wasting CPU cycles while it determines that the fault is long-lasting. The Circuit Breaker pattern also enables an application to detect whether the fault has been resolved. If the problem appears to have been rectified, the application can attempt to invoke the operation.",
+		property-impacts [
+			Availability 0.2,
+			Reliability 0.2,
+			PerformanceEfficiency -0.1
+		],
+		related-patterns [
+			BusySignalPattern,
+			NodeFailurePattern
+		]
+	}
+	
+	/**
+	 * It is effective to apply this pattern in different situations. For 
+	 * instance, when the application uses the message queues and requires 
+	 * at-least-once processing for messages sent across tiers or the 
+	 * application uses the scaling pattern and requires graceful shutdown 
+	 * of compute nodes that are being released. The application may also 
+	 * require handling of sudden hardware failures, of unexpected application 
+	 * software failures or of reboots initiated by the cloud platform. 
+	 * Finally, when the application requires sufficient resiliency to handle 
+	 * the unplanned loss of a compute node without downtime.
+	 */
+	pattern NodeFailurePattern {
+		context "It is effective to apply this pattern in different situations. For instance, when the application uses the message queues and requires at-least-once processing for messages sent across tiers or the application uses the scaling pattern and requires graceful shutdown of compute nodes that are being released. The application may also require handling of sudden hardware failures, of unexpected application software failures or of reboots initiated by the cloud platform. Finally, when the application requires sufficient resiliency to handle the unplanned loss of a compute node without downtime.",
+		problem "This pattern focuses on how an application should respond when the compute node on which it is running shuts down or fails. There is a time lag between the failure occurrence and the recognition of that failure by the cloud platform monitoring system.",
+		solution "By treating all shutdown and failure scenarios (of nodes) the same, there is a clear path for handling them: maintain capacity, handle node shutdowns, shield users when possible, and resume work-in-progress after the fact.",
+		property-impacts [
+			Availability 0.2,
+			Reliability 0.2,
+			Cost -0.1
+		],
+		related-patterns [
+			BusySignalPattern,
+			CircuitBreakerPattern,
+			MapReducePattern,
+			MultisiteDeploymentPattern,
+			NodeFailurePattern
+		]
+	}
+	
+	/**
+	 * This pattern should be applied in every web application, or shared 
+	 * service, in order to ensure it is available and performing correctly.
+	 */
+	pattern HealthEndpointMonitoring {
+		context "This pattern should be applied in every web application, or shared service, in order to ensure it is available and performing correctly.",
+		problem "The monitoring check should be comprehensive enough to validate that the application is performing correctly, but not add excessive processing load to the application or absorb excessive bandwidth. There may also be a time constraint within which the response to the check must be received by the monitoring system. It is also important to consider protecting the monitored endpoint, and what type of response to send back to the monitoring system.",
+		solution "Several existing services and tools are available for monitoring web applications by submitting a request to a configurable set of endpoints, and evaluating the results against a set of configurable rules. It is relatively easy to create a service endpoint whose sole purpose is to perform some functional tests on the system.",
+		property-impacts [
+			Availability 0.2,
+			Reliability 0.2
+		],
+		related-patterns [
+			NodeFailurePattern
+		]
+	}
+	
+	/**
+	 * Use this pattern when a task that runs in a distributed environment 
+	 * such as the cloud must be resilient to communications failure and/or 
+	 * process failure. It coordinates a set of actions across a distributed 
+	 * set of services and other remote resources. This pattern can add 
+	 * resilience to a distributed system by enabling it to recover and retry 
+	 * actions that fail due to transient exceptions, long-lasting faults, and 
+	 * process failures. If a fault is unrecoverable, the system can compensate 
+	 * or undo the effects of the work performed.
+	 */
+	pattern SchedulerAgentSupervisorPattern {
+		context "Use this pattern when a task that runs in a distributed environment such as the cloud must be resilient to communications failure and/or process failure. It coordinates a set of actions across a distributed set of services and other remote resources. This pattern can add resilience to a distributed system by enabling it to recover and retry actions that fail due to transient exceptions, long-lasting faults, and process failures. If a fault is unrecoverable, the system can compensate or undo the effects of the work performed.",
+		problem "An application performs tasks that comprise a number of steps, some of which may invoke remote services or access remote resources. The individual steps may be independent of each other, but they are controlled by the application logic that implements the task. Whenever possible, the application should ensure that the task runs to completion and resolve any failures that might occur when accessing remote services or resources. These failures could occur for a variety of reasons; the network might be down, communications could be interrupted, a remote service may be unavailable or in an unstable state, or a remote resource might be temporarily inaccessible. In many cases, these failures may be temporary and can be handled by using the Retry pattern. If the application detects a more permanent fault from which it cannot easily recover, the application must be able to restore the system to a meaningful state.",
+		solution "This complex pattern defines the following actors that manage the work to be performed by a task: The Agent, which contains logic that encapsulates a call to a remote service or access to a remote resource referenced by a step in a task. The Scheduler, which arranges for the individual steps that comprise the task to be performed. The Scheduler typically communicates with an Agent by using request/response messaging using queues, although other technologies could be used instead. The State Store, which holds information about the state of each step as it is completed by the Scheduler. The Supervisor, which monitors the status of steps in the State Store, the Agents, and the Scheduler. It can determine whether a step or task has failed and arrange for it to be retried, recovered, or undone. Each Agent typically wraps a single service or resource, implementing the appropriate error handling and retry logic (subject to a timeout constraint, described later). If a task utilizes several services and resources across different steps, each step might reference a different Agent.",
+		property-impacts [
+			Availability 0.2
+		],
+		related-patterns [
+			BusySignalPattern,
+			CircuitBreakerPattern,
+			LeaderElection
+		]
+	}
+	
+	/**
+	 * The Queue-Centric Workflow Pattern is an essential pattern for loose 
+	 * coupling and focuses on asynchronous delivery of command requests sent 
+	 * from the user interface to a back-end service for processing.The pattern 
+	 * is used to allow interactive users to make updates through the web tier 
+	 * without slowing down the web server. It is especially useful for 
+	 * processing updates that are time consuming, resource intensive, or 
+	 * depend on remote services that may not always be available.
+	 */
+	pattern QueueBasedLoadLevelingPattern {
+		context "The Queue-Centric Workflow Pattern is an essential pattern for loose coupling and focuses on asynchronous delivery of command requests sent from the user interface to a back-end service for processing.The pattern is used to allow interactive users to make updates through the web tier without slowing down the web server. It is especially useful for processing updates that are time consuming, resource intensive, or depend on remote services that may not always be available.",
+		problem "It Pattern is effective when the application is decoupled across tiers, though the tiers still need to collaborate, and when the application needs to guarantee at-least-once processing of messages across tiers. It is also recommended if a consistently responsive user experience is expected in the user interface tier, even   though dependent processing happens in other tiers and even though third-party services are accessed during processing. The Queue-Centric Workflow Pattern is used in web applications to decouple communication between the web tier (which implements the user interface) and the service tier (where business processing happens).",
+		solution "The pattern is used in response to an update request from an interactive user. This is first handled by user interface code (in the web tier) that creates a message describing work needing to be done to satisfy the update request. This message is added to a queue. At some future time, a service on another node (running in the service tier) removes messages from the queue and does the needed work. Messages flow only in one direction, from the web tier, onto the queue, and into the service tier. This pattern does not specify how (or if) the user is informed of progress.",
+		property-impacts [
+			Availability 0.2,
+			Reliability 0.2,
+			Scalability 0.2,
+			PerformanceEfficiency -0.1
+		],
+		related-patterns [
+			HorizontallyScalingComputePattern,
+			AutoScalingPattern,
+			NodeFailurePattern,
+			ColocatePattern,
+			CQRSPattern,
+			ValetKeyPattern
+		]
+	}
+	
+	/**
+	 * Applications may delegate tasks to other components or services; for 
+	 * example, to perform background processing or to integrate with other 
+	 * applications or services. In many cases, the order in which requests 
+	 * or messages are received by the components or services is not important.
+	 * However, in some cases it may be necessary to be able to prioritize 
+	 * specific requests.
+	 */
+	pattern PriorityQueuePattern {
+		context "Applications may delegate tasks to other components or services; for example, to perform background processing or to integrate with other applications or services. In many cases, the order in which requests or messages are received by the components or services is not important. However, in some cases it may be necessary to be able to prioritize specific requests.",
+		problem "Being able to process requests with a higher priority earlier even if they arrive after others with low priority.",
+		solution "There are two main approaches to overcome the problem, they both imply the use of queues. Consumers typically receive messages in the same order that they were posted to the queue, so queues must be prioritized.",
+		property-impacts [
+			PerformanceEfficiency 0.2,
+			Cost -0.1
+		],
+		related-patterns [
+			ThrottlingPattern
+		]
+	}
+	
+	/**
+	 * In a distributed application running a collection of collaborating task 
+	 * instances, it may be necessary for one instance of a task to coordinate 
+	 * the actions being performed by the others. If there is no natural 
+	 * coordinator, an instance of the task should be elected as the leader and 
+	 * assume responsibility for managing the other instances.
+	 */
+	pattern LeaderElection {
+		context "In a distributed application running a collection of collaborating task instances, it may be necessary for one instance of a task to coordinate the actions being performed by the others. If there is no natural coordinator, an instance of the task should be elected as the leader and assume responsibility for managing the other instances.",
+		problem "A typical cloud application consists of many tasks acting in concert with each other. These tasks could all be instances running the same code and requiring access to the same resources, or they might be working together to perform the individual parts of a complex calculation in parallel. The task instances might run autonomously for much of the time, but it may also be necessary to coordinate the actions of each instance to ensure that they do not conflict, cause contention for shared resources, or inadvertently interfere with the work that other task instances are performing",
+		solution "A single task instance should be elected to act as the leader, and this instance should coordinate the actions of the other subordinate task instances. If all of the task instances are running the same code, they could all be capable of acting as the leader. Therefore, the election process must be managed carefully to prevent two or more instances taking over the leader role at the same time.",
+		property-impacts [
+			PerformanceEfficiency 0.2,
+			Cost -0.1
+		]
+	}
+	
+	/**
+	 * Should be used for applications that require processing easily 
+	 * decomposable into steps, have different scalability needs in every step,
+	 * require flexibility in terms of adding new steps and removing, or 
+	 * changing the existing ones.  
+	 */
+	pattern PipesAndFilters {
+		context "Should be used for applications that require processing easily decomposable into steps, have different scalability needs in every step, require flexibility in terms of adding new steps and removing, or changing the existing ones.",
+		problem "An application may be required to perform a variety of tasks of varying complexity over the data that it handles. This data might be received from a collection of sources. As the system scales, the number of data sources and the volume of data could vary significantly. The processing tasks performed by the application or the deployment requirements for each task could change as business requirements are amended. In addition, some tasks might be compute-intensive and could benefit from running on powerful hardware, while others might not require such expensive resources.",
+		solution "Decompose the processing required for each stream into a set of discrete components (or filters), each of which performs a single task. By standardizing the format of the data that each component receives and emits, these filters can be combined together into a pipeline. This structure helps to avoid duplicating code, and makes it easy to remove, replace, or integrate additional components if the processing requirements change.",
+		property-impacts [
+			PerformanceEfficiency 0.2,
+			Scalability 0.2,
+			Reusability 0.2
+		]
+	}
+	
+	/**
+	 * This pattern loosely models the use of valet keys from the real world. 
+	 * Valet keys are useful when you are willing to trust a valet parking 
+	 * attendant to park your car, but do not want to also give them access to 
+	 * areas in the car not needed for this purpose, such as the glove 
+	 * compartment. This pattern enables specifying that a user of the 
+	 * application is allowed to access very specific areas within your cloud 
+	 * storage account, with specific permissions, and for a limited amount of 
+	 * time.
+	 */
+	pattern ValetKeyPattern {
+		context "This pattern loosely models the use of valet keys from the real world. Valet keys are useful when you are willing to trust a valet parking attendant to park your car, but do not want to also give them access to areas in the car not needed for this purpose, such as the glove compartment. This pattern enables specifying that a user of the application is allowed to access very specific areas within your cloud storage account, with specific permissions, and for a limited amount of time.",
+		problem "This pattern deals with the management of untrusted clients avoiding load on the web tier, since going directly to the final storage location eliminates the need for data to unnecessarily pass through an intermediary.",
+		solution "Many cloud storage valet keys can be used, and they can all be different. Cloud storage services simplify securely transferring data directly between untrusted clients and to secure data storage, without the data needing to pass through a trusted intermediate layer (the web tier in this case) to implement security. Both uploads and downloads are supported. Going directly to the final storage location eliminates the need for data to unnecessarily pass through an intermediary, so these operations will be faster with lower latency, while reducing the load on the web tier.",
+		property-impacts [
+			Security 0.2,
+			Cost 0.1
+		],
+		related-patterns [
+			BusySignalPattern,
+			ColocatePattern,
+			ContentDeliveryPattern,
+			MultisiteDeploymentPattern,
+			GateKeeper
+		]
+	}
+	
+	/**
+	 * Should be applied on:<br/>
+	 * Applications that handle sensitive information, expose services that 
+	 * must have high a degree of protection from malicious attacks, or 
+	 * perform mission-critical operations.<br/>
+	 * Distributed applications where it is necessary to perform request 
+	 * validation separately from the main tasks, or to centralize this 
+	 * validation to simplify maintenance and administration.	 
+	 */
+	pattern GateKeeper {
+		context "Should be applied on: Applications that handle sensitive information, expose services that must have high a degree of protection from malicious attacks, or perform mission-critical operations. Distributed applications where it is necessary to perform request validation separately from the main tasks, or to centralize this validation to simplify maintenance and administration.",
+		problem "Applications expose their functionality to clients by accepting and processing requests. In cloud-hosted scenarios, applications expose endpoints to which clients connect, and this same application typically includes the code to handle the request. It may perform authentication and validation, some or all request processing, and is likely to access storage and other services on behalf of the client. If a malicious user is able to compromise the system and gain access to application’s hosting environment, the security mechanisms it uses such as credentials and storage keys, and the services and data it accesses, are exposed.",
+		solution "Use a facade or a dedicated task that interacts with clients and then hands off the request (perhaps through a decoupled interface) to the hosts or tasks that will handle the request.",
+		property-impacts [
+			Security 0.2,
+			PerformanceEfficiency -0.2
+		],
+		related-patterns [
+			ValetKeyPattern
+		]
+	}
+	
+	/**
+	 * Every application with user authentication. Especially if needed 
+	 * administration of many users that can be grouped into categories, or 
+	 * authentication of users for corporate applications in order to sign 
+	 * in just once for all of them (single sign-on).
+	 */
+	pattern FederatedIdentity {
+		context "Every application with user authentication. Especially if needed administration of many users that can be grouped into categories, or authentication of users for corporate applications in order to sign in just once for all of them (single sign-on).",
+		problem "Users typically need to work with multiple applications provided and hosted by different organizations. Typically the users will have different credentials for each one, which can have several risks. For example, it can cause a disjointed user experience, since users often forget sign-in credentials when there are many different ones. Also, this exposes security vulnerabilities: when a user leaves the company, the account must be immediately blocked, what is easy to overlook this in large organizations. Finally, it can complicate user management, since administrators must manage credentials for all of the users, and perform additional tasks such as providing password reminders.",
+		solution "Implement an authentication mechanism that can use federated identity. Separating user authentication from the application code, and delegating authentication to a trusted identity provider, can considerably simplify development and allow users to authenticate using a wider range of identity providers (IdPs) while minimizing the administrative overhead.",
+		property-impacts [
+			Security 0.2
+		]
+	}
+}

@@ -1,0 +1,32 @@
+//We import the existing properties catalogue
+import eu.artist.^property.catalogue.nonfunctional.*
+
+
+property-catalogue eu.artist.Petstore.property.catalogue{ 
+	/**
+	 * This is an extension of the Scalability property defined in
+	 * eu.artist.property.catalogue.nonfunctional to add the property
+	 * ConcurrentUsers
+	 */
+	 	 
+	quantitative Bigdata {
+		description "Big data is an all-encompassing term for any collection of data sets so large or complex that it becomes difficult to process them using traditional data processing applications",
+		type PrimitiveTypes.Boolean
+	} 
+	
+	quantitative LargeTransactionVolume {
+		description "",
+		type PrimitiveTypes.Boolean
+	}
+	
+	quantitative HeavyWeightContentDelivery {
+		description "",
+		type PrimitiveTypes.Boolean
+	}
+	
+	quantitative DistantDataAccess {
+		description "",
+		type PrimitiveTypes.Boolean
+	}
+	
+}

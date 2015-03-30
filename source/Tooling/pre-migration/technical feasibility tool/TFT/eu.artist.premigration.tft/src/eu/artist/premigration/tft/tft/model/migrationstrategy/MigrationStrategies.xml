@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *******************************************************************************
+ * Copyright (c) 2014 Atos.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * 	Burak Karaboga (Atos) - main development
+ * 	Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************
+ -->
+
+<!-- 
+	All the migration strategies available in TFT are defined in this xml file. Each strategy has an ID, a text value for name, a category and complexity of
+	unknown value is assigned to it. 
+	
+	TODO: Short descriptions for each strategy. 
+ -->
+ 
+ <!--  Daemon : GAE : Background Thread API -->
+
+<MigrationStrategies>
+
+	<!-- ###########################################  GAE  ############################################# -->
+	
+	<!-- ///////////////////////// APPLICATION //////////////////////////// -->
+	<MigrationStrategy>
+		<id>GAEAUTOSCALING</id>
+		<text>Migrate to GAE Task Queues</text>
+		<description>With the Task Queue API, applications can perform work outside of a user request, initiated by a user request. If an app needs to execute some background work, it can use the Task Queue API to organize that work into small, discrete units, called tasks. The app adds tasks to task queues to be executed later.
+		</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy> 
+		<id>NAMESPACES</id>
+		<text>Adopt GAE Namespaces API for multi-tenancy</text>
+		<description>This API enables the hosting and administration of multitenant applications on GAE.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>SEARCH</id>
+		<text>Adopt Google Search</text>
+		<description>This service offers the ability of performing search over structured data.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>PSEARCH</id>
+		<text>Adopt Prospective Search</text>
+		<description>This querying service enables registering queries and matching them against real-time data streams.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>CAPABILITIES</id>
+		<text>Adopt Capabilities API</text>
+		<description>This API serves for detecting other services availabilities and thus bypassing them.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>IMAGE</id>
+		<text>Adopt Image Service</text>
+		<description>This service offers basic transformations on image data such as, resize, rotate, flip, crop etc.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GCE</id>
+		<text>Adopt Google Cloud Endpoints</text>
+		<description>This service makes it possible to develop API backends to allow and simplify the access of data in cloud by applications outside the cloud</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// FRAMEWORK //////////////////////////// -->
+	
+	<MigrationStrategy>
+		<id>PLAY</id>
+		<text>Migrate to Google Play</text>
+		<description>Play is an open source web application framework, written in Scala and Java, which follows the model–view–controller (MVC) architectural pattern.</description>
+		<category>FRAMEWORK</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+
+	<!-- ///////////////////////// JAVARUNTIME //////////////////////////// -->	
+	<MigrationStrategy>
+		<id>GAETHREADS</id>
+		<text> THREADS - Migrate to GAE's ThreadManager API</text>
+		<description> [Applicable if your application is spawning threads] Google App Engine runs applications in a restricted Sandbox environment in order to distribute requests for applications across multiple web servers, and to prevent one application from interfering with another. In this environment, a Java application can create a new thread, but there are some restrictions on how to do it. These threads can't "outlive" the request that creates them. If your application is spawning threads, update your code to use GAE's ThreadManager API to create threads instead of directly using the Thread API from Standard Java libraries. 
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>GAEPROCESSES</id>
+		<text> PROCESSES - Remove sub-processes or use Managed VMs </text>
+		<description>[Applicable if your application is spawning subprocesses] Google App Engine Applications can not spawn a sub-process or thread. A web request to an application must be handled in a single process within a few seconds. Processes that take a very long time to respond are terminated to avoid overloading the web server. An alternative to removing sub processes is using a Managed VM. See https://cloud.google.com/appengine/docs/managed-vms/ for more details.
+		</description>	
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GAESOCKETS</id>
+		<text> SOCKETS - Use GAE URL Fetch Service</text>
+		<description>[Applicable if your application is using sockets] Google App Engine Applications can not open a socket or access another host directly. An application can use the App Engine URL fetch service to make HTTP and HTTPS requests to other hosts on ports 80 and 443, respectively. See https://cloud.google.com/appengine/docs/java/urlfetch/ for more details.		
+		</description>	
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>	
+	
+	<MigrationStrategy>
+		<id>GAESOCKETSBETA</id>
+		<text> SOCKETS - Use beta version of GAE sockets API</text>
+		<description>[Applicable if your application is using sockets] 	Sockets are only available for paid apps, and traffic from sockets is billed as outgoing bandwidth. Sockets are also limited by daily and per minute (burst) quotas. App Engine supports regular outbound Java sockets such as java.net.Socket and java.net.DatagramSocket. There is currently no support for sockets via java.nio.SocketChannel or other java.nio classes.	See https://cloud.google.com/appengine/docs/java/sockets/ for more details.	
+		</description>	
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+		
+	<MigrationStrategy>
+		<id>GAEFILES</id>
+		<text> FILES - Use GAE's distributed datastore</text>
+		<description>[Applicable if your application is writing to the File system] Writing to local file system is not supported in Google App Engine due to the distributed nature of your application. Instead, data which must be persisted should be stored in the distributed datastore. Reading from the file system is allowed using classes such as java.io.FileReader, and all application files uploaded with the application are available as "resources", such as with Class.getResource() or ServletContext.getResource(). Only files that are considered "resource files" are accessible to the application via the filesystem.
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>GAESYSTEM</id>
+		<text> SYSTEM - Use only supported features of the java.lang.System</text>
+		<description>[Applicable if your application is using java.lang.System API] Features of the java.lang.System class that do not apply to App Engine are disabled. The following System methods do nothing in App Engine: exit(), gc(), runFinalization(), runFinalizersOnExit(). The following System methods return null: inheritedChannel(), console(). An app cannot provide or directly invoke any native JNI code. The following System methods raise a java.lang.SecurityException: load(), loadLibrary(), setSecurityManager()
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>GAEREFLECTION</id>
+		<text> REFLECTION - use reflection only on your application's classes and on Java API classes. </text>
+		<description>[Applicable if your application is using Reflection] An application is allowed full, unrestricted, reflective access to its own classes. It may query any private members, call the method java.lang.reflect.AccessibleObject.setAccessible(), and read/set private members. An application can also reflect on JRE and API classes, such as java.lang.String and javax.servlet.http.HttpServletRequest. However, it can only access public members of these classes, not protected or private. An application cannot reflect against any other classes not belonging to itself, and it can not use the setAccessible() method to circumvent these restrictions.
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GAECUSTOMCLASSLOADING</id>
+		<text> CLASSLOADERS - Be cautious when loading untrusted third-party code</text>
+		<description>[Applicable if your application is using custom class loaders] Custom class loading is fully supported under App Engine. Please be aware that App Engine overrides all ClassLoaders to assign the same permissions to all classes loaded by your application. If you perform custom class loading, be cautious when loading untrusted third-party code.
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+		
+	<MigrationStrategy>
+		<id>GAEWHITELIST</id>
+		<text> JAVA API - Use only the Java API Classes from GAE's whitelist </text>
+		<description> [Applicable for all Java applications] Access to the classes in the Java standard library (the Java Runtime Environment, or JRE) is limited to the classes in the App Engine JRE White List. See https://cloud.google.com/appengine/docs/java/jrewhitelist
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>	
+
+	<MigrationStrategy>
+		<id>GAESIGNEDJARS</id>
+		<text> SIGNED JARS - Load only unsigned jars or disable precompilation</text>
+		<description> [Applicable if your application is loading signed jars] App Engine's precompilation isn't compatible with signed JAR files. If your application is precompiled (the default), it can't load signed JAR files. If the application tries to load a signed JAR, at runtime App Engine will generate a Security exception.
+		</description>
+		<category>JAVARUNTIME</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>	
+		
+	<!-- ///////////////////////// DATA //////////////////////////// -->
+	<MigrationStrategy>
+		<id>CLOUD_SQL</id>
+		<text>Migrate to Google Cloud SQL</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>HRD</id>
+		<text>Migrate to GAE High Replication Datastore (HRD) using Objectify pattern</text>
+		<description>Google Cloud Datastore (aka GAE High Replication Datastore) is a fully managed, schemaless database for storing non- relational data. Cloud Datastore automatically scales with your users and supports ACID transactions, high availability of reads and writes. HRD provides high availability for your reads and writes by storing data synchronously in multiple datacenters. However, the delay from the time a write is committed until it becomes visible in all datacenters means that queries across multiple entity groups (non-ancestor queries) can only guarantee eventually consistent results.  </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GCS</id>
+		<text>Migrate to Google Cloud Storage, as part of Node Failure pattern, to achieve high reliability </text>
+		<description>Make use of cloud storage services to store important data to be able to resume work in progress on another node </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>DSSHARECOUNTERS</id>
+		<text>Adopt sharding using GAE Datastore Share Counters</text>
+		<description>Sharding is a horizontal scaling approach that overcomes the capacity limits of a single database node by distributing the database across multiple database nodes. GAE Datastore offers shard counters.</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GAEDS</id>
+		<text>Apply Key-Value storage using GAE Datastore</text>
+		<description>When cloud applications need to handle large amounts of data that may be globally distributed, it is better to use a key-value storage </description>
+		<category>DATA</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// REALTIME MESSAGING //////////////////////////// -->	
+	<MigrationStrategy>
+		<id>CHANNEL</id>
+		<text>Migrate to Channel</text>
+		<description> </description>
+		<category>REALTIMEMSG</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// NETWORK //////////////////////////// -->	
+	
+	<MigrationStrategy>
+		<id>GAECDN</id>
+		<text>Adopt GAE Instant CDN</text>
+		<description>The Content Delivery Network (CDN) is a service that functions as a globally distributed cache</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GAEADMINCONSOLE</id>
+		<text>Monitor application health using GAE Administration Console</text>
+		<description>Monitor the health of your application endpoints using GAE Administration Console</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// QUEUE //////////////////////////// -->	
+	<!--
+	<MigrationStrategy>
+		<id>TQA</id>
+		<text>Migrate to TQA</text>
+		<description></description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	-->
+	
+	<MigrationStrategy>
+		<id>GAETHROTTLING</id>
+		<text>Adopt throttling using GAE Task Queue API</text>
+		<description>Enable throttling patterns to automate the management of consumed application resources</description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GAEQCW</id>
+		<text>Adopt Queue Centric Workflow using GAE Task Queue API</text>
+		<description>The Queue-Centric Workflow Pattern is an essential pattern for loose coupling and focuses on asynchronous delivery of command requests sent from the user interface to a back-end service for processing</description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GAEPRIORITYQUEUE</id>
+		<text>Adopt Priority Queue using GAE Task Queue API</text>
+		<description>Process user's requests with a higher priority earlier even if they arrive after others with low priority. </description>
+		<category>QUEUE</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// PERFORMANCE //////////////////////////// -->	
+	<MigrationStrategy>
+		<id>MEMCACHE</id>
+		<text>Use GAE MemCache</text>
+		<description>A caching system supports the application for succeeding low latency access to the results of I/O intensive database queries. High performance scalable web applications often use a distributed in-memory data cache in front of or in place of robust persistent storage for some tasks. App Engine includes a memory cache service for this purpose. Note: The cache is global and is shared across the application's frontend, backend, and all of its modules/versions.</description>
+		<category>PERFORMANCE</category>
+		<complexity>HIGH</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// SECURITY //////////////////////////// -->
+	<MigrationStrategy>
+		<id>GAEFEDID</id>
+		<text>Adopt Federated Identity with Google OpenID/OAuth</text>
+		<description>Implement an authentication mechanism that can use federated identity</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ###########################################  AMAZON  ############################################# -->
+	
+	<!-- ///////////////////////// APPLICATION //////////////////////////// -->
+	
+	<MigrationStrategy>
+		<id>AUTOS</id>
+		<text>Adopt Amazon Auto Scaling</text>
+		<description>This web service scales up or down the selected EC2 instances when the conditions have been met.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>CLOUDWATCH</id>
+		<text>Monitor EC2 services health using Amazon CloudWatch</text>
+		<description>This service is responsible for monitoring most of the EC2 services.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>SWS</id>
+		<text>Adopt Simple Workflow Service</text>
+		<description>This service allows workflow management, coordination of tasks structured as processing steps, control of task-host assignments, monitoring of workflow execution</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>CLOUDSEARCH</id>
+		<text>Adopt CloudSearch</text>
+		<description>This service provides high throughput and low latency search over large data collections.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>HYPERVISOR</id>
+		<text>Adopt AWS Hypervisor</text>
+		<description>Rely on AWS hypervisor to provide isolation between tenants.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+<!-- ///////////////////////// DEPLOYMENT - will be shown for APPLICATION components //////////////////////////// -->
+
+	<MigrationStrategy>
+		<id>MULTISITEDEPLOY_EC2</id>
+		<text>Adopt Multisite deployment with Amazon Elastic Load Balancer</text>
+		<description>Deploying to multiple data centers helps reduce network latency by routing a client to the nearest data center, which improves the user experience.Elastic Load Balancing (from AWS) is used to direct users to the closest data center</description>
+		<category>DEPLOYMENT</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+		
+	<!-- ///////////////////////// NETWORK //////////////////////////// -->
+	
+	<MigrationStrategy>
+		<id>ELASTICLB</id>
+		<text>Adopt Elastic Load Balancing</text>
+		<description>This service is responsible for automatically distributing incoming traffic across multiple EC2 instances.</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>ROUTE53</id>
+		<text>Monitor application health using Amazon Route 53</text>
+		<description>Monitor the health of your application endpoints using Amazon Route 53</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>NODESHUTDOWNSIGNAL_EC2</id>
+		<text>Adopt Node Failure pattern by listening to Node Shutdown signal from Amazon Web Services </text>
+		<description>Amazon Web Services provides a signal in the form of an advance alert to know that a node is about to be shut down. Applications can listen to these signals in order to handle node shutdown gracefully, i.e. allow in-progress work to complete, gather operational data from the node before shutdown completes, etc. </description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AVPC</id>
+		<text>Adopt Amazon Virtual Private Cloud</text>
+		<description> </description>
+		<category>NETWORK</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>ADC</id>
+		<text>Adopt Amazon Direct Connect</text>
+		<description> </description>
+		<category>NETWORK</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>CLOUDFRONT</id>
+		<text>Migrate to CloudFront</text>
+		<description>Distributes dynamic, static or streaming content to multiple locations using a global network of edge locations.</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// DATA //////////////////////////// -->
+
+	<MigrationStrategy>
+		<id>DYNAMO</id>
+		<text>Apply Key-Value storage using Amazon DynamoDB</text>
+		<description>When cloud applications need to handle large amounts of data that may be globally distributed, it is better to use a key-value storage.</description>
+		<category>DATA</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>SIMPLEDB</id>
+		<text>Apply Key-Value storage using Amazon SimpleDB</text>
+		<description>When cloud applications need to handle large amounts of data that may be globally distributed, it is better to use a key-value storage.</description>
+		<category>DATA</category>
+		<complexity>AVERAGE</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>RDS</id>
+		<text>Migrate to Amazon RDS</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>S3</id>
+		<text>Migrate to Amazon S3</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>GLACIER</id>
+		<text>Migrate to Amazon Glacier</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>BLOCK</id>
+		<text>Migrate to Amazon Elastic Block Storage</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>REDSHIFT</id>
+		<text>Migrate to Amazon Redshift</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>MAPREDUCE</id>
+		<text>Migrate to Amazon Elastic MapReduce</text>
+		<description>Use MadReduce pattern in order to improve the processing of big data, using multiple available parallel-running nodes</description>
+		<category>DATA</category>
+		<complexity>HIGH</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AWSRDSSHARDING</id>
+		<text>Adopt sharding using Amazon RDS</text>
+		<description>Sharding is a horizontal scaling approach that overcomes the capacity limits of a single database node by distributing the database across multiple database nodes. Amazon RDS offers sharding capabilites</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// FRAMEWORK //////////////////////////// -->
+	<MigrationStrategy>
+		<id>DATAPIPELINE</id>
+		<text>Adopt Data Pipeline</text>
+		<description>This service allows facilitating data process and transfer between different AWS services or on-premises datasources</description>
+		<category>FRAMEWORK</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// SECURITY //////////////////////////// -->
+	<MigrationStrategy>
+		<id>EC2GATEKEEPER</id>
+		<text>Adopt Gate Keeper pattern using Amazon Simple Queue Service</text>
+		<description>Use a facade or a dedicated task that interacts with clients and then hands off the request to the hosts or tasks that will handle the request.</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>EC2FEDID</id>
+		<text>Adopt Federated Identity with AWS Identity and Access Management</text>
+		<description>Implement an authentication mechanism that can use federated identity</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>EC2VALET</id>
+		<text>Adopt Valet key pattern using AWS Query String Authentication</text>
+		<description>This pattern enables specifying that a user of the application is allowed to access very specific areas within your cloud storage account, with specific permissions, and for a limited amount of time.</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// QUEUE //////////////////////////// -->
+	
+	<MigrationStrategy>
+		<id>EC2THROTTLING</id>
+		<text>Adopt throttling using Amazon Simple Queue Service</text>
+		<description>Enable throttling pattern to automate the management of consumed application resources</description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>EC2QCW</id>
+		<text>Adopt Queue Centric Workflow using Amazon Simple Queue Service</text>
+		<description>The Queue-Centric Workflow Pattern is an essential pattern for loose coupling and focuses on asynchronous delivery of command requests sent from the user interface to a back-end service for processing</description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>EC2PRIORITYQUEUE</id>
+		<text>Adopt Priority Queue using Amazon Simple Queue Service</text>
+		<description>Process user's requests with a higher priority earlier even if they arrive after others with low priority.</description>
+		<category>QUEUE</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// PERFORMANCE //////////////////////////// -->
+	<MigrationStrategy>
+		<id>ELASTICACHE</id>
+		<text>Use Amazon ElastiCache</text>
+		<description>A caching system supports the application for succeeding low latency access to the results of I/O intensive database queries</description>
+		<category>PERFORMANCE</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ###########################################  AZURE  #################################################### -->
+	
+	<!-- ///////////////////////// APPLICATION //////////////////////////// -->
+	
+	<MigrationStrategy>
+		<id>AZUREAUTOSCALING</id>
+		<text>Adopt Azure auto scaling</text>
+		<description>User Azure Management Portal/Azure Diagnostics for: i) Setting monitoring parameter values as thresholds for triggering automatic scaling. ii) Monitor performance parameters, configure autoscaling policy details, set autoscaling thresholds and/or desired performance rates.</description>
+		<category>APPLICATION</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<!-- ///////////////////////// DEPLOYMENT - will be shown for APPLICATION components //////////////////////////// -->	
+	<MigrationStrategy>
+		<id>AZURECOLOCATE</id>
+		<text>Adopt Colocate pattern using Azure Computing and Storage</text>
+		<description>Minimize network latency across your application tiers by colocating them in the same data center. Note, also see Affinity for finer grain colocation</description>
+		<category>DEPLOYMENT</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREAFFINITY</id>
+		<text>Adopt Affinity pattern using Azure Affinity Groups</text>
+		<description>Use Affinity groups to tell Azure Fabric Controller that two elements (i.e. services) should always be together and close to one another within the same container or cluster (finer grain than Colocating)</description>
+		<category>DEPLOYMENT</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREMULTISITEDEPLOY</id>
+		<text>Adopt Multisite deployment with Azure Traffic Manager, Azure Virtual Networking,  Azure Connect, Azure Service Bus, SQL Data Sync, etc.. </text>
+		<description>Deploying to multiple data centers helps reduce network latency by routing a client to the nearest data center, which improves the user experience.</description>
+		<category>DEPLOYMENT</category>
+		<complexity>LOW</complexity>
+	<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+		
+	<!-- ///////////////////////// VIEW //////////////////////////// -->
+	<MigrationStrategy>
+		<id>ASP_MVC</id>
+		<text>Migrate to ASP.NET MVC</text>
+		<description>Based on ASP.NET, ASP.NET MVC (a.k.a. ASP.NET Web API) allows software developers to build a web application as a composition of three roles: Model, View and Controller.</description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>ASP_SPA</id>
+		<text>Migrate to ASP.NET SPA</text>
+		<description>Based on ASP.NET, ASP.NET SPA is ASP.NET MVC, but without Knockout/Breeze or Durandal Javascript libraries. </description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+		
+	<MigrationStrategy>
+		<id>ASP_Webforms</id>
+		<text>Migrate to ASP.NET Web Forms</text>
+		<description> </description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>LightSwitch</id>
+		<text>Migrate to LightSwitch HTML5</text>
+		<description> </description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>	
+	
+	<MigrationStrategy>
+		<id>ASP</id>
+		<text>Migrate to ASP.NET</text>
+		<description>ASP.NET is a server-side Web application framework designed for Web development to produce dynamic Web pages.</description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<!-- ///////////////////////// WEB_SERVICE //////////////////////////// -->	
+	<MigrationStrategy>
+		<id>ASP_WebAPI</id>
+		<text>Migrate to ASP.NET WEB API</text>
+		<description> </description>
+		<category>WEB_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>WCFService</id>
+		<text>Migrate to WCF Service</text>
+		<description>Windows Communication Foundation (WCF)</description>
+		<category>WEB_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>WCFDataService</id>
+		<text>Migrate to WCF Data Service (OData)</text>
+		<description> </description>
+		<category>WEB_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>WorkflowService</id>
+		<text>Migrate to Workflow Service</text>
+		<description> </description>
+		<category>WEB_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>LightSwitch_ODataService</id>
+		<text>Migrate to LightSwitch OData Service</text>
+		<description> </description>
+		<category>WEB_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// APPLICATION_SERVICE //////////////////////////// -->
+	<MigrationStrategy>
+		<id>C_NET</id>
+		<text>Migrate to C#/.NET Service</text>
+		<description> </description>
+		<category>APPLICATION_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>VB_NET</id>
+		<text>Migrate to VB/.NET Service</text>
+		<description> </description>
+		<category>APPLICATION_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>AZURE_Media</id>
+		<text>Migrate to Azure Media Service</text>
+		<description> </description>
+		<category>APPLICATION_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>AZURE_NotificationHubs</id>
+		<text>Migrate to Azure Notification Hubs(Push Notifications)</text>
+		<description> </description>
+		<category>APPLICATION_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZURE_ActiveDirectory</id>
+		<text>Migrate to Azure ActiveDirectory Service</text>
+		<description> </description>
+		<category>APPLICATION_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>AZURE_Biztalk</id>
+		<text>Migrate to Azure Biztalk Service</text>
+		<description> </description>
+		<category>APPLICATION_SERVICE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+			
+	<!-- ///////////////////////// DATA //////////////////////////// -->
+	<MigrationStrategy>
+		<id>AZURE_SQL</id>
+		<text>Migrate to Windows Azure SQL</text>
+		<description>Azure SQL Database provides a cloud-based relational database platform using SQL Server technologies.</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>AZURE_Tables</id>
+		<text>Migrate to Azure Tables (NoSQL) </text>
+		<description>TODO: add description</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+		
+	<MigrationStrategy>
+		<id>AZURE_SQL_VM</id>
+		<text>Migrate to SQL in Azure VM </text>
+		<description>TODO: add description</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+			
+	<MigrationStrategy>
+		<id>BSS</id>
+		<text>Migrate to Azure BLOB Storage Service</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>NET_Entity</id>
+		<text>Migrate to .NET Entity Framework</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>HDINSIGHT</id>
+		<text>Migrate to Azure HDInsight</text>
+		<description>Use MapReduce pattern in order to improve the processing of big data, using multiple available parallel-running nodes</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUSQLDBSHARDING</id>
+		<text>Adopt sharding using Azure SQL Database</text>
+		<description>Sharding is a horizontal scaling approach that overcomes the capacity limits of a single database node by distributing the database across multiple database nodes. Azure SQL Database offers integrated sharding support through a feature known as Federations.</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// SECURITY //////////////////////////// -->
+	<MigrationStrategy>
+		<id>AZUREGATEKEEPER</id>
+		<text>Adopt Gate Keeper pattern using Azure Storage Queue</text>
+		<description>Use a facade or a dedicated task that interacts with clients and then hands off the request to the hosts or tasks that will handle the request.</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREFEDID</id>
+		<text>Adopt Federated Identity with Azure AppFabric Access Control</text>
+		<description>Implement an authentication mechanism that can use federated identity</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREVALET</id>
+		<text>Adopt Valet key pattern using Azure Shared Access Signature</text>
+		<description>This pattern enables specifying that a user of the application is allowed to access very specific areas within your cloud storage account, with specific permissions, and for a limited amount of time.</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREMULTIFACTORAUTHENTICATION</id>
+		<text>Use Azure Multi-Factor Authentication to meet user demand for a simple sign-in process</text>
+		<description>Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification—allowing users to choose the method they prefer.</description>
+		<category>SECURITY</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// VIZUALIZATION //////////////////////////// -->
+	<MigrationStrategy>
+		<id>DIAGRAMO</id>
+		<text>Migrate to DIAGRAMO</text>
+		<description> </description>
+		<category>VISUALIZATION</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// LOGGING //////////////////////////// -->
+	<MigrationStrategy>
+		<id>LOG4NET</id>
+		<text>Migrate to Log4Net</text>
+		<description> </description>
+		<category>LOGGING</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZURE_Diagnostics</id>
+		<text>Migrate to Azure Diagnostics</text>
+		<description> </description>
+		<category>LOGGING</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>LoggingBlock</id>
+		<text>Migrate to Logging Application Block (Enterprise Library)</text>
+		<description> </description>
+		<category>LOGGING</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// QUEUE //////////////////////////// -->
+	<MigrationStrategy>
+		<id>AZURETHROTTLING</id>
+		<text>Adopt Throttling using Azure Service Bus</text>
+		<description>Enable Throttling pattern to automate the management of consumed application resources using Azure Service Bus</description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREQCW</id>
+		<text>Adopt Queue Centric Workflow using Azure Service Bus and Storage Queues</text>
+		<description>The Queue-Centric Workflow Pattern is an essential pattern for loose coupling and focuses on asynchronous delivery of command requests sent from the user interface to a back-end service for processing</description>
+		<category>QUEUE</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZUREPRIORITYQUEUE</id>
+		<text>Adopt Priority Queue using Azure Service Bus</text>
+		<description>Process user's requests with a higher priority earlier even if they arrive after others with low priority.</description>
+		<category>QUEUE</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// NETWORK //////////////////////////// -->
+	<MigrationStrategy>
+		<id>AVN</id>
+		<text>Adopt Azure Virtual Network</text>
+		<description> </description>
+		<category>NETWORK</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>TRAFFICMANAGER</id>
+		<text>Monitor application health using Azure Traffic Manager</text>
+		<description>Monitor the health of your application endpoints using Azure Traffic Manager</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>NODEFAILUREMONITORING_AZURE</id>
+		<text>Adopt Node Failure pattern using Azure Fabric Controller </text>
+		<description>Windows Azure Fabric Controller provisions, stores, delivers, monitors and commands the virtual machines (VMs) and physical servers that make up Azure</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>NODESHUTDOWNSIGNAL_AZURE</id>
+		<text>Adopt Node Failure pattern by listening to Node Shutdown events on Windows Azure </text>
+		<description>Windows Azure raises an event within the node indicating that node shutdown has begun.Applications can listen to these events in order to handle node shutdown gracefully, i.e. allow in-progress work to complete, gather operational data from the node before shutdown completes, etc.  </description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>TOPAZ</id>
+		<text>Adopt Busy Signal pattern using Azure Topaz</text>
+		<description>Topaz (Transient Fault Handling Application Block) has some predefined retry behavior and also a rich model for customization when accessing Windows Azure SQL Databases, Windows Azure Storage, Windows Azure Caching and Windows Azure Service Bus</description>
+		<category>NETWORK</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>AZURECDN</id>
+		<text>Adopt Azure CDN</text>
+		<description>The Content Delivery Network (CDN) is a service that functions as a globally distributed cache</description>
+		<category>NETWORK</category>
+		<complexity>LOW</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// PERFORMANCE //////////////////////////// -->
+	<MigrationStrategy>
+		<id>AZURECACHING</id>
+		<text>Use Azure Caching</text>
+		<description>A caching system supports the application for succeeding low latency access to the results of I/O intensive database queries</description>
+		<category>PERFORMANCE</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ###########################################  MULTIPLE TARGET PLATFORMS  #################################################### -->
+	
+	<!-- ///////////////////////// VIEW //////////////////////////// -->
+	<MigrationStrategy>
+		<id>GWT</id>
+		<text>Migrate to GWT</text>
+		<description>GWT is a set of tools that allows web developers to create and maintain complex JavaScript front-end applications in Java.</description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+
+	<MigrationStrategy>
+		<id>EXTJS</id>
+		<text>Migrate to ExtJS</text>
+		<description>Ext JS is a pure JavaScript application framework for building interactive web applications[1] using techniques such as Ajax, DHTML and DOM scripting.</description>
+		<category>VIEW</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+
+	<!-- ///////////////////////// FRAMEWORK //////////////////////////// -->
+	<MigrationStrategy>
+		<id>SPRING</id>
+		<text>Migrate to Spring</text>
+		<description>The Spring Framework is an open source application framework and inversion of control container for the Java platform.</description>
+		<category>FRAMEWORK</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>STRUTS</id>
+		<text>Migrate to Struts</text>
+		<description>Apache Struts is an open-source web application framework for developing Java EE web applications.</description>
+		<category>FRAMEWORK</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>DRUPAL</id>
+		<text>Migrate to Drupal</text>
+		<description>Drupal is a free and open-source content management framework written in PHP</description>
+		<category>FRAMEWORK</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+	</MigrationStrategy>	
+	
+	<!-- ///////////////////////// DATA //////////////////////////// -->
+	<MigrationStrategy>
+		<id>MONGO</id>
+		<text>Migrate to MongoDB</text>
+		<description> </description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>HADOOP</id>
+		<text>Migrate to Apache Hadoop</text>
+		<description>Use MapReduce pattern in order to improve the processing of big data, using multiple available parallel-running nodes</description>
+		<category>DATA</category>
+		<complexity>UNKNOWN</complexity>
+		<targetPlatform>GOOGLE_APP_ENGINE</targetPlatform>
+		<targetPlatform>AMAZON_EC2</targetPlatform>
+		<targetPlatform>MICROSOFT_AZURE</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ##############################################  TARGET PLATFORM INDEPENDENT ######################################### -->
+	
+	<!-- ///////////////////////// DATA //////////////////////////// -->
+	<MigrationStrategy>
+		<id>CQRS</id>
+		<text>Apply CQRS pattern to data access</text>
+		<description>Segregate read from write data operations using CQRS pattern</description>
+		<category>DATA</category>
+		<complexity>HIGH</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>EVENTSOURCE</id>
+		<text>Apply Event Sourcing pattern to data access</text>
+		<description>The Event Sourcing pattern defines an approach to handling operations on data that is driven by a sequence of events, each of which is recorded in an append-only store</description>
+		<category>DATA</category>
+		<complexity>HIGH</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>INDEXTABLE</id>
+		<text>Apply Index table pattern to data access</text>
+		<description>If an application needs to quickly retrieve data from a large data store, it may be beneficial to create secondary indexes over fields that are referenced by query criteria</description>
+		<category>DATA</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>MATVIEW</id>
+		<text>Apply materialize view pattern to data access</text>
+		<description>Generate pre-populated views of data in environments where the source data is not in a format that is suitable for querying, where generating a suitable query is difficult, or where query performance is poor due to the nature of the data or the data store</description>
+		<category>DATA</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>	
+	
+	<!-- ///////////////////////// NETWORK //////////////////////////// -->
+	<MigrationStrategy>
+		<id>CIRCUITBREAKER</id>
+		<text>Adopt Circuit Braker pattern</text>
+		<description>The Circuit Breaker pattern can prevent an application repeatedly trying to execute an operation that is likely to fail, allowing it to continue without waiting for the fault to be rectified or wasting CPU cycles while it determines that the fault is long-lasting</description>
+		<category>NETWORK</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// CONFIGURATION //////////////////////////// -->
+	<MigrationStrategy>
+		<id>EXTCONFSTORE</id>
+		<text>Adopt an external configuration store</text>
+		<description>Store the configuration information in external storage, and provide an interface that can be used to quickly and efficiently read and update configuration settings</description>
+		<category>CONFIGURATION</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>RTRECONF</id>
+		<text>Adopt a runtime reconfiguration</text>
+		<description>Handle events raised by the hosting infrastructure when it detects a change to the application configuration</description>
+		<category>CONFIGURATION</category>
+		<complexity>AVERAGE</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<!-- ///////////////////////// QUEUE //////////////////////////// -->
+	<MigrationStrategy>
+		<id>SAS</id>
+		<text>Adopt the Scheduler Agent Supervisor pattern</text>
+		<description>Use this pattern when a task that runs in a distributed environment such as the cloud must be resilient to communications failure and/or process failure. It coordinates a set of actions across a distributed set of services and other remote resources</description>
+		<category>QUEUE</category>
+		<complexity>HIGH</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>LEADER</id>
+		<text>Adopt the Leader Election pattern</text>
+		<description>In a distributed application running a collection of collaborating task instances, it may be necessary for one instance of a task to coordinate the actions being performed by the others</description>
+		<category>QUEUE</category>
+		<complexity>HIGH</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+	<MigrationStrategy>
+		<id>PIPESFILTERS</id>
+		<text>Adopt the Pipes and Filters pattern</text>
+		<description>It should be used for applications that require processing easily decomposable into steps, have different scalability needs in every step, require flexibility in terms of adding new steps and removing, or changing the existing ones</description>
+		<category>QUEUE</category>
+		<complexity>HIGH</complexity>
+		<targetPlatform>INDEPENDENT</targetPlatform>
+	</MigrationStrategy>
+	
+</MigrationStrategies>

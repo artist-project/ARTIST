@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MARTE_Library" nsURI="http:///MARTE_Library.ecore" nsPrefix="MARTE_Library">
+  <eSubpackages name="MeasurementUnits" nsURI="http:///MARTE_Library/MeasurementUnits.ecore"
+      nsPrefix="MARTE_Library.MeasurementUnits">
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeUnitKind">
+      <eLiterals name="s"/>
+      <eLiterals name="tick" value="1"/>
+      <eLiterals name="ms" value="2"/>
+      <eLiterals name="us" value="3"/>
+      <eLiterals name="min" value="4"/>
+      <eLiterals name="hrs" value="5"/>
+      <eLiterals name="day" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PowerUnitKind">
+      <eLiterals name="W"/>
+      <eLiterals name="mW" value="1"/>
+      <eLiterals name="KW" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FrequencyUnitKind">
+      <eLiterals name="Hz"/>
+      <eLiterals name="KHz" value="1"/>
+      <eLiterals name="MHz" value="2"/>
+      <eLiterals name="GHz" value="3"/>
+      <eLiterals name="rpm" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DataSizeUnitKind">
+      <eLiterals name="bit"/>
+      <eLiterals name="Byte" value="1"/>
+      <eLiterals name="KB" value="2"/>
+      <eLiterals name="MB" value="3"/>
+      <eLiterals name="GB" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DataTxRateUnitKind">
+      <eLiterals name="b_per_s"/>
+      <eLiterals name="Kb_per_s" value="1"/>
+      <eLiterals name="Mb_per_s" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="EnergyUnitKind">
+      <eLiterals name="J"/>
+      <eLiterals name="KJ" value="1"/>
+      <eLiterals name="Wh" value="2"/>
+      <eLiterals name="KWh" value="3"/>
+      <eLiterals name="mWh" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="LengthUnitKind">
+      <eLiterals name="m"/>
+      <eLiterals name="cm" value="1"/>
+      <eLiterals name="mm" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AreaUnitKind">
+      <eLiterals name="mm2"/>
+      <eLiterals name="um2" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="WeightUnitKind">
+      <eLiterals name="g"/>
+      <eLiterals name="mg" value="1"/>
+      <eLiterals name="kg" value="2"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="GRM_BasicTypes" nsURI="http:///MARTE_Library/GRM_BasicTypes.ecore"
+      nsPrefix="MARTE_Library.GRM_BasicTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="EDF_Parameters" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="SchedPolicyKind">
+      <eLiterals name="EarliestDeadlineFirst"/>
+      <eLiterals name="FIFO" value="1"/>
+      <eLiterals name="FixedPriority" value="2"/>
+      <eLiterals name="LeastLaxityFirst" value="3"/>
+      <eLiterals name="RoundRobin" value="4"/>
+      <eLiterals name="TimeTableDriven" value="5"/>
+      <eLiterals name="Undef" value="6"/>
+      <eLiterals name="Other" value="7"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ProtectProtocolKind">
+      <eLiterals name="FIFO"/>
+      <eLiterals name="NoPreemption" value="1"/>
+      <eLiterals name="PriorityCeiling" value="2"/>
+      <eLiterals name="PriorityInheritance" value="3"/>
+      <eLiterals name="StackBased" value="4"/>
+      <eLiterals name="Undef" value="5"/>
+      <eLiterals name="Other" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PeriodicServerKind">
+      <eLiterals name="Sporadic"/>
+      <eLiterals name="Deferrable" value="1"/>
+      <eLiterals name="Undef" value="2"/>
+      <eLiterals name="Other" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="SchedParameters" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="FixedPriorityParameters" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="PeriodicServerParameters" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="PoolingParameters" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ScheduleSpecification" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="TableDrivenSchedule" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="TableEntryType" instanceClassName="java.lang.String"/>
+  </eSubpackages>
+  <eSubpackages name="MARTE_DataTypes" nsURI="http:///MARTE_Library/MARTE_DataTypes.ecore"
+      nsPrefix="MARTE_Library.MARTE_DataTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="IntegerVector" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IntegerMatrix" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="VSL_Expression" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IntegerInterval" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="TransmModeKind">
+      <eLiterals name="simplex"/>
+      <eLiterals name="halfDuplex" value="1"/>
+      <eLiterals name="fullDuplex" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="UtilityType" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Array" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Realnterval" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_FrequencyInterval" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Interval" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_NaturalInterval" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="RealVector" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="RealMatrix" instanceClassName="java.lang.String"/>
+  </eSubpackages>
+  <eSubpackages name="BasicNFP_Types" nsURI="http:///MARTE_Library/BasicNFP_Types.ecore"
+      nsPrefix="MARTE_Library.BasicNFP_Types">
+    <eClassifiers xsi:type="ecore:EEnum" name="SourceKind">
+      <eLiterals name="est"/>
+      <eLiterals name="meas" value="1"/>
+      <eLiterals name="calc" value="2"/>
+      <eLiterals name="req" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DirectionKind">
+      <eLiterals name="incr"/>
+      <eLiterals name="decr" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="StatisticalQualifierKind">
+      <eLiterals name="max"/>
+      <eLiterals name="min" value="1"/>
+      <eLiterals name="mean" value="2"/>
+      <eLiterals name="range" value="3"/>
+      <eLiterals name="percent" value="4"/>
+      <eLiterals name="distrib" value="5"/>
+      <eLiterals name="determ" value="6"/>
+      <eLiterals name="other" value="7"/>
+      <eLiterals name="variance" value="8"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_CommonType" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Boolean" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Natural" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_String" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Real" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Integer" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_DateTime" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Duration" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_DataTxRate" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Frequency" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Power" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_DataSize" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Energy" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Length" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Area" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ArrivalPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="PeriodicPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="AperiodicPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ClosedPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="SporadicPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="BurstPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IrregularPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Percentage" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="OpenPattern" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Price" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="NFP_Weight" instanceClassName="java.lang.String"/>
+  </eSubpackages>
+  <eSubpackages name="TimeTypesLibrary" nsURI="http:///MARTE_Library/TimeTypesLibrary.ecore"
+      nsPrefix="MARTE_Library.TimeTypesLibrary">
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeNatureKind">
+      <eLiterals name="discrete"/>
+      <eLiterals name="dense" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeInterpretationKind">
+      <eLiterals name="duration"/>
+      <eLiterals name="instant" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="EventKind">
+      <eLiterals name="start"/>
+      <eLiterals name="finish" value="1"/>
+      <eLiterals name="send" value="2"/>
+      <eLiterals name="receive" value="3"/>
+      <eLiterals name="consume" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeStandardKind">
+      <eLiterals name="TAI"/>
+      <eLiterals name="UT0" value="1"/>
+      <eLiterals name="UT1" value="2"/>
+      <eLiterals name="UTC" value="3"/>
+      <eLiterals name="Local" value="4"/>
+      <eLiterals name="TT" value="5"/>
+      <eLiterals name="TBD" value="6"/>
+      <eLiterals name="TCG" value="7"/>
+      <eLiterals name="TCB" value="8"/>
+      <eLiterals name="Sidereal" value="9"/>
+      <eLiterals name="GPS" value="10"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="TimeLibrary" nsURI="http:///MARTE_Library/TimeLibrary.ecore"
+      nsPrefix="MARTE_Library.TimeLibrary">
+    <eClassifiers xsi:type="ecore:EDataType" name="TimedValueType" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ClockedValueSpecification" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeUnitKind">
+      <eLiterals name="s"/>
+      <eLiterals name="ms" value="1"/>
+      <eLiterals name="us" value="2"/>
+      <eLiterals name="ns" value="3"/>
+      <eLiterals name="min" value="4"/>
+      <eLiterals name="hrs" value="5"/>
+      <eLiterals name="day" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="LogicalTimeUnit">
+      <eLiterals name="tick"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IdealClock">
+      <eOperations name="currentTime" ordered="false" lowerBound="1" eType="#//MARTE_PrimitivesTypes/Real"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="RS_Library" nsURI="http:///MARTE_Library/RS_Library.ecore" nsPrefix="MARTE_Library.RS_Library">
+    <eClassifiers xsi:type="ecore:EDataType" name="TilerSpecification" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ShapeSpecification" instanceClassName="java.lang.String"/>
+  </eSubpackages>
+  <eSubpackages name="MARTE_PrimitivesTypes" nsURI="http:///MARTE_Library/MARTE_PrimitivesTypes.ecore"
+      nsPrefix="MARTE_Library.MARTE_PrimitivesTypes">
+    <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceClassName="int"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="boolean"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="UnlimitedNatural" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="DateTime" instanceClassName="java.lang.String"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Real" instanceClassName="java.lang.String"/>
+  </eSubpackages>
+</ecore:EPackage>
