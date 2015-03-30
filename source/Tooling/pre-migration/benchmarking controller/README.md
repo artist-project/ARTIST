@@ -30,6 +30,7 @@ Functionalities included in this version
 - YCSB for the database evaluation
     
 -- Data output parsing and database storing 
+
 -- Integration with the GUI interface
 
 Known issues of this version:
