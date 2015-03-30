@@ -1,0 +1,59 @@
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure.Interception;
+using System.Linq;
+
+namespace <%= Namespace %>
+{
+    public class TenantAwareUtility
+    {
+        public const string TenantAnnotation = "TenantAnnotation";
+        public const string TenantIdFilterParameterName = "TenantIdParameter";
+
+        public static string GetTenantColumnName(EdmType type)
+        {
+            MetadataProperty annotation =
+                type.MetadataProperties.SingleOrDefault(
+                    p => p.Name.EndsWith(string.Format("customannotation:{0}", TenantAnnotation)));
+
+            return annotation == null ? null : (string)annotation.Value;
+        }
+
+        /// <summary>
+        /// Check for a valid databasecontext. In our case only the commands to the ClientDB need to be intercepted.
+        /// </summary>
+        /// <param name="usedDbContext"></param>
+        /// <returns></returns>
+        public static bool IsValidContext(IEnumerable<DbContext> usedDbContexts)
+        {
+            // Sometimes there are multiple contexts available e.g. in relation with Migrations (first 
+            // initialization /creation of the database). These do not need to be taken into account.
+            if (usedDbContexts.Count() != 1)
+                return false;
+
+            return usedDbContexts.First() is <%= Context %>;
+        }
+
+        /// <summary>
+        /// Check for a valid databasecontext. In our case only the commands to the ClientDB need to be intercepted.
+        /// </summary>
+        /// <param name="interceptionContext"></param>
+        /// <returns></returns>
+        public static bool IsInvalidContext(DbCommandTreeInterceptionContext interceptionContext)
+        {
+            if (interceptionContext.DbContexts.Count() == 1)
+            {
+                var dbContext = interceptionContext.DbContexts.First() as <%= Context %>;
+                return dbContext == null;
+            }
+            return true;
+        }
+
+		public static string GetCurrentTenantId()
+        {
+            // TODO: Implement this method.
+			return "";
+        }
+    }
+}
