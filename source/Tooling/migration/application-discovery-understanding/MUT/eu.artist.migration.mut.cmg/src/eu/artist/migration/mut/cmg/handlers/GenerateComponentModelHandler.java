@@ -398,13 +398,13 @@ public class GenerateComponentModelHandler extends AbstractHandler {
 				inModels.clear();
 				inModels.put("IN", taggedModelURI); //org.eclipse.emf.common.util.URI.createURI(modelFile.getLocationURI().toString()));
 				inModels.put("J2EEProfile", org.eclipse.emf.common.util.URI.createURI(
-						"platform:/plugin/eu.artist.repository.artefacts/profiles/J2EE6.profile.uml"));
+						"platform:/plugin/eu.artist.repository.artefacts/profiles/j2ee.profile.uml"));
 				
 				//TODO: Module name should be changed
 				performM2MTransformation (inModels, org.eclipse.emf.common.util.URI.createURI(j2EEOutUri.toString()),
 					Arrays.asList(new String[]{"platform:/plugin/eu.artist.migration.mut.cmg.j2ee/transformation/",
 						"platform:/plugin/eu.artist.repository.artefacts/"}), 
-					"ComponentModelGenerator", monitor);
+					"J2EEComponentModelGenerator", monitor);
 				monitor.worked(1);
 				System.out.println ("Completed task");
 			}

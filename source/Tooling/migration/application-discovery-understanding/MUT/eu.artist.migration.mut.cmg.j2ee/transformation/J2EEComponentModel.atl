@@ -51,7 +51,18 @@ helper def : AllComponentStereotypes() : Set(UML2!Stereotype) = Set{
 	thisModule.jmsMessageListenerStereotype,
 	thisModule.messageDrivenBeanStereotype,
 	thisModule.sessionContextStereotype,
-	thisModule.ejbContextStereotype
+	thisModule.ejbContextStereotype,
+	thisModule.embeddableStereotype,
+	thisModule.managedBeanStereotype,
+	thisModule.requestScopedStereotype,
+	thisModule.sessionScopedStereotype,
+	thisModule.applicationScopedStereotype,
+	thisModule.dependentStereotype,
+	thisModule.conversationScopedStereotype,
+	thisModule.securityStereotype,
+	thisModule.loginModuleStereotype,
+	thisModule.callbackHandlerStereotype,
+	thisModule.cdiBeanStereotype
 };
 
 ---******************************** J2EE Queries ************************************---
@@ -60,8 +71,8 @@ helper def : AllComponentStereotypes() : Set(UML2!Stereotype) = Set{
 helper def: entityManagerStereotypedClasses: Sequence(UML2!Class) = 
 thisModule.allINClasses->select(s|s.hasStereotype(thisModule.entityManagerStereotype))-> debug ('entityManagerStereotype');
 --- detected entityStereotype stereotyped classes
-helper def: entityStereotypedClasses: Sequence(UML2!Class) = 
-thisModule.allINClasses->select(s|s.hasStereotype(thisModule.entityStereotype))-> debug ('entityStereotype');
+helper def: persistentObjectClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.entityStereotype) or s.hasStereotype(thisModule.embeddableStereotype))-> debug ('persistentObjects');
 --- detected queryStereotype stereotyped classes
 helper def: queryStereotypedClasses: Sequence(UML2!Class) = 
 thisModule.allINClasses->select(s|s.hasStereotype(thisModule.queryStereotype))-> debug ('queryStereotype');
@@ -146,8 +157,39 @@ thisModule.allINClasses->select(s|s.hasStereotype(thisModule.sessionContextStere
 --- detected ejbContextStereotype stereotyped classes
 helper def: ejbContextStereotypedClasses: Sequence(UML2!Class) = 
 thisModule.allINClasses->select(s|s.hasStereotype(thisModule.ejbContextStereotype))-> debug ('ejbContextStereotype');
-
-
+--- detected embeddableStereotype stereotyped classes
+--helper def: embeddableStereotypedClasses: Sequence(UML2!Class) = 
+--thisModule.allINClasses->select(s|s.hasStereotype(thisModule.entityStereotype) or s.hasStereotype(thisModule.embeddableStereotype))-> debug ('persistentObjects');
+--- detected managedBeanStereotype stereotyped classes
+helper def: managedBeanStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.managedBeanStereotype))-> debug ('managedBeanStereotype');
+--- detected requestScopedStereotype stereotyped classes
+helper def: requestScopedStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.requestScopedStereotype))-> debug ('requestScopedStereotype');
+--- detected sessionScopedStereotype stereotyped classes
+helper def: sessionScopedStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.sessionScopedStereotype))-> debug ('sessionScopedStereotype');
+--- detected applicationScopedStereotype stereotyped classes
+helper def: applicationScopedStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.applicationScopedStereotype))-> debug ('applicationScopedStereotype');
+--- detected dependentStereotype stereotyped classes
+helper def: dependentStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.dependentStereotype))-> debug ('dependentStereotype');
+--- detected conversationScopedStereotype stereotyped classes
+helper def: conversationScopedStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.conversationScopedStereotype))-> debug ('conversationScopedStereotype');
+--- detected securityStereotype stereotyped classes
+helper def: securityStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.securityStereotype))-> debug ('securityStereotype');
+--- detected loginModuleStereotype stereotyped classes
+helper def: loginModuleStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.loginModuleStereotype))-> debug ('loginModuleStereotype');
+--- detected callbackHandlerStereotype stereotyped classes
+helper def: callbackHandlerStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.callbackHandlerStereotype))-> debug ('callbackHandlerStereotype');
+--- detected cdiBeanStereotype stereotyped classes
+helper def: cdiBeanStereotypedClasses: Sequence(UML2!Class) = 
+thisModule.allINClasses->select(s|s.hasStereotype(thisModule.cdiBeanStereotype))-> debug ('cdiBeanStereotype');
 
 ---*************************** J2EE Components ******************************---
 --- Collects components to be obtained by the transformation, described by:
@@ -162,7 +204,7 @@ helper def : components() :
 			Tuple{classes=thisModule.organizedByPackage(thisModule.entityManagerStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
 			
 			(thisModule.entityStereotype,
-			Tuple{classes=thisModule.organizedByPackage(thisModule.entityStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			Tuple{name='PersistentObjectsComponent', classes=thisModule.organizedByPackage(thisModule.persistentObjectClasses), merge=true, subGroupStereotype=OclUndefined}),
 			
 			(thisModule.queryStereotype,
 			Tuple{classes=thisModule.organizedByPackage(thisModule.queryStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
@@ -246,5 +288,38 @@ helper def : components() :
 			Tuple{classes=thisModule.organizedByPackage(thisModule.sessionContextStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
 			
 			(thisModule.ejbContextStereotype,
-			Tuple{classes=thisModule.organizedByPackage(thisModule.ejbContextStereotypedClasses), merge=true, subGroupStereotype=OclUndefined})
+			Tuple{classes=thisModule.organizedByPackage(thisModule.ejbContextStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.embeddableStereotype,
+			Tuple{name='PersistentObjectsComponent', classes=thisModule.organizedByPackage(thisModule.persistentObjectClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.managedBeanStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.managedBeanStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.requestScopedStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.requestScopedStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.sessionScopedStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.sessionScopedStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.applicationScopedStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.applicationScopedStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.dependentStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.dependentStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.conversationScopedStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.conversationScopedStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.securityStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.securityStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.loginModuleStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.loginModuleStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.callbackHandlerStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.callbackHandlerStereotypedClasses), merge=true, subGroupStereotype=OclUndefined}),
+			
+			(thisModule.cdiBeanStereotype,
+			Tuple{classes=thisModule.organizedByPackage(thisModule.cdiBeanStereotypedClasses), merge=true, subGroupStereotype=OclUndefined})
 	};

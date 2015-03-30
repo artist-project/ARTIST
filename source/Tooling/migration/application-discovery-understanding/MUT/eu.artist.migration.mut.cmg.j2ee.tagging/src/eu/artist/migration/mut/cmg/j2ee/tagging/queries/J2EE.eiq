@@ -2,12 +2,113 @@ package eu.artist.migration.mut.cmg.j2ee.tagging.queries
 
 import "http://www.eclipse.org/uml2/4.0.0/UML"
 
-pattern security (client : Class){
+pattern SecurityImpl (client : Class){
 	
 	InterfaceRealization.client(Int, client);
 	InterfaceRealization.supplier(Int, supp);
 	Interface.name(supp, suppName);
 	check (
 		suppName == "CallbackHandler" || suppName == "LoginModule"
+	);
+}
+
+pattern SecurityProp (cls : Class){
+	
+	Class.name(cls, name);
+	Class.ownedAttribute(cls, prop);
+	Property.type(prop, type);
+	Type.name(type, tName);
+	check (
+		tName == "CallbackHandler"
+	);
+}
+
+pattern EntityManager (cl : Class, pr : Property) {
+
+	StructuredClassifier.ownedAttribute(cl, pr);
+	Property.type(pr, typ);
+	Type.name(typ, nm);
+	check (
+		nm == "EntityManager"
+	);
+}
+
+pattern Servlet(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "Servlet"
+	);
+}
+
+pattern ServletRequest(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "ServletRequest"
+	);
+}
+
+pattern ServletResponse(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "ServletResponse"
+	);
+}
+
+pattern GenericServlet(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "GenericServlet"
+	);
+}
+
+pattern HttpServlet(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "HttpServlet"
+	);
+}
+
+pattern HttpServletRequest(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "HttpServletRequest"
+	);
+}
+
+pattern HttpServletResponse(sub : Class){
+	
+	Generalization.specific(Gen, sub);
+	Generalization.general(Gen, sup);
+	Class.name(sup, supname);
+	check (
+		supname == "HttpServletResponse"
+	);
+}
+
+pattern MessageListener(client : Class){
+	
+	InterfaceRealization.client(Int, client);
+	InterfaceRealization.supplier(Int, supp);
+	Interface.name(supp, suppName);
+	check (
+		suppName == "MessageListener"
 	);
 }
