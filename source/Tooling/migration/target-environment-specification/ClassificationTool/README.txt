@@ -1,5 +1,5 @@
 ****************************
-Profiling tool	
+Classification tool	
 ***************************
 
 /*
