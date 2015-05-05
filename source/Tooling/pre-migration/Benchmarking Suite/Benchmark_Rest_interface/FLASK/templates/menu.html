@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/1.10.4/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+<style type="text/css">.ui-menu { 
+width: 150px};
+</style>
+
+<style type="text/css">
+<!--
+a {color: black; text-decoration:none; font-size: 11pt}
+a:visited { text-decoration: none;color: darkblue; font-size:11pt; }
+a:hover   {font-size: 13pt;color: orange}
+a:visited:hover { color: darkorange; }
+
+-->
+</style>
+
+<script>
+	$(function() {
+	$( "#menu" ).menu();
+	});
+</script>
+
+
+<body>
+
+<table>
+
+<tr>
+<td>
+<ul id="menu">
+
+<li class="ui-state-disabled">DataCaching CloudSuite</li>
+<li class="ui-state-disabled">Bonfire Dwarfs</li>
+<li><a href="http://127.0.0.1:5000/benchmarking/ui/dacapo">DaCapo Suite</a></li>
+<li><a href="http://127.0.0.1:5000/benchmarking/ui/filebench">Filebench</a></li>
+<li><a href="http://127.0.0.1:5000/benchmarking/ui/ycsb">YCSB</a></li>
+</ul>
+</td>
+<td>
+<table id="table" class="display" width="100%" cellspacing="0">
+</table>
+</td>
+</tr>
+</table>
+
+<script type=text/javascript>
+$(document).ready(function() {
+	var cols = config["{{tool}}"]["cols"];
+	
+	var headers = "<thead><tr>";
+	for(var i in cols){
+		headers += "<th>" + cols[i]["data"] + "</th>";
+	}
+	headers += "</tr></thead>";
+	$('#table').append(headers);
+
+    $('#table').dataTable( {
+        "ajax": config["{{tool}}"]["ajaxURL"],
+        "columns": cols,
+        "scrollX": true
+    });
+} );
+</script>
+
+
+
+</body>
+</html>

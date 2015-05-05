@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+</property>
+
+<property>
+  <name>dfs.namenode.name.dir</name>
+  <value>file:/home/ubuntu/hadoop/hdfs/namenode</value>
+</property>
+
+<property>
+  <name>dfs.datanode.data.dir</name>
+  <value>file:/home/ubuntu/hadoop/hdfs/datanode</value>
+</property>
+
+<property>
+  <name>dfs.namenode.fs-limits.min-block-size</name>
+  <value>0</value>
+</property>
+</configuration>
