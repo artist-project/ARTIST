@@ -8,9 +8,13 @@ Functionalities included in this version
 ----
 
 -- Benchmark Results Visualization
+
 -- Filtering for Cloud Platform, tool, data of execution, workload and instance type
+
 -- Charts of performance trend
+
 -- Stats (e.g., Average Performance)
+
 -- Service Efficiency Metric
 
 
