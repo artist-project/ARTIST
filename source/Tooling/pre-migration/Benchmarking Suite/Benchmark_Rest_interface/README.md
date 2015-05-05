@@ -22,6 +22,8 @@ In a nutshell, in order to run the interface follow the next steps:
 -- Install Flask Server
 http://flask.pocoo.org/docs/0.10/installation/
 
+-- Insert the connection string (with the parameters of your database) in the file "Metrics.py"
+
 -- Start the server running the file "app.py"
 
 -- Navigate via browser to http://ip_address:port/benchmarking/ui/ 
