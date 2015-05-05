@@ -1,5 +1,5 @@
 Methodology Process Tool (MPT) Eclipse Plug-in
-Release date: 30/09/2014
+Release date: 30/03/2015
 version: 1.0.0
 
 =========================================================================================
@@ -7,7 +7,7 @@ version: 1.0.0
 Copyright
 ---------
 The source code in this distribution is © Copyright Institute of Communication and Computer Systems (ICCS) - 
-National Technical University of Athens 2014.
+National Technical University of Athens 2015.
 
 =========================================================================================
 
@@ -30,8 +30,7 @@ INCLUDED FUNCTIONALITIES
 - Extensions to the Eclipse Welcome Page "Overview" and "Tutorials" tab.
 - Three interconnected composite cheat sheets, one for each of the main ARTIST phases (i.e. pre-migration, migration and 
   post-migration). Each composite cheat includes a set of simple cheat sheets that covering ARTIST tools used in each phase. 
-- An integrated rule-engine based on JBoss Drools, capable of firing and collecting the results of a 
-  preliminary set of customization rules. 
+- An integrated rule-engine based on JBoss Drools, capable of firing and collecting the results of customization rules. 
 
 =========================================================================================
 
@@ -48,14 +47,12 @@ EXPECTED FUNCTIONALITIES
 ------------------------
 - Bug fixing and improvements on existing functionality
 - Extending the cheat sheets to cover all ARTIST tools
-- Expansion of the customization rules and application on the way the cheat sheets are presented
-- Integrating an in memory methodology model for improving the way the rules are applied in the background
 
 =========================================================================================
 
 Installation instructions
 -------------------------
-Detailed installation & usage instructions can be found at Deliverable D6.3.2 'ARTIST Methodology Process Framework M24':
+Detailed installation & usage instructions can be found at Deliverable D6.3.3 'ARTIST Methodology Process Framework M30':
 
 - For installation instructions, please see Section 2.3.2.1.
 - For usage instructions, please see Section 2.3.3. 
