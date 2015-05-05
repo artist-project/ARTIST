@@ -28,7 +28,9 @@ Functionalities included in this version
 - Dwarfs suite for CPUs benchmark
 - Filebench for file system and storage benchmarks
 - YCSB for the database evaluation
+
 -- Data output parsing and database storing 
+
 -- Integration with GUI interface    
 
 Known issues of this version:
@@ -45,12 +47,14 @@ Functionality expected in next versions
 
 Reference to the user/installation manual
 ----
-Chapter 5 of the following document: http://www.artist-project.eu/sites/default/files/D7.2.2%20Cloud%20services%20modeling%20and%20performance%20analysis%20framework_M24_30092014.pdf
+Chapter 5 of the following document:
+
+http://www.artist-project.eu/sites/default/files/D7.2.3_Cloud_services_modeling_and_performance_analysis_framework_M30_31032015.pdf
 
 Reference for the donwload
 ----
-The binary of the tool and the API documentation can be found at the following link:
-https://github.com/artist-project/ARTIST/tree/master/binary/BenchmarkTool
+The binary of the tool can be found at the following link:
+https://github.com/artist-project/ARTIST/blob/master/binary/BenchmarkingSuite/Benchmarking%20Controller--3.0.0-0.tar.gz
 
 Version
 ----
