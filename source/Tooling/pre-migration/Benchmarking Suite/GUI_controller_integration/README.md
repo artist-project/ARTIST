@@ -26,7 +26,9 @@ Functionalities included in next version
 
 Reference to the user/installation manual
 ----
-Chapter 5 of the following document: http://www.artist-project.eu/sites/default/files/D7.2.3_Cloud_services_modeling_and_performance_analysis_framework_M30_31032015.pdf
+Chapter 5 of the following document:
+
+http://www.artist-project.eu/sites/default/files/D7.2.3_Cloud_services_modeling_and_performance_analysis_framework_M30_31032015.pdf
 
 In a nutshell, in order to run the tool follow the next steps:
 
