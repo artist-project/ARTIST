@@ -1,4 +1,4 @@
-What the distribution package contains:
+What the distribution packages contain:
 ===================
 
 -- Benchmark controller Tool Source code
