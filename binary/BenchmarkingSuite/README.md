@@ -5,6 +5,6 @@ What the distribution package contains:
 
 -- Benchmark Tool API documentation: in order to browse the tool documentation, please start to navigate from index.html file
 
--- GUI-controller integration tool code (WAR file)
+-- Binary of the GUI-controller integration (WAR file)
 
--- Database REST interface tool
+-- Database REST interface 
