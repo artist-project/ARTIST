@@ -6,7 +6,7 @@
 
 4) Default Benchmark database connection parameters: 
    
-   ip_address: localhost
-   port: 3306
-   dbname: cloudbench
+   -- ip_address: localhost
+   -- port: 3306
+   -- dbname: cloudbench
 
