@@ -1,10 +1,13 @@
-1) Deploy the file into WEBAPPS folder of the Application Server
+Instructions:
+===================
 
-2) Start the Application Server
+-- Deploy the file into WEBAPPS folder of the Application Server
 
-3) Navigate via browser to http://ip_address:port/Cloud-Bench/reports
+-- Start the Application Server
 
-4) Default Benchmark database connection parameters: 
+-- Navigate via browser to http://ip_address:port/Cloud-Bench/reports
+
+-- Default Benchmark database connection parameters: 
    
    -- ip_address: localhost
    -- port: 3306
