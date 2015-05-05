@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Fundación TECNALIA Research & Innovation
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Marisa Escalante Martinez (Tecnalia)
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<compositeCheatsheet name="Process related tasks">
+   <taskGroup kind="set" name="Process related task" skip="false">
+      <intro>
+         This cheat sheet provides the ideal definition of the key processes which should be modified by a company to be cloud compliant due to the migration process.
+      </intro>
+      <onCompletion>
+         <b>Conclusion</b>
+      </onCompletion>
+      <task kind="cheatsheet" name="SLAMP - SLA Management Process Task" skip="true">
+         <intro>
+            The goal of SLA management process is to ensure that an agreed level of IT services is provide for all current IT services and that the future services are delivered to agreed achievable targets
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="SLAMP  - SLA Management Process Task.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="IMRP - Incidence Management and Resolution Process Task" skip="false">
+         <intro>
+            The goal of the Incidence Management and Resolution process is to restore normal service operation as quickly as possible and minimize the adverse impact on business operations, thus ensuring that the best possible levels of service quality and availability are maintained.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="IMRP - Incidence Management and Resolution Process Task.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="MCRP - Monitor Customer Request Process Task" skip="false">
+         <intro>
+            The main objective of this process is to provide a unique point of contact between users and the provider of the services in order to act as the centre of all the service support.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="MCRP - Monitor Customer Request Process Task.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="MP - Marketing Process Task" skip="false">
+         <intro>
+            <b>Introduction</b>
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="MP - Marketing Process Task.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="CPMP - Cloud Provider Management Process Task" skip="false">
+         <intro>
+            The objective of this task is to manage and control the service provided for the cloud provider in order to contract the most appropriate one for the organisation´s requirements, and to monitor, measure and control that the agreement is fulfilled.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="CPMP - Cloud Provider Management Process Task.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="RAP - Roles Alignment Process Task" skip="false">
+         <intro>
+            This task is focused on the adaptation and creation of new roles in the organization due to the new business model. It is essential to define the roles and responsibilities within the organisation in order to cover all the activities created with the new business model. If new roles are necessary, these roles should have assigned activities and responsibilities, and those should be known by the people involved.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="RAP - Roles Alignment Process Task.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="DP - Development process" skip="false">
+         <intro>
+            The main objective of this task is to develop SaaS applications
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="DP - Development process.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="UMP - Update and Maintenance Process Task" skip="false">
+         <intro>
+            The objective of this task is to deploy releases into production and establish effective use of the service in order to deliver value to the customer and be able to handover to service operations.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="UMP - Update and Maintenance Process Task.xml">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

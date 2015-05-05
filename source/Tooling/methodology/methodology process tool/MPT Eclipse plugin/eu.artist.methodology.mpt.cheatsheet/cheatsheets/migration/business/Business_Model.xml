@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compositeCheatsheet name="Business Model Group">
+   <taskGroup kind="set" name="Business Model Group" skip="false">
+      <intro>
+         A value proposition is a statement that explains the relevancy of a service (how it solves customers’ needs), quantifies its value (that is, how it delivers benefits) and identifies the competitive advantage (it explains how this service differentiates from existing services so the customer does not have the temptation to go to the competitors).
+
+The value proposition may be unique for one product or service if it is addressed to one market. However, if the service is targeted to various market segments, they shall all receive a unique value proposition for the service.
+      </intro>
+      <onCompletion>
+         <b>Conclusion</b>
+      </onCompletion>
+      <task kind="cheatsheet" name="Define the value proposition" skip="false">
+         <intro>
+            Study the needs of the customers you are targeting to, their motivation, their perspectives, etc. The main idea is to understand why they would buy your service and not others. This can be done by interviews, surveys or observation. Once that is clear, explain what the added value of this application is with respect to its competitor. This can be, later on, your sales pitch argument.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="value_proposition_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Define the customer interface" skip="false">
+         <intro>
+            Define customer relationships. Sales channels and customer relationships vary depending on the customer segment the service is targeted to.
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="customer_interface_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Define and implement the operational infrastructure" skip="false">
+         <intro>
+            <b>Determine all operational aspects that need to be considered when running a business.</b>
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="operational_infrastructure_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Determine the financial management" skip="false">
+         <intro>
+            Determine how you as SaaS provider are going to charge for the application and thus obtain the optimal revenues to ensure the sustainability of your organisation
+         </intro>
+         <onCompletion>
+            <b>Conclusion</b>
+         </onCompletion>
+         <param name="path" value="financial_management_simple.xml">
+         </param>
+      </task>
+   </taskGroup>
+</compositeCheatsheet>

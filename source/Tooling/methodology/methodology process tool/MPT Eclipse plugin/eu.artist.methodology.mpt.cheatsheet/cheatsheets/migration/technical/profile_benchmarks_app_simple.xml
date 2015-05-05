@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Benchmark and profile application">
+   <intro>
+      <description>
+         <b>Profiling tool is used: (1) In order to acquire the footprints of an unknown application or one of its components, on a specific physical host. The footprints consist of average execution metrics concerning CPU, RAM, disk and network utilization, and (2) in order to acquire the same type of footprints of a set of test-applications called benchmarks on the same physical host. The results of both execution modes of the tool, will be served as an input to a classification tool, which will decide upon the type of the application. Application types are defined according to the categorization of the benchmarks.</b>
+      </description>
+   </intro>
+   <item
+         title="Download Profiling Tool">
+      <description>
+         <b> </b>
+      </description>
+      <command
+            required="true"
+            serialization="org.eclipse.ui.browser.openBrowser(url= https://github.com/artist-project/ARTIST/tree/master/binary/ProfilingTool)"/> 
+   </item>
+   <item
+         title="Follow installation instructions">
+      <description>
+         <b>Follow very carefully the installation instructions concerning configurations on the physical machine, the benchmark virtual machine which will host the benchmark applications, as well as the application virtual machine which will host your own application or application component.</b>
+      </description>
+   </item>
+   <item
+         title="Profiling of the application">
+      <description>
+         <b> </b>
+      </description>
+      <subitem
+            label="Make sure that the application is running on the virtual machine which is hosted on the same physical host as the Profiling Tool. Before running the executable jar file, a set of information should be available to be inserted as input for the tool: the Process ID of the virtual machine, passwords for the superuser of the Operating System running on the physical machine, the IP of the virtual machine.">
+      </subitem>
+      <subitem
+            label="After having inserted the information, start and stop buttons will control the profiling process. The application, as well as its workload generation must be running.">
+      </subitem>
+      <subitem
+            label="After the profiling process, the results can be found in the directory indicated to be the target directory.">
+      </subitem>
+   </item>
+   <item
+         title="Profiling of the benchmarks">
+      <description>
+         <b> </b>
+	  </description>
+      <subitem
+            label="Make sure that the benchmark virtual machine is configured and running properly. Before running the executable jar file, a set of information should be available to be inserted as input for the tool: the Process ID of the virtual machines, passwords for the superuser of the Operating System running on the physical and virtual machines, the IPs of the virual machines, the txt file containing the commands for the execution of the benchmarks.">
+      </subitem>
+      <subitem
+            label="After having inserted the information, the tool will execute the profiling process. The results will be stored in the directory that you indicated to be the target directory.">
+      </subitem>
+      <subitem
+            label="The results for both the application and benchmarks profiling must be stored and served as input for the classification tool. The benchmarks profiling results will act as the training data set while the application's profiling results will act as the working data set.">
+      </subitem>
+   </item>
+</cheatsheet>

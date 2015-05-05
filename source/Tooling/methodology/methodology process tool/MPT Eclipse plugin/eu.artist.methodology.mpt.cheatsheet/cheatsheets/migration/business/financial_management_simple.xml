@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cheatsheet
+         title="Determine the financial management">
+   <intro>
+     <description>
+      Determine how you,the SaaS provider, are going to charge for the application and thus obtain the optimal revenues to ensure the sustainability of the organisation
+      </description>
+   </intro>
+   <item
+         title= "Define the revenue streams">
+      <description>
+      Determine the optimal revenues to ensure the sustainability of the organisation. 
+
+You can do that by using a profit &amp; loss simulation spreadsheet.
+      </description>
+   </item>
+   <item
+         title="Define the structure of costs">
+      <description>
+         Define the structure of costs for the service provided. This structure must include fix and variable costs
+      </description>
+   </item>
+   <item
+            title="Determine the pricing strategy">
+         <description>
+            define the pricing strategy taking into consideration each customer segment.  There are several possible license models.
+a)	By subscription
+b) By use
+c)	By transaction
+d)	By value
+e)	Flat rate
+f)	Hybrid.
+The most appropriate one for being cloud compliant are: by use or by transaction. Based on the license model different parameters should be measured. These parameters could be:
+a)Time: the time that the client uses the service measured in hours, seconds or microseconds.
+b) Volume: The volume of the used service: GB, MB/s, CPU cycles, etc.
+c) Sessions: number of accesses to the service
+d) Requests: number of requests to the system
+e) Users: number of users that are allowed to access to the system
+         </description>
+      </item>
+      <item
+            title="Define the billing mechanisms">
+         <description>
+            Based on the pricing strategy selected, different aspects of the application and the infrastructure will have to be monitored. These monitored aspects will be collected and through the billing component, billed to the end user. The billing component must offer also the possibility to decide on the frequency your customer wants to receive its bill.
+         </description>
+      </item>    
+   
+</cheatsheet>

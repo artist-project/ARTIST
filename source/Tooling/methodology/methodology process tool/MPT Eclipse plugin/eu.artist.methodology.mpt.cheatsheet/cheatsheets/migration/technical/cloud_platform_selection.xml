@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Aliki Kopaneli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Select the most suitable cloud platform for your application">
+   <intro>
+      <description>
+      <b>By exploiting the information lying in the CloudML@Artist Metamodels, you can choose among different offerings, services, and features the ones that best fit your needs. According to your selection, you will be provided with suggestions on the most suitable cloud platform for the migration of your application. Trying different combinations of selections will help you gain enough insight to make your final decision.</b>
+      </description>
+   </intro>
+   <item
+         title="Load the CloudML@Artist Metamodel">
+      <description>
+      <b> </b>
+      </description>
+   	  <subitem
+            label="Download the metamodel from the ARTIST repository. After this step is performed, there should be a local path directing to a folder named main_profiles which contains: (1) amazonec2.profile.uml, (2) googleappengine.profile.uml, (3) windowsazure.profile.uml, and (4) core.profile.uml. Skip this step if you have already downloaded and stored the requested files."
+            skip="true">
+           <command
+            required="true"
+            serialization="org.eclipse.ui.browser.openBrowser(url=https://github.com/artist-project/ARTIST-Modeling/tree/master/)"/>         
+      </subitem>
+      <subitem
+            label="Select the locally stored folder containing the requested profiles.">
+         <command
+               required="false"
+               serialization="eu.artist.migration.cloudselection.command2"/>
+      </subitem>
+      <onCompletion>Great!</onCompletion>
+   </item>
+   <item
+         title="Open the view(s) allowing you to visualize and select the cloud features.">
+      <description>
+         <b>Making use of the information contained in the CloudML@Artist profiles select those features that would be most preferable for a cloud 	platform to provide in order to host your application.</b>
+      </description>
+      <subitem
+            label="In the “General Features” view you can select among general features, mostly non-technical and independent of the level of cloud computing (IaaS, PaaS, SaaS).">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=eu.artist.migration.cloudselection.views.CommonFeaturesView)"/>
+      </subitem>
+      <subitem
+            label="In the “Service Features” view you can select among services and their supported technical features. Mostly useful for a a providers&apos; analysis from a developer&apos;s point of view.">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=eu.artist.migration.cloudselection.views.ServiceFeaturesView)"/>
+      </subitem>
+   </item>
+   <item
+         title="Perform a validation of the supported providers">
+      <description>
+         <b>Open the view(s) allowing you to visualize and select the cloud features. Perform a validation of the supported providers with respect to the requirements set by your selection. For each of the two views there is a separate validation process. The step can be repeated with different combinations of features selection.</b>
+      </description>
+      <subitem
+            label="Perform general features validation">
+         <command
+               required="false"
+               serialization="eu.artist.migration.cloudselection.commands.validationCommons"/>
+      </subitem>
+      <subitem
+            label="Perform service features validation">
+         <command
+               required="false"
+               serialization="eu.artist.migration.cloudselection.commands.validationServices"/>
+      </subitem>
+   </item>
+</cheatsheet>
