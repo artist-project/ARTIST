@@ -39,7 +39,7 @@ In a nutshell, in order to run the tool follow the next steps:
 -- Navigate via browser to http://ip_address:port/Cloud-Bench/reports
 
 
-Reference for the donwload
+Reference for the download
 ----
 The binary of the tool can be found at the following link:
 https://github.com/artist-project/ARTIST/blob/master/binary/BenchmarkingSuite/Cloud-Bench.war
