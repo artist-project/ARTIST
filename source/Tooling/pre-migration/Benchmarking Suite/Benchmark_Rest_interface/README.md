@@ -29,7 +29,7 @@ http://flask.pocoo.org/docs/0.10/installation/
 -- Navigate via browser to http://ip_address:port/benchmarking/ui/ 
 
 
-Reference for the donwload
+Reference for the download
 ----
 The binary of the tool can be found at the following link:
 https://github.com/artist-project/ARTIST/blob/master/binary/BenchmarkingSuite/Benchmark_Rest_interface--1.0.0-0.tar.gz
