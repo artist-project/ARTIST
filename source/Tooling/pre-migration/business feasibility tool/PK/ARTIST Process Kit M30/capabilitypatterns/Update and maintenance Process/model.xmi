@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_2U4EEfN4EeK5O75NHcWwEw" guid="_2U4EEfN4EeK5O75NHcWwEw">
+    <resourceDescriptors xmi:id="_2U4EEvN4EeK5O75NHcWwEw" id="-G9xlI1MQFwzC-TL6Q7RM0A" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_2RJaoPN4EeK5O75NHcWwEw" name="Update and maintenance Process" guid="_2RJaoPN4EeK5O75NHcWwEw">
+    <methodElementProperty xmi:id="_2RJaovN4EeK5O75NHcWwEw" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_IicAsPN5EeK5O75NHcWwEw" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_YxDH4fN6EeK5O75NHcWwEw" guid="_YxDH4fN6EeK5O75NHcWwEw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_jAQG0fN6EeK5O75NHcWwEw" guid="_jAQG0fN6EeK5O75NHcWwEw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_-UbUkfN4EeK5O75NHcWwEw" name="Business Manager" guid="_-UbUkfN4EeK5O75NHcWwEw" presentationName="Business Manager" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw" modifies="_-UbUk_N4EeK5O75NHcWwEw _DGNBg_N5EeK5O75NHcWwEw _m7ebsfN5EeK5O75NHcWwEw _9vVOAfN5EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIvN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_-UbUkvN4EeK5O75NHcWwEw" name="Technical Manager" guid="_-UbUkvN4EeK5O75NHcWwEw" presentationName="Technical Manager" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw" modifies="_-UbUk_N4EeK5O75NHcWwEw _DGNBg_N5EeK5O75NHcWwEw _m7ebsfN5EeK5O75NHcWwEw _9vVOAfN5EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_strmIOlNEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_-UbUk_N4EeK5O75NHcWwEw" name="Release Strategy" guid="_-UbUk_N4EeK5O75NHcWwEw" presentationName="Release Strategy" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_QBy1kPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_DGNBgPN5EeK5O75NHcWwEw" name="Application owner" guid="_DGNBgPN5EeK5O75NHcWwEw" presentationName="Application owner" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_IpR6cPN3EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_DGNBgfN5EeK5O75NHcWwEw" name="Analyst" guid="_DGNBgfN5EeK5O75NHcWwEw" presentationName="Analyst" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw" modifies="_DGNBg_N5EeK5O75NHcWwEw _m7ebsfN5EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_DGNBgvN5EeK5O75NHcWwEw" name="Build model" guid="_DGNBgvN5EeK5O75NHcWwEw" presentationName="Build model" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_Z83-oPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_DGNBg_N5EeK5O75NHcWwEw" name="Release package" guid="_DGNBg_N5EeK5O75NHcWwEw" presentationName="Release package" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_7JLLcPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_JlCtMfN5EeK5O75NHcWwEw" name="Business Analyst" guid="_JlCtMfN5EeK5O75NHcWwEw" presentationName="Business Analyst" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIfN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_m7ebsfN5EeK5O75NHcWwEw" name="Service catalogue" guid="_m7ebsfN5EeK5O75NHcWwEw" presentationName="Service catalogue" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_xEZ64PN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_9vVOAfN5EeK5O75NHcWwEw" name="Deployment plan" guid="_9vVOAfN5EeK5O75NHcWwEw" presentationName="Deployment plan" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_U9i94PN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_9vVOAvN5EeK5O75NHcWwEw" name="Exit and entry criteria for each stage of the release and deployment" guid="_9vVOAvN5EeK5O75NHcWwEw" presentationName="Exit and entry criteria for each stage of the release and deployment" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_iibfMPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_s3u5QAtAEeS15-rCACMYfg" name="Planning the releases" guid="_s3u5QAtAEeS15-rCACMYfg" presentationName="Planning the releases" superActivities="_2RJaofN4EeK5O75NHcWwEw" output="_-UbUk_N4EeK5O75NHcWwEw" performedPrimarilyBy="_-UbUkfN4EeK5O75NHcWwEw _-UbUkvN4EeK5O75NHcWwEw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_exKCcPN1EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-Qd6w8mBRpSxG8eqjtRIw4Q#_t2dNoPN1EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-Qd6w8mBRpSxG8eqjtRIw4Q#_xQdPUPN1EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_trl_IAtAEeS15-rCACMYfg" name="Build and test the release" guid="_trl_IAtAEeS15-rCACMYfg" presentationName="Build and test the release" superActivities="_2RJaofN4EeK5O75NHcWwEw" linkToPredecessor="_2IfS8QtAEeS15-rCACMYfg" mandatoryInput="_DGNBgvN5EeK5O75NHcWwEw _-UbUk_N4EeK5O75NHcWwEw" output="_DGNBg_N5EeK5O75NHcWwEw" performedPrimarilyBy="_trl_IQtAEeS15-rCACMYfg _trl_IgtAEeS15-rCACMYfg _-UbUkvN4EeK5O75NHcWwEw _DGNBgfN5EeK5O75NHcWwEw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_VfOSIPN3EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-OBs40s5wgOCg-Mr7L0DTuA#_gMYYYPN3EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-OBs40s5wgOCg-Mr7L0DTuA#_i2P9oPN3EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-OBs40s5wgOCg-Mr7L0DTuA#_mupykPN3EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-OBs40s5wgOCg-Mr7L0DTuA#_tVF7EPN3EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-OBs40s5wgOCg-Mr7L0DTuA#_xAOwEPN3EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_trl_IQtAEeS15-rCACMYfg" name="Software Architect" guid="_trl_IQtAEeS15-rCACMYfg" presentationName="Software Architect" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw" modifies="_DGNBg_N5EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_BFo1cN8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_trl_IgtAEeS15-rCACMYfg" name="Tester" guid="_trl_IgtAEeS15-rCACMYfg" presentationName="Tester" isPlanned="false" superActivities="_2RJaofN4EeK5O75NHcWwEw" modifies="_DGNBg_N5EeK5O75NHcWwEw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_UykTEN8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_ue2oEAtAEeS15-rCACMYfg" name="Release testing and pilot" guid="_ue2oEAtAEeS15-rCACMYfg" presentationName="Release testing and pilot" superActivities="_2RJaofN4EeK5O75NHcWwEw" linkToPredecessor="_2ljCYQtAEeS15-rCACMYfg" additionallyPerformedBy="_DGNBgPN5EeK5O75NHcWwEw _-UbUkfN4EeK5O75NHcWwEw _trl_IQtAEeS15-rCACMYfg _-UbUkvN4EeK5O75NHcWwEw" mandatoryInput="_DGNBgvN5EeK5O75NHcWwEw _DGNBg_N5EeK5O75NHcWwEw" optionalInput="_-UbUk_N4EeK5O75NHcWwEw" output="_DGNBg_N5EeK5O75NHcWwEw" performedPrimarilyBy="_DGNBgfN5EeK5O75NHcWwEw _trl_IgtAEeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_KJ_p0PN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-UwjWfQn7NhdYeBFgPc43zw#_N55qEPN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-UwjWfQn7NhdYeBFgPc43zw#_QQ2TUPN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-UwjWfQn7NhdYeBFgPc43zw#_ShPooPN4EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_vppnQAtAEeS15-rCACMYfg" name="Perform transfer, deployment and retirement" guid="_vppnQAtAEeS15-rCACMYfg" presentationName="Perform transfer, deployment and retirement" superActivities="_2RJaofN4EeK5O75NHcWwEw" mandatoryInput="_DGNBg_N5EeK5O75NHcWwEw" output="_DGNBg_N5EeK5O75NHcWwEw _m7ebsfN5EeK5O75NHcWwEw" performedPrimarilyBy="_DGNBgfN5EeK5O75NHcWwEw _-UbUkfN4EeK5O75NHcWwEw _-UbUkvN4EeK5O75NHcWwEw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_auNDAPN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-zgZIJu0_kEdTguui7d7PjA#_gZ8d0PN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-zgZIJu0_kEdTguui7d7PjA#_i2Z5MPN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-zgZIJu0_kEdTguui7d7PjA#_kQjjAPN4EeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-zgZIJu0_kEdTguui7d7PjA#_nmrxUPN4EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_weZd8AtAEeS15-rCACMYfg" name="Verify, review and close deployment" guid="_weZd8AtAEeS15-rCACMYfg" presentationName="Verify, review and close deployment" superActivities="_2RJaofN4EeK5O75NHcWwEw" linkToPredecessor="_84BGAQtAEeS15-rCACMYfg" mandatoryInput="_DGNBg_N5EeK5O75NHcWwEw _-UbUk_N4EeK5O75NHcWwEw _9vVOAfN5EeK5O75NHcWwEw _9vVOAvN5EeK5O75NHcWwEw" output="_9vVOAfN5EeK5O75NHcWwEw _m7ebsfN5EeK5O75NHcWwEw _DGNBg_N5EeK5O75NHcWwEw" performedPrimarilyBy="_-UbUkvN4EeK5O75NHcWwEw _-UbUkfN4EeK5O75NHcWwEw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_0EC0cPN5EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_2IfS8QtAEeS15-rCACMYfg" guid="_2IfS8QtAEeS15-rCACMYfg" pred="_s3u5QAtAEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_2ljCYQtAEeS15-rCACMYfg" guid="_2ljCYQtAEeS15-rCACMYfg" pred="_trl_IAtAEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_84BGAQtAEeS15-rCACMYfg" guid="_84BGAQtAEeS15-rCACMYfg" pred="_vppnQAtAEeS15-rCACMYfg"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_2RJaofN4EeK5O75NHcWwEw" name="Update and maintenance Process" guid="_2RJaofN4EeK5O75NHcWwEw" presentationName="Update and maintenance Process" breakdownElements="_-UbUkfN4EeK5O75NHcWwEw _-UbUkvN4EeK5O75NHcWwEw _-UbUk_N4EeK5O75NHcWwEw _DGNBgPN5EeK5O75NHcWwEw _DGNBgfN5EeK5O75NHcWwEw _DGNBgvN5EeK5O75NHcWwEw _DGNBg_N5EeK5O75NHcWwEw _JlCtMfN5EeK5O75NHcWwEw _m7ebsfN5EeK5O75NHcWwEw _9vVOAfN5EeK5O75NHcWwEw _9vVOAvN5EeK5O75NHcWwEw _s3u5QAtAEeS15-rCACMYfg _trl_IAtAEeS15-rCACMYfg _trl_IQtAEeS15-rCACMYfg _trl_IgtAEeS15-rCACMYfg _ue2oEAtAEeS15-rCACMYfg _vppnQAtAEeS15-rCACMYfg _weZd8AtAEeS15-rCACMYfg">
+      <presentation xmi:id="-G9xlI1MQFwzC-TL6Q7RM0A" href="uma://-G9xlI1MQFwzC-TL6Q7RM0A#-G9xlI1MQFwzC-TL6Q7RM0A"/>
+      <defaultContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+      <validContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>

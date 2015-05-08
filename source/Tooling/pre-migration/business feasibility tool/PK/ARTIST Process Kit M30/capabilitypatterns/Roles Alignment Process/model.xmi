@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_vr0IQQsxEeS15-rCACMYfg" guid="_vr0IQQsxEeS15-rCACMYfg">
+    <resourceDescriptors xmi:id="_vr95QAsxEeS15-rCACMYfg" id="-cY51ciDNarws9MixdqKFJQ" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_vrOSYAsxEeS15-rCACMYfg" name="Roles Alignment Process" guid="_vrOSYAsxEeS15-rCACMYfg">
+    <methodElementProperty xmi:id="_vrOSYgsxEeS15-rCACMYfg" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_LWyagAsyEeS15-rCACMYfg" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_zo_IcAsxEeS15-rCACMYfg" name="Train people" guid="_zo_IcAsxEeS15-rCACMYfg" presentationName="Train people" superActivities="_vrOSYQsxEeS15-rCACMYfg" linkToPredecessor="_DI7oQQsyEeS15-rCACMYfg _DkDeAQsyEeS15-rCACMYfg" mandatoryInput="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg" output="_zo_IcgsxEeS15-rCACMYfg" performedPrimarilyBy="_zo_IcQsxEeS15-rCACMYfg">
+      <methodElementProperty xmi:id="_3qLF8AsxEeS15-rCACMYfg" name="wbe_GlobalPresentedAfter" value="_1ah-kAsxEeS15-rCACMYfg"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_kIDCAPROEeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-9oIxLkGVH04x1p0rnR0jOA#_5t03oPROEeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-9oIxLkGVH04x1p0rnR0jOA#_7UfTcPROEeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-9oIxLkGVH04x1p0rnR0jOA#_83un0PROEeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-9oIxLkGVH04x1p0rnR0jOA#_-jBE8PROEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_zo_IcQsxEeS15-rCACMYfg" name="Human Resources Manager" guid="_zo_IcQsxEeS15-rCACMYfg" presentationName="Human Resources Manager" isPlanned="false" superActivities="_vrOSYQsxEeS15-rCACMYfg" modifies="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_FHq6MPROEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_zo_IcgsxEeS15-rCACMYfg" name="Description of roles" guid="_zo_IcgsxEeS15-rCACMYfg" presentationName="Description of roles" isPlanned="false" superActivities="_vrOSYQsxEeS15-rCACMYfg">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_nhcRoPRMEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_zo_IcwsxEeS15-rCACMYfg" name="Organisation chart" guid="_zo_IcwsxEeS15-rCACMYfg" presentationName="Organisation chart" isPlanned="false" superActivities="_vrOSYQsxEeS15-rCACMYfg">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_T2d0cPRPEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_0soWwQsxEeS15-rCACMYfg" name="Business Manager" guid="_0soWwQsxEeS15-rCACMYfg" presentationName="Business Manager" isPlanned="false" superActivities="_vrOSYQsxEeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIvN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_1ah-kAsxEeS15-rCACMYfg" name="Modify the existing roles" guid="_1ah-kAsxEeS15-rCACMYfg" presentationName="Modify the existing roles" superActivities="_vrOSYQsxEeS15-rCACMYfg" linkToPredecessor="_BWMfUQsyEeS15-rCACMYfg" mandatoryInput="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg" output="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg" performedPrimarilyBy="_zo_IcQsxEeS15-rCACMYfg">
+      <methodElementProperty xmi:id="_3qLF8QsxEeS15-rCACMYfg" name="wbe_GlobalPresentedAfter" value="_2l7asAsxEeS15-rCACMYfg"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_V2BG0PROEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_2l7asAsxEeS15-rCACMYfg" name="Define the new roles" guid="_2l7asAsxEeS15-rCACMYfg" presentationName="Define the new roles" superActivities="_vrOSYQsxEeS15-rCACMYfg" linkToPredecessor="_AvTecQsyEeS15-rCACMYfg" mandatoryInput="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg" output="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg" performedPrimarilyBy="_zo_IcQsxEeS15-rCACMYfg">
+      <methodElementProperty xmi:id="_4OYmQQsxEeS15-rCACMYfg" name="wbe_GlobalPresentedAfter" value="_0soWwAsxEeS15-rCACMYfg"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_LjZAcPROEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_2x_gwAsxEeS15-rCACMYfg" name="Communicate the affected people their new activities and responsibilities" guid="_2x_gwAsxEeS15-rCACMYfg" presentationName="Communicate the affected people their new activities and responsibilities" superActivities="_vrOSYQsxEeS15-rCACMYfg" linkToPredecessor="_EEZK8QsyEeS15-rCACMYfg" mandatoryInput="_zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg" performedPrimarilyBy="_0soWwQsxEeS15-rCACMYfg _zo_IcQsxEeS15-rCACMYfg">
+      <methodElementProperty xmi:id="_4OYmQAsxEeS15-rCACMYfg" name="wbe_GlobalPresentedAfter" value="_zo_IcAsxEeS15-rCACMYfg"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_gTYBEPRPEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_2-g50AsxEeS15-rCACMYfg" name="Communicate the entire organisation the new and modified roles" guid="_2-g50AsxEeS15-rCACMYfg" presentationName="Communicate the entire organisation the new and modified roles" superActivities="_vrOSYQsxEeS15-rCACMYfg" linkToPredecessor="_IjrZsQsyEeS15-rCACMYfg" mandatoryInput="_zo_IcwsxEeS15-rCACMYfg _zo_IcgsxEeS15-rCACMYfg" performedPrimarilyBy="_zo_IcQsxEeS15-rCACMYfg _0soWwQsxEeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_yHAawPRPEeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_AvTecQsyEeS15-rCACMYfg" guid="_AvTecQsyEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_BWMfUQsyEeS15-rCACMYfg" guid="_BWMfUQsyEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_DI7oQQsyEeS15-rCACMYfg" guid="_DI7oQQsyEeS15-rCACMYfg" pred="_2l7asAsxEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_DkDeAQsyEeS15-rCACMYfg" guid="_DkDeAQsyEeS15-rCACMYfg" pred="_1ah-kAsxEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_EEZK8QsyEeS15-rCACMYfg" guid="_EEZK8QsyEeS15-rCACMYfg" pred="_zo_IcAsxEeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_IjrZsQsyEeS15-rCACMYfg" guid="_IjrZsQsyEeS15-rCACMYfg" pred="_2x_gwAsxEeS15-rCACMYfg"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_vrOSYQsxEeS15-rCACMYfg" name="Roles Alignment Process" guid="_vrOSYQsxEeS15-rCACMYfg" presentationName="Roles Alignment Process" briefDescription="This process is focused on the adaptation and creation of new roles in the organization due to the new business model. It is essential to define the roles and responsibilities within the organisation in order to cover all the activities created with the new business model. If new roles are necessary, these roles should have assigned activities and responsibilities, and those should be known by the people involved." breakdownElements="_2l7asAsxEeS15-rCACMYfg _1ah-kAsxEeS15-rCACMYfg _zo_IcAsxEeS15-rCACMYfg _zo_IcQsxEeS15-rCACMYfg _zo_IcgsxEeS15-rCACMYfg _zo_IcwsxEeS15-rCACMYfg _0soWwQsxEeS15-rCACMYfg _2x_gwAsxEeS15-rCACMYfg _2-g50AsxEeS15-rCACMYfg">
+      <presentation xmi:id="-cY51ciDNarws9MixdqKFJQ" href="uma://-cY51ciDNarws9MixdqKFJQ#-cY51ciDNarws9MixdqKFJQ"/>
+      <defaultContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+      <validContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>

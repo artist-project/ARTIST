@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_IKXtofQ3EeKzY_EmAQPgmw" guid="_IKXtofQ3EeKzY_EmAQPgmw">
+    <resourceDescriptors xmi:id="_IKXtovQ3EeKzY_EmAQPgmw" id="-LhkWAb7uFUvHkLfs_fTZ6g" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_IJx3wPQ3EeKzY_EmAQPgmw" name="Marketing Process" guid="_IJx3wPQ3EeKzY_EmAQPgmw">
+    <methodElementProperty xmi:id="_IJx3wvQ3EeKzY_EmAQPgmw" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_Y3rYcPQ3EeKzY_EmAQPgmw" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_v1EhQfQ3EeKzY_EmAQPgmw" guid="_v1EhQfQ3EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_xKmw0fQ3EeKzY_EmAQPgmw" guid="_xKmw0fQ3EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_ydAM0fQ3EeKzY_EmAQPgmw" guid="_ydAM0fQ3EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_zqfTofQ3EeKzY_EmAQPgmw" guid="_zqfTofQ3EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_BmKkUfQ4EeKzY_EmAQPgmw" guid="_BmKkUfQ4EeKzY_EmAQPgmw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_1gcMkd8vEeONsOGj6lDwuA" guid="_1gcMkd8vEeONsOGj6lDwuA"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_2CRHQd8vEeONsOGj6lDwuA" guid="_2CRHQd8vEeONsOGj6lDwuA"/>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_ReQ64vQ3EeKzY_EmAQPgmw" name="Business Manager" guid="_ReQ64vQ3EeKzY_EmAQPgmw" presentationName="Business Manager" briefDescription="A Business Manager is a person who drives the work of others in order to run a major business efficiently and make a large profit. He or she should have working knowledge of the following areas, and may be a specialist in one or more: sales, marketing, and public relations; economics; production; finance; accounting, auditing, tax, and budgeting; purchasing; and personnel." isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <methodElementProperty xmi:id="_P_2N4xoPEeOXE_zFKuaOYw" name="me_references" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;me_references udtList=&quot;&quot;/>"/>
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIvN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_SrdGwfQ3EeKzY_EmAQPgmw" name="Business objectives" guid="_SrdGwfQ3EeKzY_EmAQPgmw" presentationName="Business objectives" isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <methodElementProperty xmi:id="_P_2N5BoPEeOXE_zFKuaOYw" name="me_references" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;me_references udtList=&quot;&quot;/>"/>
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_mK960PQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_SrdGwvQ3EeKzY_EmAQPgmw" name="Market analysis" guid="_SrdGwvQ3EeKzY_EmAQPgmw" presentationName="Market analysis " isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <methodElementProperty xmi:id="_P_2N4hoPEeOXE_zFKuaOYw" name="me_references" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;me_references udtList=&quot;&quot;/>"/>
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_TNb50PQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_X_OaIfeIEeOVsL2hRXo4Zw" name="Business Analyst" guid="_X_OaIfeIEeOVsL2hRXo4Zw" presentationName="Business Analyst" briefDescription="A Business Analyst is someone who analyses the existing or ideal organization and design of systems, including businesses, departments, and organizations. BAs also assess business models and their integration with technology." isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <methodElementProperty xmi:id="_X_OaIveIEeOVsL2hRXo4Zw" name="descriptor_createdByReference" value="true"/>
+      <methodElementProperty xmi:id="_X_XkEPeIEeOVsL2hRXo4Zw" name="me_references" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;me_references udtList=&quot;&quot;/>"/>
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIfN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="__BKWUAgrEeS0jMGXzh3Oiw" name="Analysis the market for the migrated solution" guid="__BKWUAgrEeS0jMGXzh3Oiw" presentationName="Analysis the market for the migrated solution" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" additionallyPerformedBy="_ReQ64vQ3EeKzY_EmAQPgmw _X_OaIfeIEeOVsL2hRXo4Zw" mandatoryInput="_SrdGwfQ3EeKzY_EmAQPgmw" output="_SrdGwvQ3EeKzY_EmAQPgmw" performedPrimarilyBy="__BKWVggrEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_0-0JoPQ0EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-4aGGwMZ5aUTAU8uV38xlIA#_7VBdwPQ0EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-4aGGwMZ5aUTAU8uV38xlIA#_-p8yMPQ0EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-4aGGwMZ5aUTAU8uV38xlIA#_BJjBIPQ1EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="__BKWUQgrEeS0jMGXzh3Oiw" name="Identify the Marketing objectives" guid="__BKWUQgrEeS0jMGXzh3Oiw" presentationName="Identify the Marketing objectives" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" linkToPredecessor="_RER9gQgsEeS0jMGXzh3Oiw" mandatoryInput="_SrdGwfQ3EeKzY_EmAQPgmw _SrdGwvQ3EeKzY_EmAQPgmw" output="__BKWWAgrEeS0jMGXzh3Oiw" performedPrimarilyBy="__BKWVggrEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_PG3QkPQ1EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-LNuDtasD7IAGr6MWqexvQg#_fw494PQ1EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://-LNuDtasD7IAGr6MWqexvQg#_i1bs8PQ1EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="__BKWUggrEeS0jMGXzh3Oiw" name="Identify the marketing strategy" guid="__BKWUggrEeS0jMGXzh3Oiw" presentationName="Identify the marketing strategy" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" linkToPredecessor="_RdKXkQgsEeS0jMGXzh3Oiw" mandatoryInput="_SrdGwvQ3EeKzY_EmAQPgmw __BKWWAgrEeS0jMGXzh3Oiw" output="__BKWWQgrEeS0jMGXzh3Oiw" performedPrimarilyBy="__BKWVggrEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_rOUDcPQ1EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="__BKWUwgrEeS0jMGXzh3Oiw" name="Monitor the market" guid="__BKWUwgrEeS0jMGXzh3Oiw" presentationName="Monitor the market" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" mandatoryInput="_SrdGwvQ3EeKzY_EmAQPgmw" performedPrimarilyBy="__BKWVggrEeS0jMGXzh3Oiw _ReQ64vQ3EeKzY_EmAQPgmw">
+      <methodElementProperty xmi:id="_AwLc4AgsEeS0jMGXzh3Oiw" name="wbe_GlobalPresentedAfter" value="__BKWVAgrEeS0jMGXzh3Oiw"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_0YO_4PQ2EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="__BKWVAgrEeS0jMGXzh3Oiw" name="Monitor the market plan" guid="__BKWVAgrEeS0jMGXzh3Oiw" presentationName="Monitor the market plan" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" linkToPredecessor="_SebnUQgsEeS0jMGXzh3Oiw" additionallyPerformedBy="_ReQ64vQ3EeKzY_EmAQPgmw" mandatoryInput="__BKWWggrEeS0jMGXzh3Oiw __BKWWAgrEeS0jMGXzh3Oiw _SrdGwvQ3EeKzY_EmAQPgmw __BKWWQgrEeS0jMGXzh3Oiw" output="__BKWWggrEeS0jMGXzh3Oiw __BKWWAgrEeS0jMGXzh3Oiw __BKWWQgrEeS0jMGXzh3Oiw" performedPrimarilyBy="__BKWVwgrEeS0jMGXzh3Oiw __BKWVggrEeS0jMGXzh3Oiw">
+      <methodElementProperty xmi:id="___5PcAgrEeS0jMGXzh3Oiw" name="wbe_GlobalPresentedAfter" value="__BKWVQgrEeS0jMGXzh3Oiw"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_kTAowPQ2EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="__BKWVQgrEeS0jMGXzh3Oiw" name="Start implementing the market strategy" guid="__BKWVQgrEeS0jMGXzh3Oiw" presentationName="Start implementing the market strategy" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" linkToPredecessor="_SAVWEQgsEeS0jMGXzh3Oiw" additionallyPerformedBy="__BKWVwgrEeS0jMGXzh3Oiw" mandatoryInput="__BKWWAgrEeS0jMGXzh3Oiw __BKWWQgrEeS0jMGXzh3Oiw _SrdGwvQ3EeKzY_EmAQPgmw" output="__BKWWggrEeS0jMGXzh3Oiw" performedPrimarilyBy="__BKWVggrEeS0jMGXzh3Oiw">
+      <methodElementProperty xmi:id="___5PcQgrEeS0jMGXzh3Oiw" name="wbe_GlobalPresentedAfter" value="__BKWUggrEeS0jMGXzh3Oiw"/>
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_0xHPYPQ1EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://--wVldoEsXKNxmwrFAXZNIg#_KFmgsPQ2EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://--wVldoEsXKNxmwrFAXZNIg#_N1D1APQ2EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://--wVldoEsXKNxmwrFAXZNIg#_PzkwIPQ2EeKzY_EmAQPgmw"/>
+      <selectedSteps href="uma://--wVldoEsXKNxmwrFAXZNIg#_ThsAoPQ2EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="__BKWVggrEeS0jMGXzh3Oiw" name="Marketing Manager" guid="__BKWVggrEeS0jMGXzh3Oiw" presentationName="Marketing Manager" isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" modifies="_SrdGwvQ3EeKzY_EmAQPgmw __BKWWAgrEeS0jMGXzh3Oiw __BKWWQgrEeS0jMGXzh3Oiw __BKWWggrEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_vXQrQPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="__BKWVwgrEeS0jMGXzh3Oiw" name="Marketing team" guid="__BKWVwgrEeS0jMGXzh3Oiw" presentationName="Marketing team" isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw" modifies="__BKWWggrEeS0jMGXzh3Oiw __BKWWAgrEeS0jMGXzh3Oiw __BKWWQgrEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_x1XFYPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="__BKWWAgrEeS0jMGXzh3Oiw" name="Marketing Objectives" guid="__BKWWAgrEeS0jMGXzh3Oiw" presentationName="Marketing Objectives" isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_Wuu2UPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="__BKWWQgrEeS0jMGXzh3Oiw" name="Marketing Strategy" guid="__BKWWQgrEeS0jMGXzh3Oiw" presentationName="Marketing Strategy" isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_I9pFAPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="__BKWWggrEeS0jMGXzh3Oiw" name="Marketing Plan" guid="__BKWWggrEeS0jMGXzh3Oiw" presentationName="Marketing Plan" isPlanned="false" superActivities="_IJx3wfQ3EeKzY_EmAQPgmw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_eCLOwPQ0EeKzY_EmAQPgmw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_RER9gQgsEeS0jMGXzh3Oiw" guid="_RER9gQgsEeS0jMGXzh3Oiw" pred="__BKWUAgrEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_RdKXkQgsEeS0jMGXzh3Oiw" guid="_RdKXkQgsEeS0jMGXzh3Oiw" pred="__BKWUQgrEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_SAVWEQgsEeS0jMGXzh3Oiw" guid="_SAVWEQgsEeS0jMGXzh3Oiw" pred="__BKWUggrEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_SebnUQgsEeS0jMGXzh3Oiw" guid="_SebnUQgsEeS0jMGXzh3Oiw" pred="__BKWVQgrEeS0jMGXzh3Oiw"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_IJx3wfQ3EeKzY_EmAQPgmw" name="Marketing Process" guid="_IJx3wfQ3EeKzY_EmAQPgmw" presentationName="Marketing Process" briefDescription="The aim of marketing process is to know and understand the customer so well the product or service fits him and sells itself." breakdownElements="_ReQ64vQ3EeKzY_EmAQPgmw _SrdGwfQ3EeKzY_EmAQPgmw _SrdGwvQ3EeKzY_EmAQPgmw _X_OaIfeIEeOVsL2hRXo4Zw __BKWUAgrEeS0jMGXzh3Oiw __BKWUQgrEeS0jMGXzh3Oiw __BKWUggrEeS0jMGXzh3Oiw __BKWVQgrEeS0jMGXzh3Oiw __BKWVAgrEeS0jMGXzh3Oiw __BKWUwgrEeS0jMGXzh3Oiw __BKWVggrEeS0jMGXzh3Oiw __BKWVwgrEeS0jMGXzh3Oiw __BKWWAgrEeS0jMGXzh3Oiw __BKWWQgrEeS0jMGXzh3Oiw __BKWWggrEeS0jMGXzh3Oiw">
+      <presentation xmi:id="-LhkWAb7uFUvHkLfs_fTZ6g" href="uma://-LhkWAb7uFUvHkLfs_fTZ6g#-LhkWAb7uFUvHkLfs_fTZ6g"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>
