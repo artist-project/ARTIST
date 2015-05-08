@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_OjjSoPLiEeOsrNlFvp6duQ" name="Model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_OjjSofLiEeOsrNlFvp6duQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_OjkgwPLiEeOsrNlFvp6duQ" name="Interaction1">
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_VIQq4PLkEeOsrNlFvp6duQ" name="ActionExecSpecStart" covered="_lMf1cPLiEeOsrNlFvp6duQ" execution="_VIRR8PLkEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_VIRR8PLkEeOsrNlFvp6duQ" name="firstRequest" covered="_lMf1cPLiEeOsrNlFvp6duQ" finish="_YNbsEPLkEeOsrNlFvp6duQ" start="_VIQq4PLkEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_bahpcPMAEeOsrNlFvp6duQ" name="firstResponseStart" covered="_HsoMMPLkEeOsrNlFvp6duQ" execution="_WUqzofLkEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_WUqzofLkEeOsrNlFvp6duQ" name="firstResponse" covered="_HsoMMPLkEeOsrNlFvp6duQ" finish="_YNbFAfLkEeOsrNlFvp6duQ" start="_bahpcPMAEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_XLBz4fLkEeOsrNlFvp6duQ" name="MessageRecv" covered="_HsoMMPLkEeOsrNlFvp6duQ" message="_XLBM0PLkEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_XLBz4PLkEeOsrNlFvp6duQ" name="MessageSend" covered="_lMf1cPLiEeOsrNlFvp6duQ" message="_XLBM0PLkEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_YNbFAfLkEeOsrNlFvp6duQ" name="MessageSend0" covered="_HsoMMPLkEeOsrNlFvp6duQ" message="_YNbFAPLkEeOsrNlFvp6duQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_YNbsEPLkEeOsrNlFvp6duQ" name="MessageRecv0" covered="_lMf1cPLiEeOsrNlFvp6duQ" message="_YNbFAPLkEeOsrNlFvp6duQ"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_lMf1cPLiEeOsrNlFvp6duQ" name="userRequestLifeline" coveredBy="_VIQq4PLkEeOsrNlFvp6duQ _VIRR8PLkEeOsrNlFvp6duQ _XLBz4PLkEeOsrNlFvp6duQ _YNbsEPLkEeOsrNlFvp6duQ"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_HsoMMPLkEeOsrNlFvp6duQ" name="userReplyLifeline" coveredBy="_WUqzofLkEeOsrNlFvp6duQ _XLBz4fLkEeOsrNlFvp6duQ _YNbFAfLkEeOsrNlFvp6duQ _bahpcPMAEeOsrNlFvp6duQ"/>
+    <message xmi:type="uml:Message" xmi:id="_XLBM0PLkEeOsrNlFvp6duQ" name="1:Message" receiveEvent="_XLBz4fLkEeOsrNlFvp6duQ" sendEvent="_XLBz4PLkEeOsrNlFvp6duQ"/>
+    <message xmi:type="uml:Message" xmi:id="_YNbFAPLkEeOsrNlFvp6duQ" name="2:Message" messageSort="reply" receiveEvent="_YNbsEPLkEeOsrNlFvp6duQ" sendEvent="_YNbFAfLkEeOsrNlFvp6duQ"/>
+  </packagedElement>
+</uml:Model>

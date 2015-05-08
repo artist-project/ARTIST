@@ -1,0 +1,201 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		  <groupId>eu.artist.postmigration.eubt</groupId>
+		  <artifactId>eu.artist.postmigration.eubt</artifactId>
+		  <version>1.0-SNAPSHOT</version>
+		  <relativePath>../eu.artist.postmigration.eubt/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>eubt-prototype</artifactId>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cxf.version>2.7.0</cxf.version>
+		<axis2.version>1.6.2</axis2.version>
+	</properties>
+
+	<dependencies>
+		<!-- Migration Trace Model Project -->
+		<dependency>
+		  	<groupId>eu.artist.postmigration.eubt</groupId>
+			<artifactId>eubt-example-ws-migrationtracemodel</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-collections4</artifactId>
+		    <version>4.0</version>
+		</dependency>
+				
+
+		<!-- Apache CXF -->
+		<!-- <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		Jetty is needed if you're are not using the CXFServlet
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-bindings-soap</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-bundle</artifactId>
+			<version>2.6.0</version>
+		</dependency> -->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.cxf</groupId>-->
+			<!--<artifactId>cxf-core</artifactId>-->
+			<!--<version>${cxf.version}</version>-->
+		<!--</dependency>-->
+		
+		<!-- for XML Writer -->
+		<dependency>
+			<groupId>com.sun.xml.txw2</groupId>
+			<artifactId>txw2</artifactId>
+			<version>20110809</version>
+		</dependency>
+
+		<!-- Apache AXIS 2 -->
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-kernel</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2-saaj</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-adb</artifactId>
+            <version>${axis2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-local</artifactId>
+            <version>${axis2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-http</artifactId>
+            <version>${axis2.version}</version>
+        </dependency>        
+        
+        <!-- Eclipse EMF Ecore -->
+		<dependency>
+		    <groupId>org.eclipse.emf</groupId>
+		    <artifactId>org.eclipse.emf.ecore</artifactId>
+		    <version>2.10.0-v20140514-1158</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.eclipse.emf</groupId>
+		    <artifactId>org.eclipse.emf.common</artifactId>
+		    <version>2.10.0-v20140514-1158</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<includeDependencySources>true</includeDependencySources>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<version>2.5.1</version>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			  <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-jar-plugin</artifactId>
+		        <version>2.5</version>
+		        <executions>
+		          <execution>
+		            <goals>
+		              <goal>test-jar</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      <plugin>
+			      <groupId>org.apache.maven.plugins</groupId>
+			      <artifactId>maven-source-plugin</artifactId>
+			      <version>2.3</version>
+			      <executions>
+			        <execution>
+			          <id>attach-sources</id>
+			          <phase>verify</phase>
+			          <goals>
+			            <goal>jar-no-fork</goal>
+			          </goals>
+			        </execution>
+			      </executions>
+	    		</plugin>
+	    		<plugin>
+			      <groupId>org.apache.maven.plugins</groupId>
+			      <artifactId>maven-source-plugin</artifactId>
+			      <version>2.3</version>
+			      <executions>
+			        <execution>
+			          <id>attach-sources</id>
+			          <phase>verify</phase>
+			          <goals>
+			            <goal>test-jar-no-fork</goal>
+			          </goals>
+			        </execution>
+			      </executions>
+	    		</plugin>
+		</plugins>
+	</build>
+</project>

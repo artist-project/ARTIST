@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <ns3:getPetCategoryResponse xmlns:ns3="http://webservices.artist.eu/">
+      <return>
+        <categoryDescription>Any of numerous cold-blooded aquatic vertebrates characteristically having fins, gills, and a streamlined body</categoryDescription>
+        <categoryName>Fish</categoryName>
+        <inStock>55</inStock>
+      </return>
+    </ns3:getPetCategoryResponse>
+  </soapenv:Body>
+</soapenv:Envelope>

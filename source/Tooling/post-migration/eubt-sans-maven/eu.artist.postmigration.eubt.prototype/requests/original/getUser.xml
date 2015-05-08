@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <web:getUser xmlns:web="http://webservices.artist.eu/">
+      <userid>1</userid>
+    </web:getUser>
+  </soapenv:Body>
+</soapenv:Envelope>
