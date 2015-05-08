@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+	<managed-bean>
+		<managed-bean-name>testBean</managed-bean-name>
+		<managed-bean-class>TestBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.login.LoginBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>registerBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.login.RegisterBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>updatePasswordBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.login.UpdatePasswordBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>reportUploadBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.config.ReportUploadBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>projectBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.config.ProjectBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>teamBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.config.TeamBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>addTeamMembersBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.config.AddTeamMembersBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>listFileHandlerBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.config.ListFileHandlerBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>mPTProcessorBean</managed-bean-name>
+		<managed-bean-class>eu.artist.methodology.mpt.webapp.mat.MPTProcessorBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+   			<property-name>loginBean</property-name>
+  			<property-class>eu.artist.methodology.mpt.webapp.login.LoginBean</property-class>
+   			<value>#{loginBean}</value>
+  		</managed-property>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>reportsupload.xhtml</display-name>
+		<from-view-id>/reportsupload.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>#{reportUploadBean.uploadFile()}</from-outcome>
+			<to-view-id>/result.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<validator>
+		<validator-id>fileUploadValidator</validator-id>
+		<validator-class>eu.artist.methodology.mpt.webapp.validators.FileUploadValidator</validator-class>
+	</validator>
+	<validator>
+		<validator-id>CreateProjectValidator</validator-id>
+		<validator-class>eu.artist.methodology.mpt.webapp.validators.CreateProjectValidator</validator-class>
+	</validator>
+	
+	<validator>
+		<validator-id>DefaultProjectValidator</validator-id>
+		<validator-class>eu.artist.methodology.mpt.webapp.validators.DefaultProjectValidator</validator-class>
+	</validator>
+	
+</faces-config>
+
