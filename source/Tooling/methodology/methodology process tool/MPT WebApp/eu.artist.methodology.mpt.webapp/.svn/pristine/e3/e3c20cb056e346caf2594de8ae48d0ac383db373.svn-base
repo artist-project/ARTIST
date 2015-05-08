@@ -1,0 +1,594 @@
+/*
+ * Copyright (c) 2005, 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ *
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial implementation
+ */
+
+a
+{	
+	color: #336699;
+}
+
+a.toprightnav:active {
+	color: #99CCCC;
+}
+
+a.toprightnavgrey:active {
+	color: #CC0000;
+}
+
+
+a.basic
+{ 	
+    color: #000000;
+}
+	
+a.toprightnavgrey:hover {
+	color: #CC0000;
+} 
+a.toprightnav:hover {
+	color: #99CCCC;
+} /* font for action on content page usually located on top of page ;ie., select all*/
+a.action
+{  
+	color: #333333;
+	font-size: 11px;	
+} 
+
+a.copyright
+{ 	
+   color: #336699;    
+	font-size : 10px;
+ }  
+ 
+a.navtree
+{ 	
+    color: #000000;
+	font-size : 11px;
+	font-weight: 600;
+	text-decoration: none;
+} 
+ 
+/* because of an intervening link tag, text options were attached to this element instead of the outermost cell */ 
+a.activetab
+ { 
+ 	color: #000000;
+ 	font-size: 12px;
+  	text-decoration: none;
+  }
+ 
+ /* because of an intervening link tag, text options were attached to this element instead of the outermost cell */
+ a.nonactivetab
+ {
+	color: #b4b4b4;
+	font-size: 12px;
+	text-decoration: none;
+}
+ 
+ a.red
+{
+	color: #cc3300;
+}
+
+a.topbar
+{
+  color: #666666;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+ /* bgcolor  for action text usually located on top of page;ie., select all*/
+.actionbg
+{ 
+background-color: #efefef;
+ }
+ 
+.bgblack
+{ 
+ background-color: #000000;
+ }
+ 
+.bgwhite
+{ 
+ background-color: #ffffff;
+ } 
+  
+body 
+{
+	background-color : #ffffff;   
+	color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	text-decoration : none;	
+}
+
+.bold
+{ 
+   font-weight : 600;
+ }
+
+ .bottombardrk
+{ 
+	background-color: #003366;
+ }
+
+
+.bottombarlight
+{ 
+	background-color: #3399cc;
+ }
+
+.bottombarshadow
+{ 
+	background-color: #000000;
+ }
+ 
+.buttons
+ {
+    background-color: #efefef;
+    color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;	
+	font-size: 10px;
+	text-decoration: none;	
+}
+
+.code
+{ 
+   font-family: Courier New, Courier, mono;   
+   font-size: 12px;
+ }
+
+ /*medium grey cell background*/
+.contentborder
+ {
+	background-color: #dedede;
+}
+
+ /* font for regular content text */
+.comments
+{ 	
+	font-size: 11px;	
+	background-color: #efefef;
+}
+
+.copyright
+{ 
+	color : #999999;
+	font-size : 10px;
+ }
+ 
+ .dialgbxshadow2 
+{  
+background-color: #848484;
+}
+
+ .dialogueboxborder
+{ 
+ background-color: #333333
+ }
+ 
+ .dialogueboxbg 
+{  background-color: #d2d2d2
+}
+ 
+.dialogueboxhighlight 
+ {
+	background-color: #efefef;
+}
+
+ .dialogueboxMedium
+{ 
+ background-color: #8b8b8b
+ }
+ 
+ .dialogueboxTitle
+ {	   
+	font-size: 14px;
+	font-weight : bold;
+}
+ 
+.divider
+ {
+	background-color: #f6f9f0;
+}
+ 
+h1
+{  
+	color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 17px;	
+	font-weight: 600;
+}
+
+/*main header for frame navigation, ie, clearcase merge files*/
+.headermain
+{  
+	color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 17px;	
+	font-weight: 600;
+}
+
+/*replacing sidemenu_boldleft moving forward*/
+.navleftbold
+{
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight : 600;
+	text-decoration : none;
+}
+
+/*left nav submenu*/
+.navleftsub
+{
+	color: #676767;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight : 400;
+	line-height : 135%;
+	text-decoration : none;
+}
+
+/*.leftmenuactive*/
+.sidemenu_boldleft_selected
+{
+	color: #cc0000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight : 600;
+	text-decoration : none;
+}
+
+/*use navleftbold instead to work in NS6*/
+.sidemenu_boldleft
+{
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight : 600;
+	text-decoration : none;
+}
+
+.sidemenu_bullet_colored
+ {
+	background-color: #cd3301;
+}
+
+.leftmenu
+ {
+	background-color: #999999;
+}
+
+.sidemenu_bullet_grey
+ {
+	background-color: #999999;
+}
+
+.sidemenu_standard
+{
+	color: #676767;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight : 400;
+	line-height : 135%;
+	text-decoration : none;
+}
+
+.sidemenu_standard_selected
+{
+	color: #cc0000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	font-weight : 400;
+	line-height : 135%;
+	text-decoration : none;
+}
+
+.textgray
+{  
+	color: #999999;	
+}
+
+.h1
+{  
+	color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 20px;	
+	font-weight: 400;
+}
+
+.headerblue
+{
+	color: #006699;	
+	font-weight : 600;
+	text-decoration: none;
+}
+
+i
+{
+	font-style : italic;
+}
+
+.iconborder
+{ 
+ background-color: #dedede;
+}
+
+input
+{
+	font-family: arial, helvetica, sans-serif;	
+	font-size: 12px;
+} 
+
+input.px25
+{
+    width: 25px
+}
+
+input.px45
+{
+    width: 45px
+}
+
+/*
+1,business standard multiline input box 
+2,this style only activate in IE, but NS
+*/
+input.max50
+{
+	width: 360px;
+}
+
+input.px85
+{
+    width: 85px
+}
+
+input.px135
+{
+    width: 135px
+}
+
+
+input.px155
+{
+    width: 155px
+}
+
+input.px230
+{
+    width: 230px
+}
+
+
+input.px305
+{
+    width: 305px;
+}
+
+.leftnavhead 
+ {
+   color: #000000;
+	font-weight: bold;	
+	font-size: 13px;	
+} 
+
+.leftnavlabel
+{
+color: #000000;
+font-weight : 600;
+font-size: 11px;
+ }
+ 
+/*topnav*/ 
+.midbarlight
+{ 
+	background-color: #3399cc;
+ }
+
+/*topnav*/ 
+ .midbarmed
+{ 
+	background-color: #006699;
+ }
+  
+.pagebold
+{ 
+	color: #000000;
+	font-weight : 600;	
+ }
+
+ /*font for previous & next in pagination*/
+.pagesteps
+{ 
+	color: #676767;	
+	font-size: 11px;
+	 text-decoration: none;
+ }
+
+ /*use for popupmenus but not including top nav*/
+.popuptext
+{
+	color: #333333;
+	font-size: 11px;
+	text-decoration : none;
+} 
+ 
+select
+{
+	font-family: arial, helvetica, sans-serif;	
+	font-size: 12px;
+}
+
+select.selpx144
+{
+    width: 144px;
+}
+
+.smalltext
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.tableheader
+{  
+	color: #333333;	
+	font-size: 13px;	
+    font-weight: bold
+}
+
+/* font for regular content text */
+td
+{
+  color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;	
+}
+
+td.activetab
+/* because of an intervening link tag, text options were attached to a similar element for links */
+ { 
+ 	background-color: #c4c4c4;
+  }
+ 
+ td.nonactivetab
+ /* because of an intervening link tag, text options were attached to a similar element for links */
+ {
+	background-color: #efefef;
+}
+
+.tdLight
+ {
+	background-color: #efefef;
+}
+
+/*dark grey cell background and bold text */
+ .tdDarkBold
+ {
+	background-color: #cccccc;
+	font-weight : 600;
+}
+
+.topframebg 
+{  background-color: #d2d2d2;
+}
+
+.topframebgGreyed
+{  background-color: #ededed;
+}
+
+.topframehighlight 
+{  
+background-color: #b6b5b5;
+}
+
+.topframehighlightGreyed
+{  
+background-color: #e1e1e1;
+}
+
+.topframeshadow 
+{  
+background-color: #848484;
+}
+
+.topframeshadowGreyed
+{  
+background-color: #cecece;
+}
+
+.topframehighlight2 
+{ 
+ background-color: #efefef;
+ }
+ 
+ .topframehighlight2Greyed
+{ 
+ background-color: #f9f9f9;
+ } 
+ 
+ .topframelogobg 
+{  
+background-color: #006699;
+}
+
+.topframelogobgGreyed
+{  
+background-color: #99c2d6;
+}
+
+.topleftnav
+{	
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.topleftnavGreyed
+{	
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   color: #999999;
+	font-size: 10px;
+	text-decoration: none;
+	}
+
+.topleftnavbold 
+{ 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px; 
+text-decoration: none; 
+font-weight: bold;
+}
+
+.topleftnavboldGreyed
+{ 
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size: 10px; 
+color: #999999;
+text-decoration: none; 
+font-weight: bold;
+}
+
+.toprightnav
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.toprightnavgrey
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: none;
+}
+
+.topbardivider
+ { 
+ background-color: #3399cc 
+ }
+
+ .topbardividerGreyed
+ { 
+ background-color: #add6eb
+ }  
+
+ tr.bgmidframe
+ /* this was initially declared the same colour as the class topframe bg but because it lies in a different functional area, has been recreated here  */
+{
+	background-color: #d2d2d2;
+}
+ 

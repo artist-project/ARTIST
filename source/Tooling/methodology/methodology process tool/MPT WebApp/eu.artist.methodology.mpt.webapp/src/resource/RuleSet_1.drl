@@ -1,0 +1,668 @@
+/*******************************************************************************
+ *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * 				 Liagouras Georgios Andreas
+ *******************************************************************************/
+package rule_api_test
+
+import eu.artist.methodology.mpt.model.MigrationGoals;
+import eu.artist.methodology.mpt.model.TechnicalGoals;
+import eu.artist.methodology.mpt.model.AnswerList;
+import eu.artist.methodology.mpt.model.Answers;
+import java.util.ArrayList; 
+
+global eu.artist.methodology.mpt.model.Result result;
+global eu.artist.methodology.mpt.model.TestVariable testVariable;
+global eu.artist.methodology.mpt.webapp.mat.RulesVariable rulesVariable;
+//declare any global variables here
+
+
+
+
+rule "TECH_2_1"
+   
+	when 
+       answerList : AnswerList($answers : Answers)  
+	   Answers(code.equalsIgnoreCase("P1"), (answer.equalsIgnoreCase("Number of total users")) || (answer.equalsIgnoreCase("Pay as you go")) || (answer.equalsIgnoreCase("Fixed monthly fee variable fee"))) from $answers
+  
+ 	then 
+   	   System.out.println("Matched Rule TECH_2_1");
+       System.out.println("Include activities in EMREQ (and OPTAPPFEA?) migration task(s).");
+       
+       result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+       
+       rulesVariable.addInArray("TECH_2_1"); 
+	   //rulesVariable.addActivityForMigration(RulesConstants.EMREQ, RulesConstants.ACT_3, RulesConstants.TECHNICAL_GROUP);
+	  // rulesVariable.addActivityForMigration(RulesConstants.OPTAPPFEA, RulesConstants.ACT_1, RulesConstants.TECHNICAL_GROUP); 
+end
+
+rule "TECH_2_2"
+   
+	when 
+  		answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("FM2"), !answer.equalsIgnoreCase("There is no accountability")) from $answers
+ 
+ 	then 
+       System.out.println("Matched Rule TECH_2_2");
+ 	   System.out.println("Include activities in EMREQ (and OPTAPPFEA?) migration task(s).");
+ 	   
+ 	   result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+ 	         
+ 	   rulesVariable.addInArray("TECH_2_2"); 
+ 	    
+      // rulesVariable.addActivityForMigration(RulesConstants.EMREQ, RulesConstants.ACT_3, RulesConstants.TECHNICAL_GROUP);
+	  // rulesVariable.addActivityForMigration(RulesConstants.OPTAPPFEA, RulesConstants.ACT_1, RulesConstants.TECHNICAL_GROUP);  
+end
+
+rule "TECH_2_3"
+    
+	when 
+  		answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("OT02"), (answer.equalsIgnoreCase("YES"))) from $answers
+ 
+ 	then 
+        System.out.println("Matched Rule TECH_2_3");
+ 		System.out.println("Include EMREQ.A4");
+ 		
+ 		result.setIntegerResult(new Integer(5));
+		result.setBooleanResult(true);
+ 		
+ 	     rulesVariable.addInArray("TECH_2_3"); 
+ 		
+		//rulesVariable.addActivityForMigration(RulesConstants.EMREQ, RulesConstants.ACT_4, RulesConstants.TECHNICAL_GROUP);
+		//rulesVariable.addActivityForMigration(RulesConstants.OPTAPPFEA, RulesConstants.ACT_2, RulesConstants.TECHNICAL_GROUP);	 
+end
+
+rule "TECH_3"
+
+	when 
+		answerList : AnswerList($answers : Answers)  
+        Answers(code.equalsIgnoreCase("OT04"), (answer.equalsIgnoreCase("GAE"))) from $answers
+	then 
+		System.out.println("Matched Rule TECH_3"); 
+		System.out.println("Remove Target Environment Specification tasks from Migration methodology.");
+
+		 rulesVariable.addInArray("TECH_3"); 
+		
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.TEBENCH, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.TEMPOP, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+end
+
+rule "TECH_4"
+    
+	when 
+	  	answerList : AnswerList($answers : Answers)  
+	    Answers(code.equalsIgnoreCase("OT06"), answer.equalsIgnoreCase("Yes")) from $answers
+	then 
+		System.out.println("Matched Rule TECH_4");
+		System.out.println("Remove APAPUP and APACLAS tasks from migration steps.");
+		
+	  rulesVariable.addInArray("TECH_4"); 
+		
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.APAPUP, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.APACLAS, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+end
+
+rule "TECH_5"
+    
+	when 
+	  	answerList : AnswerList($answers : Answers)  
+	 	Answers(code.equalsIgnoreCase("OT02"), answer.equalsIgnoreCase("NO") ) from $answers
+	then 
+	  	System.out.println("Matched Rule TECH_5");
+	  	System.out.println("The methodology steps that assist the user in the selection of the migration target are removed and the chosen target is automatically set at the end of this process.");
+	  	
+	 	  rulesVariable.addInArray("TECH_5"); 
+	  	
+	  	//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.TEBENCH, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.TEMPOP, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);	  	
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.APAPUP, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.APACLAS, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.SCTARGET, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null); 
+end
+
+rule "TECH_6"
+    
+	when 
+ 	 	answerList : AnswerList($answers : Answers)  
+  	 	Answers(code.equalsIgnoreCase("OT07"), answer.equalsIgnoreCase("YES")) from $answers
+ 
+ 	then 
+     	System.out.println("Matched Rule TECH_6");
+     	System.out.println("Remove GSCODE task from migration"); 
+     	
+     	 rulesVariable.addInArray("TECH_6"); 
+     	
+	 
+	 	//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.GSCODE, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+end
+
+rule "TECH_7"
+   
+	when 
+	  	answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("OT03"), answer.equalsIgnoreCase("Hybrid Cloud")) from $answers
+	then 
+	  	System.out.println("Matched Rule TECH_7"); 
+	  	System.out.println("Add NETSETUP task to Migration methodology.");
+	  	
+	  	rulesVariable.addInArray("TECH_7"); 
+	  	//rulesVariable.addToHashMap(RulesConstants.ADD_TASK, RulesConstants.NETSETUP, null, RulesConstants.MIGRATION, RulesConstants.TECHNICAL_GROUP, null);
+end
+
+rule "TECH_8"
+   
+	when 
+	  	answerList : AnswerList($answers : Answers)  
+	  	Answers(code.equalsIgnoreCase("OT08"), answer.equalsIgnoreCase("No")) from $answers
+	 
+	then 
+	  	System.out.println("Matched Rule TECH_8");
+	  	System.out.println("Make VERBETC task optional.");
+	  	
+	  	rulesVariable.addInArray("TECH_8"); 
+	  	
+	  	//rulesVariable.addToHashMap(RulesConstants.EDIT_TASK, RulesConstants.VERBETC, null, RulesConstants.POST_MIGRATION, RulesConstants.TECHNICAL_GROUP, RulesConstants.OPTIONAL);
+end
+
+//end: technical rules
+
+//start: process rules
+
+rule "PROC_1_0"
+   
+	when 
+	    answerList : AnswerList($answers : Answers)  
+	    Answers(code.equalsIgnoreCase("CR1") , answer.equalsIgnoreCase("NO")) from $answers
+	 
+	then 
+	   	System.out.println("Matched Rule PROC_1_0");	 
+	    System.out.println("Add MCRP task to process tasks");
+	    
+	    rulesVariable.addInArray("PROC_1_0"); 
+	    
+	   // rulesVariable.addToHashMap(RulesConstants.ADD_TASK, RulesConstants.MCRP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);	  
+end
+
+rule "PROC_1_1"
+ 
+	when 
+	  answerList : AnswerList($answers : Answers)  
+	  Answers(code.equalsIgnoreCase("CR1"), answer.equalsIgnoreCase("SI")) from $answers
+	 
+	then 
+	  System.out.println("Matched Rule PROC_1_1");	 
+	  System.out.println("Remove MCRP.A1 activity from MCRP task");
+	  
+	  	    rulesVariable.addInArray("PROC_1_1"); 
+	  
+	  
+	  //rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.MCRP, RulesConstants.ACT_1, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 
+end
+
+
+rule "PROC_2"
+     
+	when 
+	  answerList : AnswerList($answers : Answers)  
+  	  Answers(code.equalsIgnoreCase("CR3"), (answer.equalsIgnoreCase("There is a defined process to measure customer satisfaction, but its implementation is not systematic") ) || (answer.equalsIgnoreCase("The customer satisfaction is analyzed, solutions if required are provided and communicate to the user"))) from $answers
+ 	 
+	then 
+	  System.out.println("Matched Rule PROC_2");
+	  System.out.println("Delete MCRP.A7 - Measure and analyze user feedback");
+	  
+	  rulesVariable.addInArray("PROC_2"); 
+	  
+	 // rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.MCRP, RulesConstants.ACT_7, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);  
+end
+
+rule "PROC_3"
+   
+	when 
+  		answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("CR4"), answer.equalsIgnoreCase("YES")) from $answers
+  		Answers(code.equalsIgnoreCase("CR6"), answer.equalsIgnoreCase("6")) from $answers
+ 
+ 	then 
+        System.out.println("Matched Rule PROC_3");
+ 		System.out.println("Delete IMRP task from process tasks");
+ 		
+ 		rulesVariable.addInArray("PROC_3"); 
+ 		
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.IMRP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);   
+end
+
+rule "PROC_4"
+  
+	when 
+	  answerList : AnswerList($answers : Answers)  
+	  Answers(code.equalsIgnoreCase("SLA1"), answer.equalsIgnoreCase("Yes")) from $answers
+	 
+	then 
+	  System.out.println("Matched Rule PROC_4");
+	  System.out.println("Delete SLAMP.A1 and SLAMP.A2");
+	  
+	  
+	  rulesVariable.addInArray("PROC_4"); 
+	  
+	 // rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.SLAMP, RulesConstants.ACT_1, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+	 // rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.SLAMP, RulesConstants.ACT_2, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 
+end
+
+rule "PROC_5"
+    
+	when 
+	  answerList : AnswerList($answers : Answers)  
+	  Answers(code.equalsIgnoreCase("SLA3"), answer.equalsIgnoreCase("Yes") ) from $answers
+	 
+	then 
+	  System.out.println("Matched Rule PROC_5");	 
+	  System.out.println("Delete SLAMP.A3");
+	  
+	  
+	  	  rulesVariable.addInArray("PROC_5"); 
+	  
+	  
+	  //rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.SLAMP, RulesConstants.ACT_3, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 
+end
+
+rule "PROC_6"
+    
+	when 
+	  answerList : AnswerList($answers : Answers)  
+	  Answers( code.equalsIgnoreCase("SLA4"), answer.equalsIgnoreCase("Yes")) from $answers
+	 
+	then 
+	  System.out.println("Matched Rule PROC_6");
+	  System.out.println("Delete SLAMP.A6");
+	  
+	   rulesVariable.addInArray("PROC_6"); 
+	  
+	  
+	 // rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.SLAMP, RulesConstants.ACT_6, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 
+  
+end
+
+
+rule "PROC_7"
+
+	when 
+  		answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("SLA5"), answer.equalsIgnoreCase("Service levels are monitored regularly")) from $answers
+  		Answers(code.equalsIgnoreCase("SLA6"), !answer.equalsIgnoreCase("There is no mechanism") ) from $answers
+ 
+ 	then 
+        System.out.println("Matched Rule PROC_7");
+ 		System.out.println("Delete SLAMP.A4 and SLAMP.A5");
+ 		
+ 			  	  rulesVariable.addInArray("PROC_7"); 
+ 		
+ 		
+ 	//	rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.SLAMP, RulesConstants.ACT_4, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.SLAMP, RulesConstants.ACT_5, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 
+ 
+end
+
+rule "PROC_8"
+    
+	when 
+  		answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("CP1"), answer.equalsIgnoreCase("YES")) from $answers
+  		Answers(code.equalsIgnoreCase("CP2"), answer.equalsIgnoreCase("YES")) from $answers
+  		Answers(code.equalsIgnoreCase("CP3"), answer.equalsIgnoreCase("YES")) from $answers
+ 	then 
+        System.out.println("Matched Rule PROC_8");
+ 		System.out.println("Delete CPMP task from process tasks");
+ 		
+ 		 rulesVariable.addInArray("PROC_8"); 
+ 		
+ 		
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.CPMP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);  
+end
+
+
+rule "PROC_9"
+
+	when 
+  		answerList : AnswerList($answers : Answers)  
+  		Answers(code.equalsIgnoreCase("RA1"), !answer.equalsIgnoreCase("")) from $answers
+  		Answers(code.equalsIgnoreCase("RA2"), answer.equalsIgnoreCase("To the entire organization the new and modified roles")) from $answers
+  		Answers(code.equalsIgnoreCase("RA3"), answer.equalsIgnoreCase("Train those people who are going to be assigned to the new or modified roles.")) from $answers
+  
+    then 
+        System.out.println("Matched Rule PROC_9");
+ 		System.out.println("Delete OPERATIONAL.A1 and RAP");
+ 		
+ 		 		 rulesVariable.addInArray("PROC_9"); 
+ 		
+ 		
+ 		//FIXME
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.RAP, null, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);    
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.RAP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);    
+	 
+end
+
+rule "PROC_10_2"
+  
+	 when 
+	  answerList : AnswerList($answers : Answers)
+	  Answers(code.equalsIgnoreCase("DP2"), answer.equalsIgnoreCase("Yes")) from $answers
+	 
+	 then 
+	   System.out.println("Matched Rule PROC_10_2");
+	   System.out.println("Delete DP tasks from the process tasks");
+	   
+	    rulesVariable.addInArray("PROC_10_2"); 
+	   
+	   
+	  // rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.DP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);  
+end
+
+rule "PROC_11"
+   
+	when 
+	  answerList : AnswerList($answers : Answers)  
+	  Answers(answer.equalsIgnoreCase("Yes"), ((code.equalsIgnoreCase("DP4")) || (code.equalsIgnoreCase("DP6")))) from $answers
+	 
+	then 
+	  System.out.println("Matched Rule PROC_11");
+	  System.out.println("Delete UPM process task");
+	  
+	  	    rulesVariable.addInArray("PROC_11"); 
+	  
+	  
+	 // rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.UMP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 
+
+end
+
+rule "PROC_12"
+   
+	when 
+	  answerList : AnswerList($answers : Answers)  
+	  Answers(answer.equalsIgnoreCase("Channels to market, sales targets"), code.equalsIgnoreCase("BS2") ) from $answers
+	 
+	then 
+	  System.out.println("Matched Rule PROC_12");	 
+	  System.out.println("Delete MP process task");
+	  
+	    rulesVariable.addInArray("PROC_12"); 
+	  
+	//  rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.MP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);  
+ 
+end
+
+//end: process rules
+
+//start: business rules
+rule "BUS_1"
+   
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE 
+  		// REVERTED AGAIN 
+  		Answers(code.equalsIgnoreCase("P1"), !answer.equalsIgnoreCase("No pricing model")) from $answers
+  		//Answers(code.equalsIgnoreCase("P1"), answer.equalsIgnoreCase("No pricing model")) from $answers
+	then 
+        System.out.println("Matched Rule BUS_1");
+        //System.out.println("Include FINANCIAL task in business tasks");
+        System.out.println("Remove FINANCIAL task from business tasks");
+        
+        
+        rulesVariable.addInArray("BUS_1"); 
+        
+       // rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.FINANCIAL, null, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);	   
+end
+
+rule "BUS_2"
+   
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE   
+  		//REVERTED AGAIN
+  		Answers(code.equalsIgnoreCase("P1"), !answer.equalsIgnoreCase("There is no Business plan") ) from $answers
+ 		//Answers(code.equalsIgnoreCase("P1"), answer.equalsIgnoreCase("There is no Business plan") ) from $answers
+ 	then 
+        System.out.println("Matched Rule BUS_2");
+  		//System.out.println("Include OPERATIONAL.A2, OPERATIONAL.A3, OPERATIONAL.A5, CPMP, FINANCIAL.A2, FINANCIAL.A3, and FINANCIAL.A4.");
+  		System.out.println("Remove OPERATIONAL.A2, OPERATIONAL.A3, OPERATIONAL.A5, CPMP, FINANCIAL.A2, FINANCIAL.A3, and FINANCIAL.A4.");
+  		
+  		
+  		        rulesVariable.addInArray("BUS_2"); 
+  		
+  		
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.OPERATIONAL, RulesConstants.ACT_2, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.OPERATIONAL, RulesConstants.ACT_3, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.OPERATIONAL, RulesConstants.ACT_5, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.CPMP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.FINANCIAL, RulesConstants.ACT_2, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.FINANCIAL, RulesConstants.ACT_3, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.FINANCIAL, RulesConstants.ACT_4, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);	   
+  		 
+end
+
+
+rule "BUS_3"
+ 
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE
+  		//REVERTED AGAIN  
+  		Answers(code.equalsIgnoreCase("BS2"), answer.equalsIgnoreCase("The offering of one or more cloud services to customers") ) from $answers
+  		//Answers(code.equalsIgnoreCase("BS2"), !answer.equalsIgnoreCase("The offering of one or more cloud services to customers") ) from $answers
+ 
+ 	then 
+        System.out.println("Matched Rule BUS_3");
+        //System.out.println("Include OPERATIONAL.A3, CPMP and FINANCIAL.A2");
+        System.out.println("Remove OPERATIONAL.A3, CPMP and FINANCIAL.A2");
+        
+        rulesVariable.addInArray("BUS_3"); 
+        
+        
+      //  rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.OPERATIONAL, RulesConstants.ACT_3, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null); 		
+       // rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.CPMP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);        
+       // rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.FINANCIAL, RulesConstants.ACT_2, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);	   
+  		 
+end
+
+
+rule "BUS_4"
+   
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE   
+  		//Answers(code.equalsIgnoreCase("BS2"), answer.equalsIgnoreCase("Handling both financial and technical aspects of the services") ) from $answers
+ 		Answers(code.equalsIgnoreCase("BS2"), !answer.equalsIgnoreCase("Handling both financial and technical aspects of the services") ) from $answers
+ 	then 
+        System.out.println("Matched Rule BUS_4"); 
+  		//System.out.println("Include CPMP");
+  		System.out.println("Remove CPMP task from process tasks");
+  		
+  		
+  		        rulesVariable.addInArray("BUS_4"); 
+  		
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.CPMP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);	   
+  		 
+end
+
+
+rule "BUS_5"
+    //FIXME
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE
+  		//REVERTED AGAIN
+  		Answers(code.equalsIgnoreCase("BS2"), (answer.equalsIgnoreCase("Target customer set")) || (answer.equalsIgnoreCase("Channels to market, sales targets")) || (answer.equalsIgnoreCase("Track the sales and service usage against the plan to ensure that financial targets are achieved for the cloud service provider"))) from $answers    
+  		//Answers(code.equalsIgnoreCase("BS2"), !((answer.equalsIgnoreCase("Target customer set")) || (answer.equalsIgnoreCase("Channels to market, sales targets")) || (answer.equalsIgnoreCase("Track the sales and service usage against the plan to ensure that financial targets are achieved for the cloud service provider")))) from $answers
+ 
+ 	then 
+        System.out.println("Matched Rule BUS_5");
+  		//System.out.println("Include VALPRO and CUSTOMER");
+  		System.out.println("Remove VALPRO and CUSTOMER");
+  		
+  		  		        rulesVariable.addInArray("BUS_5"); 
+  		
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.VALPRO, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.CUSTOMER, null, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+end
+
+
+rule "BUS_6"
+  
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE   
+  		//reverted again
+ 	 	Answers(code.equalsIgnoreCase("BS2"), answer.equalsIgnoreCase("Management of contracts and SLAs") ) from $answers
+ 	 	//Answers(code.equalsIgnoreCase("BS2"), !answer.equalsIgnoreCase("Management of contracts and SLAs") ) from $answers
+
+ 	then 
+        System.out.println("Matched Rule BUS_6");
+ 		//System.out.println("Include SLAMP");
+ 		System.out.println("Remove SLAMP");
+ 		
+ 		
+ 		    rulesVariable.addInArray("BUS_6"); 
+ 		
+ 		
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.SLAMP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);		 
+end
+
+
+rule "BUS_7"
+
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE  
+  		// REVERTED AGAIN 
+  		Answers(code.equalsIgnoreCase("BS2"), answer.equalsIgnoreCase( "Track the sales and service usage against the plan to ensure that financial targets are achieved for the cloud service provider")) from $answers
+  		//Answers(code.equalsIgnoreCase("BS2"), !answer.equalsIgnoreCase( "Track the sales and service usage against the plan to ensure that financial targets are achieved for the cloud service provider")) from $answers
+  		
+ 	then 
+        System.out.println("Matched Rule BUS_7");
+  		//System.out.println("Include FINANCIAL.A4");
+  		System.out.println("Remove FINANCIAL.A4 from FINANCIAL task");
+  		
+  		
+  		  rulesVariable.addInArray("BUS_7"); 
+  		
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.FINANCIAL, RulesConstants.ACT_4, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null); 
+end
+
+
+rule "BUS_8_1"
+ 
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE   
+  		//REVERTED AGAIN
+  		Answers(code.equalsIgnoreCase("PC1"), answer.equalsIgnoreCase("To browse a list of available service offerings which they can purchase")) from $answers
+  		//Answers(code.equalsIgnoreCase("PC1"), !answer.equalsIgnoreCase("To browse a list of available service offerings which they can purchase")) from $answers
+  
+ 	then 
+        System.out.println("Matched Rule BUS_8_1");
+  		//System.out.println("Include MP, CUSTOMER.A5");
+  		System.out.println("Remove MP and CUSTOMER.A5");
+  		
+  		 rulesVariable.addInArray("BUS_8_1"); 
+  		
+  		
+  		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.MP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 		
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.CUSTOMER, RulesConstants.ACT_5, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+end
+
+
+rule "BUS_8_2"
+    
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE  
+  		//reverted again 
+  		Answers(code.equalsIgnoreCase("PC1"), (answer.equalsIgnoreCase("To browse a list of available service offerings which they can purchase")) || (answer.equalsIgnoreCase("Plus a set of capabilities for the management of the content of the catalogue which are available to staff of the cloud service provider"))) from $answers
+ 		//Answers(code.equalsIgnoreCase("PC1"), !((answer.equalsIgnoreCase("To browse a list of available service offerings which they can purchase")) || (answer.equalsIgnoreCase("Plus a set of capabilities for the management of the content of the catalogue which are available to staff of the cloud service provider")))) from $answers
+ 	then 
+        System.out.println("Matched Rule BUS_8_2");
+ 		//System.out.println("Include MP, CUSTOMER.A5 AND VALPRO");
+ 		System.out.println("Remove MP, CUSTOMER.A5 and VALPRO");
+ 		
+ 		 rulesVariable.addInArray("BUS_8_2"); 
+ 		
+ 		
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.MP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null); 		
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_ACTIVITY_, RulesConstants.CUSTOMER, RulesConstants.ACT_5, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null);
+ 		//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.VALPRO, null, RulesConstants.MIGRATION, RulesConstants.BUSINESS_GROUP, null); 
+ 		 
+end
+
+rule "BUS_9"
+  
+	when 
+  		answerList : AnswerList($answers : Answers)
+  		//REVERTED ORIGINAL RULE    
+  		//REVERTED AGAIN
+  		Answers(code.equalsIgnoreCase("BCR1"), (answer.equalsIgnoreCase("Providing the point of contact for the customer for all business matters")) || (answer.equalsIgnoreCase("Providing the point of contact for the customer for all business matters.")) ) from $answers
+  		//Answers(code.equalsIgnoreCase("BCR1"), !((answer.equalsIgnoreCase("Providing the point of contact for the customer for all business matters")) || (answer.equalsIgnoreCase("Providing the point of contact for the customer for all business matters.")))) from $answers
+  		
+ 	then 
+        System.out.println("Matched Rule BUS_9");
+        System.out.println("Include MRCP");
+       // System.out.println("Remove MRCP task from process tasks"); 
+        
+         		 rulesVariable.addInArray("BUS_9"); 
+        
+        
+        //rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.MCRP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+end
+
+rule "BUS_10"    
+  
+  	when
+   		answerList : AnswerList($answers : Answers)
+   		//REVERTED ORIGINAL RULE   
+   		//REVERTED AGAIN
+  		Answers(code.equalsIgnoreCase("BCR1"), (answer.equalsIgnoreCase("Processing change requests")) || (answer.equalsIgnoreCase("Providing a channel for any requirements change requests from the customer"))) from $answers
+  		//Answers(code.equalsIgnoreCase("BCR1"), !((answer.equalsIgnoreCase("Processing change requests")) || (answer.equalsIgnoreCase("Providing a channel for any requirements change requests from the customer")))) from $answers	
+  	
+  	then   
+    	System.out.println("Matched Rule BUS_10");
+    	System.out.println("Include MCRP and IMRP");
+    	//System.out.println("Remove MCRP and IMRP tasks from process tasks");
+    	
+    	 rulesVariable.addInArray("BUS_10"); 
+    	
+    	
+    	//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.MCRP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+    	//rulesVariable.addToHashMap(RulesConstants.REMOVE_TASK, RulesConstants.IMRP, null, RulesConstants.MIGRATION, RulesConstants.PROCESS_GROUP, null);
+    	    	
+end
+//end: business rules
+
+

@@ -1,0 +1,612 @@
+/*
+ * Copyright (c) 2005, 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ *
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial implementation
+ */
+
+/*must add font type if class is being used as both link and  no-link text*/
+
+a {
+	color: #336699;
+}
+
+/* action text usually located on top of page;ie., select all*/
+a.actionlink {
+	color: #336699;
+	font-size: 11px;
+	text-decoration : none;
+}
+
+/* font for action;ie., select all*/
+a.actionselector {
+	color: #000000;
+	font-size: 11px;
+}
+
+a.toprightnav:active {
+	color: #99CCCC;
+}
+
+a.toprightnavgrey:active {
+	color: #CC0000;
+}
+
+
+a.basic {
+	color: #000000;
+}
+
+a.breadcrumbs {	
+	color: #000000;
+	font-size: 11px;
+}
+
+/* for non-image buttons, for internationalization */
+a.button {
+	color: #333333;
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+/* Descoped, It's not used in current projects, to be archived after 6 months. Ali Rokni, 09/09/02 */
+/* for context toolbar buttons in Multisite, for internationalization */
+a.button2 {
+	color: #000000;
+	font-size : 11px;
+	text-decoration: none;	
+}
+
+a.button:active {
+	color: #333333;
+	text-decoration: none;
+}
+
+/* for non-image buttons, for internationalization */
+a.button:hover {
+	color: #333333;
+}
+
+a.copyright {
+	color: #999999;
+	font-size: 10px;
+} 
+
+/*actionbar on white background*/
+.actionselect2 {
+	color: #000000;
+	font-size: 11px;
+}
+
+/*actionbar appears on top and/or bottom of page*/
+.actionselector {
+	background-color: #E9E9E9;
+	color: #000000;
+	font-size: 11px;
+}
+
+/*column headings*/
+a.formtblhead {
+	background-color: #CCCCCC;
+	color: #000000;
+	font-size: 11px;
+	font-weight : 600;
+}
+
+a.toprightnavgrey:hover {
+	color: #CC0000;
+} 
+a.toprightnav:hover {
+	color: #99CCCC;
+} 
+
+/*navtree item or doc*/
+a.navtreeitem {
+	color: #000000;
+	font-size : 11px;
+	text-decoration: none;
+} 
+
+/*sitemap header*/
+a.sitemaph {
+	font-size: 17px;
+	font-weight: 600;
+}
+
+/*used in forgot password, any other small text links*/
+a.small {
+	font-size: 11px;
+}
+
+b {
+	font-weight : 600;
+}
+
+/*standard text*/  
+.basic {
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.bgbasic {
+	background-color: #FFFFFF;
+}
+
+/*descoped (remove after wa-lt release); use bgbasic */
+.bgwhite {
+	background-color: #FFFFFF;
+}
+
+/* size input for basic tags such as p and li that do not inherit from td */  
+body {
+	background-color : #FFFFFF;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	text-decoration: none;
+}
+
+.bold {
+	font-weight: 600;
+}
+
+.borderdrk {
+	background-color: #000000;
+}
+
+/*use in popups as borders in Multisite*/ 
+.borderpopup {
+	background-color: #DEDEDE;
+}
+
+/*borders used around data*/ 
+.bordertbl {
+	background-color: #E9E9E9;
+}
+
+/*design element simulating a dimensional boundary to a table */ 
+.bordertbl2 {
+	background-color: #BDBDBD;
+}
+
+/*used in content area as a horizontal div in Multisite*/
+.bordertbl3 {
+	background-color: #EDEDED;
+}
+
+.breadcrumbs {
+	font-size: 11px;
+}
+
+/*used in topnav , similar to context toolbar*/
+.button {
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/*descoped; use button instead; used in topnav , similar to context toolbar*/
+.button3 {
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/*active navigation button, not form buttons*/ 
+.buttonon {
+	background-color: #DEDEDE;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/*navigation buttons, not form buttons*/ 
+.buttons {
+	background-color: #EFEFEF;
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/*descoped (remove after wa-lt release)--use a.button; these button styles are for the textual buttons intended to replace image constructs for internationalization */ 
+.buttontxt {
+	color: #333333;
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+/* disabled state of non-image button*/ 
+.buttontxtdsbl {
+	color: #7E7E7E;
+	font-family: verdana, helvetica, arial, sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.copyright { 
+	color: #999999;
+	font-size: 10px;
+}
+
+/*black copyright*/
+.copyrightb {
+	color: #000000;
+	font-size: 10px;
+}
+
+dd {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+	margin-left: -1px;
+}
+
+/*defect page subhead , used in project console*/
+.defectsubhd {
+	color: #006699;
+	font-weight : 600;
+	text-decoration: none;
+}
+
+.dialgbxshadow2 {
+	background-color: #848484;
+}
+
+.dialogueboxbg {
+	background-color: #D2D2D2;
+}
+
+/*background for login pages*/
+.dialogueboxbg2 {
+	background-color: #999999;
+}
+
+.dialogueboxborder {
+	background-color: #333333;
+}
+
+.dialogueboxhighlight {
+	background-color: #EFEFEF;
+}
+
+.dialogueboxmedium {
+	background-color: #8B8B8B;
+}
+
+div { 
+	font-family: arial, helvetica, sans-serif;
+} 
+
+/*used to affect right margin*/ 
+div.marginrt {
+	clear: right;
+	float: right;
+	width: 7px;
+}
+
+div.margins { 
+	float: left;
+	margin-left: 7px;
+	margin-top: 25px;
+	margin-right: 7px;
+}
+
+/*for pages with button navigation on top*/  
+div.margins20 {
+	float: left;
+	margin-left: 7px;
+	margin-top: 20px;
+	margin-right: 7px;
+}
+
+/*adds 10 px padding around text*/
+div.pad10 {
+	padding: 10px;
+}
+
+dl {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/*removes default bottom margin, doesn't work in NS4.7x */  
+dl.data {
+	margin-bottom: -1px;
+}
+
+/*title for error messages*/
+.error {
+	color: #CC0000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 27px;
+	font-weight: 800;
+}
+
+.formtblhead {
+	background-color: #CCCCCC;
+	color: #000000;
+	font-size: 11px;
+	font-weight : 600;
+}
+
+/*current sorted column*/
+.formtblheadc {
+	background-color: #E4E4E4;
+	color: #000000;
+	font-size: 11px;
+	font-weight : 600;
+}
+
+/*to replace h1 and contentheader large*/
+.header1 {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 22px;
+	font-weight: 800;
+}
+
+/*headers within page*/
+.header2 {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+}
+
+/*usually used next to header1, for document root folder*/
+.header3 {
+	color: #999999;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 22px;
+	font-weight: 800;
+}
+
+i {
+	font-style : italic;
+}
+
+.iconborder {
+	background-color: #DEDEDE;
+}
+
+/*used in controlstrip*/
+.iconoff {
+	float: right;
+	position: absolute;
+	top:1px;
+	visibility:hidden;
+	width:100%;
+}
+
+/*used in controlstrip*/
+.iconon {
+	float: right;
+	position: absolute;
+	top:1px;
+	visibility:show;
+	width: 100%;
+}
+
+/*font size setup shown in the input box which is inherited by inputXX*/
+input {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+
+/* 1,business standard multiline input box 
+2,this style only activate in IE */
+input.max50 {
+	width: 360px;
+}
+
+/*
+1,business standard multiline input box 
+2,this style only activate in IE
+*/
+input.px85 {
+	width: 85px
+}
+
+input.radio {
+
+}
+
+/*used in treescripts, leftnav*/
+.leftmenu {
+	background-color: #999999;
+}
+
+.notes {
+	font-size: 11px;
+	font-weight : 400;
+}
+
+p {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/*font for the numbers in pagination library*/
+.pagenumber {
+	color: #676767;
+	font-size: 11px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+/*font for previous & next in pagination*/
+.pagesteps {
+	color: #000000;
+	font-size: 11px;
+	font-weight : 600;
+}
+
+/*popup header*/
+.poph1 {
+	font-size: 16px;
+	font-weight : bold;
+}
+
+/*used in treescripts*/
+.popleftmenu {
+	background-color: #F0F0F0;
+	border: thin solid #CCCCCC;
+	left: 210px;	/* it's not working on ns 6.2, ie 5.5, ie 6 and ns 7, possibly can be removed safely, Ali Rokni, 09/18/02*/
+	padding: 2px;
+	position: absolute;
+	top: 25px;	/* it's not working on ns 6.2, ie 5.5, ie 6 and ns 7, possibly can be removed safely, Ali Rokni, 09/18/02*/
+	visibility: hidden;
+	width: auto;
+	z-index: 10;
+}
+
+/*progressbar borders in Multisite*/
+.progressbarbrd {
+	background-color: #666666;
+}
+
+select {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+
+/*descoped (remove after wa-lt release)--use buttons3; used in topnav*/
+.smalltext {
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/* font for regular content text */
+td {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/* these button styles are for the textual buttons intended to replace image constructs for internationalization */ 
+td.buttonbody {
+	background-color: #D4D4D4;
+}
+
+/* disabled version */ 
+td.buttonbodydsbl {
+	background-color: #DADADA;
+}
+
+/* descoped (remove after wa-lt release); use bgbasic */
+td.buttonhighlight {
+	background-color: #FFFFFF;
+}
+
+/*non-image button*/
+td.buttonshadow {
+	background-color: #6D6D6D;
+}
+
+/* non-image button--disabled version */
+td.buttonshadowdsbl {
+	background-color: #A2A2A2;
+}
+
+/* data within a table highlighted in light gray*/
+td.tblhighlt3 {
+	background-color: #E9E9E9;
+}   
+
+/*gray data highlight or page background*/ 
+.tdlight1 {
+	background-color: #EFEFEF;
+}
+
+textarea {
+	font-family: arial, helvetica, sans-serif;
+	font-size: 11px;
+}
+
+/*global nav*/
+.topbardivider {
+	background-color: #3399CC;
+}
+
+/*global nav*/
+.topframebg {
+	background-color: #D2D2D2;
+}
+
+/*descoped (remove after wa-lt release)--use bordertbl3; used in content area as a horizontal div in Multisite*/
+.topframebggreyed {
+	background-color: #EDEDED;
+}
+
+/*global nav*/
+.topframehighlight {
+	background-color: #B6B5B5;
+}
+
+/*global nav*/
+.topframehighlight2 {
+	background-color: #EFEFEF;
+}
+
+/*global nav*/
+.topframelogobg {
+	background-color: #006699;
+}
+
+/*global nav*/
+.topframeshadow {
+	background-color: #848484;
+}
+
+/*global icon operations toolbar*/
+.topleftnav {	
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/*global input operations toolbar*/
+.topleftnavbold {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+/*text on topnav, top right section*/
+.toprightnav {
+	color: #FFFFFF;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+.toprightnavgrey 
+{
+	color: #000000;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+/*list-style-image: url(images/downbutton.gif);*/
+ul {
+	list-style-type: square;
+}

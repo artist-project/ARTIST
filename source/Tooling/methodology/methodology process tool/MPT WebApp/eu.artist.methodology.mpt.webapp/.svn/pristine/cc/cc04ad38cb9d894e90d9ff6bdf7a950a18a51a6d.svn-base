@@ -1,0 +1,1593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="el" xml:lang="el" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Capability Pattern: Artist methodology M30</title>
+<meta name="uma.type" content="CapabilityPattern">
+<meta name="uma.name" content="Artist methodology M30">
+<meta name="uma.presentationName" content="Artist methodology M30">
+<meta name="element_type" content="other">
+<meta name="filetype" content="description">
+<meta name="role" content="none">
+<link rel="StyleSheet" href="./../../css/default.css" type="text/css">
+<script src="./../../scripts/ContentPageResource.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/ContentPageSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/ContentPageSubSection.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/ActivityTreeTable.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/ProcessElementPage.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/ContentPageToolbar.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/contentPage.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/processElementData.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					var defaultQueryStr = '?proc=_boyq0RvEEeSVgNVCd9uEdQ&path=_boyq0RvEEeSVgNVCd9uEdQ';
+					var backPath = './../../';
+					var imgPath = './../../images/';
+					var nodeInfo=null;
+					contentPage.preload(imgPath, backPath, nodeInfo, defaultQueryStr, false, true, true);
+				</script>
+</head>
+<body>
+<div id="breadcrumbs"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top">
+<div autoWrap="true">
+<div id="page-guid" value="_boyq0RvEEeSVgNVCd9uEdQ"></div>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="pageTitle" nowrap="true">Capability Pattern: Artist methodology M30</td><td width="100%">
+<div align="right" id="contentPageToolbar"></div>
+</td><td width="100%" class="expandCollapseLink" align="right"><a name="mainIndex" href="./../../index.htm"></a><script language="JavaScript" type="text/javascript" src="./../../scripts/treebrowser.js"></script></td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="pageTitleSeparator"><img src="./../../images/shim.gif" alt="" title="" height="1"></td>
+</tr>
+</table>
+<div class="overview">
+<table width="97%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50"><img src="./../../images/capabilitypattern.gif" alt="" title=""></td><td>
+<table class="overviewTable" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr valign="middle">
+<td width="10" class="tab"><img src="./../../images/shim.gif" width="10" height="17" alt="" title=""></td><td nowrap class="tab"><a class="tab" id="TAB_Description" href="./../../ARTIST Methodology M30/capabilitypatterns/Artist methodology M30_4F33D3E.html_desc.html">Description</a></td><td width="21"><img src="./../../images/tab_middle-i_i.gif" width="21" height="17" align="absmiddle" alt="" title=""></td><td nowrap class="tab"><a class="tab" id="TAB_WBS" href="./../../ARTIST Methodology M30/capabilitypatterns/Artist methodology M30_4F33D3E.html_wbs.html"><span style="white-space:nowrap;">Work Breakdown Structure</span></a></td><td width="1"><img src="./../../images/tab_middle-i_i.gif" width="21" height="17" align="absmiddle" alt="" title=""></td><td nowrap class="tab"><a class="tab" id="TAB_TBS" href="./../../ARTIST Methodology M30/capabilitypatterns/Artist methodology M30_4F33D3E.html_tbs.html"><span style="white-space:nowrap;">Team Allocation</span></a></td><td width="21"><img src="./../../images/tab_middle-i_a.gif" width="21" height="17" align="absmiddle" alt="" title=""></td><td nowrap class="activeTab"><span style="white-space:nowrap;">Work Product Usage</span></td><td width="21"><img src="./../../images/tab_end-a.gif" width="21" height="17" alt="" title=""></td><td width="50%"><img src="./../../images/shim.gif" width="10" height="17" alt="" title=""></td>
+</tr>
+<tr>
+<td colspan="6"><img src="./../../images/shim.gif" height="2" alt="" title=""></td><td><img src="./../../images/tab_space_middle.gif" width="21" height="2" alt="" title=""></td><td class="activeTab"><img src="./../../images/shim.gif" width="10" height="2" alt="" title=""></td><td><img src="./../../images/tab_space.gif" width="21" height="2" alt="" title=""></td><td colspan="1"><img src="./../../images/shim.gif" height="2" alt="" title=""></td>
+</tr>
+<tr>
+<td colspan="10" class="activeTab"><img src="./../../images/shim.gif" height="5" alt="" title=""></td>
+</tr>
+</table>
+<div class="sectionHeading">Work Product Breakdown</div>
+<div class="sectionContent">
+<div id="treeContent"></div>
+<script language="JavaScript">
+contentPage.processPage.treeTable.data = {
+title: "Work Product Breakdown", summary: "Work Product Breakdown", 
+columns: [
+["presentation_name", "Breakdown Element"],
+["model_info", "Model Info"],
+["entry_state", "Entry State"],
+["exit_state", "Exit State"],
+["deliverable", "Deliverable"],
+["type", "Type"],
+["is_planned", "Planned"],
+["has_multiple_occurrences", "Multiple Occurrences"],
+["is_optional", "Optional"]],
+rows: [
+			
+{id: "14b85e2e", parentId: "", relPath: ",_u7C4oXF5EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "3rd party services", title: "3rd party services", url: "./../../ARTIST Methodology M30/capabilitypatterns/3rd party services_56DDC3D1.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c1d3f8df", parentId: "", relPath: ",_4mg-w8llEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "A list of potentially reusable artefacts to be further investigated", title: "A list of potentially reusable artefacts to be further investigated", url: "./../../ARTIST Methodology M30/capabilitypatterns/A list of potentially reusable artefacts to be further investiga_F3CC4A3E.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "63ea9739", parentId: "", relPath: ",_5whTwcllEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "A list of reusable artefacts to be published to the repository", title: "A list of reusable artefacts to be published to the repository", url: "./../../ARTIST Methodology M30/capabilitypatterns/A list of reusable artefacts to be published to the repository_C16AA0D8.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "68482bdc", parentId: "", relPath: ",_SigrEm8vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Annotated non-cloud PIM view", title: "Annotated non-cloud PIM view", url: "./../../ARTIST Methodology M30/capabilitypatterns/Annotated non-cloud PIM view_2B49B11.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "78d30a75", parentId: "", relPath: ",_rmemAXF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Application as a service", title: "Application as a service", url: "./../../ARTIST Methodology M30/capabilitypatterns/Application as a service_4DEC8DEE.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "798fb63d", parentId: "", relPath: ",_X5UBY28TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Application component to be profiled", title: "Application component to be profiled", url: "./../../ARTIST Methodology M30/capabilitypatterns/Application component to be profiled_4706D316.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "65b8b8ca", parentId: "", relPath: ",_q1KtsW_fEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Application deployment unit", title: "Application deployment unit", url: "./../../ARTIST Methodology M30/capabilitypatterns/Application deployment unit_3BC543E7.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6d82ee3b", parentId: "", relPath: ",_Bk2ywclmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Approved new artefacts published in the repository", title: "Approved new artefacts published in the repository", url: "./../../ARTIST Methodology M30/capabilitypatterns/Approved new artefacts published in the repository_3661EBFB.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "be8885dd", parentId: "", relPath: ",_X5UBZW8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "App VM", title: "App VM ", url: "./../../ARTIST Methodology M30/capabilitypatterns/App VM_B425CB5A.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6791ab86", parentId: "", relPath: ",_X5UBZm8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "App VM execution trace or profile", title: "App VM execution trace or profile", url: "./../../ARTIST Methodology M30/capabilitypatterns/App VM execution trace or profile_A2BEDF70.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1d114f1e", parentId: "", relPath: ",_MsgAEm_WEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Basic Migration Goal Model", title: "Basic Migration Goal Model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Basic Migration Goal Model_45AF8273.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6f1aab76", parentId: "", relPath: ",_SigrEW8vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Basic Migration Goal Model", title: "Basic Migration Goal Model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Basic Migration Goal Model_141B86FB.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bfc42a90", parentId: "", relPath: ",_OsGegcf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Basic Migration Goal Model", title: "Basic Migration Goal Model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Basic Migration Goal Model_EE5C9555.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1552eaef", parentId: "", relPath: ",_PMeNEW8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Benchmark executables and workload configuration files", title: "Benchmark executables and workload configuration files", url: "./../../ARTIST Methodology M30/capabilitypatterns/Benchmark executables and workload configuration files_AC7168EB.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "18fadf9d", parentId: "", relPath: ",_Xj-zQcf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "BFT- Ideal Cloud Compliant processes kit", title: "BFT- Ideal Cloud Compliant processes kit", url: "./../../ARTIST Methodology M30/capabilitypatterns/BFT- Ideal Cloud Compliant processes kit_5F67286A.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "180f5bb4", parentId: "", relPath: ",_oWd74XF6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Billing component", title: "Billing component", url: "./../../ARTIST Methodology M30/capabilitypatterns/Billing component_13F228D5.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "10728dcd", parentId: "", relPath: ",_SuHHonFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Business Impact Analysis", title: "Business Impact Analysis", url: "./../../ARTIST Methodology M30/capabilitypatterns/Business Impact Analysis_3F37AD67.html", 
+	predecessors: "", info: "Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c2e09304", parentId: "", relPath: ",_c9fFtXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Business Model", title: "Business Model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Business Model_259C7F40.html", 
+	predecessors: "", info: "Mandatory Input, Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1ab93f21", parentId: "", relPath: ",_Xj-zRMf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Business model", title: "Business model ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Business model_355FF673.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "171e022d", parentId: "", relPath: ",_rjNY9HFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Business objectives", title: "Business objectives", url: "./../../ARTIST Methodology M30/capabilitypatterns/Business objectives_A4F59778.html", 
+	predecessors: "", info: "Mandatory Input, Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1925d42a", parentId: "", relPath: ",_usI583F5EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Business Plan", title: "Business Plan", url: "./../../ARTIST Methodology M30/capabilitypatterns/Business Plan_A2480B3A.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "13a599a1", parentId: "", relPath: ",_ZngxQ8f3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "CBA Report", title: "CBA Report", url: "./../../ARTIST Methodology M30/capabilitypatterns/CBA Report_F1A3F785.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1096eb2e", parentId: "", relPath: ",_yAGTIslfEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Certification report and certification level obtained", title: "Certification report and certification level obtained", url: "./../../ARTIST Methodology M30/capabilitypatterns/Certification report and certification level obtained_96128897.html", 
+	predecessors: "", info: "Optional Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "18d11d83", parentId: "", relPath: ",_6vV3A8lmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Changed artefact", title: "Changed artefact", url: "./../../ARTIST Methodology M30/capabilitypatterns/Changed artefact_C58D26F3.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1081a031", parentId: "", relPath: ",_Y16XF28UEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Classified component in one of the application categories patterns", title: "Classified component in one of the application categories patterns", url: "./../../ARTIST Methodology M30/capabilitypatterns/Classified component in one of the application categories patter_FE3BCABA.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c04c9124", parentId: "", relPath: ",_Y16XFm8UEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Classifier model, application component profile", title: "Classifier model, application component profile", url: "./../../ARTIST Methodology M30/capabilitypatterns/Classifier model, application component profile_9561F4F5.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "68406e88", parentId: "", relPath: ",_PohqI2_HEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cloud Environment models", title: "Cloud Environment models", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cloud Environment models_55B72B4D.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bd12fc78", parentId: "", relPath: ",_jmwSJG_SEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cloudified PIM view", title: "Cloudified PIM view", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cloudified PIM view_9D8CF863.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c051ca3d", parentId: "", relPath: ",_vWG_w2_TEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cloudified PSM view", title: "Cloudified PSM view", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cloudified PSM view_55E1F59C.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "7b3db4f7", parentId: "", relPath: ",_TZIaxW8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "CloudML@ARTIST metamodel", title: "CloudML@ARTIST metamodel", url: "./../../ARTIST Methodology M30/capabilitypatterns/CloudML ARTIST metamodel_814EA610.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6ea72d65", parentId: "", relPath: ",_UUSbcW8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "CloudML@ARTIST profile", title: "CloudML@ARTIST profile", url: "./../../ARTIST Methodology M30/capabilitypatterns/CloudML ARTIST profile_82DCCA16.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "22575416", parentId: "", relPath: ",_u7C4onF5EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cloud provider identification", title: "Cloud provider identification", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cloud provider identification_4576D7E7.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "79a4915b", parentId: "", relPath: ",_ibXqsXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cloud provider SLA", title: "Cloud provider SLA", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cloud provider SLA_6D7100BD.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6ca2c9a5", parentId: "", relPath: ",_wQXElnFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Communication Mechanism", title: "Communication Mechanism", url: "./../../ARTIST Methodology M30/capabilitypatterns/Communication Mechanism_27EBFFEF.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "78ecb95a", parentId: "", relPath: ",_NsVpkcjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Comparison verdict", title: "Comparison verdict ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Comparison verdict_F2125E2E.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "79909708", parentId: "", relPath: ",__h1eUcf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Complexity of the task", title: "Complexity of the task", url: "./../../ARTIST Methodology M30/capabilitypatterns/Complexity of the task_11FB6062.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bf9c6220", parentId: "", relPath: ",__h1eUsf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Component complexity", title: "Component complexity", url: "./../../ARTIST Methodology M30/capabilitypatterns/Component complexity_1C994072.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "72fa9c24", parentId: "", relPath: ",_5iOsUsf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Component model", title: "Component model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Component model_7B8A0F8D.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6d16448d", parentId: "", relPath: ",_NWq-cW_WEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Conclusions about goal fulfilment", title: "Conclusions about goal fulfilment", url: "./../../ARTIST Methodology M30/capabilitypatterns/Conclusions about goal fulfilment_80FC8B24.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "223cfaf7", parentId: "", relPath: ",_MbvdwclbEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Conclusions about goal fulfilment", title: "Conclusions about goal fulfilment ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Conclusions about goal fulfilment_5855AAE3.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6eb0c47e", parentId: "", relPath: ",_UUSbcm8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Concrete Provider descriptions", title: "Concrete Provider descriptions", url: "./../../ARTIST Methodology M30/capabilitypatterns/Concrete Provider descriptions_7175DE2C.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "72b33d9a", parentId: "", relPath: ",_TBDoQW8vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cost structure", title: "Cost structure", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cost structure_D20B0027.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1725ff89", parentId: "", relPath: ",_oWd74nF6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Cost Structure", title: "Cost Structure", url: "./../../ARTIST Methodology M30/capabilitypatterns/Cost Structure_28B3CEB.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1d3b098a", parentId: "", relPath: ",_CeOPQXF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Customers needs", title: "Customers needs", url: "./../../ARTIST Methodology M30/capabilitypatterns/Customers needs_4B80419E.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1e219b86", parentId: "", relPath: ",_l3CXQ8f5EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Customised methodology for the migration project", title: "Customised methodology for the migration project", url: "./../../ARTIST Methodology M30/capabilitypatterns/Customised methodology for the migration project_EB72F8FE.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "166e9a23", parentId: "", relPath: ",_ZngxQcf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Data for the CBA", title: "Data for the CBA", url: "./../../ARTIST Methodology M30/capabilitypatterns/Data for the CBA_7E2C41B0.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "14a5beff", parentId: "", relPath: ",_ACcecsleEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Decision on SLA success - failure", title: "Decision on SLA success - failure", url: "./../../ARTIST Methodology M30/capabilitypatterns/Decision on SLA success - failure_DCFD1DEB.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "70730be8", parentId: "", relPath: ",_COalknFgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Deployed application", title: "Deployed application", url: "./../../ARTIST Methodology M30/capabilitypatterns/Deployed application_CA7F2281.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c5b77d67", parentId: "", relPath: ",_qeX-UW_fEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Deployment descriptors and scripts", title: "Deployment descriptors and scripts", url: "./../../ARTIST Methodology M30/capabilitypatterns/Deployment descriptors and scripts_7AB568C5.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "18141fee", parentId: "", relPath: ",_eD0boXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Deployment plan", title: "Deployment plan", url: "./../../ARTIST Methodology M30/capabilitypatterns/Deployment plan_88E08F80.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "167bfdb2", parentId: "", relPath: ",_jAWIlG8FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Derived higher-level models from a previous refinement", title: "Derived higher-level models from a previous refinement ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Derived higher-level models from a previous refinement_D48FC29.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c3966cc7", parentId: "", relPath: ",_UBBzIclmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Description containing changes from one version onto the next", title: "Description containing changes from one version onto the next", url: "./../../ARTIST Methodology M30/capabilitypatterns/Description containing changes from one version onto the next_23609A3E.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1e3f2e7c", parentId: "", relPath: ",_6wFy03FfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Description of roles", title: "Description of roles", url: "./../../ARTIST Methodology M30/capabilitypatterns/Description of roles_B28FADBD.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6f35b341", parentId: "", relPath: ",_ArLRN3FgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Design of each sprint", title: "Design of each sprint", url: "./../../ARTIST Methodology M30/capabilitypatterns/Design of each sprint_B71BF2C3.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c66676ba", parentId: "", relPath: ",_omgCUslmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Development environment", title: "Development environment", url: "./../../ARTIST Methodology M30/capabilitypatterns/Development environment_76E43FD7.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "76094902", parentId: "", relPath: ",_LU4qAsjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Direct or logged end user interaction with the migrated application", title: "Direct or logged end user interaction with the migrated application", url: "./../../ARTIST Methodology M30/capabilitypatterns/Direct or logged end user interaction with the migrated applicat_3FF4D3EF.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1d48c45a", parentId: "", relPath: ",_vKr3IXF5EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Document specifying the terms for the alliance", title: "Document specifying the terms for the alliance", url: "./../../ARTIST Methodology M30/capabilitypatterns/Document specifying the terms for the alliance_64BB159A.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "7723abba", parentId: "", relPath: ",_MK7hMcjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "End user request in the non-cloud application", title: "End user request in the non-cloud application", url: "./../../ARTIST Methodology M30/capabilitypatterns/End user request in the non-cloud application_F0A1C43C.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6b0f6045", parentId: "", relPath: ",_MK7hMsjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "End user request mapping", title: "End user request mapping", url: "./../../ARTIST Methodology M30/capabilitypatterns/End user request mapping_FB3FA44C.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c63ca67d", parentId: "", relPath: ",_LU4qA8jEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "End user requests in the migrated application", title: "End user requests in the migrated application", url: "./../../ARTIST Methodology M30/capabilitypatterns/End user requests in the migrated application_A8CEA9B4.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bebaf977", parentId: "", relPath: ",_NE8VQm_WEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Evaluation of NFPs", title: "Evaluation of NFPs", url: "./../../ARTIST Methodology M30/capabilitypatterns/Evaluation of NFPs_17D362BC.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "19b2f8ed", parentId: "", relPath: ",_L7EZoclbEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Evaluation of NFPs", title: "Evaluation of NFPs ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Evaluation of NFPs_30EDC8E8.html", 
+	predecessors: "", info: "Mandatory Input, Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1725cbdb", parentId: "", relPath: ",_eD0bonFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Exit and entry criteria for each stage of the release and deployment", title: "Exit and entry criteria for each stage of the release and deployment", url: "./../../ARTIST Methodology M30/capabilitypatterns/Exit and entry criteria for each stage of the release and deploy_7779A396.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1b9364c0", parentId: "", relPath: ",_usI59HF5EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Financial Plan", title: "Financial Plan", url: "./../../ARTIST Methodology M30/capabilitypatterns/Financial Plan_4C9236E.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6d09fa4e", parentId: "", relPath: ",_SuHHo3FfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Financial plans", title: "Financial plans", url: "./../../ARTIST Methodology M30/capabilitypatterns/Financial plans_A811832C.html", 
+	predecessors: "", info: "Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "beccdce5", parentId: "", relPath: ",_UcyiEclmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Formalized representation of the Change Description", title: "Formalized representation of the Change Description", url: "./../../ARTIST Methodology M30/capabilitypatterns/Formalized representation of the Change Description_CC4547FB.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "65d4710e", parentId: "", relPath: ",_1iDA0m8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Functional Benchmark VM", title: "Functional Benchmark VM", url: "./../../ARTIST Methodology M30/capabilitypatterns/Functional Benchmark VM_44189845.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1240bee6", parentId: "", relPath: ",_CeOPQnF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Functional specifications", title: "Functional specifications", url: "./../../ARTIST Methodology M30/capabilitypatterns/Functional specifications_3A1955B4.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6776d929", parentId: "", relPath: ",_TBDoQm8vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Generic billing component", title: "Generic billing component", url: "./../../ARTIST Methodology M30/capabilitypatterns/Generic billing component_C0A4143D.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "70e81f54", parentId: "", relPath: ",_Dmfe4nF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Identification of the customers needs and challenges", title: "Identification of the customers needs and challenges", url: "./../../ARTIST Methodology M30/capabilitypatterns/Identification of the customers needs and challenges_8F646636.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c24ef078", parentId: "", relPath: ",_lOLwk3FfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Incidence Log", title: "Incidence log", url: "./../../ARTIST Methodology M30/capabilitypatterns/Incidence Log_3AF40EFC.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "13fad369", parentId: "", relPath: ",_lfUj4XFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Incidence Model", title: "Incidence Model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Incidence Model_7CF13199.html", 
+	predecessors: "", info: "Mandatory Input, Optional Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "76431bf7", parentId: "", relPath: ",_-vY7IMldEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Information that is needed to retrieve status from Cloud provider", title: "Information that is needed to retrieve status from Cloud provider ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Information that is needed to retrieve status from Cloud provide_92302C41.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "20c793de", parentId: "", relPath: ",_xvrRhMlfEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Initial certification report", title: "Initial certification report", url: "./../../ARTIST Methodology M30/capabilitypatterns/Initial certification report_CC854DBB.html", 
+	predecessors: "", info: "Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "222fa0bd", parentId: "", relPath: ",_ACceccleEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Interval for which the availability statistics need to be calculated", title: "Interval for which the availability statistics need to be calculated ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Interval for which the availability statistics need to be calcul_D25F3DDB.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c58d6486", parentId: "", relPath: ",_rVotpXF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Inventory of possible relationships and acceptance by each customer segment", title: "Inventory of possible relationships and acceptance by each customer segment", url: "./../../ARTIST Methodology M30/capabilitypatterns/Inventory of possible relationships and acceptance by each custo_EEF20F05.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "63dc0e8a", parentId: "", relPath: ",_CeOPQ3F4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Inventory of services and target customer segment", title: "Inventory of services and target customer segment", url: "./../../ARTIST Methodology M30/capabilitypatterns/Inventory of services and target customer segment_A2F32B79.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c6586224", parentId: "", relPath: ",_Px46hMf4EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "iReport", title: "iReport", url: "./../../ARTIST Methodology M30/capabilitypatterns/iReport_A41F4CC9.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6d586823", parentId: "", relPath: ",_xvrRg8lfEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Knowledge about the different aspects and practices established in the provider", title: "Knowledge about the different aspects and practices established in the provider", url: "./../../ARTIST Methodology M30/capabilitypatterns/Knowledge about the different aspects and practices established _6A043587.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6e637849", parentId: "", relPath: ",_iFdsI3FfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "List of cloud providers and information of their features", title: "List of cloud providers and information of their features", url: "./../../ARTIST Methodology M30/capabilitypatterns/List of cloud providers and information of their features_9B24C75C.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c21bc9e2", parentId: "", relPath: ",_pO8cAXF6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "List of costs", title: "List of costs", url: "./../../ARTIST Methodology M30/capabilitypatterns/List of costs_BA90A7D7.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "77cbc2f3", parentId: "", relPath: ",_yAGTIclfEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "List of evidences of the practices established in the company", title: " List of evidences of the practices established in the company", url: "./../../ARTIST Methodology M30/capabilitypatterns/List of evidences of the practices established in the company_8B74A887.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6b006acc", parentId: "", relPath: ",_vqIMMXF5EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "List of potential partners", title: "List of potential partners", url: "./../../ARTIST Methodology M30/capabilitypatterns/List of potential partners_2019A79F.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "760989f3", parentId: "", relPath: ",_oGOgc3F6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "List of potential revenue means", title: "List of potential revenue means", url: "./../../ARTIST Methodology M30/capabilitypatterns/List of potential revenue means_4849FCB6.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "754556cb", parentId: "", relPath: ",_ArLRNHFgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "List of requirements for each sprint", title: "List of requirements for each sprint", url: "./../../ARTIST Methodology M30/capabilitypatterns/List of requirements for each sprint_550B28D8.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "122a2488", parentId: "", relPath: ",_R89G8m8vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Local workspace", title: "Local workspace", url: "./../../ARTIST Methodology M30/capabilitypatterns/Local workspace_ECCC76B1.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6b15f18c", parentId: "", relPath: ",__ConQcldEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Location (IP address) and credentials for MongoDB setup", title: "Location (IP address) and credentials for MongoDB setup ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Location IP address and credentials for MongoDB setup_8081484B.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "181c5f42", parentId: "", relPath: ",_P_XK828FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:true, 
+	index: "", prefix: "", name: "Low-level initial models", title: "Low-level initial models ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Low-level initial models_D50642A1.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "15637c97", parentId: "181c5f42", relPath: ",_P_XK828FEeSGk70TEZZiGw,_RoH4gm8FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 1, hasChildren:false, 
+	index: "", prefix: "", name: "UML Sequence Diagram for the behaviour", title: "UML Sequence Diagram for the behaviour ", url: "./../../ARTIST Methodology M30/capabilitypatterns/UML Sequence Diagram for the behaviour_65238F94.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "78fcc62a", parentId: "181c5f42", relPath: ",_P_XK828FEeSGk70TEZZiGw,_RoH4gW8FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 1, hasChildren:false, 
+	index: "", prefix: "", name: "UML Class Models for the structure", title: "UML Class Models for the structure", url: "./../../ARTIST Methodology M30/capabilitypatterns/UML Class Models for the structure_768A7B7E.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "18ed24ea", parentId: "", relPath: ",_rjNY9XFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Market analysis", title: "Market analysis ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Market analysis_AF937788.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "73c6ed34", parentId: "", relPath: ",_r5tNYXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Marketing Objectives", title: "Marketing Objectives", url: "./../../ARTIST Methodology M30/capabilitypatterns/Marketing Objectives_31D88682.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "175c41ca", parentId: "", relPath: ",_s8wl0XFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Marketing Plan", title: "Marketing Plan", url: "./../../ARTIST Methodology M30/capabilitypatterns/Marketing Plan_33A8E268.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "19130451", parentId: "", relPath: ",_sU1DIXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Marketing Strategy", title: "Marketing Strategy", url: "./../../ARTIST Methodology M30/capabilitypatterns/Marketing Strategy_5A5BE2EA.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "124db554", parentId: "", relPath: ",_sZbs8XF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Market segment", title: "Market segment", url: "./../../ARTIST Methodology M30/capabilitypatterns/Market segment_170FE44C.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c3acb724", parentId: "", relPath: ",_0w1PUsf0EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "MAT report", title: "MAT report", url: "./../../ARTIST Methodology M30/capabilitypatterns/MAT report_EE2CF0BA.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "686a0b64", parentId: "", relPath: ",_PMeNEm8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Measurements performed on the target providers and their respective services", title: "Measurements performed on the target providers and their respective services", url: "./../../ARTIST Methodology M30/capabilitypatterns/Measurements performed on the target providers and their respect_9B0A7D01.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1b7d3a7d", parentId: "", relPath: ",_Xj-zQsf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Migration effort estimation", title: "Migration effort estimation ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Migration effort estimation_6A05087A.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bcd8eb26", parentId: "", relPath: ",__Id8Ecf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Migration strategy types", title: "Migration strategy types", url: "./../../ARTIST Methodology M30/capabilitypatterns/Migration strategy types_40A209D3.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "69375240", parentId: "", relPath: ",_pKetg2_fEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Modeller workspace", title: "Modeller workspace ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Modeller workspace_A3D48E6F.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1fd08557", parentId: "", relPath: ",_pKethG_fEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Modernised application PSM", title: "Modernised application PSM", url: "./../../ARTIST Methodology M30/capabilitypatterns/Modernised application PSM_655A6A3.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "19c85ee8", parentId: "", relPath: ",_M9m7U8jEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Modernized application model level trace (platform impendent)", title: "Modernized application model level trace (platform impendent)", url: "./../../ARTIST Methodology M30/capabilitypatterns/Modernized application model level trace platform impendent_246DCA10.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c3fa0652", parentId: "", relPath: ",_dXXMJW_cEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Modernized code", title: "Modernized code", url: "./../../ARTIST Methodology M30/capabilitypatterns/Modernized code_379BB92D.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "64137dc9", parentId: "", relPath: ",_oWd743F6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Monitoirng component", title: "Monitoirng component", url: "./../../ARTIST Methodology M30/capabilitypatterns/Monitoirng component_6B6512B0.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "14bdcd27", parentId: "", relPath: ",_l3CXQcf5EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "MPT Report for the MAT", title: "MPT Report for the MAT", url: "./../../ARTIST Methodology M30/capabilitypatterns/MPT Report for the MAT_77FB4329.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "18bf1f7b", parentId: "", relPath: ",_AdF5c8lmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "New artefacts published in the repository", title: "New artefacts published in the repository", url: "./../../ARTIST Methodology M30/capabilitypatterns/New artefacts published in the repository_E7224E66.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c2228d2d", parentId: "", relPath: ",_4mg-wsllEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "New modelling artefacts created in the project", title: "New modelling artefacts created in the project", url: "./../../ARTIST Methodology M30/capabilitypatterns/New modelling artefacts created in the project_8AF27479.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c48807a6", parentId: "", relPath: ",_M9m7VMjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Non-cloud application model level trace (platform independent)", title: "Non-cloud application model level trace (platform independent)", url: "./../../ARTIST Methodology M30/capabilitypatterns/Non-cloud application model level trace platform independent_86EEE244.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "67269fc0", parentId: "", relPath: ",_MyVOQ28FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Non-cloud artefacts", title: "Non-cloud artefacts ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Non-cloud artefacts_22A2F12B.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "14aa3b76", parentId: "", relPath: ",_7WLWMcf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Non-cloud code", title: "Non-cloud code", url: "./../../ARTIST Methodology M30/capabilitypatterns/Non-cloud code_411F1C78.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6feae4ca", parentId: "", relPath: ",_R89G828vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Non-cloud PIM view", title: "Non-cloud PIM view ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Non-cloud PIM view_55A64C76.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1ac792c2", parentId: "", relPath: ",_MsgAE2_WEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Nonfunctional properties related to defined goals", title: "Nonfunctional properties related to defined goals", url: "./../../ARTIST Methodology M30/capabilitypatterns/Nonfunctional properties related to defined goals_AE895838.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bd33fad3", parentId: "", relPath: ",_LIH5w8lbEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Non-functional properties related to defined goals", title: "Non-functional properties related to defined goals ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Non-functional properties related to defined goals_A8FB34FF.html", 
+	predecessors: "", info: "Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "79abe9e2", parentId: "", relPath: ",_TOIWkslmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Normalized representation of the two versions-variants of the artefact", title: "Normalized representation of the two versions-variants of the artefact", url: "./../../ARTIST Methodology M30/capabilitypatterns/Normalized representation of the two versions-variants of the ar_9DBEBE90.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "76e31c80", parentId: "", relPath: ",_bj4cU2_cEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Optimized PSM", title: "Optimized PSM ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Optimized PSM_F0EB696B.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6af542bc", parentId: "", relPath: ",_SuHHpHFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Organisational Strategy plan", title: "Organisational Strategy plan", url: "./../../ARTIST Methodology M30/capabilitypatterns/Organisational Strategy plan_A929B60.html", 
+	predecessors: "", info: "Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "68fa95e4", parentId: "", relPath: ",_6wFy1HFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Organisation chart", title: "Organisation chart", url: "./../../ARTIST Methodology M30/capabilitypatterns/Organisation chart_1510C5F1.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "70579335", parentId: "", relPath: ",_6vV3AslmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Planned change for artefact and collected evolution data", title: "Planned change for artefact and collected evolution data", url: "./../../ARTIST Methodology M30/capabilitypatterns/Planned change for artefact and collected evolution data_5CB3512E.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "22743ed9", parentId: "", relPath: ",_NMBYQm8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Popular application categories", title: "Popular application categories ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Popular application categories_F0078585.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "102c9ab4", parentId: "", relPath: ",_PMeNE28TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Populated raw data historical data DB", title: "Populated raw data historical data DB", url: "./../../ARTIST Methodology M30/capabilitypatterns/Populated raw data historical data DB_3E452C6.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c2230b55", parentId: "", relPath: ",_ZngxQsf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Pricing model catalogue", title: "Pricing model catalogue", url: "./../../ARTIST Methodology M30/capabilitypatterns/Pricing model catalogue_88CA21C0.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "70820ff4", parentId: "", relPath: ",_oWd75HF6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Pricing policy", title: "Pricing policy", url: "./../../ARTIST Methodology M30/capabilitypatterns/Pricing policy_CDE62AE4.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c142b9f0", parentId: "", relPath: ",_TBDoQ28vEeSpifzI2SXP8A", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Pricing strategy", title: "Pricing strategy", url: "./../../ARTIST Methodology M30/capabilitypatterns/Pricing strategy_297DEA02.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6f3483eb", parentId: "", relPath: ",_ArLRNnFgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Prioritised requirements", title: "Prioritised requirements", url: "./../../ARTIST Methodology M30/capabilitypatterns/Prioritised requirements_4E421CFE.html", 
+	predecessors: "", info: "Mandatory Input, Optional Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c25b70aa", parentId: "", relPath: ",_jAWIlm8FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Processed higher-level models", title: "Processed higher-level models", url: "./../../ARTIST Methodology M30/capabilitypatterns/Processed higher-level models_67FF04F.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6e8bee43", parentId: "", relPath: ",_1iDA028TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Profiles on the execution hardware of the individual benchmark tests", title: "Profiles on the execution hardware of the individual benchmark tests", url: "./../../ARTIST Methodology M30/capabilitypatterns/Profiles on the execution hardware of the individual benchmark t_ACF26E0A.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "673c5a8d", parentId: "", relPath: ",_a4w9wsf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Profit and Loss Projections", title: "Profit and Loss Projections", url: "./../../ARTIST Methodology M30/capabilitypatterns/Profit and Loss Projections_66A184EA.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c585e035", parentId: "", relPath: ",_a4w9wcf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Profit and Loss template with several pricing models to select", title: "Profit and Loss template with several pricing models to select", url: "./../../ARTIST Methodology M30/capabilitypatterns/Profit and Loss template with several pricing models to select_5C03A4DA.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "121ba395", parentId: "", relPath: ",_A5L4AnFgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Prototype of each sprint", title: "Prototype of each sprint", url: "./../../ARTIST Methodology M30/capabilitypatterns/Prototype of each sprint_386FAD10.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1c7485da", parentId: "", relPath: ",_TZIawm8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Provider and service textual descriptions", title: "Provider and service textual descriptions", url: "./../../ARTIST Methodology M30/capabilitypatterns/Provider and service textual descriptions_AB55D807.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6e703792", parentId: "", relPath: ",_VTBUkm8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Provider Models", title: "Provider Models", url: "./../../ARTIST Methodology M30/capabilitypatterns/Provider Models_3C8B8126.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "173908e5", parentId: "", relPath: ",_PohqJG_HEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Ranked list of matching Cloud environment models", title: "Ranked list of matching Cloud environment models", url: "./../../ARTIST Methodology M30/capabilitypatterns/Ranked list of matching Cloud environment models_B8384381.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1dc6ecd6", parentId: "", relPath: ",_MyVORG8FEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Recommendations and guidelines on how to actually implement or run the model discovery process", title: "Recommendations and guidelines on how to actually implement or run the model discovery process", url: "./../../ARTIST Methodology M30/capabilitypatterns/Recommendations and guidelines on how to actually implement or r_8524095F.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6b4c4a12", parentId: "", relPath: ",_s1JNAMlmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Recorded development tasks and changes linked to these tasks", title: "Recorded development tasks and changes linked to these tasks", url: "./../../ARTIST Methodology M30/capabilitypatterns/Recorded development tasks and changes linked to these tasks_E181EC0D.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1ef4eab4", parentId: "", relPath: ",_c9fFt3FfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Release package", title: "Release package", url: "./../../ARTIST Methodology M30/capabilitypatterns/Release package_7D0F691B.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bd1b833f", parentId: "", relPath: ",_c9fFtnFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Release Strategy", title: "Release Strategy", url: "./../../ARTIST Methodology M30/capabilitypatterns/Release Strategy_14359356.html", 
+	predecessors: "", info: "Mandatory Input, Optional Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "10a79928", parentId: "", relPath: ",_iucXsnFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Report on the monitoring of the cloud provider", title: "Report on the monitoring of the cloud provider", url: "./../../ARTIST Methodology M30/capabilitypatterns/Report on the monitoring of the cloud provider_29B4F7A2.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "76563700", parentId: "", relPath: ",_iFdsJXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Required features for the Cloud provider", title: "Required features for the Cloud provider", url: "./../../ARTIST Methodology M30/capabilitypatterns/Required features for the Cloud provider_843BFA0.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c4112c2d", parentId: "", relPath: ",_TZIaw28TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Result formatting", title: "Result formatting", url: "./../../ARTIST Methodology M30/capabilitypatterns/Result formatting_142FADCC.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "7002115d", parentId: "", relPath: ",_7WLWMsf1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Reusability Trace", title: "Reusability Trace", url: "./../../ARTIST Methodology M30/capabilitypatterns/Reusability Trace_4BBCFC88.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "132f1faf", parentId: "", relPath: ",_oGOgdHF6EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Revenues", title: "Revenues", url: "./../../ARTIST Methodology M30/capabilitypatterns/Revenues_AACB14EA.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bcdf7ca5", parentId: "", relPath: ",_M9m7UcjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Run time trace of the modernized application request", title: "Run time trace of the modernized application request", url: "./../../ARTIST Methodology M30/capabilitypatterns/Run time trace of the modernized application request_B0F6143B.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1e448978", parentId: "", relPath: ",_M9m7UsjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Run time trace of the non-cloud application request", title: "Run time trace of the non-cloud application request", url: "./../../ARTIST Methodology M30/capabilitypatterns/Run time trace of the non-cloud application request_BB93F44B.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6953a2e2", parentId: "", relPath: ",_s8wccHF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Sales channels specified in the Marketing plan", title: "Sales channels specified in the Marketing plan", url: "./../../ARTIST Methodology M30/capabilitypatterns/Sales channels specified in the Marketing plan_8A42DE0A.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1edf2663", parentId: "", relPath: ",_TZIaxG8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Selected benchmarks", title: "Selected benchmarks ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Selected benchmarks_76B0C600.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "68eadf12", parentId: "", relPath: ",_NMBYQ28TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Selected benchmarks, according executables and workloads to be run", title: "Selected benchmarks, according executables and workloads to be run", url: "./../../ARTIST Methodology M30/capabilitypatterns/Selected benchmarks, according executables and workloads to be r_58E15B4A.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c20b73ab", parentId: "", relPath: ",_QlK4kW_HEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Selected Cloud environment model", title: "Selected Cloud environment model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Selected Cloud environment model_3B708FEC.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1599fd9d", parentId: "", relPath: ",_jmwSIm_SEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Selection of cloudification pattern", title: "Selection of cloudification pattern ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Selection of cloudification pattern_D2320A6A.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1787b3f3", parentId: "", relPath: ",_vWG_wW_TEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Selection of optimization pattern", title: "Selection of optimization pattern ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Selection of optimization pattern_FE6F0BC1.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "7b360bf0", parentId: "", relPath: ",_dPD94nFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Service catalogue", title: "Service catalogue", url: "./../../ARTIST Methodology M30/capabilitypatterns/Service catalogue_62DB6561.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1660f44e", parentId: "", relPath: ",_SuHHpXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Service level agreement structure", title: "Service level agreement structure", url: "./../../ARTIST Methodology M30/capabilitypatterns/Service level agreement structure_15307B70.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c312d553", parentId: "", relPath: ",_TjnMQnFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Service report", title: "Service report", url: "./../../ARTIST Methodology M30/capabilitypatterns/Service report_986C16B8.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6b8d7607", parentId: "", relPath: ",_Ylzcocf3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Simulations for business model", title: "Simulations for business model", url: "./../../ARTIST Methodology M30/capabilitypatterns/Simulations for business model_3995FFE9.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "63d393c3", parentId: "", relPath: ",_S-NZI3FfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "SLA", title: "SLA", url: "./../../ARTIST Methodology M30/capabilitypatterns/SLA_D32ACC16.html", 
+	predecessors: "", info: "Mandatory Input, Output, Optional Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "bf9b88a0", parentId: "", relPath: ",_tHxREnFhEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "SLA review report", title: "SLA review report", url: "./../../ARTIST Methodology M30/capabilitypatterns/SLA review report_4A5952FF.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6cc6eb91", parentId: "", relPath: ",__ConQsldEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Statistical raw data regarding resource availability", title: "Statistical raw data regarding resource availability", url: "./../../ARTIST Methodology M30/capabilitypatterns/Statistical raw data regarding resource availability_8B1F285B.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "12e6dc60", parentId: "", relPath: ",_ACcec8leEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Statistics for provider included in provider models", title: "Statistics for provider included in provider models", url: "./../../ARTIST Methodology M30/capabilitypatterns/Statistics for provider included in provider models_45D6F3B0.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "668d5bd5", parentId: "", relPath: ",_B6da5HF4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Surveys, interviews or market observation", title: "Surveys, interviews or market observation", url: "./../../ARTIST Methodology M30/capabilitypatterns/Surveys, interviews or market observation_92E9EC78.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "71b05638", parentId: "", relPath: ",_yqq6IclfEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Tangible set of evidences of the practices established in the company", title: "Tangible set of evidences of the practices established in the company", url: "./../../ARTIST Methodology M30/capabilitypatterns/Tangible set of evidences of the practices established in the co_CEB867AF.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "751b3089", parentId: "", relPath: ",_qEJgcW_fEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Target Cloud environment PDM", title: "Target Cloud environment PDM ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Target Cloud environment PDM_955182DF.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c815d5a3", parentId: "", relPath: ",_vWG_wm_TEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Target Cloud environment PDM", title: "Target Cloud environment PDM ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Target Cloud environment PDM_ED081FD7.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "746a9073", parentId: "", relPath: ",_Xj-zQ8f3EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Target platform model", title: "Target platform model ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Target platform model_D2DEDE3F.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c0570288", parentId: "", relPath: ",_dJqHUW_cEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Target specific application code", title: "Target specific application code", url: "./../../ARTIST Methodology M30/capabilitypatterns/Target specific application code_93FD09F6.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c5a781b7", parentId: "", relPath: ",_cgFl4W_cEeSHL-dlvDvGPg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Target-specific application PSM", title: "Target-specific application PSM", url: "./../../ARTIST Methodology M30/capabilitypatterns/Target-specific application PSM_27C3B624.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6b0eadea", parentId: "", relPath: ",_B-5u4cjAEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Test Cases", title: "Test Cases", url: "./../../ARTIST Methodology M30/capabilitypatterns/Test Cases_B7AC864D.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "63c9adde", parentId: "", relPath: ",_BHF9IcjAEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Test case Specification", title: "Test case Specification", url: "./../../ARTIST Methodology M30/capabilitypatterns/Test case Specification_59964A86.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "227594ea", parentId: "", relPath: ",_COalk3FgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Tested Application", title: "Tested Application", url: "./../../ARTIST Methodology M30/capabilitypatterns/Tested Application_3358F846.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1ad5e55a", parentId: "", relPath: ",_BrjJEXFgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Tested prototype of each sprint", title: "Tested Prototype of each sprint", url: "./../../ARTIST Methodology M30/capabilitypatterns/Tested prototype of each sprint_B4B1E18A.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "19c1f74f", parentId: "", relPath: ",_BHF9IsjAEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Testing criteria", title: "Testing criteria ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Testing criteria_64342A96.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6f35fa88", parentId: "", relPath: ",_B-5u4sjAEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Test Report", title: "Test Report", url: "./../../ARTIST Methodology M30/capabilitypatterns/Test Report_C24A665D.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6bd46242", parentId: "", relPath: ",_Atl4BcjAEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Test specification model", title: "Test specification model ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Test specification model_FB0F7C8F.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "695b1d3f", parentId: "", relPath: ",_5iOsU8f1EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "TFT report", title: "TFT report", url: "./../../ARTIST Methodology M30/capabilitypatterns/TFT report_E463E552.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "78f1eb99", parentId: "", relPath: ",_MK7hMMjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Trace models", title: "Trace models ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Trace models_208B026.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "65d53da1", parentId: "", relPath: ",_Y16XFW8UEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Trained prediction classifier", title: "Trained prediction classifier", url: "./../../ARTIST Methodology M30/capabilitypatterns/Trained prediction classifier_A6C8E0DF.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c4d6ae91", parentId: "", relPath: ",_xVck4sllEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Two versions of any reusable artefact produced within the ARTIST tool chain", title: "Two versions of any reusable artefact produced within the ARTIST tool chain", url: "./../../ARTIST Methodology M30/capabilitypatterns/Two versions of any reusable artefact produced within the ARTIST_E3481D43.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "720ff3bc", parentId: "", relPath: ",_ADWP8cf2EeS9jsuCsUMFrg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "UML class model", title: "UML class model ", url: "./../../ARTIST Methodology M30/capabilitypatterns/UML class model_212D959F.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "209c5ae9", parentId: "", relPath: ",_Dd-QgMlmEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Updated artefacts in the repository", title: "Updated artefacts in the repository", url: "./../../ARTIST Methodology M30/capabilitypatterns/Updated artefacts in the repository_ABEFEA9.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "226cd1a2", parentId: "", relPath: ",_xfejEXFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "User feedback and satisfaction measures", title: "User feedback and satisfaction measures", url: "./../../ARTIST Methodology M30/capabilitypatterns/User feedback and satisfaction measures_53035B0C.html", 
+	predecessors: "", info: "Output, Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "191878ad", parentId: "", relPath: ",_L1LToMjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "User request executed in the modernized application", title: "User request executed in the modernized application", url: "./../../ARTIST Methodology M30/capabilitypatterns/User request executed in the modernized application_3E510142.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6796d84b", parentId: "", relPath: ",_L1LTocjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "User request executed in the non-cloud application", title: "User request executed in the non-cloud application", url: "./../../ARTIST Methodology M30/capabilitypatterns/User request executed in the non-cloud application_2CEA1558.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "1a73315d", parentId: "", relPath: ",_L1KskcjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "User request to be executed in the modernized application", title: "User request to be executed in the modernized application", url: "./../../ARTIST Methodology M30/capabilitypatterns/User request to be executed in the modernized application_1AA28CDC.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c487cabc", parentId: "", relPath: ",_L1KsksjEEeS7wJTzzHxtQg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "User request to be executed in the non-cloud application", title: "User request to be executed in the non-cloud application", url: "./../../ARTIST Methodology M30/capabilitypatterns/User request to be executed in the non-cloud application_25406CEC.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c63d8619", parentId: "", relPath: ",_ArLRNXFgEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "User Requirements", title: "User Requirements", url: "./../../ARTIST Methodology M30/capabilitypatterns/User Requirements_5FA908E8.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "19dfbbb6", parentId: "", relPath: ",_-vY7IcldEeSF8-J5ZzwGkg", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Valid resources to be monitored", title: "Valid resources to be monitored ", url: "./../../ARTIST Methodology M30/capabilitypatterns/Valid resources to be monitored_80C94057.html", 
+	predecessors: "", info: "Mandatory Input, Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "c3c9cc9d", parentId: "", relPath: ",_B6da53F4EeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Value proposition", title: "Value proposition", url: "./../../ARTIST Methodology M30/capabilitypatterns/Value proposition_F4FAB663.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "77e6acfd", parentId: "", relPath: ",_smjsUnFfEeSNzfNcO5_Rug", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Value Proposition", title: "Value Proposition", url: "./../../ARTIST Methodology M30/capabilitypatterns/Value Proposition_3734222.html", 
+	predecessors: "", info: "Mandatory Input", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+			
+{id: "6ddd3180", parentId: "", relPath: ",_X5UBZG8TEeSGk70TEZZiGw", isSuppressed: "", indentSize: 0, hasChildren:false, 
+	index: "", prefix: "", name: "Virtual Machine in which the component will be executed", title: "Virtual Machine in which the component will be executed", url: "./../../ARTIST Methodology M30/capabilitypatterns/Virtual Machine in which the component will be executed_A987EB4A.html", 
+	predecessors: "", info: "Output", type: "Artifact Descriptor", 
+	repeatable: "", multiOccurences: "false", optional: "false", planned: "false",  ongoing: "", eventDriven: "", 
+	team: "", entryState: "", exitState: "", deliverable: "", variabilityType: ""},
+
+		
+]};
+				</script>
+</div>
+<table class="copyright" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="copyright"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+<script language="JavaScript" type="text/javascript">
+				contentPage.onload();
+			</script>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+<html
+           xmlns="http://www.w3.org/1999/xhtml"
+           xmlns:ui="http://java.sun.com/jsf/facelets"
+           xmlns:h="http://java.sun.com/jsf/html"
+           xmlns:p="http://primefaces.org/ui" 
+        xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(window).ready (function(){
+  $("#matform\\:matfile").change(function () {
+  	if ($("#matform\\:matfile" ).val())  {
+	  $( "#matform\\:mat" ).attr('disabled',false);
+     }
+  }
+  );
+  
+});       
+</script>
+
+<script type="text/javascript">
+$(document).ready (function(){
+  $("#tftform\\:tftfile").change(function () {
+  	if ($("#tftform\\:tftfile" ).val())  {
+	  $( "#tftform\\:tft" ).attr('disabled',false);
+     }
+  }
+  );  
+});       
+</script>
+
+<script type="text/javascript">
+$(document).ready (function(){
+  $("#bftform\\:bftfile").change(function () {
+  	if ($("#bftform\\:bftfile" ).val())  {
+	  $( "#bftform\\:bft" ).attr('disabled',false);
+     }
+  }
+  ); 
+});       
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+.
+<style type="text/css">
+
+body {
+        background-color: #ffffff;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 10pt;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        text-decoration: none;
+}
+
+</style>
+ 
+ <title>Upload reports to MPT</title>
+</h:head>
+ 
+<h:body>
+	<br/>
+        <div>
+            <h4> Choose Migration Goals report to upload in MPT</h4>
+
+            <h:form id="matform" enctype="multipart/form-data">                         
+               <p:fileUpload id ="matfile" update="messages" value="#{reportUploadBean.file}" mode="simple" label="file" required="true" requiredMessage="File not selected">
+               		<f:validator validatorId="fileUploadValidator" />           
+               </p:fileUpload>
+                             
+               <p:growl id="messages" showDetail="true" /> 
+                 
+               <h:commandButton value="upload Migration Goals report"  type="submit" id="mig"  action="#{reportUploadBean.uploadFile()}"/>       
+                        
+               <input type="hidden" name="button" value="mig" />
+                            
+           </h:form>          
+        </div>
+        
+        <br/>
+        
+        <div>
+            <h4> Choose TFT report  to upload in MPT</h4>
+
+            <h:form id="tftform" enctype="multipart/form-data">
+            
+            <p:fileUpload id ="tftfile" update="messages" value="#{reportUploadBean.file}" mode="simple"  label="file"  required="true" requiredMessage="File not selected">
+                 <f:validator validatorId="fileUploadValidator" />
+            </p:fileUpload>
+            
+            <!--  p:message style="color: red" for="tftfile" /><br /-->
+            <p:growl id="messages" showDetail="true" /> 
+            
+            <h:commandButton value="upload TFT report"  type="submit" id="tft" action="#{reportUploadBean.uploadFile()}"/>    
+            <input type="hidden" name="button" value="tft" />
+                        
+            </h:form>          
+        </div>
+        
+        <br/>
+        
+        <div>
+            <h4> Choose BFT report  to upload in MPT</h4>
+
+            <h:form id="bftform" enctype="multipart/form-data">                
+           
+            <p:fileUpload id ="bftfile" update="messages" value="#{reportUploadBean.file}" mode="simple" label="file"  required="true" requiredMessage="File not selected">
+                 <f:validator validatorId="fileUploadValidator" />
+            </p:fileUpload>
+               
+            <!--  p:message style="color: red" for="bftfile" /><br /-->    
+            <p:growl id="messages" showDetail="true" /> 
+            
+            <h:commandButton value="upload BFT report" type="submit" id="bft" action="#{reportUploadBean.uploadFile()}"/>            
+            <input type="hidden" name="button" value="bft" />
+               
+            </h:form>          
+        </div> 
+        <br/> 
+        
+        <div>
+            <h4> Choose MAT report  to upload in MPT</h4>
+
+            <h:form id="matform2" enctype="multipart/form-data">                         
+               <p:fileUpload id ="matfile" update="messages" value="#{reportUploadBean.file}" mode="simple" label="file" required="true" requiredMessage="File not selected">
+               		<f:validator validatorId="fileUploadValidator" />           
+               </p:fileUpload>
+                             
+               <p:growl id="messages" showDetail="true" /> 
+                 
+               <h:commandButton value="upload MAT report"  type="submit" id="mat"  action="#{reportUploadBean.uploadFile()}"/>       
+                        
+               <input type="hidden" name="button" value="mat" />
+                            
+           </h:form>          
+        </div>
+        <br/>
+</h:body>
+</html>

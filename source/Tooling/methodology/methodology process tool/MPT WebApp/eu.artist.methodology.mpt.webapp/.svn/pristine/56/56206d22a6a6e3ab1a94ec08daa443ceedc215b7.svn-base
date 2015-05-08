@@ -1,0 +1,347 @@
+/*******************************************************************************
+ *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * 				 Liagouras Georgios Andreas
+ *  Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/
+package eu.artist.methodology.mpt.webapp.mat;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.log4j.Logger;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+
+import eu.artist.methodology.mpt.model.GlobalVariable;
+import eu.artist.methodology.mpt.model.Result;
+import eu.artist.methodology.mpt.webapp.login.CurrentSession;
+import eu.artist.methodology.mpt.webapp.login.LoginBean;
+import eu.artist.methodology.mpt.webapp.ruleEngine.RuleEngine;
+
+public class MPTProcessorBean {
+	private static Logger logger = Logger.getLogger(MPTProcessorBean.class.toString());
+	
+	private  String  targetplat;
+	private  boolean technicalLevelRule;
+	private  boolean businessGoalsLevelRule;
+	private  boolean rule3;
+
+
+	private  String  tdatabasereq;
+	
+	@ManagedProperty(value="#{loginBean}") 
+	LoginBean loginBean;
+	
+	public boolean isTechnicalLevelRule() {
+		
+		technicalLevelRule=false;
+		
+	
+
+		//logger.debug("rulesVariavble is " + CurrentSession.getSession().getAttribute("rulesVariable"));
+		
+
+	try{
+
+		ArrayList <String> rulesVariable = (ArrayList<String>) CurrentSession.getSession().getAttribute("rulesVariable");
+		
+
+		
+		if (rulesVariable.contains("RULE_1_RETURNS_TRUE"))
+		{
+			technicalLevelRule=true;
+		}
+		
+	}
+	catch (Exception ex) {
+		  
+	       ex.printStackTrace();
+	       
+	  } 
+	
+
+
+		
+
+		
+		return technicalLevelRule;		
+	}
+	
+	public boolean isBusinessGoalsLevelRule() {
+		businessGoalsLevelRule=false;
+		
+		
+
+		//logger.debug("rulesVariavble is " + CurrentSession.getSession().getAttribute("rulesVariable"));
+		
+		
+		
+		try
+		{
+			ArrayList <String> rulesVariable = (ArrayList<String>) CurrentSession.getSession().getAttribute("rulesVariable");
+
+	
+		if (rulesVariable.contains("RULE_2_RETURNS_TRUE"))
+		{
+			businessGoalsLevelRule=true;
+		}
+		
+		}
+
+		catch (Exception ex) {
+			  
+		       ex.printStackTrace();
+		       
+		  } 
+		
+	
+		return businessGoalsLevelRule;
+	}
+	
+	public boolean isRule3() {
+		rule3=false;
+		
+		
+
+		//logger.debug("rulesVariavble is " + CurrentSession.getSession().getAttribute("rulesVariable"));
+		
+		
+		
+		try
+		{
+			ArrayList <String> rulesVariable = (ArrayList<String>) CurrentSession.getSession().getAttribute("rulesVariable");
+
+	
+		if (rulesVariable.contains("RULE_3_RETURNS_TRUE"))
+		{
+			rule3=true;
+		}
+		
+		}
+
+		catch (Exception ex) {
+			  
+		       ex.printStackTrace();
+		       
+		  } 
+		
+	
+		return rule3;	
+		}
+	
+	
+		
+
+	
+	public static boolean customizeEMREQ_task() {
+		
+		return true;		
+	}
+	
+	public static boolean customizeOPTAPPFEA_task() {
+		
+		return true;		
+	}
+	
+	public String viewMethodology() {
+		logger.debug("entering view methodology");
+
+		if (loginBean!=null) { 
+			
+			logger.debug("login bean is not null");
+		
+			try {
+			
+				// Initialise MPT properties 
+			    Properties mptProps2 = new Properties();
+			  
+				//String path_to_properties_file =  loginBean.getMptProperties().getProperty("path_to_reports")+"\\"+CurrentSession.getUserName()+"\\mpt"+CurrentSession.getUserName()+".properties";
+				
+				String path_to_properties_file =  loginBean.getMptProperties().getProperty("path_to_reports") + File.separator + CurrentSession.getUserName() + File.separator + "mpt"+CurrentSession.getUserName()+".properties";
+				
+				InputStream in2 = new FileInputStream(path_to_properties_file);
+		 		
+		 		try {
+		 			
+					mptProps2.load(in2);
+					in2.close();
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				String username = loginBean.getUsername();
+				
+				logger.debug("Username is " + username);
+				
+				if (username==null) username = "default";
+				
+				
+
+				//File xmlMatFile = new File(loginBean.getMptProperties().getProperty("path_to_reports") + "\\"  + username + "\\mat"+ mptProps2.getProperty("mat_report")); 
+				//File csvTftFile = new File(loginBean.getMptProperties().getProperty("path_to_reports") + "\\"  + username + "\\tft"+ mptProps2.getProperty("tft_report")); 
+				//File xmlMigFile = new File(loginBean.getMptProperties().getProperty("path_to_reports") + "\\"  + username + "\\mig"+ mptProps2.getProperty("mig_report")); 
+
+				File xmlMatFile = new File(loginBean.getMptProperties().getProperty("path_to_reports") + File.separator  + username + File.separator + "mat"+ mptProps2.getProperty("mat_report")); 
+				File csvTftFile = new File(loginBean.getMptProperties().getProperty("path_to_reports") + File.separator + username + File.separator + "tft"+ mptProps2.getProperty("tft_report")); 
+				File xmlMigFile = new File(loginBean.getMptProperties().getProperty("path_to_reports") + File.separator  + username + File.separator + "mig"+ mptProps2.getProperty("mig_report")); 
+
+
+				
+				try
+				{
+					RuleEngine.INSTANCE.loadNewMATReport(xmlMatFile);
+
+				}
+				catch (Exception ex) {
+					  
+				       ex.printStackTrace();
+				       
+				  } 
+				
+				try
+				{
+					RuleEngine.INSTANCE.loadTFTReport(csvTftFile);
+
+				}
+				catch (Exception ex) {
+					  
+				       ex.printStackTrace();
+				       
+				  } 
+				
+				
+				try
+				{
+					RuleEngine.INSTANCE.loadMATReport(xmlMigFile);
+
+				}
+				catch (Exception ex) {
+					  
+				       ex.printStackTrace();
+				       
+				  } 
+				
+				
+
+				URL url = MPTProcessorBean.class.getResource("/resource/RuleSet_1.drl");
+				
+				File f = new File(url.toURI());
+				
+				RuleEngine.INSTANCE.setRuleFile(f);
+
+				GlobalVariable r_variable = new GlobalVariable("rulesVariable", new RulesVariable());
+				List<GlobalVariable> variables = new ArrayList<GlobalVariable>();
+				variables.add(r_variable);
+				
+				RuleEngine.INSTANCE.fireRules(variables);
+				Result result = RuleEngine.INSTANCE.getResult();
+				
+				
+				
+		    	CurrentSession.getSession().setAttribute("rulesVariable", ((RulesVariable)r_variable.getVariable()).getRuleString());
+				variables.clear();
+				logger.debug("Result: " + result.getStringResult());
+				//logger.debug("MAT REPORT IS " + mptProps2.getProperty("mat_report"));
+				logger.debug(result.getStringResult());
+
+			
+				logger.debug("exit");
+				
+				if (result.getStringResult() == null )
+				{
+					FacesContext.getCurrentInstance().addMessage("null", new FacesMessage("File format is wrong"));
+				}
+				
+				
+				return "index.xhtml";
+				
+				
+				
+			
+			} catch (Exception ex) {
+				  
+			       ex.printStackTrace();
+			       
+			  } 
+			
+		}
+		return null;
+		
+		
+		
+		 
+	}
+	  
+	public LoginBean getLoginBean() {
+		return loginBean;
+	}
+	
+	public void setLoginBean(LoginBean loginBean) {
+		this.loginBean = loginBean;
+		
+	}
+
+	public void setTechnicalLevelRule(boolean technicalLevelRule) {
+		this.technicalLevelRule = technicalLevelRule;
+	}
+
+	public String getTargetplat() {
+		return targetplat;
+	}
+
+	public void setTargetplat(String targetplat) {
+		this.targetplat = targetplat;
+	}
+
+	public String getTdatabasereq() {
+		return tdatabasereq;
+	}
+
+	public void setTdatabasereq(String tdatabasereq) {
+		this.tdatabasereq = tdatabasereq;
+	}
+
+
+	public void setBusinessGoalsLevelRule(boolean businessGoalsLevelRule) {
+		this.businessGoalsLevelRule = businessGoalsLevelRule;
+	}
+
+	
+
+	public void setRule3(boolean rule3) {
+		this.rule3 = rule3;
+	}
+	
+}
