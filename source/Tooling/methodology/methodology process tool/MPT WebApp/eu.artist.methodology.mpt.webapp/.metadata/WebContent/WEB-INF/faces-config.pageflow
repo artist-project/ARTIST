@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13899685248691" configfile="/eu.artist.methodology.mpt.webapp/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="reportsupload.xhtml" x="132" y="115" id="pf13923907914280" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13923907914291" path="/reportsupload.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="result.xhtml" x="409" y="319" id="pf13923907914292" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13923907914291" path="/result.xhtml"/>
-  <links id="pf13923907914291" target="pf13923907914292" source="pf13923907914280" outcome="#{reportUploadBean.uploadFile()}" redirect="true"/>
-</pageflow:Pageflow>
