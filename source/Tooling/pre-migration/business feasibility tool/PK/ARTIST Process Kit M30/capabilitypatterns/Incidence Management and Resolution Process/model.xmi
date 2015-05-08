@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_Ap_dsQgeEeS0jMGXzh3Oiw" guid="_Ap_dsQgeEeS0jMGXzh3Oiw">
+    <resourceDescriptors xmi:id="_Ap_dsggeEeS0jMGXzh3Oiw" id="-Oxlfmp6LpCiB2PiKm1MKYw" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_ApixwAgeEeS0jMGXzh3Oiw" name="Incidence Management and Resolution Process" guid="_ApixwAgeEeS0jMGXzh3Oiw">
+    <methodElementProperty xmi:id="_ApixwggeEeS0jMGXzh3Oiw" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_p-_6MAgiEeS0jMGXzh3Oiw" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_DN5k4AgeEeS0jMGXzh3Oiw" name="Incidence identification" guid="_DN5k4AgeEeS0jMGXzh3Oiw" presentationName="Incidence identification" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4ggeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_vieNEPOBEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-Kvs4rllvGCqheX5YzA7uYA#_FtpOwPOCEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_DN5k4QgeEeS0jMGXzh3Oiw" name="Technical Manager" guid="_DN5k4QgeEeS0jMGXzh3Oiw" presentationName="Technical Manager" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" modifies="_DN5k4wgeEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_strmIOlNEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_DN5k4ggeEeS0jMGXzh3Oiw" name="Incidence Model" guid="_DN5k4ggeEeS0jMGXzh3Oiw" presentationName="Incidence Model" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_HAfMIPOBEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_DN5k4wgeEeS0jMGXzh3Oiw" name="Incidence Log" guid="_DN5k4wgeEeS0jMGXzh3Oiw" presentationName="Incidence log" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_92QbMOlOEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_DkjKUAgeEeS0jMGXzh3Oiw" name="Incidence logging" guid="_DkjKUAgeEeS0jMGXzh3Oiw" presentationName="Incidence logging" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_hji7YAgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_PffjUPOCEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://--8Z9TTbai5dz1R654Sz48A#_STpF8POCEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_FOfjoAgeEeS0jMGXzh3Oiw" name="Incidence categorization" guid="_FOfjoAgeEeS0jMGXzh3Oiw" presentationName="Incidence categorization" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_iAJ-4AgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4ggeEeS0jMGXzh3Oiw _DN5k4wgeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_dvbz0POCEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_Fh3LkAgeEeS0jMGXzh3Oiw" name="Initial diagnosis" guid="_Fh3LkAgeEeS0jMGXzh3Oiw" presentationName="Initial diagnosis" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_ijUWUQgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw" optionalInput="_Fh3LkQgeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_NzTGsOlPEeK0OZ4YEtMZ2Q"/>
+      <selectedSteps href="uma://-QiECwVmTWWsJOg-Of4888g#_Q6FRcOlPEeK0OZ4YEtMZ2Q"/>
+      <selectedSteps href="uma://-QiECwVmTWWsJOg-Of4888g#_kI7PcOlQEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_Fh3LkQgeEeS0jMGXzh3Oiw" name="SLA" guid="_Fh3LkQgeEeS0jMGXzh3Oiw" presentationName="SLA" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_i8aq8OlOEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_GFn_8AgeEeS0jMGXzh3Oiw" name="Incidence prioritization" guid="_GFn_8AgeEeS0jMGXzh3Oiw" presentationName="Incidence prioritization" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_jA97oQgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw _Fh3LkQgeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_rFHbgPOCEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-msSlyTfzmHren890X6mm4Q#_6iqT0N8wEeONsOGj6lDwuA"/>
+      <selectedSteps href="uma://-msSlyTfzmHren890X6mm4Q#_7ltsQN8wEeONsOGj6lDwuA"/>
+      <selectedSteps href="uma://-msSlyTfzmHren890X6mm4Q#__Ex0IN8wEeONsOGj6lDwuA"/>
+      <selectedSteps href="uma://-msSlyTfzmHren890X6mm4Q#_A1lDYN8xEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_GtQnsAgeEeS0jMGXzh3Oiw" name="Incidence escalation" guid="_GtQnsAgeEeS0jMGXzh3Oiw" presentationName="Incidence escalation" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw _Fh3LkQgeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_5VqI8POCEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-HtmSYgUIwld5s3SASA_PSg#_7bLrAPOCEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-HtmSYgUIwld5s3SASA_PSg#_-Y4LMPOCEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_HgEksAgeEeS0jMGXzh3Oiw" name="Investigation and diagnosis" guid="_HgEksAgeEeS0jMGXzh3Oiw" presentationName="Investigation and diagnosis" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_0OvPMQgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw _Fh3LkQgeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_HgEksQgeEeS0jMGXzh3Oiw _DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_WEDnEPODEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-ltRz2pyGWCy6Gs91e2_Vhg#_ZqlB0PODEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-ltRz2pyGWCy6Gs91e2_Vhg#_cp6gwPODEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-ltRz2pyGWCy6Gs91e2_Vhg#_gNA0EPODEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-ltRz2pyGWCy6Gs91e2_Vhg#_ixYOQPODEeK5O75NHcWwEw"/>
+      <selectedSteps href="uma://-ltRz2pyGWCy6Gs91e2_Vhg#_lGr4wPODEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_HgEksQgeEeS0jMGXzh3Oiw" name="Software Analyst" guid="_HgEksQgeEeS0jMGXzh3Oiw" presentationName="Software Analyst" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" modifies="_DN5k4wgeEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_IuKIcAgeEeS0jMGXzh3Oiw" name="Resolution and Recovery" guid="_IuKIcAgeEeS0jMGXzh3Oiw" presentationName="Resolution and Recovery" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_2G2AUQgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw" optionalInput="_Fh3LkQgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_IuKIcQgeEeS0jMGXzh3Oiw _IuKIcggeEeS0jMGXzh3Oiw _HgEksQgeEeS0jMGXzh3Oiw _DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_v1VMwPODEeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_IuKIcQgeEeS0jMGXzh3Oiw" name="Developer" guid="_IuKIcQgeEeS0jMGXzh3Oiw" presentationName="Developer" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" modifies="_DN5k4wgeEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_2zmjgBnwEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_IuKIcggeEeS0jMGXzh3Oiw" name="Tester" guid="_IuKIcggeEeS0jMGXzh3Oiw" presentationName="Tester" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" modifies="_DN5k4wgeEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_UykTEN8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_mtpeMAgiEeS0jMGXzh3Oiw" name="Following up the incidence" guid="_mtpeMAgiEeS0jMGXzh3Oiw" presentationName="Following up the incidence" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" linkToPredecessor="_2h0FEQgjEeS0jMGXzh3Oiw" mandatoryInput="_DN5k4wgeEeS0jMGXzh3Oiw _Fh3LkQgeEeS0jMGXzh3Oiw" output="_DN5k4wgeEeS0jMGXzh3Oiw" performedPrimarilyBy="_mweIsAgiEeS0jMGXzh3Oiw _DN5k4QgeEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_YwS6UOoAEeKvNOdDit7Tsg"/>
+      <selectedSteps href="uma://-257o9aDAR5bynrS455SXyw#_b1lQQOoAEeKvNOdDit7Tsg"/>
+      <selectedSteps href="uma://-257o9aDAR5bynrS455SXyw#_pOPTcOoAEeKvNOdDit7Tsg"/>
+      <selectedSteps href="uma://-257o9aDAR5bynrS455SXyw#_gh1kAOoAEeKvNOdDit7Tsg"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_mweIsAgiEeS0jMGXzh3Oiw" name="Quality manager" guid="_mweIsAgiEeS0jMGXzh3Oiw" presentationName="Quality manager" isPlanned="false" superActivities="_ApixwQgeEeS0jMGXzh3Oiw" modifies="_DN5k4wgeEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_tccL0N8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_hji7YAgjEeS0jMGXzh3Oiw" guid="_hji7YAgjEeS0jMGXzh3Oiw" pred="_DN5k4AgeEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_iAJ-4AgjEeS0jMGXzh3Oiw" guid="_iAJ-4AgjEeS0jMGXzh3Oiw" pred="_DkjKUAgeEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_ijUWUQgjEeS0jMGXzh3Oiw" guid="_ijUWUQgjEeS0jMGXzh3Oiw" pred="_FOfjoAgeEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_jA97oQgjEeS0jMGXzh3Oiw" guid="_jA97oQgjEeS0jMGXzh3Oiw" pred="_Fh3LkAgeEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_0OvPMQgjEeS0jMGXzh3Oiw" guid="_0OvPMQgjEeS0jMGXzh3Oiw" pred="_GtQnsAgeEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_2G2AUQgjEeS0jMGXzh3Oiw" guid="_2G2AUQgjEeS0jMGXzh3Oiw" pred="_HgEksAgeEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_2h0FEQgjEeS0jMGXzh3Oiw" guid="_2h0FEQgjEeS0jMGXzh3Oiw" pred="_IuKIcAgeEeS0jMGXzh3Oiw"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_ApixwQgeEeS0jMGXzh3Oiw" name="Incidence Management and Resolution Process" guid="_ApixwQgeEeS0jMGXzh3Oiw" presentationName="Incidence Management and Resolution Process" briefDescription="The goal of the Incidence Management and Resolution process is to restore normal service operation as quickly as possible and minimize the adverse impact on business operations, thus ensuring that the best possible levels of service quality and availability are maintained" breakdownElements="_DN5k4AgeEeS0jMGXzh3Oiw _DN5k4QgeEeS0jMGXzh3Oiw _DN5k4ggeEeS0jMGXzh3Oiw _DN5k4wgeEeS0jMGXzh3Oiw _DkjKUAgeEeS0jMGXzh3Oiw _FOfjoAgeEeS0jMGXzh3Oiw _Fh3LkAgeEeS0jMGXzh3Oiw _Fh3LkQgeEeS0jMGXzh3Oiw _GFn_8AgeEeS0jMGXzh3Oiw _GtQnsAgeEeS0jMGXzh3Oiw _HgEksAgeEeS0jMGXzh3Oiw _HgEksQgeEeS0jMGXzh3Oiw _IuKIcAgeEeS0jMGXzh3Oiw _IuKIcQgeEeS0jMGXzh3Oiw _IuKIcggeEeS0jMGXzh3Oiw _mtpeMAgiEeS0jMGXzh3Oiw _mweIsAgiEeS0jMGXzh3Oiw">
+      <presentation xmi:id="-Oxlfmp6LpCiB2PiKm1MKYw" href="uma://-Oxlfmp6LpCiB2PiKm1MKYw#-Oxlfmp6LpCiB2PiKm1MKYw"/>
+      <defaultContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+      <validContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>

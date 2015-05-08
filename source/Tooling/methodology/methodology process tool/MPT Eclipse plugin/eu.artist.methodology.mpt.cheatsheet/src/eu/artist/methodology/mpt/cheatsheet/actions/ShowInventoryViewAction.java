@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -48,6 +48,7 @@ import org.eclipse.ui.cheatsheets.ICheatSheetManager;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 
+//import eu.artist.premigration.tft.tft.dialog.ModelSourceSelectionDialog;
 import eu.artist.premigration.tft.tft.model.query.ComponentModelQuery;
 
 public class ShowInventoryViewAction extends Action implements ICheatSheetAction {
@@ -83,24 +84,28 @@ public class ShowInventoryViewAction extends Action implements ICheatSheetAction
 				   
 				   System.out.println("The location URI of the file is " + ifile.getLocationURI());		  
 		  	
-				   ComponentModelQuery.INSTANCE.loadModel(ifile);
-		    		   		   
-				   ArrayList<Parameterization> parameters = new ArrayList<Parameterization>();
-				   IParameter iparam;
+				   //ModelSourceSelectionDialog dialog = new ModelSourceSelectionDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+				   //dialog.open();
+				   //if (dialog.getReturnCode() == ModelSourceSelectionDialog.OK){
+						ComponentModelQuery.INSTANCE.loadModel(ifile);
+							    		   		   
+						ArrayList<Parameterization> parameters = new ArrayList<Parameterization>();
+						IParameter iparam;
 		   
-				   final IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-				   ICommandService cmdService = (ICommandService)window.getService(ICommandService.class);
-				   Command cmd = cmdService.getCommand("org.eclipse.ui.views.showView");
+						final IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+						ICommandService cmdService = (ICommandService)window.getService(ICommandService.class);
+						Command cmd = cmdService.getCommand("org.eclipse.ui.views.showView");
 			 
-				   iparam = cmd.getParameter("org.eclipse.ui.views.showView.viewId");
-				   Parameterization param = new Parameterization(iparam, "eu.artist.premigration.tft.tft.views.InventoryView");
-				   parameters.add(param);
+						iparam = cmd.getParameter("org.eclipse.ui.views.showView.viewId");
+						Parameterization param = new Parameterization(iparam, "eu.artist.premigration.tft.tft.views.InventoryView");
+						parameters.add(param);
 
-				   final ParameterizedCommand pc = new ParameterizedCommand(cmd, parameters.toArray(new Parameterization[parameters.size()]));
-				   //ParameterizedCommand pc = new ParameterizedCommand(cmd, null);
+						final ParameterizedCommand pc = new ParameterizedCommand(cmd, parameters.toArray(new Parameterization[parameters.size()]));
+						//ParameterizedCommand pc = new ParameterizedCommand(cmd, null);
 
-				   IHandlerService handlerService = (IHandlerService)window.getService(IHandlerService.class);
-				   handlerService.executeCommand(pc, null);	
+						IHandlerService handlerService = (IHandlerService)window.getService(IHandlerService.class);
+						handlerService.executeCommand(pc, null);
+				   //}
 			  }
 		  }
 		   

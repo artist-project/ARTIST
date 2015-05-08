@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Fundación TECNALIA Research & Innovation
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Marisa Escalante Martinez (Tecnalia)
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Incidence Management and Resolution">
+   <intro>
+      <description>
+         The goal of the Incidence Management and Resolution process is to restore normal service operation as quickly as possible and minimize the adverse impact on business operations, thus ensuring that the best possible levels of service quality and availability are maintained.
+      </description>
+   </intro>
+   <item
+         title="IMRP.A1 - Incidence identification">
+      <description>
+         This activity will initiate the log of each incidence. This incidence could be detected from the Technical team or from the communication mechanism with the customer. It could convenient to detect potential incidence before receiving an incidence from the customer.
+      </description>
+   </item>
+   <item
+         title="IMRP.A2 - Incidence logging">
+      <description>
+         This activity will start completing the log of the incidence. Completing the first data such as: date/time, Name/ID of the person and/or group recording the incidence, Method of notification (telephone, automatic, e-mail, in person, etc.), Name/department/phone/location of user and call-back method.
+      </description>
+   </item>
+   <item
+         title="IMRP.A3 - Incidence categorization">
+      <description>
+         The objective of this activity is to classify the incidence according to the incidence model. This classification will indicate if the problem is a functional, infrastructural, report, installation and so on.
+      </description>
+   </item>
+   <item
+         title="IMRP.A4 - Initial diagnosis">
+      <description>
+         The objective of this activity is to investigate the cause of the incidence with the information provided by previous activity and based on this investigation, to provide a proposal for a first initial solution if possible or define who should solve the incidence.
+      </description>
+   </item>
+   <item
+         title="IMRP.A5 - Incidence prioritization">
+      <description>
+         In order to prioritize the incidences it is required to take into account both the urgency of the incidence (how quickly the business needs a resolution) and the level of impact it is causing. Factors that should take into account for determining the impact: 1.- The number of services affected – may be multiple services, 2.- The level of financial losses. 3.- Effect on business reputation. 4.- Regulatory or legislative breaches.  It should be noted that an incidence´s priority may be dynamic – if circumstances change, or if an incidence is not resolved within SLA target times, then the priority must be altered to reflect the new situation.
+      </description>
+   </item>
+   <item
+         skip="false"
+         title="IMRP.A6- Incidence escalation">
+      <description>
+         If according to the SLA and the prioritization is appropriate escalate the incidence. The escalation of the incidence could be of two types:
+a) Functional escalation the incidence will need deeper technical knowledge, the incidence must be immediately escalated to the appropriate level support group. b) Hierarchic escalation: If incidence is of a serious nature (for example urgent and with great impact) the appropriate Software Analyst must be notified, for informational purposes at least. Hierarchic escalation is also used if the activities IMPR.A7- Investigation and Diagnosis and IMPR. A8- Resolution and Recovery are taking too long or proving too difficult.
+      </description>
+   </item>
+   <item
+         title="IMRP.A7- Investigation and diagnosis">
+      <description>
+         This activity consists of the following of actions: 
+1 .- Establish exactly what has gone wrong or being sought by the user .  2.- Understand the chronological order of events.  3.-Confirm the full impact of the incident, including the number and range of users affected.  4.- Identify any events that could have triggered the incident.  5.- Look for previous occurrences by searching previous Incidence logs.
+      </description>
+   </item>
+   <item
+         title="IMRP.A8- Resolution and Recovery">
+      <description>
+         The objective of this activity is to find the solution to the incidence, when a potential resolution has been identified, this should be applied and tested. Even when a resolution has been found, sufficient testing must be performed to ensure that recovery action is complete and that the service has been fully restored to the user(s).
+      </description>
+   </item>
+   <item
+         title="IMRP.A9- Following up the incidence">
+      <description>
+         The objective of this activity is to be able to know in any moment the status of one incidence. For doing this, the actions to  do are: a) to check the progress of the actions defined to solve the incidence, b) to collect information of the incidence management process , c) to communicate if some problems on the resolution to the part affected
+      </description>
+   </item>
+</cheatsheet>

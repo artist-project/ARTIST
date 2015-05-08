@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_scJGUQgHEeS0jMGXzh3Oiw" guid="_scJGUQgHEeS0jMGXzh3Oiw">
+    <resourceDescriptors xmi:id="_scJGUggHEeS0jMGXzh3Oiw" id="-Lf7-eLJtGsU1EX7qUGqR7g" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_sbjQcAgHEeS0jMGXzh3Oiw" name="SLA Management Process" guid="_sbjQcAgHEeS0jMGXzh3Oiw">
+    <methodElementProperty xmi:id="_sbjQcggHEeS0jMGXzh3Oiw" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_l5YugAgIEeS0jMGXzh3Oiw" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_v-CfwAgHEeS0jMGXzh3Oiw" name="Determine SLA frameworks" guid="_v-CfwAgHEeS0jMGXzh3Oiw" presentationName="Determine SLA frameworks" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" optionalInput="_v-CfwggHEeS0jMGXzh3Oiw _v-CfwwgHEeS0jMGXzh3Oiw _v-CfxAgHEeS0jMGXzh3Oiw" output="_v-CfxQgHEeS0jMGXzh3Oiw" performedPrimarilyBy="_v-CfwQgHEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_crAr8POOEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_v-CfwQgHEeS0jMGXzh3Oiw" name="Business Analyst" guid="_v-CfwQgHEeS0jMGXzh3Oiw" presentationName="Business Analyst" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" modifies="_v-CfxQgHEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIfN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_v-CfwggHEeS0jMGXzh3Oiw" name="Business Impact Analysis" guid="_v-CfwggHEeS0jMGXzh3Oiw" presentationName="Business Impact Analysis" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_Peau0POOEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_v-CfwwgHEeS0jMGXzh3Oiw" name="Organisational Strategy plan" guid="_v-CfwwgHEeS0jMGXzh3Oiw" presentationName="Organisational Strategy plan" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_MTUEwPOOEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_v-CfxAgHEeS0jMGXzh3Oiw" name="Financial plans" guid="_v-CfxAgHEeS0jMGXzh3Oiw" presentationName="Financial plans" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_V4yxQPOOEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_v-CfxQgHEeS0jMGXzh3Oiw" name="Service level agreement structure" guid="_v-CfxQgHEeS0jMGXzh3Oiw" presentationName="Service level agreement structure" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_otO9IPONEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_wpjh8AgHEeS0jMGXzh3Oiw" name="Determine, document and agree requirements for existing and new services" guid="_wpjh8AgHEeS0jMGXzh3Oiw" presentationName="Determine, document and agree requirements for existing and new services" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" linkToPredecessor="_QLISUQgIEeS0jMGXzh3Oiw" mandatoryInput="_v-CfxQgHEeS0jMGXzh3Oiw" output="_wpjh8wgHEeS0jMGXzh3Oiw" performedPrimarilyBy="_wpjh8QgHEeS0jMGXzh3Oiw _wpjh8ggHEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_2sDL8POOEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_wpjh8QgHEeS0jMGXzh3Oiw" name="Business Manager" guid="_wpjh8QgHEeS0jMGXzh3Oiw" presentationName="Business Manager" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" modifies="_wpjh8wgHEeS0jMGXzh3Oiw _zhk38QgHEeS0jMGXzh3Oiw _2STTIggHEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIvN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_wpjh8ggHEeS0jMGXzh3Oiw" name="Technical Manager" guid="_wpjh8ggHEeS0jMGXzh3Oiw" presentationName="Technical Manager" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" modifies="_wpjh8wgHEeS0jMGXzh3Oiw _zhk38QgHEeS0jMGXzh3Oiw _2STTIggHEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_strmIOlNEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_wpjh8wgHEeS0jMGXzh3Oiw" name="SLA" guid="_wpjh8wgHEeS0jMGXzh3Oiw" presentationName="SLA" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_i8aq8OlOEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_ylFagAgHEeS0jMGXzh3Oiw" name="Review underpinning agreements" guid="_ylFagAgHEeS0jMGXzh3Oiw" presentationName="Review underpinning agreements" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" linkToPredecessor="_QpOjkQgIEeS0jMGXzh3Oiw" additionallyPerformedBy="_ylFagQgHEeS0jMGXzh3Oiw _v-CfwQgHEeS0jMGXzh3Oiw _wpjh8ggHEeS0jMGXzh3Oiw" mandatoryInput="_v-CfxQgHEeS0jMGXzh3Oiw _wpjh8wgHEeS0jMGXzh3Oiw" output="_wpjh8wgHEeS0jMGXzh3Oiw" performedPrimarilyBy="_wpjh8QgHEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_UUXUoPOPEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_ylFagQgHEeS0jMGXzh3Oiw" name="Software Analyst" guid="_ylFagQgHEeS0jMGXzh3Oiw" presentationName="Software Analyst" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" modifies="_zhk38QgHEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_zhk38AgHEeS0jMGXzh3Oiw" name="Monitor service performance against SLA" guid="_zhk38AgHEeS0jMGXzh3Oiw" presentationName="Monitor service performance against SLA" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" linkToPredecessor="_RMZiEQgIEeS0jMGXzh3Oiw" additionallyPerformedBy="_ylFagQgHEeS0jMGXzh3Oiw _v-CfwQgHEeS0jMGXzh3Oiw _wpjh8ggHEeS0jMGXzh3Oiw" mandatoryInput="_wpjh8wgHEeS0jMGXzh3Oiw" output="_zhk38QgHEeS0jMGXzh3Oiw" performedPrimarilyBy="_wpjh8QgHEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_MwX-wPOPEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_zhk38QgHEeS0jMGXzh3Oiw" name="Service report" guid="_zhk38QgHEeS0jMGXzh3Oiw" presentationName="Service report" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_scjHgPONEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_0nUYAAgHEeS0jMGXzh3Oiw" name="Produce service reports" guid="_0nUYAAgHEeS0jMGXzh3Oiw" presentationName="Produce service reports" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" linkToPredecessor="_SjROYQgIEeS0jMGXzh3Oiw" mandatoryInput="_wpjh8wgHEeS0jMGXzh3Oiw" output="_zhk38QgHEeS0jMGXzh3Oiw" performedPrimarilyBy="_ylFagQgHEeS0jMGXzh3Oiw _wpjh8ggHEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_0_bnMPOQEeKAIpnvjkZ0LQ"/>
+      <selectedSteps href="uma://-K1aI3AfOwBshjDSD2mBaqg#_HJss0N8xEeONsOGj6lDwuA"/>
+      <selectedSteps href="uma://-K1aI3AfOwBshjDSD2mBaqg#_OpXjYN8xEeONsOGj6lDwuA"/>
+      <selectedSteps href="uma://-K1aI3AfOwBshjDSD2mBaqg#_RBppYN8xEeONsOGj6lDwuA"/>
+      <selectedSteps href="uma://-K1aI3AfOwBshjDSD2mBaqg#_UxG9sN8xEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_2STTIAgHEeS0jMGXzh3Oiw" name="Review SLAs and underpinning agreements" guid="_2STTIAgHEeS0jMGXzh3Oiw" presentationName="Review SLAs and underpinning agreements" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" linkToPredecessor="_RmxJ4QgIEeS0jMGXzh3Oiw" mandatoryInput="_zhk38QgHEeS0jMGXzh3Oiw _wpjh8wgHEeS0jMGXzh3Oiw" output="_2STTIggHEeS0jMGXzh3Oiw" performedPrimarilyBy="_2STTIQgHEeS0jMGXzh3Oiw _wpjh8QgHEeS0jMGXzh3Oiw _wpjh8ggHEeS0jMGXzh3Oiw">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JYnt4POREeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_2STTIQgHEeS0jMGXzh3Oiw" name="Quality manager" guid="_2STTIQgHEeS0jMGXzh3Oiw" presentationName="Quality manager" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw" modifies="_2STTIggHEeS0jMGXzh3Oiw">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_tccL0N8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_2STTIggHEeS0jMGXzh3Oiw" name="SLA review report" guid="_2STTIggHEeS0jMGXzh3Oiw" presentationName="SLA review report" isPlanned="false" superActivities="_sbjQcQgHEeS0jMGXzh3Oiw">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_HNIOEPOOEeKAIpnvjkZ0LQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_QLISUQgIEeS0jMGXzh3Oiw" guid="_QLISUQgIEeS0jMGXzh3Oiw" pred="_v-CfwAgHEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_QpOjkQgIEeS0jMGXzh3Oiw" guid="_QpOjkQgIEeS0jMGXzh3Oiw" pred="_wpjh8AgHEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_RMZiEQgIEeS0jMGXzh3Oiw" guid="_RMZiEQgIEeS0jMGXzh3Oiw" pred="_ylFagAgHEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_RmxJ4QgIEeS0jMGXzh3Oiw" guid="_RmxJ4QgIEeS0jMGXzh3Oiw" pred="_zhk38AgHEeS0jMGXzh3Oiw"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_SjROYQgIEeS0jMGXzh3Oiw" guid="_SjROYQgIEeS0jMGXzh3Oiw" pred="_zhk38AgHEeS0jMGXzh3Oiw"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_sbjQcQgHEeS0jMGXzh3Oiw" name="SLA Management Process" guid="_sbjQcQgHEeS0jMGXzh3Oiw" presentationName="SLA Management Process" breakdownElements="_v-CfwAgHEeS0jMGXzh3Oiw _v-CfwQgHEeS0jMGXzh3Oiw _v-CfwggHEeS0jMGXzh3Oiw _v-CfwwgHEeS0jMGXzh3Oiw _v-CfxAgHEeS0jMGXzh3Oiw _v-CfxQgHEeS0jMGXzh3Oiw _wpjh8AgHEeS0jMGXzh3Oiw _wpjh8QgHEeS0jMGXzh3Oiw _wpjh8ggHEeS0jMGXzh3Oiw _wpjh8wgHEeS0jMGXzh3Oiw _ylFagAgHEeS0jMGXzh3Oiw _ylFagQgHEeS0jMGXzh3Oiw _zhk38AgHEeS0jMGXzh3Oiw _zhk38QgHEeS0jMGXzh3Oiw _0nUYAAgHEeS0jMGXzh3Oiw _2STTIAgHEeS0jMGXzh3Oiw _2STTIQgHEeS0jMGXzh3Oiw _2STTIggHEeS0jMGXzh3Oiw">
+      <presentation xmi:id="-Lf7-eLJtGsU1EX7qUGqR7g" href="uma://-Lf7-eLJtGsU1EX7qUGqR7g#-Lf7-eLJtGsU1EX7qUGqR7g"/>
+      <defaultContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+      <validContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>

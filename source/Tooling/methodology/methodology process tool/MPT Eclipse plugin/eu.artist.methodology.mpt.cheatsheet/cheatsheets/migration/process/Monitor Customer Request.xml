@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Fundación TECNALIA Research & Innovation
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Marisa Escalante Martinez (Tecnalia)
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Monitor Customer Request">
+   <intro>
+      <description>
+         The main objective of this process is to provide a unique point of contact between users and the provider of the services in order to act as the centre of all the service support.
+      </description>
+   </intro>
+   <item
+         title="MCRP.A1 - Define a communication mechanism with the user">
+      <description>
+         This activity should define the mechanism for communicating with the user according with those generic mechanisms defined in the activity CUSTOMER. A4. And appropriate for the segment. This mechanism should define the way in which this mechanism is going to interact with the user (email, Phone, sms...) and the way to measure the satisfaction of the users, collecting their feedback and analyzing it.
+      </description>
+   </item>
+   <item
+         title="MCRP.A2 - Define the appropriate physical and logical structure for the communication mechanism">
+      <description>
+         This activity is the responsible to define the appropriate structure that enables to create a communication mechanism whose objectives are aligned with the business processes.
+      </description>
+   </item>
+   <item
+         title="MCRP.A3 - Registration Communication">
+      <description>
+         This activity is the responsible to collect the communication of the user through the communication mechanism and to assign a reference number to be able to follow and consult the status of this communication at any time.
+      </description>
+   </item>
+   <item
+         title="MCRP.A4 - Initial diagnosis">
+      <description>
+         The objective of this activity is to investigate the cause of the communication with the information provided by previous activity and based on this investigation, to provide a proposal for a first initial solution if possible for the communication or if the communication is for an incidence, go to the Incidence Management Process task.
+      </description>
+   </item>
+   <item
+         title="MCRP.A5 - Inform the user">
+      <description>
+         The objective of this activity is to communicate the user about the progress of the incidence
+      </description>
+   </item>
+   <item
+         title="MCRP.A6 - Incidence closure">
+      <description>
+         The objective of this activity is to close the incidence and assure that all the information about it is correctly collected in the incidence log. There are three main actions: 1.- Closure categorization: Check and confirm that the initial incidence categorization was correct or, where the categorization subsequently turned out to be incorrect, update the record so that a correct closure categorization is recorded for the incidence. 2.- User satisfaction survey: Carry out a user satisfaction survey for the agreed percentage of incidences. 3.- Incidence documentation: Chase any outstanding details and ensure that the Incidence log is fully documented so that a full historic record at a sufficient level of detail is complete.
+      </description>
+   </item>
+   <item 
+   		title="MCRP.A7 - Measure and analysis user feedback">
+	  <description>
+		 In order to improve the user satisfaction it is important to collect their feedback. There are three main actions: 1) Collect the feedback of the users according to the process defined on the communication mechanism (satisfaction measures). 2) Analyse the received feedback. 3)	Provide solutions or improvement to cover the problems detected by the satisfaction measures.
+	  </description>
+   </item>
+</cheatsheet>

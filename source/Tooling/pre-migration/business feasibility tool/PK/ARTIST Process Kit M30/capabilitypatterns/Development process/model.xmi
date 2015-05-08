@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:org.eclipse.epf.uma.resourcemanager="http:///org/eclipse/epf/uma/resourcemanager.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma.resourcemanager:ResourceManager xmi:id="_Gzo0cBn4EeOAj7mEtG50xQ" guid="_Gzo0cBn4EeOAj7mEtG50xQ">
+    <resourceDescriptors xmi:id="_Gzo0cRn4EeOAj7mEtG50xQ" id="-UGjiOlFF6MMuOJlnaFt_0g" uri="content.xmi"/>
+  </org.eclipse.epf.uma.resourcemanager:ResourceManager>
+  <org.eclipse.epf.uma:ProcessComponent xmi:id="_GzC-kBn4EeOAj7mEtG50xQ" name="Development process" guid="_GzC-kBn4EeOAj7mEtG50xQ">
+    <methodElementProperty xmi:id="_GzC-khn4EeOAj7mEtG50xQ" name="pkg_loadCheck" value="true"/>
+    <methodElementProperty xmi:id="_S2BBMBn4EeOAj7mEtG50xQ" name="me_edited" value="true"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_raEpARn8EeOAj7mEtG50xQ" guid="_raEpARn8EeOAj7mEtG50xQ"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_sfXdIRn8EeOAj7mEtG50xQ" guid="_sfXdIRn8EeOAj7mEtG50xQ"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_s9duYRn8EeOAj7mEtG50xQ" guid="_s9duYRn8EeOAj7mEtG50xQ"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_tkD0URn8EeOAj7mEtG50xQ" guid="_tkD0URn8EeOAj7mEtG50xQ"/>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_sw8yQAs0EeS15-rCACMYfg" name="Requirements elicitation" guid="_sw8yQAs0EeS15-rCACMYfg" presentationName="Requirements elicitation" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" mandatoryInput="_sxGjQAs0EeS15-rCACMYfg" output="_sxGjQQs0EeS15-rCACMYfg" performedPrimarilyBy="_sw8yQQs0EeS15-rCACMYfg _sw8yQgs0EeS15-rCACMYfg _sw8yQws0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_cTiUQBnnEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-p2d7R3eWTJW9fwxNFqWaSA#_vK-UUBnnEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-p2d7R3eWTJW9fwxNFqWaSA#_xzzXwBnnEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-p2d7R3eWTJW9fwxNFqWaSA#_3RhksBnnEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_sw8yQQs0EeS15-rCACMYfg" name="Software Analyst" guid="_sw8yQQs0EeS15-rCACMYfg" presentationName="Software Analyst" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_sxGjQQs0EeS15-rCACMYfg _taOYwQs0EeS15-rCACMYfg _t3b5Mws0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg _wzezkQs0EeS15-rCACMYfg _wzezkgs0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_JUWGIPN2EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_sw8yQgs0EeS15-rCACMYfg" name="Technical Manager" guid="_sw8yQgs0EeS15-rCACMYfg" presentationName="Technical Manager" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_sxGjQQs0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg _wzezkQs0EeS15-rCACMYfg _wzezkgs0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_strmIOlNEeK0OZ4YEtMZ2Q"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_sw8yQws0EeS15-rCACMYfg" name="Application owner" guid="_sw8yQws0EeS15-rCACMYfg" presentationName="Application owner" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_sxGjQQs0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg _wzezkQs0EeS15-rCACMYfg _wzezkgs0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_IpR6cPN3EeK5O75NHcWwEw"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_sxGjQAs0EeS15-rCACMYfg" name="User Requirements" guid="_sxGjQAs0EeS15-rCACMYfg" presentationName="User Requirements" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_ECsxIBnoEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_sxGjQQs0EeS15-rCACMYfg" name="Prioritised requirements" guid="_sxGjQQs0EeS15-rCACMYfg" presentationName="Prioritised requirements" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_KT1_EBnoEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_taOYwAs0EeS15-rCACMYfg" name="Select the requirements to be developed in the sprint" guid="_taOYwAs0EeS15-rCACMYfg" presentationName="Select the requirements to be developed in the sprint" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" linkToPredecessor="_UHyOsAs1EeS15-rCACMYfg" mandatoryInput="_sxGjQQs0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg" output="_taOYwQs0EeS15-rCACMYfg" performedPrimarilyBy="_sw8yQQs0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#__IXL0BnsEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-8MrBAgf0HzcZdJA-5GfOuQ#_e2DFkBntEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-8MrBAgf0HzcZdJA-5GfOuQ#_idwMEBntEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_taOYwQs0EeS15-rCACMYfg" name="List of requirements for each sprint" guid="_taOYwQs0EeS15-rCACMYfg" presentationName="List of requirements for each sprint" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_-uzuQBnqEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_t3b5MAs0EeS15-rCACMYfg" name="Analysis and modelling" guid="_t3b5MAs0EeS15-rCACMYfg" presentationName="Analysis and modelling" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" linkToPredecessor="_V0aIkAs1EeS15-rCACMYfg" mandatoryInput="_taOYwQs0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg" optionalInput="_sxGjQQs0EeS15-rCACMYfg" output="_t3b5Mws0EeS15-rCACMYfg" performedPrimarilyBy="_t3b5MQs0EeS15-rCACMYfg _t3b5Mgs0EeS15-rCACMYfg _sw8yQQs0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_9ZD78BntEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-1Cr6wjahee4ucaMo4sYQ7Q#_-KK94BnvEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-1Cr6wjahee4ucaMo4sYQ7Q#_BU08ABnwEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_t3b5MQs0EeS15-rCACMYfg" name="Software Architect" guid="_t3b5MQs0EeS15-rCACMYfg" presentationName="Software Architect" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_t3b5Mws0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_BFo1cN8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_t3b5Mgs0EeS15-rCACMYfg" name="Modeller" guid="_t3b5Mgs0EeS15-rCACMYfg" presentationName="Modeller" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_t3b5Mws0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_DNsFoBnxEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_t3b5Mws0EeS15-rCACMYfg" name="Design of each sprint" guid="_t3b5Mws0EeS15-rCACMYfg" presentationName="Design of each sprint" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_Q-dVkBnrEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_uu3QcAs0EeS15-rCACMYfg" name="Development" guid="_uu3QcAs0EeS15-rCACMYfg" presentationName="Development" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" linkToPredecessor="_WhQngQs1EeS15-rCACMYfg" additionallyPerformedBy="_sw8yQQs0EeS15-rCACMYfg _t3b5MQs0EeS15-rCACMYfg" mandatoryInput="_taOYwQs0EeS15-rCACMYfg _t3b5Mws0EeS15-rCACMYfg" output="_uu3Qcgs0EeS15-rCACMYfg" performedPrimarilyBy="_uu3QcQs0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_R-2pUBnwEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-nRVMs6LOUuXfKudAf6Efdw#_fAvV0BnxEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_uu3QcQs0EeS15-rCACMYfg" name="Developer" guid="_uu3QcQs0EeS15-rCACMYfg" presentationName="Developer" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_uu3Qcgs0EeS15-rCACMYfg _vlG78Qs0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_2zmjgBnwEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_uu3Qcgs0EeS15-rCACMYfg" name="Prototype of each sprint" guid="_uu3Qcgs0EeS15-rCACMYfg" presentationName="Prototype of each sprint" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_e2b_wBnwEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_vk9K8As0EeS15-rCACMYfg" name="Testing of functional and non functional requirements" guid="_vk9K8As0EeS15-rCACMYfg" presentationName="Testing of functional and non functional requirements" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" linkToPredecessor="_X0aRcQs1EeS15-rCACMYfg" additionallyPerformedBy="_sw8yQQs0EeS15-rCACMYfg _t3b5MQs0EeS15-rCACMYfg" mandatoryInput="_taOYwQs0EeS15-rCACMYfg _uu3Qcgs0EeS15-rCACMYfg" output="_vlG78Qs0EeS15-rCACMYfg" performedPrimarilyBy="_vlG78As0EeS15-rCACMYfg _uu3QcQs0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_uZaI8BnxEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:RoleDescriptor" xmi:id="_vlG78As0EeS15-rCACMYfg" name="Tester" guid="_vlG78As0EeS15-rCACMYfg" presentationName="Tester" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" modifies="_vlG78Qs0EeS15-rCACMYfg _wzezkQs0EeS15-rCACMYfg _wzezkgs0EeS15-rCACMYfg">
+      <Role href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_UykTEN8tEeONsOGj6lDwuA"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_vlG78Qs0EeS15-rCACMYfg" name="Tested prototype of each sprint" guid="_vlG78Qs0EeS15-rCACMYfg" presentationName="Tested Prototype of each sprint" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_EPONYBnsEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_wTS3oAs0EeS15-rCACMYfg" name="Review and add the requirements" guid="_wTS3oAs0EeS15-rCACMYfg" presentationName="Review and add the requirements" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" mandatoryInput="_taOYwQs0EeS15-rCACMYfg _vlG78Qs0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg" output="_sxGjQAs0EeS15-rCACMYfg" performedPrimarilyBy="_sw8yQws0EeS15-rCACMYfg _sw8yQgs0EeS15-rCACMYfg _sw8yQQs0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_7HBOkBnyEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-rL_pcQZmzUCWLGrqB9QqTw#_LEyS0BnzEeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-rL_pcQZmzUCWLGrqB9QqTw#_O2VR0BnzEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:TaskDescriptor" xmi:id="_wzezkAs0EeS15-rCACMYfg" name="Test and deploy the final application" guid="_wzezkAs0EeS15-rCACMYfg" presentationName="Test and deploy the final application" superActivities="_GzC-kRn4EeOAj7mEtG50xQ" mandatoryInput="_vlG78Qs0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg" output="_wzezkQs0EeS15-rCACMYfg _wzezkgs0EeS15-rCACMYfg" performedPrimarilyBy="_sw8yQQs0EeS15-rCACMYfg _sw8yQws0EeS15-rCACMYfg _sw8yQgs0EeS15-rCACMYfg _vlG78As0EeS15-rCACMYfg">
+      <Task href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_1tc28Bn0EeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-OetLvfDxvKw-QISAsonvKQ#_oMmZsBn3EeOAj7mEtG50xQ"/>
+      <selectedSteps href="uma://-OetLvfDxvKw-QISAsonvKQ#_rkXmwBn3EeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_wzezkQs0EeS15-rCACMYfg" name="Deployed application" guid="_wzezkQs0EeS15-rCACMYfg" presentationName="Deployed application" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_3CGOUBn3EeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkProductDescriptor" xmi:id="_wzezkgs0EeS15-rCACMYfg" name="Tested Application" guid="_wzezkgs0EeS15-rCACMYfg" presentationName="Tested Application" isPlanned="false" superActivities="_GzC-kRn4EeOAj7mEtG50xQ">
+      <WorkProduct href="uma://_GpKfcOlIEeK0OZ4YEtMZ2Q#_WSYQ0BnsEeOAj7mEtG50xQ"/>
+    </processElements>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_UHyOsAs1EeS15-rCACMYfg" guid="_UHyOsAs1EeS15-rCACMYfg" pred="_sw8yQAs0EeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_V0aIkAs1EeS15-rCACMYfg" guid="_V0aIkAs1EeS15-rCACMYfg" pred="_taOYwAs0EeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_WhQngQs1EeS15-rCACMYfg" guid="_WhQngQs1EeS15-rCACMYfg" pred="_t3b5MAs0EeS15-rCACMYfg"/>
+    <processElements xsi:type="org.eclipse.epf.uma:WorkOrder" xmi:id="_X0aRcQs1EeS15-rCACMYfg" guid="_X0aRcQs1EeS15-rCACMYfg" pred="_uu3QcAs0EeS15-rCACMYfg"/>
+    <process xsi:type="org.eclipse.epf.uma:CapabilityPattern" xmi:id="_GzC-kRn4EeOAj7mEtG50xQ" name="Development process" guid="_GzC-kRn4EeOAj7mEtG50xQ" presentationName="Development process" briefDescription="The main objective of this task is to develop SaaS applications that fulfil the following characteristics using an agile method:&#xD;&#xA;o&#x9;Support multitenancy. It should be designed to support concurrent accesses by multiple tenants and handle their sessions in isolation&#xD;&#xA;o&#x9;High reusability: Services providers develop and deploy cloud services and expect that the services would be reused by a large number of consumers.&#xD;&#xA;o&#x9;High availability: Cloud services are not just for specific users; rather they are for any potential unknown consumers who may wish to use the services anytime and anywhere.&#xD;&#xA;o&#x9;High scalability: could services should be highly scalable even in the situation that an extremely high number of services invocations and so their associated resource requests are requested" breakdownElements="_sw8yQAs0EeS15-rCACMYfg _sw8yQQs0EeS15-rCACMYfg _sw8yQgs0EeS15-rCACMYfg _sw8yQws0EeS15-rCACMYfg _sxGjQAs0EeS15-rCACMYfg _sxGjQQs0EeS15-rCACMYfg _taOYwAs0EeS15-rCACMYfg _taOYwQs0EeS15-rCACMYfg _t3b5MAs0EeS15-rCACMYfg _t3b5MQs0EeS15-rCACMYfg _t3b5Mgs0EeS15-rCACMYfg _t3b5Mws0EeS15-rCACMYfg _uu3QcAs0EeS15-rCACMYfg _uu3QcQs0EeS15-rCACMYfg _uu3Qcgs0EeS15-rCACMYfg _vk9K8As0EeS15-rCACMYfg _vlG78As0EeS15-rCACMYfg _vlG78Qs0EeS15-rCACMYfg _wTS3oAs0EeS15-rCACMYfg _wzezkAs0EeS15-rCACMYfg _wzezkQs0EeS15-rCACMYfg _wzezkgs0EeS15-rCACMYfg">
+      <presentation xmi:id="-UGjiOlFF6MMuOJlnaFt_0g" href="uma://-UGjiOlFF6MMuOJlnaFt_0g#-UGjiOlFF6MMuOJlnaFt_0g"/>
+      <defaultContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+      <validContext href="uma://_v86X4eSPEeKxCt41oU3bag#_dw_8oBYJEeOmbOssuuSxZg"/>
+    </process>
+  </org.eclipse.epf.uma:ProcessComponent>
+</xmi:XMI>

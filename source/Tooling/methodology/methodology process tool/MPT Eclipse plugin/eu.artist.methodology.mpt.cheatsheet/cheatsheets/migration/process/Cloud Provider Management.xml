@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Fundación TECNALIA Research & Innovation
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Marisa Escalante Martinez (Tecnalia)
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Cloud Provider Management">
+   <intro>
+      <description>
+         The objective of this task is to manage and control the service provided for the cloud provider in order to contract the most appropriate one for the organisation´s requirements, and to monitor, measure and control that the agreement is fulfilled.
+      </description>
+   </intro>
+   <item
+         title="CPMP.A1 - Define the main features to be fulfilled by the cloud provider">
+      <description>
+         This activity should define the features regarding to technical aspects such us type of Data base, programming language, availability, scalability metrics and to business aspects such us pricing model, standards compliance etc. , that the cloud provider should provide.
+      </description>
+   </item>
+   <item
+         skip="true"
+         title="CPMP.A2 - Select cloud provider">
+      <description>
+         This activity should select  a cloud provider based on an evaluation of their ability to meet the specified requirements and established criteria
+      </description>
+   </item>
+   <item
+         title="CPMP.A3 - Establish the cloud provider agreement">
+      <description>
+         This activity should reflect the agreement with the cloud provider. This agreement can be a contract, license, service level agreement, or memorandum of agreement. The most common way to do this agreement will be a SLA with the cloud provider
+      </description>
+   </item>
+   <item
+         title="CPMP.A4 - Monitor the fulfilment of the conditions">
+      <description>
+         This activity should monitor, as defined in the agreement, the fulfilment of the conditions and characteristics defined by the agreement. Most of the cloud providers provide their own tools to facilitate the monitoring of their cloud services.
+      </description>
+   </item>
+   <item
+         title="CPMP.A5 - Report and control the non-fulfilment">
+      <description>
+         The Cloud provider monitoring and reporting mechanisms must be defined and agreed with the cloud provider. The periodic reports should incorporate details of performance against all cloud provider SLA targets. It is important for elaborating these reports to collect accurate information from all the areas and other processes and measured against the agreed business targets. During this activity, reports on non-fulfilments report should be produced and propagated to the affected parts. In case of non-fulfilments, It could be necessary to start again all the task, starting in the activity CPMP.A1.
+      </description>
+   </item>
+</cheatsheet>

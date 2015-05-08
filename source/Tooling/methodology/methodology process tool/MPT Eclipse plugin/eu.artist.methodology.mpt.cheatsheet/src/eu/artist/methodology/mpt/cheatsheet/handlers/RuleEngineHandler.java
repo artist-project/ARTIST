@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -26,15 +26,8 @@
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet.handlers;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,42 +36,36 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Shell;
 
-/*
-import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
-import eu.artist.methodology.mpt.model.GlobalVariable;
-import eu.artist.methodology.mpt.model.Result;
-import eu.artist.methodology.mpt.rule.api.RuleEngine;
-import eu.artist.premigration.tft.tft.views.MigrationGoalsView;
-*/
-
-import eu.artist.premigration.tft.mpt.rules.RulesVariable;
-import eu.artist.premigration.tft.mpt.model.GlobalVariable;
-import eu.artist.premigration.tft.mpt.model.Result;
+//import eu.artist.methodology.mpt.cheatsheet.Activator;
+import eu.artist.methodology.mpt.cheatsheet.util.MPTLogger;
 import eu.artist.premigration.tft.mpt.api.RuleEngine;
+import eu.artist.premigration.tft.mpt.model.GlobalVariable;
+import eu.artist.premigration.tft.mpt.rules.RulesVariable;
 import eu.artist.premigration.tft.tft.views.MigrationGoalsView;
+import eu.artist.suite.preferences.PreferenceConstants;
+import eu.artist.suite.ARTISTSuite;
+
 
 public class RuleEngineHandler extends AbstractHandler {
+	String selected_file=null;
+	String is_file_selected=null;
+	IFile ifile = null;
+	static MPTLogger logger = new MPTLogger();
+	
 	public RuleEngineHandler() {
 	
 	}
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-	
-	File file = new File("C:\\mpt_logs\\ruleEngineHandler.txt");
-	file.getParentFile().mkdirs();
-	FileWriter fw = null;
-	
-	try {
-	    fw = new FileWriter(file, true);
-	} catch (IOException e2) {
-		// TODO Auto-generated catch block
-		e2.printStackTrace();
-	}
-	PrintWriter pw = new PrintWriter(fw);
-	pw.print("Rule Engine handler has been activated.");
-	
+
 	try {
 		
 	
@@ -88,8 +75,10 @@ public class RuleEngineHandler extends AbstractHandler {
 		URL rulesFileURL=null;
 		
 		try {
-			rulesFileURL = new URL("platform:/plugin/eu.artist.methodology.mpt.cheatsheet/resources/RuleSet_3.drl");
-		    /*
+			
+			rulesFileURL = new URL("platform:/plugin/eu.artist.methodology.mpt.cheatsheet/resources/RuleSet_8.drl");
+		    
+			/*
 			InputStream inputStream = rulesFileURL.openConnection().getInputStream();
 		    BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
 		    String inputLine;
@@ -100,122 +89,121 @@ public class RuleEngineHandler extends AbstractHandler {
 		 
 		    in.close();
 		    */
-		 
-		} catch (Exception e) {
-		    e.printStackTrace(pw);
-		    //return "error code x: " + e.getMessage();
-		    return "error";
-		}
-		
-		IFile ifile = null;
-		try {
-		  ifile = MigrationGoalsView.xmlFile;
+
+			//Changed in order to avoid errors, this code will not be needed in the future
+		    //ifile = MigrationGoalsView.xmlFile;
+			//ifile = MigrationGoalsView.gmlFile;
+		    
 		} catch (Exception exc) {
-			exc.printStackTrace(pw);
-			//return "error code 1: " + exc.getMessage();
+			logger.log("An exception occured", exc);
+			exc.printStackTrace();
 			return "error";
 		}
 		
+		/*
 		if (ifile == null) {
-			
-			pw.println("IFile is null: selected file does not reside in the workspace");
-			//return "error code 2: selected file does not reside in the workspace" ;
+			logger.log("IFile is null: selected file does not reside in the workspace");
 			return "error";
 			
 		} else {
+		*/
 		
-			File mgFile = null, rulesFile = null;
+			//File mgFile = null, rulesFile = null;
+			File rulesFile = null;
+			
 			try {
 
-				mgFile = ifile.getRawLocation().makeAbsolute().toFile();
+				//mgFile = ifile.getRawLocation().makeAbsolute().toFile();
 				
 				URL resolvedFileURL = FileLocator.toFileURL(rulesFileURL);
 				URI resolvedURI = new URI(resolvedFileURL.getProtocol(), resolvedFileURL.getPath(), null);
 				rulesFile = new File(resolvedURI);
 						   
 				//rulesFile = new File(FileLocator.resolve(rulesFileURL).toURI());
-			} catch (URISyntaxException e1) {
-				e1.printStackTrace(pw);
-				//return "error code 3: " + e1.getMessage();
-				return "error";
-			} catch (IOException e1) {
-				e1.printStackTrace(pw);
-				//return "error code 4: " + e1.getMessage();
-				return "error";
-			} catch (Exception e1) {
-				e1.printStackTrace(pw);
-				//return "error code 5: " + e1.getMessage();
-				return "error";
-			}
 			
-			try {
-				RuleEngine.INSTANCE.loadMATReport(mgFile);
-			} catch (Exception e) {
-				e.printStackTrace(pw);
-				//return "error code xx " + e.getMessage();
-				return "error";
+				//RuleEngine.INSTANCE.loadMATReport(mgFile);
 				
-			}
-			
-			try {
+				String mptMatReport = ARTISTSuite.getDefault().getPreferenceStore().getString(PreferenceConstants.MPT_MAT_REPORT_PATH.getValue());
+			    logger.log("MPT MAT report is located at: " + mptMatReport);
+			    
+			    if (mptMatReport == null || mptMatReport == "") {
+			    	mptMatReport = loadMPTMATReport();
+			    	
+			    	IPreferenceStore store = ARTISTSuite.getDefault().getPreferenceStore();					
+				    store.setValue(PreferenceConstants.MPT_MAT_REPORT_PATH.getValue(), mptMatReport);
+			    }
+				
+				RuleEngine.INSTANCE.loadNewMATReport(new File(mptMatReport));
+			    logger.log("The MAT report has been loaded in the Rule Engine.");
 				RuleEngine.INSTANCE.setRuleFile(rulesFile);
+				
 			} catch (Exception e) {
-				e.printStackTrace(pw);
-				//return "error code xxx " + e.getMessage();
+				logger.log("An exception occurred", e);
+				e.printStackTrace();
 				return "error";
 			}
 			
-		
-			//RulesVariable rules = new RulesVariable();
 			List<GlobalVariable> variables = new ArrayList<GlobalVariable>();
-			try {
-				
-				RulesVariable.clearArray();
+			try {			
 				RulesVariable.clearHashMap();
 				GlobalVariable r_variable = new GlobalVariable("rulesVariable", new RulesVariable());
-				//GlobalVariable r_variable = new GlobalVariable("rulesVariable", rules);
-				//List<GlobalVariable> variables = new ArrayList<GlobalVariable>();
+					
 				variables.add(r_variable);
-			} catch (Exception e) {
-				e.printStackTrace(pw);
-				//return "error code xxxx " + e.getMessage();
-				return "error";
-			}
-			
-			try {
-		
 				RuleEngine.INSTANCE.fireRules(variables);
-				
-			} catch (Exception e) {				
-				e.printStackTrace (pw);
-				//return "error code 5x " + e.getMessage() + "   " + mgFile.getPath() + "  " + rulesFile.getPath();
-				return "error";
-			}
-			
-			try {
-				Result result = RuleEngine.INSTANCE.getResult();
-				System.out.println("Result: " + result.getStringResult());
-				pw.println("Result: " + result.getStringResult());
-				//System.out.println(((RulesVariable)r_variable.getVariable()).getRuleString());
-				//System.out.println(RulesVariable.rules);
-				pw.close();
-				
-				fw.close();
-				
+				//Result result = RuleEngine.INSTANCE.getResult();
 			} catch (Exception e) {
-				e.printStackTrace(pw);
-				//return "error code 6x " + e.getMessage() + "   " + mgFile.getPath() + "  " + rulesFile.getPath();
+				logger.log("An exception occurred", e);
+				e.printStackTrace();
 				return "error";
 			}
 			
 			return "pass";
-		}
+		//}
 		
 	} catch (Exception e) {
-			e.printStackTrace(pw);
-			//return "error code 6: " + e.getMessage();	
-			
+		    logger.log("An exception occurred", e);
+			e.printStackTrace();
 			return "error";
 	}			
   }
+	
+  public String loadMPTMATReport() {
+		 
+		Display.getDefault().syncExec( new Runnable() {  
+	    	public void run() { 
+	    		
+	    		//Shell shell = new Shell(display);
+	    		Shell shell = new Shell();
+		        // File standard dialog
+		        FileDialog fileDialog = new FileDialog(shell);
+		        // Set the text
+		        fileDialog.setText("Select MAT report file");
+		        // Set filter on .xml files
+		        fileDialog.setFilterExtensions(new String[] { "*.xml" });
+		        // Put in a readable name for the filter
+		        fileDialog.setFilterNames(new String[] { "MAT reports(*.xml)" });
+		        
+		        IWorkspace workspace= ResourcesPlugin.getWorkspace();
+		        
+		        String workspace_path = workspace.getRoot().getLocation().toString();
+		        logger.log("Workspace path is " + workspace_path);
+		        
+		        fileDialog.setFilterPath(workspace_path);
+		        
+		        // Open Dialog and save result of selection
+		        selected_file = fileDialog.open();
+			    logger.log("The selected MAT report is " + selected_file);  
+		        
+		        if (selected_file!=null && selected_file!="") {
+		        	is_file_selected = "true";
+		        	
+		        } else {
+		        	is_file_selected = "false";
+		        }
+		        logger.log("is file selected " + is_file_selected);
+	    	} 
+	    });
+		
+		return selected_file;				
+	}
 }

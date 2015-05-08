@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -29,14 +29,44 @@
       title="Perform business feasibility analysis">
    <intro>
       <description>
-         <b>Estimate costs, benefits, and operational risks of the migration.</b>
+         <b>This cheat sheet shows how to create a new Business Scenario Workbench (BSW) project to define Business Models.</b>
       </description>
    </intro>
-   <item
-         title="Scenario Workbench definition">
+   <item dialog="true"
+         title="Create a Business Scenario Workbench Project">
       <description>
-         <b>Use the Business Feasibility Tool to define all the elements of the business ecosystem and their relationships.</b>
+         <b>Create a Modeling Project</b>
       </description>
+      <subitem
+            label="Before creating a Business Model, a Modeling Project to put it in is needed. In the main toolbar, click on &quot;File -&gt; New -&gt; Other -&gt;  Sirius -&gt; Modeling Project&quot;. Enter a project name, then click Finish. Alternatively click on the green arrow on the right to automate the action.">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=org.eclipse.sirius.ui.modelingproject.wizard)"/>
+      </subitem>
+      <subitem skip="true"
+            label="If the Sirius perspective is not enabled, in the main menu select &quot;Window -&gt; Open Perspective -&gt; Sirius&quot;. Alternatively click on the green arrow on the right to automate the action.">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.perspectives.showPerspective(org.eclipse.ui.perspectives.showPerspective.perspectiveId=org.eclipse.sirius.ui.tools.perspective.design)"/>
+      </subitem>
+   </item>
+   <item dialog="true"
+         title="Create a Business Model">
+      <description>
+         <b> </b>
+      </description>
+      <subitem
+            label="Right-click on the created Modeling Project and select &quot;New -&gt; Other -&gt; BFT-Business Scenario Workbench -&gt; Business Model -&gt; Next&quot;. Enter a name for the business model file, then click Finish.">
+         <command
+               required="false"
+               serialization="org.eclipse.ui.newWizard(newWizardId=BFT_BSW.editor.BusinessModel)"/>
+      </subitem>
+      <subitem 
+            label="To visualize the various Business Model viewpoints right-click on the Modeling Project and select Viewpoints Selection. Enable all the viewpoints in the list, then click OK.">
+            <action 
+      				class="eu.artist.methodology.mpt.cheatsheet.actions.OpenViewPointSelectionAction" 
+      				pluginId="eu.artist.methodology.mpt.cheatsheet"/>
+      </subitem>
    </item> 
    <item
          title="Scenario Workbench simulation">

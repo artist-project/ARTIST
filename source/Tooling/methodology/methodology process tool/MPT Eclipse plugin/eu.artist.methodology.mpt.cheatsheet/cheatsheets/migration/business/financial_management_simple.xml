@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- *  Copyright (c) 2014  Fundación TECNALIA Research & Innovation
- *  
- *  Licensed under the MIT license:
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
- *
- * Contributors: Leire Orue-Echevarria Arrieta
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
--->
 <cheatsheet
          title="Determine the financial management">
    <intro>
@@ -37,7 +11,7 @@
       <description>
       Determine the optimal revenues to ensure the sustainability of the organisation. 
 
-You can do that by using a profit &amp; loss simulation spreadsheet./b>
+You can do that by using a profit &amp; loss simulation spreadsheet.
       </description>
    </item>
    <item
@@ -47,21 +21,21 @@ You can do that by using a profit &amp; loss simulation spreadsheet./b>
       </description>
    </item>
    <item
-            title="Pricing strategy">
+            title="Determine the pricing strategy">
          <description>
             define the pricing strategy taking into consideration each customer segment.  There are several possible license models.
-o	By subscription
-o	By use
-o	By transaction
-o	By value
-o	Flat rate
-o	Hybrid
+a)	By subscription
+b) By use
+c)	By transaction
+d)	By value
+e)	Flat rate
+f)	Hybrid.
 The most appropriate one for being cloud compliant are: by use or by transaction. Based on the license model different parameters should be measured. These parameters could be:
-o	Time: the time that the client uses the service measured in hours, seconds or microseconds.
-o	Volume: The volume of the used service: GB, MB/s, CPU cycles, etc.
-o	Sessions: number of accesses to the service
-o	Requests: number of requests to the system
-o	Users: number of users that are allowed to access to the system
+a)Time: the time that the client uses the service measured in hours, seconds or microseconds.
+b) Volume: The volume of the used service: GB, MB/s, CPU cycles, etc.
+c) Sessions: number of accesses to the service
+d) Requests: number of requests to the system
+e) Users: number of users that are allowed to access to the system
          </description>
       </item>
       <item

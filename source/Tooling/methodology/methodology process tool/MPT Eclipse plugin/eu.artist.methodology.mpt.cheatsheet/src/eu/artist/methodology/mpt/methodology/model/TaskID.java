@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -21,7 +21,8 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  *
- * Contributors: Kleopatra Konstanteli
+ * Contributors: Yosu Gorroñogoitia (Atos)
+ * 				 Burak Karaboga (Atos)
  * Initially developed in the context of ARTIST EU project www.artist-project.eu
  *******************************************************************************/
 package eu.artist.methodology.mpt.methodology.model;

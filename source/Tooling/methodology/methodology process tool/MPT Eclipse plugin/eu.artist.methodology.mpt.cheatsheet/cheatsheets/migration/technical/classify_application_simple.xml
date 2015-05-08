@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Athanasia Evangelinou
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Classification Tool">
+   <intro>
+      <description>
+         <b>The Classification tool classifies an arbitrary application component to a predefined and known benchmark application category and then matches the application component (which is based on the aforementioned classification) with a cloud service offering (VM instance type). The correlation occurs by selecting the VM instance type which provides the best performance score for the detected benchmark profile in combination with the respective service offering cost. The goal of this tool is to suggest to the Application Developer the most fitting solution based on specific user interests during the migration of an application to the Cloud by calculating the Service Efficiency metric. This formula intends to combine various aspects of a service (such as cost, performance, deviation etc.) in a weighted form, so that service ranking can be achieved through a simple to grasp concept and resulting value. The weights of the ranking are provided by the users according to their interests.</b>
+      </description>
+   </intro>
+   <item
+         title="Download Classification Tool">
+      <description>
+         <b> </b>
+      </description>
+      <command
+            required="true"
+            serialization="org.eclipse.ui.browser.openBrowser(url= https://github.com/artist-project/ARTIST/tree/master/binary/ClassificationTool)"/> 
+   </item>
+   <item
+         title="Follow installation instructions">
+      <description>
+         <b>Follow very carefully the instructions concerning the formatting of the information inserted as input and the creation of the configuration file.</b>
+      </description>
+   </item>
+   <item
+         title="Prerequisite steps for using Classification Tool">
+      <description>
+         <b> </b>
+      </description>
+      <subitem
+            label="Make sure that a file with the benchmark profiles (training file) is created by merging Tshark and Pidstat files derived from benchmark profiling process using Profiling tool and a predefined workload name for each of them is provided.">
+      </subitem>
+      <subitem
+            label="Ensure that the input files derived from the application profiling process using Profiling tool (Tshark and Pidstat results for the arbitrary application component) are locally stored.">
+      </subitem>
+      <subitem
+            label="Create a configuration file called conf.ini using the standard INI file format which includes three sections: the first section is the [classification] section where the user fills in the classifier engine to be used for the classification process and the second one is the [database] section where the user fills in the information needed for establishing the DB connection such as hostname, TCP port, DB name and user credentials. The last one is the [service_efficiency] section where the user provides the weights for price and performance according to his/her interests both needed for the calculation of the Service Efficiency metric. The conf.ini file must be located in the same folder as the ClassificationTool.jar">
+      </subitem>
+   </item>
+   <item
+         title="Execution of Classification Tool">
+      <description>
+         <b> </b>
+	  </description>
+      <subitem
+            label="Navigate to the directory where the executable ClassificationTool.jar is located. By double clicking on the jar file, a graphical interface appears introducing a form with empty fields. The user clicks on the “Browse…” buttons in order to locate the files needed for the classification process. The training file includes the benchmark profiles while the Tshark and Pidstat files include the application profile.">
+      </subitem>
+      <subitem
+            label="In turn, click on Calculate classification so that the arbitrary application component can be classified.">
+      </subitem>
+      <subitem
+            label="After the completion of the classification process, the result is displayed in the class field.">
+      </subitem>
+<subitem
+            label="In the last step, click on the Calculate best instance type! button in order for the Classification tool to calculate the best cloud offering which is displayed on the instance field.">
+      </subitem>
+   </item>
+</cheatsheet>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -92,19 +92,15 @@
             id="eu.artist.methodology.mpt.cheatsheet.commands.componentModelSelectionPathCommand"
             name="Component model selection path command">
       </command>
+      <command
+            categoryId="eu.artist.methodology.mpt.cheatsheet.commands.category"
+            id="eu.artist.methodology.mpt.cheatsheet.commands.deploymentModelSelectionPathCommand"
+            name="Deployment model selection path command">
+      </command>
        <command
             categoryId="eu.artist.methodology.mpt.cheatsheet.commands.category"
             id="eu.artist.methodology.mpt.cheatsheet.commands.runRuleEngineCommand"
             name="Rule engine execution command">
-      </command>
-       <command
-            categoryId="eu.artist.methodology.mpt.cheatsheet.commands.category"
-            id="eu.artist.methodology.mpt.cheatsheet.commands.checkRuleCommand"
-            name="Check rule command">
-            <commandParameter
-            	id="eu.artist.methodology.mpt.ruleParameter"
-            	name="Rule">
-            </commandParameter>
       </command>
        <command
             categoryId="eu.artist.methodology.mpt.cheatsheet.commands.category"
@@ -114,6 +110,11 @@
             	id="eu.artist.methodology.mpt.ruleParameter"
             	name="Rule">
             </commandParameter>
+      </command>
+        <command
+            categoryId="eu.artist.methodology.mpt.cheatsheet.commands.category"
+            id="eu.artist.methodology.mpt.cheatsheet.commands.downloadMATReportCommand"
+            name="Download MAT report command">
       </command>
    </extension>
    <extension
@@ -135,16 +136,20 @@
             commandId="eu.artist.methodology.mpt.cheatsheet.commands.componentModelSelectionPathCommand">
       </handler>
        <handler
+            class="eu.artist.methodology.mpt.cheatsheet.handlers.DeploymentModelSelectionPathHandler"
+            commandId="eu.artist.methodology.mpt.cheatsheet.commands.deploymentModelSelectionPathCommand">
+      </handler>
+       <handler
             class="eu.artist.methodology.mpt.cheatsheet.handlers.RuleEngineHandler"
             commandId="eu.artist.methodology.mpt.cheatsheet.commands.runRuleEngineCommand">
       </handler>
        <handler
             class="eu.artist.methodology.mpt.cheatsheet.handlers.RuleHandler"
-            commandId="eu.artist.methodology.mpt.cheatsheet.commands.checkRuleCommand">
+            commandId="eu.artist.methodology.mpt.cheatsheet.commands.getRulesCommand">
       </handler>
        <handler
-            class="eu.artist.methodology.mpt.cheatsheet.handlers.RuleHandlerTest"
-            commandId="eu.artist.methodology.mpt.cheatsheet.commands.getRulesCommand">
+            class="eu.artist.methodology.mpt.cheatsheet.handlers.DownloadMATReportHandler"
+            commandId="eu.artist.methodology.mpt.cheatsheet.commands.downloadMATReportCommand">
       </handler>
    </extension>
 </plugin>

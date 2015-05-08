@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -59,7 +59,7 @@ public class ShowMigrationGoalsViewAction extends Action implements ICheatSheetA
 		   System.out.println("ShowMigrationGoalsViewAction activated.");
 		   
 		   if (params!=null && params.length > 0) {
-			   System.out.println("The selected MAT report is " + params[0]);
+			   System.out.println("The selected MIG file is " + params[0]);
 		   
 			   File file = new File(params[0]);
 			   IWorkspace workspace= ResourcesPlugin.getWorkspace();    
@@ -76,7 +76,7 @@ public class ShowMigrationGoalsViewAction extends Action implements ICheatSheetA
 				   
 			   } else {
 		   
-				   MigrationGoalsView.xmlFile = ifile;
+				   MigrationGoalsView.gmlFile = ifile;
 		   
 				   System.out.println("The selected file has been set in migration's goals view.");
 

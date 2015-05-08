@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Zurik Corera Seoane
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Perform code reusability analysis">
+   <intro>
+      <description>
+         The objective of the “Reusability Trace Tool” (or RTT) is to provide a first automatic selection of pieces of code that can be transferred directly to the target system and to permit to participate in the process and take actual decisions. This component requires the following software to be installed	(Eclipse Kepler SR1, RTT plug-in (reusability.jar) that can be downloaded from the public repository).It is also needed to copy a configuration file called config.xml to the file system where the plug-in is executed. As for all components, the sources can be downloaded from the public repository.
+      </description>
+   </intro>
+   <item
+         title="Launch RTT plug-in">
+      <description>
+         Launch the RTT plug-in by clicking on the new menu option.
+      </description>
+      <command
+            required="false"
+            serialization="reusability.command"/>
+   </item>
+   <item
+         title="Set the reusability scope">
+      <description>
+         In the first approach. there are two options to be selected “Presentation level“ or  “Business Level”. In case “Presentation Level” is selected, a new window is opened.
+		 In this window,  it would be possible to select the path where presentation components are located in case same technology is used both in source and target systems. In case of using different technologies at presentation layer (for example jsp in one site and php in the other), it would be impossible to reuse directly  any part of code at this level.
+         In case “Business Level” is selected, a new window is opened to select the conditions.
+      </description>
+   </item>
+   <item
+         title="Set up the conditions">
+      <description>
+         Through this window opened in the previous step establish the conditions to automatically select the pieces of code (methods) that could be reused directly.
+      </description>
+   </item>
+   <item
+         title="Select reusable code">
+      <description>
+         Once the conditions are set up, a screen contains a tree with the list of all the components and methods that could be reused directly according to the conditions established previously. Despite of this automatic selection there will be the choice to select and unselect any component or method he/she thinks appropriate.
+      </description>
+   </item>
+   <item
+         title="Generate configuration file (XML or JSON)">
+      <description>
+         After the previous step, when pushing the “Ok” button, a configuration file (XML or JSON) is generated with the relation of all the components and methods to be reused directly (this way it will be possible to access the code directly as it is on the source during the forward engineering process).
+      </description>
+   </item>
+</cheatsheet>

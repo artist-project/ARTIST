@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -37,9 +37,9 @@
         <description>
 		<b>At first step you need to log into the MPT WebApp using your credentials. If you do not have the required credentials, you need to register first.</b>
         </description>
-	<command
-            required="true"
-            serialization="org.eclipse.ui.browser.openBrowser(url=http://147.102.19.204:8082/eu.artist.methodology.mpt.webapp/)"/> 
+	    <action pluginId="eu.artist.methodology.mpt.cheatsheet"
+			 class="eu.artist.methodology.mpt.cheatsheet.actions.OpenBrowserFromPreferenceStoreAction"
+			 param1="mpt_url"/>
    </item>
 
    <item
@@ -62,14 +62,14 @@
          <b>By clicking on the VIEW METHODOLOGY link on the left menu, you will be able to see the configured ARTIST Methodology through the EPF Composer.</b>
       </description>
    </item>
-   <item
+   <item dialog="true"
          title="Load configuration suggestions">
       <description>
-         <b>Click here to configure the following steps of the tutorial based on the pre-migration results.</b>
+         <b>Configure the following steps of the tutorial based on the pre-migration results.</b>
       </description>    
       <command returns = "result"
       	 serialization="eu.artist.methodology.mpt.cheatsheet.commands.runRuleEngineCommand()"/>
-      <onCompletion>The following migration and post migration steps have been configured based on the pre-migration results.</onCompletion>     
+      <!--onCompletion>The following migration and post migration steps have been configured based on the pre-migration results.</onCompletion!-->     
    </item>
    <item
    		title="Next step">
@@ -85,7 +85,7 @@
 						param1="eu.artist.methodology.mpt.cheatsheet.migration"/>
       		</subitem>
       		<subitem when="pass"
-            	label="Click here to proceed to the migration phase">
+            	label="The following migration and post migration steps have been configured based on the pre-migration results. Click here to proceed to the migration phase">
             	<action pluginId="eu.artist.methodology.mpt.cheatsheet"
 						class="eu.artist.methodology.mpt.cheatsheet.actions.ModifyCheatSheetAction"
 						param1="eu.artist.methodology.mpt.cheatsheet.migration"/>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -26,19 +26,21 @@
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet.handlers;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-//import eu.artist.methodology.mpt.cheatsheet.rules.RulesVariable;
-
-import eu.artist.premigration.tft.mpt.rules.RulesVariable;
+import eu.artist.methodology.mpt.cheatsheet.util.MPTLogger;
+import  eu.artist.premigration.tft.mpt.rules.RulesKey;
+import  eu.artist.premigration.tft.mpt.rules.RulesVariable;
 
 public class RuleHandler extends AbstractHandler {
 	
-	String is_rule_satisfied = "false";
+	String rules = "";
+	static MPTLogger logger;
 	
 	public RuleHandler() {
 	}
@@ -46,31 +48,40 @@ public class RuleHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
 		try {
-			
-			//re-initialize boolean to false
-			is_rule_satisfied = "false";
-			String rule_id = event.getParameter("eu.artist.methodology.mpt.ruleParameter");
-			//Map map = event.getParameters();
-			//System.out.println("The parameters map size is " + map.size());
-			System.out.println("Rule under examination is: " + rule_id);
-	
-			ArrayList <String> rules_array = RulesVariable.rules;
-			System.out.println("Rules array size is " + rules_array.size());
-			
-			if (rules_array.contains(rule_id)) {
+		
+			String task_id = event.getParameter("eu.artist.methodology.mpt.ruleParameter");
+			logger.log("Rule under examination refers to task: " + task_id);
 				
-				System.out.println("The rule is satisfied: " + rule_id);
-				is_rule_satisfied = "true";
-				
+			HashMap<RulesKey<Integer, String, String, Integer, Integer>, String> rules_map = RulesVariable.rules_map;
+			
+			logger.log("Rules map size is " + rules_map.size());
+		
+			StringBuilder rules_string = new StringBuilder();
+		
+			for (Map.Entry<RulesKey<Integer, String, String, Integer, Integer>, String> entry : rules_map.entrySet()) {
+			    
+				RulesKey<Integer, String, String, Integer, Integer> key = entry.getKey();
+			    
+			    //FIXME
+			    if (key.getTask().equals(task_id)) {
+			    	 String value = entry.getValue();
+
+					 if (rules_string.length() != 0) {
+					    	rules_string.append(',');
+					 }
+					    
+					 rules_string.append(value);		    	
+			    }
 			}
 			
-			System.out.println("Returning " + is_rule_satisfied); 
+			logger.log("Rules map string is: " + rules_string);
+			rules = rules_string.toString();
 			
 		} catch (Exception e) {
+			logger.log("An exception occurred", e);
 			e.printStackTrace();
-			return is_rule_satisfied;
 		}
 		
-		return is_rule_satisfied;
+		return rules;
 	}
 }

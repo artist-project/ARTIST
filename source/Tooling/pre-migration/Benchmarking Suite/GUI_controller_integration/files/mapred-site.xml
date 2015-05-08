@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+<property>
+<name>mapreduce.map.memory.mb</name>
+<value>1024</value>
+</property>
+
+<property>
+<name>mapreduce.reduce.memory.mb</name>
+<value>2048</value>
+</property>
+
+<property>
+<name>mapreduce.map.java.opts</name>
+<value>-Xmx512m</value>
+</property>
+
+<property>
+<name>mapreduce.reduce.java.opts</name>
+<value>-Xmx1536m</value>
+</property>
+
+</configuration>

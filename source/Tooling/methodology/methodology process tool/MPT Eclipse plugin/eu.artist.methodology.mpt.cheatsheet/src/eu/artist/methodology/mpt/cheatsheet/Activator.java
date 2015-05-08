@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -26,6 +26,15 @@
  *******************************************************************************/
 package eu.artist.methodology.mpt.cheatsheet;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+
+import org.apache.commons.io.FileUtils;
+import org.eclipse.core.internal.utils.FileUtil;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -36,6 +45,9 @@ public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "eu.artist.methodology.mpt.cheatsheet"; //$NON-NLS-1$
+	
+	// The path to state location
+	//public static final String STATE_LOCATION = Activator.getDefault().getStateLocation().toString();
 
 	// The shared instance
 	private static Activator plugin;
@@ -53,6 +65,8 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		createDirs();
 	}
 
 	/*
@@ -71,6 +85,19 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static Activator getDefault() {
 		return plugin;
+	}
+	
+	public static void createDirs() throws IOException, URISyntaxException {
+		final String STATE_LOCATION = Activator.getDefault().getStateLocation().toString();
+		
+		System.out.println("Creating dirs in state location ...");
+		URL csURL = plugin.getBundle().getEntry("cheatsheets/");
+		//csURL = new URL("platform:/plugin/eu.artist.methodology.mpt.cheatsheet/cheatsheets/" + csMap.get(csId));
+		URL resolvedcsURL = FileLocator.toFileURL(csURL);
+		URI resolvedcsURI = new URI(resolvedcsURL.getProtocol(), resolvedcsURL.getPath(), null);
+		File csFile = new File(resolvedcsURI);
+				
+		FileUtils.copyDirectory(csFile, new File(STATE_LOCATION));
 	}
 
 }

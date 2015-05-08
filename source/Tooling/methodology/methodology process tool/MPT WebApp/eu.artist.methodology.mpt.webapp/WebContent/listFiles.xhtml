@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <!-- /*******************************************************************************
+ *  Copyright (c) 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * 				 Liagouras Georgios Andreas
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *******************************************************************************/ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:p="http://primefaces.org/ui" >
+	 
+	 
+	  <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <style type="text/css">
+
+		body {
+        	background-color: #ffffff;
+        	font-family: arial, helvetica, sans-serif;
+        	font-size: 10pt;
+        	margin-left: 0px;
+        	margin-right: 0px;
+       	 	margin-top: 0px;
+        	margin-bottom: 0px;
+        	text-decoration: none;
+        	}
+
+		</style>
+		
+		<script type="text/javascript">
+			function configureMPT() {
+	        	var q = document.getElementById("dropdownlist");
+	        	var selected = q.options[q.selectedIndex].value;
+	        	
+	            document.location.href="confmpt?selected=" + selected;
+
+	        	//alert("ARTIST Methodology has been configured using " + selected + ".");
+	    	}		
+		</script>
+	
+		
+    </h:head>
+ 
+    <h:body> 
+    
+                <h4> Available MAT reports</h4>
+    
+    
+        <h:form id="myForm">
+      
+                     <p:growl id="messages" showDetail="true" /> 
+      
+      
+      <h:selectOneMenu value="#{listFileHandlerBean.selectedFile}" >
+      <f:selectItems value="#{listFileHandlerBean.matFiles}" /> </h:selectOneMenu>
+  <h:commandButton id='button1' rendered="#{loginBean.defaultProjectExists}" value="Configure methodology with MAT report" update="myForm messages" type="submit" disabled="#{!listFileHandlerBean.matFileExists}" action="#{listFileHandlerBean.save()}" />
+                    <input type="hidden" name="button" value="mat" />
+                    <h:outputText value="Choose default Project" rendered="#{!loginBean.defaultProjectExists}"/>
+     
+     
+      </h:form>
+      
+              <h:form id="myForm2">
+      
+       <h4> Available TFT reports</h4>
+      
+      <h:selectOneMenu value="#{listFileHandlerBean.selectedFile}" >
+      <f:selectItems value="#{listFileHandlerBean.tftFiles}" /> </h:selectOneMenu>
+  <h:commandButton id='button2' rendered="#{loginBean.defaultProjectExists}" value="Configure methodology with TFT report" update="myForm messages" type="submit" disabled="#{!listFileHandlerBean.tftfileExists}" action="#{listFileHandlerBean.save()}" />
+                     <input type="hidden" name="button" value="tft" />
+                     <h:outputText value="Choose default Project" rendered="#{!loginBean.defaultProjectExists}"/>
+      
+      </h:form>
+      
+              <h:form id="myForm3">
+      
+       <h4> Available BFT reports</h4>
+      
+      <h:selectOneMenu value="#{listFileHandlerBean.selectedFile}" >
+      <f:selectItems value="#{listFileHandlerBean.bftFiles}" /> </h:selectOneMenu>
+  <h:commandButton id='button3' rendered="#{loginBean.defaultProjectExists}" value="Configure methodology with BFT report" update="myForm messages" type="submit" disabled="#{!listFileHandlerBean.bftFileExists}" action="#{listFileHandlerBean.save()}" />
+                     <input type="hidden" name="button" value="bft" />
+                     <h:outputText value="Choose default Project" rendered="#{!loginBean.defaultProjectExists}"/>
+      
+      
+      </h:form>
+      
+<!--       <h:form id="myForm4">
+      
+       <h4> Available MIG reports</h4>
+      
+      <h:selectOneMenu value="#{listFileHandlerBean.selectedFile}" >
+      <f:selectItems value="#{listFileHandlerBean.migFiles}" /> </h:selectOneMenu>
+  <h:commandButton id='button4' rendered="#{loginBean.defaultProjectExists}" value="Configure methodology with MIG report" update="myForm messages" type="submit" disabled="#{!listFileHandlerBean.migFileExists}" action="#{listFileHandlerBean.save()}" />
+                     <input type="hidden" name="button" value="mig" />
+                     <h:outputText value="Choose default Project" rendered="#{!loginBean.defaultProjectExists}"/>
+      
+      
+      </h:form>
+       -->
+      
+    
+   
+    </h:body>
+
+</html>

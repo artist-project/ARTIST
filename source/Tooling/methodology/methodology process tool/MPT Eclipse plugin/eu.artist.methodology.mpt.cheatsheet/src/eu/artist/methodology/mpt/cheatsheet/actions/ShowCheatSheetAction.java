@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -42,9 +42,11 @@ public class ShowCheatSheetAction extends Action implements IIntroAction, ICheat
 	@Override
 	public void run(String[] params, ICheatSheetManager arg1) {
 		String id = params[0];
-		//String id = "eu.artist.methodology.mpt.cheatsheet.cheatsheet";
+		
 		final Action action = new OpenCheatSheetAction(id);
-				
+		
+		System.out.println("Opening cheatsheet from MPT action.");
+		
 		// Run the appropriate launcher
 		Display.getDefault().asyncExec(new Runnable(){
 			@Override

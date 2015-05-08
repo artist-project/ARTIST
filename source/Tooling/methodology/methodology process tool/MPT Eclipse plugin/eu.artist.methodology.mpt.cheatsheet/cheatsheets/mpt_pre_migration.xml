@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
 <compositeCheatsheet name="ARTIST Methodology Process Tool Pre-Migration Phase">
    <taskGroup kind="set" name="Pre-Migration Group" skip="false">
       <intro>
@@ -14,17 +40,7 @@
          <onCompletion>
             <b> </b>
          </onCompletion>
-         <param name="path" value="premigration/maturity_assessment_simplev2.xml">
-         </param>
-      </task>
-      <task kind="cheatsheet" name="Perform business feasibility analysis" skip="false">
-         <intro>
-            <b>This cheat sheet shows how to create a new Business Scenario Workbench (BSW) project to define Business Models.</b>
-         </intro>
-         <onCompletion>
-            <b>A Business Scenario Workbench Project with a Business Model presenting various diagrams has been created.</b>
-         </onCompletion>
-         <param name="path" value="premigration/business_feasibility_updated_simple.xml">
+         <param name="path" value="premigration/maturity_assessment_simple.xml">
          </param>
       </task>
       <task kind="cheatsheet" name="Perform technical feasibility analysis" skip="false">
@@ -37,7 +53,17 @@
          <param name="path" value="premigration/technical_feasibility_simple.xml">
          </param>
       </task>
-      <task kind="cheatsheet" name="Evaluate changes on the initial parameters" skip="false">
+      <task kind="cheatsheet" name="Perform business feasibility analysis" skip="false">
+         <intro>
+            <b>This cheat sheet shows how to create a new Business Scenario Workbench (BSW) project to define Business Models.</b>
+         </intro>
+         <onCompletion>
+            <b>A Business Scenario Workbench Project with a Business Model presenting various diagrams has been created.</b>
+         </onCompletion>
+         <param name="path" value="premigration/business_feasibility_simple.xml">
+         </param>
+      </task>
+      <task kind="cheatsheet" name="Decide to migrate or not" skip="false">
          <intro>
             <b>Evaluate if due to the results obtained in the previous tasks you want to re-do the pre-migration changing some parameters related to the desired situation.</b>
          </intro>

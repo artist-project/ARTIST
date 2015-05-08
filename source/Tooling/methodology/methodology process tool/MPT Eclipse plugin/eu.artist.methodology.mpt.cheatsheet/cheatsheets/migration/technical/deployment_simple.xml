@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Kleopatra Konstanteli
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="Generate deployment descriptors for selected Cloud target">
+   <intro>
+      <description>
+         <b>Before deploying a migrated application, one or more deployment descriptors require to be generated. The Deployment Tool (DT) can generate them from available deployment models, built with the CloudML@ARTIST and Cloud Modeling Language (CAML).</b>
+      </description>
+   </intro>
+   <item
+         title="Open the deployment tool on a selected deployment model">
+      <description>
+         <b> </b>
+      </description>
+      <subitem
+            label="Navigate within your workspace and locate your deployment model (typically with .uml extension), describing the deployment of your migrated application. Alternately, click on green button on the right.">
+            <command returns = "deployment_model"
+      			serialization="eu.artist.methodology.mpt.cheatsheet.commands.deploymentModelSelectionPathCommand()"/>
+      </subitem>
+      <subitem
+            label="Right-click on your model and select the option Deployment Tool/Generate deployment descriptors. Alternatively, click on the green button on the right to launch a dialog and follow the instructions in the steps that follow.">
+            <action 
+      				class="eu.artist.methodology.mpt.cheatsheet.actions.LaunchDeploymentDialogAction" 
+      				pluginId="eu.artist.methodology.mpt.cheatsheet"
+      				param1="${deployment_model}"/>
+      </subitem>
+      <onCompletion>The selected Deployment model is ${deployment_model}.</onCompletion>
+   </item>
+   <item
+         title="Generate required deployment descriptors for selected Cloud target">
+      <description>
+         <b> </b>     
+      </description>
+      <subitem
+            label="Click on a Cloud target from the list of supported targets in order to select the one you want to generate the descriptors for">
+      </subitem>
+      <subitem
+            label="To select the project you want to place the descriptors in, first click on the browse button. Navigate through your workspace tree viewer and select the project when you want to place your deployment descriptors. They will be placed on a folder “deployment” created by this tool.">
+      </subitem>
+      <subitem 
+            label="Click on the &quot;OK&quot; button to launch the generation of descriptors">
+      </subitem>
+   </item>
+</cheatsheet>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.epf.uma="http://www.eclipse.org/epf/uma/1.0.6/uma.ecore" xmlns:epf="http://www.eclipse.org/epf" epf:version="1.5.1">
+  <org.eclipse.epf.uma:ProcessDescription xmi:id="-26wT7axqn57rwKSF11XnRA" name="Cloud provider management,_RgojUfRAEeKzY_EmAQPgmw" guid="-26wT7axqn57rwKSF11XnRA">
+    <purpose>&lt;br style=&quot;TEXT-INDENT: -18pt; MARGIN: 0cm 0cm 10pt 18pt; mso-add-space: auto; mso-list: l0 level1 lfo1&quot;&#xD;
+class=&quot;MsoListParagraph&quot; />&#xD;
+&lt;br /></purpose>
+  </org.eclipse.epf.uma:ProcessDescription>
+  <org.eclipse.epf.uma:DescriptorDescription xmi:id="-1JXK8UVcNCDnVCiSbDabuw" name="Define the main features to be fulfilled by the cloud provider,_WEGugPRAEeKzY_EmAQPgmw" guid="-1JXK8UVcNCDnVCiSbDabuw">
+    <refinedDescription>&lt;p>&#xD;
+    Features regarding to technical aspects such us type of Data base, programming language, availability, scalability&#xD;
+    metrics and to business aspects such us pricing model, standards compliance and so on.&#xD;
+&lt;/p></refinedDescription>
+  </org.eclipse.epf.uma:DescriptorDescription>
+  <org.eclipse.epf.uma:DescriptorDescription xmi:id="-JoSbpyBK-AOEng_4maexIg" name="Application owner,_WEGugfRAEeKzY_EmAQPgmw" guid="-JoSbpyBK-AOEng_4maexIg">
+    <refinedDescription>An application owner is the individual or group with the responsibility to ensure that the program or programs, which make&#xD;
+up the application, accomplish the specified objective or set of user requirements established for that application,&#xD;
+including appropriate security safeguards.</refinedDescription>
+  </org.eclipse.epf.uma:DescriptorDescription>
+  <org.eclipse.epf.uma:DescriptorDescription xmi:id="-a15O1t9BVtfJuH5GAPKpdg" name="SLA,_WEP4cfRAEeKzY_EmAQPgmw" guid="-a15O1t9BVtfJuH5GAPKpdg">
+    <refinedDescription>Some content for the SLA could be:&lt;br />&#xD;
+• Conditions under which the service is considered to be unavailable (e.g. if the service is offered at several locations)&#xD;
+&lt;br />&#xD;
+• Availability targets (exact definition of how the agreed availability levels will be calculated, based on agreed service&#xD;
+time and downtime) &lt;br />&#xD;
+• Reliability targets &lt;br />&#xD;
+• Maintainability targets &lt;br />&#xD;
+• Down times for maintenance &lt;br />&#xD;
+• Restrictions on maintenance, e.g. allowed maintenance windows, seasonal restrictions on maintenance, and procedures to&#xD;
+announce planned service interruptions &lt;br />&#xD;
+• Definitions of Major Incidents &lt;br />&#xD;
+• Requirements regarding availability reporting &lt;br />&#xD;
+• Required capacity (lower/upper limit) for the service, e.g. Numbers and types of transactions, Numbers and types of&#xD;
+users, Business cycles (daily, weekly) and seasonal variations.&lt;br />&#xD;
+• Response times from applications &lt;br />&#xD;
+• Requirements for scalability (assumptions for the medium and long-term increase in workload and service utilization)&#xD;
+&lt;br />&#xD;
+• Requirements regarding capacity and performance reporting &lt;br />&#xD;
+• Time within which a defined level of service must be re-established &lt;br />&#xD;
+• Time within which normal service levels must be restored &lt;br />&#xD;
+• Responsibilities: Duties of the service provider, of the customer and of service users (e.g. with respect to IT security)&#xD;
+&lt;br />&#xD;
+• IT Security aspects to be observed when using the service (if applicable, references to relevant IT Security Policies)&#xD;
+&lt;br />&#xD;
+• Pricing model: Cost for the service provision, Rules for penalties/ charge backs.&lt;br /></refinedDescription>
+  </org.eclipse.epf.uma:DescriptorDescription>
+  <org.eclipse.epf.uma:DescriptorDescription xmi:id="-GuWY0V9KR0z_M1Cb7xjZ-Q" name="Establish the cloud provider agreement,_XkgxUPRAEeKzY_EmAQPgmw" guid="-GuWY0V9KR0z_M1Cb7xjZ-Q">
+    <refinedDescription>This agreement can be a contract, license, service level agreement, or memorandum of agreement. The most common way to do&#xD;
+this agreement will be a SLA with the cloud provider</refinedDescription>
+  </org.eclipse.epf.uma:DescriptorDescription>
+</xmi:XMI>

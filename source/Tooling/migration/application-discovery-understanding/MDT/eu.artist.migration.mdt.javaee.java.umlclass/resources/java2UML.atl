@@ -131,14 +131,15 @@ unique lazy rule createSourceReferences {
 		jModel : JAVA!Model
 	to 
 		umlModel : UML!Model (
-				name <- 'sourcesReferences'
-				--MODIF: commented
---				packagedElement <- jModel.compilationUnits 
---									-> union(jModel.compilationUnits
---									-> collect(compUnit | compUnit.imports
---									-> select(import | import.refImmediateComposite().oclIsKindOf(JAVA!CompilationUnit))
---												)	
---									)
+				name <- 'sourcesReferences',
+				packagedElement <- jModel.compilationUnits 
+									-> union(jModel.compilationUnits
+												-> collect(compUnit | compUnit.imports
+																	  -> select(import | import.refImmediateComposite()
+																						 .oclIsKindOf(JAVA!CompilationUnit)
+																	  )
+												)	
+									)
 		)
 }
 
@@ -159,14 +160,13 @@ rule JPackageToUmlPackageNotDup {
 		umlPackage : UML!Package (
 				name <- jPackage.name, 
 				nestedPackage <- jPackage.ownedPackages,
-				--MODIF: commented
---				packagedElement <- jPackage.ownedElements -> select(c | c.oclIsKindOf(JAVA!ClassDeclaration) or c.oclIsKindOf(JAVA!InterfaceDeclaration) 
---																		or c.oclIsKindOf(JAVA!EnumDeclaration)
---														 )
---										->collect(c | if c.originalCompilationUnit.oclIsUndefined() 
---														then OclUndefined
---														else c.originalCompilationUnit.imports
---													endif )->flatten(),
+				packagedElement <- jPackage.ownedElements -> select(c | c.oclIsKindOf(JAVA!ClassDeclaration) or c.oclIsKindOf(JAVA!InterfaceDeclaration) 
+																		or c.oclIsKindOf(JAVA!EnumDeclaration)
+														 )
+										->collect(c | if c.originalCompilationUnit.oclIsUndefined() 
+														then OclUndefined
+														else c.originalCompilationUnit.imports
+													endif )->flatten(),
 				nestingPackage <- if jPackage.getPackage.oclIsUndefined()
 									then thisModule.createMainModel(jPackage.refImmediateComposite())
 									else jPackage.getPackage
@@ -270,18 +270,16 @@ unique lazy rule jDataTypePackToUmlDataTypePack{
 
 --***************Compilation units***************
 ---Convert a java compilation unit to an Uml artifact
---MODIF: commented
---rule JCompilationUnitToUmlArtifact {
---	from 
---		jCompUnit : JAVA!CompilationUnit
---	to 
---		umlArtifact : UML!Artifact (
---			name <- jCompUnit.name,
---			fileName <- jCompUnit.originalFilePath,
---			clientDependency <- jCompUnit.imports
---			
---		)	
---}
+rule JCompilationUnitToUmlArtifact {
+	from 
+		jCompUnit : JAVA!CompilationUnit
+	to 
+		umlArtifact : UML!Artifact (
+			name <- jCompUnit.name,
+			fileName <- jCompUnit.originalFilePath,
+			clientDependency <- jCompUnit.imports
+		)	
+}
 
 --***************Imports***************
 ---Convert a java import to an UML dependency
@@ -289,7 +287,6 @@ rule createDependency{
 	from 
 		jImportDec : JAVA!ImportDeclaration (
 			not jImportDec.refImmediateComposite().isLocalInnerClass
-			and jImportDec.refImmediateComposite().oclIsTypeOf(JAVA!ClassDeclaration)  --MODIF: added
 		)
 	to 
 		umlDependency : UML!Dependency (		
@@ -321,8 +318,7 @@ abstract rule JClassToUmlClass extends jAbstractTypDecToUmlClassifier{
 			name <- jAbstrTypdec.name,
 			superClass <- jAbstrTypdec.getSuperClass,
 			package <- jAbstrTypdec.getPackage,
-			--MODIF
-			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined() and jAbstrTypdec.originalCompilationUnit.oclIsTypeOf(JAVA!ClassDeclaration)) then
+			clientDependency <- if (not jAbstrTypdec.originalCompilationUnit.oclIsUndefined()) then
 									jAbstrTypdec.originalCompilationUnit.imports
 								else OclUndefined endif,	
 			nestedClassifier <- jAbstrTypdec.bodyDeclarations -> select(d | d.oclIsKindOf(JAVA!AbstractTypeDeclaration)
@@ -650,49 +646,15 @@ rule JAttributeToUmlField extends jBodyDecToUmlElement{
 		)
 	to 
 		umlElement : UML!Property (
-				name <- jBodyDec.getFieldName,
-				--MODIF
---				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
---									thisModule.createArrayRepresentation(jBodyDec.getFieldType)	
---							else 
---								jBodyDec.getFieldType
---							endif
---						,
+				name <- jBodyDec.getFieldName, 		
 				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
-									thisModule.createArrayRepresentation(jBodyDec.getFieldType)	
+									thisModule.createArrayRepresentation(jBodyDec.getFieldType)
 							else 
-								if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
-									jBodyDec.getFieldType
-									--look for the class TypeContributor
-									--jBodyDec.getFieldType.name.substring(jBodyDec.getFieldType.name.indexOf('<')+2, jBodyDec.getFieldType.name.indexOf('>')),--TypeContributor
-									--TODO
-									--JAVA!UnresolvedItem.allInstances()->select(e|e.name.indexOf(jBodyDec.getFieldType.name.substring(jBodyDec.getFieldType.name.indexOf('<')+2, jBodyDec.getFieldType.name.indexOf('>'))) > 0)->first()
-								else
-									jBodyDec.getFieldType
-								endif
-							endif
-						,
-				upper <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)) then
-								-1	
-							else 
-								1
+								jBodyDec.getFieldType
 							endif
 						,
 				visibility <- jBodyDec.getFieldVisibility
 		)
-		do{
---			'name: '.concat(jBodyDec.getFieldName).println();
-			--getFieldType=type.type
---			if(jBodyDec.getFieldType.oclIsKindOf(JAVA!ParameterizedType)){
---				
---				'jBodyDec.getFieldType name: '.concat(jBodyDec.type.type.name.toString()).println();--List<TypeContributor>
---				'jBodyDec.type.type.type.type: '.concat(jBodyDec.type.type.type.type.oclType().toString()).println();--UnresolvedTypeDeclaration
---				'jBodyDec.type.type.type.type name: '.concat(jBodyDec.type.type.type.type.name.toString()).println();--List
---				JAVA!UnresolvedItem.allInstances()->select(e|e.name.indexOf(jBodyDec.getFieldType.name.substring(jBodyDec.getFieldType.name.indexOf('<')+2, jBodyDec.getFieldType.name.indexOf('>'))) > 0)->first().toString().println();
---			}else{
---				'false'.println();
---			}
-		}
 }
 
 ---Return field type according to its type : UnresolvedItem or another
@@ -701,17 +663,10 @@ rule createFieldType extends JAttributeToUmlField{
 		jBodyDec : JAVA!FieldDeclaration
 	to 
 		umlElement : UML!Property( 
---				type <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
---									thisModule.createArrayRepresentation(jBodyDec.getFieldType)	
---							else 
---								jBodyDec.getFieldType
---							endif
---						,
-				type <- jBodyDec.getFieldType,
-				upper <- 	if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
-								-1	
+				type <-		if (jBodyDec.getFieldType.oclIsKindOf(JAVA!ArrayType)) then
+									thisModule.createArrayRepresentation(jBodyDec.getFieldType)
 							else 
-								1
+								jBodyDec.getFieldType
 							endif
 		)
 }
@@ -837,7 +792,6 @@ unique lazy rule createParameter {
 						jParameter.type.type
 					endif
 		)
-		
 }
 
 ---Adding of thrown exception to the parameters list
@@ -850,7 +804,6 @@ unique lazy rule createParameterFromThrownException {
 			name <- jParameter.type.name,
 			type <- jParameter.type
 		)
-		
 }
 
 --***************Types***************
@@ -862,7 +815,7 @@ rule createPrimitiveType {
 		umlPrimitiveType : UML!PrimitiveType(
 			name <- jPrimitiveType.name
 		)
-}
+}	
 
 --***************Unresolved items***************
 rule JUnresolvedItemToUmlClass {

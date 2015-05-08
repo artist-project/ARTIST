@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ *  Copyright (c) 2014 - 2015 Fundación TECNALIA Research & Innovation
+ *  
+ *  Licensed under the MIT license:
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ *
+ * Contributors: Marisa Escalante Martinez (Tecnalia)
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+-->
+<cheatsheet
+      title="UMP - Update and Maintenance Process Task">
+   <intro>
+      <description>
+         The objective of this task is to deploy releases into production and establish effective use of the service in order to deliver value to the customer and be able to handover to service operations.
+      </description>
+   </intro>
+   <item
+         title="UMP.A1 - Planning the releases.">
+      <description>
+         It is important to develop release and deployment plans in order to avoid problems or an uncontrolled impact. The actions to be carried out in this activity are to analyse the situation   and to define the release strategy to build, test and maintain the application
+      </description>
+   </item>
+   <item
+         title="UMP.A2 - Build and test the release">
+      <description>
+         This activity should  be composed by the following actions: a) Usage of build and test environments , b) Take into account standardization and integration aspects , c) Record the complete record of the build so that can be rebuilt if required, d) Maintain evidence of testing e) Check that security requirements are met
+      </description>
+   </item>
+   <item
+         title="UMP. A3 - Release testing and pilot">
+      <description>
+         This activity should  be composed by the following actions: 1.- Determine whether a service and its underlying service assets can be release into the production environment, the first time and subsequent deployments. 2.- Ensure that business processes, customer, user and service provider interface are capable of using the service properly. 3.- Ensure that service teams are capable of operating the service
+      </description>
+   </item>
+   <item
+         title="UMP. A4 - Perform transfer, deployment and retirement">
+      <description>
+         The objective of this activity is to have ready all the aspects that could be modified due to the changes in the new releases. Some of the actions should be: a) Transfer financial assets, b) Transfer business organization, c ) deploy processes and materials , d) deploy and publish the processes and materials ready for people involved in the business
+      </description>
+   </item>
+   <item
+         title="UMP. A5 - Verify, review and close deployment">
+      <description>
+         The objective of this activity is to verify and review that all the requirements of this release are included and work correctly and close this releases and its deployment
+      </description>
+   </item>
+</cheatsheet>

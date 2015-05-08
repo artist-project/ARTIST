@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright (c) 2014 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
+ *  Copyright (c) 2014 - 2015 Institute of Communication and Computer Systems (ICCS) - National Technical University of Athens (NTUA)
  *  
  *  Licensed under the MIT license:
  *
@@ -52,11 +52,11 @@ public class MATReportSelectionPathHandler extends AbstractHandler {
 		        // File standard dialog
 		        FileDialog fileDialog = new FileDialog(shell);
 		        // Set the text
-		        fileDialog.setText("Select MAT report file");
-		        // Set filter on .xml files
-		        fileDialog.setFilterExtensions(new String[] { "*.xml" });
+		        fileDialog.setText("Select MIG file");
+		        // Set filter on .gml files
+		        fileDialog.setFilterExtensions(new String[] { "*.gml" });
 		        // Put in a readable name for the filter
-		        fileDialog.setFilterNames(new String[] { "MAT reports(*.xml)" });
+		        fileDialog.setFilterNames(new String[] { "MIG file(*.gml)" });
 		        
 		        IWorkspace workspace= ResourcesPlugin.getWorkspace();
 		        
@@ -69,7 +69,7 @@ public class MATReportSelectionPathHandler extends AbstractHandler {
 		        // Open Dialog and save result of selection
 		        selected_file = fileDialog.open();
 			       
-		        System.out.println("The selected MAT report is " + selected_file);
+		        System.out.println("The selected MIG file is " + selected_file);
 		        
 		        if (selected_file!=null && selected_file!="") {
 		        	is_file_selected = "true";
