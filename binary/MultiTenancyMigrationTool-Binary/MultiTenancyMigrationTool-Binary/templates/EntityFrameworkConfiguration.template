@@ -1,0 +1,13 @@
+﻿using System.Data.Entity;
+
+namespace <%= Namespace %>
+{
+    public class EntityFrameworkConfiguration : DbConfiguration
+    {
+        public EntityFrameworkConfiguration()
+        {
+            AddInterceptor(new TenantCommandInterceptor());
+            AddInterceptor(new TenantCommandTreeInterceptor());
+        }
+    }
+}

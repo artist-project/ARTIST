@@ -1,0 +1,57 @@
+﻿using System.Data.Common;
+using System.Data.Entity.Infrastructure.Interception;
+
+namespace <%= Namespace %>
+{
+    internal class TenantCommandInterceptor : IDbCommandInterceptor
+    {
+        public void NonQueryExecuting(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
+        {
+            if (TenantAwareUtility.IsValidContext(interceptionContext.DbContexts))
+            {
+                SetTenantParameterValue(command);
+            }
+        }
+
+        public void NonQueryExecuted(DbCommand command, DbCommandInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ReaderExecuting(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+        {
+            if (TenantAwareUtility.IsValidContext(interceptionContext.DbContexts))
+            {
+                SetTenantParameterValue(command);
+            }
+        }
+
+        public void ReaderExecuted(DbCommand command, DbCommandInterceptionContext<DbDataReader> interceptionContext)
+        {
+        }
+
+        public void ScalarExecuting(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
+        {
+            if (TenantAwareUtility.IsValidContext(interceptionContext.DbContexts))
+            {
+                SetTenantParameterValue(command);
+            }
+        }
+
+        public void ScalarExecuted(DbCommand command, DbCommandInterceptionContext<object> interceptionContext)
+        {
+        }
+
+        private static void SetTenantParameterValue(DbCommand command)
+        {
+            var tenantId = TenantAwareUtility.GetCurrentTenantId();
+
+            // Enumerate all command parameters and assign the correct value in the one we added inside query visitor
+            foreach (DbParameter param in command.Parameters)
+            {
+                if (param.ParameterName != TenantAwareUtility.TenantIdFilterParameterName)
+                    continue;
+                param.Value = tenantId;
+            }
+        }
+    }
+}
