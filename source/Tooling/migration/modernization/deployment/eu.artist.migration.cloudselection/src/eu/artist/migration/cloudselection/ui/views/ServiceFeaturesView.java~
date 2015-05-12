@@ -1,0 +1,14 @@
+package eu.artist.migration.cloudselection.ui.views;
+
+import eu.artist.migration.cloudselection.umlmodelservice.modelparsing.Resources;
+import eu.artist.migration.cloudselection.viewdatamodel.HelperElement;
+
+
+public class ServiceFeaturesView extends GenericView {
+	
+	@Override
+	public HelperElement getInitalInput(){
+		return Resources.serviceGroups;
+	}
+	
+}
