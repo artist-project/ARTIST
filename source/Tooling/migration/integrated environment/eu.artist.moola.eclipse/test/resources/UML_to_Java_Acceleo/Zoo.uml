@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_gbvNgJqZEeSoYsPcKC7txg" name="ZooModel">
+  <packagedElement xmi:type="uml:Class" xmi:id="_kBGKoJqZEeSoYsPcKC7txg" name="Animal">
+    <ownedAttribute xmi:id="_AZlNsJqbEeSoYsPcKC7txg" name="Id" type="_h1jDoJqaEeSoYsPcKC7txg">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_AZlNsZqbEeSoYsPcKC7txg" value=""/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_A5SBcJqbEeSoYsPcKC7txg" name="Remarks" type="_mkCMAJqaEeSoYsPcKC7txg">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_A5SBcZqbEeSoYsPcKC7txg" value=""/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_r2TzYJqZEeSoYsPcKC7txg" name="Person">
+    <ownedAttribute xmi:id="_2ClksJqaEeSoYsPcKC7txg" name="Id" type="_h1jDoJqaEeSoYsPcKC7txg">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_4qrBQJqaEeSoYsPcKC7txg" value=""/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_9arzoJqaEeSoYsPcKC7txg" name="Name" type="_mkCMAJqaEeSoYsPcKC7txg">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_9arzoZqaEeSoYsPcKC7txg" value=""/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_h1jDoJqaEeSoYsPcKC7txg" name="int"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_mkCMAJqaEeSoYsPcKC7txg" name="String"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_nZJPEJqaEeSoYsPcKC7txg" name="Date"/>
+</uml:Model>

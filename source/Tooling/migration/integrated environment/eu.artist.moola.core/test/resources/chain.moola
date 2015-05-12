@@ -1,0 +1,42 @@
+
+println "Chain execution example for Moola"
+
+logLevel "verbose"
+
+/*-----------------------------------------------
+  Trafo definitions                               
+  -----------------------------------------------*/
+
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "d" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "e" ) {
+	println "some config code for $name"
+}
+
+/*-----------------------------------------------
+  Workflow                             
+  -----------------------------------------------*/
+
+b.dependsOn "a"
+c.dependsOn "b"
+d.dependsOn "b"
+e.dependsOn "c"
+e.dependsOn "d"
+
+//run inOrder: ["A", "B", "C", "D"]
+
+//start with: ["C"]

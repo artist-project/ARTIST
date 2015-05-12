@@ -1,0 +1,23 @@
+
+
+
+trafo ( name: "testAcceleo", of: "Acceleo" ) {
+	spec {
+		inputs String: "project"
+	}
+	project = "Acceleo_UML2Java"
+	main = "Acceleo_UML2Java.common.Generate"
+	model = "/Acceleo_UML2Java/resources/Zoo.uml"
+	target = "/Acceleo_UML2Java/src-gen"
+}
+
+testAcceleo >> {
+	println "Short before running $name (Acceleo) on: $project"
+}
+
+
+run {
+	m = testAcceleo ("Acceleo_UML2Java")
+	
+	println "YIHA! Result is $m"
+}

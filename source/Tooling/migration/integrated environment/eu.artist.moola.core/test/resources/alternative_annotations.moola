@@ -1,0 +1,88 @@
+
+println "Iterational execution example for Moola"
+
+def iterationCount = 3
+
+/*-----------------------------------------------
+  Trafo definitions                               
+  -----------------------------------------------*/
+
+def a = trafo (	name: "A" ) {
+	println "some config code for $name"
+}
+
+def b = trafo (	name: "B" ) {
+	println "some config code for $name"
+}
+
+b.work = {
+	iterationCount--;
+	println "current iteration count: $iterationCount"
+}
+
+def c = trafo (	name: "C" ) {
+	println "some config code for $name"
+}
+
+def d = trafo (	name: "D" ) {
+	println "some config code for $name"
+}
+
+def e = trafo (	name: "E" ) {
+	println "some config code for $name"
+}
+
+def f = trafo (	name: "F" ) {
+	println "some config code for $name"
+}
+
+
+
+/*-----------------------------------------------
+  Workflow                             
+  -----------------------------------------------*/
+
+b.dependsOn("A")
+b.dependsOn("C") {
+	iterationCount > 0
+}
+c.dependsOn("B")
+d.dependsOn("C")
+
+
+// easier to generate petri net
+start with: "A"
+
+after "A", choose: [
+	{ iterationCount > 0 }: ["B", "C"],
+	{ otherwise : "C"
+]
+
+after "B", parallel: ["C", "D"]
+after "C", run: "E"
+after "D", run: "F"
+after ["E", "F"] run: "G"
+
+
+// or
+run inOrder: ["A", "B", "C", "D"]
+
+
+on { iterationCount > 0 }, task: "A", else: "B" 
+
+
+
+// or
+run [
+	"A",
+	choose: [
+		{ iterationCount > 0 }: "B",
+		otherwise: "C"
+	],
+	parallel: ["D", "E"]
+]
+
+
+
+
+

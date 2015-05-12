@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_p1EAAOGfEeO9doEpfZw2-A" name="deployment" metaclassReference="_AJ7wQOGgEeO9doEpfZw2-A" metamodelReference="_p1EAAeGfEeO9doEpfZw2-A">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383ywOGgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_jHx2YOGkEeO9doEpfZw2-A" name="deployment" nsURI="http:///schemas/deployment/_jHxPUOGkEeO9doEpfZw2-A/3" nsPrefix="deployment">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2dOGkEeO9doEpfZw2-A" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jHx2deGkEeO9doEpfZw2-A" key="Version" value="0.0.4"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jHx2duGkEeO9doEpfZw2-A" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jHx2d-GkEeO9doEpfZw2-A" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jHx2eOGkEeO9doEpfZw2-A" key="Date" value="2014-05-22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jHx2eeGkEeO9doEpfZw2-A" key="Author" value=""/>
+      </eAnnotations>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_jHx2YeGkEeO9doEpfZw2-A" name="org" nsURI="http:///deployment/org.ecore" nsPrefix="deployment.org">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2YuGkEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_4TpwgOGfEeO9doEpfZw2-A"/>
+        <eSubpackages xmi:type="ecore:EPackage" xmi:id="_jHx2Y-GkEeO9doEpfZw2-A" name="artist" nsURI="http:///deployment/org/artist.ecore" nsPrefix="deployment.org.artist">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2ZOGkEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5PmbYOGfEeO9doEpfZw2-A"/>
+          <eSubpackages xmi:type="ecore:EPackage" xmi:id="_jHx2ZeGkEeO9doEpfZw2-A" name="profiles" nsURI="http:///deployment/org/artist/profiles.ecore" nsPrefix="deployment.org.artist.profiles">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2ZuGkEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5wI8oOGfEeO9doEpfZw2-A"/>
+            <eSubpackages xmi:type="ecore:EPackage" xmi:id="_jHx2Z-GkEeO9doEpfZw2-A" name="deployment" nsURI="http:///deployment/org/artist/profiles/deployment.ecore" nsPrefix="deployment.org.artist.profiles.deployment">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2aOGkEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_7EgukOGfEeO9doEpfZw2-A"/>
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_jHx2aeGkEeO9doEpfZw2-A" name="DeploymentUnit">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2auGkEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_EinnwOGgEeO9doEpfZw2-A"/>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_jHx2a-GkEeO9doEpfZw2-A" name="base_Artifact" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+                </eStructuralFeatures>
+                <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_jHx2beGkEeO9doEpfZw2-A" name="packaging" ordered="false" lowerBound="1" eType="_jHx2b-GkEeO9doEpfZw2-A"/>
+              </eClassifiers>
+              <eClassifiers xmi:type="ecore:EEnum" xmi:id="_jHx2b-GkEeO9doEpfZw2-A" name="DeploymentUnitKind">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jHx2cOGkEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_FxB7oOGgEeO9doEpfZw2-A"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_jHx2ceGkEeO9doEpfZw2-A" name="WAR"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_jHx2cuGkEeO9doEpfZw2-A" name="EAR" value="1"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_jHx2c-GkEeO9doEpfZw2-A" name="DotNetAssembly" value="2"/>
+              </eClassifiers>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_iBvtUeGiEeO9doEpfZw2-A" name="deployment" nsURI="http:///schemas/deployment/_iBvtUOGiEeO9doEpfZw2-A/2" nsPrefix="deployment">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBwUYOGiEeO9doEpfZw2-A" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iBwUYeGiEeO9doEpfZw2-A" key="Version" value="0.0.3"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iBwUYuGiEeO9doEpfZw2-A" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iBwUY-GiEeO9doEpfZw2-A" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iBwUZOGiEeO9doEpfZw2-A" key="Date" value="2014-05-22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iBwUZeGiEeO9doEpfZw2-A" key="Author" value=""/>
+      </eAnnotations>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_iBvtUuGiEeO9doEpfZw2-A" name="org" nsURI="http:///deployment/org.ecore" nsPrefix="deployment.org">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBvtU-GiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_4TpwgOGfEeO9doEpfZw2-A"/>
+        <eSubpackages xmi:type="ecore:EPackage" xmi:id="_iBvtVOGiEeO9doEpfZw2-A" name="artist" nsURI="http:///deployment/org/artist.ecore" nsPrefix="deployment.org.artist">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBvtVeGiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5PmbYOGfEeO9doEpfZw2-A"/>
+          <eSubpackages xmi:type="ecore:EPackage" xmi:id="_iBvtVuGiEeO9doEpfZw2-A" name="profiles" nsURI="http:///deployment/org/artist/profiles.ecore" nsPrefix="deployment.org.artist.profiles">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBvtV-GiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5wI8oOGfEeO9doEpfZw2-A"/>
+            <eSubpackages xmi:type="ecore:EPackage" xmi:id="_iBvtWOGiEeO9doEpfZw2-A" name="deployment" nsURI="http:///deployment/org/artist/profiles/deployment.ecore" nsPrefix="deployment.org.artist.profiles.deployment">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBvtWeGiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_7EgukOGfEeO9doEpfZw2-A"/>
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_iBvtWuGiEeO9doEpfZw2-A" name="DeploymentUnit">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBvtW-GiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_EinnwOGgEeO9doEpfZw2-A"/>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iBvtXOGiEeO9doEpfZw2-A" name="base_Artifact" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+                </eStructuralFeatures>
+                <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iBvtXuGiEeO9doEpfZw2-A" name="packaging" ordered="false" lowerBound="1" eType="_iBvtYOGiEeO9doEpfZw2-A"/>
+              </eClassifiers>
+              <eClassifiers xmi:type="ecore:EEnum" xmi:id="_iBvtYOGiEeO9doEpfZw2-A" name="DeploymentUnitKind">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iBvtYeGiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_FxB7oOGgEeO9doEpfZw2-A"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_iBvtYuGiEeO9doEpfZw2-A" name="WAR"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_iBvtY-GiEeO9doEpfZw2-A" name="EAR" value="1"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_iBvtZOGiEeO9doEpfZw2-A" name="DotNetAssembly" value="2"/>
+              </eClassifiers>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_fTk24eGiEeO9doEpfZw2-A" name="deployment" nsURI="http:///schemas/deployment/_fTk24OGiEeO9doEpfZw2-A/1" nsPrefix="deployment">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTld8OGiEeO9doEpfZw2-A" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fTld8eGiEeO9doEpfZw2-A" key="Version" value="0.0.2"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fTld8uGiEeO9doEpfZw2-A" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fTld8-GiEeO9doEpfZw2-A" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fTld9OGiEeO9doEpfZw2-A" key="Date" value="2014-05-22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fTld9eGiEeO9doEpfZw2-A" key="Author" value=""/>
+      </eAnnotations>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_fTk24uGiEeO9doEpfZw2-A" name="org" nsURI="http:///deployment/org.ecore" nsPrefix="deployment.org">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTk24-GiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_4TpwgOGfEeO9doEpfZw2-A"/>
+        <eSubpackages xmi:type="ecore:EPackage" xmi:id="_fTk25OGiEeO9doEpfZw2-A" name="artist" nsURI="http:///deployment/org/artist.ecore" nsPrefix="deployment.org.artist">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTk25eGiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5PmbYOGfEeO9doEpfZw2-A"/>
+          <eSubpackages xmi:type="ecore:EPackage" xmi:id="_fTk25uGiEeO9doEpfZw2-A" name="profiles" nsURI="http:///deployment/org/artist/profiles.ecore" nsPrefix="deployment.org.artist.profiles">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTk25-GiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5wI8oOGfEeO9doEpfZw2-A"/>
+            <eSubpackages xmi:type="ecore:EPackage" xmi:id="_fTk26OGiEeO9doEpfZw2-A" name="deployment" nsURI="http:///deployment/org/artist/profiles/deployment.ecore" nsPrefix="deployment.org.artist.profiles.deployment">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTk26eGiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_7EgukOGfEeO9doEpfZw2-A"/>
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_fTk26uGiEeO9doEpfZw2-A" name="DeploymentUnit">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTk26-GiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_EinnwOGgEeO9doEpfZw2-A"/>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_fTk27OGiEeO9doEpfZw2-A" name="base_Artifact" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+                </eStructuralFeatures>
+                <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_fTk27uGiEeO9doEpfZw2-A" name="packaging" ordered="false" lowerBound="1" eType="_fTk28OGiEeO9doEpfZw2-A"/>
+              </eClassifiers>
+              <eClassifiers xmi:type="ecore:EEnum" xmi:id="_fTk28OGiEeO9doEpfZw2-A" name="DeploymentUnitKind">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fTk28eGiEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_FxB7oOGgEeO9doEpfZw2-A"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_fTk28uGiEeO9doEpfZw2-A" name="WAR"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_fTk28-GiEeO9doEpfZw2-A" name="EAR" value="1"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_fTk29OGiEeO9doEpfZw2-A" name="DotNetAssembly" value="2"/>
+              </eClassifiers>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_383yweGgEeO9doEpfZw2-A" name="deployment" nsURI="http:///schemas/deployment/_381WgOGgEeO9doEpfZw2-A/0" nsPrefix="deployment">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_385A4OGgEeO9doEpfZw2-A" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_385A4eGgEeO9doEpfZw2-A" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_385A4uGgEeO9doEpfZw2-A" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_385A4-GgEeO9doEpfZw2-A" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_385A5OGgEeO9doEpfZw2-A" key="Date" value="2014-05-22"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_385A5eGgEeO9doEpfZw2-A" key="Author" value=""/>
+      </eAnnotations>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_383ywuGgEeO9doEpfZw2-A" name="org" nsURI="http:///deployment/org.ecore" nsPrefix="deployment.org">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383yw-GgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_4TpwgOGfEeO9doEpfZw2-A"/>
+        <eSubpackages xmi:type="ecore:EPackage" xmi:id="_383yxOGgEeO9doEpfZw2-A" name="artist" nsURI="http:///deployment/org/artist.ecore" nsPrefix="deployment.org.artist">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383yxeGgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5PmbYOGfEeO9doEpfZw2-A"/>
+          <eSubpackages xmi:type="ecore:EPackage" xmi:id="_383yxuGgEeO9doEpfZw2-A" name="profiles" nsURI="http:///deployment/org/artist/profiles.ecore" nsPrefix="deployment.org.artist.profiles">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383yx-GgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_5wI8oOGfEeO9doEpfZw2-A"/>
+            <eSubpackages xmi:type="ecore:EPackage" xmi:id="_383yyOGgEeO9doEpfZw2-A" name="deployment" nsURI="http:///deployment/org/artist/profiles/deployment.ecore" nsPrefix="deployment.org.artist.profiles.deployment">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383yyeGgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_7EgukOGfEeO9doEpfZw2-A"/>
+              <eClassifiers xmi:type="ecore:EClass" xmi:id="_383yyuGgEeO9doEpfZw2-A" name="DeploymentUnit">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383yy-GgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_EinnwOGgEeO9doEpfZw2-A"/>
+                <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_383yzOGgEeO9doEpfZw2-A" name="base_Artifact" ordered="false" lowerBound="1">
+                  <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Artifact"/>
+                </eStructuralFeatures>
+                <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_383yzuGgEeO9doEpfZw2-A" name="packaging" ordered="false" lowerBound="1" eType="_383y0OGgEeO9doEpfZw2-A"/>
+              </eClassifiers>
+              <eClassifiers xmi:type="ecore:EEnum" xmi:id="_383y0OGgEeO9doEpfZw2-A" name="DeploymentUnitKind">
+                <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_383y0eGgEeO9doEpfZw2-A" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_FxB7oOGgEeO9doEpfZw2-A"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_383y0uGgEeO9doEpfZw2-A" name="WAR"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_383y0-GgEeO9doEpfZw2-A" name="EAR" value="1"/>
+                <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_383y1OGgEeO9doEpfZw2-A" name="DotNetAssembly" value="2"/>
+              </eClassifiers>
+            </eSubpackages>
+          </eSubpackages>
+        </eSubpackages>
+      </eSubpackages>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_AJ7wQOGgEeO9doEpfZw2-A" alias="Artifact">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Artifact"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_p1EAAeGfEeO9doEpfZw2-A">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_p1EAAuGfEeO9doEpfZw2-A">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_4TpwgOGfEeO9doEpfZw2-A" name="org">
+    <packagedElement xmi:type="uml:Package" xmi:id="_5PmbYOGfEeO9doEpfZw2-A" name="artist">
+      <packagedElement xmi:type="uml:Package" xmi:id="_5wI8oOGfEeO9doEpfZw2-A" name="profiles">
+        <packagedElement xmi:type="uml:Package" xmi:id="_7EgukOGfEeO9doEpfZw2-A" name="deployment">
+          <packagedElement xmi:type="uml:Stereotype" xmi:id="_EinnwOGgEeO9doEpfZw2-A" name="DeploymentUnit">
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_StOFQOGgEeO9doEpfZw2-A" name="base_Artifact" association="_StOsUOGgEeO9doEpfZw2-A">
+              <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Artifact"/>
+            </ownedAttribute>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_UcylcOGgEeO9doEpfZw2-A" name="packaging" type="_FxB7oOGgEeO9doEpfZw2-A"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Enumeration" xmi:id="_FxB7oOGgEeO9doEpfZw2-A" name="DeploymentUnitKind">
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_IxL58OGgEeO9doEpfZw2-A" name="WAR"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_J8CjgOGgEeO9doEpfZw2-A" name="EAR"/>
+            <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_LhmMEOGgEeO9doEpfZw2-A" name="DotNetAssembly"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Extension" xmi:id="_StOsUOGgEeO9doEpfZw2-A" name="E_DeploymentUnit_Artifact" memberEnd="_StOsUeGgEeO9doEpfZw2-A _StOFQOGgEeO9doEpfZw2-A">
+            <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_StOsUeGgEeO9doEpfZw2-A" name="extension_DeploymentUnit" type="_EinnwOGgEeO9doEpfZw2-A" aggregation="composite" association="_StOsUOGgEeO9doEpfZw2-A"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+</uml:Profile>

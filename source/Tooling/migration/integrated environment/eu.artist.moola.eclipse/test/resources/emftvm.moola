@@ -1,0 +1,19 @@
+
+
+def testEmftvm = trafo ( of: "ATL/EMFTVM" ) {
+	path = "test/resources/artist/trafo/"
+	module = "DomainModelObjectificationDAO"
+	
+	metaModel "UMLMM", "http://www.eclipse.org/uml2/4.0.0/UML"
+	input "OBJECTIFY", "platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml"
+	inOut "UMLM","test/resources/artist/model/petstore_domain_objectified.uml"
+}
+
+testEmftvm >> {
+	
+	def outputURI = org.eclipse.emf.common.util.URI.createURI("test/resources/artist/model/petstore_domain_objectified_dao_output.uml", true);
+	def m = models["UMLM"];
+	m.setURI(outputURI);
+	m.save(Collections.emptyMap());
+	
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="eu.artist.moola.commands.run"
+            defaultHandler="eu.artist.moola.eclipse.commands.RunHandler"
+            id="eu.artist.moola.commands.run"
+            name="Run Moola">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="testpopupmenu.handlers.SampleHandler"
+            commandId="TestPopupMenu.commands.sampleCommand">
+      </handler>
+   </extension>
+ 
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+            <command
+                  commandId="eu.artist.moola.commands.run"
+                  label="Run Moola"
+                  tooltip="Runs the file as Moola script">
+ 
+                    <visibleWhen>
+				           <with variable="activeMenuSelection">
+				            <iterate
+				                 ifEmpty="false">
+				             <adapt type="org.eclipse.core.resources.IResource">
+				               <test property="org.eclipse.core.resources.name" value="*.moola" />
+				             </adapt>
+				            </iterate>
+				           </with>
+         			</visibleWhen>
+            </command>
+      </menuContribution>
+   </extension>
+</plugin>

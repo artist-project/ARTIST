@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common Libraries for Moola Eclipse Plug-ins
+Bundle-SymbolicName: eu.artist.moola.eclipse.common;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.moola.eclipse.common.Activator
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: libs/eu.artist.moola.core.jar,
+ .
+Export-Package: eu.artist.moola,
+ eu.artist.moola.dsl.core,
+ eu.artist.moola.dsl.workflow,
+ eu.artist.moola.eclipse.common,
+ eu.artist.moola.logging,
+ eu.artist.moola.logging.impl,
+ eu.artist.moola.test,
+ eu.artist.moola.util,
+ eu.artist.moola.workflow,
+ eu.artist.moola.workflow.events,
+ eu.artist.moola.workflow.exceptions,
+ eu.artist.moola.workflow.test
+Require-Bundle: org.codehaus.groovy;bundle-version="2.3.4"

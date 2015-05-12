@@ -1,0 +1,36 @@
+<javasource>
+  <class-declaration>
+    <name>FirstClass</name>
+    <method-definition>
+      <name>fc_m1</name>
+    </method-definition>
+    <method-definition>
+      <name>fc_m2</name>
+      <method-invocation>
+  <class>FirstClass</class>
+        <name>fc_m1</name>
+      </method-invocation>
+      <method-invocation>
+  <class>FirstClass</class>
+        <name>fc_m1</name>
+      </method-invocation>
+    </method-definition>
+  </class-declaration>
+  <class-declaration>
+    <name>SecondClass</name>
+    <method-definition>
+      <name>sc_m1</name>
+      <method-invocation>
+  <class>FirstClass</class>
+        <name>fc_m1</name>
+      </method-invocation>
+    </method-definition>
+    <method-definition>
+      <name>sc_m2</name>
+      <method-invocation>
+  <class>SecondClass</class>
+        <name>sc_m1</name>
+      </method-invocation>
+    </method-definition>
+  </class-declaration>
+</javasource>

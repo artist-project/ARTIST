@@ -1,0 +1,19 @@
+
+logLevel "verbose"
+
+def codeGen = trafo ( name: "codeGen", of: "ATL" ) {
+	
+//	metaModel "JavaSource", "/JavaSource2Table/JavaSource.ecore"
+//	metaModel "Table", "/JavaSource2Table/Table.ecore"
+//	
+//	input "JavaSource", "IN", "/JavaSource2Table/javasource-example.xmi", "JavaSource"
+//	output "Table", "OUT", "/JavaSource2Table/table-example.xmi", "Table"
+	
+}
+
+def test = trafo ( name: "test" ) {
+	println "xxx"
+}
+
+
+test.dependsOn "codeGen"

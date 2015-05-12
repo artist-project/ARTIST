@@ -1,0 +1,21 @@
+
+
+
+trafo ( name: "testMoDisco", of: "MoDisco" ) {
+	spec {
+		inputs String: "project"
+	}
+	project = "TestJavaProject"
+}
+
+testMoDisco >> {
+	println "Discovered resource: " + result.toString()
+	println "Is the result empty? " +  result.getContents().isEmpty()
+}
+
+
+run {
+	m = testMoDisco ("TestJavaProject")
+	
+	println "YIHA! Result is $m"
+}

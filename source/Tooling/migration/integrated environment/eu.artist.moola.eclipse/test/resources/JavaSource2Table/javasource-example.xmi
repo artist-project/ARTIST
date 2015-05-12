@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<JavaSource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="JavaSource">
+  <classes name="FirstClass">
+    <methods name="fc_m1"/>
+    <methods name="fc_m2">
+      <invocations method="//@classes.0/@methods.0"/>
+      <invocations method="//@classes.0/@methods.0"/>
+    </methods>
+  </classes>
+  <classes name="SecondClass">
+    <methods name="sc_m1">
+      <invocations method="//@classes.0/@methods.0"/>
+    </methods>
+    <methods name="sc_m2">
+      <invocations method="//@classes.1/@methods.0"/>
+    </methods>
+  </classes>
+</JavaSource>

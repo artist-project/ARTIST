@@ -1,0 +1,133 @@
+
+println "starting Moola script"
+
+
+logLevel "verbose"
+
+
+/****************************************
+ * Models
+ ****************************************/
+
+model ( name: "mdProject" ) {}
+
+model ( name: "mdObjUml" ) {}
+
+
+/****************************************
+ * Trafos
+ ****************************************/
+
+
+trafo (	name: "test" ) {
+	spec {
+		inputs String: "test", int: "abc"
+	}
+	println "some configuration for $name here"
+}
+
+trafo (	name: "someTrafo" ) {
+	spec {
+		inputs String: "test", int: "x", int2: "y" // ToDo: name must be key for duplicate types or list of names
+	}
+}
+
+someTrafo << {
+	println test
+	println x * y
+}
+
+
+//(x, y) = testList (3)
+//println "$x $y"
+
+run {
+	( x, y ) = test ( "testabc", 4 )
+	
+	// ToDo: add x and y to metaClass (otherwise propertyMissing calls will remain)
+	while ( y > 0 ) {
+		( a, b, y ) = someTrafo ( "outp", 7, --y )
+	}
+	
+	println "$x $y"
+}
+
+/*
+trafo (	name: "parseJava" ) {
+	spec {
+		inputs UML4: "aha"
+		outputs UML3: "test"
+	}
+	aha = mdProject
+}
+
+parseJava >> {
+	println "finished parse java"
+}
+
+
+trafo (	name: "parseJava2" ) {
+	println "some configuration for <parseJava2> here"
+	spec {
+		inputs UML3: "test", UML5: "abc"
+	}
+	test = parseJava.test
+	abc = mdObjUml
+}
+
+parseJava2 >> {
+	println "finished parse java2"
+}
+*/
+
+// parseJava2.linkTo ( parseJava.test, mdObjUml )
+
+
+/*
+run {
+	(m1, m2) = parseJava()
+	parseJava2(m1)
+	if(bla(m2)){
+		
+	} else {
+	
+	}
+}
+*/
+
+/*
+spec ( name: "testSpec" ) {
+	inputs UML4: "aha"
+	outputs UML3: "test"
+}
+*/
+/*
+guard ( name: "gd" ) {
+	test = parseJava2.test // auto-derive spec for guards (?)
+	apply {
+		a.when { test.chartAt(0) == "x" }
+		b.when { test.chartAt(0) == "y" }
+		c.otherwise
+	}
+}*/
+
+//spec {
+//	inputs UML3: "test"
+//	outputs UML3: "a", UML3: "b", UML3: "c"
+//}
+
+//guard ( name: "gd" ) {
+//	input UML3: "test"
+//	output UML3: "a", UML3: "b", UML3: "c"
+//} << {
+//	test = parseJava2.test
+//	apply {
+//		a.when { test.chartAt(0) == "x" }
+//		b.when { test.chartAt(0) == "y" }
+//		c.otherwise
+//	}
+//}
+
+//run inOrder: ["parseJava", "parseJava2"]
+
+

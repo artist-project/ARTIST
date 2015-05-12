@@ -1,0 +1,11 @@
+
+
+
+def codeGen = trafo ( name: "codeGen", of: "Acceleo" ) {
+	project = "platform:/resource/eu.artist.migration.modernization.uml2java"
+	main = "eu.artist.migration.modernization.uml2java.repackaged.gen.java.main.Uml2java"
+	target = "src-gen"
+	model = "test/resources/artist/model/petstore_domain_objectified_dao_output.uml"
+	
+	//dependsOn = ["dao"]
+}

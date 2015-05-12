@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_LICG-bmhEeKP6JNTocDZqQ" name="javaProfile" metamodelReference="_LICHIbmhEeKP6JNTocDZqQ">
+  <eAnnotations xmi:id="_wKnZMbxtEeKKDZg25Hwffg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_wKnZMrxtEeKKDZg25Hwffg" name="javaProfile" nsURI="http:///schemas/javaProfile/_wKnZMLxtEeKKDZg25Hwffg/0" nsPrefix="javaProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_wKnZM7xtEeKKDZg25Hwffg" name="JGenericType">
+        <eAnnotations xmi:id="_wKnZNLxtEeKKDZg25Hwffg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LICHJLmhEeKP6JNTocDZqQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wKnZNbxtEeKKDZg25Hwffg" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wKnZN7xtEeKKDZg25Hwffg" name="parameter" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Type"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wKnZObxtEeKKDZg25Hwffg" name="type" ordered="false" lowerBound="1" eType="_wKnZO7xtEeKKDZg25Hwffg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_wKnZO7xtEeKKDZg25Hwffg" name="JTypeKind">
+        <eAnnotations xmi:id="_wKnZPLxtEeKKDZg25Hwffg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3K-1gLm4EeKb1rQJQ1Jwuw"/>
+        <eLiterals xmi:id="_wKnZPbxtEeKKDZg25Hwffg" name="unbounded"/>
+        <eLiterals xmi:id="_wKnZPrxtEeKKDZg25Hwffg" name="upperBounded" value="1"/>
+        <eLiterals xmi:id="_wKnZP7xtEeKKDZg25Hwffg" name="lowerBounded" value="2"/>
+        <eLiterals xmi:id="_wKnZQLxtEeKKDZg25Hwffg" name="bounded" value="3"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_wKnZQbxtEeKKDZg25Hwffg" name="JProxyType">
+        <eAnnotations xmi:id="_wKnZQrxtEeKKDZg25Hwffg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_EMwPsLubEeKTnOb7xKjTrQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_wKnZQ7xtEeKKDZg25Hwffg" name="base_Type" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Type"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_wKnZRbxtEeKKDZg25Hwffg" name="namespace" ordered="false">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <packageImport xmi:id="_LICHHrmhEeKP6JNTocDZqQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_LICHIbmhEeKP6JNTocDZqQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LICHJLmhEeKP6JNTocDZqQ" name="JGenericType">
+    <ownedAttribute xmi:id="_LICHJ7mhEeKP6JNTocDZqQ" name="base_Property" association="_LICHLbmhEeKP6JNTocDZqQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_LICHKrmhEeKP6JNTocDZqQ" name="parameter" visibility="public">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Type"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QQC3ALodEeKl8qUQhmAjJQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_ngGRALm4EeKb1rQJQ1Jwuw" name="type" type="_3K-1gLm4EeKb1rQJQ1Jwuw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_LICHLbmhEeKP6JNTocDZqQ" name="Property_JGenericType" memberEnd="_LICHMLmhEeKP6JNTocDZqQ _LICHJ7mhEeKP6JNTocDZqQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_LICHMLmhEeKP6JNTocDZqQ" name="extension_JGenericType" type="_LICHJLmhEeKP6JNTocDZqQ" aggregation="composite" association="_LICHLbmhEeKP6JNTocDZqQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_3K-1gLm4EeKb1rQJQ1Jwuw" name="JTypeKind">
+    <ownedLiteral xmi:id="_6v8KALm4EeKb1rQJQ1Jwuw" name="unbounded">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_ZYoxoLm5EeKb1rQJQ1Jwuw" name="">
+        <body>unbounded</body>
+      </specification>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_BmhnULm5EeKb1rQJQ1Jwuw" name="upperBounded">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_laPiULm5EeKb1rQJQ1Jwuw">
+        <body>upperBounded</body>
+      </specification>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_FZnecLm5EeKb1rQJQ1Jwuw" name="lowerBounded">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_odlXgLm5EeKb1rQJQ1Jwuw">
+        <body>lowerBounded</body>
+      </specification>
+    </ownedLiteral>
+    <ownedLiteral xmi:id="_NxuP4LocEeKl8qUQhmAjJQ" name="bounded">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_PWSZ8LocEeKl8qUQhmAjJQ">
+        <body>bounded</body>
+      </specification>
+    </ownedLiteral>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_EMwPsLubEeKTnOb7xKjTrQ" name="JProxyType">
+    <ownedAttribute xmi:id="_EMwPsbubEeKTnOb7xKjTrQ" name="base_Type" association="_HkDtQLucEeKTnOb7xKjTrQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Type"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_EMwPsrubEeKTnOb7xKjTrQ" name="namespace" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EMwPs7ubEeKTnOb7xKjTrQ"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_HkDtQLucEeKTnOb7xKjTrQ" name="Type_JProxyType" memberEnd="_HkDtQbucEeKTnOb7xKjTrQ _EMwPsbubEeKTnOb7xKjTrQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_HkDtQbucEeKTnOb7xKjTrQ" name="extension_JProxyType" type="_EMwPsLubEeKTnOb7xKjTrQ" aggregation="composite" association="_HkDtQLucEeKTnOb7xKjTrQ"/>
+  </packagedElement>
+</uml:Profile>

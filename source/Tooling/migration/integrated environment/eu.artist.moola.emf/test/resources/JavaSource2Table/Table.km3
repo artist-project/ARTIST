@@ -1,0 +1,19 @@
+
+package Table {
+
+	class Table {
+		reference rows[1-*] ordered container : Row;
+	}
+	
+	class Row {
+		reference cells[1-*] ordered container : Cell;
+	}
+	
+	class Cell {
+		attribute content : String;
+	}
+}
+
+package PrimitiveTypes {
+  datatype String;
+}

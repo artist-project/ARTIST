@@ -1,0 +1,59 @@
+
+println "Iterational execution example for Moola"
+
+def iterationCount = 3
+
+/*-----------------------------------------------
+  Trafo definitions                               
+  -----------------------------------------------*/
+
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+}
+
+b.work = {
+	iterationCount--;
+	println "current iteration count: $iterationCount"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "d" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "e" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "f" ) {
+	println "some config code for $name"
+}
+
+
+
+/*-----------------------------------------------
+  Workflow                             
+  -----------------------------------------------*/
+
+b.dependsOn("a")
+b.dependsOn("c") {
+	iterationCount > 0
+}
+c.dependsOn("b")
+d.dependsOn("c")
+
+
+
+//b.dependsOn "a" or: "e"
+
+
+
+
+
