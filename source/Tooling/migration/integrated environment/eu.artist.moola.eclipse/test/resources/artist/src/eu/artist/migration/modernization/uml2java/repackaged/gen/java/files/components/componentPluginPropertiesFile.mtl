@@ -1,0 +1,21 @@
+[comment encoding = UTF-8 /]
+[module componentPluginPropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::workspaceServices /]
+
+[template private componentPluginPropertiesFile(aComponent : Component)]
+[aComponent.genComponentPath()/]/plugin.properties
+[/template]
+
+[template public genComponentPluginPropertiesFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.componentPluginPropertiesFile()).reqResourceExists())]
+[file (aComponent.componentPluginPropertiesFile(), false, 'UTF-8')]
+#################################################################################
+## [aComponent.reqGetCopyrightAndLicense()/]
+#################################################################################
+Bundle-Name = Default Bundle Name
+Provider-Name = [aComponent.reqGetBundleProvider()/]
+[/file]
+[/template]

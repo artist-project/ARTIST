@@ -1,0 +1,43 @@
+[comment encoding = UTF-8 /]
+[module interfaceJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::classifierJavaFile]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::documentation /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::declaration/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::attribute/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::commonServices/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::typesServices /]
+
+
+[template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Interface))]
+[let anInterface : Interface = aClassifier.oclAsType(Interface)]
+[anInterface.genVisibility()/]interface [anInterface.genName()/] [anInterface.genInheritance()/]{
+	[anInterface.genAttributes()/]
+	[anInterface.genOperations()/]
+[/let]
+[/template]
+
+[template private genAttributes(anInterface : Interface) ]
+[for (aProperty : Property | anInterface.ownedAttribute)]
+[aProperty.genAttributeComment()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/] = [aProperty.reqDefaultValue()/];
+
+[/for]
+// [protected ('(user defined attributes for ' + anInterface.name + ')')]
+
+// [/protected]
+
+[/template]
+
+[template private genOperations (anInterface : Interface) ]
+[for (anOperation : Operation | anInterface.ownedOperation)]
+[anOperation.genOperationComment()/]
+[anOperation.genMethodPrototype()/];
+
+[/for]
+// [protected ('(user defined methods for ' + anInterface.name + ')')]
+
+// [/protected]
+[/template]

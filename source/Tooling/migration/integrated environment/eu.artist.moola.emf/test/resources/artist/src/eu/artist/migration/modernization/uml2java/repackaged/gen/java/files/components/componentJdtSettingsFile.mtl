@@ -1,0 +1,22 @@
+[comment encoding = UTF-8 /]
+[module componentJdtSettingsFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::workspaceServices /]
+
+[template private componentJdtSettingsFile(aComponent : Component)]
+[aComponent.genComponentPath()/]/.settings/org.eclipse.jdt.ressources.prefs
+[/template]
+
+[template public genComponentJdtSettingsFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.componentJdtSettingsFile()).reqResourceExists())]
+[file (aComponent.componentJdtSettingsFile(), false, 'UTF-8')]
+eclipse.preferences.version=1
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.5
+org.eclipse.jdt.core.compiler.compliance=1.5
+org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
+org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.compiler.source=1.5
+[/file]
+[/template]

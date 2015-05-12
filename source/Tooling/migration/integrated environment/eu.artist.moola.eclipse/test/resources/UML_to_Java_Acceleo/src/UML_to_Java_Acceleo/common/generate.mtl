@@ -1,0 +1,28 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+
+ [template public generate(aClass : Class)]
+
+ [comment @main /]
+ [file (aClass.name.concat('.java'), false)]
+   public class [aClass.name.toUpperFirst()/] {
+   [for (p: Property | aClass.attribute) separator('\n')]
+     private [p.type.name/] [p.name/];
+   [/for]
+ 
+   [for (p: Property | aClass.attribute) separator('\n')]
+     public [p.type.name/] get[p.name.toUpperFirst()/]() {
+       return this.[p.name/];
+     }
+   [/for]
+ 
+   [for (o: Operation | aClass.ownedOperation) separator('\n')]
+     public [o.type.name/] [o.name/]() {
+       // TODO should be implemented
+     }
+   [/for]
+   }
+ [/file]
+
+ [/template]

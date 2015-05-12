@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moola User Guide</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h1>Moola User Guide</h1>
+
+    <div class="row">
+        <div class="col-md-10">
+
+            <!-- Introduction -->
+            <h2>Introduction</h2>
+            <p>
+                Moola, the <b>M</b>odel <b>O</b>peration <b>O</b>rchestration <b>La</b>nguage, is a Domain Specific Language (DSL) written in Groovy for composing Model Transformations.
+                Moola thereby supports simple chains, conditional branches, iterations and concurrency.
+            </p>
+            <p>
+                The base of Moola is independent of any Model Transformation library and can be used to compose tasks written in a JVM language. On top of this base, plug-ins exist
+                to orchestrate EMF-based Model Transformations. Currently, <code>Acceleo</code>, <code>ATL</code>, <code>ATL/EMFTVM</code> and <code>MoDisco</code> are supported.
+            </p>
+
+            <!-- ToC -->
+            <h2>Table of Contents</h2>
+            <ol class="toc">
+                <li> <a href="#basic-syntax">Basic Syntax</a></li>
+                <ol class="toc">
+                    <li> <a href="#defining-trafos">Defining Transformations</a></li>
+                    <li> <a href="#trafo-phases">Transformation Phases</a>
+                    <li> <a href="#trafo-orchestration">Transformation Orchestration</a></li>
+                    <ol class="toc">
+                        <li> <a href="#trafo-chains">Transformation Chains</a></li>
+                        <li> <a href="#cond-branching">Conditional Branching</a>
+                        <li> <a href="#iterations">Iterations</a></li>
+                        <li> <a href="#concurrency">Concurrency</a></li>
+                    </ol>
+                </ol>
+
+                <li> <a href="#emf">EMF Plug-ins</a></li>
+                <ol class="toc">
+                    <li> <a href="#special-trafos">Defining Special Transformation</a></li>
+                    <li> <a href="#modisco">MoDisco</a>
+                    <li> <a href="#atl">ATL</a></li>
+                    <li> <a href="#atl-emftvm">ATL/EMFTVM</a></li>
+                    <li> <a href="#acceleo">Acceleo</a></li>
+                </ol>
+                <li> <a href="#global-script-settings">Global Script Settings</a></li>
+            </ol>
+
+
+
+
+
+
+
+
+            <!-- Chapter 1: Basic Syntax -->
+            <h2 id="basic-syntax">Basic Syntax</h2>
+            <h3 id="defining-trafos">Defining Transformations</h3>
+            The core element of Moola are so called <code>trafos</code> (short for transformations). A <code>trafo</code> is a user-defined task that will be executed
+            when the <code>Moola</code> script is run.
+
+            <pre class="prettyprint">
+trafo ( name: "helloWorld" ) {
+    println "Hello World from Moola!"
+}</pre>
+
+            <h3 id="trafo-phases">Transformation Phases</h3>
+            <p>
+            When a transformation is scheduled to run, it progresses through different phases. Those phases are
+            </p>
+            <ol>
+                <li>Trafo Setup</li>
+                <li>Pre-Work Actions</li>
+                <li><b>Work</b></li>
+                <li>Post-Work Actions</li>
+            </ol>
+            <p>
+                The code that is run for each phase can be defined by the user or depends on the Transformation Type. The following snippet shows how you can define each
+                phase in code by using <code>Closure</code>.
+            </p>
+            <pre class="prettyprint">
+trafo ( name: "helloWorld" ) {
+    println "Trafo setup code is going here"
+}
+
+helloWorld << {
+    println "This is a pre-work action"
+}
+
+helloWorld.work = {
+    println "This is work, which can be seen as the main part of the trafo"
+}
+
+helloWorld >> {
+    println "This is a post-work action"
+}</pre>
+            <div class="bs-callout bs-callout-info">
+                <h4>Difference between Setup and Pre-Work Actions</h4>
+                <p>
+                    Some users might ask what the difference between the <code>Trafo Setup</code> and <code>Pre-Work Actions</code> is.
+                    The <code>Trafo Setup</code> is defined right when declaring the trafo. Although it is executed each time the trafo is run,
+                    the Setup code is mostly used to set trafo parameters, which in term will be used to construct more complex objects (such as
+                    <code>MoDisco Discoverers</code>, <code>ATL/EMFTVM Execution Environments</code>, etc.). Those complex objects can then be accessed by (and modified)
+                    by the <code>Pre-Work Actions</code>.
+                </p>
+            </div>
+            <div class="bs-callout bs-callout-info">
+                <h4>Defining the Work</h4>
+                <p>
+                    Setting the work of a trafo doesn't have a shortcut (like <code><<</code> or  <code>>></code>), which might seem odd at first. The reason for this is that plug-ins can be
+                    used to define custom transformations (e.g. for <code>MoDisco</code>, <code>ATL</code>, etc.). Those transformations will define the
+                    work delegate internally. The only step required in most scenarios is setting a proper <code>Trafo Setup</code> closure for configuration.
+                </p>
+            </div>
+
+            <h3 id="trafo-orchestration">Transformation Orchestration</h3>
+            <p>
+                Moola's main purpose is orchestrating Model Transformations. To achieve this, trafos can be easily assembled to more complex processes.
+            </p>
+            <h4 id="trafo-chains">Transformation Chains</h4>
+            <p>
+                Chains (or Sequences) are the most simple type of orchestration. A chain of trafos is executed one after the other. The following
+                example shows a simple chain setup.
+            </p>
+<pre class="prettyprint">
+// define three transformations
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+// orchestrate them by using "dependsOn"
+b.dependsOn "a"
+c.dependsOn "b"</pre>
+            <p>
+                The above code will execute the trafos in the order <code>a -> b -> c</code>. The <code>dependsOn</code> property can also be set on
+                defining the trafos, which would reduce the script to the following:
+            </p>
+<pre class="prettyprint">
+// define three transformations and their dependsOn relations
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b", dependsOn: ['a'] ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "c", dependsOn: ['b'] ) {
+	println "some config code for $name"
+}</pre>
+            <div class="bs-callout bs-callout-info">
+                <h4>Inline vs. Explicit DependsOn Declaration</h4>
+                <p>
+                    When deciding on how to define the <code>dependsOn</code> relation, readability should be focused. Although inline
+                    definitions are shorter, they can lead to transformation relations that are hard to grasp. In big files,
+                    it is recommended to orchestrate all trafos at the end of the file so the process can be grasped quickly.
+                </p>
+            </div>
+            <p>
+                Since Tranformation Chains are among the most commonly used structures, <code>Moola</code> provides a shortcut notation
+                to define chains:
+            </p>
+<pre class="prettyprint">
+// assume same trafo definitions as above
+run inOrder: ["a", "b", "c"]
+start with: ["b"]
+</pre>
+            <p>
+                The above sample script demonstrates the use of <code>run inOrder</code> to define a chain. Furthermore,
+                the use of <code>start with</code> allows starting with a specific trafo while skipping all trafos before it.
+            </p>
+            <h4 id="cond-branching">Conditional Branching</h4>
+            <p>
+                Another way to orchestrate trafos is to branch off to different trafos based on a condition.
+            </p>
+            <pre class="prettyprint">
+// we will use this variable for branching
+def test = "hallo"
+
+// define the trafos
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+	test = "x"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "d" ) {
+	println "some config code for $name"
+}
+
+
+// define the workflow
+b.dependsOn("a")
+c.dependsOn("b") {
+	test == "x"
+}
+d.dependsOn("b")</pre>
+            <p>
+                The example above shows that the <code>dependsOn</code> method can take a <code>Closure</code> as last parameter, which requires to return
+                a <code>boolean</code> value. This example reads as follows: "after executing <code>b</code>, <code>c</code> depends on it if <code>test</code> equals to <code>'x'</code>".
+                This means <code>c</code> can react on any outcome of <code>b</code>, as can be seen in the example, where <code>b</code> changes the local variable <code>test</code> and
+                <code>c</code> can react to that change.
+            </p>
+            <div class="bs-callout bs-callout-warning">
+                <h4>Default Branch on Conditions</h4>
+                <p>
+                    The above example also shows <code>d</code> depending on <code>c</code> without condition. This is the <code>default branch</code>. A condition needs to
+                    forward control to exactly one follow-up trafo. If the condition of <code>c</code> doesn't match, a default route has to be defined. An exception
+                    will be thrown if no condition matches and no default branch is defined.
+                </p>
+            </div>
+            <div class="bs-callout bs-callout-danger">
+                <h4>Example of Missing Default Branch</h4>
+                This script will throw an exception during runtime (exactly: after executing <code>a</code>), because Moola cannot determine where to pass
+                control to.
+            <pre class="prettyprint">
+// we will use this variable for branching
+def test = ""
+
+// define the trafos
+trafo (	name: "a" ) {
+	println "some config code for $name"
+	test = "y"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+}
+
+// define the workflow
+b.dependsOn("a") {
+	test == "x"
+}
+</pre>
+            </div>
+
+            <h3 id="iterations">Iterations</h3>
+            Another way to arrange trafos is to use iterations. Iterations are nothing else than a conditional dependency to a trafo and can therefore
+            defined with the <code>dependsOn</code> relationship.
+            <pre class="prettyprint">
+def iterationCount = 3
+
+/*-----------------------------------------------
+  Trafo definitions
+  -----------------------------------------------*/
+
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+}
+
+b.work = {
+	iterationCount--;
+	println "current iteration count: $iterationCount"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+/*-----------------------------------------------
+  Workflow
+  -----------------------------------------------*/
+
+b.dependsOn("a")
+b.dependsOn("c") {
+	iterationCount > 0
+}
+c.dependsOn("b")
+            </pre>
+            This will execute the trafos in the following order: <code>a -> b -> c -> b -> c -> b -> c</code>.
+
+            <h3 id="concurrency">Concurrency</h3>
+            Finally, Moola allows trafos to be executed simultaneously. In fact, all trafos that can be executed at any
+            point in time (and do not directly or indirectly depend on each other) are executed in parallel.
+            <pre class="prettyprint">
+/*-----------------------------------------------
+  Trafo definitions
+  -----------------------------------------------*/
+
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+/*-----------------------------------------------
+  Workflow
+  -----------------------------------------------*/
+
+b.dependsOn "a"
+c.dependsOn "a"</pre>
+            In this example, both <code>b</code> and <code>c</code> depend on <code>a</code> without depending on each other.
+            Therefore, after <code>a</code> finished executing, both <code>b</code> and <code>c</code> will run in parallel.
+
+            <h2 id="emf">EMF Plug-ins</h2>
+            <p>
+                Moola can be extended by writing new transformation types. In this chapter, we will see how Moola can be extended to
+                support EMF tools such as <code>MoDisco</code>, <code>ATL</code> and <code>Acceleo</code>.
+            </p>
+            <h3 id="special-trafos">Defining Special Transformation</h3>
+            <p>
+                In the previous chapter, we have seen how a transformation can be declared using the <code>trafo</code> code block.
+                The code that should run when such trafos are executed was specified in the <code>Setup</code>, <code>Pre- and Post Work</code>
+                and <code>Work</code> closures. These are general trafos and can be used to execute any kind of code.
+            </p>
+            <p>
+                A special trafo on the other hand is a trafo of a certain <code>Transformation Type</code>. They are meant for a specific task.
+                In general, a special trafo can be defined with the <code>of</code> keyword in the <code>trafo</code>
+                block, as demeonstrated in the following example.
+            </p>
+            <pre class="prettyprint">
+trafo ( name: "special", of: "MoDisco" ) {
+    // a special trafo of type "MoDisco"
+}</pre>
+            <p>
+                In most cases, you do not need to set the <code>work</code> closure of a special trafos , since the behavior of a special trafo
+                is build in. In those cases, only configuration via the <code>Setup</code> closure is required.
+
+                In the following sections, we will see how to define special trafos for <code>MoDisco</code>, <code>ATL</code> and <code>Acceleo</code>.
+            </p>
+            <div class="bs-callout bs-callout-info">
+                <h4>Setting Work on Special Trafos</h4>
+                <p>
+                    The work delegate can also be set on special trafos. This will completely overwrite the behaviour of the special trafo. Although this is
+                    unwanted in many cases, there are cases in which this might be a valid approach, e.g. when a user wants to access objects of a special trafo but
+                    wants to use them in a different way than the tafo would by default.
+                </p>
+            </div>
+            <h3 id="modisco">MoDisco</h3>
+            <p>
+                The following example demonstrates the declaration of a <code>MoDisco</code> transformation. The setup parameter for <code>EMF tools</code>
+                are closely related to the parameters required in the <code>Eclipse Launch Configurations</code> of those tools.
+            </p>
+            <pre class="prettyprint">
+trafo ( name: "testMoDisco",  of: "MoDisco" ) {
+	project = "TestJavaProject"
+}
+
+testMoDisco >> {
+	println "Discovered resource: " + result.toString()
+}</pre>
+            <div class="bs-callout bs-callout-info">
+                <h4>Setup Parameters</h4>
+                <p>
+                    The <code>Setup</code> closure can be used to specify properties and call methods of the trafo. The name of those properties
+                    and methods is related to their name in the <code>Eclipse Launch Configuration</code>. Therefore, the values from the launch configs
+                    can be copied and to and used in Moola scripts.
+                </p>
+            </div>
+
+            <h4>Properties</h4>
+            The following properties can be used to setup the trafo.
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>project</th>
+                        <td>String</td>
+                        <td>Sets the name of the Java Project, that will be discovered by <code>MoDisco</code></td>
+                    </tr>
+                    <tr>
+                        <th>deepAnalysis</th>
+                        <td>boolean</td>
+                        <td>(De)activates deep Analysis. Defaults to <code>false</code></td>
+                    </tr>
+                    <tr>
+                        <th>serialize</th>
+                        <td>boolean</td>
+                        <td>(De)activates serialization. Defaults to <code>false</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Exposes</h4>
+            <table class="table table-striped table-hover ">
+                The trafo exposes the following objects to <code>Pre- and Post Actions</code> and to follow-up trafos.
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>result</th>
+                    <td>Resource</td>
+                    <td>The discovered project. Can be used in follow-up trafos for further processing</td>
+                </tr>
+                <tr>
+                    <th>targetProject</th>
+                    <td>IJavaProject</td>
+                    <td>The java project used for discovery. Can be set or modified in a <code>Pre Action</code>. Will be constructed
+                    by the <code>project</code> property otherwise</td>
+                </tr>
+                <tr>
+                    <th>javaDiscoverer</th>
+                    <td>DiscoverJavaModelFromJavaProject</td>
+                    <td>The discoverer used in this trafo. Can be set or modified in a <code>Pre Action</code></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h4>Extensive Example</h4>
+ <pre class="prettyprint">
+trafo ( name: "testMoDisco", of: "MoDisco" ) {
+    project = "TestJavaProject"
+    deepAnalysis = true
+}
+
+testMoDisco << {
+    // set some unusual properties here
+    javaDiscoverer.setExcludedElementsRegEx("some regex here");
+    targetProject.setOption(...);
+}
+
+// access result from another task
+trafo ( name: "someTask", dependsOn: ["testMoDisco"] ) {
+    println "Resource discovered before: " + testMoDisco.result.toString()
+}</pre>
+
+            <h3 id="atl">ATL</h3>
+            <p>
+                To define special trafos for <code>ATL</code>, the following example can be used for guidance.
+            </p>
+<pre class="prettyprint">
+trafo ( name: "codeGen", of: "ATL" ) {
+
+    metaModel "JavaSource", "path/to/JavaSource.ecore"
+    metaModel "Table", "path/to/Table.ecore"
+
+    input "JavaSource", "IN", "$path/to/javasource-example.xmi", "JavaSource"
+    //inOut "Name", "Alias", "path/to/table-example.xmi", "MetaModel"
+    output "Table", "OUT", "path/to/table-example.xmi", "Table"
+
+    //refinement = true
+    transformation = "path/to/Trafo.asm"
+
+}</pre>
+
+            <h4>Properties</h4>
+            The following properties can be used to setup the trafo.
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>transformation </th>
+                    <td>String</td>
+                    <td>The path to the compiled ATL (.<code>asm</code>) file</td>
+                </tr>
+                <tr>
+                    <th>refinement</th>
+                    <td>boolean</td>
+                    <td>Whether the refinement model should be added to the trafo or not</td>
+                </tr>
+                <tr>
+                    <th>atlOptions</th>
+                    <td>Map&lt;String, Object&gt;</td>
+                    <td>A map for specifying ATL options. Can also be added in the <code>Pre Action</code> block</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h4>Methods</h4>
+            The following methods can be used to setup the trafo.
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Signature</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>metaModel</th>
+                    <td>(String name, String uri)</td>
+                    <td>Adds the meta-model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>metaModel</th>
+                    <td>(String name, URI uri)</td>
+                    <td>Adds the meta-model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>metaModel</th>
+                    <td>(String name, Resource resource)</td>
+                    <td>Adds the meta-model to the trafo</td>
+                </tr>
+
+                <tr>
+                    <th>input</th>
+                    <td>(String name, String alias, String path, String conformsTo)</td>
+                    <td>Adds the input model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>input</th>
+                    <td>(String name, String alias, URI modelUri, String conformsTo)</td>
+                    <td>Adds the input model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>input</th>
+                    <td>(String name, String alias, Resource resource, String conformsTo)</td>
+                    <td>Adds the input model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>inOut</th>
+                    <td>(String name, String alias, String path, String conformsTo)</td>
+                    <td>Adds the in-out model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>inOut</th>
+                    <td>(String name, String alias, String path, String target, String conformsTo)</td>
+                    <td>Adds the in-out model to the trafo</td>
+                </tr>
+                <tr>
+                    <th>output</th>
+                    <td>(String name, String alias, String path, String conformsTo)</td>
+                    <td>Adds the out model to the trafo</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="bs-callout bs-callout-info">
+                <h4>Multiple Models</h4>
+                <p>
+                    The <code>ATL</code> trafo accepts multiple meta-, in, in-out and out models.
+                </p>
+            </div>
+            <div class="bs-callout bs-callout-warning">
+                <h4>In-Out and Out Models as Resources</h4>
+                <p>
+                    Currently, Moola does not support specifying in-out and out models as <code>EMF Resources</code> for <code>ATL</code> trafos.
+                </p>
+            </div>
+
+
+            <h3 id="atl-emftvm">ATL/EMFTVM</h3>
+            <p>
+                Transformations for <code>ATL/EMFTVM</code> follow a slightly different syntax than trafos for <code>ATL</code>. Again, the required
+                parameters are closely related to the <code>Eclipse Launch Configuration</code> settings for <code>ATL/EMFTVM</code>.
+            </p>
+            <pre class="prettyprint">
+trafo ( name: "testEmftvm", of: "ATL/EMFTVM" ) {
+    path = "path/to/module"
+    module = "ModuleName"
+
+    metaModel "UMLMM", "http://www.eclipse.org/uml2/4.0.0/UML"
+    input "OBJ", "path/to/model"
+    inOut "UMLM","path/to/model"
+    output "RES", "path/to/result"
+}
+
+testEmftvm << {
+    exec.setQueue()
+}</pre>
+            <h4>Properties</h4>
+            The following properties can be used to setup the trafo.
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>module</th>
+                    <td>String</td>
+                    <td>The module containing the <code>ATL/EMFTVM</code> trafo definition</td>
+                </tr>
+                <tr>
+                    <th>path</th>
+                    <td>String</td>
+                    <td>The path to resolve the module</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h4>Exposes</h4>
+            <table class="table table-striped table-hover ">
+                The trafo exposes the following objects to <code>Pre- and Post Actions</code> and to follow-up trafos.
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>models</th>
+                    <td>Map&lt;String, Resource&gt;</td>
+                    <td>Can be used to access the models used in this trafo, especially in-out and out models.</td>
+                </tr>
+                <tr>
+                    <th>resourceSet</th>
+                    <td>ResourceSet</td>
+                    <td>The resource set used for loading the models</td>
+                </tr>
+                <tr>
+                    <th>exec</th>
+                    <td>ExecEnv</td>
+                    <td>The execution environment used to execute the trafo</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 id="acceleo">Acceleo</h3>
+            <p>
+                Defining <code>Acceleo</code> trafos can be done by specifying trafos of type <code>"Acceleo"</code>, as demonstrated
+                in the following example:
+            </p>
+            <pre class="prettyprint">
+trafo ( name: "codeGen", of: "Acceleo" ) {
+    project = "..."
+    main = "some.package.MainClass"
+    target = "src-gen"
+    model = "input.uml"
+} </pre>
+            <h4>Properties</h4>
+            The following properties can be used to setup the trafo.
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>project</th>
+                    <td>String</td>
+                    <td>The <code>Eclipse</code> project containing the trafo files</td>
+                </tr>
+                <tr>
+                    <th>main</th>
+                    <td>String</td>
+                    <td>The main class of the trafo</td>
+                </tr>
+                <tr>
+                    <th>target</th>
+                    <td>String</td>
+                    <td>The output folder of the trafo</td>
+                </tr>
+                <tr>
+                    <th>model</th>
+                    <td>EObject / Resource / URI / String</td>
+                    <td>The input model for the trafo</td>
+                </tr>
+                <tr>
+                    <th>arguments</th>
+                    <td>List&lt;Object&gt;</td>
+                    <td>Arguments used for configuring the generator</td>
+                </tr>
+                <tr>
+                    <th>propertyFiles</th>
+                    <td>List&lt;String&gt;</td>
+                    <td>A list of property files, that will be added to the generator</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h4>Exposes</h4>
+            <table class="table table-striped table-hover ">
+                The trafo exposes the following objects to <code>Pre- and Post Actions</code> and to follow-up trafos.
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>generator</th>
+                    <td>AbstractAcceleoGenerator</td>
+                    <td>The generator class used in the trafo</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2 id="global-script-settings">Global Script Settings</h2>
+            <p>
+                Moola exposes some settings for controlling the script execution. Those settings can be set anywhere in the script.
+            </p>
+        <pre class="prettyprint">
+logLevel "verbose" // sets the log level to either "info", "verbose", "error" or "fatal"</pre>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-2">
+
+        </div>
+    </div>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.2.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/prettify.js"></script>
+
+<script type="text/javascript">
+    !function ($) {
+        $(function(){
+            window.prettyPrint && prettyPrint()
+        })
+    }(window.jQuery)
+</script>
+
+</body>
+</html>

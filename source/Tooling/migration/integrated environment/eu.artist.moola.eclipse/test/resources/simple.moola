@@ -1,0 +1,33 @@
+
+println "test"
+
+
+trafo (	name: "parseJava" ) {
+    println "some configuration for <parseJava> here";
+}
+
+
+trafo (	name: "parseJava2" ) {
+    println "some configuration for <parseJava2> here";
+}
+
+parseJava2.dependsOn "parseJava"
+
+
+
+/*
+dao.dependsOn "disco"
+acceleo.dependsOn "disco", "dao"
+another.dependsOn "acceleo" {
+	return false
+}
+
+first run: "disco"
+after "disco" run: "dao"
+after "dao" run: "codeGen" onlyIf: {
+	
+}
+after ["disco", "dao"] run: "dao" on: {
+	true
+}
+*/

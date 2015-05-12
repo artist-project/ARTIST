@@ -1,0 +1,49 @@
+
+println "Conditional execution example for Moola"
+
+logLevel "verbose"
+
+def test = "hallo"
+
+/*-----------------------------------------------
+  Trafo definitions                               
+  -----------------------------------------------*/
+
+trafo (	name: "a" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "b" ) {
+	println "some config code for $name"
+	test = "halloxx"
+}
+
+trafo (	name: "c" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "d" ) {
+	println "some config code for $name"
+}
+
+trafo (	name: "e" ) {
+	println "some config code for $name"
+}
+
+
+/*-----------------------------------------------
+  Workflow                             
+  -----------------------------------------------*/
+
+b.dependsOn("a")
+
+c.dependsOn("b") {
+	test == "x"
+}
+
+d.dependsOn("b") {
+	test == "hallo"
+}
+
+e.dependsOn("b")
+

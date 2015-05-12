@@ -1,0 +1,29 @@
+
+package JavaSource {
+
+	class JavaSource {
+		reference classes[1-*] container : ClassDeclaration;
+	}
+	
+	abstract class NamedElement {
+		attribute name : String;
+	}
+	
+	class ClassDeclaration extends NamedElement {
+		reference superclass[0-1] : ClassDeclaration;
+		reference methods[*] container : MethodDefinition oppositeOf "class";
+	}
+	
+	class MethodDefinition extends NamedElement {
+		reference "class"[1-1] : ClassDeclaration oppositeOf methods;
+		reference invocations[*] container : MethodInvocation;
+	}
+	
+	class MethodInvocation {
+		reference method[1-1] : MethodDefinition;
+	}
+}
+
+package PrimitiveTypes {
+  datatype String;
+}

@@ -1,0 +1,80 @@
+
+def UML4 = "http://www.eclipse.org/uml2/4.0.0/UML"
+def OBJ_PROFILE = "platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml"
+
+/*
+def objectification = trafo ( of: "ATL/EMFTVM" ) {
+	path = "test/resources/artist/trafo/"
+	module = "DomainModelObjectification"
+	
+	metaModel "UMLMM", UML4
+	input "OBJECTIFY", OBJ_PROFILE
+	inOut "UMLM","test/resources/artist/model/petstore_domain.uml"
+}
+
+objectification >> {
+	def outputURI = org.eclipse.emf.common.util.URI.createURI("test/resources/artist/model/petstore_domain_objectified_output.uml", true);
+	def m = models["UMLM"];
+	m.setURI(outputURI);
+	m.save(Collections.emptyMap());
+}
+*/
+
+
+
+trafo ( name: "dao", of: "ATL/EMFTVM" ) {
+	path = "test/resources/artist/trafo/"
+	module = "DomainModelObjectificationDAO"
+	
+	metaModel "UMLMM", UML4
+	input "OBJECTIFY", OBJ_PROFILE
+	inOut "UMLM","test/resources/artist/model/petstore_domain_objectified.uml"
+}
+
+dao.dependsOn "disco"
+
+dao << {
+	println "ATL!"
+}
+
+
+/*
+dao >> {
+	def outputURI = org.eclipse.emf.common.util.URI.createURI("test/resources/artist/model/petstore_domain_objectified_dao_xxx.uml", true);
+	def m = models["UMLM"];
+	m.setURI(outputURI);
+	m.save(Collections.emptyMap());
+	
+	println "saved file"
+}
+*/
+
+
+trafo ( name: "disco", of: "MoDisco" ) {
+	project = "eu.artist.moola.emf"
+	target = "src-gen"
+}
+
+disco << {
+	println "MoDisco!"	
+}
+
+
+
+trafo ( name: "codeGen", of: "Acceleo" ) {
+	project = "eu.artist.migration.modernization.uml2java"
+	main = "eu.artist.migration.modernization.uml2java.repackaged.gen.java.main.Uml2java"
+	target = "src-gen"
+	// model = "test/resources/artist/model/petstore_domain_objectified_dao_xxx.uml"
+	model = dao.models["UMLM"]
+}
+
+codeGen.dependsOn "dao"
+
+codeGen << {
+	println "Result of MoDisco: " + disco.result
+	println "Result of ATL/EMFTVM: " + dao.models["UMLM"]
+}
+
+
+
