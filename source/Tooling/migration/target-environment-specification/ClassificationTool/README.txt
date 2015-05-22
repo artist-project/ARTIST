@@ -1,30 +1,51 @@
-****************************
-Classification tool	
-***************************
+Classication Tool 
+Release date: 30/03/2015
+version: 1.0.0
 
-/*
- * Copyright 2015 ICCS/NTUA 
- * Licensed under the Eclipse Public License(EPL) version 1.0 License;
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * https://www.eclipse.org/legal/epl-v10.html
- *   
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Contributors: Athanasia Evangelinou
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
- *
- */
+=========================================================================================
+
+Copyright
+---------
+The source code in this distribution is © Copyright Institute of Communication and Computer Systems (ICCS) - 
+National Technical University of Athens 2015.
+
+=========================================================================================
+
+Licenses
+--------
+This software is open source under the Eclipse Public License(EPL) version 1.0 License.
+
+=========================================================================================
+
+ABOUT
+-----
+The Classification Tool classifies an arbitrary application component to a predefined and known benchmark application category and then matches the application component(which is based on the aforementioned classification) with a cloud serivce offering (VM instance type) based on specific user interests (such as performance and cost).
  
-*********************************************************************************
-*********************************************************************************
+=========================================================================================
 
- User Manual:
+INCLUDED FUNCTIONALITY
+------------------------
+
+- A new section was added in the configuration file(conf.ini) called [service_efficiency] where the user provides the wieghts for price and performance according to his/her interests both needed for the calculation of the Service Efficiency metric. 
+
+
+=========================================================================================
+
+KNOWN ISSUES
+------------
+
+- It should be noted that in this version only KNN Classifier is included. This component implements the KNN(k-nearest neighbors), a non-parametric method used for classification, in order to classify the application.
+
+=========================================================================================
+
+EXPECTED FUNCTIONALITIES
+------------------------
+- Future work up to the end of the ARTIST project will focus on the implementation and incorporation of SVM(Support Vector Machine) classifier algorithm within the Classification tool in terms of following another classification approach and comparing the outcomes to these of the KNN algorithm.
+
+=========================================================================================
+
+USER MANUEL
+-----------
 
  Follow very carefully the instructions concerning the formatting of the information inserted as input and the creation of the configuration file
  
@@ -44,9 +65,7 @@ Classification tool
  
  d.In the last step, click on the Calculate best instance type! button in order for the Classification tool to calculate the best cloud offering which is displayed on the instance field.
 
-	
-*********************************************************************************
-*********************************************************************************
+=========================================================================================
 
 
 

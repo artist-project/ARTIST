@@ -42,5 +42,5 @@ INSTALLATION AND USER MANUAL
 In the deliverable 'Technical Feasibility Tools' of the ARTIST project website (artist-project.eu) :
 - For the installation, see the section 2.2.2 ('Installation instructions').
 - Concerning the user manual, see the section 2.2.3('User manual').
-http://www.artist-project.eu/sites/default/files/D5.3.1%20Technical%20feasibility%20tools_M12_30092013.pdf
+http://www.artist-project.eu/sites/default/files/D5.3.2%20Technical%20Feasibility%20Tools_M24_30092014.pdf
 
