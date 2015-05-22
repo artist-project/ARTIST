@@ -10,7 +10,8 @@
 
 [template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Enumeration))]
 [aClassifier.genVisibility()/]enum [aClassifier.name.toUpperFirst()/] {
-[for (anEnumerationLiteral : EnumerationLiteral | aClassifier.oclAsType(Enumeration).ownedLiteral)]
+[let literals : OrderedSet(EnumerationLiteral) = aClassifier.oclAsType(Enumeration).ownedLiteral]
+[for (anEnumerationLiteral : EnumerationLiteral | literals)]
     /**
 [if (anEnumerationLiteral.ownedComment->size() > 0 and anEnumerationLiteral.ownedComment._body->forAll(b : String | not ''.equalsIgnoreCase(b)))]
 [for (aComment : Comment | anEnumerationLiteral.ownedComment)]
@@ -20,10 +21,24 @@
      * Description of [anEnumerationLiteral.name/].
 [/if]
      */
-    [anEnumerationLiteral.name/],
-    
+    [anEnumerationLiteral.name/][if(literals->last() = anEnumerationLiteral)];[else],[/if]
+[/for]
+[/let]
+
+[for (anEnumeration : Classifier | aClassifier.oclAsType(Enumeration).general)]
+	[genConverter(anEnumeration) /]
+[/for]
+
+[for (anEnumeration : Enumeration | (aClassifier.getModel().packagedElement->select(e : PackageableElement | (e.oclIsTypeOf(Enumeration) and e.oclAsType(Enumeration).general->select(g : Classifier | g = aClassifier)->notEmpty()))->flatten()).oclAsType(Enumeration) )]
+	[genConverter(anEnumeration) /]
 [/for]
 	// [protected ('(user defined enum literals for ' + aClassifier.name + ')')]
 	
 	// [/protected]
 [/template]
+
+[template private genConverter(anEnumeration : Classifier)]
+public [anEnumeration.name.toUpperFirst()/] to[anEnumeration.name.toUpperFirst()/]() {
+		return [anEnumeration.name.toUpperFirst()/].valueOf([anEnumeration.name.toUpperFirst()/].class, this.name());
+}
+[/template] 

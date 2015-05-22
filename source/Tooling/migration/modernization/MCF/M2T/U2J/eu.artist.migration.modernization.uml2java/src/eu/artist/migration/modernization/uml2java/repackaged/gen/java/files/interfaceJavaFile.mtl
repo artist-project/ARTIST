@@ -10,10 +10,12 @@
 [import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService /]
 [import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::typesServices /]
 
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::stereotypeServices /]
 
 [template private genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Interface))]
 [let anInterface : Interface = aClassifier.oclAsType(Interface)]
-[anInterface.genVisibility()/]interface [anInterface.genName()/] [anInterface.genInheritance()/]{
+[anInterface.genAnnotation()/]
+[anInterface.genVisibility()/]interface [anInterface.genName()/] [anInterface.genInheritanceInterface()/]{
 	[anInterface.genAttributes()/]
 	[anInterface.genOperations()/]
 [/let]

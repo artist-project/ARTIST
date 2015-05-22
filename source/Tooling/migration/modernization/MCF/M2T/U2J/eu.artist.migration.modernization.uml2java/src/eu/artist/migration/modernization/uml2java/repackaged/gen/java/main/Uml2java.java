@@ -444,6 +444,8 @@ public class Uml2java extends AbstractAcceleoGenerator {
 		uri = URI.createURI("platform:/plugin/eu.artist.migration.umlprofilestore/");
 		uriMap.put(URI.createURI("pathmap://UML_PROFILE_STORE/PROFILES/jpa2_profile.profile.uml"), uri
 				.appendSegment("umlprofiles").appendSegment(""));
+		
+		
 
 		// System.out.println("MyURI: " + uri.toString());
 	}

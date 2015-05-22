@@ -11,7 +11,7 @@
 [template public genMethodPrototype(anOperation : Operation)]
 [comment ADDED genAnnotation /]
 [anOperation.genAnnotation()/]
-[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][reqReturnTypeName()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
+[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][anOperation.resolveType()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
 [/template]
 
 [template public genInheritedMethodPrototype(anOperation : Operation)]
@@ -33,6 +33,11 @@
 
 [template public genInheritance(aClassifier : Classifier)]
 [if (aClassifier.general->size() > 0)] extends [for (extendedClassifier : Classifier | aClassifier.general)][extendedClassifier.genName()/][/for][/if]
+[/template]
+
+[comment TODO: MM Interface inheritance /]
+[template public genInheritanceInterface(aClassifier : Classifier)]
+[if (aClassifier.general->size() > 0)] extends [for (extendedClassifier : Classifier | aClassifier.general) separator(', ')][extendedClassifier.genName()/][/for][/if]
 [/template]
 
 [template public genInterfaceRealization(aClass : Class)]
@@ -76,4 +81,42 @@
 
 [template public addQuotes(aString : String)]
 "[aString/]"
+[/template]
+
+[template public addSingleQuotes(aString : String)]
+'[aString/]'
+[/template]
+
+[comment TODO: consider multiple template bindings /]
+[template public resolveTemplateBinding(element : TemplateableElement) {
+	actual : ParameterableElement = element.templateBinding.parameterSubstitution.actual -> asSequence() -> first();
+	owner : NamedElement = element.templateBinding.signature.owner -> asSequence() -> first().oclAsType(NamedElement);
+}]
+
+[owner.name/]<[if (actual.oclIsKindOf(TemplateableElement) and not actual.oclAsType(TemplateableElement).templateBinding -> isEmpty())][actual.oclAsType(TemplateableElement).resolveTemplateBinding()/][else][actual.oclAsType(NamedElement).name/][/if]>
+
+[/template]
+
+[template public resolveType(property : Operation)]
+[if (not property.type.oclIsUndefined() and property.type.oclIsKindOf(TemplateableElement) and not property.type.oclAsType(TemplateableElement).templateBinding -> isEmpty())]
+[property.type.oclAsType(TemplateableElement).resolveTemplateBinding()/]
+[else]
+[property.oclAsType(Operation).reqReturnTypeName()/]
+[/if]
+[/template]
+
+[template public resolveType(property : Property)]
+[if (property.type.oclIsKindOf(TemplateableElement) and not property.type.oclAsType(TemplateableElement).templateBinding -> isEmpty())]
+[property.type.oclAsType(TemplateableElement).resolveTemplateBinding()/]
+[else]
+[property.reqTypeName()/]
+[/if]
+[/template]
+
+[template public resolveDefaultValue(property : Property)]
+[if (property.type.oclIsKindOf(TemplateableElement) and not property.type.oclAsType(TemplateableElement).templateBinding -> isEmpty())]
+	null
+[else]
+[property.reqDefaultValue()/]
+[/if]
 [/template]

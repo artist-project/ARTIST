@@ -1,14 +1,22 @@
 /*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
+ * Copyright (c) 2008, 2012 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
+/*******************************************************************************
+ * Copyright (c) 2008, 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
  *******************************************************************************/
 package eu.artist.migration.modernization.uml2java.repackaged.gen.java.services;
 
@@ -30,9 +38,7 @@ import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 
 /**
- * Service class to import libraries for annotations.
- * 
- * @author <a href="mailto:bergmayr@big.tuwien.ac.at">Alexander Bergmayr</a>
+ * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  */
 public class ImportServicesAnnotations extends ImportServices {
 
@@ -69,30 +75,31 @@ public class ImportServicesAnnotations extends ImportServices {
 		return builder.toString();
 	}
 
-	@SuppressWarnings("unchecked")
 	public void stereotypeImports(Element aElement) {
 		for (Stereotype appliedStereotype : aElement.getAppliedStereotypes()) {
-			importedTypes.add(convertQualifiedName(appliedStereotype.getQualifiedName()));
-
-			// we do also have to traverse the stereotype property for types
-			// which require import statements
-			for (Property aProperty : appliedStereotype.getAllAttributes()) {
-				Object value = aElement.getValue(appliedStereotype, aProperty.getName());
-
-				// we are only interested in properties that have a value and do
-				// not refer to the metaclass extended by the stereotype
-				if (!(value == null || value == aElement)) {
-					// multi-valued property
-					if (aProperty.isMultivalued()) {
-
-						for (Object obj : (EList<Object>)value) {
-							checkInnerStereotypes(obj);
+			if(appliedStereotype.getProfile().getAppliedStereotype("javaProfile::JProfile") != null) {
+				importedTypes.add(IMPORT + convertQualifiedName(appliedStereotype.getQualifiedName()) + END_IMPORT);
+	
+				// we do also have to traverse the stereotype property for types
+				// which require import statements
+				for (Property aProperty : appliedStereotype.getAllAttributes()) {
+					Object value = aElement.getValue(appliedStereotype, aProperty.getName());
+	
+					// we are only interested in properties that have a value and do
+					// not refer to the metaclass extended by the stereotype
+					if (!(value == null || value == aElement)) {
+						// multi-valued property
+						if (aProperty.isMultivalued()) {
+	
+							for (Object obj : (EList<Object>)value) {
+								checkInnerStereotypes(obj);
+							}
 						}
-					}
-
-					// single-valued property
-					else {
-						checkInnerStereotypes(value);
+	
+						// single-valued property
+						else {
+							checkInnerStereotypes(value);
+						}
 					}
 				}
 			}
@@ -115,19 +122,6 @@ public class ImportServicesAnnotations extends ImportServices {
 			}
 
 		}
-	}
-
-	public String convertQualifiedName(String qualifiedName) {
-		StringBuilder javaQualifiedName = new StringBuilder();
-
-		// prepare import statement
-		javaQualifiedName.append(IMPORT);
-		qualifiedName = qualifiedName.substring(qualifiedName.indexOf("::") + 2);
-		qualifiedName = qualifiedName.replaceAll("::", ".");
-		javaQualifiedName.append(qualifiedName);
-		javaQualifiedName.append(END_IMPORT);
-
-		return javaQualifiedName.toString();
 	}
 
 	public void checkInnerStereotypes(Object value) {

@@ -12,7 +12,7 @@
 [template public genBehavior(anOperation : Operation) post(trim())]
 [comment]// [protected ('for method ' + name)][/comment]
 
-[anOperation.genMethodBody()/]
+[comment TODO MM: removed genMethodBody call, why call it twice? /]
 
 [if (not anOperation.genMethodBody().equalsIgnoreCase(''))]
 [anOperation.genMethodBody()/]
@@ -28,8 +28,7 @@ return [anOperation.name/];
 [template protected genMethodBody(anOperation : Operation) post(trim())]
 [for (anOpaqueBehavior : OpaqueBehavior | anOperation.method->filter(OpaqueBehavior))]
 [comment adapted /]
-
-test [anOpaqueBehavior.name/] bla
+[comment TODO MM: what was that 'test .. bla' about? /]
 
 [if (anOpaqueBehavior.language -> includes('JAVA'))]
 	[anOpaqueBehavior._body -> at(anOpaqueBehavior.language -> indexOf('JAVA'))/]

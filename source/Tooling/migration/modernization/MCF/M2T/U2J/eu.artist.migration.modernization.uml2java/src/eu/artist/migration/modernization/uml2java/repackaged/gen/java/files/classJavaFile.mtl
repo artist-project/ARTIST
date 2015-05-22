@@ -17,12 +17,6 @@
 
 [comment TODO: import of stereotype service /]
 [import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::stereotypeServices /]
-[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importServiceAnnotations /]
-
-
-[template public genImportStatements(aClassifier : Classifier) overrides genImportStatements ? (aClassifier.oclIsKindOf(Class))]
-[aClassifier.genImport()/]
-[/template]
 
 [comment TODO: Changed to public /]
 [template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.oclIsKindOf(Class))]
@@ -51,8 +45,24 @@
 [aProperty.genAttributeComment()/]
 [comment ADDED genAnnotation /]
 [aProperty.genAnnotation()/]
-[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.reqTypeName()/] [aProperty.genName()/] = [aProperty.reqDefaultValue()/];
-
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.resolveType()/] [aProperty.genName()/]
+[if (not aProperty.defaultValue.oclIsUndefined())] =
+	[comment value assignemnt to primitive field/]
+	[if (aProperty.defaultValue.oclIsKindOf(LiteralSpecification))]
+		[comment probably we should provide dedicated services to support the type comparison/]
+		[if (aProperty.reqTypeName().equalsIgnoreCase('String'))] [aProperty.default.addQuotes()/]
+		[elseif (aProperty.reqTypeName().equalsIgnoreCase('char'))]'[aProperty.default.addSingleQuotes()/]'
+		[else] [aProperty.default/]
+		[/if] 
+	[comment value assignment to complex field/]	
+	[elseif (aProperty.defaultValue.oclIsTypeOf(InstanceValue))]  
+		[if (not aProperty.type.oclIsTypeOf(TemplateableElement))] new [aProperty.defaultValue.oclAsType(InstanceValue).type.name/]()
+		[comment TODO: provide implementation for TemplateableElement/]
+		[else] null
+		[/if]
+	[/if]
+[/if]
+;
 [/for]
 // [protected ('(user defined attributes for ' + aClass.name + ')')]
 
@@ -61,13 +71,18 @@
 [/template]
 
 [template private constructor(aClass : Class)]
+[comment create constructor with behaviour of operation having 'JConstructor' applied as stereotype /]
+[if (ownedOperation -> select(op : Operation | op.getAppliedStereotypes() -> any(s|s.name='JConstructor') -> size() = 1) -> size() = 1)]
+public [aClass.genName() /]() {
+	[ownedOperation -> select(op : Operation | op.getAppliedStereotypes() -> any(s|s.name='JConstructor') -> size() = 1).genBehavior()/]
+}
 [comment creates default constructor /]
-[if (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
+[elseif (ownedOperation->select(anOperation : Operation | anOperation.name.equalsIgnoreCase(aClass.name))->size() = 0)]
 /**
  * The default constructor.
  */
 public [aClass.genName()/]() {
-
+	
 }
 [comment "else" part was missing here !! /]
 [else]
@@ -90,7 +105,7 @@ public [aClass.genName()/]() {
 [/template]
 
 [template public operations(aClass : Class)]
-[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)) -> reject(op : Operation | op.getAppliedStereotypes() -> any(s|s.name='JConstructor') -> size() = 1))]
 [anOperation.genOperationComment()/]
 [if (anOperation.isAbstract)]
 [anOperation.genMethodPrototype()/];
