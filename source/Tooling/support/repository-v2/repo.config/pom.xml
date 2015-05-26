@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+        <artifactId>Repository</artifactId>
+        <groupId>eu.artist.reusevol</groupId>
+        <version>2.0.0</version>
+    </parent>
+    
+	<artifactId>repo.config</artifactId>
+	<name>ARTIST Repository Configuration</name>
+	
+	<properties>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-core</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>dropwizard-util</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-jackson</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-configuration</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-logging</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-metrics</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-jersey</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-servlets</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-jetty</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dropwizard-lifecycle</artifactId>
+					<groupId>io.dropwizard</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-core</artifactId>
+					<groupId>com.codahale.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-jvm</artifactId>
+					<groupId>com.codahale.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-servlets</artifactId>
+					<groupId>com.codahale.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>metrics-healthchecks</artifactId>
+					<groupId>com.codahale.metrics</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>argparse4j</artifactId>
+					<groupId>net.sourceforge.argparse4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>javax.servlet</artifactId>
+					<groupId>org.eclipse.jetty.orbit</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jetty-setuid-java</artifactId>
+					<groupId>
+						org.eclipse.jetty.toolchain.setuid
+					</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.xtend</groupId>
+			<artifactId>org.eclipse.xtend.lib</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+				<version>${xtend.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+							<goal>xtend-install-debug-info</goal>
+							<goal>xtend-test-install-debug-info</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outputDirectory>${project.build.directory}/xtend-gen/main</outputDirectory>
+					<testOutputDirectory>${project.build.directory}/xtend-gen/test</testOutputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
