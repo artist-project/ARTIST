@@ -40,7 +40,7 @@ import eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.U
  * 
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 0.1
- * @generated
+ * @generated Not
  */
 public class Uml2java extends AbstractAcceleoGenerator {
 	/**
