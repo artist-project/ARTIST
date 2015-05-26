@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module componentCoreSettingsFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::workspaceServices /]
+
+[template private componentCoreSettingsFile(aComponent : Component)]
+[aComponent.genComponentPath()/]/.settings/org.eclipse.core.ressources.prefs
+[/template]
+
+[template public genComponentCoreSettingsFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.componentCoreSettingsFile()).reqResourceExists())]
+[file (aComponent.componentCoreSettingsFile(), false, 'UTF-8')]
+eclipse.preferences.version=1
+encoding/<project>=UTF-8
+[/file]
+[/template]
+

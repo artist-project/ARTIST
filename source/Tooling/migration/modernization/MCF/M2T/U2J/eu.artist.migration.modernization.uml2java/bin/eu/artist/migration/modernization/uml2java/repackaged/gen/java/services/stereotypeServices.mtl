@@ -1,0 +1,21 @@
+[comment encoding = UTF-8 /]
+[**
+ * The documentation of the module stereotypeServices.
+ */]
+[module stereotypeServices('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[**
+ * The documentation of the template genAnnotation.
+ * @param aClass
+ */]
+[template public genAnnotation(aElement : Element) post(trim())]
+[for (aStereotype : Stereotype | aElement.getAppliedStereotypes())]
+@[aStereotype.name/][reqAnnotationMember(aElement, aStereotype)/]
+[/for]
+[/template]
+
+[query private reqAnnotationMember(aElement : Element, aStereotype : Stereotype) : String =
+	invoke('eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.StereotypeServices', 
+           'reqAnnotationMember(org.eclipse.uml2.uml.Element, org.eclipse.uml2.uml.Stereotype)', Sequence{aElement, aStereotype}).toString().trim()
+/]
+
