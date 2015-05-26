@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Uml2java - UI
+Bundle-SymbolicName: eu.artist.migration.modernization.uml2java.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: eu.artist.migration.modernization.uml2java.repackaged.gen.java.ui.UML2JavaUIActivator
+Bundle-Vendor: Obeo Network / TUWien
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.model,
+ org.eclipse.acceleo.engine,
+ org.eclipse.debug.core,
+ org.eclipse.debug.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching,
+ org.eclipse.jdt.ui,
+ eu.artist.migration.modernization.uml2java;bundle-version="1.0.0",
+ org.eclipse.ui.console
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true

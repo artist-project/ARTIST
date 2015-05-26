@@ -1,0 +1,122 @@
+[comment encoding = UTF-8 /]
+[module declaration('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::typesServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::stereotypeServices /]
+
+[template public genName(aNamedElement : NamedElement)]
+[aNamedElement.name/]
+[/template]
+
+[template public genMethodPrototype(anOperation : Operation)]
+[comment ADDED genAnnotation /]
+[anOperation.genAnnotation()/]
+[genVisibility()/][genAbstract()/][genFinal()/][genStatic()/][anOperation.resolveType()/] [genName()/]([genOperationParameters()/])[genOperationExceptions()/]
+[/template]
+
+[template public genInheritedMethodPrototype(anOperation : Operation)]
+[genVisibility()/][reqReturnTypeName()/] [genName()/]([genOperationParameters()/])
+[/template]
+
+[template public genOperationExceptions(anOperation : Operation)]
+[if (anOperation.raisedException->size() > 0)] throws [anOperation.raisedException.genName()->sep(', ')/][/if]
+[/template]
+
+[template public genOperationParameters(anOperation : Operation)]
+[anOperation.ownedParameter->select(param : Parameter | not (param.direction = ParameterDirectionKind::return)).genOperationParameter()->sep(', ')/]
+[/template]
+
+[template public genOperationParameter(aParameter : Parameter)]
+[comment ADDED genAnnotation /]
+[aParameter.genAnnotation()/] [aParameter.reqTypeName()/] [aParameter.genName()/]
+[/template]
+
+[template public genInheritance(aClassifier : Classifier)]
+[if (aClassifier.general->size() > 0)] extends [for (extendedClassifier : Classifier | aClassifier.general)][extendedClassifier.genName()/][/for][/if]
+[/template]
+
+[comment TODO: MM Interface inheritance /]
+[template public genInheritanceInterface(aClassifier : Classifier)]
+[if (aClassifier.general->size() > 0)] extends [for (extendedClassifier : Classifier | aClassifier.general) separator(', ')][extendedClassifier.genName()/][/for][/if]
+[/template]
+
+[template public genInterfaceRealization(aClass : Class)]
+[if (not aClass.clientDependency->filter(Realization)->isEmpty())] implements [for (namedElement : NamedElement | aClass.getAllInterfaces()) separator(', ')][namedElement.genName()/][/for][/if]
+[/template]
+
+[template public genPropertyParent(aProperty : Property)]
+
+[/template]
+
+[**
+ * Returns all the interface of a given class.
+ * @param aClass The class.
+ */]
+[query public getAllInterfaces(aClass : Class) : Bag(NamedElement) = aClass.clientDependency->filter(Realization).supplier /]
+
+
+[template public genVisibility(aNamedElement : NamedElement)]
+[if (not (aNamedElement.visibility = VisibilityKind::_package))][aNamedElement.visibility/] [else]/*package*/ [/if]
+[/template]
+
+[template public genAbstract(aClass : Class)]
+[if (aClass.isAbstract)]abstract [/if]
+[/template]
+
+[template public genAbstract(anOperation : Operation)]
+[if (anOperation.isAbstract)]abstract [/if]
+[/template]
+
+[template public genFinal(aRedefinableElement : RedefinableElement)]
+[if (aRedefinableElement.isLeaf)]final [/if]
+[/template]
+
+[template public genFinal(aProperty : Property)]
+[if (aProperty.isLeaf)]final [/if]
+[/template]
+
+[template public genStatic(aFeature : Feature)]
+[if (aFeature.isStatic)]static [/if]
+[/template]
+
+[template public addQuotes(aString : String)]
+"[aString/]"
+[/template]
+
+[template public addSingleQuotes(aString : String)]
+'[aString/]'
+[/template]
+
+[comment TODO: consider multiple template bindings /]
+[template public resolveTemplateBinding(element : TemplateableElement) {
+	actual : ParameterableElement = element.templateBinding.parameterSubstitution.actual -> asSequence() -> first();
+	owner : NamedElement = element.templateBinding.signature.owner -> asSequence() -> first().oclAsType(NamedElement);
+}]
+
+[owner.name/]<[if (actual.oclIsKindOf(TemplateableElement) and not actual.oclAsType(TemplateableElement).templateBinding -> isEmpty())][actual.oclAsType(TemplateableElement).resolveTemplateBinding()/][else][actual.oclAsType(NamedElement).name/][/if]>
+
+[/template]
+
+[template public resolveType(property : Operation)]
+[if (not property.type.oclIsUndefined() and property.type.oclIsKindOf(TemplateableElement) and not property.type.oclAsType(TemplateableElement).templateBinding -> isEmpty())]
+[property.type.oclAsType(TemplateableElement).resolveTemplateBinding()/]
+[else]
+[property.oclAsType(Operation).reqReturnTypeName()/]
+[/if]
+[/template]
+
+[template public resolveType(property : Property)]
+[if (property.type.oclIsKindOf(TemplateableElement) and not property.type.oclAsType(TemplateableElement).templateBinding -> isEmpty())]
+[property.type.oclAsType(TemplateableElement).resolveTemplateBinding()/]
+[else]
+[property.reqTypeName()/]
+[/if]
+[/template]
+
+[template public resolveDefaultValue(property : Property)]
+[if (property.type.oclIsKindOf(TemplateableElement) and not property.type.oclAsType(TemplateableElement).templateBinding -> isEmpty())]
+	null
+[else]
+[property.reqDefaultValue()/]
+[/if]
+[/template]
