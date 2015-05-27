@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>eu.artist.reusevol</groupId>
+	<artifactId>repo.client.demo</artifactId>
+	<version>2.0.0</version>
+	<name>repo.client.demo</name>
+	<packaging>jar</packaging>
+	<description>Artist client demo</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<jdk.version>1.7</jdk.version>
+		
+		<repo.version>2.0.0</repo.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>eu.artist.reusevol</groupId>
+			<artifactId>repo.client</artifactId>
+			<version>${repo.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,41 @@
+#*******************************************************************************
+#* Copyright (c) 2015 Fraunhofer IAO.
+#* All rights reserved. This program and the accompanying materials
+#* are made available under the terms of the Eclipse Public License v1.0
+#* which accompanies this distribution, and is available at
+#* http://www.eclipse.org/legal/epl-v10.html
+#*
+#* Contributors:
+#* 	Oliver Strauß (Fraunhofer IAO) - initial API and implementation
+#*
+#* Initially developed in the context of the ARTIST EU project http://www.artist-project.eu
+#*******************************************************************************/
+ 
+# --- Properties of the ARTIST Repository ---
+
+# Log message exchange
+logMessages: false
+
+wso2:
+  useAnonymousUserForTesting: false
+  wso2BaseUrl: https://artist-demo.iao.fraunhofer.de
+  oAuthClientId: j0gffE9u_TqiHbf7s3ZG9YEBIi8a
+  oAuthClientSecret: VbB_Jo_t3pIsyHPuXobSJGn5pNoa
+  tenant: test.artist-demo.eu
+  adminUsername: admin@test.artist-demo.eu
+  adminPassword: admin123
+
+# --- Below are standard dropwizard properties ---
+
+# Logging settings.
+logging:
+
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+
+  # Logger-specific levels.
+  loggers:
+
+    # Overrides the level 
+    "eu.artist.reusevol.server": INFO
+    "eu.artist.reusevol.mp": INFO

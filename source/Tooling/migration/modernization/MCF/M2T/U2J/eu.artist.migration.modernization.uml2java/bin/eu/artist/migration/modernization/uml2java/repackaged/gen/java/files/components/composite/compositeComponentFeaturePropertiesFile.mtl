@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[module compositeComponentFeaturePropertiesFile('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::workspaceServices /]
+
+[template private compositeComponentFeaturePropertiesFile(aComponent : Component)]
+[aComponent.genComponentPath()/]/feature.properties
+[/template]
+
+[template public genCompositeComponentFeaturePropertiesFile(aComponent : Component) ? (not (aComponent.reqGetGenerationRootPath() + '/' + aComponent.compositeComponentFeaturePropertiesFile()).reqResourceExists())]
+[file (aComponent.compositeComponentFeaturePropertiesFile(), false, 'UTF-8')]
+#################################################################################
+## [aComponent.reqGetCopyrightAndLicense()/]
+#################################################################################
+Feature-Label = [aComponent.name/]
+Feature-Description = 
+ 
+Licence = 
+Copyright = 
+[/file]
+[/template]

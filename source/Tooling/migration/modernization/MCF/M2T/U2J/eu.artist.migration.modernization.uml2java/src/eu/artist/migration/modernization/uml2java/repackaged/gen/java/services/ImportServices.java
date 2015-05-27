@@ -19,15 +19,20 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.uml2.uml.Classifier;
+import org.eclipse.uml2.uml.ElementImport;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Interface;
 import org.eclipse.uml2.uml.InterfaceRealization;
 import org.eclipse.uml2.uml.Model;
+import org.eclipse.uml2.uml.NamedElement;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.PrimitiveType;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.TemplateBinding;
+import org.eclipse.uml2.uml.TemplateParameterSubstitution;
+import org.eclipse.uml2.uml.TemplateableElement;
 import org.eclipse.uml2.uml.Type;
 
 /**
@@ -42,6 +47,8 @@ public class ImportServices {
 	 */
 	public static final String IMPORT = "import ";
 
+	public static final String STATIC_IMPORT = "static ";
+	
 	/**
 	 * The end of the line for the imports.
 	 */
@@ -129,12 +136,51 @@ public class ImportServices {
 
 		StringBuilder stringBuilder = new StringBuilder();
 		for (String importedType : sortedImportedTypes) {
-			stringBuilder.append(IMPORT + importedType + END_IMPORT);
+			if(importedType != null && importedType.length() != 0) {
+				stringBuilder.append(IMPORT + importedType + END_IMPORT);
+			}
 		}
 
 		return stringBuilder.toString();
 	}
 
+	private Set<String> resolveQualifiedName(Type type) {
+		
+		Set<String> names = new LinkedHashSet<String>();
+		
+		if(type instanceof PrimitiveType) {
+			return null;
+		}
+		
+		if(type instanceof TemplateableElement && ((TemplateableElement) type).getTemplateBindings().size() > 0) {
+			/**
+			 *  Technically a type can have multiple TemplateBindings and each TemplateBinding multiple TemplateParameterSubstitions
+			 *  In Java a type can only have maximum one TemplateBinding 
+			 */
+			TemplateableElement te = (TemplateableElement)type;
+			
+			for(TemplateBinding tb : te.getTemplateBindings()) {
+				
+				names.add(this.getQualifiedName((Type) (tb.getSignature().getOwner())));
+				
+				for(TemplateParameterSubstitution tps : tb.getParameterSubstitutions()) {
+					names.addAll(this.resolveQualifiedName((Type) tps.getActual()));
+				}
+			}
+			
+		} else {
+			
+			names.add(this.getQualifiedName(type));
+		}
+		
+		return names;
+	}
+	
+	private String getQualifiedName(Type type) {
+		String qualifiedName = type.getQualifiedName().replaceAll("::",	".");
+		return qualifiedName.substring(qualifiedName.indexOf(".") + 1);
+	}
+	
 	/**
 	 * Returns the list of the qualified name of the types to import.
 	 * 
@@ -150,47 +196,71 @@ public class ImportServices {
 		// Import from attributes
 		List<Property> attributes = aClassifier.getAttributes();
 		for (Property property : attributes) {
-			String qualifiedName = this.reqQualifiedName(property.getType(), ignoreJavaTypes);
-			if (qualifiedName != null) {
-				importedTypes.add(qualifiedName);
+			
+			Set<String> types = this.resolveQualifiedName(property.getType());
+			
+			if(types != null) {
+				importedTypes.addAll(types);
 			}
-			if (property.getUpper() != 1) {
-				String collectionQualifiedName = this.collectionQualifiedName(aClassifier, property
-						.isOrdered(), property.isUnique());
-				if (collectionQualifiedName != null) {
-					importedTypes.add(collectionQualifiedName);
-				}
-			}
+			
+			
+//			String qualifiedName = this.reqQualifiedName(property.getType(), ignoreJavaTypes);
+//			if (qualifiedName != null) {
+//				importedTypes.add(qualifiedName);
+//			}
+//			if (property.getUpper() != 1) {
+//				String collectionQualifiedName = this.collectionQualifiedName(aClassifier, property
+//						.isOrdered(), property.isUnique());
+//				if (collectionQualifiedName != null) {
+//					importedTypes.add(collectionQualifiedName);
+//				}
+//			}
 		}
 
 		// Import from operations
 		List<Operation> operations = aClassifier.getOperations();
 		for (Operation operation : operations) {
-			String qualifiedName = this.reqQualifiedName(operation.getType(), ignoreJavaTypes);
-			if (qualifiedName != null) {
-				importedTypes.add(qualifiedName);
-			}
-			if (operation.getUpper() != 1) {
-				String collectionQualifiedName = this.collectionQualifiedName(aClassifier, operation
-						.isOrdered(), operation.isUnique());
-				if (collectionQualifiedName != null) {
-					importedTypes.add(collectionQualifiedName);
+			
+			if(operation.getType() != null) {
+				Set<String> types = this.resolveQualifiedName(operation.getType());
+				
+				if(types != null) {
+					importedTypes.addAll(types);
 				}
 			}
+			
+//			String qualifiedName = this.reqQualifiedName(operation.getType(), ignoreJavaTypes);
+//			if (qualifiedName != null) {
+//				importedTypes.add(qualifiedName);
+//			}
+//			if (operation.getUpper() != 1) {
+//				String collectionQualifiedName = this.collectionQualifiedName(aClassifier, operation
+//						.isOrdered(), operation.isUnique());
+//				if (collectionQualifiedName != null) {
+//					importedTypes.add(collectionQualifiedName);
+//				}
+//			}
 
 			List<Parameter> ownedParameters = operation.getOwnedParameters();
 			for (Parameter parameter : ownedParameters) {
-				qualifiedName = this.reqQualifiedName(parameter.getType(), ignoreJavaTypes);
-				if (qualifiedName != null) {
-					importedTypes.add(qualifiedName);
-				}
-				if (parameter.getUpper() != 1) {
-					String collectionQualifiedName = this.collectionQualifiedName(aClassifier, parameter
-							.isOrdered(), parameter.isUnique());
-					if (collectionQualifiedName != null) {
-						importedTypes.add(collectionQualifiedName);
-					}
-				}
+				
+//				types = this.resolveQualifiedName(parameter.getType());
+//				
+//				if(types != null) {
+//					importedTypes.addAll(types);
+//				}
+				
+//				qualifiedName = this.reqQualifiedName(parameter.getType(), ignoreJavaTypes);
+//				if (qualifiedName != null) {
+//					importedTypes.add(qualifiedName);
+//				}
+//				if (parameter.getUpper() != 1) {
+//					String collectionQualifiedName = this.collectionQualifiedName(aClassifier, parameter
+//							.isOrdered(), parameter.isUnique());
+//					if (collectionQualifiedName != null) {
+//						importedTypes.add(collectionQualifiedName);
+//					}
+//				}
 			}
 
 			List<Type> raisedExceptions = operation.getRaisedExceptions();
@@ -230,6 +300,13 @@ public class ImportServices {
 			for (Classifier aNestedClassifier : nestedClassifiers) {
 				importedTypes.addAll(this.typeToImports(aNestedClassifier));
 			}
+		}
+		
+		// Imported elements
+		for(ElementImport ei : aClassifier.getElementImports()) {
+			String prefix = ei.getImportedElement() instanceof Operation ? STATIC_IMPORT : "";
+			
+			importedTypes.add(prefix + convertQualifiedName(ei.getImportedElement().getQualifiedName()));
 		}
 
 		return importedTypes;
@@ -304,5 +381,18 @@ public class ImportServices {
 			}
 		}
 		return result;
+	}
+
+	public String convertQualifiedName(String qualifiedName) {
+		StringBuilder javaQualifiedName = new StringBuilder();
+	
+		// prepare import statement
+//		javaQualifiedName.append(IMPORT);
+		qualifiedName = qualifiedName.substring(qualifiedName.indexOf("::") + 2);
+		qualifiedName = qualifiedName.replaceAll("::", ".");
+		javaQualifiedName.append(qualifiedName);
+//		javaQualifiedName.append(END_IMPORT);
+	
+		return javaQualifiedName.toString();
 	}
 }

@@ -1,0 +1,24 @@
+<ar = 'http://www.artist-project.eu/repository/nt/1.0'>
+<nt = 'http://www.jcp.org/jcr/nt/1.0'>
+<mode = 'http://www.modeshape.org/1.0'>
+
+[ar:base] > mode:accessControllable, nt:unstructured 
+
+[ar:project] > ar:base 
+
+[ar:package] > ar:base 
+
+[ar:artefact] > ar:base 
+
+[ar:category] > ar:base 
+
+[ar:user] > nt:unstructured 
+
+[ar:group] > nt:unstructured 
+
+[ar:comment] > ar:base 
+
+[ar:rating] > ar:base 
+
+[ar:userinfo] > nt:unstructured 
+

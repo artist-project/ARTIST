@@ -1,14 +1,22 @@
 /*******************************************************************************
- * Copyright (c) 2014 Vienna University of Technology.
+ * Copyright (c) 2008, 2012 Obeo.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
- *
- * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ *     Obeo - initial API and implementation
+ *******************************************************************************/
+/*******************************************************************************
+ * Copyright (c) 2008, 2012 Obeo.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Obeo - initial API and implementation
  *******************************************************************************/
 package eu.artist.migration.modernization.uml2java.repackaged.gen.java.services;
 
@@ -28,9 +36,7 @@ import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPackage;
 
 /**
- * Service class to add annotations based on applied stereotypes.
- * 
- * @author <a href="mailto:bergmayr@big.tuwien.ac.at">Alexander Bergmayr</a>
+ * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  */
 public class StereotypeServices {
 
@@ -158,7 +164,7 @@ public class StereotypeServices {
 			stringValue = getJavaAnnotationFromStereotype((EObject)value)
 					+ reqAnnotationMember((EObject)value);
 		}
-
+		System.out.println(value);
 		return stringValue;
 	}
 
@@ -192,6 +198,11 @@ public class StereotypeServices {
 		// Stereotype / Annotation Type
 		else if (type.eClass().getClassifierID() == UMLPackage.STEREOTYPE) {
 
+		}
+		
+		// Class
+		else if (value instanceof Class) {
+			stringValue = getJavaClassFromUMLClass((Class)value);
 		}
 
 		return stringValue;

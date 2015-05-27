@@ -1,0 +1,46 @@
+table.fancytree-ext-columnview {
+  border-collapse: collapse;
+  width: 100%;
+}
+table.fancytree-container tbody tr td{
+  max-width: 300px; /* width does not work */
+}
+span.fancytree-node{
+  white-space: nowrap; /* prevent long lines to wrap */
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+/*
+    display: inline;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+*/
+}
+span.fancytree-title{
+  display: inline; /* prevent long lines to start with a break after the icon */
+}
+
+span.selTag{
+  border: 1px outset #dec;
+  display: inline-block;
+  padding: 0 5px;
+  margin: 1px 5px;
+  background-color: #dec;
+  border-radius: 5px;
+  cursor: pointer;
+}
+span.selTag button.close{
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0px 1px 2px 1px;
+  margin-left: 8px;
+  background-color: transparent;
+  visibility: hidden;
+}
+span.selTag:hover button.close{
+  border-color: gray;
+  background-color: #f99;
+  visibility: visible;
+}

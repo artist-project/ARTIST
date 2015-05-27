@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="compositeComponentProjectXmlFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::composite::compositeComponentProjectXmlFile" startHeaderPosition="30" endHeaderPosition="207">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <imports href="../../../common/path.emtl#/0"/>
+    <imports href="../../../services/configurationServices.emtl#/0"/>
+    <imports href="../../../services/workspaceServices.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="compositeComponentProjectXmlFile">
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="../../../common/path.emtl#/0/genComponentPath"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/compositeComponentProjectXmlFile/aComponent">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/.project"/>
+      <parameter name="aComponent">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="genCompositeComponentProjectXmlFile" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;projectDescription>&#xD;&#xA;&#x9;&lt;name>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/name>&#xD;&#xA;&#x9;&lt;comment>&lt;/comment>&#xD;&#xA;&#x9;&lt;projects>&#xD;&#xA;&#x9;&lt;/projects>&#xD;&#xA;&#x9;&lt;buildSpec>&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.pde.FeatureBuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#xD;&#xA;"/>
+          <ifExpr xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <definition href="../../../services/configurationServices.emtl#/0/reqShouldGenerateEclipseArtifacts"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+            </argument>
+          </ifExpr>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.jdt.core.javabuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#xD;&#xA;&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>bndtools.core.bndbuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#x9;&#xD;&#xA;"/>
+            <ifExpr xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <definition href="../../../services/configurationServices.emtl#/0/reqShouldGenerateOSGiArtifacts"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+              </argument>
+            </ifExpr>
+          </elseIf>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;/buildSpec>&#xD;&#xA;&#x9;&lt;natures>&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;nature>org.eclipse.pde.FeatureNature&lt;/nature>&#xD;&#xA;"/>
+          <ifExpr xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <definition href="../../../services/configurationServices.emtl#/0/reqShouldGenerateEclipseArtifacts"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+            </argument>
+          </ifExpr>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;nature>org.eclipse.jdt.core.javanature&lt;/nature>&#xD;&#xA;&#x9;&#x9;&lt;nature>bndtools.core.bndnature&lt;/nature>&#xD;&#xA;"/>
+            <ifExpr xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <definition href="../../../services/configurationServices.emtl#/0/reqShouldGenerateOSGiArtifacts"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+              </argument>
+            </ifExpr>
+          </elseIf>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;/natures>&#xD;&#xA;&lt;/projectDescription>&#xD;&#xA;"/>
+        <fileUrl xsi:type="mtl:TemplateInvocation" definition="/0/compositeComponentProjectXmlFile">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aComponent">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+      </parameter>
+      <guard xsi:type="ocl.ecore:OperationCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <source xsi:type="mtl:QueryInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <definition href="../../../services/workspaceServices.emtl#/0/reqResourceExists"/>
+          <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="mtl:QueryInvocation">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <definition href="../../../services/configurationServices.emtl#/0/reqGetGenerationRootPath"/>
+                <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </source>
+            <argument xsi:type="mtl:TemplateInvocation" definition="/0/compositeComponentProjectXmlFile">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentProjectXmlFile/aComponent">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+              </argument>
+            </argument>
+          </argument>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/not"/>
+      </guard>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="compositeComponentProjectXmlFile">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/compositeComponentProjectXmlFile"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aComponent">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="genCompositeComponentProjectXmlFile">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/genCompositeComponentProjectXmlFile"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aComponent">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="genComponentPath">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../common/path.emtl#/0/genComponentPath"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aComponent">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="reqGetGenerationRootPath">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../services/configurationServices.emtl#/0/reqGetGenerationRootPath"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anOclAny">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="reqShouldGenerateOSGiArtifacts">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../services/configurationServices.emtl#/0/reqShouldGenerateOSGiArtifacts"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="anOclAny">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="reqShouldGenerateEclipseArtifacts">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../services/configurationServices.emtl#/0/reqShouldGenerateEclipseArtifacts"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="anOclAny">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="reqResourceExists">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../services/workspaceServices.emtl#/0/reqResourceExists"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="aString">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Element_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/compositeComponentProjectXmlFile">
+      <details key="start" value="441"/>
+      <details key="end" value="572"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/compositeComponentProjectXmlFile/%">
+      <details key="start" value="519"/>
+      <details key="end" value="548"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/compositeComponentProjectXmlFile/%/aComponent">
+      <details key="start" value="519"/>
+      <details key="end" value="529"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/compositeComponentProjectXmlFile/%.1">
+      <details key="start" value="550"/>
+      <details key="end" value="559"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/compositeComponentProjectXmlFile/aComponent">
+      <details key="start" value="492"/>
+      <details key="end" value="514"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/genCompositeComponentProjectXmlFile">
+      <details key="start" value="576"/>
+      <details key="end" value="1824"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/genCompositeComponentProjectXmlFile/%">
+      <details key="start" value="777"/>
+      <details key="end" value="1811"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/genCompositeComponentProjectXmlFile/%/%">
+      <details key="start" value="849"/>
+      <details key="end" value="918"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/genCompositeComponentProjectXmlFile/%/%.1">
+      <details key="start" value="919"/>
+      <details key="end" value="934"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/genCompositeComponentProjectXmlFile/%/%.1/aComponent">
+      <details key="start" value="919"/>
+      <details key="end" value="929"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/genCompositeComponentProjectXmlFile/%/%.2">
+      <details key="start" value="936"/>
+      <details key="end" value="1008"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/genCompositeComponentProjectXmlFile/%/%.3">
+      <details key="start" value="1008"/>
+      <details key="end" value="1475"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%">
+      <details key="start" value="1063"/>
+      <details key="end" value="1181"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%.1">
+      <details key="start" value="1012"/>
+      <details key="end" value="1060"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%.1/aComponent">
+      <details key="start" value="1013"/>
+      <details key="end" value="1023"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%.2">
+      <details key="start" value="1181"/>
+      <details key="end" value="1470"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%.2/%">
+      <details key="start" value="1237"/>
+      <details key="end" value="1470"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%.2/%.1">
+      <details key="start" value="1189"/>
+      <details key="end" value="1234"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/genCompositeComponentProjectXmlFile/%/%.3/%.2/%.1/aComponent">
+      <details key="start" value="1190"/>
+      <details key="end" value="1200"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/genCompositeComponentProjectXmlFile/%/%.4">
+      <details key="start" value="1477"/>
+      <details key="end" value="1504"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/genCompositeComponentProjectXmlFile/%/%.5">
+      <details key="start" value="1504"/>
+      <details key="end" value="1766"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%">
+      <details key="start" value="1559"/>
+      <details key="end" value="1609"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%.1">
+      <details key="start" value="1508"/>
+      <details key="end" value="1556"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%.1/aComponent">
+      <details key="start" value="1509"/>
+      <details key="end" value="1519"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%.2">
+      <details key="start" value="1609"/>
+      <details key="end" value="1761"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%.2/%">
+      <details key="start" value="1665"/>
+      <details key="end" value="1761"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%.2/%.1">
+      <details key="start" value="1617"/>
+      <details key="end" value="1662"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/genCompositeComponentProjectXmlFile/%/%.5/%.2/%.1/aComponent">
+      <details key="start" value="1618"/>
+      <details key="end" value="1628"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/genCompositeComponentProjectXmlFile/%/%.6">
+      <details key="start" value="1768"/>
+      <details key="end" value="1804"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/genCompositeComponentProjectXmlFile/%/%.7">
+      <details key="start" value="784"/>
+      <details key="end" value="829"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/genCompositeComponentProjectXmlFile/%/%.7/aComponent">
+      <details key="start" value="784"/>
+      <details key="end" value="794"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/genCompositeComponentProjectXmlFile/%/%.8">
+      <details key="start" value="838"/>
+      <details key="end" value="845"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/genCompositeComponentProjectXmlFile/aComponent">
+      <details key="start" value="629"/>
+      <details key="end" value="651"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/genCompositeComponentProjectXmlFile/%.1">
+      <details key="start" value="656"/>
+      <details key="end" value="773"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/genCompositeComponentProjectXmlFile/%.1/%">
+      <details key="start" value="660"/>
+      <details key="end" value="773"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%">
+      <details key="start" value="660"/>
+      <details key="end" value="753"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%/%">
+      <details key="start" value="661"/>
+      <details key="end" value="704"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%/%/%">
+      <details key="start" value="661"/>
+      <details key="end" value="698"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%/%/%/aComponent">
+      <details key="start" value="661"/>
+      <details key="end" value="671"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%/%/%.1">
+      <details key="start" value="701"/>
+      <details key="end" value="704"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%/%.1">
+      <details key="start" value="707"/>
+      <details key="end" value="752"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/genCompositeComponentProjectXmlFile/%.1/%/%/%.1/aComponent">
+      <details key="start" value="707"/>
+      <details key="end" value="717"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

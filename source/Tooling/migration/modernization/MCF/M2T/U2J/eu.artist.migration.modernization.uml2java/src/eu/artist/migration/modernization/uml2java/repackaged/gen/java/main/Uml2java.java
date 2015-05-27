@@ -40,7 +40,7 @@ import eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.U
  * 
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 0.1
- * @generated
+ * @generated Not
  */
 public class Uml2java extends AbstractAcceleoGenerator {
 	/**
@@ -444,6 +444,8 @@ public class Uml2java extends AbstractAcceleoGenerator {
 		uri = URI.createURI("platform:/plugin/eu.artist.migration.umlprofilestore/");
 		uriMap.put(URI.createURI("pathmap://UML_PROFILE_STORE/PROFILES/jpa2_profile.profile.uml"), uri
 				.appendSegment("umlprofiles").appendSegment(""));
+		
+		
 
 		// System.out.println("MyURI: " + uri.toString());
 	}
