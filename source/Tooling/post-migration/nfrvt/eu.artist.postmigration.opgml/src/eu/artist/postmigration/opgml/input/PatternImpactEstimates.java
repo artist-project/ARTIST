@@ -25,10 +25,12 @@ public class PatternImpactEstimates {
 	
 	public static final double NEUTRAL_COST = 0.0;
 	public static final double NEUTRAL_SPEEDUP = 0.0;
+
+	private double priceOfInstancePerTimeUnit = 0.0010;
+	private double priceOfChachePerTimeUnit = 0.0015;
 	
-	
-	private double priceOfInstancePerTimeUnit;
-	private double priceOfChachePerTimeUnit;
+	private double defaultCacheSpeedUp = 0.9;
+	private double defaultInstanceSpeedUp = 1.0;
 	
 	private Map<UMLElement, Double> cacheSpeedUp = new TreeMap<>();
 	private Map<UMLElement, Double> instanceSpeedUp = new TreeMap<>(); 
@@ -83,6 +85,24 @@ public class PatternImpactEstimates {
 		return speedUp;
 	}
 	
+	public double getDefaultCacheSpeedUp() {
+		return defaultCacheSpeedUp;
+	}
+	
+	public double getDefaultInstanceSpeedUp() {
+		return defaultInstanceSpeedUp;
+	}
+	
+	public PatternImpactEstimates setDefaultCacheSpeedUp(double defaultCacheSpeedUp) {
+		this.defaultCacheSpeedUp = defaultCacheSpeedUp;
+		return this;
+	}
+	
+	public PatternImpactEstimates setDefaultInstanceSpeedUp(double defaultInstanceSpeedUp) {
+		this.defaultInstanceSpeedUp = defaultInstanceSpeedUp;
+		return this;
+	}
+	
 	@Override
 	public String toString() {
 		return toString("");
@@ -92,9 +112,9 @@ public class PatternImpactEstimates {
 		String settings = "";
 		settings += indent + "Price / Instance / TimeUnit: " + TextUtil.toString(getPriceOfInstancePerTimeUnit(), 5) + "\n";
 		settings += indent + "Price / Cache / TimeUnit: " + TextUtil.toString(getPriceOfChachePerTimeUnit(), 5) + "\n";
-		settings += indent + "Cache SpeedUp:\n";
+		settings += indent + "Cache SpeedUp (default: " + getDefaultCacheSpeedUp() + "):\n";
 		settings += OPGMLUtil.toString(cacheSpeedUp, indent + "  ");
-		settings += indent + "Instance SpeedUp:\n";
+		settings += indent + "Instance SpeedUp (default: " + getDefaultInstanceSpeedUp() + "):\n";
 		settings += OPGMLUtil.toString(instanceSpeedUp, indent + "  ");
 		return settings;
 	}

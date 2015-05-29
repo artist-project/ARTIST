@@ -21,9 +21,10 @@ import org.modelexecution.fuml.nfr.simulation.workload.WorkloadScenario;
 import org.modelexecution.fuml.nfr.simulation.workload.WorkloadScenarioStep;
 import org.moeaframework.core.variable.RealVariable;
 
+import at.ac.tuwien.big.moea.variable.RandomIntegerVariable;
+
 import com.google.common.collect.Lists;
 
-import at.ac.tuwien.big.moea.variable.RandomIntegerVariable;
 import eu.artist.postmigration.nfrvt.lang.gel.gel.Transformation;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.AppliedProperty;
 import eu.artist.postmigration.nfrvt.lang.gml.gml.Goal;
@@ -37,6 +38,7 @@ import eu.artist.postmigration.nfrvt.lang.util.MigrationResourceSet;
 import eu.artist.postmigration.nfrvt.lang.util.selector.UMLPackageSelector;
 import eu.artist.postmigration.nfrvt.lang.util.selector.query.ClassQuery;
 import eu.artist.postmigration.nfrvt.resources.constants.ARTIST_PatternCatalogue;
+import eu.artist.postmigration.nfrvt.search.run.internal.PatternSettings;
 import eu.artist.postmigration.opgml.gml.Property;
 import eu.artist.postmigration.opgml.gml.Property.Direction;
 import eu.artist.postmigration.opgml.gml.RealGoal;
@@ -45,7 +47,6 @@ import eu.artist.postmigration.opgml.gml.uml.UMLElement;
 import eu.artist.postmigration.opgml.gml.uml.UMLMethod;
 import eu.artist.postmigration.opgml.gml.uml.UMLModel;
 import eu.artist.postmigration.opgml.gml.uml.UMLScenario;
-import eu.artist.postmigration.opgml.input.PatternImpactEstimates;
 import eu.artist.postmigration.opgml.variable.AutoScalingTemplate;
 import eu.artist.postmigration.opgml.variable.AutoScalingTemplate.AutoScalingValue;
 import eu.artist.postmigration.opgml.variable.CacheTemplate;
@@ -53,17 +54,23 @@ import eu.artist.postmigration.opgml.variable.FederatedIdentityTemplate;
 import eu.artist.postmigration.opgml.variable.FixedScalingTemplate;
 import eu.artist.postmigration.opgml.variable.IPatternTemplateVariable;
 
-public class OPGMLConverter {
+public class OPGMLConverter {	
+	private GoalModel originalGoalModel;
+	private Workload originalWorkload;
+	
 	private UMLModel umlModel = new UMLModel();
 	private List<UMLScenario> umlScenarios = new ArrayList<>();
 	private eu.artist.postmigration.opgml.gml.GoalModel goalModel = new eu.artist.postmigration.opgml.gml.GoalModel();
-	private PatternImpactEstimates impactEstimates = new PatternImpactEstimates();
 	
 	private Map<IPatternTemplateVariable, Pattern> opgmlToPatternMap = new HashMap<>();
 	private Map<AppliedProperty, Property> propertyToOpgmlMap = new HashMap<>();
 	private Map<UMLClass, NamedElement> opgmlToNamedElementMap = new TreeMap<>();
+	private PatternSettings patternSettings;
 	
-	public OPGMLConverter(MigrationResourceSet set, GoalModel goals, Workload workload) {
+	public OPGMLConverter(MigrationResourceSet set, GoalModel goals, Workload workload, PatternSettings settings) {
+		this.originalGoalModel = goals;
+		this.originalWorkload = workload;
+		this.patternSettings = settings;
 		
 		opgmlToNamedElementMap.put(UMLModel.COMPLETE_APPLICATION, workload.getModelElement());
 		for(ServiceCenter center : workload.getServiceCenters()) {
@@ -119,17 +126,13 @@ public class OPGMLConverter {
 		opgmlToPatternMap.put(new FederatedIdentityTemplate(getUmlModel().getModel()), 
 				ARTIST_PatternCatalogue.Element.FEDERATED_IDENTITY);
 		
-		
-		
-		impactEstimates
-			.setPriceOfChachePerTimeUnit(0.0015)
-			.setPriceOfInstancePerTimeUnit(0.0010);
-		
 		for(UMLClass serviceClass : getUmlModel().getServiceClasses())
-			impactEstimates.addInstanceSpeedUp(serviceClass, 0.9);
+			getPatternSettings().getPatternImpactEstimates().addInstanceSpeedUp(
+					serviceClass, getPatternSettings().getPatternImpactEstimates().getDefaultInstanceSpeedUp());
 		
 		for(UMLClass entityClass : getUmlModel().getEntityClasses())
-			impactEstimates.addCacheSpeedUp(entityClass, 1.0);
+			getPatternSettings().getPatternImpactEstimates().addCacheSpeedUp(
+					entityClass, getPatternSettings().getPatternImpactEstimates().getDefaultCacheSpeedUp());
 		
 		
 		for(AppliedProperty property : goals.getAppliedProperties()) {
@@ -196,8 +199,8 @@ public class OPGMLConverter {
 		return goalModel;
 	}
 	
-	public PatternImpactEstimates getImpactEstimates() {
-		return impactEstimates;
+	public PatternSettings getPatternSettings() {
+		return patternSettings;
 	}
 	
 	public Transformation toTransformation(IPatternTemplateVariable configuration) {
@@ -232,5 +235,13 @@ public class OPGMLConverter {
 					"property = " + config.getAutoScalingValue());
 		}
 		return null;
+	}
+	
+	public GoalModel getOriginalGoalModel() {
+		return this.originalGoalModel;
+	}
+	
+	public Workload getOriginalWorkload() {
+		return this.originalWorkload;
 	}
 }

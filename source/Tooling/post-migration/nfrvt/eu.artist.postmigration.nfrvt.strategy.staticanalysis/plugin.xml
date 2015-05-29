@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="eu.artist.postmigration.nfrvt.strategy.staticanalysis.run.StaticAnalysisLaunchDelegate"
+            id="eu.artist.postmigration.nfrvt.strategy.staticanalysis.launchConfigurationType"
+            modes="run,debug"
+            name="UML Static Analysis"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.processFactories">
+      <processFactory
+            class="eu.artist.postmigration.nfrvt.strategy.staticanalysis.run.StaticAnalysisProcessFactory"
+            id="eu.artist.postmigration.nfrvt.strategy.staticanalysis.run.processFactory">
+      </processFactory>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="eu.artist.postmigration.nfrvt.strategy.staticanalysis.run.ui.StaticAnalysisLaunchConfigurationTabGroup"
+            id="eu.artist.postmigration.nfrvt.strategy.staticanalysis.launchConfigurationTabGroup"
+            type="eu.artist.postmigration.nfrvt.strategy.staticanalysis.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="eu.artist.postmigration.nfrvt.strategy.staticanalysis.launchConfigurationType"
+            icon="icons/Launch2.gif"
+            id="eu.artist.postmigration.nfrvt.strategy.staticanalysis.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
+</plugin>
+

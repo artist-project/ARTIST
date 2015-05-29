@@ -44,7 +44,7 @@ public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		MigrationExplorerActivator.ATT_OUTPUT_MODEL_PATH);
 
 	ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-		tab, new EvaluationSettingsTab(), new AnalysisSettingsTab(), new EnvironmentTab(), new CommonTab() };
+		tab, new EvaluationSettingsTab(), new AnalysisSettingsTab(), new PatternSettingsTab(), new EnvironmentTab(), new CommonTab() };
 	setTabs(tabs);
 }
 

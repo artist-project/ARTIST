@@ -1,39 +1,29 @@
-package eu.artist.postmigration.nfrvt.search.run.internal;
+package eu.artist.postmigration.nfrvt.strategy.staticanalysis.run.internal;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.util.run.ConsoleLogger;
-import eu.artist.postmigration.nfrvt.search.run.MigrationExplorerProcessor;
+import eu.artist.postmigration.nfrvt.strategy.staticanalysis.run.StaticAnalysisProcessor;
 
-public class InternalMigrationExplorerProcess extends Process {
+public class InternalStaticAnalysisProcess extends Process {
 
 	public static final int EXIT_VALUE = 0;
 	
-	private String goalModelPath;
-	private String umlModelPath;
+	private String inputModelPath;
 	private String outputModelPath;
-
-	private AnalysisSettings analysisSettings;
-	private EvaluationSettings evaluationSettings;
-	private PatternSettings patternSettings;
 	
 	/**
 	 * Creates a new process with the specified input model and output model. 
 	 * The evaluation name is currently ignored.
-	 * @param goalModelPath
+	 * @param inputModelPath
 	 * @param outputModelPath
 	 * @param goalModelEvaluationName
 	 */
-	public InternalMigrationExplorerProcess(String goalModelPath, String umlModelPath, String outputModelPath, AnalysisSettings analysisSettings, EvaluationSettings evaluationSettings, PatternSettings patternSettings) {
-		this.goalModelPath = goalModelPath;
-		this.umlModelPath = umlModelPath;
+	public InternalStaticAnalysisProcess(String inputModelPath, String outputModelPath) {
+		this.inputModelPath = inputModelPath;
 		this.outputModelPath = outputModelPath;
-		this.analysisSettings = analysisSettings;
-		this.evaluationSettings = evaluationSettings;
-		this.patternSettings = patternSettings;
 	}
 
 	/**
@@ -43,9 +33,7 @@ public class InternalMigrationExplorerProcess extends Process {
 	 * @throws IOException
 	 */
 	public void run(ConsoleLogger consoleLogger) throws IOException {
-		new MigrationExplorerProcessor(consoleLogger).measure(
-				goalModelPath, umlModelPath, outputModelPath, 
-				analysisSettings, evaluationSettings, patternSettings);
+		new StaticAnalysisProcessor(consoleLogger).measure(inputModelPath, outputModelPath);
 	}
 
 	/**

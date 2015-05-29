@@ -18,6 +18,20 @@ public class MigrationExplorerActivator extends AbstractUIPlugin {
 	public static final String ATT_QN_RESULT_PATH = "ATT_RESULT_PATH"; //$NON-NLS-1$
 	public static final String ATT_QN_SIMULATION_TIME = "ATT_SIMULATION_TIME"; //$NON-NLS-1$
 	
+	public static final String ATT_PATTERN_FIXED_MIN = "ATT_PATTERN_FIXED_MIN"; //$NON-NLS-1$
+	public static final String ATT_PATTERN_FIXED_MAX = "ATT_PATTERN_FIXED_MAX"; //$NON-NLS-1$
+	
+	public static final String ATT_PATTERN_AUTO_MIN_MIN = "ATT_PATTERN_AUTO_MIN_MIN"; //$NON-NLS-1$
+	public static final String ATT_PATTERN_AUTO_MIN_MAX = "ATT_PATTERN_AUTO_MIN_MAX"; //$NON-NLS-1$
+	public static final String ATT_PATTERN_AUTO_MAX_MIN = "ATT_PATTERN_AUTO_MAX_MIN"; //$NON-NLS-1$
+	public static final String ATT_PATTERN_AUTO_MAX_MAX = "ATT_PATTERN_AUTO_MAX_MAX"; //$NON-NLS-1$
+	
+	public static final String ATT_PATTERN_SPEEDUP_CACHE = "ATT_PATTERN_SPEEDUP_CACHE"; //$NON-NLS-1$
+	public static final String ATT_PATTERN_SPEEDUP_INSTANCE = "ATT_PATTERN_SPEEDUP_INSTANCE"; //$NON-NLS-1$
+	
+	public static final String ATT_PATTERN_PRICE_CACHE = "ATT_PATTERN_PRICE_CACHE"; //$NON-NLS-1$
+	public static final String ATT_PATTERN_PRICE_INSTANCE = "ATT_PATTERN_PRICE_INSTANCE"; //$NON-NLS-1$
+	
 	
 	public static final String PROCESS_FACTORY_ID = "eu.artist.postmigration.nfrvt.search.run.processFactory"; //$NON-NLS-1$
 	
