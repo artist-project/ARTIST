@@ -15,10 +15,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import eu.artist.migration.mdt.umlprofilediscovery.code2codemodel.JavaDiscoverer;
@@ -41,6 +43,8 @@ public class UMLProfileDiscoveryHandler implements IHandler {
 		IProject selectedProject = getSelectedProject(event);
 		IJavaProject selectedJavaProject = JavaCore.create(selectedProject);
 		
+		String errorMessage = "UML Profile could not be discovered.";
+		
 		try {
 			Resource javaCodeModelResource = JavaDiscoverer.INSTANCE.runDiscovery(selectedJavaProject);
 			javaCodeModelResource.setURI(URI.createURI(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.CODE_MODEL_PATH)));
@@ -58,23 +62,25 @@ public class UMLProfileDiscoveryHandler implements IHandler {
 			runner.saveUMLProfileModel(URI.createPlatformResourceURI(upsl.getAbsolutePath(), true).
 					appendSegment(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.UML_PROFILE_PATH)).toString());
 			
+			MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Success", "UML Profile discovered and saved in the respective project folder.");
+			
 		} catch (DiscoveryException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Disvovery Error", errorMessage);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "IO Error", errorMessage);
 		} catch (ATLCoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "ATL Error", errorMessage);
 		} catch (JavaModelException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Java Model Error", errorMessage);
 		}
 		
 		return null;
 	}
-
+	
 	/**
 	 * Helper method to obtain the selected input java project from the event triggered by the workbench
 	 * @param event Event triggered by the action managed by this handler.
