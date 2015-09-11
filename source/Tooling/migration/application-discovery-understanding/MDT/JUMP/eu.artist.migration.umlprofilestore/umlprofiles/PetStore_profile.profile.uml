@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_-chIgBZ3EeWCr70zu3ejIQ" name="PetStore" metamodelReference="_-chIgxZ3EeWCr70zu3ejIQ">
+  <eAnnotations xmi:id="_-chIgRZ3EeWCr70zu3ejIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_-chIghZ3EeWCr70zu3ejIQ" name="PetStore" nsURI="http:///schemas/PetStore/_-cghcBZ3EeWCr70zu3ejIQ/0" nsPrefix="PetStore"/>
+  </eAnnotations>
+  <packageImport xmi:id="_-chIgxZ3EeWCr70zu3ejIQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_-chIhBZ3EeWCr70zu3ejIQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <profileApplication xmi:id="_-chIhRZ3EeWCr70zu3ejIQ">
+    <eAnnotations xmi:id="_-chIhhZ3EeWCr70zu3ejIQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://JAVA_PROFILE/javaProfile.uml#_wKnZMrxtEeKKDZg25Hwffg"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://JAVA_PROFILE/javaProfile.uml#_LICG-bmhEeKP6JNTocDZqQ"/>
+  </profileApplication>
+</uml:Profile>
