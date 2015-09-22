@@ -205,6 +205,10 @@ public class SOAPHelper {
 							migratedOperationAttributes.get(migratedParameter.getParameterName()));
 					// add attribute value to attribute
 					operationElementAttribute.addChild(operationElementAttributeValue);
+					// copy name space of parent (fixes xmlns="" issue described here: https://issues.apache.org/jira/browse/AXIOM-28)
+					if (operationElement.getNamespace().getPrefix() == null || operationElement.getNamespace().getPrefix().equals("")) {
+						operationElementAttribute.setNamespace(operationElement.getNamespace());
+					}
 					// add attribute to operation
 					operationElement.addChild(operationElementAttribute);
 					// add operation to operation map
