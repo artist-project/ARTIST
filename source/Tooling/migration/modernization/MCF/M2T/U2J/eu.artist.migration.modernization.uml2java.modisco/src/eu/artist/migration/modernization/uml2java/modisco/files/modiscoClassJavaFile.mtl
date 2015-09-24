@@ -1,0 +1,69 @@
+[comment encoding = UTF-8 /]
+[**
+ * Copyright (c) 2013 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ */]
+[module modiscoClassJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::classJavaFile]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::documentation /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::declaration/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::attribute/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::behavior/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::request::request/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::classifierServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::commonServices/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::typesServices /]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::stereotypeServices /]
+
+[template public operations(aClass : Class) overrides operations]
+[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)) -> reject(op : Operation | op.getAppliedStereotypes() -> any(s|s.name='JConstructor') -> size() = 1))]
+[anOperation.genOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genMethodPrototype()/];
+[else]
+[anOperation.genMethodPrototype()/] {
+	[if (not (anOperation.type.oclIsUndefined() or anOperation.type.name.equalsIgnoreCase('void')))][anOperation.genBehavior()/][/if]
+}
+[/if]
+ 
+[/for]
+[for (anOperation : Operation | aClass.reqGetAllInheritedOperations()->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+[anOperation.genOperationComment()/]
+[if (anOperation.isAbstract)]
+[anOperation.genInheritedMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[else]
+[anOperation.genMethodPrototype()/] {
+	[anOperation.genBehavior()/]
+}
+[/if]
+ 
+[/for]
+// [protected ('(user defined methods for ' + aClass.name + ')')]
+
+// [/protected]
+[/template]
+
+
+
+
+
+
+
+
+
