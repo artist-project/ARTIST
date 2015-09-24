@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension
+         point="eu.artist.migration.modernization.cot.extension.m2mt">
+      <COTPattern
+            description="This transformation takes a PIM representing the domain model and annotates it with stereotypes corresponding to the EclipseLink profile. "
+            in_model_name="UMLM"
+            label="Domain model Eclipse Link multitenancy"
+            module="DomainModelEclipseLinkMultitenancy"
+            refining_mode="true">
+         <transformation_path
+               path="platform:/plugin/eu.artist.migration.modernization.uml2java.pim2psmMultitenancy/trafo/">
+         </transformation_path>
+         <additional_input_model
+               name="ECLIPSELINK"
+               path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/eclipselink_profile.profile.uml">
+         </additional_input_model>
+         <metamodel_definition
+               name="UMLMM"
+               uri="http://www.eclipse.org/uml2/4.0.0/UML">
+         </metamodel_definition>
+      </COTPattern>
+   </extension>
 
 </plugin>

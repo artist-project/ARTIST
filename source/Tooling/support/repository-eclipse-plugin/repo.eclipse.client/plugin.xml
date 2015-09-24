@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="eu.artist.reusevol.repo.eclipse.client"
+            name="ARTIST Repository">
+      </category>
+      <view
+            category="eu.artist.reusevol.repo.eclipse.client"
+            class="eu.artist.reusevol.repo.eclipse.client.views.RepoProjectView"
+            id="eu.artist.reusevol.repo.eclipse.client.views.RepoProjectView"
+            name="Repository Browser">
+      </view>
+      
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="eu.artist.reusevol.repo.eclipse.client.views.RepoProjectView">
+         </view>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="eu.artist.suite.perspective.ARTISTPerspective">
+         <view
+               id="eu.artist.reusevol.repo.eclipse.client.views.RepoProjectView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.ProblemView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+       <page
+            class="eu.artist.reusevol.repo.eclipse.client.preference.RepositoryPreferencePage"
+            id="eu.artist.reusevol.repo.eclipse.client.preference.RepositoryPreferencePage"
+            name="Repository Connections"
+            category="eu.artist.suite.preferences.pages.ARTIST">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+         <initializer
+            class="eu.artist.reusevol.repo.eclipse.client.preference.MyInitializer">
+      </initializer>
+   </extension>
+  
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="eu.artist.reusevol.repo.common.model.RepoProject"
+            class="eu.artist.reusevol.repo.eclipse.client.properties.AdaptorFactory">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="eu.artist.reusevol.repo.common.model.RepoPackage"
+            class="eu.artist.reusevol.repo.eclipse.client.properties.AdaptorFactory">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="eu.artist.reusevol.repo.common.model.RepoArtefact"
+            class="eu.artist.reusevol.repo.eclipse.client.properties.AdaptorFactory">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="eu.artist.reusevol.repo.eclipse.client.model.TableModel"
+            class="eu.artist.reusevol.repo.eclipse.client.properties.AdaptorFactory">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="eu.artist.reusevol.repo.common.model.RepoCategory"
+            class="eu.artist.reusevol.repo.eclipse.client.properties.AdaptorFactory">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySource">
+         </adapter>
+      </factory>
+      
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="eu.artist.reusevol.repo.eclipse.client.commands.category"
+            name="ARTIST Repository">
+      </category>
+      <command
+            categoryId="eu.artist.reusevol.repo.eclipse.client.commands.category"
+            id="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand"
+            name="Upload Artefact">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.artist.reusevol.repo.eclipse.client.handlers.ArtefactUploadHandler"
+            commandId="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand">
+      </handler>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=additions">
+         <menu
+               id="eu.artist.reusevol.repo.eclipse.client.menus"
+               label="ARTIST Repository"
+               mnemonic="M">
+            <command
+                  commandId="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand"
+                  id="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+<!--
+      <menuContribution
+            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=additions">
+         <toolbar
+               id="eu.artist.reusevol.repo.eclipse.client.toolbars.sampleToolbar">
+            <command
+                  commandId="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand"
+                  icon="icons/sample.gif"
+                  id="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+--> 
+   </extension>
+<!--
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="eu.artist.reusevol.repo.eclipse.client.commands.UploadCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+--> 
+
+</plugin>

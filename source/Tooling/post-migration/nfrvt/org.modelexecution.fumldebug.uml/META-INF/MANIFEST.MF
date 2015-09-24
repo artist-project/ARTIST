@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.uml2.uml;bundle-version="4.0.1",
- org.modelexecution.fuml.convert;bundle-version="1.0.0"
+ org.modelexecution.fuml.convert;bundle-version="1.0.0",
+ org.modelexecution.fumldebug;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.modelexecution.fumldebug.debugger.uml,

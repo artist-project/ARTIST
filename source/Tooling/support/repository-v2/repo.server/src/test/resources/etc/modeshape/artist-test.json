@@ -1,0 +1,25 @@
+{
+    "name" : "artist",
+    "transactionMode" : "auto",
+    "monitoring" : {
+        "enabled" : false,
+    },    
+    "workspaces" : {
+        "default" : "default",
+        "allowCreation" : false
+    },
+    "security" : {
+        "anonymous" : {
+        	"username" : "<anonymous>",
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : true
+        },
+        "providers" : [
+	        {
+	            "name" : "InternalUserAuthProvider",
+	            "classname" : "eu.artist.reusevol.server.core.modeshape.InternalUserAuthProvider",
+	        }
+	    ]
+    },
+    "node-types" : ["etc/modeshape/node-types.cnd"],   
+}

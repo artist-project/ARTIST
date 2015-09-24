@@ -105,9 +105,12 @@ public class SOAPUserRequestMapper implements UserRequestMapper {
 					Debug.out(this, "Successfully stored mapped SOAP envelope to file at ".concat(originalRequestFileLocation));
 
 					// create original soap request from file
-					final String targetSoapAction = originalSoapEnvelope.getSOAPBodyFirstElementNS().getNamespaceURI()
-							+ Character.toUpperCase(originalSoapEnvelope.getSOAPBodyFirstElementLocalName().charAt(0))
-							+ originalSoapEnvelope.getSOAPBodyFirstElementLocalName().substring(1);
+					String targetSoapAction = originalSoapEnvelope.getSOAPBodyFirstElementNS().getNamespaceURI();
+					if (!targetSoapAction.endsWith("/")) {
+						targetSoapAction = targetSoapAction.concat("/");
+					}
+					targetSoapAction = targetSoapAction.concat(Character.toUpperCase(originalSoapEnvelope.getSOAPBodyFirstElementLocalName().charAt(0))
+							+ originalSoapEnvelope.getSOAPBodyFirstElementLocalName().substring(1));
 					final SOAPRequest targetSoapRequest = new SOAPRequest(APPLICATION_TYPE.ORIGINAL_APPLICATION, originalRequestFileLocation, targetSoapAction);
 					targetSoapRequests.add(targetSoapRequest);
 				}

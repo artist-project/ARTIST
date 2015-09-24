@@ -3,8 +3,8 @@ package eu.artist.postmigration.nfrvt.search.run.internal;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.math.RoundingMode;
 
+import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
 import eu.artist.postmigration.nfrvt.lang.util.run.ConsoleLogger;
 import eu.artist.postmigration.nfrvt.search.run.MigrationExplorerProcessor;
 
@@ -15,12 +15,10 @@ public class InternalMigrationExplorerProcess extends Process {
 	private String goalModelPath;
 	private String umlModelPath;
 	private String outputModelPath;
-	private Integer precision;
-	private RoundingMode roundingMode;
 
-	private String outputDirectoryPath;
-
-	private int simulationTime;
+	private AnalysisSettings analysisSettings;
+	private EvaluationSettings evaluationSettings;
+	private PatternSettings patternSettings;
 	
 	/**
 	 * Creates a new process with the specified input model and output model. 
@@ -29,14 +27,13 @@ public class InternalMigrationExplorerProcess extends Process {
 	 * @param outputModelPath
 	 * @param goalModelEvaluationName
 	 */
-	public InternalMigrationExplorerProcess(String goalModelPath, String umlModelPath, String outputModelPath, String outputDirectoryPath, int simulationTime, Integer precision, RoundingMode roundingMode) {
+	public InternalMigrationExplorerProcess(String goalModelPath, String umlModelPath, String outputModelPath, AnalysisSettings analysisSettings, EvaluationSettings evaluationSettings, PatternSettings patternSettings) {
 		this.goalModelPath = goalModelPath;
 		this.umlModelPath = umlModelPath;
 		this.outputModelPath = outputModelPath;
-		this.outputDirectoryPath = outputDirectoryPath;
-		this.simulationTime = simulationTime;
-		this.precision = precision;
-		this.roundingMode = roundingMode;
+		this.analysisSettings = analysisSettings;
+		this.evaluationSettings = evaluationSettings;
+		this.patternSettings = patternSettings;
 	}
 
 	/**
@@ -46,7 +43,9 @@ public class InternalMigrationExplorerProcess extends Process {
 	 * @throws IOException
 	 */
 	public void run(ConsoleLogger consoleLogger) throws IOException {
-		new MigrationExplorerProcessor(consoleLogger).measure(goalModelPath, umlModelPath, outputModelPath, outputDirectoryPath, simulationTime, precision, roundingMode);
+		new MigrationExplorerProcessor(consoleLogger).measure(
+				goalModelPath, umlModelPath, outputModelPath, 
+				analysisSettings, evaluationSettings, patternSettings);
 	}
 
 	/**

@@ -28,8 +28,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.m2m.atl.core.ATLCoreException;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
+import org.eclipse.ui.PlatformUI;
 
 import eu.artist.migration.mdt.umlprofilediscovery.code2codemodel.JavaDiscoverer;
 import eu.artist.migration.mdt.umlprofilediscovery.codemodel2umlprofile.files.CodeModel2UMLProfileWithResourceInjection;
@@ -75,6 +77,9 @@ public class J2PUMLLaunchDelegate extends LaunchConfigurationDelegate {
 				runner.saveUMLProfileModel(URI.createPlatformResourceURI(upsl.getAbsolutePath(), true).
 						appendSegment(selectedJavaProject.getElementName().concat(J2PUMLLaunchUtil.UML_PROFILE_PATH)).toString());
 				
+				MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Success", "Profiled UML model created and saved in the respective project folder.");
+					
+				
 			} catch (DiscoveryException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -84,6 +89,9 @@ public class J2PUMLLaunchDelegate extends LaunchConfigurationDelegate {
 			} catch (ATLCoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+			finally {
+				MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error", "Profiled UML model could not be created.");
 			}
 			
 		}
@@ -99,10 +107,12 @@ public class J2PUMLLaunchDelegate extends LaunchConfigurationDelegate {
 				ProfiledUMLViewGenerator.INSTANCE.generateProfiledUMLView(javaCodeModelResource, selectedJavaProject.getElementName(),
 						selectedProject.getFullPath().toString());
 				
+				MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Success", "Profiled UML Class diagram created and saved in the respective project folder.");
+				
 			} catch (DiscoveryException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
+				MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Discovery Error", "Profiled class diagram could not be created.");
+			}		
 		}
 		
 		else if(selectedDiscoverer.equalsIgnoreCase(J2PUMLLaunchUtil.NO_DISCOVERY_SELECTION)) {

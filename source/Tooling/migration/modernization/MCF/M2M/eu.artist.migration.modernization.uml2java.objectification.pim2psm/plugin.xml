@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="eu.artist.migration.modernization.cot.extension.m2mt">
+      <COTPattern
+            description="This transformation takes a PIM representing the domain model and creates a PSM with the Objectify pattern."
+            in_model_name="UMLM"
+            label="Domain model objectification"
+            module="DomainModelObjectification"
+            refining_mode="true">
+         <transformation_path
+               path="platform:/plugin/eu.artist.migration.modernization.uml2java.objectification.pim2psm/trafo/">
+         </transformation_path>
+         <additional_input_model
+               name="OBJECTIFY"
+               path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml">
+         </additional_input_model>
+         <metamodel_definition
+               name="UMLMM"
+               uri="http://www.eclipse.org/uml2/4.0.0/UML">
+         </metamodel_definition>
+      </COTPattern>
+      <COTPattern
+            description="This transformation takes a PSM representing the domain model with the Objectify pattern (output of previous transformation) and adds the corresponding service classes."
+            in_model_name="UMLM"
+            label="Domain model objectification DAO"
+            module="DomainModelObjectificationDAO"
+            refining_mode="true">
+         <transformation_path
+               path="platform:/plugin/eu.artist.migration.modernization.uml2java.objectification.pim2psm/trafo/">
+         </transformation_path>
+         <additional_input_model
+               name="OBJECTIFY"
+               path="platform:/plugin/eu.artist.migration.umlprofilestore/umlprofiles/objectify_profile.profile.uml">
+         </additional_input_model>
+         <metamodel_definition
+               name="UMLMM"
+               uri="http://www.eclipse.org/uml2/4.0.0/UML">
+         </metamodel_definition>
+      </COTPattern>
+   </extension>
+
+</plugin>

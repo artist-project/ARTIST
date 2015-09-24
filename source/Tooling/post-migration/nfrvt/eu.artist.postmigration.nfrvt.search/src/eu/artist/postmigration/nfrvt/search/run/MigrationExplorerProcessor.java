@@ -1,11 +1,9 @@
 package eu.artist.postmigration.nfrvt.search.run;
 
 import java.io.IOException;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -29,9 +27,11 @@ import org.moeaframework.core.Solution;
 import org.moeaframework.core.Variable;
 import org.moeaframework.core.operator.OnePointCrossover;
 import org.moeaframework.core.operator.TournamentSelection;
+import org.moeaframework.core.variable.RealVariable;
 
 import at.ac.tuwien.big.moea.run.executor.EvolutionarySearchExecutorFactory;
 import at.ac.tuwien.big.moea.run.listener.SeedRuntimePrintListener;
+import at.ac.tuwien.big.moea.variable.RandomIntegerVariable;
 import eu.artist.postmigration.nfrvt.eval.MigrationEvaluator;
 import eu.artist.postmigration.nfrvt.extensionpoint.FileExtensions;
 import eu.artist.postmigration.nfrvt.lang.common.eval.EvaluationSettings;
@@ -44,11 +44,18 @@ import eu.artist.postmigration.nfrvt.lang.util.MigrationResourceSet.SaveResult;
 import eu.artist.postmigration.nfrvt.lang.util.MigrationResourceUtil;
 import eu.artist.postmigration.nfrvt.lang.util.builder.MeasurementModelBuilder;
 import eu.artist.postmigration.nfrvt.lang.util.run.ConsoleLogger;
-import eu.artist.postmigration.nfrvt.petstore.PetstorePatternCatalogue;
 import eu.artist.postmigration.nfrvt.resources.MigrationLibraryResourcesUtil;
+import eu.artist.postmigration.nfrvt.search.run.internal.AnalysisSettings;
+import eu.artist.postmigration.nfrvt.search.run.internal.PatternSettings;
 import eu.artist.postmigration.nfrvt.strategy.fumlsimulation.run.internal.FUMLSimulationMeasurementWriter;
 import eu.artist.postmigration.nfrvt.strategy.staticanalysis.StaticAnalysis;
+import eu.artist.postmigration.opgml.gml.uml.UMLModel;
 import eu.artist.postmigration.opgml.operator.PatternMutation;
+import eu.artist.postmigration.opgml.variable.AutoScalingTemplate;
+import eu.artist.postmigration.opgml.variable.AutoScalingTemplate.AutoScalingValue;
+import eu.artist.postmigration.opgml.variable.CacheTemplate;
+import eu.artist.postmigration.opgml.variable.FederatedIdentityTemplate;
+import eu.artist.postmigration.opgml.variable.FixedScalingTemplate;
 import eu.artist.postmigration.opgml.variable.IPatternTemplateVariable;
 import eu.artist.postmigration.opgml.variable.PatternSelectionSolution;
 
@@ -123,37 +130,9 @@ private ConsoleLogger logger;
 		}
 	}
 	
-	protected void fakeOutput() {
-		logLine("Migration Exploration using NSGA-II");
-		logLine("----------------------------------------");
-		logLine("Run NSGA-II alogirthm 10 times...");
-		logLine("  Run 1 of 10 terminated after 0:00:02.785");
-		try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { ; }
-		logLine("  Run 2 of 10 terminated after 0:00:03.025");
-		logLine("  Run 3 of 10 terminated after 0:00:02.586");
-		logLine("  Run 4 of 10 terminated after 0:00:02.165");
-		try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { ; }
-		logLine("  Run 5 of 10 terminated after 0:00:01.972");
-		logLine("  Run 6 of 10 terminated after 0:00:03.585");
-		try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { ; }
-		logLine("  Run 7 of 10 terminated after 0:00:02.649");
-		logLine("  Run 8 of 10 terminated after 0:00:02.731");
-		try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { ; }
-		logLine("  Run 9 of 10 terminated after 0:00:01.899");
-		try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { ; }
-		logLine("  Run 10 of 10 terminated after 0:00:03.021");
-		logLine("done.");
-		logLine("");
-		try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { ; }
-		logLine("Best results: ");
-		logLine("  1: FederatedIdentity(petstore), FixedScaling(ApplicationController, 5), Cache(Customer), AutoScaling(CustomerService, 4, 5, MinimumQueueLength, 0.4876, 0.4481)");
-		logLine("  2: FixedScaling(ApplicationController, 3), AutoScaling(CatalogService, 1, 5, MinimumQueueLength, 0.0994, 0.6843), FederatedIdentity(petstore)");
-		logLine("  3: FixedScaling(ApplicationController, 3), Cache(Item), FederatedIdentity(petstore)");
-	}
-	
 	protected MigrationEvaluation evaluateGoals(MigrationResourceSet resourceSet, GoalModel goalModel, 
 			List<Transformation> transformations, List<MeasurementModel> inputMeasurements,
-			int precision, RoundingMode roundingMode) {
+			EvaluationSettings settings) {
 		logLine("Evaluate goals");
 		logLine("----------------------------------------");
 		logLine("Read measurements...");
@@ -168,7 +147,7 @@ private ConsoleLogger logger;
 		logLine("Run evaluation of '" + goalModel.getName() + "'...");
 
 		EcoreUtil2.resolveAll(resourceSet.getResourceSet());
-		MigrationEvaluator evaluator = new MigrationEvaluator(new EvaluationSettings(precision, roundingMode));
+		MigrationEvaluator evaluator = new MigrationEvaluator(settings);
 			
 		logLine("  Numbers are only precise up to " + evaluator.getSettings().getPrecision() + " decimal places.");
 		logLine("  Softgoals without subgoals PASS if there is enough positive influence.");
@@ -269,7 +248,30 @@ private ConsoleLogger logger;
 		return extractor.extractWorkload();
 	}
 	
-	protected MeasurementModel performfUMLSimulation(MigrationResourceSet resourceSet, Workload workload, int simulationTime, List<GaScenario> relevantScenarios, Path resultFolder) {
+	protected IPatternTemplateVariable[] getPatternConfigurations(UMLModel model, PatternSettings patternSettings) {
+		CacheTemplate cache = new CacheTemplate(model.getEntityClassesArray());
+		
+		FixedScalingTemplate fixedScaling = new FixedScalingTemplate(
+				model.getServiceClassesArray(), 
+				new RandomIntegerVariable(2, 5));
+		
+		AutoScalingTemplate autoScaling = new AutoScalingTemplate(
+				model.getServiceClassesArray(),
+				new RandomIntegerVariable(1, 4),
+				new RandomIntegerVariable(3, 5),
+				new AutoScalingValue[] { AutoScalingValue.Utilization },
+				new RealVariable(0.0, 1.0),
+				new RealVariable(0.0, 1.0));
+		
+		FederatedIdentityTemplate federatedIdentity = new FederatedIdentityTemplate(
+				model.getModel());
+		
+		return new IPatternTemplateVariable[] {
+				cache, fixedScaling, autoScaling, federatedIdentity
+		};
+	}
+	
+	protected MeasurementModel performfUMLSimulation(MigrationResourceSet resourceSet, Workload workload, int simulationTime, List<GaScenario> relevantScenarios, Path resultFolder, OPGMLConverter converter) {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		String wsRelativePath = resultFolder.toString().replace("platform:/resource", "");
 		String absoluteResultPath = root.getLocation() + wsRelativePath;
@@ -295,8 +297,9 @@ private ConsoleLogger logger;
 		for(WorkloadScenario scenario : scenarios) 
 			logLine("  " + scenario.getScenarioUmlElement().getQualifiedName() + " consisting of " + scenario.getSteps().size() + " steps, executed with " + scenario.getArrivalTimePattern() + " workload.");
 		logLine("");
+		
 		logLine("Considered Patterns:");
-		for(IPatternTemplateVariable pattern : PetstorePatternCatalogue.getAllConfigurations())
+		for(IPatternTemplateVariable pattern : converter.getConfigurations())
 			logLine("  " + pattern.getName());
 		logLine("----------------------------------------");
 				
@@ -335,8 +338,8 @@ private ConsoleLogger logger;
 	 * @param goalModelPath path to the input model
 	 * @param outputModelPath path to the created output model
 	 */
-	public void measure(String goalModelPath, String umlModelPath, String outputModelPath, String outputDirectoryPath, int simulationTime, Integer precision, RoundingMode roundingMode) {
-		Path resultFolder = new Path(outputDirectoryPath);
+	public void measure(String goalModelPath, String umlModelPath, String outputModelPath, AnalysisSettings analysisSettings, EvaluationSettings evaluationSettings, PatternSettings patternSettings) {
+		Path resultFolder = new Path(analysisSettings.getResultPath());
 		
 		MigrationResourceSet resourceSet = MigrationLibraryResourcesUtil.createMigrationResourceSet();
 		
@@ -362,15 +365,17 @@ private ConsoleLogger logger;
 		List<Transformation> transformations = null;
 		
 		if(workload != null) {
+			OPGMLConverter converter = new OPGMLConverter(resourceSet, goalModel, workload, patternSettings);
+			
 			try {
-				transformations = performSearch(resourceSet, goalModel, workload);
+				transformations = performSearch(resourceSet, converter);
 			} catch(Exception e) {
-				transformations = performSearch(resourceSet, goalModel, workload);
+				transformations = performSearch(resourceSet, converter);
 			}
 			logLine("----------------------------------------");
 			logLine("");
 		
-			MeasurementModel measurementModel = performfUMLSimulation(resourceSet, workload, simulationTime, goalScenarios, resultFolder);
+			MeasurementModel measurementModel = performfUMLSimulation(resourceSet, workload, analysisSettings.getSimulationTime(), goalScenarios, resultFolder, converter);
 			if(measurementModel != null)
 				inputMeasurements.add(measurementModel);
 		}
@@ -383,20 +388,20 @@ private ConsoleLogger logger;
 		
 		logLine("----------------------------------------");
 		logLine("");
-		MigrationEvaluation evaluation = evaluateGoals(resourceSet, goalModel, transformations, inputMeasurements, precision, roundingMode);
+		MigrationEvaluation evaluation = evaluateGoals(resourceSet, goalModel, transformations, inputMeasurements, evaluationSettings);
 		writeEvaluation(resourceSet, evaluation, outputModelPath);
 	}
 	
-	private List<Transformation> performSearch(MigrationResourceSet resourceSet, GoalModel goalModel, Workload workload) {
+	private List<Transformation> performSearch(MigrationResourceSet resourceSet, OPGMLConverter converter) {
 		logLine("");
 		logLine("Start search...");
 		logLine("----------------------------------------");
-		OPGMLConverter converter = new OPGMLConverter(resourceSet, goalModel, workload);
+		
 		logLine("Conversion... done.");
 		PatternSelectionOrchestration orchestration = new PatternSelectionOrchestration(
 				6, 10,
 				converter.getGoalModel(), converter.getUmlScenarios().get(0),
-				converter.getConfigurations(), converter.getImpactEstimates());
+				converter.getConfigurations(), converter.getPatternSettings().getPatternImpactEstimates());
 		
 		EvolutionarySearchExecutorFactory<PatternSelectionSolution> problemExecutor = 
 				orchestration.createEvolutionaryExecutorFactory(100, 500);
@@ -451,27 +456,4 @@ private ConsoleLogger logger;
 		}
 		return scenarios;
 	}
-
-//	protected List<Transformation> fakeMOEA(Model umlModel) {
-//		List<Transformation> transformations = new ArrayList<>();
-//		transformations.add(MigrationFactory.createTransformation(
-//				"FederatedIdentity", 
-//				ARTIST_PatternCatalogue.Element.FEDERATED_IDENTITY, 
-//				null, null, UMLUtil.findNamedElements(umlModel.eResource(), "petstore")));
-//		transformations.add(MigrationFactory.createTransformation(
-//				"AutoScaling", 
-//				ARTIST_PatternCatalogue.Element.AUTO_SCALING_PATTERN, 
-//				null, null, UMLUtil.findNamedElements(umlModel.eResource(), "petstore::CustomerService"),
-//				"minInstances: 4, maxInstances: 5, property: MinimumQueueLength"));
-//		transformations.add(MigrationFactory.createTransformation(
-//				"HorizontalScaling", 
-//				ARTIST_PatternCatalogue.Element.HORIZONTALLY_SCALING_COMPUTE_PATTERN, 
-//				null, null, UMLUtil.findNamedElements(umlModel.eResource(), "petstore::ApplicationController"),
-//				"instances: 5"));
-//		transformations.add(MigrationFactory.createTransformation(
-//				"Cache", 
-//				ARTIST_PatternCatalogue.Element.CACHING_PATTERN, 
-//				null, null, UMLUtil.findNamedElements(umlModel.eResource(), "petstore::Customer")));
-//		return transformations;
-//	}
 }

@@ -1,0 +1,40 @@
+{
+    "name" : "artist",
+    "transactionMode" : "auto",
+    "monitoring" : {
+        "enabled" : false,
+    },    
+    "workspaces" : {
+        "default" : "default",
+        "allowCreation" : false
+    },
+    "storage" : {
+        "cacheName" : "DataRepository",
+        "cacheConfiguration" : "etc/modeshape/infinispan-configuration.xml",
+        "binaryStorage" : {
+            "type" : "file",
+            "directory": "data/binaries",
+            "minimumBinarySizeInBytes" : 4096
+        }
+    },
+    "security" : {
+        "anonymous" : {
+        	"username" : "<anonymous>",
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : true
+        },
+        "providers" : [
+	        {
+	            "name" : "Custom User Based Security Provider",
+	            "classname" : "eu.artist.reusevol.server.core.modeshape.InternalUserAuthProvider",
+	        }
+	    ]
+    },
+    "indexProviders" : {
+        "local" : {
+            "classname" : "org.modeshape.jcr.index.local.LocalIndexProvider",
+            "directory" : "data/index"
+        },
+    },
+    "node-types" : ["etc/modeshape/node-types.cnd"],   
+}

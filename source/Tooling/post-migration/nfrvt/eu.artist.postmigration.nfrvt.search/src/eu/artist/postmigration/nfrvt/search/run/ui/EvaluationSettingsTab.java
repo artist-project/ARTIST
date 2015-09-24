@@ -96,8 +96,6 @@ public class EvaluationSettingsTab extends AbstractLaunchConfigurationTab {
 		}
 		group.setText("Arithmetic Settings");
 		
-		
-		
 		Label precisionLabel = new Label(group, SWT.LEFT);
 		precisionLabel.setText("Decimal Precision:");
 		

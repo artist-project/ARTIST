@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/*******************************************************************************
+ * Copyright (c) 2015 Fraunhofer IAO.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * 	Oliver Strauß (Fraunhofer IAO) - initial API and implementation
+ *
+ * Initially developed in the context of the ARTIST EU project http://www.artist-project.eu
+ *******************************************************************************/
+  -->
+
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="urn:infinispan:config:6.0 http://www.infinispan.org/schemas/infinispan-config-6.0.xsd"
+            xmlns="urn:infinispan:config:6.0">
+
+    <global>
+       <!-- Defines the global settings shared by all caches -->
+    </global>
+ 
+    <default>
+       <!--
+         Defines the default behavior for all caches, including those created dynamically (e.g., when a
+         repository uses a cache that doesn't exist in this configuration).
+       -->
+    </default>
+ 
+    <namedCache name="DataRepository">
+       <!--
+          Our Infinispan cache needs to be transactional. However, we'll also configure it to
+          use pessimistic locking, which is required whenever applications will be concurrently
+          updating nodes within the same process. If you're not sure, use pessimistic locking.
+       -->
+       <transaction transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+                    transactionMode="TRANSACTIONAL"
+                    lockingMode="PESSIMISTIC"/>
+       <!--
+          Define the cache loaders (i.e., cache stores). Passivation is false because we want *all*
+          data to be persisted, not just what doesn't fit into memory.
+ 
+          We can have multiple cache stores, which get chained. But we'll define just one.
+       -->
+       <persistence passivation="false">
+           <!--
+             Shared is false because there are no other caches sharing this file store.
+             We set preload to false for lazy loading; may be improved by preloading and configuring eviction.
+             The 'fetchPersistentState' attribute applies when this cache joins the cluster; the value doesn't
+             really matter to us in this case. See the documentation for more options.
+           -->
+           <singleFile
+              preload="false"
+              shared="false"
+              fetchPersistentState="true"
+              purgeOnStartup="false"
+              location="data/storage">
+             <!--
+               We could use "write-behind", which actually writes to the file system asynchronously,
+               which can improve performance as seen by the JCR client.
+               Plus changes are coalesced, meaning that if multiple changes are enqueued for the
+               same node, only the last one is written. (This is good much of the time, but not
+               always.)
+             <async enabled="true" flushLockTimeout="15000" threadPoolSize="5"/>
+             -->
+          </singleFile> 
+       </persistence>
+    </namedCache>
+</infinispan>
+<!-- 
+		<persistence passivation="false">
+			<stringKeyedJdbcStore xmlns="urn:infinispan:config:jdbc:6.0"
+				fetchPersistentState="false" ignoreModifications="false"
+				purgeOnStartup="false">
+				<connectionPool connectionUrl="jdbc:h2:file:data/db/db;DB_CLOSE_DELAY=-1"
+					driverClass="org.h2.Driver" username="sa" />
+				<stringKeyedTable prefix="ISPN_STRING_TABLE" 
+				    createOnStart="true" dropOnExit="false">
+					<idColumn name="ID_COLUMN" type="VARCHAR(255)" />
+					<dataColumn name="DATA_COLUMN" type="BINARY" />
+					<timestampColumn name="TIMESTAMP_COLUMN" type="BIGINT" />
+				</stringKeyedTable>
+			</stringKeyedJdbcStore>
+		</persistence>
+		
+		<transaction
+			transactionManagerLookupClass="org.infinispan.transaction.lookup.DummyTransactionManagerLookup"
+			transactionMode="TRANSACTIONAL" lockingMode="OPTIMISTIC" />
+ -->

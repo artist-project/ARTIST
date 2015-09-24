@@ -11,9 +11,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.modisco.infra.discovery.core.exception.DiscoveryException;
 import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import eu.artist.migration.mdt.umlprofilediscovery.code2codemodel.JavaDiscoverer;
@@ -44,10 +46,14 @@ public class ProfiledUMLModelDiscoveryHandler implements IHandler {
 			ProfiledUMLViewGenerator.INSTANCE.generateProfiledUMLView(javaCodeModelResource, selectedJavaProject.getElementName(),
 					selectedProject.getFullPath().toString());
 			
+			MessageDialog.openInformation(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Success", "Profiled UML Class diagram created and saved in the respective project folder.");
+			
 		} catch (DiscoveryException e) {
 			e.printStackTrace();
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Discovery Error", "Profiled UML Class diagram could not be created.");
 		} catch (JavaModelException e) {
 			e.printStackTrace();
+			MessageDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Java Model Error", "Profiled UML Class diagram could not be created.");
 		}		
 		
 		return null;
