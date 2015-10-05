@@ -1,0 +1,117 @@
+[comment encoding = UTF-8 /]
+[module GWTClassifierJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::classifierJavaFile]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::documentation /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importServiceAnnotations /]
+
+[import eu::artist::migration::modernization::uml2java::gwt::files::queries /]
+
+
+[template public genClassifierJavaFile(aClassifier : Classifier) overrides genClassifierJavaFile]
+[file (aClassifier.classifierGWTJavaFilePath(), false, 'UTF-8')]
+[aClassifier.genHeader()/]
+[if (aClassifier.genPackageDeclaration().size() > 0)]package [aClassifier.genPackageDeclaration()/];[/if]
+
+[comment][aClassifier.genImport()/][/comment]
+[aClassifier.genImportStatements()/]
+
+[aClassifier.genJavadoc()/]
+[aClassifier.genClassifierBody()/]
+[if (aClassifier.oclIsKindOf(Class))]
+[aClassifier.oclAsType(Class).nestedClassifier->genNestedClassifiers()/]
+[elseif (aClassifier.oclIsKindOf(Interface))]
+[aClassifier.oclAsType(Interface).nestedClassifier->genNestedClassifiers()/]
+[/if]
+}
+[/file]
+
+[if (aClassifier.oclIsKindOf(Class))]
+	[if (aClassifier.oclAsType(Class).interfaceRealization->containsGWTEntryPoint())]
+		[aClassifier.oclAsType(Class).genGWTFile()/]
+	[/if]
+[/if]
+
+[/template]
+
+[template private genGWTFile(aGWTClass : Class)]
+	[file (aGWTClass.GWTFilePath(), false, 'UTF-8')]
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  When updating your version of GWT, you should also update this DTD reference,
+  so that your app can take advantage of the latest GWT module capabilities.
+-->
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.5.1//EN"
+  "http://google-web-toolkit.googlecode.com/svn/tags/2.5.1/distro-source/core/src/gwt-module.dtd">
+<module rename-to='[(aGWTClass.name+'gwt').toLower()/]'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.gwt.user.theme.clean.Clean'/>
+  <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+  <!-- Other module inherits                                      -->
+
+  <!-- Specify the app entry point class. 
+  [debug('GWT Class: ' + aGWTClass.name)/]                        -->
+  <entry-point class='[aGWTClass.genPackageDeclaration() + '.' + aGWTClass.name + 'GWT'/]'/>
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+  <source path='view'/>
+  <source path='shared'/>
+<!--   <stylesheet src="dewsstyle.css" />  -->
+</module>
+	[/file]
+[/template]
+
+[template private classifierGWTJavaFilePath(aClassifier : Classifier)]
+	
+[if (aClassifier.oclIsKindOf(Class)) and (aClassifier.oclAsType(Class).interfaceRealization->containsGWTEntryPoint())]
+
+	[if (not aClassifier.getNearestPackage().oclIsUndefined())]
+		[aClassifier.genPackagePath()/][aClassifier.name/]GWT.java
+	[else]
+		[aClassifier.name.concat('GWT.java')/]
+	[/if]
+
+[else]
+
+	[if (not aClassifier.getNearestPackage().oclIsUndefined())]
+		[aClassifier.genPackagePath()/][aClassifier.name/].java
+	[else]
+		[aClassifier.name.concat('.java')/]
+	[/if]
+
+[/if]
+[/template]
+
+[template private GWTFilePath(aGWTClass : Class)]
+[if (not aGWTClass.getNearestPackage().oclIsUndefined())]
+[aGWTClass.genPackagePath()/][aGWTClass.name/]GWT.gwt.xml
+[else]
+[aGWTClass.name.concat('GWT.gwt.xml')/]
+[/if]
+[/template]
+
+
+[template private genNestedClassifiers(nestedClassifiers : OrderedSet(Classifier))]
+[for (aClassifier : Classifier | nestedClassifiers)]
+	[aClassifier.genJavadoc()/]
+	[aClassifier.genClassifierBody()/]
+	[if (aClassifier.oclIsKindOf(Class))]
+	[aClassifier.oclAsType(Class).nestedClassifier->genNestedClassifiers()/]
+	[elseif (aClassifier.oclIsKindOf(Interface))]
+	[aClassifier.oclAsType(Interface).nestedClassifier->genNestedClassifiers()/]
+	[/if]
+	}
+[/for]
+[/template]

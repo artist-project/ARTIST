@@ -5,7 +5,7 @@
       <body startPosition="32" endPosition="90" value="&#xD;&#xA;The documentation of the module stereotypeServices.&#xD;&#xA;&#xD;&#xA;"/>
     </documentation>
     <input>
-      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="genAnnotation" visibility="Public">
       <body xsi:type="mtl:ForBlock">
@@ -13,28 +13,28 @@
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
           </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
         </body>
         <body xsi:type="mtl:QueryInvocation" definition="/0/reqAnnotationMember">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aElement" referredVariable="/0/genAnnotation/aElement">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
           </argument>
           <argument xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
           </argument>
         </body>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <loopVariable name="aStereotype">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
         </loopVariable>
         <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/7/Set(Stereotype)">
           <source xsi:type="ocl.ecore:VariableExp" name="aElement" referredVariable="/0/genAnnotation/aElement">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
           </source>
-          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/getAppliedStereotypes"/>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element/getAppliedStereotypes"/>
         </iterSet>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
@@ -44,7 +44,7 @@
         </parametersDocumentation>
       </documentation>
       <parameter name="aElement">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
       </parameter>
       <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -55,10 +55,10 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="reqAnnotationMember">
       <parameter name="aElement">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
       </parameter>
       <parameter name="aStereotype">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
       </parameter>
       <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -67,7 +67,7 @@
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/OclAny_Class/invoke">
             <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
             <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/16">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.StereotypeServices">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -77,15 +77,15 @@
             </argument>
             <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/7/Sequence(Element)" kind="Sequence">
               <part xsi:type="ocl.ecore:CollectionItem">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
                 <item xsi:type="ocl.ecore:VariableExp" name="aElement" referredVariable="/0/reqAnnotationMember/aElement">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
                 </item>
               </part>
               <part xsi:type="ocl.ecore:CollectionItem">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
                 <item xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/reqAnnotationMember/aStereotype">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
                 </item>
               </part>
             </argument>
@@ -126,7 +126,7 @@
         <eAnnotations source="MTL" references="/0/genAnnotation"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aElement">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqAnnotationMember">
@@ -136,10 +136,10 @@
         <eAnnotations source="MTL" references="/0/reqAnnotationMember"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aElement">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
         </eParameters>
         <eParameters name="aStereotype">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
         </eParameters>
       </eOperations>
     </eClassifiers>
@@ -182,7 +182,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -190,7 +190,7 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -199,33 +199,33 @@
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ecore:EPackage name="collections">
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Stereotype)" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Element)" instanceClassName="java.util.List">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SequenceType" instanceClassName="java.util.List">
       <elementType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="i">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
@@ -234,10 +234,10 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>

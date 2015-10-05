@@ -1,0 +1,12 @@
+[comment encoding = UTF-8 /]
+[module queries('http://www.eclipse.org/uml2/4.0.0/UML')]
+
+
+[query public containsGWTEntryPoint(interfaces : Set(InterfaceRealization)) : Boolean 
+	= not self->collect(supplier->select (name.endsWith ('EntryPoint')))->isEmpty() /]
+
+[query public debug(msg : String) : OclAny =
+	invoke('eu.artist.migration.modernization.uml2java.gwt.files.ConsoleUtils',
+	'PrintWarning(java.lang.String)',
+	Sequence{msg})
+/]

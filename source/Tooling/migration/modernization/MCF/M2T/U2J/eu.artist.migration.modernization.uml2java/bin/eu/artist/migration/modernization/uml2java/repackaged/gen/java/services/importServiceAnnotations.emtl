@@ -5,14 +5,14 @@
       <body startPosition="32" endPosition="96" value="&#xD;&#xA;The documentation of the module importServiceAnnotations.&#xD;&#xA;&#xD;&#xA;"/>
     </documentation>
     <input>
-      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
     <extends href="importService.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="genImport" visibility="Public">
       <body xsi:type="mtl:QueryInvocation" definition="/0/reqImport">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/6">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
         </argument>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -25,12 +25,12 @@
       </documentation>
       <overrides href="importService.emtl#/0/genImport"/>
       <parameter name="aClassifier">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
       </parameter>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="reqImport">
       <parameter name="aClassifier">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
       </parameter>
       <expression xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -39,7 +39,7 @@
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/OclAny_Class/invoke">
             <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
             <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/10">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.ImportServicesAnnotations">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -49,9 +49,9 @@
             </argument>
             <argument xsi:type="ocl.ecore:CollectionLiteralExp" eType="/9/Sequence(Classifier)" kind="Sequence">
               <part xsi:type="ocl.ecore:CollectionItem">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
                 <item xsi:type="ocl.ecore:VariableExp" name="aClassifier" referredVariable="/0/reqImport/aClassifier">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
                 </item>
               </part>
             </argument>
@@ -92,7 +92,7 @@
         <eAnnotations source="MTL" references="/0/genImport"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClassifier">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqImport">
@@ -102,7 +102,7 @@
         <eAnnotations source="MTL" references="/0/reqImport"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClassifier">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
         </eParameters>
       </eOperations>
     </eClassifiers>
@@ -145,7 +145,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Classifier_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -153,33 +153,33 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
   </ocl.ecore:Variable>
   <ecore:EPackage name="collections">
     <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Classifier)" instanceClassName="java.util.List">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SequenceType" instanceClassName="java.util.List">
       <elementType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
