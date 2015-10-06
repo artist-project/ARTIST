@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="request" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::request::request" startHeaderPosition="312" endHeaderPosition="580">
+  <mtl:Module name="request" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::request::request" startHeaderPosition="304" endHeaderPosition="566">
     <input>
-      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Query" name="reqOutgoingNavigableOwnedEnd" visibility="Public" type="/3/Set(Property)">
       <parameter name="aClass">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
       </parameter>
       <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Property)">
         <source xsi:type="ocl.ecore:OperationCallExp" eType="/3/Set(Property)">
           <source xsi:type="mtl:QueryInvocation" eType="/3/Set(Property)" definition="/0/reqSelfAssociationsNavigableOwnedEnd">
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/reqOutgoingNavigableOwnedEnd/aClass">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
             </argument>
           </source>
           <argument xsi:type="mtl:QueryInvocation" eType="/3/Set(Property)" definition="/0/reqOtherAssociationsNavigableOwnedEnd">
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/reqOutgoingNavigableOwnedEnd/aClass">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
             </argument>
           </argument>
           <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/union.1"/>
@@ -27,16 +27,16 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="reqSelfAssociationsNavigableOwnedEnd" type="/3/Set(Property)">
       <parameter name="aClass">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
       </parameter>
       <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Property)">
         <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Bag(Property)">
           <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/Set(Association)">
             <source xsi:type="ocl.ecore:OperationCallExp" eType="/3/Set(Association)">
               <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/reqSelfAssociationsNavigableOwnedEnd/aClass">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
               </source>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type/getAssociations"/>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type/getAssociations"/>
             </source>
             <body xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
@@ -46,19 +46,19 @@
                   <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(Type)">
                     <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(Property)">
                       <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/temp1">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
                       </source>
-                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association/ownedEnd"/>
+                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association/ownedEnd"/>
                     </source>
                     <body xsi:type="ocl.ecore:PropertyCallExp">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
                       <source xsi:type="ocl.ecore:VariableExp" name="temp2" referredVariable="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect/temp2">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
                       </source>
-                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement/type"/>
                     </body>
                     <iterator xsi:type="ocl.ecore:Variable" name="temp2">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
                     </iterator>
                   </source>
                   <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asSet"/>
@@ -71,17 +71,17 @@
               <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
             </body>
             <iterator xsi:type="ocl.ecore:Variable" name="temp1">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
             </iterator>
           </source>
           <body xsi:type="ocl.ecore:PropertyCallExp" eType="/3/Set(Property)">
             <source xsi:type="ocl.ecore:VariableExp" name="temp3" referredVariable="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/temp3">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
             </source>
-            <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association/navigableOwnedEnd"/>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association/navigableOwnedEnd"/>
           </body>
           <iterator xsi:type="ocl.ecore:Variable" name="temp3">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
           </iterator>
         </source>
         <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Bag(T)_Class/asOrderedSet"/>
@@ -89,7 +89,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="reqOtherAssociationsNavigableOwnedEnd" type="/3/Set(Property)">
       <parameter name="aClass">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
       </parameter>
       <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Property)">
         <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/Bag(Property)">
@@ -97,9 +97,9 @@
             <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/Set(Association)">
               <source xsi:type="ocl.ecore:OperationCallExp" eType="/3/Set(Association)">
                 <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/aClass">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
                 </source>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type/getAssociations"/>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type/getAssociations"/>
               </source>
               <body xsi:type="ocl.ecore:OperationCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
@@ -108,26 +108,26 @@
                   <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/Set(Property)">
                     <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/Set(Property)">
                       <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/temp5">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
                       </source>
-                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association/navigableOwnedEnd"/>
+                      <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association/navigableOwnedEnd"/>
                     </source>
                     <body xsi:type="ocl.ecore:OperationCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                       <source xsi:type="ocl.ecore:PropertyCallExp">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
                         <source xsi:type="ocl.ecore:VariableExp" name="temp2" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/temp4">
-                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
                         </source>
-                        <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+                        <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement/type"/>
                       </source>
                       <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/aClass">
-                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
                       </argument>
                       <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/%3C%3E"/>
                     </body>
                     <iterator xsi:type="ocl.ecore:Variable" name="temp4">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
                     </iterator>
                   </source>
                   <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Set(T)_Class/size"/>
@@ -138,35 +138,35 @@
                 <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
               </body>
               <iterator xsi:type="ocl.ecore:Variable" name="temp5">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
               </iterator>
             </source>
             <body xsi:type="ocl.ecore:PropertyCallExp" eType="/3/Set(Property)">
               <source xsi:type="ocl.ecore:VariableExp" name="temp3" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/temp6">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
               </source>
-              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association/navigableOwnedEnd"/>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association/navigableOwnedEnd"/>
             </body>
             <iterator xsi:type="ocl.ecore:Variable" name="temp6">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
             </iterator>
           </source>
           <body xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
               <source xsi:type="ocl.ecore:VariableExp" name="temp4" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/temp7">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
               </source>
-              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement/type"/>
             </source>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/reqOtherAssociationsNavigableOwnedEnd/aClass">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
             </argument>
             <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/%3C%3E"/>
           </body>
           <iterator xsi:type="ocl.ecore:Variable" name="temp7">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
           </iterator>
         </source>
         <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Bag(T)_Class/asOrderedSet"/>
@@ -199,7 +199,7 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/reqOutgoingNavigableOwnedEnd"/>
         <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqSelfAssociationsNavigableOwnedEnd" eType="/3/Set(Property)">
@@ -208,7 +208,7 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/reqSelfAssociationsNavigableOwnedEnd"/>
         <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqOtherAssociationsNavigableOwnedEnd" eType="/3/Set(Property)">
@@ -217,7 +217,7 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/reqOtherAssociationsNavigableOwnedEnd"/>
         <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
     </eClassifiers>
@@ -243,7 +243,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Class_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -252,150 +252,150 @@
   </ocl.ecore:Variable>
   <ecore:EPackage name="collections">
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Property)" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:BagType" name="Bag(Property)" instanceClassName="org.eclipse.ocl.util.Bag">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Property)" instanceClassName="java.util.LinkedHashSet">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Association)" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Association"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Association"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Type)" instanceClassName="java.util.List">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Type)" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/reqOutgoingNavigableOwnedEnd">
-      <details key="start" value="375"/>
-      <details key="end" value="582"/>
+      <details key="start" value="364"/>
+      <details key="end" value="568"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/reqOutgoingNavigableOwnedEnd/aClass">
-      <details key="start" value="418"/>
-      <details key="end" value="432"/>
+      <details key="start" value="407"/>
+      <details key="end" value="421"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/reqOutgoingNavigableOwnedEnd/%">
-      <details key="start" value="456"/>
-      <details key="end" value="578"/>
+      <details key="start" value="444"/>
+      <details key="end" value="565"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/reqOutgoingNavigableOwnedEnd/%/%">
-      <details key="start" value="456"/>
-      <details key="end" value="562"/>
+      <details key="start" value="444"/>
+      <details key="end" value="549"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/reqOutgoingNavigableOwnedEnd/%/%/%">
-      <details key="start" value="456"/>
-      <details key="end" value="500"/>
+      <details key="start" value="444"/>
+      <details key="end" value="488"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/reqOutgoingNavigableOwnedEnd/%/%/%/aClass">
-      <details key="start" value="493"/>
-      <details key="end" value="499"/>
+      <details key="start" value="481"/>
+      <details key="end" value="487"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/reqOutgoingNavigableOwnedEnd/%/%/%.1">
-      <details key="start" value="516"/>
-      <details key="end" value="561"/>
+      <details key="start" value="503"/>
+      <details key="end" value="548"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/reqOutgoingNavigableOwnedEnd/%/%/%.1/aClass">
-      <details key="start" value="554"/>
-      <details key="end" value="560"/>
+      <details key="start" value="541"/>
+      <details key="end" value="547"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/reqSelfAssociationsNavigableOwnedEnd">
-      <details key="start" value="586"/>
-      <details key="end" value="782"/>
+      <details key="start" value="570"/>
+      <details key="end" value="764"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/reqSelfAssociationsNavigableOwnedEnd/aClass">
-      <details key="start" value="638"/>
-      <details key="end" value="652"/>
+      <details key="start" value="622"/>
+      <details key="end" value="636"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/reqSelfAssociationsNavigableOwnedEnd/%">
-      <details key="start" value="676"/>
-      <details key="end" value="778"/>
+      <details key="start" value="659"/>
+      <details key="end" value="761"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect">
-      <details key="start" value="676"/>
-      <details key="end" value="762"/>
+      <details key="start" value="659"/>
+      <details key="end" value="745"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select">
-      <details key="start" value="676"/>
-      <details key="end" value="744"/>
+      <details key="start" value="659"/>
+      <details key="end" value="727"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%">
-      <details key="start" value="676"/>
-      <details key="end" value="700"/>
+      <details key="start" value="659"/>
+      <details key="end" value="683"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%/aClass">
-      <details key="start" value="676"/>
-      <details key="end" value="682"/>
+      <details key="start" value="659"/>
+      <details key="end" value="665"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1">
-      <details key="start" value="709"/>
-      <details key="end" value="743"/>
+      <details key="start" value="692"/>
+      <details key="end" value="726"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%">
-      <details key="start" value="709"/>
-      <details key="end" value="739"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%">
-      <details key="start" value="709"/>
-      <details key="end" value="731"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect">
-      <details key="start" value="709"/>
+      <details key="start" value="692"/>
       <details key="end" value="722"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%">
+      <details key="start" value="692"/>
+      <details key="end" value="714"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect">
+      <details key="start" value="692"/>
+      <details key="end" value="705"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.19" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect/%">
-      <details key="start" value="709"/>
-      <details key="end" value="717"/>
+      <details key="start" value="692"/>
+      <details key="end" value="700"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect/%/temp1">
@@ -404,8 +404,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect/%.1">
-      <details key="start" value="718"/>
-      <details key="end" value="722"/>
+      <details key="start" value="701"/>
+      <details key="end" value="705"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%/%/collect/%.1/temp2">
@@ -419,8 +419,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/%.1/%.1">
-      <details key="start" value="742"/>
-      <details key="end" value="743"/>
+      <details key="start" value="725"/>
+      <details key="end" value="726"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/select/temp1">
@@ -429,8 +429,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/%">
-      <details key="start" value="745"/>
-      <details key="end" value="762"/>
+      <details key="start" value="728"/>
+      <details key="end" value="745"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/reqSelfAssociationsNavigableOwnedEnd/%/collect/%/temp3">
@@ -444,63 +444,63 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/reqOtherAssociationsNavigableOwnedEnd">
-      <details key="start" value="786"/>
-      <details key="end" value="1026"/>
+      <details key="start" value="766"/>
+      <details key="end" value="1004"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/reqOtherAssociationsNavigableOwnedEnd/aClass">
-      <details key="start" value="839"/>
-      <details key="end" value="853"/>
+      <details key="start" value="819"/>
+      <details key="end" value="833"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/reqOtherAssociationsNavigableOwnedEnd/%">
-      <details key="start" value="877"/>
-      <details key="end" value="1022"/>
+      <details key="start" value="856"/>
+      <details key="end" value="1001"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select">
-      <details key="start" value="877"/>
-      <details key="end" value="1006"/>
+      <details key="start" value="856"/>
+      <details key="end" value="985"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect">
-      <details key="start" value="877"/>
-      <details key="end" value="982"/>
+      <details key="start" value="856"/>
+      <details key="end" value="961"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select">
-      <details key="start" value="877"/>
-      <details key="end" value="964"/>
+      <details key="start" value="856"/>
+      <details key="end" value="943"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%">
-      <details key="start" value="877"/>
-      <details key="end" value="901"/>
+      <details key="start" value="856"/>
+      <details key="end" value="880"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%/aClass">
-      <details key="start" value="877"/>
-      <details key="end" value="883"/>
+      <details key="start" value="856"/>
+      <details key="end" value="862"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1">
-      <details key="start" value="910"/>
-      <details key="end" value="963"/>
+      <details key="start" value="889"/>
+      <details key="end" value="942"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%">
-      <details key="start" value="910"/>
-      <details key="end" value="959"/>
+      <details key="start" value="889"/>
+      <details key="end" value="938"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select">
-      <details key="start" value="910"/>
-      <details key="end" value="951"/>
+      <details key="start" value="889"/>
+      <details key="end" value="930"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/%">
-      <details key="start" value="910"/>
-      <details key="end" value="927"/>
+      <details key="start" value="889"/>
+      <details key="end" value="906"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/%/temp1">
@@ -509,13 +509,13 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/%.1">
-      <details key="start" value="936"/>
-      <details key="end" value="950"/>
+      <details key="start" value="915"/>
+      <details key="end" value="929"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/%.1/%">
-      <details key="start" value="936"/>
-      <details key="end" value="940"/>
+      <details key="start" value="915"/>
+      <details key="end" value="919"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/%.1/%/temp2">
@@ -524,8 +524,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/%.1/aClass">
-      <details key="start" value="944"/>
-      <details key="end" value="950"/>
+      <details key="start" value="923"/>
+      <details key="end" value="929"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%/select/temp4">
@@ -534,8 +534,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/%.1/%.1">
-      <details key="start" value="962"/>
-      <details key="end" value="963"/>
+      <details key="start" value="941"/>
+      <details key="end" value="942"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/select/temp5">
@@ -544,8 +544,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/%">
-      <details key="start" value="965"/>
-      <details key="end" value="982"/>
+      <details key="start" value="944"/>
+      <details key="end" value="961"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/collect/%/temp3">
@@ -559,13 +559,13 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/%">
-      <details key="start" value="991"/>
-      <details key="end" value="1005"/>
+      <details key="start" value="970"/>
+      <details key="end" value="984"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/%/%">
-      <details key="start" value="991"/>
-      <details key="end" value="995"/>
+      <details key="start" value="970"/>
+      <details key="end" value="974"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/%/%/temp4">
@@ -574,8 +574,8 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/%/aClass">
-      <details key="start" value="999"/>
-      <details key="end" value="1005"/>
+      <details key="start" value="978"/>
+      <details key="end" value="984"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/reqOtherAssociationsNavigableOwnedEnd/%/select/temp7">

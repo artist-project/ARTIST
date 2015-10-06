@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="componentPluginPropertiesFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::componentPluginPropertiesFile" startHeaderPosition="30" endHeaderPosition="204">
+  <mtl:Module name="componentPluginPropertiesFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::componentPluginPropertiesFile" startHeaderPosition="29" endHeaderPosition="201">
     <input>
-      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
     <imports href="../../common/path.emtl#/0"/>
     <imports href="../../services/configurationServices.emtl#/0"/>
@@ -12,37 +12,37 @@
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <definition href="../../common/path.emtl#/0/genComponentPath"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/componentPluginPropertiesFile/aComponent">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
         </argument>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/plugin.properties"/>
       <parameter name="aComponent">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
       </parameter>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="genComponentPluginPropertiesFile" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#################################################################################&#xD;&#xA;## "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#################################################################################&#xA;## "/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../../services/configurationServices.emtl#/0/reqGetCopyrightAndLicense"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentPluginPropertiesFile/aComponent">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;#################################################################################&#xD;&#xA;Bundle-Name = Default Bundle Name&#xD;&#xA;Provider-Name = "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;#################################################################################&#xA;Bundle-Name = Default Bundle Name&#xA;Provider-Name = "/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../../services/configurationServices.emtl#/0/reqGetBundleProvider"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentPluginPropertiesFile/aComponent">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <fileUrl xsi:type="mtl:TemplateInvocation" definition="/0/componentPluginPropertiesFile">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentPluginPropertiesFile/aComponent">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </fileUrl>
         <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
@@ -50,7 +50,7 @@
         </charset>
       </body>
       <parameter name="aComponent">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
       </parameter>
       <guard xsi:type="ocl.ecore:OperationCallExp">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
@@ -65,7 +65,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <definition href="../../services/configurationServices.emtl#/0/reqGetGenerationRootPath"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentPluginPropertiesFile/aComponent">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
                 </argument>
               </source>
               <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/">
@@ -75,7 +75,7 @@
             <argument xsi:type="mtl:TemplateInvocation" definition="/0/componentPluginPropertiesFile">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentPluginPropertiesFile/aComponent">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
               </argument>
             </argument>
           </argument>
@@ -118,7 +118,7 @@
         <eAnnotations source="MTL" references="/0/componentPluginPropertiesFile"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aComponent">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
         </eParameters>
       </eOperations>
       <eOperations name="genComponentPluginPropertiesFile">
@@ -128,7 +128,7 @@
         <eAnnotations source="MTL" references="/0/genComponentPluginPropertiesFile"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aComponent">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
         </eParameters>
       </eOperations>
       <eOperations name="genComponentPath">
@@ -140,7 +140,7 @@
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aComponent">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqGetGenerationRootPath">
@@ -214,12 +214,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Component_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -227,181 +227,181 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Component"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/componentPluginPropertiesFile">
-      <details key="start" value="438"/>
-      <details key="end" value="575"/>
+      <details key="start" value="430"/>
+      <details key="end" value="565"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/componentPluginPropertiesFile/%">
-      <details key="start" value="513"/>
-      <details key="end" value="542"/>
+      <details key="start" value="504"/>
+      <details key="end" value="533"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/componentPluginPropertiesFile/%/aComponent">
-      <details key="start" value="513"/>
-      <details key="end" value="523"/>
+      <details key="start" value="504"/>
+      <details key="end" value="514"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/componentPluginPropertiesFile/%.1">
-      <details key="start" value="544"/>
-      <details key="end" value="562"/>
+      <details key="start" value="535"/>
+      <details key="end" value="553"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/componentPluginPropertiesFile/aComponent">
-      <details key="start" value="486"/>
-      <details key="end" value="508"/>
+      <details key="start" value="478"/>
+      <details key="end" value="500"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genComponentPluginPropertiesFile">
-      <details key="start" value="579"/>
-      <details key="end" value="1164"/>
+      <details key="start" value="567"/>
+      <details key="end" value="1144"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/genComponentPluginPropertiesFile/%">
-      <details key="start" value="774"/>
-      <details key="end" value="1151"/>
+      <details key="start" value="761"/>
+      <details key="end" value="1132"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/genComponentPluginPropertiesFile/%/%">
-      <details key="start" value="843"/>
-      <details key="end" value="929"/>
+      <details key="start" value="829"/>
+      <details key="end" value="914"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/genComponentPluginPropertiesFile/%/%.1">
-      <details key="start" value="930"/>
-      <details key="end" value="968"/>
+      <details key="start" value="915"/>
+      <details key="end" value="953"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/genComponentPluginPropertiesFile/%/%.1/aComponent">
-      <details key="start" value="930"/>
-      <details key="end" value="940"/>
+      <details key="start" value="915"/>
+      <details key="end" value="925"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/genComponentPluginPropertiesFile/%/%.2">
-      <details key="start" value="970"/>
-      <details key="end" value="1106"/>
+      <details key="start" value="955"/>
+      <details key="end" value="1088"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/genComponentPluginPropertiesFile/%/%.3">
-      <details key="start" value="1107"/>
-      <details key="end" value="1140"/>
+      <details key="start" value="1089"/>
+      <details key="end" value="1122"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/genComponentPluginPropertiesFile/%/%.3/aComponent">
-      <details key="start" value="1107"/>
-      <details key="end" value="1117"/>
+      <details key="start" value="1089"/>
+      <details key="end" value="1099"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/genComponentPluginPropertiesFile/%/%.4">
-      <details key="start" value="1142"/>
-      <details key="end" value="1144"/>
+      <details key="start" value="1124"/>
+      <details key="end" value="1125"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/genComponentPluginPropertiesFile/%/%.5">
-      <details key="start" value="781"/>
-      <details key="end" value="823"/>
+      <details key="start" value="768"/>
+      <details key="end" value="810"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/genComponentPluginPropertiesFile/%/%.5/aComponent">
-      <details key="start" value="781"/>
-      <details key="end" value="791"/>
+      <details key="start" value="768"/>
+      <details key="end" value="778"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/genComponentPluginPropertiesFile/%/%.6">
-      <details key="start" value="832"/>
-      <details key="end" value="839"/>
+      <details key="start" value="819"/>
+      <details key="end" value="826"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/genComponentPluginPropertiesFile/aComponent">
-      <details key="start" value="629"/>
-      <details key="end" value="651"/>
+      <details key="start" value="617"/>
+      <details key="end" value="639"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/genComponentPluginPropertiesFile/%.1">
-      <details key="start" value="656"/>
-      <details key="end" value="770"/>
+      <details key="start" value="644"/>
+      <details key="end" value="758"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/genComponentPluginPropertiesFile/%.1/%">
-      <details key="start" value="660"/>
-      <details key="end" value="770"/>
+      <details key="start" value="648"/>
+      <details key="end" value="758"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/genComponentPluginPropertiesFile/%.1/%/%">
-      <details key="start" value="660"/>
-      <details key="end" value="750"/>
+      <details key="start" value="648"/>
+      <details key="end" value="738"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/genComponentPluginPropertiesFile/%.1/%/%/%">
-      <details key="start" value="661"/>
-      <details key="end" value="704"/>
+      <details key="start" value="649"/>
+      <details key="end" value="692"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/genComponentPluginPropertiesFile/%.1/%/%/%/%">
-      <details key="start" value="661"/>
-      <details key="end" value="698"/>
+      <details key="start" value="649"/>
+      <details key="end" value="686"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/genComponentPluginPropertiesFile/%.1/%/%/%/%/aComponent">
-      <details key="start" value="661"/>
-      <details key="end" value="671"/>
+      <details key="start" value="649"/>
+      <details key="end" value="659"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/genComponentPluginPropertiesFile/%.1/%/%/%/%.1">
-      <details key="start" value="701"/>
-      <details key="end" value="704"/>
+      <details key="start" value="689"/>
+      <details key="end" value="692"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/genComponentPluginPropertiesFile/%.1/%/%/%.1">
-      <details key="start" value="707"/>
-      <details key="end" value="749"/>
+      <details key="start" value="695"/>
+      <details key="end" value="737"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/genComponentPluginPropertiesFile/%.1/%/%/%.1/aComponent">
-      <details key="start" value="707"/>
-      <details key="end" value="717"/>
+      <details key="start" value="695"/>
+      <details key="end" value="705"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

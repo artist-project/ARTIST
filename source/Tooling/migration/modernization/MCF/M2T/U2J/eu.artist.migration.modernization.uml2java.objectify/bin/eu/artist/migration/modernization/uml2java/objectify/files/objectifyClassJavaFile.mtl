@@ -1,0 +1,370 @@
+[comment encoding = UTF-8 /]
+[**
+ * Copyright (c) 2013 Vienna University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * Alexander Bergmayr (Vienna University of Technology) - initial API and implementation
+ *
+ * Initially developed in the context of ARTIST EU project www.artist-project.eu
+ */]
+[module objectifyClassJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::classJavaFile]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::documentation /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::path /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::declaration/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::attribute/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::behavior/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::request::request/]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::classifierServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::commonServices/]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::configurationServices /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService /]
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::typesServices /]
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::stereotypeServices /]
+[import eu::artist::migration::modernization::uml2java::objectify::services::importServiceObjectify /]
+
+[template public genImportStatements(aClassifier : Classifier) overrides genImportStatements ? 
+					(((not aClassifier.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()) 
+                     and aClassifier.oclIsKindOf(Class)) 
+                     or (aClassifier.owner.oclAsType(Package).name = 'service' and aClassifier.name.endsWith('Service')))]
+[aClassifier.genImport()/]
+[/template]
+
+
+[comment: generates objectify specific code for domain classes annotated with 'Entity' /]
+[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? 
+					((not aClassifier.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()) 
+                     and aClassifier.oclIsKindOf(Class))]
+[super/]
+[let aClass : Class = aClassifier.oclAsType(Class)]
+[comment][aClass.genServiceClass() /][/comment]
+[comment][aClass.genRegistry() /][/comment]
+[/let]
+[/template]
+
+[template public genClassifierBody(aClassifier : Classifier) overrides genClassifierBody ? (aClassifier.owner.oclAsType(Package).name = 'service' and
+                                                                    aClassifier.name.endsWith('Service'))]
+[let aClass : Class = aClassifier.oclAsType(Class)]
+
+[comment: produces class signature /]
+[aClass.declaration()/] {
+	[aClass.attributesWithInitialization()/]
+	[aClass.operations()/]
+[/let]
+[/template]
+
+[comment work around for having initialized fields -> change in core UML2Java /]
+[comment check if the type of the property is primitive! /]
+[template public attributesWithInitialization(aClass : Class)]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+[aProperty.genAttributeComment()/]
+[aProperty.genAnnotation()/][aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genFieldType()/] [aProperty.genName()/] = new [aProperty.genFieldType()/]();
+[/for]
+// [protected ('(user defined attributes for ' + aClass.name + ')')]
+
+// [/protected]
+
+[/template]
+
+[template public attributes(aClass : Class) overrides attributes ? 
+					(not aClass.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined())]
+[for (aProperty : Property | aClass.ownedAttribute->union(aClass.reqOutgoingNavigableOwnedEnd()))]
+[aProperty.genAttributeComment()/]
+[comment ADDED genAnnotation /]
+[aProperty.genAnnotation()/]
+[aProperty.genVisibility()/][aProperty.genFinal()/][aProperty.genStatic()/][aProperty.genFieldType()/] [aProperty.genName()/];
+[/for]
+// [protected ('(user defined attributes for ' + aClass.name + ')')]
+
+// [/protected]
+
+[/template]
+
+[template public genFieldType(aProperty : Property) post (trim())]
+[if ((not (aProperty.type.oclIsKindOf(PrimitiveType) or aProperty.isMultivalued()))
+     and (not aProperty.type.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()))] Ref<[aProperty.reqTypeName()/]>
+[elseif (not (aProperty.type.oclIsKindOf(PrimitiveType)) and aProperty.isMultivalued())] List<Ref<[aProperty.type.name/]>>
+[comment we use wrapper type of primitive types to allow auto-generation of keys /]
+[elseif ((not aProperty.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Id').oclIsUndefined()) and aProperty.reqTypeName().equalsIgnoreCase('long'))] Long
+[else] [aProperty.reqTypeName()/] 	
+[/if]
+[/template]
+
+[template public operations(aClass : Class) overrides operations ? (aClass.owner.oclAsType(Package).name = 'service' and
+                                                                    aClass.name.endsWith('Service')) post (trim())]
+[for (anOperation : Operation | aClass.ownedOperation->reject(ope : Operation | ope.name.equalsIgnoreCase(aClass.name)))]
+
+[anOperation.genOperationComment()/][anOperation.genMethodPrototype()/] {
+[comment the find all operation /]
+[if (anOperation.name.startsWith('findAll'))]
+	return ofy().load().type([aClass.name.substitute('Service', '') /].class).list();
+[/if]
+[comment the create operation /]
+[let inParameter : Parameter = anOperation.ownedParameter -> any(e : Parameter | e.direction = ParameterDirectionKind::_in)]
+[if (anOperation.name.startsWith('create'))]
+	if ([inParameter.name/] != null) {
+		// TODO: Provide business logic if required
+		// finally the entity is stored - synchronous approach
+		ofy().save().entity([inParameter.name/]).now();
+	} else {
+
+		// TODO: Exception handling if the entity is null
+	}
+
+	return [inParameter.name/];
+[comment the find by id operation /]
+[elseif (anOperation.name = 'find'.concat(aClass.name.substitute('Service', '')))]
+	return ofy().load().type([aClass.name.substitute('Service', '') /].class).filter("[reqClassByName(aClass, aClass.name.substitute('Service', '')).ownedAttribute-> any(e|(not e.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Id').oclIsUndefined())).name /]", [inParameter.name/]).first().now();
+[comment the update operation /]
+[elseif (anOperation.name.startsWith('update'))]
+	if ([inParameter.name/] != null) {
+		// TODO: Provide business logic if required
+		// finally the entity is stored - synchronous approach
+		ofy().save().entity([inParameter.name/]).now();
+	} else {
+
+		// TODO: Exception handling if the entity is null
+	}
+
+	return [inParameter.name/];
+[comment the remove operation /]
+[elseif (anOperation.name.startsWith('remove'))]
+	if ([inParameter.name/] != null) {
+		// TODO: Provide business logic if required
+	[for (aProperty : Property | reqClassByName(aClass, aClass.name.substitute('Service', '')).ownedAttribute -> select(p : Property | p.aggregation = AggregationKind::composite))]
+		
+		[if (aProperty.isMultivalued() and not (aProperty.type.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()))]
+		// remove child entities
+		for(Ref<[aProperty.type.name/]> [aProperty.type.name.toLowerFirst()/]Ref : [inParameter.name /].get[aProperty.name.toUpperFirst() /]()) {
+			[aProperty.type.name.toLowerFirst().concat('Service') /].remove[aProperty.type.name/]([aProperty.type.name.toLowerFirst()/]Ref.get());
+		}
+		[elseif (not (aProperty.isMultivalued() or (aProperty.type.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Embed').oclIsUndefined())))]
+		// remove child entity
+		ofy().delete().entity(entityToRemove.get[aProperty.name.toUpperFirst() /]());
+		[/if]
+		
+
+	[/for]
+ 		// finally the entity is removed - synchronous approach
+		[comment TODO: id -> work with annotations/]
+		ofy().delete().type([aClass.name.substitute('Service', '') /].class).id([inParameter.name/].get[inParameter.type.oclAsType(Class).ownedAttribute
+																											-> any(e|(not e.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Id')
+																												   .oclIsUndefined())).name.toUpperFirst()/]()).now();
+	} else {
+
+		// TODO: Exception handling if the entity is null
+	}
+[/if]
+[/let]
+  }
+[/for]
+[/template]
+
+[template public getterAndSetter(aProperty : Property) overrides getterAndSetter ? (aProperty.upper = 1 and not (aProperty.type.oclIsKindOf(PrimitiveType)
+                                                                or aProperty.class.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()
+																or aProperty.type.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()))]
+/** Returns [aProperty.genName()/].
+ * @return [aProperty.genName()/] [aProperty.genComment()/]
+ */
+public [aProperty.reqTypeName()/] get[aProperty.genName().toUpperFirst()/]() {
+	return this.[aProperty.genName()/].get();
+}
+
+/**
+ * Sets a value to attribute [aProperty.genName()/]. 
+ * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
+ */
+public void set[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] referencedEntity) {
+	this.[aProperty.genName()/] = Ref.create(referencedEntity);
+}
+[/template]
+
+[template public getterAndSetter(aProperty : Property) overrides getterAndSetter ? (aProperty.isMultivalued() and not aProperty.type.oclIsKindOf(PrimitiveType) and
+                                                                not aProperty.class.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined())]
+/**
+ * Returns [aProperty.genName()/].
+ * @return [aProperty.genName()/] [aProperty.genComment()/]
+ */
+public List<Ref<[aProperty.type.name/]>> get[aProperty.genName().toUpperFirst()/]() {
+	return this.[aProperty.genName()/];
+}
+
+/**
+ * Sets a value to attribute [aProperty.genName()/]. 
+ * @param new[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
+ */
+public void set[aProperty.genName().toUpperFirst()/]([aProperty.reqTypeName()/] referencedEntities) {
+	this.[aProperty.genName()/] = new ArrayList<Ref<[aProperty.type.name/]>>();
+	for ([aProperty.type.name/] entity : referencedEntities) {
+		this.[aProperty.genName()/].add(Ref.create(entity));
+	}
+}
+
+/**
+ * Adds a value to attribute [aProperty.genName()/]. 
+ * @param add[aProperty.genName().toUpperFirst()/] [aProperty.genComment()/]
+ */
+public void add[aProperty.genName().toUpperFirst()/]([aProperty.type.name/] entity) {
+    if ([aProperty.genName()/] == null)
+       [aProperty.genName()/] = new ArrayList<Ref<[aProperty.type.name/]>>();
+   [aProperty.genName()/].add(Ref.create(entity));
+}
+[/template]
+
+[comment][template public genRegistry(anEntity : Class)]
+[file (anEntity.genPackagePath().concat('/service/').concat(anEntity.name).concat('Service.java'), false, 'UTF-8')]
+
+}  
+[/file]
+[/template][/comment]
+
+[template public genServiceClass(anEntity : Class)]
+[file (anEntity.genPackagePath().concat('/service/').concat(anEntity.name).concat('Service.java'), false, 'UTF-8')]
+[anEntity.genHeader() /]
+[comment: produces the package of the service class; we need to remove the preceding dots of the path  /]
+package [anEntity.genPackagePath().substituteAll('/', '.').concat('service;').substring(3) /]
+
+[comment: produces import statements; in the third import statement we need to remove again the preceding dots of the path /]
+import static com.googlecode.objectify.ObjectifyService.ofy;
+import java.util.List;
+import [anEntity.genPackagePath().substituteAll('/', '.').concat(anEntity.name).concat(';').substring(3) /]
+
+[comment: produces java-doc /]
+/**
+ * Service class of [anEntity.name /] entity.
+ *
+ * @author [anEntity.reqGetAuthor()/]
+ */
+[comment: produces class signature /]
+public class [anEntity.name.concat('Service') /] {
+
+[anEntity.genCreateOperation() /]
+
+[anEntity.genRetrieveByIdOperation() /]
+
+[anEntity.genRetrieveAllOperation() /]
+
+[anEntity.genUpdateOperation() /]
+
+[anEntity.genDeleteOperation() /]
+}  
+[/file]
+[/template]
+
+[comment: produces create operation /]
+[template public genCreateOperation(anEntity : Class)]
+	/**
+	 * Adds the entity to the data store and returns it.
+	 * 
+	 * @param entity
+	 * @return the created Entity
+	 */
+	public [anEntity.name /] create[anEntity.name /](final [anEntity.name /] entity) {
+		if (entity != null) {
+			// TODO: Provide business logic if required
+			// finally the entity is stored - synchronous approach
+			ofy().save().entity(entity).now();
+		} else {
+
+			// TODO: Exception handling if the entity is null
+		}
+
+		return entity;
+	}
+[/template]
+
+[comment: produces retrieve by-id operation /]
+[template public genRetrieveByIdOperation(anEntity : Class)]
+	/**
+	 * Retrieve the entity by id.
+	 * 
+	 * @param id
+	 * @return the retrieved Entity
+	 */
+	public [anEntity.name /] find[anEntity.name /](Long id) {
+		if (id != null) {
+			// TODO: Provide business logic if required
+            [comment: we need to retrieve the name of the property that is annotated with @Id /]
+			return ofy().load().type([anEntity.name /].class).filter([anEntity.idProperty().name.addQuotes() /], id)
+					.first().now();
+		} else {
+			// TODO: Exception handling if the entity is null
+			return null;
+		}
+	}	
+[/template]
+
+
+[comment: produces retrieve all operation /]
+[template public genRetrieveAllOperation(anEntity : Class)]
+    /**
+	 * Retrieves all entities.
+	 * 
+	 * @return the retrieved list of Entities
+	 */
+
+	public List<[anEntity.name /]> findAll[anEntity.name /]() {
+		return ofy().load().type([anEntity.name /].class).list();
+	}
+[/template]
+
+[comment: produces update operation /]
+[template public genUpdateOperation(anEntity : Class)]
+	/**
+	 * Updates an Entity and returns it.
+	 * 
+	 * @param entity
+	 * @return the updated Entity
+	 */
+	public [anEntity.name /] update[anEntity.name /](final [anEntity.name /] entity) {
+		if (entity != null) {
+			// TODO: Provide business logic if required
+			// finally the entity is stored - synchronous approach
+			ofy().save().entity(entity).now();
+		} else {
+
+			// TODO: Exception handling if the entity is null
+		}
+
+		return entity;
+	}
+[/template]
+
+[comment: produces delete operation /]
+[template public genDeleteOperation(anEntity : Class)]
+	/**
+	 * Removes the entity from the data store.
+	 * 
+	 * @param entity
+	 */
+	public void remove[anEntity.name /](final [anEntity.name /] entity) {
+		if (entity != null) {
+			// TODO: Provide business logic if required
+			// finally the entity is stored - synchronous approach
+			ofy().delete().type([anEntity.name /].class).id(entity.get[anEntity.idProperty().name.toUpperFirst() /]()).now();
+		} else {
+
+			// TODO: Exception handling if the entity is null
+		}
+	}
+[/template]
+
+[query public idProperty(anEntity : Class) : Property = 
+	anEntity.getAllAttributes() -> select(p : Property | not p.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Id')
+                                        .oclIsUndefined()) -> asSequence() -> first()
+/]
+
+
+
+
+
+
+
+

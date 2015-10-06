@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="behavior" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::behavior" startHeaderPosition="30" endHeaderPosition="191">
+  <mtl:Module name="behavior" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::behavior" startHeaderPosition="29" endHeaderPosition="188">
     <input>
-      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
     <imports href="declaration.emtl#/0"/>
     <imports href="../services/typesServices.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="genBehavior" visibility="Public">
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:IfBlock">
         <body xsi:type="mtl:TemplateInvocation" definition="/0/genMethodBody">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="anOperation" referredVariable="/0/genBehavior/anOperation">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <ifExpr xsi:type="ocl.ecore:OperationCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/equalsIgnoreCase">
@@ -24,7 +24,7 @@
             <source xsi:type="mtl:TemplateInvocation" definition="/0/genMethodBody">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="anOperation" referredVariable="/0/genBehavior/anOperation">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
               </argument>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="">
@@ -39,63 +39,63 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <definition href="../services/typesServices.emtl#/0/reqTypeName"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aParameter" referredVariable="/0/genBehavior/%.2/%.3/%/aParameter">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
               </argument>
             </body>
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
             <body xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="anOperation" referredVariable="/0/genBehavior/anOperation">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
               </source>
-              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
             </body>
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = "/>
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <definition href="../services/typesServices.emtl#/0/reqDefaultValue"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aParameter" referredVariable="/0/genBehavior/%.2/%.3/%/aParameter">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
               </argument>
             </body>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;return "/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;return "/>
             <body xsi:type="ocl.ecore:PropertyCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:VariableExp" name="anOperation" referredVariable="/0/genBehavior/anOperation">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
               </source>
-              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
             </body>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;"/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;"/>
             <loopVariable name="aParameter">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
             </loopVariable>
             <iterSet xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
               <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/10/OrderedSet(Parameter)">
                 <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Parameter)">
                   <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/11">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
                   </source>
-                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/ownedParameter"/>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//BehavioralFeature/ownedParameter"/>
                 </source>
                 <body xsi:type="ocl.ecore:OperationCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="ocl.ecore:PropertyCallExp">
-                    <eType xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//ParameterDirectionKind"/>
+                    <eType xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/4.0.0/UML#//ParameterDirectionKind"/>
                     <source xsi:type="ocl.ecore:VariableExp" name="param" referredVariable="/0/genBehavior/%.2/%.3/%/%.8/select/param">
-                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
                     </source>
-                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter/direction"/>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter/direction"/>
                   </source>
                   <argument xsi:type="ocl.ecore:EnumLiteralExp">
-                    <eType xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//ParameterDirectionKind"/>
-                    <referredEnumLiteral xsi:type="ecore:EEnumLiteral" href="http://www.eclipse.org/uml2/5.0.0/UML#//ParameterDirectionKind/return"/>
+                    <eType xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/4.0.0/UML#//ParameterDirectionKind"/>
+                    <referredEnumLiteral xsi:type="ecore:EEnumLiteral" href="http://www.eclipse.org/uml2/4.0.0/UML#//ParameterDirectionKind/return"/>
                   </argument>
                   <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
                 </body>
                 <iterator xsi:type="ocl.ecore:Variable" name="param">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
                 </iterator>
               </source>
               <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/first"/>
@@ -106,11 +106,11 @@
             <source xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Type"/>
                 <source xsi:type="ocl.ecore:VariableExp" name="anOperation" referredVariable="/0/genBehavior/anOperation">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
                 </source>
-                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation/type"/>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation/type"/>
               </source>
               <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsUndefined"/>
             </source>
@@ -119,13 +119,13 @@
         </elseIf>
       </body>
       <documentation xsi:type="mtl:ModuleElementDocumentation">
-        <body startPosition="309" endPosition="416" value="&#xD;&#xA;This template will generate the body of the given operation.&#xD;&#xA;@param anOperation The operation.&#xD;&#xA;&#xD;&#xA;"/>
+        <body startPosition="302" endPosition="406" value="&#xD;&#xA;This template will generate the body of the given operation.&#xD;&#xA;@param anOperation The operation.&#xD;&#xA;&#xD;&#xA;"/>
         <parametersDocumentation name="anOperation">
           <body value=" The operation."/>
         </parametersDocumentation>
       </documentation>
       <parameter name="anOperation">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
       </parameter>
       <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -136,24 +136,24 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="genMethodBody" visibility="Protected">
       <body xsi:type="mtl:ForBlock">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
           <body xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/Sequence(String)">
               <source xsi:type="ocl.ecore:VariableExp" name="anOpaqueBehavior" referredVariable="/0/genMethodBody/%/anOpaqueBehavior">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
               </source>
-              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior/body"/>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior/body"/>
             </source>
             <argument xsi:type="ocl.ecore:OperationCallExp">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
               <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(String)">
                 <source xsi:type="ocl.ecore:VariableExp" name="anOpaqueBehavior" referredVariable="/0/genMethodBody/%/anOpaqueBehavior">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
                 </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior/language"/>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior/language"/>
               </source>
               <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="JAVA">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -162,14 +162,14 @@
             </argument>
             <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/at"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(String)">
               <source xsi:type="ocl.ecore:VariableExp" name="anOpaqueBehavior" referredVariable="/0/genMethodBody/%/anOpaqueBehavior">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
               </source>
-              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior/language"/>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior/language"/>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="JAVA">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -178,14 +178,14 @@
           </ifExpr>
         </body>
         <body xsi:type="mtl:IfBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;call referenced template&#xD;&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;call referenced template&#xA;"/>
           <ifExpr xsi:type="ocl.ecore:OperationCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(String)">
               <source xsi:type="ocl.ecore:VariableExp" name="anOpaqueBehavior" referredVariable="/0/genMethodBody/%/anOpaqueBehavior">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
               </source>
-              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior/language"/>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior/language"/>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="ACCELEO">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -194,22 +194,22 @@
           </ifExpr>
         </body>
         <loopVariable name="anOpaqueBehavior">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
         </loopVariable>
         <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/10/Set(OpaqueBehavior)" referredOperation="/1/Collection(T)_Class/filter">
           <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/Set(Behavior)">
             <source xsi:type="ocl.ecore:VariableExp" name="anOperation" referredVariable="/0/genMethodBody/anOperation">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
             </source>
-            <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/method"/>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/4.0.0/UML#//BehavioralFeature/method"/>
           </source>
           <argument xsi:type="ocl.ecore:TypeExp" eType="/24/OpaqueBehavior">
-            <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+            <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
           </argument>
         </iterSet>
       </body>
       <parameter name="anOperation">
-        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
       </parameter>
       <post xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/trim">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -257,7 +257,7 @@
         <eAnnotations source="MTL" references="/0/genBehavior"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="anOperation">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
         </eParameters>
       </eOperations>
       <eOperations name="genMethodBody">
@@ -267,7 +267,7 @@
         <eAnnotations source="MTL" references="/0/genMethodBody"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="anOperation">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqTypeName">
@@ -279,7 +279,7 @@
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aTypedElement">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement"/>
         </eParameters>
       </eOperations>
       <eOperations name="reqDefaultValue">
@@ -291,7 +291,7 @@
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aTypedElement">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement"/>
         </eParameters>
       </eOperations>
     </eClassifiers>
@@ -324,52 +324,52 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operation_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NamedElement_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Parameter_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Classifier_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Class_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RedefinableElement_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//RedefinableElement"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//RedefinableElement"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Feature_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Feature"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//Feature"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TemplateableElement_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//TemplateableElement"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//TemplateableElement"/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypedElement_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+        <references href="http://www.eclipse.org/uml2/4.0.0/UML#//TypedElement"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -377,7 +377,7 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -386,26 +386,26 @@
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ecore:EPackage name="collections">
     <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Parameter)" instanceClassName="java.util.LinkedHashSet">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Behavior)" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Behavior"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(OpaqueBehavior)" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
     </eClassifiers>
     <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(String)" instanceClassName="java.util.LinkedHashSet">
       <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -418,25 +418,25 @@
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Parameter"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Parameter"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="i">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
@@ -445,7 +445,7 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -454,30 +454,30 @@
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ecore:EPackage name="types">
     <eClassifiers xsi:type="ocl.ecore:TypeType" name="OpaqueBehavior">
-      <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+      <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//OpaqueBehavior"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueBehavior"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="i">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
@@ -487,153 +487,153 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/genBehavior">
-      <details key="start" value="420"/>
-      <details key="end" value="1074"/>
+      <details key="start" value="409"/>
+      <details key="end" value="1049"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/genBehavior/%">
-      <details key="start" value="547"/>
-      <details key="end" value="549"/>
+      <details key="start" value="534"/>
+      <details key="end" value="535"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/genBehavior/%.1">
-      <details key="start" value="618"/>
-      <details key="end" value="620"/>
+      <details key="start" value="603"/>
+      <details key="end" value="604"/>
       <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/genBehavior/%.2">
-      <details key="start" value="620"/>
-      <details key="end" value="1025"/>
+      <details key="start" value="604"/>
+      <details key="end" value="1002"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/genBehavior/%.2/%">
-      <details key="start" value="682"/>
-      <details key="end" value="709"/>
+      <details key="start" value="665"/>
+      <details key="end" value="692"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genBehavior/%.2/%/anOperation">
-      <details key="start" value="682"/>
-      <details key="end" value="693"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/genBehavior/%.2/%.1">
-      <details key="start" value="711"/>
-      <details key="end" value="713"/>
-      <details key="line" value="19"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/genBehavior/%.2/%.2">
-      <details key="start" value="624"/>
-      <details key="end" value="678"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/genBehavior/%.2/%.2/%">
-      <details key="start" value="629"/>
-      <details key="end" value="677"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/genBehavior/%.2/%.2/%/%">
-      <details key="start" value="629"/>
-      <details key="end" value="656"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/genBehavior/%.2/%.2/%/%/anOperation">
-      <details key="start" value="629"/>
-      <details key="end" value="640"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/genBehavior/%.2/%.2/%/%.1">
-      <details key="start" value="674"/>
+      <details key="start" value="665"/>
       <details key="end" value="676"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/genBehavior/%.2/%.1">
+      <details key="start" value="694"/>
+      <details key="end" value="695"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/genBehavior/%.2/%.2">
+      <details key="start" value="608"/>
+      <details key="end" value="662"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/genBehavior/%.2/%.2/%">
+      <details key="start" value="613"/>
+      <details key="end" value="661"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/genBehavior/%.2/%.2/%/%">
+      <details key="start" value="613"/>
+      <details key="end" value="640"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/genBehavior/%.2/%.2/%/%/anOperation">
+      <details key="start" value="613"/>
+      <details key="end" value="624"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/genBehavior/%.2/%.2/%/%.1">
+      <details key="start" value="658"/>
+      <details key="end" value="660"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.12" references="/0/genBehavior/%.2/%.3">
-      <details key="start" value="713"/>
-      <details key="end" value="1020"/>
+      <details key="start" value="695"/>
+      <details key="end" value="997"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/genBehavior/%.2/%.3/%">
-      <details key="start" value="763"/>
-      <details key="end" value="1018"/>
+      <details key="start" value="744"/>
+      <details key="end" value="996"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/genBehavior/%.2/%.3/%/%">
-      <details key="start" value="900"/>
-      <details key="end" value="924"/>
+      <details key="start" value="880"/>
+      <details key="end" value="904"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/genBehavior/%.2/%.3/%/%/aParameter">
-      <details key="start" value="900"/>
-      <details key="end" value="910"/>
+      <details key="start" value="880"/>
+      <details key="end" value="890"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/genBehavior/%.2/%.3/%/%.1">
-      <details key="start" value="926"/>
-      <details key="end" value="927"/>
+      <details key="start" value="906"/>
+      <details key="end" value="907"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/genBehavior/%.2/%.3/%/%.2">
-      <details key="start" value="928"/>
-      <details key="end" value="944"/>
+      <details key="start" value="908"/>
+      <details key="end" value="924"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/genBehavior/%.2/%.3/%/%.2/anOperation">
-      <details key="start" value="928"/>
-      <details key="end" value="939"/>
+      <details key="start" value="908"/>
+      <details key="end" value="919"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/genBehavior/%.2/%.3/%/%.3">
-      <details key="start" value="946"/>
-      <details key="end" value="949"/>
+      <details key="start" value="926"/>
+      <details key="end" value="929"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/genBehavior/%.2/%.3/%/%.4">
-      <details key="start" value="950"/>
-      <details key="end" value="978"/>
+      <details key="start" value="930"/>
+      <details key="end" value="958"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/genBehavior/%.2/%.3/%/%.4/aParameter">
-      <details key="start" value="950"/>
-      <details key="end" value="960"/>
+      <details key="start" value="930"/>
+      <details key="end" value="940"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/genBehavior/%.2/%.3/%/%.5">
-      <details key="start" value="980"/>
-      <details key="end" value="990"/>
+      <details key="start" value="960"/>
+      <details key="end" value="969"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/genBehavior/%.2/%.3/%/%.6">
-      <details key="start" value="991"/>
-      <details key="end" value="1007"/>
+      <details key="start" value="970"/>
+      <details key="end" value="986"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/genBehavior/%.2/%.3/%/%.6/anOperation">
-      <details key="start" value="991"/>
-      <details key="end" value="1002"/>
+      <details key="start" value="970"/>
+      <details key="end" value="981"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/genBehavior/%.2/%.3/%/%.7">
-      <details key="start" value="1009"/>
-      <details key="end" value="1012"/>
+      <details key="start" value="988"/>
+      <details key="end" value="990"/>
       <details key="line" value="22"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/genBehavior/%.2/%.3/%/aParameter">
-      <details key="start" value="769"/>
-      <details key="end" value="791"/>
+      <details key="start" value="750"/>
+      <details key="end" value="772"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/genBehavior/%.2/%.3/%/%.8">
-      <details key="start" value="794"/>
-      <details key="end" value="895"/>
+      <details key="start" value="775"/>
+      <details key="end" value="876"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/genBehavior/%.2/%.3/%/%.8/select">
-      <details key="start" value="794"/>
-      <details key="end" value="886"/>
+      <details key="start" value="775"/>
+      <details key="end" value="867"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/genBehavior/%.2/%.3/%/%.8/select/%">
-      <details key="start" value="794"/>
-      <details key="end" value="808"/>
+      <details key="start" value="775"/>
+      <details key="end" value="789"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/genBehavior/%.2/%.3/%/%.8/select/%/self">
@@ -642,53 +642,53 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/genBehavior/%.2/%.3/%/%.8/select/%.1">
-      <details key="start" value="837"/>
-      <details key="end" value="885"/>
+      <details key="start" value="818"/>
+      <details key="end" value="866"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/genBehavior/%.2/%.3/%/%.8/select/%.1/%">
-      <details key="start" value="837"/>
-      <details key="end" value="852"/>
+      <details key="start" value="818"/>
+      <details key="end" value="833"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/genBehavior/%.2/%.3/%/%.8/select/%.1/%/param">
-      <details key="start" value="837"/>
-      <details key="end" value="842"/>
+      <details key="start" value="818"/>
+      <details key="end" value="823"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/genBehavior/%.2/%.3/%/%.8/select/%.1/%.1">
-      <details key="start" value="855"/>
-      <details key="end" value="885"/>
+      <details key="start" value="836"/>
+      <details key="end" value="866"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/genBehavior/%.2/%.3/%/%.8/select/param">
-      <details key="start" value="817"/>
-      <details key="end" value="834"/>
+      <details key="start" value="798"/>
+      <details key="end" value="815"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/genBehavior/%.2/%.3/%.1">
-      <details key="start" value="721"/>
-      <details key="end" value="760"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.37" references="/0/genBehavior/%.2/%.3/%.1/%">
-      <details key="start" value="726"/>
-      <details key="end" value="759"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/genBehavior/%.2/%.3/%.1/%/%">
-      <details key="start" value="726"/>
+      <details key="start" value="703"/>
       <details key="end" value="742"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/genBehavior/%.2/%.3/%.1/%">
+      <details key="start" value="708"/>
+      <details key="end" value="741"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/genBehavior/%.2/%.3/%.1/%/%">
+      <details key="start" value="708"/>
+      <details key="end" value="724"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.39" references="/0/genBehavior/%.2/%.3/%.1/%/%/anOperation">
-      <details key="start" value="726"/>
-      <details key="end" value="737"/>
+      <details key="start" value="708"/>
+      <details key="end" value="719"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/genBehavior/%.3">
-      <details key="start" value="306"/>
-      <details key="end" value="418"/>
+      <details key="start" value="299"/>
+      <details key="end" value="408"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/genBehavior/%.3/anOperation">
@@ -697,13 +697,13 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/genBehavior/anOperation">
-      <details key="start" value="449"/>
-      <details key="end" value="472"/>
+      <details key="start" value="438"/>
+      <details key="end" value="461"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/genBehavior/%.4">
-      <details key="start" value="479"/>
-      <details key="end" value="485"/>
+      <details key="start" value="468"/>
+      <details key="end" value="474"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/genBehavior/%.4/self">
@@ -712,153 +712,153 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/genMethodBody">
-      <details key="start" value="1078"/>
-      <details key="end" value="1571"/>
+      <details key="start" value="1051"/>
+      <details key="end" value="1532"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/genMethodBody/%">
-      <details key="start" value="1152"/>
-      <details key="end" value="1558"/>
+      <details key="start" value="1124"/>
+      <details key="end" value="1520"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/genMethodBody/%/%">
-      <details key="start" value="1318"/>
-      <details key="end" value="1320"/>
+      <details key="start" value="1287"/>
+      <details key="end" value="1288"/>
       <details key="line" value="32"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/genMethodBody/%/%.1">
-      <details key="start" value="1320"/>
-      <details key="end" value="1459"/>
+      <details key="start" value="1288"/>
+      <details key="end" value="1425"/>
       <details key="line" value="33"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/genMethodBody/%/%.1/%">
-      <details key="start" value="1374"/>
-      <details key="end" value="1375"/>
+      <details key="start" value="1341"/>
+      <details key="end" value="1342"/>
       <details key="line" value="34"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/genMethodBody/%/%.1/%.1">
-      <details key="start" value="1376"/>
-      <details key="end" value="1450"/>
+      <details key="start" value="1343"/>
+      <details key="end" value="1417"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/genMethodBody/%/%.1/%.1/%">
-      <details key="start" value="1376"/>
-      <details key="end" value="1398"/>
+      <details key="start" value="1343"/>
+      <details key="end" value="1365"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/genMethodBody/%/%.1/%.1/%/anOpaqueBehavior">
-      <details key="start" value="1376"/>
-      <details key="end" value="1392"/>
+      <details key="start" value="1343"/>
+      <details key="end" value="1359"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/genMethodBody/%/%.1/%.1/%.1">
-      <details key="start" value="1405"/>
-      <details key="end" value="1449"/>
+      <details key="start" value="1372"/>
+      <details key="end" value="1416"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/genMethodBody/%/%.1/%.1/%.1/%">
-      <details key="start" value="1405"/>
-      <details key="end" value="1430"/>
+      <details key="start" value="1372"/>
+      <details key="end" value="1397"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/genMethodBody/%/%.1/%.1/%.1/%/anOpaqueBehavior">
-      <details key="start" value="1405"/>
-      <details key="end" value="1421"/>
+      <details key="start" value="1372"/>
+      <details key="end" value="1388"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/genMethodBody/%/%.1/%.1/%.1/%.1">
-      <details key="start" value="1442"/>
-      <details key="end" value="1448"/>
+      <details key="start" value="1409"/>
+      <details key="end" value="1415"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/genMethodBody/%/%.1/%.2">
-      <details key="start" value="1452"/>
-      <details key="end" value="1454"/>
+      <details key="start" value="1419"/>
+      <details key="end" value="1420"/>
       <details key="line" value="35"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/genMethodBody/%/%.1/%.3">
-      <details key="start" value="1324"/>
-      <details key="end" value="1371"/>
+      <details key="start" value="1292"/>
+      <details key="end" value="1339"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/genMethodBody/%/%.1/%.3/%">
-      <details key="start" value="1325"/>
-      <details key="end" value="1350"/>
+      <details key="start" value="1293"/>
+      <details key="end" value="1318"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/genMethodBody/%/%.1/%.3/%/anOpaqueBehavior">
-      <details key="start" value="1325"/>
-      <details key="end" value="1341"/>
+      <details key="start" value="1293"/>
+      <details key="end" value="1309"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/genMethodBody/%/%.1/%.3/%.1">
-      <details key="start" value="1363"/>
-      <details key="end" value="1369"/>
+      <details key="start" value="1331"/>
+      <details key="end" value="1337"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/genMethodBody/%/%.2">
-      <details key="start" value="1461"/>
-      <details key="end" value="1550"/>
+      <details key="start" value="1426"/>
+      <details key="end" value="1513"/>
       <details key="line" value="36"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/genMethodBody/%/%.2/%">
-      <details key="start" value="1518"/>
-      <details key="end" value="1545"/>
+      <details key="start" value="1482"/>
+      <details key="end" value="1508"/>
       <details key="line" value="37"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/genMethodBody/%/%.2/%.1">
-      <details key="start" value="1465"/>
-      <details key="end" value="1515"/>
+      <details key="start" value="1430"/>
+      <details key="end" value="1480"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/genMethodBody/%/%.2/%.1/%">
-      <details key="start" value="1466"/>
-      <details key="end" value="1491"/>
+      <details key="start" value="1431"/>
+      <details key="end" value="1456"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.66" references="/0/genMethodBody/%/%.2/%.1/%/anOpaqueBehavior">
-      <details key="start" value="1466"/>
-      <details key="end" value="1482"/>
+      <details key="start" value="1431"/>
+      <details key="end" value="1447"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.67" references="/0/genMethodBody/%/%.2/%.1/%.1">
-      <details key="start" value="1504"/>
-      <details key="end" value="1513"/>
+      <details key="start" value="1469"/>
+      <details key="end" value="1478"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.68" references="/0/genMethodBody/%/anOpaqueBehavior">
-      <details key="start" value="1158"/>
-      <details key="end" value="1191"/>
+      <details key="start" value="1130"/>
+      <details key="end" value="1163"/>
       <details key="line" value="29"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/genMethodBody/%/%.3">
-      <details key="start" value="1194"/>
-      <details key="end" value="1236"/>
+      <details key="start" value="1166"/>
+      <details key="end" value="1208"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/genMethodBody/%/%.3/%">
-      <details key="start" value="1194"/>
-      <details key="end" value="1212"/>
+      <details key="start" value="1166"/>
+      <details key="end" value="1184"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/genMethodBody/%/%.3/%/anOperation">
-      <details key="start" value="1194"/>
-      <details key="end" value="1205"/>
+      <details key="start" value="1166"/>
+      <details key="end" value="1177"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/genMethodBody/%/%.3/%.1">
-      <details key="start" value="1221"/>
-      <details key="end" value="1235"/>
+      <details key="start" value="1193"/>
+      <details key="end" value="1207"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/genMethodBody/anOperation">
-      <details key="start" value="1112"/>
-      <details key="end" value="1135"/>
+      <details key="start" value="1085"/>
+      <details key="end" value="1108"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/genMethodBody/%.1">
-      <details key="start" value="1142"/>
-      <details key="end" value="1148"/>
+      <details key="start" value="1115"/>
+      <details key="end" value="1121"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/genMethodBody/%.1/self">

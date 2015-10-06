@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module GWTClassJavaFile('http://www.eclipse.org/uml2/4.0.0/UML') extends eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::classJavaFile]
+
+
+[import eu::artist::migration::modernization::uml2java::repackaged::gen::java::common::declaration/]
+[import eu::artist::migration::modernization::uml2java::gwt::files::queries /]
+
+[comment TODO: Changed to public /]
+[template public declaration(aClass : Class) overrides declaration ? 
+	(aClass.interfaceRealization->containsGWTEntryPoint())]
+[debug('Detected GWT Class: ' + aClass.name.toString())/]
+[aClass.genVisibility()/][aClass.genAbstract()/][aClass.genFinal()/]class [aClass.genName()+'GWT'/][aClass.genInheritance()/][aClass.genInterfaceRealization()/]
+[/template]
+
+

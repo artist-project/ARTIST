@@ -62,4 +62,54 @@
             id="eu.artist.migration.modernization.uml2java.repackaged.gen.java.ui.launchConfigurationTypeImage">
       </launchConfigurationTypeImage>
    </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="eu.artist.migration.cgt.menu.main"
+               label="Code Generation Toolbox">
+            <command
+                  commandId="eu.artist.migration.modernization.uml2java.ui.uml2javageneration"
+                  mnemonic="M">
+               <visibleWhen>
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate
+                           ifEmpty="false">
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.uml">
+                           </test>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="eu.artist.migration.cgt.category"
+            name="Code Generation Toolbox">
+      </category>
+      <command
+            category="eu.artist.migration.cgt.category"
+            categoryId="eu.artist.migration.cgt.category"
+            id="eu.artist.migration.modernization.uml2java.ui.uml2javageneration"
+            name="UML to Java Generation">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.artist.migration.modernization.uml2java.ui.UML2JavaGeneration"
+            commandId="eu.artist.migration.modernization.uml2java.ui.uml2javageneration">
+      </handler>
+   </extension>
 </plugin>
