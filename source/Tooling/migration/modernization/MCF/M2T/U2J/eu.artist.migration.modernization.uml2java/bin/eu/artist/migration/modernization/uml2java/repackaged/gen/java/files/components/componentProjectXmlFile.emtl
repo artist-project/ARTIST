@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="componentProjectXmlFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::componentProjectXmlFile" startHeaderPosition="29" endHeaderPosition="195">
+  <mtl:Module name="componentProjectXmlFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::componentProjectXmlFile" startHeaderPosition="30" endHeaderPosition="198">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
@@ -22,7 +22,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="genComponentProjectXmlFile" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;projectDescription>&#xA;&#x9;&lt;name>"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;projectDescription>&#xD;&#xA;&#x9;&lt;name>"/>
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentProjectXmlFile/aComponent">
@@ -30,9 +30,9 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/name>&#xA;&#x9;&lt;comment>&lt;/comment>&#xA;&#x9;&lt;projects>&#xA;&#x9;&lt;/projects>&#xA;&#x9;&lt;buildSpec>&#xA;&#x9;&#x9;&lt;buildCommand>&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.jdt.core.javabuilder&lt;/name>&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xA;&#x9;&#x9;&lt;/buildCommand>&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/name>&#xD;&#xA;&#x9;&lt;comment>&lt;/comment>&#xD;&#xA;&#x9;&lt;projects>&#xD;&#xA;&#x9;&lt;/projects>&#xD;&#xA;&#x9;&lt;buildSpec>&#xD;&#xA;&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.jdt.core.javabuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#xD;&#xA;"/>
         <body xsi:type="mtl:IfBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;buildCommand>&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.pde.ManifestBuilder&lt;/name>&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xA;&#x9;&#x9;&lt;/buildCommand>&#xA;&#x9;&#x9;&lt;buildCommand>&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.pde.SchemaBuilder&lt;/name>&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xA;&#x9;&#x9;&lt;/buildCommand>&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.pde.ManifestBuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#xD;&#xA;&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>org.eclipse.pde.SchemaBuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#xD;&#xA;"/>
           <ifExpr xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <definition href="../../services/configurationServices.emtl#/0/reqShouldGenerateEclipseArtifacts"/>
@@ -41,7 +41,7 @@
             </argument>
           </ifExpr>
           <elseIf>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;buildCommand>&#xA;&#x9;&#x9;&#x9;&lt;name>bndtools.core.bndbuilder&lt;/name>&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xA;&#x9;&#x9;&lt;/buildCommand>&#x9;&#xA;"/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;buildCommand>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;name>bndtools.core.bndbuilder&lt;/name>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;arguments>&#xD;&#xA;&#x9;&#x9;&#x9;&lt;/arguments>&#xD;&#xA;&#x9;&#x9;&lt;/buildCommand>&#x9;&#xD;&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
               <definition href="../../services/configurationServices.emtl#/0/reqShouldGenerateOSGiArtifacts"/>
@@ -51,9 +51,9 @@
             </ifExpr>
           </elseIf>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;/buildSpec>&#xA;&#x9;&lt;natures>&#xA;&#x9;&#x9;&lt;nature>org.eclipse.jdt.core.javanature&lt;/nature>&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;/buildSpec>&#xD;&#xA;&#x9;&lt;natures>&#xD;&#xA;&#x9;&#x9;&lt;nature>org.eclipse.jdt.core.javanature&lt;/nature>&#xD;&#xA;"/>
         <body xsi:type="mtl:IfBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;nature>org.eclipse.pde.PluginNature&lt;/nature>&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;nature>org.eclipse.pde.PluginNature&lt;/nature>&#xD;&#xA;"/>
           <ifExpr xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <definition href="../../services/configurationServices.emtl#/0/reqShouldGenerateEclipseArtifacts"/>
@@ -62,7 +62,7 @@
             </argument>
           </ifExpr>
           <elseIf>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;nature>bndtools.core.bndnature&lt;/nature>&#xA;"/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&lt;nature>bndtools.core.bndnature&lt;/nature>&#xD;&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
               <definition href="../../services/configurationServices.emtl#/0/reqShouldGenerateOSGiArtifacts"/>
@@ -72,7 +72,7 @@
             </ifExpr>
           </elseIf>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;/natures>&#xA;&lt;/projectDescription>&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;/natures>&#xD;&#xA;&lt;/projectDescription>&#xD;&#xA;"/>
         <fileUrl xsi:type="mtl:TemplateInvocation" definition="/0/componentProjectXmlFile">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentProjectXmlFile/aComponent">
@@ -313,213 +313,213 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/componentProjectXmlFile">
-      <details key="start" value="424"/>
-      <details key="end" value="544"/>
+      <details key="start" value="432"/>
+      <details key="end" value="554"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/componentProjectXmlFile/%">
-      <details key="start" value="492"/>
-      <details key="end" value="521"/>
+      <details key="start" value="501"/>
+      <details key="end" value="530"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/componentProjectXmlFile/%/aComponent">
-      <details key="start" value="492"/>
-      <details key="end" value="502"/>
+      <details key="start" value="501"/>
+      <details key="end" value="511"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/componentProjectXmlFile/%.1">
-      <details key="start" value="523"/>
-      <details key="end" value="532"/>
+      <details key="start" value="532"/>
+      <details key="end" value="541"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/componentProjectXmlFile/aComponent">
-      <details key="start" value="466"/>
-      <details key="end" value="488"/>
+      <details key="start" value="474"/>
+      <details key="end" value="496"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genComponentProjectXmlFile">
-      <details key="start" value="546"/>
-      <details key="end" value="1841"/>
+      <details key="start" value="558"/>
+      <details key="end" value="1896"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/genComponentProjectXmlFile/%">
-      <details key="start" value="728"/>
-      <details key="end" value="1829"/>
+      <details key="start" value="741"/>
+      <details key="end" value="1883"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/genComponentProjectXmlFile/%/%">
-      <details key="start" value="790"/>
-      <details key="end" value="857"/>
+      <details key="start" value="804"/>
+      <details key="end" value="873"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/genComponentProjectXmlFile/%/%.1">
-      <details key="start" value="858"/>
-      <details key="end" value="873"/>
+      <details key="start" value="874"/>
+      <details key="end" value="889"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/genComponentProjectXmlFile/%/%.1/aComponent">
-      <details key="start" value="858"/>
-      <details key="end" value="868"/>
+      <details key="start" value="874"/>
+      <details key="end" value="884"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/genComponentProjectXmlFile/%/%.2">
-      <details key="start" value="875"/>
-      <details key="end" value="1057"/>
+      <details key="start" value="891"/>
+      <details key="end" value="1083"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/genComponentProjectXmlFile/%/%.3">
-      <details key="start" value="1057"/>
-      <details key="end" value="1505"/>
+      <details key="start" value="1083"/>
+      <details key="end" value="1548"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/genComponentProjectXmlFile/%/%.3/%">
-      <details key="start" value="1111"/>
-      <details key="end" value="1337"/>
+      <details key="start" value="1138"/>
+      <details key="end" value="1374"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/genComponentProjectXmlFile/%/%.3/%.1">
-      <details key="start" value="1061"/>
-      <details key="end" value="1109"/>
+      <details key="start" value="1087"/>
+      <details key="end" value="1135"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/genComponentProjectXmlFile/%/%.3/%.1/aComponent">
-      <details key="start" value="1062"/>
-      <details key="end" value="1072"/>
+      <details key="start" value="1088"/>
+      <details key="end" value="1098"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/genComponentProjectXmlFile/%/%.3/%.2">
-      <details key="start" value="1337"/>
-      <details key="end" value="1500"/>
+      <details key="start" value="1374"/>
+      <details key="end" value="1543"/>
       <details key="line" value="38"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/genComponentProjectXmlFile/%/%.3/%.2/%">
-      <details key="start" value="1392"/>
-      <details key="end" value="1500"/>
+      <details key="start" value="1430"/>
+      <details key="end" value="1543"/>
       <details key="line" value="39"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/genComponentProjectXmlFile/%/%.3/%.2/%.1">
-      <details key="start" value="1345"/>
-      <details key="end" value="1390"/>
+      <details key="start" value="1382"/>
+      <details key="end" value="1427"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/genComponentProjectXmlFile/%/%.3/%.2/%.1/aComponent">
-      <details key="start" value="1346"/>
-      <details key="end" value="1356"/>
+      <details key="start" value="1383"/>
+      <details key="end" value="1393"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/genComponentProjectXmlFile/%/%.4">
-      <details key="start" value="1506"/>
-      <details key="end" value="1582"/>
+      <details key="start" value="1550"/>
+      <details key="end" value="1629"/>
       <details key="line" value="45"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/genComponentProjectXmlFile/%/%.5">
-      <details key="start" value="1582"/>
-      <details key="end" value="1787"/>
+      <details key="start" value="1629"/>
+      <details key="end" value="1838"/>
       <details key="line" value="48"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/genComponentProjectXmlFile/%/%.5/%">
-      <details key="start" value="1636"/>
-      <details key="end" value="1684"/>
+      <details key="start" value="1684"/>
+      <details key="end" value="1733"/>
       <details key="line" value="49"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/genComponentProjectXmlFile/%/%.5/%.1">
-      <details key="start" value="1586"/>
-      <details key="end" value="1634"/>
+      <details key="start" value="1633"/>
+      <details key="end" value="1681"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/genComponentProjectXmlFile/%/%.5/%.1/aComponent">
-      <details key="start" value="1587"/>
-      <details key="end" value="1597"/>
+      <details key="start" value="1634"/>
+      <details key="end" value="1644"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/genComponentProjectXmlFile/%/%.5/%.2">
-      <details key="start" value="1684"/>
-      <details key="end" value="1782"/>
+      <details key="start" value="1733"/>
+      <details key="end" value="1833"/>
       <details key="line" value="50"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/genComponentProjectXmlFile/%/%.5/%.2/%">
-      <details key="start" value="1739"/>
-      <details key="end" value="1782"/>
+      <details key="start" value="1789"/>
+      <details key="end" value="1833"/>
       <details key="line" value="51"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/genComponentProjectXmlFile/%/%.5/%.2/%.1">
-      <details key="start" value="1692"/>
-      <details key="end" value="1737"/>
+      <details key="start" value="1741"/>
+      <details key="end" value="1786"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/genComponentProjectXmlFile/%/%.5/%.2/%.1/aComponent">
-      <details key="start" value="1693"/>
-      <details key="end" value="1703"/>
+      <details key="start" value="1742"/>
+      <details key="end" value="1752"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/genComponentProjectXmlFile/%/%.6">
-      <details key="start" value="1788"/>
-      <details key="end" value="1822"/>
+      <details key="start" value="1840"/>
+      <details key="end" value="1876"/>
       <details key="line" value="53"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/genComponentProjectXmlFile/%/%.7">
-      <details key="start" value="735"/>
-      <details key="end" value="771"/>
+      <details key="start" value="748"/>
+      <details key="end" value="784"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/genComponentProjectXmlFile/%/%.7/aComponent">
-      <details key="start" value="735"/>
-      <details key="end" value="745"/>
+      <details key="start" value="748"/>
+      <details key="end" value="758"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/genComponentProjectXmlFile/%/%.8">
-      <details key="start" value="780"/>
-      <details key="end" value="787"/>
+      <details key="start" value="793"/>
+      <details key="end" value="800"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/genComponentProjectXmlFile/aComponent">
-      <details key="start" value="590"/>
-      <details key="end" value="612"/>
+      <details key="start" value="602"/>
+      <details key="end" value="624"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/genComponentProjectXmlFile/%.1">
-      <details key="start" value="617"/>
-      <details key="end" value="725"/>
+      <details key="start" value="629"/>
+      <details key="end" value="737"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/genComponentProjectXmlFile/%.1/%">
-      <details key="start" value="621"/>
-      <details key="end" value="725"/>
+      <details key="start" value="633"/>
+      <details key="end" value="737"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/genComponentProjectXmlFile/%.1/%/%">
-      <details key="start" value="621"/>
-      <details key="end" value="705"/>
+      <details key="start" value="633"/>
+      <details key="end" value="717"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/genComponentProjectXmlFile/%.1/%/%/%">
-      <details key="start" value="622"/>
-      <details key="end" value="665"/>
+      <details key="start" value="634"/>
+      <details key="end" value="677"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/genComponentProjectXmlFile/%.1/%/%/%/%">
-      <details key="start" value="622"/>
-      <details key="end" value="659"/>
+      <details key="start" value="634"/>
+      <details key="end" value="671"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/genComponentProjectXmlFile/%.1/%/%/%/%/aComponent">
-      <details key="start" value="622"/>
-      <details key="end" value="632"/>
+      <details key="start" value="634"/>
+      <details key="end" value="644"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/genComponentProjectXmlFile/%.1/%/%/%/%.1">
-      <details key="start" value="662"/>
-      <details key="end" value="665"/>
+      <details key="start" value="674"/>
+      <details key="end" value="677"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/genComponentProjectXmlFile/%.1/%/%/%.1">
-      <details key="start" value="668"/>
-      <details key="end" value="704"/>
+      <details key="start" value="680"/>
+      <details key="end" value="716"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/genComponentProjectXmlFile/%.1/%/%/%.1/aComponent">
-      <details key="start" value="668"/>
-      <details key="end" value="678"/>
+      <details key="start" value="680"/>
+      <details key="end" value="690"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

@@ -10,7 +10,9 @@
  */]
 [template public genAnnotation(aElement : Element) post(trim())]
 [for (aStereotype : Stereotype | aElement.getAppliedStereotypes())]
+[if(not aStereotype.getProfile().getAppliedStereotype('javaProfile::JProfile').oclIsUndefined())]
 @[aStereotype.name/][reqAnnotationMember(aElement, aStereotype)/]
+[/if]
 [/for]
 [/template]
 

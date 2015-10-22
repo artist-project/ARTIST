@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="interfaceJavaFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::interfaceJavaFile" startHeaderPosition="29" endHeaderPosition="304">
+  <mtl:Module name="interfaceJavaFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::interfaceJavaFile" startHeaderPosition="30" endHeaderPosition="307">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
@@ -22,7 +22,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../common/declaration.emtl#/0/genVisibility"/>
@@ -46,21 +46,21 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="{&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="{&#xD;&#xA;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation" definition="/0/genAttributes">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="anInterface" referredVariable="/0/genClassifierBody/%/anInterface">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation" definition="/0/genOperations">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="anInterface" referredVariable="/0/genClassifierBody/%/anInterface">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <letVariable name="anInterface">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
           <initExpression xsi:type="ocl.ecore:OperationCallExp">
@@ -99,7 +99,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../common/declaration.emtl#/0/genVisibility"/>
@@ -144,7 +144,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;&#xD;&#xA;"/>
         <loopVariable name="aProperty">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Property"/>
         </loopVariable>
@@ -157,7 +157,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="// "/>
       <body xsi:type="mtl:ProtectedAreaBlock">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;// "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;// "/>
         <marker xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
@@ -178,7 +178,7 @@
           </argument>
         </marker>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <parameter name="anInterface">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Interface"/>
       </parameter>
@@ -192,7 +192,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../common/declaration.emtl#/0/genMethodPrototype"/>
@@ -200,7 +200,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xD;&#xA;&#xD;&#xA;"/>
         <loopVariable name="anOperation">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Operation"/>
         </loopVariable>
@@ -213,7 +213,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="// "/>
       <body xsi:type="mtl:ProtectedAreaBlock">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;// "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;// "/>
         <marker xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/String_Class/+">
@@ -650,418 +650,418 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/genClassifierBody">
-      <details key="start" value="1034"/>
-      <details key="end" value="1449"/>
+      <details key="start" value="1048"/>
+      <details key="end" value="1470"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/genClassifierBody/%">
-      <details key="start" value="1164"/>
-      <details key="end" value="1437"/>
+      <details key="start" value="1179"/>
+      <details key="end" value="1457"/>
       <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/genClassifierBody/%/%">
-      <details key="start" value="1230"/>
-      <details key="end" value="1257"/>
+      <details key="start" value="1246"/>
+      <details key="end" value="1273"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/genClassifierBody/%/%/anInterface">
-      <details key="start" value="1230"/>
-      <details key="end" value="1241"/>
+      <details key="start" value="1246"/>
+      <details key="end" value="1257"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/genClassifierBody/%/%.1">
-      <details key="start" value="1259"/>
-      <details key="end" value="1260"/>
+      <details key="start" value="1275"/>
+      <details key="end" value="1277"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genClassifierBody/%/%.2">
-      <details key="start" value="1261"/>
-      <details key="end" value="1288"/>
+      <details key="start" value="1278"/>
+      <details key="end" value="1305"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/genClassifierBody/%/%.2/anInterface">
-      <details key="start" value="1261"/>
-      <details key="end" value="1272"/>
+      <details key="start" value="1278"/>
+      <details key="end" value="1289"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/genClassifierBody/%/%.3">
-      <details key="start" value="1290"/>
-      <details key="end" value="1300"/>
+      <details key="start" value="1307"/>
+      <details key="end" value="1317"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/genClassifierBody/%/%.4">
-      <details key="start" value="1301"/>
-      <details key="end" value="1322"/>
+      <details key="start" value="1318"/>
+      <details key="end" value="1339"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/genClassifierBody/%/%.4/anInterface">
-      <details key="start" value="1301"/>
-      <details key="end" value="1312"/>
+      <details key="start" value="1318"/>
+      <details key="end" value="1329"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/genClassifierBody/%/%.5">
-      <details key="start" value="1324"/>
-      <details key="end" value="1325"/>
+      <details key="start" value="1341"/>
+      <details key="end" value="1342"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/genClassifierBody/%/%.6">
-      <details key="start" value="1326"/>
-      <details key="end" value="1363"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/genClassifierBody/%/%.6/anInterface">
-      <details key="start" value="1326"/>
-      <details key="end" value="1337"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/genClassifierBody/%/%.7">
-      <details key="start" value="1365"/>
-      <details key="end" value="1368"/>
-      <details key="line" value="18"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/genClassifierBody/%/%.8">
-      <details key="start" value="1369"/>
-      <details key="end" value="1396"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/genClassifierBody/%/%.8/anInterface">
-      <details key="start" value="1369"/>
+      <details key="start" value="1343"/>
       <details key="end" value="1380"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/genClassifierBody/%/%.6/anInterface">
+      <details key="start" value="1343"/>
+      <details key="end" value="1354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/genClassifierBody/%/%.7">
+      <details key="start" value="1382"/>
+      <details key="end" value="1386"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/genClassifierBody/%/%.8">
+      <details key="start" value="1387"/>
+      <details key="end" value="1414"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/genClassifierBody/%/%.8/anInterface">
+      <details key="start" value="1387"/>
+      <details key="end" value="1398"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.16" references="/0/genClassifierBody/%/%.9">
-      <details key="start" value="1398"/>
-      <details key="end" value="1400"/>
+      <details key="start" value="1416"/>
+      <details key="end" value="1419"/>
       <details key="line" value="20"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/genClassifierBody/%/%.10">
-      <details key="start" value="1401"/>
-      <details key="end" value="1428"/>
+      <details key="start" value="1420"/>
+      <details key="end" value="1447"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/genClassifierBody/%/%.10/anInterface">
-      <details key="start" value="1401"/>
-      <details key="end" value="1412"/>
+      <details key="start" value="1420"/>
+      <details key="end" value="1431"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/genClassifierBody/%/%.11">
-      <details key="start" value="1430"/>
-      <details key="end" value="1431"/>
+      <details key="start" value="1449"/>
+      <details key="end" value="1451"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/genClassifierBody/%/anInterface">
-      <details key="start" value="1169"/>
-      <details key="end" value="1227"/>
+      <details key="start" value="1184"/>
+      <details key="end" value="1242"/>
       <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/genClassifierBody/%/anInterface/%">
-      <details key="start" value="1196"/>
-      <details key="end" value="1228"/>
+      <details key="start" value="1211"/>
+      <details key="end" value="1243"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/genClassifierBody/%/anInterface/%/aClassifier">
-      <details key="start" value="1196"/>
-      <details key="end" value="1207"/>
+      <details key="start" value="1211"/>
+      <details key="end" value="1222"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/genClassifierBody/%/anInterface/%/%">
-      <details key="start" value="1218"/>
-      <details key="end" value="1227"/>
+      <details key="start" value="1233"/>
+      <details key="end" value="1242"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/genClassifierBody/aClassifier">
-      <details key="start" value="1070"/>
-      <details key="end" value="1094"/>
+      <details key="start" value="1084"/>
+      <details key="end" value="1108"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/genClassifierBody/%.1">
-      <details key="start" value="1127"/>
-      <details key="end" value="1161"/>
+      <details key="start" value="1141"/>
+      <details key="end" value="1175"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/genClassifierBody/%.1/aClassifier">
-      <details key="start" value="1127"/>
-      <details key="end" value="1138"/>
+      <details key="start" value="1141"/>
+      <details key="end" value="1152"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/genClassifierBody/%.1/%">
-      <details key="start" value="1151"/>
-      <details key="end" value="1160"/>
+      <details key="start" value="1165"/>
+      <details key="end" value="1174"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/genAttributes">
-      <details key="start" value="1451"/>
-      <details key="end" value="1873"/>
+      <details key="start" value="1474"/>
+      <details key="end" value="1906"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/genAttributes/%">
-      <details key="start" value="1510"/>
-      <details key="end" value="1769"/>
+      <details key="start" value="1534"/>
+      <details key="end" value="1797"/>
       <details key="line" value="25"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/genAttributes/%/%">
-      <details key="start" value="1569"/>
-      <details key="end" value="1600"/>
+      <details key="start" value="1594"/>
+      <details key="end" value="1625"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/genAttributes/%/%/aProperty">
-      <details key="start" value="1569"/>
-      <details key="end" value="1578"/>
+      <details key="start" value="1594"/>
+      <details key="end" value="1603"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/genAttributes/%/%.1">
-      <details key="start" value="1602"/>
-      <details key="end" value="1603"/>
+      <details key="start" value="1627"/>
+      <details key="end" value="1629"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/genAttributes/%/%.2">
-      <details key="start" value="1604"/>
-      <details key="end" value="1629"/>
+      <details key="start" value="1630"/>
+      <details key="end" value="1655"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/genAttributes/%/%.2/aProperty">
-      <details key="start" value="1604"/>
-      <details key="end" value="1613"/>
+      <details key="start" value="1630"/>
+      <details key="end" value="1639"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/genAttributes/%/%.3">
-      <details key="start" value="1632"/>
-      <details key="end" value="1652"/>
+      <details key="start" value="1658"/>
+      <details key="end" value="1678"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/genAttributes/%/%.3/aProperty">
-      <details key="start" value="1632"/>
-      <details key="end" value="1641"/>
+      <details key="start" value="1658"/>
+      <details key="end" value="1667"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/genAttributes/%/%.4">
-      <details key="start" value="1655"/>
-      <details key="end" value="1676"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/genAttributes/%/%.4/aProperty">
-      <details key="start" value="1655"/>
-      <details key="end" value="1664"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.39" references="/0/genAttributes/%/%.5">
-      <details key="start" value="1679"/>
+      <details key="start" value="1681"/>
       <details key="end" value="1702"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/genAttributes/%/%.4/aProperty">
+      <details key="start" value="1681"/>
+      <details key="end" value="1690"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/genAttributes/%/%.5">
+      <details key="start" value="1705"/>
+      <details key="end" value="1728"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.40" references="/0/genAttributes/%/%.5/aProperty">
-      <details key="start" value="1679"/>
-      <details key="end" value="1688"/>
+      <details key="start" value="1705"/>
+      <details key="end" value="1714"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/genAttributes/%/%.6">
-      <details key="start" value="1704"/>
-      <details key="end" value="1705"/>
+      <details key="start" value="1730"/>
+      <details key="end" value="1731"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/genAttributes/%/%.7">
-      <details key="start" value="1706"/>
-      <details key="end" value="1725"/>
+      <details key="start" value="1732"/>
+      <details key="end" value="1751"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/genAttributes/%/%.7/aProperty">
-      <details key="start" value="1706"/>
-      <details key="end" value="1715"/>
+      <details key="start" value="1732"/>
+      <details key="end" value="1741"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/genAttributes/%/%.8">
-      <details key="start" value="1727"/>
-      <details key="end" value="1730"/>
+      <details key="start" value="1753"/>
+      <details key="end" value="1756"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/genAttributes/%/%.9">
-      <details key="start" value="1731"/>
-      <details key="end" value="1758"/>
+      <details key="start" value="1757"/>
+      <details key="end" value="1784"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/genAttributes/%/%.9/aProperty">
-      <details key="start" value="1731"/>
-      <details key="end" value="1740"/>
+      <details key="start" value="1757"/>
+      <details key="end" value="1766"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/genAttributes/%/%.10">
-      <details key="start" value="1760"/>
-      <details key="end" value="1763"/>
+      <details key="start" value="1786"/>
+      <details key="end" value="1791"/>
       <details key="line" value="27"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/genAttributes/%/aProperty">
-      <details key="start" value="1516"/>
-      <details key="end" value="1536"/>
+      <details key="start" value="1540"/>
+      <details key="end" value="1560"/>
       <details key="line" value="25"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/genAttributes/%/%.11">
-      <details key="start" value="1539"/>
-      <details key="end" value="1565"/>
+      <details key="start" value="1563"/>
+      <details key="end" value="1589"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/genAttributes/%/%.11/anInterface">
-      <details key="start" value="1539"/>
-      <details key="end" value="1550"/>
+      <details key="start" value="1563"/>
+      <details key="end" value="1574"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/genAttributes/%.1">
-      <details key="start" value="1770"/>
-      <details key="end" value="1773"/>
+      <details key="start" value="1799"/>
+      <details key="end" value="1802"/>
       <details key="line" value="30"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/genAttributes/%.2">
-      <details key="start" value="1773"/>
-      <details key="end" value="1860"/>
+      <details key="start" value="1802"/>
+      <details key="end" value="1891"/>
       <details key="line" value="30"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/genAttributes/%.2/%">
-      <details key="start" value="1843"/>
-      <details key="end" value="1848"/>
+      <details key="start" value="1872"/>
+      <details key="end" value="1879"/>
       <details key="line" value="31"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/genAttributes/%.2/%.1">
-      <details key="start" value="1785"/>
-      <details key="end" value="1841"/>
+      <details key="start" value="1814"/>
+      <details key="end" value="1870"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/genAttributes/%.2/%.1/%">
-      <details key="start" value="1785"/>
-      <details key="end" value="1835"/>
+      <details key="start" value="1814"/>
+      <details key="end" value="1864"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/genAttributes/%.2/%.1/%/%">
-      <details key="start" value="1785"/>
-      <details key="end" value="1816"/>
+      <details key="start" value="1814"/>
+      <details key="end" value="1845"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/genAttributes/%.2/%.1/%/%.1">
-      <details key="start" value="1819"/>
-      <details key="end" value="1835"/>
+      <details key="start" value="1848"/>
+      <details key="end" value="1864"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/genAttributes/%.2/%.1/%/%.1/anInterface">
-      <details key="start" value="1819"/>
-      <details key="end" value="1830"/>
+      <details key="start" value="1848"/>
+      <details key="end" value="1859"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/genAttributes/%.2/%.1/%.1">
-      <details key="start" value="1838"/>
-      <details key="end" value="1841"/>
+      <details key="start" value="1867"/>
+      <details key="end" value="1870"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/genAttributes/%.3">
-      <details key="start" value="1860"/>
-      <details key="end" value="1861"/>
+      <details key="start" value="1891"/>
+      <details key="end" value="1893"/>
       <details key="line" value="33"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/genAttributes/anInterface">
-      <details key="start" value="1483"/>
-      <details key="end" value="1506"/>
+      <details key="start" value="1506"/>
+      <details key="end" value="1529"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/genOperations">
-      <details key="start" value="1875"/>
-      <details key="end" value="2177"/>
+      <details key="start" value="1910"/>
+      <details key="end" value="2221"/>
       <details key="line" value="36"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/genOperations/%">
-      <details key="start" value="1935"/>
-      <details key="end" value="2077"/>
+      <details key="start" value="1971"/>
+      <details key="end" value="2117"/>
       <details key="line" value="37"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/genOperations/%/%">
-      <details key="start" value="1997"/>
-      <details key="end" value="2030"/>
+      <details key="start" value="2034"/>
+      <details key="end" value="2067"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/genOperations/%/%/anOperation">
-      <details key="start" value="1997"/>
-      <details key="end" value="2008"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.66" references="/0/genOperations/%/%.1">
-      <details key="start" value="2032"/>
-      <details key="end" value="2033"/>
-      <details key="line" value="39"/>
-    </eAnnotations>
-    <eAnnotations source="positions.67" references="/0/genOperations/%/%.2">
-      <details key="start" value="2034"/>
-      <details key="end" value="2066"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.68" references="/0/genOperations/%/%.2/anOperation">
       <details key="start" value="2034"/>
       <details key="end" value="2045"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.69" references="/0/genOperations/%/%.3">
-      <details key="start" value="2068"/>
+    <eAnnotations source="positions.66" references="/0/genOperations/%/%.1">
+      <details key="start" value="2069"/>
       <details key="end" value="2071"/>
       <details key="line" value="39"/>
     </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/genOperations/%/%.2">
+      <details key="start" value="2072"/>
+      <details key="end" value="2104"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/genOperations/%/%.2/anOperation">
+      <details key="start" value="2072"/>
+      <details key="end" value="2083"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/genOperations/%/%.3">
+      <details key="start" value="2106"/>
+      <details key="end" value="2111"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
     <eAnnotations source="positions.70" references="/0/genOperations/%/anOperation">
-      <details key="start" value="1941"/>
-      <details key="end" value="1964"/>
+      <details key="start" value="1977"/>
+      <details key="end" value="2000"/>
       <details key="line" value="37"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/genOperations/%/%.4">
-      <details key="start" value="1967"/>
-      <details key="end" value="1993"/>
+      <details key="start" value="2003"/>
+      <details key="end" value="2029"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/genOperations/%/%.4/anInterface">
-      <details key="start" value="1967"/>
-      <details key="end" value="1978"/>
+      <details key="start" value="2003"/>
+      <details key="end" value="2014"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/genOperations/%.1">
-      <details key="start" value="2078"/>
-      <details key="end" value="2081"/>
+      <details key="start" value="2119"/>
+      <details key="end" value="2122"/>
       <details key="line" value="42"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/genOperations/%.2">
-      <details key="start" value="2081"/>
-      <details key="end" value="2165"/>
+      <details key="start" value="2122"/>
+      <details key="end" value="2208"/>
       <details key="line" value="42"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/genOperations/%.2/%">
-      <details key="start" value="2148"/>
-      <details key="end" value="2153"/>
+      <details key="start" value="2189"/>
+      <details key="end" value="2196"/>
       <details key="line" value="43"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/genOperations/%.2/%.1">
-      <details key="start" value="2093"/>
-      <details key="end" value="2146"/>
+      <details key="start" value="2134"/>
+      <details key="end" value="2187"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.77" references="/0/genOperations/%.2/%.1/%">
-      <details key="start" value="2093"/>
-      <details key="end" value="2140"/>
+      <details key="start" value="2134"/>
+      <details key="end" value="2181"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.78" references="/0/genOperations/%.2/%.1/%/%">
-      <details key="start" value="2093"/>
-      <details key="end" value="2121"/>
+      <details key="start" value="2134"/>
+      <details key="end" value="2162"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.79" references="/0/genOperations/%.2/%.1/%/%.1">
-      <details key="start" value="2124"/>
-      <details key="end" value="2140"/>
+      <details key="start" value="2165"/>
+      <details key="end" value="2181"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/genOperations/%.2/%.1/%/%.1/anInterface">
-      <details key="start" value="2124"/>
-      <details key="end" value="2135"/>
+      <details key="start" value="2165"/>
+      <details key="end" value="2176"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.81" references="/0/genOperations/%.2/%.1/%.1">
-      <details key="start" value="2143"/>
-      <details key="end" value="2146"/>
+      <details key="start" value="2184"/>
+      <details key="end" value="2187"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.82" references="/0/genOperations/anInterface">
-      <details key="start" value="1908"/>
-      <details key="end" value="1931"/>
+      <details key="start" value="1943"/>
+      <details key="end" value="1966"/>
       <details key="line" value="36"/>
     </eAnnotations>
   </ecore:EAnnotation>

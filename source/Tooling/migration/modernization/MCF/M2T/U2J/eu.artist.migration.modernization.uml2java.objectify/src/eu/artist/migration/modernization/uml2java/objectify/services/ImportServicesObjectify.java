@@ -24,7 +24,8 @@ import eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.I
 /**
  * Service class to compute the imports of a given classifier.
  * 
- * @author <a href="mailto:bergmayr@big.tuwien.ac.at">Alexander Bergmayr</a>
+ * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
+ * @since 2.0
  */
 public class ImportServicesObjectify extends ImportServices {
 

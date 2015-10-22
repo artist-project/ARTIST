@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="classifierServices" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::classifierServices" startHeaderPosition="304" endHeaderPosition="634">
+  <mtl:Module name="classifierServices" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::classifierServices" startHeaderPosition="312" endHeaderPosition="646">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
@@ -186,18 +186,18 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/reqGetAllInheritedOperations">
-      <details key="start" value="374"/>
-      <details key="end" value="636"/>
+      <details key="start" value="384"/>
+      <details key="end" value="648"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/reqGetAllInheritedOperations/aClass">
-      <details key="start" value="417"/>
-      <details key="end" value="431"/>
+      <details key="start" value="427"/>
+      <details key="end" value="441"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/reqGetAllInheritedOperations/%">
-      <details key="start" value="458"/>
-      <details key="end" value="633"/>
+      <details key="start" value="469"/>
+      <details key="end" value="644"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/reqGetAllInheritedOperations/%/self">
@@ -206,43 +206,43 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/reqGetAllInheritedOperations/%/%">
-      <details key="start" value="465"/>
-      <details key="end" value="557"/>
+      <details key="start" value="476"/>
+      <details key="end" value="568"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/reqGetAllInheritedOperations/%/%.1">
-      <details key="start" value="559"/>
-      <details key="end" value="614"/>
+      <details key="start" value="570"/>
+      <details key="end" value="625"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/reqGetAllInheritedOperations/%/%.2">
-      <details key="start" value="616"/>
-      <details key="end" value="632"/>
+      <details key="start" value="627"/>
+      <details key="end" value="643"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/reqGetAllInheritedOperations/%/%.2/%/aClass">
-      <details key="start" value="625"/>
-      <details key="end" value="631"/>
+      <details key="start" value="636"/>
+      <details key="end" value="642"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/reqClassByName">
-      <details key="start" value="638"/>
-      <details key="end" value="930"/>
+      <details key="start" value="652"/>
+      <details key="end" value="946"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/reqClassByName/aClassifier">
-      <details key="start" value="667"/>
-      <details key="end" value="691"/>
+      <details key="start" value="681"/>
+      <details key="end" value="705"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/reqClassByName/className">
-      <details key="start" value="693"/>
-      <details key="end" value="711"/>
+      <details key="start" value="707"/>
+      <details key="end" value="725"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/reqClassByName/%">
-      <details key="start" value="724"/>
-      <details key="end" value="927"/>
+      <details key="start" value="739"/>
+      <details key="end" value="942"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/reqClassByName/%/self">
@@ -251,28 +251,28 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/reqClassByName/%/%">
-      <details key="start" value="731"/>
-      <details key="end" value="823"/>
+      <details key="start" value="746"/>
+      <details key="end" value="838"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/reqClassByName/%/%.1">
-      <details key="start" value="825"/>
-      <details key="end" value="892"/>
+      <details key="start" value="840"/>
+      <details key="end" value="907"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/reqClassByName/%/%.2">
-      <details key="start" value="894"/>
-      <details key="end" value="926"/>
+      <details key="start" value="909"/>
+      <details key="end" value="941"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/reqClassByName/%/%.2/%/aClassifier">
-      <details key="start" value="903"/>
-      <details key="end" value="914"/>
+      <details key="start" value="918"/>
+      <details key="end" value="929"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/reqClassByName/%/%.2/%.1/className">
-      <details key="start" value="916"/>
-      <details key="end" value="925"/>
+      <details key="start" value="931"/>
+      <details key="end" value="940"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

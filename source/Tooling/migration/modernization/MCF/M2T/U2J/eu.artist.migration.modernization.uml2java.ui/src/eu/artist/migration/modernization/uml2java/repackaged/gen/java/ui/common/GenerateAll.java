@@ -4,11 +4,13 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Stephane Begaudeau (Obeo) - initial API and implementation
  *******************************************************************************/
 package eu.artist.migration.modernization.uml2java.repackaged.gen.java.ui.common;
+
+import eu.artist.migration.modernization.uml2java.repackaged.gen.java.main.Uml2java;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,11 +19,10 @@ import java.util.List;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
-import eu.artist.migration.modernization.uml2java.repackaged.gen.java.main.Uml2java;
 
 /**
  * Main entry point of the 'UML2 to Java' generation module.
- * 
+ *
  * @author <a href="mailto:stephane.begaudeau@obeo.fr">Stephane Begaudeau</a>
  * @since 0.1
  */
@@ -44,7 +45,7 @@ public class GenerateAll {
 
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @param modelURI
 	 *            is the URI of the model.
 	 * @param targetFolder
@@ -60,7 +61,7 @@ public class GenerateAll {
 
 	/**
 	 * Launches the generation.
-	 * 
+	 *
 	 * @param monitor
 	 *            This will be used to display progress information to the user.
 	 * @throws IOException
@@ -74,5 +75,6 @@ public class GenerateAll {
 		Uml2java generator = new Uml2java(modelURI, targetFolder, arguments);
 		generator.doGenerate(BasicMonitor.toMonitor(monitor));
 
+		System.out.println("Code generated finished ... exciting!");
 	}
 }

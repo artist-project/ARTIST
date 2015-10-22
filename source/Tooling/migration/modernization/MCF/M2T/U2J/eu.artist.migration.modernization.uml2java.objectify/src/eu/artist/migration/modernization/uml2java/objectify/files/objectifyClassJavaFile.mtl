@@ -167,7 +167,7 @@
 [/for]
 [/template]
 
-[template public getterAndSetter(aProperty : Property) overrides getterAndSetter ? (aProperty.upper = 1 and not (aProperty.type.oclIsKindOf(PrimitiveType)
+[comment][template public getterAndSetter(aProperty : Property) overrides getterAndSetter ? (aProperty.upper = 1 and not (aProperty.type.oclIsKindOf(PrimitiveType)
                                                                 or aProperty.class.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()
 																or aProperty.type.getAppliedStereotype('objectify::com::googlecode::objectify::annotation::Entity').oclIsUndefined()))]
 /** Returns [aProperty.genName()/].
@@ -216,7 +216,7 @@ public void add[aProperty.genName().toUpperFirst()/]([aProperty.type.name/] enti
        [aProperty.genName()/] = new ArrayList<Ref<[aProperty.type.name/]>>();
    [aProperty.genName()/].add(Ref.create(entity));
 }
-[/template]
+[/template][/comment]
 
 [comment][template public genRegistry(anEntity : Class)]
 [file (anEntity.genPackagePath().concat('/service/').concat(anEntity.name).concat('Service.java'), false, 'UTF-8')]

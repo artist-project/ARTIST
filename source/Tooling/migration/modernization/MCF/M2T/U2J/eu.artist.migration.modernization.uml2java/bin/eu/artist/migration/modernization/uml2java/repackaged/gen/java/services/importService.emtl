@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="importService" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService" startHeaderPosition="304" endHeaderPosition="449">
+  <mtl:Module name="importService" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::services::importService" startHeaderPosition="312" endHeaderPosition="461">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
@@ -11,9 +11,9 @@
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Classifier"/>
         </argument>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;// "/>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;// "/>
       <body xsi:type="mtl:ProtectedAreaBlock">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;// "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;// "/>
         <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(user defined imports)">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </marker>
@@ -192,13 +192,13 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/genImport">
-      <details key="start" value="370"/>
-      <details key="end" value="522"/>
+      <details key="start" value="381"/>
+      <details key="end" value="538"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/genImport/%">
-      <details key="start" value="438"/>
-      <details key="end" value="449"/>
+      <details key="start" value="450"/>
+      <details key="end" value="461"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/genImport/%/self">
@@ -207,33 +207,33 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/genImport/%.1">
-      <details key="start" value="451"/>
-      <details key="end" value="455"/>
+      <details key="start" value="463"/>
+      <details key="end" value="468"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/genImport/%.2">
-      <details key="start" value="455"/>
-      <details key="end" value="510"/>
+      <details key="start" value="468"/>
+      <details key="end" value="525"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genImport/%.2/%">
-      <details key="start" value="493"/>
-      <details key="end" value="498"/>
+      <details key="start" value="506"/>
+      <details key="end" value="513"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/genImport/%.2/%.1">
-      <details key="start" value="467"/>
-      <details key="end" value="491"/>
+      <details key="start" value="480"/>
+      <details key="end" value="504"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/genImport/aClassifier">
-      <details key="start" value="397"/>
-      <details key="end" value="421"/>
+      <details key="start" value="408"/>
+      <details key="end" value="432"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/genImport/%.3">
-      <details key="start" value="428"/>
-      <details key="end" value="434"/>
+      <details key="start" value="439"/>
+      <details key="end" value="445"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/genImport/%.3/self">
@@ -242,28 +242,28 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/reqImport">
-      <details key="start" value="524"/>
-      <details key="end" value="773"/>
+      <details key="start" value="542"/>
+      <details key="end" value="793"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/reqImport/aClassifier">
-      <details key="start" value="549"/>
-      <details key="end" value="573"/>
+      <details key="start" value="567"/>
+      <details key="end" value="591"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/reqImport/%">
-      <details key="start" value="587"/>
-      <details key="end" value="770"/>
+      <details key="start" value="606"/>
+      <details key="end" value="789"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/reqImport/%/%">
-      <details key="start" value="587"/>
-      <details key="end" value="763"/>
+      <details key="start" value="606"/>
+      <details key="end" value="782"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/reqImport/%/%/%">
-      <details key="start" value="587"/>
-      <details key="end" value="752"/>
+      <details key="start" value="606"/>
+      <details key="end" value="771"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/reqImport/%/%/%/self">
@@ -272,23 +272,23 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/reqImport/%/%/%/%">
-      <details key="start" value="594"/>
-      <details key="end" value="682"/>
+      <details key="start" value="613"/>
+      <details key="end" value="701"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/reqImport/%/%/%/%.1">
-      <details key="start" value="684"/>
-      <details key="end" value="728"/>
+      <details key="start" value="703"/>
+      <details key="end" value="747"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/reqImport/%/%/%/%.2">
-      <details key="start" value="730"/>
-      <details key="end" value="751"/>
+      <details key="start" value="749"/>
+      <details key="end" value="770"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/reqImport/%/%/%/%.2/%/aClassifier">
-      <details key="start" value="739"/>
-      <details key="end" value="750"/>
+      <details key="start" value="758"/>
+      <details key="end" value="769"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

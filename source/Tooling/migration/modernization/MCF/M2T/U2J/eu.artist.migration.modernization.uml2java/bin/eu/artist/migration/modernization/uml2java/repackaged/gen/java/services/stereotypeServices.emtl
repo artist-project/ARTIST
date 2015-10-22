@@ -9,24 +9,48 @@
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="genAnnotation" visibility="Public">
       <body xsi:type="mtl:ForBlock">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@"/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="@"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
+          </body>
+          <body xsi:type="mtl:QueryInvocation" definition="/0/reqAnnotationMember">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aElement" referredVariable="/0/genAnnotation/aElement">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
+                <source xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Profile"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
+                  </source>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype/getProfile"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="javaProfile::JProfile">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element/getAppliedStereotype"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsUndefined"/>
+            </source>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/not"/>
+          </ifExpr>
         </body>
-        <body xsi:type="mtl:QueryInvocation" definition="/0/reqAnnotationMember">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <argument xsi:type="ocl.ecore:VariableExp" name="aElement" referredVariable="/0/genAnnotation/aElement">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
-          </argument>
-          <argument xsi:type="ocl.ecore:VariableExp" name="aStereotype" referredVariable="/0/genAnnotation/%/aStereotype">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
-          </argument>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <loopVariable name="aStereotype">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
         </loopVariable>
@@ -66,7 +90,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/OclAny_Class/invoke">
             <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/16">
+            <source xsi:type="ocl.ecore:VariableExp" name="self" referredVariable="/17">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
             </source>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="eu.artist.migration.modernization.uml2java.repackaged.gen.java.services.StereotypeServices">
@@ -225,6 +249,9 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Stereotype"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="i">
@@ -250,147 +277,182 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/genAnnotation">
       <details key="start" value="241"/>
-      <details key="end" value="458"/>
+      <details key="end" value="562"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/genAnnotation/%">
       <details key="start" value="306"/>
-      <details key="end" value="446"/>
+      <details key="end" value="550"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/genAnnotation/%/%">
       <details key="start" value="374"/>
-      <details key="end" value="375"/>
+      <details key="end" value="543"/>
       <details key="line" value="13"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/genAnnotation/%/%.1">
-      <details key="start" value="376"/>
-      <details key="end" value="392"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/genAnnotation/%/%.1/aStereotype">
-      <details key="start" value="376"/>
-      <details key="end" value="387"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/genAnnotation/%/%.2">
-      <details key="start" value="395"/>
-      <details key="end" value="437"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/genAnnotation/%/%.2/aElement">
-      <details key="start" value="415"/>
-      <details key="end" value="423"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/genAnnotation/%/%.2/aStereotype">
-      <details key="start" value="425"/>
-      <details key="end" value="436"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/genAnnotation/%/%.3">
-      <details key="start" value="439"/>
-      <details key="end" value="440"/>
+    <eAnnotations source="positions.4" references="/0/genAnnotation/%/%/%">
+      <details key="start" value="472"/>
+      <details key="end" value="473"/>
       <details key="line" value="14"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/genAnnotation/%/aStereotype">
+    <eAnnotations source="positions.5" references="/0/genAnnotation/%/%/%.1">
+      <details key="start" value="474"/>
+      <details key="end" value="490"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/genAnnotation/%/%/%.1/aStereotype">
+      <details key="start" value="474"/>
+      <details key="end" value="485"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/genAnnotation/%/%/%.2">
+      <details key="start" value="493"/>
+      <details key="end" value="535"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/genAnnotation/%/%/%.2/aElement">
+      <details key="start" value="513"/>
+      <details key="end" value="521"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/genAnnotation/%/%/%.2/aStereotype">
+      <details key="start" value="523"/>
+      <details key="end" value="534"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/genAnnotation/%/%/%.3">
+      <details key="start" value="537"/>
+      <details key="end" value="538"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/genAnnotation/%/%/%.4">
+      <details key="start" value="377"/>
+      <details key="end" value="470"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/genAnnotation/%/%/%.4/%">
+      <details key="start" value="382"/>
+      <details key="end" value="469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/genAnnotation/%/%/%.4/%/%">
+      <details key="start" value="382"/>
+      <details key="end" value="452"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/genAnnotation/%/%/%.4/%/%/%">
+      <details key="start" value="382"/>
+      <details key="end" value="406"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/genAnnotation/%/%/%.4/%/%/%/aStereotype">
+      <details key="start" value="382"/>
+      <details key="end" value="393"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/genAnnotation/%/%/%.4/%/%/%.1">
+      <details key="start" value="428"/>
+      <details key="end" value="451"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/genAnnotation/%/aStereotype">
       <details key="start" value="312"/>
       <details key="end" value="336"/>
       <details key="line" value="12"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/genAnnotation/%/%.4">
+    <eAnnotations source="positions.18" references="/0/genAnnotation/%/%.1">
       <details key="start" value="339"/>
       <details key="end" value="371"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/genAnnotation/%/%.4/aElement">
+    <eAnnotations source="positions.19" references="/0/genAnnotation/%/%.1/aElement">
       <details key="start" value="339"/>
       <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/genAnnotation/%.1">
+    <eAnnotations source="positions.20" references="/0/genAnnotation/%.1">
       <details key="start" value="163"/>
       <details key="end" value="240"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/genAnnotation/%.1/aClass">
+    <eAnnotations source="positions.21" references="/0/genAnnotation/%.1/aClass">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/genAnnotation/aElement">
+    <eAnnotations source="positions.22" references="/0/genAnnotation/aElement">
       <details key="start" value="272"/>
       <details key="end" value="290"/>
       <details key="line" value="11"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/genAnnotation/%.2">
+    <eAnnotations source="positions.23" references="/0/genAnnotation/%.2">
       <details key="start" value="297"/>
       <details key="end" value="303"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/genAnnotation/%.2/self">
+    <eAnnotations source="positions.24" references="/0/genAnnotation/%.2/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/reqAnnotationMember">
-      <details key="start" value="460"/>
-      <details key="end" value="805"/>
-      <details key="line" value="17"/>
+    <eAnnotations source="positions.25" references="/0/reqAnnotationMember">
+      <details key="start" value="564"/>
+      <details key="end" value="909"/>
+      <details key="line" value="19"/>
     </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/reqAnnotationMember/aElement">
-      <details key="start" value="495"/>
-      <details key="end" value="513"/>
-      <details key="line" value="17"/>
+    <eAnnotations source="positions.26" references="/0/reqAnnotationMember/aElement">
+      <details key="start" value="599"/>
+      <details key="end" value="617"/>
+      <details key="line" value="19"/>
     </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/reqAnnotationMember/aStereotype">
-      <details key="start" value="515"/>
-      <details key="end" value="539"/>
-      <details key="line" value="17"/>
+    <eAnnotations source="positions.27" references="/0/reqAnnotationMember/aStereotype">
+      <details key="start" value="619"/>
+      <details key="end" value="643"/>
+      <details key="line" value="19"/>
     </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/reqAnnotationMember/%">
-      <details key="start" value="553"/>
-      <details key="end" value="802"/>
+    <eAnnotations source="positions.28" references="/0/reqAnnotationMember/%">
+      <details key="start" value="657"/>
+      <details key="end" value="906"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/reqAnnotationMember/%/%">
-      <details key="start" value="553"/>
-      <details key="end" value="795"/>
+    <eAnnotations source="positions.29" references="/0/reqAnnotationMember/%/%">
+      <details key="start" value="657"/>
+      <details key="end" value="899"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/reqAnnotationMember/%/%/%">
-      <details key="start" value="553"/>
-      <details key="end" value="784"/>
+    <eAnnotations source="positions.30" references="/0/reqAnnotationMember/%/%/%">
+      <details key="start" value="657"/>
+      <details key="end" value="888"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/reqAnnotationMember/%/%/%/self">
+    <eAnnotations source="positions.31" references="/0/reqAnnotationMember/%/%/%/self">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/reqAnnotationMember/%/%/%/%">
-      <details key="start" value="560"/>
-      <details key="end" value="652"/>
+    <eAnnotations source="positions.32" references="/0/reqAnnotationMember/%/%/%/%">
+      <details key="start" value="664"/>
+      <details key="end" value="756"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/reqAnnotationMember/%/%/%/%.1">
-      <details key="start" value="666"/>
-      <details key="end" value="750"/>
+    <eAnnotations source="positions.33" references="/0/reqAnnotationMember/%/%/%/%.1">
+      <details key="start" value="770"/>
+      <details key="end" value="854"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/reqAnnotationMember/%/%/%/%.2">
-      <details key="start" value="752"/>
-      <details key="end" value="783"/>
+    <eAnnotations source="positions.34" references="/0/reqAnnotationMember/%/%/%/%.2">
+      <details key="start" value="856"/>
+      <details key="end" value="887"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/reqAnnotationMember/%/%/%/%.2/%/aElement">
-      <details key="start" value="761"/>
-      <details key="end" value="769"/>
+    <eAnnotations source="positions.35" references="/0/reqAnnotationMember/%/%/%/%.2/%/aElement">
+      <details key="start" value="865"/>
+      <details key="end" value="873"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/reqAnnotationMember/%/%/%/%.2/%.1/aStereotype">
-      <details key="start" value="771"/>
-      <details key="end" value="782"/>
+    <eAnnotations source="positions.36" references="/0/reqAnnotationMember/%/%/%/%.2/%.1/aStereotype">
+      <details key="start" value="875"/>
+      <details key="end" value="886"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

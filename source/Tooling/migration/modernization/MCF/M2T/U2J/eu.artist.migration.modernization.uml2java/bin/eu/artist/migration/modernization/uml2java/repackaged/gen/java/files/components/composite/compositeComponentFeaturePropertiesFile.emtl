@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="compositeComponentFeaturePropertiesFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::composite::compositeComponentFeaturePropertiesFile" startHeaderPosition="29" endHeaderPosition="211">
+  <mtl:Module name="compositeComponentFeaturePropertiesFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::composite::compositeComponentFeaturePropertiesFile" startHeaderPosition="30" endHeaderPosition="214">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
@@ -22,7 +22,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="genCompositeComponentFeaturePropertiesFile" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#################################################################################&#xA;## "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#################################################################################&#xD;&#xA;## "/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../../../services/configurationServices.emtl#/0/reqGetCopyrightAndLicense"/>
@@ -30,7 +30,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;#################################################################################&#xA;Feature-Label = "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;#################################################################################&#xD;&#xA;Feature-Label = "/>
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentFeaturePropertiesFile/aComponent">
@@ -38,7 +38,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/4.0.0/UML#//NamedElement/name"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;Feature-Description = &#xA; &#xA;Licence = &#xA;Copyright = &#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;Feature-Description = &#xD;&#xA; &#xD;&#xA;Licence = &#xD;&#xA;Copyright = &#xD;&#xA;"/>
         <fileUrl xsi:type="mtl:TemplateInvocation" definition="/0/compositeComponentFeaturePropertiesFile">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genCompositeComponentFeaturePropertiesFile/aComponent">
@@ -258,138 +258,138 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/compositeComponentFeaturePropertiesFile">
-      <details key="start" value="440"/>
-      <details key="end" value="586"/>
+      <details key="start" value="448"/>
+      <details key="end" value="596"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/compositeComponentFeaturePropertiesFile/%">
-      <details key="start" value="524"/>
-      <details key="end" value="553"/>
+      <details key="start" value="533"/>
+      <details key="end" value="562"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/compositeComponentFeaturePropertiesFile/%/aComponent">
-      <details key="start" value="524"/>
-      <details key="end" value="534"/>
+      <details key="start" value="533"/>
+      <details key="end" value="543"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/compositeComponentFeaturePropertiesFile/%.1">
-      <details key="start" value="555"/>
-      <details key="end" value="574"/>
+      <details key="start" value="564"/>
+      <details key="end" value="583"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/compositeComponentFeaturePropertiesFile/aComponent">
-      <details key="start" value="498"/>
-      <details key="end" value="520"/>
+      <details key="start" value="506"/>
+      <details key="end" value="528"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genCompositeComponentFeaturePropertiesFile">
-      <details key="start" value="588"/>
-      <details key="end" value="1192"/>
+      <details key="start" value="600"/>
+      <details key="end" value="1215"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/genCompositeComponentFeaturePropertiesFile/%">
-      <details key="start" value="802"/>
-      <details key="end" value="1180"/>
+      <details key="start" value="815"/>
+      <details key="end" value="1202"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/genCompositeComponentFeaturePropertiesFile/%/%">
-      <details key="start" value="880"/>
-      <details key="end" value="965"/>
+      <details key="start" value="894"/>
+      <details key="end" value="980"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.1">
-      <details key="start" value="966"/>
-      <details key="end" value="1004"/>
+      <details key="start" value="981"/>
+      <details key="end" value="1019"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.1/aComponent">
-      <details key="start" value="966"/>
-      <details key="end" value="976"/>
+      <details key="start" value="981"/>
+      <details key="end" value="991"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.2">
-      <details key="start" value="1006"/>
-      <details key="end" value="1105"/>
+      <details key="start" value="1021"/>
+      <details key="end" value="1122"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.3">
-      <details key="start" value="1106"/>
-      <details key="end" value="1121"/>
+      <details key="start" value="1123"/>
+      <details key="end" value="1138"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.3/aComponent">
-      <details key="start" value="1106"/>
-      <details key="end" value="1116"/>
+      <details key="start" value="1123"/>
+      <details key="end" value="1133"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.4">
-      <details key="start" value="1123"/>
-      <details key="end" value="1173"/>
+      <details key="start" value="1140"/>
+      <details key="end" value="1195"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.5">
-      <details key="start" value="809"/>
-      <details key="end" value="861"/>
+      <details key="start" value="822"/>
+      <details key="end" value="874"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.5/aComponent">
-      <details key="start" value="809"/>
-      <details key="end" value="819"/>
+      <details key="start" value="822"/>
+      <details key="end" value="832"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/genCompositeComponentFeaturePropertiesFile/%/%.6">
-      <details key="start" value="870"/>
-      <details key="end" value="877"/>
+      <details key="start" value="883"/>
+      <details key="end" value="890"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/genCompositeComponentFeaturePropertiesFile/aComponent">
-      <details key="start" value="648"/>
-      <details key="end" value="670"/>
+      <details key="start" value="660"/>
+      <details key="end" value="682"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/genCompositeComponentFeaturePropertiesFile/%.1">
-      <details key="start" value="675"/>
-      <details key="end" value="799"/>
+      <details key="start" value="687"/>
+      <details key="end" value="811"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%">
-      <details key="start" value="679"/>
-      <details key="end" value="799"/>
+      <details key="start" value="691"/>
+      <details key="end" value="811"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%">
-      <details key="start" value="679"/>
-      <details key="end" value="779"/>
+      <details key="start" value="691"/>
+      <details key="end" value="791"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%/%">
-      <details key="start" value="680"/>
-      <details key="end" value="723"/>
+      <details key="start" value="692"/>
+      <details key="end" value="735"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%/%/%">
-      <details key="start" value="680"/>
-      <details key="end" value="717"/>
+      <details key="start" value="692"/>
+      <details key="end" value="729"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%/%/%/aComponent">
-      <details key="start" value="680"/>
-      <details key="end" value="690"/>
+      <details key="start" value="692"/>
+      <details key="end" value="702"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%/%/%.1">
-      <details key="start" value="720"/>
-      <details key="end" value="723"/>
+      <details key="start" value="732"/>
+      <details key="end" value="735"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%/%.1">
-      <details key="start" value="726"/>
-      <details key="end" value="778"/>
+      <details key="start" value="738"/>
+      <details key="end" value="790"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/genCompositeComponentFeaturePropertiesFile/%.1/%/%/%.1/aComponent">
-      <details key="start" value="726"/>
-      <details key="end" value="736"/>
+      <details key="start" value="738"/>
+      <details key="end" value="748"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

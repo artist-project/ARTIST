@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="componentBuildPropertiesFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::componentBuildPropertiesFile" startHeaderPosition="29" endHeaderPosition="200">
+  <mtl:Module name="componentBuildPropertiesFile" nsURI="eu::artist::migration::modernization::uml2java::repackaged::gen::java::files::components::componentBuildPropertiesFile" startHeaderPosition="30" endHeaderPosition="203">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/4.0.0/UML#/"/>
     </input>
@@ -22,7 +22,7 @@
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="genComponentBuildPropertiesFile" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#################################################################################&#xA;## "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#################################################################################&#xD;&#xA;## "/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../../services/configurationServices.emtl#/0/reqGetCopyrightAndLicense"/>
@@ -30,7 +30,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;#################################################################################&#xA;source.. = "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;#################################################################################&#xD;&#xA;source.. = "/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../../services/configurationServices.emtl#/0/reqGetSourceFolderPath"/>
@@ -38,7 +38,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/&#xA;output.. = "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/&#xD;&#xA;output.. = "/>
         <body xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <definition href="../../services/configurationServices.emtl#/0/reqGetOutputFolderPath"/>
@@ -46,7 +46,7 @@
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Component"/>
           </argument>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/&#xA;bin.includes = META-INF/,\&#xA;&#x9;&#x9;&#x9;   .,\&#xA;&#x9;&#x9;&#x9;   plugin.properties&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/&#xD;&#xA;bin.includes = META-INF/,\&#xD;&#xA;&#x9;&#x9;&#x9;   .,\&#xD;&#xA;&#x9;&#x9;&#x9;   plugin.properties&#xD;&#xA;"/>
         <fileUrl xsi:type="mtl:TemplateInvocation" definition="/0/componentBuildPropertiesFile">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aComponent" referredVariable="/0/genComponentBuildPropertiesFile/aComponent">
@@ -293,153 +293,153 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/componentBuildPropertiesFile">
-      <details key="start" value="429"/>
-      <details key="end" value="562"/>
+      <details key="start" value="437"/>
+      <details key="end" value="572"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/componentBuildPropertiesFile/%">
-      <details key="start" value="502"/>
-      <details key="end" value="531"/>
+      <details key="start" value="511"/>
+      <details key="end" value="540"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/componentBuildPropertiesFile/%/aComponent">
-      <details key="start" value="502"/>
-      <details key="end" value="512"/>
+      <details key="start" value="511"/>
+      <details key="end" value="521"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/componentBuildPropertiesFile/%.1">
-      <details key="start" value="533"/>
-      <details key="end" value="550"/>
+      <details key="start" value="542"/>
+      <details key="end" value="559"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/componentBuildPropertiesFile/aComponent">
-      <details key="start" value="476"/>
-      <details key="end" value="498"/>
+      <details key="start" value="484"/>
+      <details key="end" value="506"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/genComponentBuildPropertiesFile">
-      <details key="start" value="564"/>
-      <details key="end" value="1214"/>
+      <details key="start" value="576"/>
+      <details key="end" value="1237"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/genComponentBuildPropertiesFile/%">
-      <details key="start" value="756"/>
-      <details key="end" value="1202"/>
+      <details key="start" value="769"/>
+      <details key="end" value="1224"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/genComponentBuildPropertiesFile/%/%">
-      <details key="start" value="823"/>
-      <details key="end" value="908"/>
+      <details key="start" value="837"/>
+      <details key="end" value="923"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/genComponentBuildPropertiesFile/%/%.1">
-      <details key="start" value="909"/>
-      <details key="end" value="947"/>
+      <details key="start" value="924"/>
+      <details key="end" value="962"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/genComponentBuildPropertiesFile/%/%.1/aComponent">
-      <details key="start" value="909"/>
-      <details key="end" value="919"/>
+      <details key="start" value="924"/>
+      <details key="end" value="934"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/genComponentBuildPropertiesFile/%/%.2">
-      <details key="start" value="949"/>
-      <details key="end" value="1043"/>
+      <details key="start" value="964"/>
+      <details key="end" value="1060"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/genComponentBuildPropertiesFile/%/%.3">
-      <details key="start" value="1044"/>
-      <details key="end" value="1079"/>
+      <details key="start" value="1061"/>
+      <details key="end" value="1096"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/genComponentBuildPropertiesFile/%/%.3/aComponent">
-      <details key="start" value="1044"/>
-      <details key="end" value="1054"/>
+      <details key="start" value="1061"/>
+      <details key="end" value="1071"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/genComponentBuildPropertiesFile/%/%.4">
-      <details key="start" value="1081"/>
-      <details key="end" value="1094"/>
+      <details key="start" value="1098"/>
+      <details key="end" value="1112"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/genComponentBuildPropertiesFile/%/%.5">
-      <details key="start" value="1095"/>
-      <details key="end" value="1130"/>
+      <details key="start" value="1113"/>
+      <details key="end" value="1148"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/genComponentBuildPropertiesFile/%/%.5/aComponent">
-      <details key="start" value="1095"/>
-      <details key="end" value="1105"/>
+      <details key="start" value="1113"/>
+      <details key="end" value="1123"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/genComponentBuildPropertiesFile/%/%.6">
-      <details key="start" value="1132"/>
-      <details key="end" value="1195"/>
+      <details key="start" value="1150"/>
+      <details key="end" value="1217"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/genComponentBuildPropertiesFile/%/%.7">
-      <details key="start" value="763"/>
-      <details key="end" value="804"/>
+      <details key="start" value="776"/>
+      <details key="end" value="817"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/genComponentBuildPropertiesFile/%/%.7/aComponent">
-      <details key="start" value="763"/>
-      <details key="end" value="773"/>
+      <details key="start" value="776"/>
+      <details key="end" value="786"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/genComponentBuildPropertiesFile/%/%.8">
-      <details key="start" value="813"/>
-      <details key="end" value="820"/>
+      <details key="start" value="826"/>
+      <details key="end" value="833"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/genComponentBuildPropertiesFile/aComponent">
-      <details key="start" value="613"/>
-      <details key="end" value="635"/>
+      <details key="start" value="625"/>
+      <details key="end" value="647"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/genComponentBuildPropertiesFile/%.1">
-      <details key="start" value="640"/>
-      <details key="end" value="753"/>
+      <details key="start" value="652"/>
+      <details key="end" value="765"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/genComponentBuildPropertiesFile/%.1/%">
-      <details key="start" value="644"/>
-      <details key="end" value="753"/>
+      <details key="start" value="656"/>
+      <details key="end" value="765"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/genComponentBuildPropertiesFile/%.1/%/%">
-      <details key="start" value="644"/>
-      <details key="end" value="733"/>
+      <details key="start" value="656"/>
+      <details key="end" value="745"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/genComponentBuildPropertiesFile/%.1/%/%/%">
-      <details key="start" value="645"/>
-      <details key="end" value="688"/>
+      <details key="start" value="657"/>
+      <details key="end" value="700"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/genComponentBuildPropertiesFile/%.1/%/%/%/%">
-      <details key="start" value="645"/>
-      <details key="end" value="682"/>
+      <details key="start" value="657"/>
+      <details key="end" value="694"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/genComponentBuildPropertiesFile/%.1/%/%/%/%/aComponent">
-      <details key="start" value="645"/>
-      <details key="end" value="655"/>
+      <details key="start" value="657"/>
+      <details key="end" value="667"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/genComponentBuildPropertiesFile/%.1/%/%/%/%.1">
-      <details key="start" value="685"/>
-      <details key="end" value="688"/>
+      <details key="start" value="697"/>
+      <details key="end" value="700"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/genComponentBuildPropertiesFile/%.1/%/%/%.1">
-      <details key="start" value="691"/>
-      <details key="end" value="732"/>
+      <details key="start" value="703"/>
+      <details key="end" value="744"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/genComponentBuildPropertiesFile/%.1/%/%/%.1/aComponent">
-      <details key="start" value="691"/>
-      <details key="end" value="701"/>
+      <details key="start" value="703"/>
+      <details key="end" value="713"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>
